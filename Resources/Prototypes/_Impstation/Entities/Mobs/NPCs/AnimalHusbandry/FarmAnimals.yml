@@ -229,6 +229,10 @@
     noMovementLayers:
       movement:
         state: rooster
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Rooster
 
 #========================================================================
 
@@ -285,7 +289,11 @@
       Critical:
         Base: dead
       Dead:
-        Base: dead      
+        Base: dead
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Boar      
 
 - type: entity
   name: baby boar
@@ -369,6 +377,10 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Buck
 
 - type: entity
   name: baby buck

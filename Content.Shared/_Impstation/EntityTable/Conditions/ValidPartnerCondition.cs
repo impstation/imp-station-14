@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.Conditions;
 using Content.Shared.EntityTable.EntitySelectors;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.EntityTable.Conditions;
@@ -16,10 +17,12 @@ namespace Content.Shared._Impstation.EntityTable.Conditions;
 /// </summary>
 public sealed partial class ValidPartnerCondition : EntityTableCondition
 {
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+
     public const string PartnerContextKey = "Partner";
 
     [DataField("validPartners")]
-    public List<string> ValidPartners = new List<string>();
+    public HashSet<ProtoId<TagPrototype>> ValidPartners = new HashSet<ProtoId<TagPrototype>>();
 
     /// <summary>
     ///  Checks if our given mob matches any of the required mobs for a single offspring
@@ -27,11 +30,11 @@ public sealed partial class ValidPartnerCondition : EntityTableCondition
     /// <param name="root"></param>
     /// <param name="entMan"></param>
     /// <param name="proto"></param>
-    /// <param name="ctx"></param>
+    /// <param name="ctx">The Context containing the EntityUid of our Partner</param>
     /// <returns></returns>
     protected override bool EvaluateImplementation(EntityTableSelector root, IEntityManager entMan, IPrototypeManager proto, EntityTableContext ctx)
     {
-        if (!ctx.TryGetData<string>(PartnerContextKey, out var partner))
+        if (!ctx.TryGetData<EntityUid>(PartnerContextKey, out var partner))
             return false;
 
         // If there are no names provided then all partners are valid
@@ -41,8 +44,7 @@ public sealed partial class ValidPartnerCondition : EntityTableCondition
         // Check if the one we are breeding with is the mob required for this offspring
         foreach (var partnerName in ValidPartners)
         {
-            if (partnerName == partner)
-                return true;
+            if (_tagSystem.HasTag(partner, partnerName)) return true;
         }
 
         return false;

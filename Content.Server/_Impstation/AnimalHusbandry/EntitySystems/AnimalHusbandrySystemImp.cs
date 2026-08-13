@@ -13,11 +13,12 @@ using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared._Impstation.EntityTable.Conditions;
 using Content.Shared._Impstation.CCVar;
 using Robust.Shared.Configuration;
+using Content.Shared.Tag;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 
 /// <summary>
-///     This system handles animal breading, used in conjunction with HTN.
+///     This system handles animal breeding, used in conjunction with HTN.
 /// </summary>
 public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 {
@@ -99,7 +100,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         // Picks which offspring to give birth to based on the mob we bred with
         var ctx = new EntityTableContext(new Dictionary<string, object>
         {
-            { ValidPartnerCondition.PartnerContextKey, approacherProto.ID },
+            { ValidPartnerCondition.PartnerContextKey, approacher.Owner },
         });
 
         var spawns = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx);

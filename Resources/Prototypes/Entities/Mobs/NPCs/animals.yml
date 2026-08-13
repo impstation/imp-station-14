@@ -4200,6 +4200,7 @@
     rootTask:
       task: PassiveLivestockCompound # Imp
   # imp edit start
+  - type: ExaminableHunger
   - type: Body
     prototype: AnimalRuminant
   - type: GoobAbsorbable

@@ -1,4 +1,5 @@
 using Content.Shared.EntityTable.EntitySelectors;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,10 @@ public sealed partial class BreedSettingsPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// The compatible mobs that this can breed with
+    /// The compatible mobs that this can breed with defined through Tags
     /// </summary>
     [DataField]
-    public List<EntProtoId> CompatibleBreeds = default!;
+    public HashSet<ProtoId<TagPrototype>> CompatibleBreeds = default!;
 
     /// <summary>
     /// Format the chosen animals like this within your YAML.

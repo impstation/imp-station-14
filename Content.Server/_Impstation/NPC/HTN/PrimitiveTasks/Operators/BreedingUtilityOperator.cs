@@ -19,6 +19,7 @@ using Robust.Shared.Timing;
 using Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
 using JetBrains.Annotations;
+using Content.Shared.Tag;
 
 namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
 
@@ -28,8 +29,8 @@ namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
 public sealed partial class BreedingUtilityOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
     private AnimalHusbandrySystemImp _breedSystem = default!;
 
@@ -87,7 +88,7 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
                 continue;
 
             // Checks if we are in the list of valid mob partners
-            if (!IsValidPartner(comp, ownerID))
+            if (!IsValidPartner(comp, owner))
                 continue;
 
             // Checking if the other mob reaches breeding conditions
@@ -126,8 +127,8 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
     /// </summary>
     /// <param name="comp">Our reproductive component</param>
     /// <param name="self">Our Mob ProtoID as a string</param>
-    /// <returns>True if the mobs are copmatible OR the one being checked has no compatible partners in which case everyone is valid.</returns>
-    public bool IsValidPartner(ImpReproductiveComponent comp, string self)
+    /// <returns>True if the mobs are compatible OR the one being checked has no compatible partners in which case everyone is valid.</returns>
+    public bool IsValidPartner(ImpReproductiveComponent comp, EntityUid self)
     {
         var settingsProto = _proto.Index(comp.BreedSettings);
 
@@ -139,7 +140,7 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
 
         foreach (var partner in settingsProto.CompatibleBreeds)
         {
-            if (partner == self) return true;
+            if (_tagSystem.HasTag(self, partner)) return true;
         }
 
         return false;

@@ -1,7 +1,7 @@
 - type: breedSettings
   id: CowSettings
   compatibleBreeds:
-    - MobBull
+    - Bull
   possibleInfants: !type:GroupSelector
     children:
     - id: MobCowBaby
@@ -12,8 +12,8 @@
 - type: breedSettings
   id: PigSettings
   compatibleBreeds:
-    - MobBoarAdult
-    - MobBoar   
+    - Boar
+    - BoarWild   
   possibleInfants: !type:GroupSelector
     children:
     - id: MobBoar
@@ -21,7 +21,7 @@
       conditions:
       - !type:ValidPartnerCondition
         validPartners:
-        - MobBoar
+        - BoarWild
     - id: MobPigInfant
       weight: 10
     - id: MobBoarInfant
@@ -30,7 +30,7 @@
 - type: breedSettings
   id: GoatSettings
   compatibleBreeds:
-    - MobBuckAdult
+    - Buck
   possibleInfants: !type:GroupSelector
     children:
     - id: MobGoatInfant
@@ -41,7 +41,7 @@
 - type: breedSettings
   id: HenSettings
   compatibleBreeds:
-    - MobRoosterAdult
+    - Rooster
   possibleInfants: !type:GroupSelector
     children:
     - id: HenEgg
@@ -52,9 +52,7 @@
 - type: breedSettings
   id: MouseSettings
   compatibleBreeds:
-    - MobMouse
-    - MobMouse1
-    - MobMouse2        
+    - Mouse      
   possibleInfants: !type:GroupSelector
     children:
     - id: MobMouseBaby
