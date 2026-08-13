@@ -8,7 +8,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Impstation.Traits.Assorted;
+namespace Content.Shared._Impstation.StatusEffectNew;
 /// <summary>
 /// System for the lumbago status effect.
 /// Occasionally send popups about back pain, makes pulling slower, and occasionally causes a blanket move speed debuff.
@@ -27,12 +27,12 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LumbagoStatusEffectComponent, StatusEffectAppliedEvent>(StatusEffectApplied);
-        SubscribeLocalEvent<LumbagoStatusEffectComponent, StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent>>(TryModifyMovementSpeed);
+        SubscribeLocalEvent<Components.LumbagoStatusEffectComponent, StatusEffectAppliedEvent>(StatusEffectApplied);
+        SubscribeLocalEvent<Components.LumbagoStatusEffectComponent, StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent>>(TryModifyMovementSpeed);
     }
 
 
-    private void StatusEffectApplied(Entity<LumbagoStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
+    private void StatusEffectApplied(Entity<Components.LumbagoStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
         ent.Comp.Affected = args.Target;
     }
@@ -40,7 +40,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
     /// <summary>
     /// Selectively modifies pulling movespeed.
     /// </summary>
-    private void TryModifyMovementSpeed(Entity<LumbagoStatusEffectComponent> ent, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    private void TryModifyMovementSpeed(Entity<Components.LumbagoStatusEffectComponent> ent, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
        if (!TryComp<PullerComponent>(ent.Comp.Affected, out var pullerComp)||pullerComp.Pulling==null)
             return;
@@ -58,7 +58,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
         if(_timing.CurTime<_lumbagoUpdateTimer)
             return;
 
-        var query= EntityQueryEnumerator<LumbagoStatusEffectComponent,StatusEffectComponent>();
+        var query= EntityQueryEnumerator<Components.LumbagoStatusEffectComponent,StatusEffectComponent>();
         _lumbagoUpdateTimer=_timing.CurTime+_lumbagoUpdateInterval;
 
         while (query.MoveNext(out _, out var lumbagoComp, out var statusComp))

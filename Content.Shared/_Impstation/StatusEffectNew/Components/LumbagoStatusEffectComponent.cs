@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Impstation.Traits.Assorted;
+namespace Content.Shared._Impstation.StatusEffectNew.Components;
 
 /// <summary>
 /// A status effect meant to replicate lumbago, aka lower back pain.
