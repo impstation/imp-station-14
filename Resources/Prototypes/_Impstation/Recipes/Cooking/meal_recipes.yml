@@ -735,7 +735,21 @@
   resultCount: 1
   time: 15
   reagents:
-    Milk: 20
+    Milk: 15
   solids:
      FoodSnackChocolateBar: 1
+     MonkeyCubeSanitized: 3
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMilkape
+  name: Milk ape recipe
+  result: FoodMealMilkape
+  resultCount: 1
+  time: 15
+  reagents:
+    Milk: 15
+  solids:
+     FoodSnackChocolateBar: 1
+     MonkeyCubeSanitized: 2
   recipeType: Oven

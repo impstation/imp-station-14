@@ -593,14 +593,14 @@
   - type: SolutionContainerManager # imp edit start
     solutions:
       food:
-        maxVol: 25
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 20
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 4
         - ReagentId: Milk
-          Quantity: 7 # imp edit end
+          Quantity: 6 # imp edit end
 
 # Tastes like milk, chocolate, the jungle.
 
