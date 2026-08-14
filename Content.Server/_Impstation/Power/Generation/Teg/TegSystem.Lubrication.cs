@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Server._Impstation.ReagentEfficiency;
+using Content.Shared._Impstation.ReagentEfficiency;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -85,8 +85,8 @@ public sealed partial class TegSystem
         // Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
         // Apply damage to the circulator based on its running efficiency.
-        var damageA = ApplyCirculatorEfficiencyDamage(entA, efficiencyA, stressA);
-        var damageB = ApplyCirculatorEfficiencyDamage(entB, efficiencyB, stressB);
+        // var damageA = ApplyCirculatorEfficiencyDamage(entA, efficiencyA, stressA);
+        // var damageB = ApplyCirculatorEfficiencyDamage(entB, efficiencyB, stressB);
 
         // See if we need to trigger a failure state
         // CheckFail(entA, stressA);
@@ -97,8 +97,8 @@ public sealed partial class TegSystem
         // Update appearances for different efficiencies and damages
         // TODO: make sure this doesn't have any problems bc the normal appearance updates are handled in the main teg update
         // TODO: Refactor lubricant processing to have a more uniform cache and access to relevant components, like solution
-        UpdateCirculatorHazardAppearance(entA, damageA, efficiencyA, stressA);
-        UpdateCirculatorHazardAppearance(entB, damageB, efficiencyB, stressB);
+        // UpdateCirculatorHazardAppearance(entA, damageA, efficiencyA, stressA);
+        // UpdateCirculatorHazardAppearance(entB, damageB, efficiencyB, stressB);
 
         return averageCirculatorEfficiency;
     }

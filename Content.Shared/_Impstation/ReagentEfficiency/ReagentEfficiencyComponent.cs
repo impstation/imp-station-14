@@ -2,7 +2,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Impstation.ReagentEfficiency;
+namespace Content.Shared._Impstation.ReagentEfficiency;
 
 /// <summary>
 /// Makes a device's constant work more efficient by consuming reagents as it works.
@@ -75,4 +75,32 @@ public sealed partial class ReagentEfficiencyComponent : Component
     /// When this value goes above <see cref="ConsumptionAccumulationThreshold"/>, the solution is actually removed from the container.
     /// </summary>
     public float CurrentConsumptionAccumulation = 0f; //TODO: Should be private with access for the system..?
+
+    public record struct EfficiencyTickEvent(float Efficiency, ReagentEfficiencyComponent Comp, EntityUid Ent, Solution ConsumedSolution, float SolutionMultiplier)
+    {
+        /// <summary>
+        /// The efficiency calculated this tick.
+        /// </summary>
+        public readonly float Efficiency = Efficiency;
+
+        /// <summary>
+        /// The ReagentEfficiencyComponent processing the efficiency.
+        /// </summary>
+        public readonly ReagentEfficiencyComponent ReagentEfficiencyComponent = Comp;
+
+        /// <summary>
+        /// The entity undergoing the efficiency operation.
+        /// </summary>
+        public readonly EntityUid Entity = Ent;
+
+        /// <summary>
+        /// The contents of the consumed solution this tick. Multiply by <c>SolutionMultiplier!</c>.
+        /// </summary>
+        public readonly Solution ConsumedSolution = ConsumedSolution;
+
+        /// <summary>
+        /// The amount of solution consumed. Multiply this by <c>ConsumedSolution</c>. Ensure the result is a float, otherwise there will be FixedPoint2 rounding errors.
+        /// </summary>
+        public readonly float SolutionMultiplier = SolutionMultiplier;
+    }
 }

@@ -96,7 +96,7 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         SubscribeLocalEvent<TegCirculatorComponent, ExaminedEvent>(CirculatorExamined); // imp add
 
         SubscribeLocalEvent<TegCirculatorComponent, PanelChangedEvent>(OnPanelChanged); // imp add for TegSystem.Lubrication and .Hazards
-        SubscribeLocalEvent<TegCirculatorComponent, RepairAttemptEvent>(OnRepairAttempt);
+        SubscribeLocalEvent<TegCirculatorComponent, RepairAttemptEvent>(OnRepairAttempt); // imp add for TegSystem.Hazards
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }

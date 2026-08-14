@@ -2,7 +2,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 
-namespace Content.Server._Impstation.ReagentEfficiency;
+namespace Content.Shared._Impstation.ReagentEfficiency;
 
 public sealed class ReagentEfficiencySystem : EntitySystem
 {
@@ -13,11 +13,15 @@ public sealed class ReagentEfficiencySystem : EntitySystem
     /// The efficiency is based on the types of reagents stored, their <see cref="ReagentEfficiencyComponent.Modifiers"/>, and the fullness of the solution.
     /// Updates <see cref="ReagentEfficiencyComponent.PreviousEfficiency"/> to match the return value of this function.
     /// </summary>
-    /// <param name="dt">Time in seconds that has passed since the previous update.</param>
+    /// <param name="dt">
+    ///     Time in seconds that has passed since the previous update.
+    /// </param>
     /// <param name="consumptionMultiplier">
     ///     Multiplier for how much reagent will be consumed. Does not affect the value returned or written to PreviousEfficiency except for 0f, which returns 0f.
     /// </param>
-    /// <returns>Machine efficiency as a float. Under 1.0 means substandard efficiency, over 1.0 means more efficient than normal.</returns>
+    /// <returns>
+    ///     Machine efficiency as a float. Under 1.0 means substandard efficiency, over 1.0 means more efficient than normal.
+    /// </returns>
     public (float, Solution) ApplyEfficiency(Entity<ReagentEfficiencyComponent?> ent, float dt, float consumptionMultiplier)
     {
         // Try to get the ReagentEfficiencyComponent.
@@ -43,7 +47,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         var throttleThresholdVolume = (float)solution.MaxVolume * ent.Comp.ThrottlingThreshold;
         var nominalConsumption = dt * consumptionRate;
 
-        // Find how much time the nominal consumption spent over the throttle threshold
+        // Find how much time the nominal consumption spent over the throttle threshold during this tick
         var nominalConsumptionOverThreshold = float.Clamp(throttleThresholdVolume - (float)solution.Volume - nominalConsumption, 0, nominalConsumption);
         var throttleDt = nominalConsumptionOverThreshold / consumptionRate;
 
