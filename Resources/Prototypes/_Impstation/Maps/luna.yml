@@ -1,24 +1,24 @@
 - type: gameMap
-  id: Pathway
-  mapName: 'Pathway'
-  mapPath: /Maps/_Impstation/anthill.yml
-  minPlayers: 30
-  maxPlayers: 60
+  id: Luna
+  mapName: 'Embryo'
+  mapPath: /Maps/_Impstation/luna.yml
+  minPlayers: 35
+  maxPlayers: 64
   stations:
-    Pathway:
+    Luna:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Pathway Station {1}'
+          mapNameTemplate: '{0} Luna Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '14'
+            prefixCreator: '06'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_lox.yml
+          emergencyShuttlePath: /Maps/_Impstation/Shuttles/lunaevac.yml
         - type: StationCargoShuttle
-          path: /Maps/Shuttles/cargo_core.yml # imp
+          path: /Maps/_Impstation/Shuttles/cargojeep_luna.yml
         - type: StationJobs
-          availableJobs: # Total of 65
+          availableJobs: # Total of 58 jobs roundstart, max of 66 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -28,37 +28,38 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 17 incl. service worker
+            # service - 19
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
+            Boxer: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
-            Chef: [ 2, 2 ]
+            Chef: [ 2, 2]
             Clown: [ 1, 1 ]
             Janitor: [ 2, 2 ]
+            Lawyer: [ 2, 2 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
-            #ServiceWorker: [ 2, 2 ]
-            # engineering - 7-8
-            AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 4, 4 ]
+            # engineering - 5-6
+            AtmosphericTechnician: [ 2, 2 ]
+            StationEngineer: [ 3, 3 ]
             TechnicalAssistant: [ 1, 1 ]
-            # medical - 6-8
+            # medical - 7-9
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
             MedicalIntern: [ 2, 2 ]
-            Paramedic: [ 1, 1 ]
-            # science - 7-9
+            Paramedic: [ 1, 0 ]
+            Psychologist: [ 1, 1 ]
+            # science - 6-7
             Borg: [ 2, 2 ]
-            ResearchAssistant: [ 2, 2 ]
-            Scientist: [ 4, 4 ]
+            ResearchAssistant: [ 1, 1 ]
+            Scientist: [ 3, 3 ]
             StationAi: [ 1, 1 ]
-            # security - 8-10
+            # security - 7-10
             Brigmedic: [ 1, 1 ]
             Detective: [ 1, 1 ]
-            Lawyer: [ 1, 1 ]
-            SecurityCadet: [ 2, 2 ]
+            SecurityCadet: [ 3, 3 ]
             SecurityOfficer: [ 4, 4 ]
             Warden: [ 1, 1 ]
             # supply - 6-7

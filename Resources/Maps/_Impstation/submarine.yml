@@ -216054,13 +216054,6 @@ entities:
             Quantity: 35
     - type: StepTrigger
       active: False
-- proto: PuddleSparkle
-  entities:
-  - uid: 4865
-    components:
-    - type: Transform
-      pos: 86.5,39.5
-      parent: 2
 - proto: PVC
   entities:
   - uid: 44231
