@@ -47,10 +47,11 @@ public sealed partial class TegSystem
     /// </summary>
     private void OnRepairAttempt(Entity<TegCirculatorComponent> ent, ref RepairAttemptEvent args)
     {
-        if (!IsOpen(ent)) {
+        if (!IsOpen(ent))
+        {
             args.Cancelled = true;
-            _popup.PopupEntity(Loc.GetString("openable-component-try-use-closed", ("owner", ent)), ent, args.Repairer);
             //Show popup
+            _popup.PopupEntity(Loc.GetString("openable-component-try-use-closed", ("owner", ent)), ent, args.Repairer);
         }
     }
 
@@ -69,10 +70,10 @@ public sealed partial class TegSystem
         // TODO: Jittering uses so many component lookups. Optimize or remove this wholesale.
         // TODO: Could look better
         EfficiencyDamageComponent? effDamage = null;
-        if (ResolveEfficiencyDamage(ent, ref effDamage) && efficiency < effDamage.MinimumNominalEfficiency)
+        if (stress > 0f && ResolveEfficiencyDamage(ent, ref effDamage) && efficiency < effDamage.MinimumNominalEfficiency)
         {
             float amplitude = float.Lerp(10, 0, efficiency / effDamage.MinimumNominalEfficiency);
-            float frequency = float.Lerp(20, 80, stress);
+            float frequency = float.Lerp(60, 100, stress);
             _jitter.AddJitter(ent, amplitude, frequency);
         }
         else

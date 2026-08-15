@@ -53,6 +53,7 @@ public sealed partial class TegCirculatorComponent : Component
     /// <summary>
     /// The minimum fill level before a warning visual is displayed.
     /// </summary>
+    [DataField]
     public float WarningFillLevel = 0.25f;
 
     /// <summary>

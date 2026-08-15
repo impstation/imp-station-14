@@ -13,6 +13,7 @@ namespace Content.Server.Power.Generation.Teg;
 
 public sealed partial class TegSystem
 {
+    [Dependency] private readonly EfficiencyDamageSystem _efficiencyDamage = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly ReagentEfficiencySystem _reagentEfficiency = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
@@ -68,16 +69,24 @@ public sealed partial class TegSystem
             return 1f;
         }
 
-        // "Cast" both circulators to have non-nullable RECs. There is probably a better way to do this
-        var entA = new Entity<TegCirculatorComponent, ReagentEfficiencyComponent>(circA, circA.Comp1, circA.Comp2);
-        var entB = new Entity<TegCirculatorComponent, ReagentEfficiencyComponent>(circB, circB.Comp1, circB.Comp2);
+        // Get the efficiency damage components. It's ok if they don't exist
+        EfficiencyDamageComponent? effDamageA = null, effDamageB = null;
+        ResolveEfficiencyDamage(circA, ref effDamageA);
+        ResolveEfficiencyDamage(circB, ref effDamageB);
+
+        // Create new circulator entities with the components we need
+        var entA = new Entity<TegCirculatorComponent, ReagentEfficiencyComponent, EfficiencyDamageComponent?>(circA, circA.Comp1, circA.Comp2, effDamageA);
+        var entB = new Entity<TegCirculatorComponent, ReagentEfficiencyComponent, EfficiencyDamageComponent?>(circB, circB.Comp1, circB.Comp2, effDamageB);
 
         // Calculate circulator stress based on delta p
-        // At around 5000 dp, stress should be around 1.
-        // Stress should scale infinitely, but far less than linearly.
-        // https://www.desmos.com/calculator/jenpszfwix
-        var stressA = δpA > 0 ? MathF.Log2(δpA + 1) / 12f : 0f;
-        var stressB = δpB > 0 ? MathF.Log2(δpB + 1) / 12f : 0f;
+        var stressA = DeltaPToStress(δpA);
+        var stressB = DeltaPToStress(δpB);
+
+        // Apply damage multiplier to each circ based on stress
+        if (entA.Comp3 != null)
+            _efficiencyDamage.SetDamageMultiplier(entA.Comp3, stressA);
+        if (entB.Comp3 != null)
+            _efficiencyDamage.SetDamageMultiplier(entB.Comp3, stressB);
 
         // Calculate efficiency multiplier from lubrication
         var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(entA, dt, stressA);
@@ -85,19 +94,9 @@ public sealed partial class TegSystem
         var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
         // Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
-        // Apply damage to the circulator based on its running efficiency.
-        // var damageA = ApplyCirculatorEfficiencyDamage(entA, efficiencyA, stressA);
-        // var damageB = ApplyCirculatorEfficiencyDamage(entB, efficiencyB, stressB);
-
-        // See if we need to trigger a failure state
-        // CheckFail(entA, stressA);
-        // CheckFail(entB, stressB); // Now handled with DestructableComponent and its triggers.
-
         // TODO: Apply any funny effects that specific reagents might have on the circulators.
 
         // Update appearances for different efficiencies and damages
-        // TODO: make sure this doesn't have any problems bc the normal appearance updates are handled in the main teg update
-        // TODO: Refactor lubricant processing to have a more uniform cache and access to relevant components, like solution
         UpdateCirculatorHazardAppearance(entA, efficiencyA, stressA);
         UpdateCirculatorHazardAppearance(entB, efficiencyB, stressB);
 
@@ -119,6 +118,14 @@ public sealed partial class TegSystem
             return (1f, new Solution());
 
         return _reagentEfficiency.ApplyEfficiency(uid, dt, circulatorStress);
+    }
+
+    private float DeltaPToStress(float δp)
+    {
+        // At around 5000 dp, stress should be around 1.
+        // Stress should scale infinitely, but far less than linearly.
+        // https://www.desmos.com/calculator/jenpszfwix
+        return δp > 0 ? MathF.Log2(δp + 1) / 12f : 0f;
     }
 
     /// <summary>

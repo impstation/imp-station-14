@@ -50,7 +50,6 @@ public sealed class EfficiencyDamageSystem : EntitySystem
         // Apply the damage and return the amount dealt.
         Entity<DamageableComponent?> damageableEnt = (ent, ent.Comp._damageableComponent);
         _damageable.TryChangeDamage(damageableEnt, ent.Comp.Damage * damage, ignoreResistances: true);
-
         return damage;
     }
 
@@ -78,5 +77,10 @@ public sealed class EfficiencyDamageSystem : EntitySystem
 
         // This entity doesn't have the component
         return false;
+    }
+
+    public void SetDamageMultiplier(EfficiencyDamageComponent comp, float newDamageMultiplier)
+    {
+        comp.DamageMultiplier = newDamageMultiplier;
     }
 }

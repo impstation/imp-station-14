@@ -22,7 +22,7 @@ public sealed partial class EfficiencyDamageComponent : Component
     /// </summary>
     public DamageableComponent? _damageableComponent = null; //TODO: Make private. Doesn't seem to be accessible even with Access(typeof(eds))
 
-	// Thresholds
+    // Thresholds
     /// <summary>
     /// The value at which damage begins. If efficiency drops below this value, damage will start to be applied.
     /// </summary>
