@@ -1435,7 +1435,7 @@
       stealGroup: SalvageExpeditionsComputerCircuitboard
 
 - type: entity
-  parent: BaseComputerAiAccess # imp edit, from BaseComputer
+  parent: BaseComputer
   id: ComputerSurveillanceCameraMonitor
   name: camera monitor
   description: A surveillance camera monitor. You're watching them. Maybe.
@@ -1477,7 +1477,7 @@
           type: WiresBoundUserInterface
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess # imp edit, from BaseComputer
   id: ComputerSurveillanceWirelessCameraMonitor
   name: wireless camera monitor
   description: A wireless surveillance camera monitor. You're watching them. Maybe.
