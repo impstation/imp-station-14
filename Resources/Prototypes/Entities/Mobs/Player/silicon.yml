@@ -8,6 +8,7 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
+    - AI # imp
     - Binary
     - Common
     - Command
@@ -19,6 +20,7 @@
     - Supply
   - type: ActiveRadio
     channels:
+    - AI # imp
     - Binary
     - Common
     - Command
@@ -96,6 +98,7 @@
       locked: true
   - type: Ringer
   - type: LawSynced
+  - type: Emoting #imp
   # imp edit end
 
 - type: entity
@@ -469,6 +472,7 @@
     - HideContextMenu
     - StationAi
     - NoConsoleSound
+    - SiliconEmotes #imp
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
@@ -519,6 +523,20 @@
     borderColor: "#45453f"
     accentVColor: "#447987"
   # End Impstation - AI PDA
+  - type: Emoting #imp edit start
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  - type: AnimatedEmotes
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+  - type: ShowHealthIcons
+  - type: ShowMindShieldIcons
+  #- type: ShowCriminalRecordIcons
+  - type: ShowAccessReaderSettings #imp edit end
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -541,8 +559,9 @@
       - GhostOnlyWarp
   - type: Eye
     pvsScale: 1.5
+    visMask: 5 #imp
   - type: Visibility
-    layer: 2
+    layer: 4 #imp, so borgs can see the ai eye
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
     layers:

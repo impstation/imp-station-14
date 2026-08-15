@@ -115,3 +115,13 @@
   color: "#ff2222"
   # long range since I don't wanna make a special xenoborg telecomm server
   longRange: true
+
+- type: radioChannel #imp edit start
+  id: AI
+  name: chat-radio-ai
+  keycode: 'a'
+  frequency: 1010
+  color: "#00857a"
+  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
+  longRange: true 
+  intercomOnly: true # imp edit end
