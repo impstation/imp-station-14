@@ -125,19 +125,11 @@
           Quantity: 10
         - ReagentId: TableSalt
           Quantity: 15
-  #- type: SolutionContainerVisuals
-  #  maxFillLevels: 1
-  #  fillBaseName: fill-
-  #- type: Edible
-  #  trash:
-  #  - ClothingHeadHatTurtleShell
-  #  utensil: Spoon
   - type: Tag
     tags:
     - Soup
     - Meat
 
-# bowls suck ass actually
 - type: entity
   name: turtle shell bowl
   parent: FoodBowlBig
@@ -178,17 +170,12 @@
     trash:
     - ClothingHeadHatTurtleShell
     utensil: Spoon
-  #- type: Spillable
-  #  solution: food
-  #- type: TrashOnSolutionEmpty
-  #  solution: food
 
 - type: entity
   name: turtle shell bowl
   parent: FoodBowlBase
   id: FoodBowlTurtle
   description: A lovely green bowl.
-  #abstract: true
   components:
   - type: Edible
     trash:
