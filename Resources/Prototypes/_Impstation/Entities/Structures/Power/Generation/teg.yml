@@ -107,6 +107,13 @@
       solution: lube
 
     # Integrity and failure state
+    - type: EfficiencyDamage
+      damage:
+        types:
+          Structural: 10
+      maxDamagePerTick: 1
+      minDamagePerTick: 0
+      minimumNominalEfficiency: 50
     - type: Damageable
       damageContainer: StructuralInorganic
     - type: Repairable

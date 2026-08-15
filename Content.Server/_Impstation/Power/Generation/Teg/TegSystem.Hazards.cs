@@ -11,6 +11,7 @@ using Content.Shared.Repairable;
 using Content.Server.Popups;
 using Content.Shared._Impstation.ReagentEfficiency;
 using Content.Shared._Impstation.Repairable;
+using Content.Shared._Impstation.Damage;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -41,74 +42,40 @@ public sealed partial class TegSystem
         return TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open; //TODO: Optimize out this trycomp
     }
 
-    // /// <summary>
-    // /// Applies damage to the circulator based on the efficiency.
-    // /// </summary>
-    // /// <param name="efficiency">The efficiency of the circulator. Probably calculated by <see cref="ReagentEfficiencySystem"/>.</param>
-    // /// <returns>The amount of damage incurred.</returns>
-    // private float ApplyCirculatorEfficiencyDamage(Entity<TegCirculatorComponent> ent, float efficiency, float stress)
-    // {
-    //     // Ensure we have the damageableComponent
-    //     // TODO: optimize this, probably by caching the component in the circulator component
-    //     if (!TryComp<DamageableComponent>(ent, out var damageComp))
-    //         return 0f;
-
-    //     // No damage if the circulator is running above its nominal efficiency.
-    //     if (efficiency > ent.Comp.MinimumNominalEfficiency)
-    //         return 0f;
-
-    //     // No damage if the circulator is not running
-    //     if (stress == 0f)
-    //         return 0f;
-
-    //     // Calculate damage based on the efficiency, scaling linearly.
-    //     float scaling = 1 - efficiency / ent.Comp.MinimumNominalEfficiency;
-    //     float damage = float.Lerp(0, ent.Comp.MaximumDamagePerTick, scaling);
-
-    //     // Scale damage based on stress. More gas flow means more damage
-    //     damage *= stress; // TODO: this causes the damage dealt to go over *MaximumDamagePerTick*, which is not intuitive.
-
-    //     // Apply the damage and return the amount dealt.
-    //     // TODO: pass in DamageableComponent in an Entity<> to prevent unnecessary resolves
-    //     _damageableSystem.TryChangeDamage((EntityUid)ent, ent.Comp.IntegrityDamage * stress, ignoreResistances: true);
-    //     // ent.Comp.Integrity -= damage;
-
-    //     return damage;
-    // }
-
-	/// <summary>
+    /// <summary>
     /// Cancels the repair doafter if the circulator is not opened.
     /// </summary>
     private void OnRepairAttempt(Entity<TegCirculatorComponent> ent, ref RepairAttemptEvent args)
     {
-        if (!IsOpen(ent)){
+        if (!IsOpen(ent)) {
             args.Cancelled = true;
             _popup.PopupEntity(Loc.GetString("openable-component-try-use-closed", ("owner", ent)), ent, args.Repairer);
             //Show popup
         }
     }
 
-    // private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent, ReagentEfficiencyComponent> ent, float damageTaken, float efficiency, float stress)
-    // {
-    //     // Apply fill level visual
-    //     var fillLevelEnum = GetCirculatorFillLevel(ent) switch
-    //     {
-    //         >= 0.2f => TegFillLevel.Nominal,
-    //         >= 0.05f and < 0.2f => TegFillLevel.Warning,
-    //         _ => TegFillLevel.Subnominal
-    //     };
-    //     _appearance.SetData(ent, TegVisuals.CirculatorFillLevel, fillLevelEnum);
+    private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent, ReagentEfficiencyComponent> ent, float efficiency, float stress)
+    {
+        // Apply fill level visual
+        var fillLevelEnum = GetCirculatorFillLevel(ent) switch
+        {
+            >= 0.2f => TegFillLevel.Nominal,
+            >= 0.05f and < 0.2f => TegFillLevel.Warning,
+            _ => TegFillLevel.Subnominal
+        };
+        _appearance.SetData(ent, TegVisuals.CirculatorFillLevel, fillLevelEnum);
 
-    //     // Apply subnominal visuals if taking damage
-    //     // TODO: Jittering uses so many component lookups. Optimize or remove this wholesale.
-    //     // TODO: Could look better
-    //     if (efficiency < ent.Comp1.MinimumNominalEfficiency)
-    //     {
-    //         float amplitude = float.Lerp(10, 0, efficiency / ent.Comp1.MinimumNominalEfficiency);
-    //         float frequency = float.Lerp(20, 80, stress);
-    //         _jitter.AddJitter(ent, amplitude, frequency);
-    //     }
-    //     else
-    //         RemComp<JitteringComponent>(ent);
-    // }
+        // Apply subnominal visuals if taking damage
+        // TODO: Jittering uses so many component lookups. Optimize or remove this wholesale.
+        // TODO: Could look better
+        EfficiencyDamageComponent? effDamage = null;
+        if (ResolveEfficiencyDamage(ent, ref effDamage) && efficiency < effDamage.MinimumNominalEfficiency)
+        {
+            float amplitude = float.Lerp(10, 0, efficiency / effDamage.MinimumNominalEfficiency);
+            float frequency = float.Lerp(20, 80, stress);
+            _jitter.AddJitter(ent, amplitude, frequency);
+        }
+        else
+            RemComp<JitteringComponent>(ent);
+    }
 }

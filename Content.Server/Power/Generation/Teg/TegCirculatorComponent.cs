@@ -1,6 +1,6 @@
 ﻿using Content.Shared.Atmos;
 using Content.Shared._Impstation.ReagentEfficiency;
-using Content.Shared.Damage;
+using Content.Shared._Impstation.Damage;
 using YamlDotNet.Core; // IMP ADD: for rework
 
 namespace Content.Server.Power.Generation.Teg;
@@ -62,6 +62,14 @@ public sealed partial class TegCirculatorComponent : Component
     /// TODO: Bad pattern/design? I have no idea.
     /// </remarks>
     public ReagentEfficiencyComponent? _reagentEfficiencyComponentCache = null; //TODO: make this private. access doesn't seem to work?
+
+    /// <summary>
+    /// Cache for <see cref="EfficiencyDamageComponent"/> to avoid comp lookups every atmos tick.
+    /// </summary>
+    /// <remarks>
+    /// TODO: Bad pattern/design? I have no idea.
+    /// </remarks>
+    public EfficiencyDamageComponent? _efficiencyDamageComponentCache = null; //TODO: make this private. access doesn't seem to work?
 
     /// <summary>
     /// The threshold at which subnominal visuals start to be shown.

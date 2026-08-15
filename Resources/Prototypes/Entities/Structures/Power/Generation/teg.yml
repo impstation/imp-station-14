@@ -186,9 +186,6 @@
     - type: AtmosUnsafeUnanchor
     - type: PipeRestrictOverlap
     - type: TegCirculator
-      integrityDamage: # imp - used in rework. TODO: refactor this to a new component or something so it's not here in the upstream file
-        types: # imp - used in rework. TODO: refactor this to a new component or something so it's not here in the upstream file
-          Structural: 10 # imp - used in rework. TODO: refactor this to a new component or something so it's not here in the upstream file
     - type: StealTarget
       stealGroup: Teg
     - type: Climbable #imp

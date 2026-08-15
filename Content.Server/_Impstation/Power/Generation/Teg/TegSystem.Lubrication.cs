@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Impstation.ReagentEfficiency;
+using Content.Shared._Impstation.Damage;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -60,7 +61,7 @@ public sealed partial class TegSystem
     private float AverageCirculatorEfficiency(Entity<TegCirculatorComponent, ReagentEfficiencyComponent?> circA, Entity<TegCirculatorComponent, ReagentEfficiencyComponent?> circB, float δpA, float δpB, float dt)
     {
         // Get the ReagentEfficiencyComponents of each circulator
-        if (!TryReagentEfficiencyComp(circA, ref circA.Comp2) || !TryReagentEfficiencyComp(circB, ref circB.Comp2))
+        if (!ResolveReagentEfficiency(circA, ref circA.Comp2) || !ResolveReagentEfficiency(circB, ref circB.Comp2))
         {
             // At least one of the circulators doesn't have the component.
             // Default to normal TEG behavior with 1f efficiency and no damage.
@@ -97,8 +98,8 @@ public sealed partial class TegSystem
         // Update appearances for different efficiencies and damages
         // TODO: make sure this doesn't have any problems bc the normal appearance updates are handled in the main teg update
         // TODO: Refactor lubricant processing to have a more uniform cache and access to relevant components, like solution
-        // UpdateCirculatorHazardAppearance(entA, damageA, efficiencyA, stressA);
-        // UpdateCirculatorHazardAppearance(entB, damageB, efficiencyB, stressB);
+        UpdateCirculatorHazardAppearance(entA, efficiencyA, stressA);
+        UpdateCirculatorHazardAppearance(entB, efficiencyB, stressB);
 
         return averageCirculatorEfficiency;
     }
@@ -129,7 +130,7 @@ public sealed partial class TegSystem
     /// </remarks>
     /// <param name="comp">A ref to the ReagentEfficiencyComponent. Expected to be null but not required.</param>
     /// <returns>Whether the entity has the ReagentEfficiencyComponent</returns>
-    private bool TryReagentEfficiencyComp(Entity<TegCirculatorComponent> ent, [NotNullWhen(true)] ref ReagentEfficiencyComponent? comp)
+    private bool ResolveReagentEfficiency(Entity<TegCirculatorComponent> ent, [NotNullWhen(true)] ref ReagentEfficiencyComponent? comp)
     {
         // Check the cache in the circulator component
         if (ent.Comp._reagentEfficiencyComponentCache is not null)
@@ -143,6 +144,41 @@ public sealed partial class TegSystem
         {
             // Resolve success. Before returning, update the cache
             ent.Comp._reagentEfficiencyComponentCache = comp;
+            return true;
+        }
+
+        // Component doesn't exist in the cache nor on the entity, so it doesn't exist.
+        return false;
+    }
+
+    /// <summary>
+    /// Tries to get the <see cref="EfficiencyDamageComponent"/> associated with a TEG Circulator entity.
+    /// </summary>
+    /// <remarks>
+    /// Uses the cache within <see cref="TegCirculatorComponent"/> before using Resolve().
+    /// Bad pattern or design? idk
+    /// </remarks>
+    /// <param name="comp">A ref to the ReagentEfficiencyComponent. Expected to be null but not required.</param>
+    /// <returns>Whether the entity has the ReagentEfficiencyComponent</returns>
+    private bool ResolveEfficiencyDamage(Entity<TegCirculatorComponent> ent, [NotNullWhen(true)] ref EfficiencyDamageComponent? comp)
+    {
+        // Check if comp is already not null
+        // TODO: check if comp's owner is ent
+        if (comp != null)
+            return true;
+
+        // Check the cache in the circulator component
+        if (ent.Comp._efficiencyDamageComponentCache is not null)
+        {
+            comp = ent.Comp._efficiencyDamageComponentCache;
+            return true;
+        }
+
+        // Cache miss, check with Resolve.
+        if (Resolve(ent, ref comp, logMissing: false))
+        {
+            // Resolve success. Before returning, update the cache
+            ent.Comp._efficiencyDamageComponentCache = comp;
             return true;
         }
 

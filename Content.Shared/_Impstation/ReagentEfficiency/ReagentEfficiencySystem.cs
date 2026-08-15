@@ -11,6 +11,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
     /// <summary>
     /// Consumes reagents stored in solution container and calculates the efficiency of the machine based on consumed solution.
     /// The efficiency is based on the types of reagents stored, their <see cref="ReagentEfficiencyComponent.Modifiers"/>, and the fullness of the solution.
+    /// Emits a <see cref="ReagentEfficiencyTickEvent"/>.
     /// Updates <see cref="ReagentEfficiencyComponent.PreviousEfficiency"/> to match the return value of this function.
     /// </summary>
     /// <param name="dt">
@@ -23,6 +24,33 @@ public sealed class ReagentEfficiencySystem : EntitySystem
     ///     Machine efficiency as a float. Under 1.0 means substandard efficiency, over 1.0 means more efficient than normal.
     /// </returns>
     public (float, Solution) ApplyEfficiency(Entity<ReagentEfficiencyComponent?> ent, float dt, float consumptionMultiplier)
+    {
+        // Try to get the ReagentEfficiencyComponent.
+        if (!Resolve(ent, ref ent.Comp))
+            return (0f, new Solution());
+
+        // Do calculation
+        var (efficiency, consumedSolution) = CalculateEfficiency(ent, dt, consumptionMultiplier);
+
+        // Emit tick event
+        var ev = new ReagentEfficiencyTickEvent(efficiency, ent.Comp, ent, consumedSolution, 1f); // TODO: calculate solution multiplier!
+        RaiseLocalEvent(ent, ref ev);
+        return (efficiency, consumedSolution);
+    }
+
+    /// <summary>
+    /// Performs the calculation for <see cref="ApplyEfficiency"/>
+    /// </summary>
+    /// <param name="dt">
+    ///     Time in seconds that has passed since the previous update.
+    /// </param>
+    /// <param name="consumptionMultiplier">
+    ///     Multiplier for how much reagent will be consumed. Does not affect the value returned or written to PreviousEfficiency except for 0f, which returns 0f.
+    /// </param>
+    /// <returns>
+    ///     Machine efficiency as a float. Under 1.0 means substandard efficiency, over 1.0 means more efficient than normal.
+    /// </returns>
+    public (float, Solution) CalculateEfficiency(Entity<ReagentEfficiencyComponent?> ent, float dt, float consumptionMultiplier)
     {
         // Try to get the ReagentEfficiencyComponent.
         if (!Resolve(ent, ref ent.Comp))
@@ -150,4 +178,33 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         var m = consumptionRate * dt / (throttleThresholdVolume - throttleThresholdVolume * MathF.Pow(MathF.E, -consumptionRate * dt));
         return m * consumedAmount;
     }
+}
+
+[ByRefEvent]
+public record struct ReagentEfficiencyTickEvent(float Efficiency, ReagentEfficiencyComponent Comp, EntityUid Ent, Solution ConsumedSolution, float SolutionMultiplier)
+{
+    /// <summary>
+    /// The efficiency calculated this tick.
+    /// </summary>
+    public readonly float Efficiency = Efficiency;
+
+    /// <summary>
+    /// The ReagentEfficiencyComponent processing the efficiency.
+    /// </summary>
+    public readonly ReagentEfficiencyComponent ReagentEfficiencyComponent = Comp;
+
+    /// <summary>
+    /// The entity undergoing the efficiency operation.
+    /// </summary>
+    public readonly EntityUid Entity = Ent;
+
+    /// <summary>
+    /// The contents of the consumed solution this tick. Multiply by <c>SolutionMultiplier!</c>.
+    /// </summary>
+    public readonly Solution ConsumedSolution = ConsumedSolution;
+
+    /// <summary>
+    /// The amount of solution consumed. Multiply this by <c>ConsumedSolution</c>. Ensure the result is a float, otherwise there will be FixedPoint2 rounding errors.
+    /// </summary>
+    public readonly float SolutionMultiplier = SolutionMultiplier;
 }
