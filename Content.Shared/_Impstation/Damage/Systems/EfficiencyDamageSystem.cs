@@ -30,7 +30,7 @@ public sealed class EfficiencyDamageSystem : EntitySystem
     private float ApplyEfficiencyDamage(Entity<EfficiencyDamageComponent> ent, ReagentEfficiencyTickEvent args)
     {
         // Ensure we have the damageableComponent
-        if (!ResolveDamageable(ent, ref ent.Comp._damageableComponent))
+        if (!ResolveDamageable(ent, ref ent.Comp.DamageableComponentCache))
             return 0f;
 
         // No damage if the entity is running above its nominal efficiency.
@@ -48,7 +48,7 @@ public sealed class EfficiencyDamageSystem : EntitySystem
         damage = damage < 0f ? 0f : damage;
 
         // Apply the damage and return the amount dealt.
-        Entity<DamageableComponent?> damageableEnt = (ent, ent.Comp._damageableComponent);
+        Entity<DamageableComponent?> damageableEnt = (ent, ent.Comp.DamageableComponentCache);
         _damageable.TryChangeDamage(damageableEnt, ent.Comp.Damage * damage, ignoreResistances: true);
         return damage;
     }
@@ -61,9 +61,9 @@ public sealed class EfficiencyDamageSystem : EntitySystem
             return true;
 
         // Check cache
-        if (ent.Comp._damageableComponent != null)
+        if (ent.Comp.DamageableComponentCache != null)
         {
-            comp = ent.Comp._damageableComponent;
+            comp = ent.Comp.DamageableComponentCache;
             return true;
         }
 
@@ -71,7 +71,7 @@ public sealed class EfficiencyDamageSystem : EntitySystem
         if (Resolve(ent, ref comp))
         {
             // Found, update cache
-            ent.Comp._damageableComponent = comp;
+            ent.Comp.DamageableComponentCache = comp;
             return true;
         }
 

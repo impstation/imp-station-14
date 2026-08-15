@@ -140,9 +140,9 @@ public sealed partial class TegSystem
     private bool ResolveReagentEfficiency(Entity<TegCirculatorComponent> ent, [NotNullWhen(true)] ref ReagentEfficiencyComponent? comp)
     {
         // Check the cache in the circulator component
-        if (ent.Comp._reagentEfficiencyComponentCache is not null)
+        if (ent.Comp.ReagentEfficiencyComponentCache is not null)
         {
-            comp = ent.Comp._reagentEfficiencyComponentCache;
+            comp = ent.Comp.ReagentEfficiencyComponentCache;
             return true;
         }
 
@@ -150,7 +150,7 @@ public sealed partial class TegSystem
         if (Resolve(ent, ref comp, logMissing: false))
         {
             // Resolve success. Before returning, update the cache
-            ent.Comp._reagentEfficiencyComponentCache = comp;
+            ent.Comp.ReagentEfficiencyComponentCache = comp;
             return true;
         }
 
@@ -175,9 +175,9 @@ public sealed partial class TegSystem
             return true;
 
         // Check the cache in the circulator component
-        if (ent.Comp._efficiencyDamageComponentCache is not null)
+        if (ent.Comp.EfficiencyDamageComponentCache is not null)
         {
-            comp = ent.Comp._efficiencyDamageComponentCache;
+            comp = ent.Comp.EfficiencyDamageComponentCache;
             return true;
         }
 
@@ -185,7 +185,7 @@ public sealed partial class TegSystem
         if (Resolve(ent, ref comp, logMissing: false))
         {
             // Resolve success. Before returning, update the cache
-            ent.Comp._efficiencyDamageComponentCache = comp;
+            ent.Comp.EfficiencyDamageComponentCache = comp;
             return true;
         }
 

@@ -74,5 +74,5 @@ public sealed partial class ReagentEfficiencyComponent : Component
     /// <summary>
     /// When this value goes above <see cref="ConsumptionAccumulationThreshold"/>, the solution is actually removed from the container.
     /// </summary>
-    public float CurrentConsumptionAccumulation = 0f; //TODO: Should be private with access for the system..?
+    public float CurrentConsumptionAccumulation = 0f;
 }

@@ -62,7 +62,7 @@ public sealed partial class TegCirculatorComponent : Component
     /// <remarks>
     /// TODO: Bad pattern/design? I have no idea.
     /// </remarks>
-    public ReagentEfficiencyComponent? _reagentEfficiencyComponentCache = null; //TODO: make this private. access doesn't seem to work?
+    public ReagentEfficiencyComponent? ReagentEfficiencyComponentCache = null;
 
     /// <summary>
     /// Cache for <see cref="EfficiencyDamageComponent"/> to avoid comp lookups every atmos tick.
@@ -70,7 +70,7 @@ public sealed partial class TegCirculatorComponent : Component
     /// <remarks>
     /// TODO: Bad pattern/design? I have no idea.
     /// </remarks>
-    public EfficiencyDamageComponent? _efficiencyDamageComponentCache = null; //TODO: make this private. access doesn't seem to work?
+    public EfficiencyDamageComponent? EfficiencyDamageComponentCache = null;
 
     /// <summary>
     /// The threshold at which subnominal visuals start to be shown.

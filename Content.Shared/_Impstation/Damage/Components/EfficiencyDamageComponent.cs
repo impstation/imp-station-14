@@ -20,7 +20,7 @@ public sealed partial class EfficiencyDamageComponent : Component
     /// <summary>
     /// Cache for DamageableComponent.
     /// </summary>
-    public DamageableComponent? _damageableComponent = null; //TODO: Make private. Doesn't seem to be accessible even with Access(typeof(eds))
+    public DamageableComponent? DamageableComponentCache = null;
 
     // Thresholds
     /// <summary>
