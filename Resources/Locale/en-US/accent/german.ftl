@@ -227,7 +227,7 @@ accent-german-words-70 = supermatter
 accent-german-words-replace-70 = supermaterie
 
 accent-german-words-71 = hospitality director
-accent-german-words-replace-71 = gastfreundschaftlichkeits direktor
+accent-german-words-replace-71 = gastfreundschaftlichkeitsdirektor
 
 accent-german-words-72 = director
 accent-german-words-replace-72 = direktor
