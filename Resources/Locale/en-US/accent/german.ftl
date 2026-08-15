@@ -273,14 +273,14 @@ accent-german-words-85 = officer
 accent-german-words-replace-85 = offizier
 
 accent-german-words-86 = courier
-accent-german-words-replace-86 = Kurier
+accent-german-words-replace-86 = kurier
 
 accent-german-words-87 = technician
-accent-german-words-replace-87 = Techniker
+accent-german-words-replace-87 = techniker
 
 accent-german-words-88 = Janitor
 accent-german-words-88-2 = Jani
-accent-german-words-replace-88 = Hausmeister
+accent-german-words-replace-88 = hausmeister
 
 accent-german-words-89 = chemist
 accent-german-words-replace-89 = chemiker
@@ -307,10 +307,10 @@ accent-german-words-96 = meat
 accent-german-words-replace-96 = fleisch
 
 accent-german-words-97 = syndicate
-accent-german-words-replace-97 = Syndikat
+accent-german-words-replace-97 = syndikat
 
 accent-german-words-98 = Syndie
-accent-german-words-replace-98 = Syndikalist
+accent-german-words-replace-98 = syndikalist
 
 accent-german-words-99 = pda
 accent-german-words-replace-99 = handy
