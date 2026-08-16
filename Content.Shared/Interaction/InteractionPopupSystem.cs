@@ -98,10 +98,10 @@ public sealed class InteractionPopupSystem : EntitySystem
         // TODO: this is a very generic system. we probably need a whitelist of some kind
         var successChance = component.SuccessChance;
 
-        if (TryComp<PettingChanceModifierComponent>(uid, out var pettingChance)
+        if (TryComp<PettingChanceModifierComponent>(user, out var pettingChance)
             && _entityWhitelist.IsWhitelistPassOrNull(pettingChance.TargetWhitelist, target)
             && _entityWhitelist.IsWhitelistFailOrNull(pettingChance.TargetBlacklist, target))
-            successChance *= pettingChance.Modifier;
+            successChance = Math.Clamp(successChance * pettingChance.Modifier, 0, 1);
         // MACRO END
 
         if (_random.Prob(successChance)) // MACRO: component.SuccessChance -> successChance
