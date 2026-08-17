@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kipdotnet
-  changes:
-  - message: Fixed vacuum flasks turning into giant error signs when you opened them.
-    type: Fix
-  id: 2398
-  time: '2025-11-08T10:12:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3688
 - author: yesteryuri
   changes:
   - message: The paperwork belt holds pens, too.
@@ -4099,3 +4092,14 @@
   id: 2897
   time: '2026-08-07T20:44:01.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4514
+- author: mkanke
+  changes:
+  - message: Added recipes for Spacemans and Vanilla cakes, as well as a whisk, measuring
+      cups, measuring spoons and frosting recipes
+    type: Add
+  - message: Changed some of the steps for making basic cake parts, check the guidebook
+      for the steps
+    type: Tweak
+  id: 2898
+  time: '2026-08-17T11:53:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4481
