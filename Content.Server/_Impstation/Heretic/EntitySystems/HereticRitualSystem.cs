@@ -1,4 +1,5 @@
-using Content.Shared._Impstation.Heretic.Components;
+using System.Linq;
+using System.Text;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.Components;
 using Content.Shared._Goobstation.Heretic.Components;
@@ -14,8 +15,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using System.Linq;
-using System.Text;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -35,6 +34,17 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
+    public List<EntityUid> ToDelete = new();
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
+        SubscribeLocalEvent<HereticRitualRuneComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<HereticRitualRuneComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<HereticRitualRuneComponent, HereticRitualMessage>(OnRitualChosenMessage);
+    }
 
     public HereticRitualPrototype GetRitual(ProtoId<HereticRitualPrototype>? id)
     {
@@ -43,41 +53,23 @@ public sealed partial class HereticRitualSystem : EntitySystem
     }
 
     /// <summary>
-    /// Try to perform a selected ritual
+    /// Helper method for rituals.
     /// </summary>
-    /// <returns> If the ritual succeeded or not </returns>
+    /// <param name="performer"></param>
+    /// <param name="platform"></param>
+    /// <param name="ritualId"></param>
+    /// <returns></returns>
     public bool TryDoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
-        // here i'm introducing locals for basically everything
-        // because if i access stuff directly shit is bound to break.
-        // please don't access stuff directly from the prototypes or else shit will break.
-        // regards
-
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return false;
 
-        var rit = _series.CreateCopy((HereticRitualPrototype)GetRitual(ritualId).Clone(), notNullableOverride: true);
+        var rit = _series.CreateCopy(GetRitual(ritualId), notNullableOverride: true);
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
         var missingList = new List<string>();
-        var toDelete = new List<EntityUid>();
 
-        // check for all conditions
-        // this is god awful but it is that it is
-        var behaviors = rit.CustomBehaviors ?? new();
         var requiredTags = rit.RequiredTags?.ToDictionary(e => e.Key, e => e.Value) ?? new();
-
-        foreach (var behavior in behaviors)
-        {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager);
-
-            if (!behavior.Execute(ritData, out var missingStr))
-            {
-                if (missingStr != null)
-                    _popup.PopupEntity(missingStr, platform, performer);
-                return false;
-            }
-        }
 
         foreach (var look in lookup)
         {
@@ -96,7 +88,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
                     // prevent deletion of more items than needed
                     if (requiredTags[tag.Key] >= 0)
-                        toDelete.Add(look);
+                        ToDelete.Add(look);
                 }
             }
         }
@@ -115,7 +107,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             var sb = new StringBuilder();
             for (var i = 0; i < missingList.Count; i++)
             {
-                // makes a nice, list, of, missing, items.
+                // makes a nice list of missing items.
                 if (i != missingList.Count - 1)
                     sb.Append($"{missingList[i]}, ");
                 else
@@ -126,57 +118,20 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return false;
         }
 
-        // yay! ritual successfull!
-        // log it. this could have a big range of impact so i set it high just in case
-        _adminLogManager.Add(LogType.Action, LogImpact.High, $"{performer} performed ritual {ritualId}");
+        return true;
+    }
 
-        // reset fields to their initial values
-        // BECAUSE FOR SOME REASON IT DOESN'T FUCKING WORK OTHERWISE!!!
-
-        // finalize all of the custom ones
-        foreach (var behavior in behaviors)
-        {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager);
-            behavior.Finalize(ritData);
-        }
-
-        // ya get some, ya lose some
-        foreach (var ent in toDelete)
+    /// <summary>
+    /// Helper method for deleting entities on ritual success.
+    /// </summary>
+    public void DeleteOnSuccess()
+    {
+        foreach (var ent in ToDelete)
         {
             QueueDel(ent);
         }
 
-        // add stuff
-        var output = rit.Output ?? new Dictionary<EntProtoId, int>();
-        foreach (var ent in output.Keys)
-        {
-            for (var i = 0; i < output[ent]; i++)
-            {
-                var spawn = Spawn(ent, Transform(platform).Coordinates);
-                if (TryComp<MinionComponent>(spawn, out var minion))
-                {
-                    minion.BoundOwner = performer;
-                }
-            }
-        }
-
-        if (rit.OutputEvent != null)
-            RaiseLocalEvent(performer, rit.OutputEvent, true);
-
-        if (rit.OutputKnowledge != null)
-            _knowledge.AddKnowledge(performer, hereticComp, (ProtoId<HereticKnowledgePrototype>)rit.OutputKnowledge);
-
-        return true;
-    }
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
-        SubscribeLocalEvent<HereticRitualRuneComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<HereticRitualRuneComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<HereticRitualRuneComponent, HereticRitualMessage>(OnRitualChosenMessage);
+        ToDelete = [];
     }
 
     /// <summary>
@@ -210,14 +165,14 @@ public sealed partial class HereticRitualSystem : EntitySystem
     }
 
     /// <summary>
-    /// Handles interacting with ritual runes with an item.
+    /// Handles interacting with ritual runes with an item and executing the chosen ritual.
     /// </summary>
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
     {
         if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
-        if (!TryComp<MansusGraspComponent>(args.Used, out var grasp))
+        if (!TryComp<MansusGraspComponent>(args.Used, out _))
             return;
 
         if (heretic.ChosenRitual == null)
@@ -226,12 +181,40 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
-        if (!TryDoRitual(args.User, ent, (ProtoId<HereticRitualPrototype>)heretic.ChosenRitual))
-            return;
+        // Get the ritual and all of its behaviors
+        var rit = _series.CreateCopy(GetRitual(heretic.ChosenRitual), notNullableOverride: true);
+        var behaviors = rit.RitualBehavior ?? new();
 
+        // Check all conditions are met.
+        foreach (var behavior in behaviors)
+        {
+            if (behavior.DoRitual(args.User, ent, rit) == false)
+                return;
+        }
+
+        // Execute the ritual behaviors.
+        foreach (var behavior in behaviors)
+        {
+            behavior.DoRitualEffect(args.User, ent, rit);
+        }
+
+        // Delete entities that need to be deleted.
+        DeleteOnSuccess();
+
+        // Raise the events that need to be raised, and add the knowledge that needs to be added.
+        if (rit.OutputEvent != null)
+            EntityManager.EventBus.RaiseLocalEvent(args.User, rit.OutputEvent, true);
+
+        if (rit.OutputKnowledge != null)
+            _knowledge.AddKnowledge(args.User, heretic, (ProtoId<HereticKnowledgePrototype>)rit.OutputKnowledge);
+
+        // Yay yippee.
         _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
         _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, args.User);
         Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
+
+        // Log it.
+        _adminLogManager.Add(LogType.Action, LogImpact.High, $"{args.User} performed ritual {heretic.ChosenRitual}");
     }
 
     private void OnExamine(Entity<HereticRitualRuneComponent> ent, ref ExaminedEvent args)

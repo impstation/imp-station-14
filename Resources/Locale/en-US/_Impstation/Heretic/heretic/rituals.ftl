@@ -12,11 +12,12 @@ heretic-ritual-basic-codex = Codex Cicatrix
 
 
 heretic-ritual-fail-sacrifice = There is no corpse to sacrifice.
+heretic-ritual-fail-sacrifice-eligible = There is no eligible corpse to sacrifice.
 heretic-ritual-fail-sacrifice-ineligible = The sacrifice must be dead or dying.
 heretic-ritual-fail-reagentpuddle = This ritual needs a puddle of one of these: {$reagentname}.
 heretic-ritual-fail-temperature-hot = It is too hot here.
 heretic-ritual-fail-temperature-cold = It is not cold enough here.
-heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or burning.
+heretic-ritual-fail-sacrifice-ash = All sacrifices must be dead or dying, and burning.
 
 ## side quests
 heretic-ritual-side-knowledge = Ritual of Knowledge
@@ -47,7 +48,7 @@ heretic-ritual-void-blade = Glimmer of Winter
 heretic-ritual-void-ascend = Waltz at the End of Time
 
 ## hunt path
-heretic-ritual-hunt-blade = Principle of Strife 
+heretic-ritual-hunt-blade = Principle of Strife
 heretic-ritual-hunt-bag = Meteoric Pouch
 heretic-ritual-hunt-lionhunter = Lionhunter's Rifle
 heretic-ritual-hunt-cloak = Skaptodon Cloak

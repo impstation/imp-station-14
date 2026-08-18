@@ -1,43 +1,244 @@
-##side knowledge
+### basic
+# Heartbeat of the Mansus (sacrifice)
 - type: hereticRitual
-  id: SeekersHeartRitual
-  locName: knowledge-path-side-s1-sensor-name
-  locDesc: knowledge-path-side-s1-sensor-description
+  id: Sacrifice
+  locName: heretic-ritual-basic-sacrifice
+  locDesc: heretic-ritual-basic-sacrifice-desc
   icon:
-    sprite: _Goobstation/Heretic/items.rsi
-    state: living_heart
+    sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
+  ritualBehavior:
+  - !type:Sacrifice
+
+- type: hereticRitual
+  id: AmberFocus
+  locName: heretic-ritual-basic-focus
+  locDesc: heretic-ritual-basic-focus-desc
+  icon:
+    sprite: _Goobstation/Heretic/amber_focus.rsi
+    state: icon
+  requiredTags:
+    GlassShard: 1
+    Eyes: 1
+  outputItems:
+    ClothingNeckAmberFocus: 1
+  ritualBehavior:
+  - !type:Transmute
+
+- type: hereticRitual
+  id: CodexCicatrix
+  locName: heretic-ritual-basic-codex
+  locDesc: heretic-ritual-basic-codex-desc
+  icon:
+    sprite: _Goobstation/Heretic/book.rsi
+    state: icon-on
   requiredTags:
     Heart: 1
-    Flare: 1
-  output:
-    HereticBookSensor: 1
+    Book: 1
+    Write: 1
+  outputItems:
+    CodexCicatrix: 1
+  ritualBehavior:
+  - !type:Transmute
+
+
+### ash path
+- type: hereticRitual
+  id: BladeAsh
+  locName: knowledge-path-ash-s1-name
+  locDesc: knowledge-path-ash-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    WeldingTool: 1
+  outputItems:
+    HereticBladeAsh: 1
+  ritualBehavior:
+  - !type:Transmute
 
 - type: hereticRitual
-  id: HereticMirrorRitual
-  locName: knowledge-path-side-s3-mirror-name
-  locDesc: knowledge-path-side-s3-mirror-description
+  id: MaskOfMadness
+  locName: knowledge-path-ash-s6-name
+  locDesc: knowledge-path-ash-s6-desc
   icon:
-    sprite: _Impstation/Heretic/wildering_mirror.rsi
-    state: heretic-mirror-icon
+    sprite: _Goobstation/Heretic/mad_mask.rsi
+    state: icon
   requiredTags:
-    LightBulb: 1
-    Crowbar: 1
+    Mask: 1
+    Candle: 4
+    Stunbaton: 1
+    Liver: 1
+  outputItems:
+    ClothingMaskMadHeretic: 1
+  ritualBehavior:
+  - !type:Transmute
+
+- type: hereticRitual
+  id: AscensionAsh
+  locName: knowledge-path-ash-s9-name
+  locDesc: knowledge-path-ash-s9-desc
+  icon:
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: fire_cascade
+  outputKnowledge: AshlordRite
+  outputEvent: !type:EventHereticAscension
+  ritualBehavior:
+  - !type:Sacrifice
+    min: 3
+    max: 3
+  - !type:AshAscend
+
+
+### flesh path
+- type: hereticRitual
+  id: BladeFlesh
+  locName: knowledge-path-flesh-s1-name
+  locDesc: knowledge-path-flesh-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+  outputItems:
+    HereticBladeFlesh: 1
+  ritualBehavior:
+  - !type:Transmute
+  - !type:ReagentPuddle
+    reagents:
+    - Blood
+    - GrayBlood
+    - InsectBlood
+    - Slime
+    - Sap
+    - CopperBlood
+    - AmmoniaBlood
+    - ZombieBlood
+    - ShimmeringBlood
+    - BloodKodepiia
+    - SynthBlood
+    - AnomalocaridCopperBlood
+
+- type: hereticRitual
+  id: ImperfectRitual
+  locName: knowledge-path-flesh-s3-name
+  locDesc: knowledge-path-flesh-s3-desc
+  icon:
+    sprite: Mobs/Species/Skeleton/parts.rsi
+    state: full
+  requiredTags:
+    Poppy: 1
+  ritualBehavior:
+  - !type:MuteGhoulify
+
+- type: hereticRitual
+  id: RawRitual
+  locName: knowledge-path-flesh-s6-name
+  locDesc: knowledge-path-flesh-s6-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: raw_prophet
+  requiredTags:
     Eyes: 1
-  output:
-    HereticMirror: 1
+    Stomach: 1
+  outputItems:
+    MobGhoulProphet: 1
+  ritualBehavior:
+  - !type:Transmute
+  - !type:ReagentPuddle
+    reagents:
+    - Blood
+    - GrayBlood
+    - InsectBlood
+    - Slime
+    - Sap
+    - CopperBlood
+    - AmmoniaBlood
+    - ZombieBlood
+    - ShimmeringBlood
+    - BloodKodepiia
+    - SynthBlood
+    - AnomalocaridCopperBlood
 
 - type: hereticRitual
-  id: HereticKeyRitual
-  locName: knowledge-path-side-s3-key-name
-  locDesc: knowledge-path-side-s3-key-description
+  id: LonelyRitual
+  locName: knowledge-path-flesh-s8-name
+  locDesc: knowledge-path-flesh-s8-desc
   icon:
-    sprite: _Impstation/Heretic/frangiclave.rsi
-    state: frangiclave
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: stalker
   requiredTags:
-    WhitelistChameleonIdCard: 1
-    Organ: 1
-  output:
-    HereticKeyThrowing: 1
+    Pen: 1
+    Heart: 1
+    Stomach: 1
+    Lungs: 1
+  outputItems:
+    MobGhoulStalker: 1
+  ritualBehavior:
+  - !type:Transmute
+  - !type:ReagentPuddle
+    reagents:
+    - Blood
+    - GrayBlood
+    - InsectBlood
+    - Slime
+    - Sap
+    - CopperBlood
+    - AmmoniaBlood
+    - ZombieBlood
+    - ShimmeringBlood
+    - BloodKodepiia
+    - SynthBlood
+    - AnomalocaridCopperBlood
+
+- type: hereticRitual
+  id: AscensionFlesh
+  locName: knowledge-path-flesh-s9-name
+  locDesc: knowledge-path-flesh-s9-desc
+  icon:
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: reality_uncoil
+  outputItemsKnowledge: PriestFinalHymn
+  outputItemsEvent: !type:EventHereticAscension
+  ritualBehavior:
+  - !type:Sacrifice
+    min: 4
+    max: 4
+
+
+### void path
+- type: hereticRitual
+  id: BladeVoid
+  locName: knowledge-path-void-s1-name
+  locDesc: knowledge-path-void-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_void.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+  outputItems:
+    HereticBladeVoid: 1
+  ritualBehavior:
+  - !type:Transmute
+  - !type:Temperature
+    minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
+
+- type: hereticRitual
+  id: AscensionVoid
+  locName: knowledge-path-void-s9-name
+  locDesc: knowledge-path-void-s9-desc
+  icon:
+    sprite: Interface/Alerts/temperature.rsi
+    state: cold3
+  outputItemsKnowledge: WaltzAtTheEndOfTime
+  outputItemsEvent: !type:EventHereticAscension
+  ritualBehavior:
+  - !type:Sacrifice
+    min: 3
+    max: 3
+  - !type:Temperature
+    minThreshold: -20
 
 ##hunt path
 - type: hereticRitual
@@ -50,8 +251,10 @@
   requiredTags:
     Knife: 1
     Sidearm: 1
-  output:
+  outputItems:
     WeaponRevolverSerpentine: 1
+  ritualBehavior:
+  - !type:Transmute
 
 - type: hereticRitual
   id: MeteoricPouch
@@ -63,8 +266,10 @@
   requiredTags:
     PillCanister: 1
     Pipe: 1
-  output:
+  outputItems:
     HereticAmmoPouch: 1
+  ritualBehavior:
+  - !type:Transmute
 
 - type: hereticRitual
   id: LionhunterRifle
@@ -77,8 +282,10 @@
     Sidearm: 1
     Meat: 1
     Eyes: 1
-  output:
+  outputItems:
     WeaponSniperLionhunter: 1
+  ritualBehavior:
+  - !type:Transmute
 
 - type: hereticRitual
   id: SkaptodonCloak
@@ -91,8 +298,10 @@
     Scarf: 1
     GlassShard: 1
     Brain: 1
-  output:
+  outputItems:
     HereticSkaptodonCloak: 1
+  ritualBehavior:
+  - !type:Transmute
 
 - type: hereticRitual
   id: AscensionHunt
@@ -101,9 +310,87 @@
   icon:
     sprite: Structures/meat_spike.rsi
     state: spike
-  customBehaviors:
-  - !type:RitualHuntAscendBehavior
+  outputItemsKnowledge: ManhuntsReversal
+  outputItemsEvent: !type:EventHereticAscension
+  ritualBehavior:
+  - !type:Sacrifice
     min: 3
     max: 3
-  outputKnowledge: ManhuntsReversal
-  outputEvent: !type:EventHereticAscension
+  - !type:HuntAscend
+
+###side knowledge
+- type: hereticRitual
+  id: ArmorerRitual
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  outputItems:
+    ClothingOuterArmorHeretic: 1
+  ritualBehavior:
+  - !type:Transmute
+
+- type: hereticRitual
+  id: PriestRitual
+  locName: knowledge-path-side-s3-flask-name
+  locDesc: knowledge-path-side-s3-flask-desc
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: eldritch_flask
+  requiredTags:
+    WaterTank: 1
+    GlassShard: 1
+  outputItems:
+    HereticEldritchFlask: 1
+  ritualBehavior:
+  - !type:Transmute
+
+- type: hereticRitual
+  id: SeekersHeartRitual
+  locName: knowledge-path-side-s1-sensor-name
+  locDesc: knowledge-path-side-s1-sensor-description
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: living_heart
+  requiredTags:
+    Heart: 1
+    Flare: 1
+  outputItems:
+    HereticBookSensor: 1
+  ritualBehavior:
+  - !type:Transmute
+
+- type: hereticRitual
+  id: HereticMirrorRitual
+  locName: knowledge-path-side-s3-mirror-name
+  locDesc: knowledge-path-side-s3-mirror-description
+  icon:
+    sprite: _Impstation/Heretic/wildering_mirror.rsi
+    state: heretic-mirror-icon
+  requiredTags:
+    LightBulb: 1
+    Crowbar: 1
+    Eyes: 1
+  outputItems:
+    HereticMirror: 1
+  ritualBehavior:
+  - !type:Transmute
+
+- type: hereticRitual
+  id: HereticKeyRitual
+  locName: knowledge-path-side-s3-key-name
+  locDesc: knowledge-path-side-s3-key-description
+  icon:
+    sprite: _Impstation/Heretic/frangiclave.rsi
+    state: frangiclave
+  requiredTags:
+    WhitelistChameleonIdCard: 1
+    Organ: 1
+  outputItems:
+    HereticKeyThrowing: 1
+  ritualBehavior:
+  - !type:Transmute

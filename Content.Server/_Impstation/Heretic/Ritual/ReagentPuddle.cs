@@ -1,26 +1,27 @@
-using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared._Impstation.Heretic.Ritual;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Server.Heretic.Ritual;
 
-public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
+public sealed partial class ReagentPuddle : EntitySystem, IRitualBehavior
 {
-    private EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     [DataField] public List<ProtoId<ReagentPrototype>>? Reagents;
 
     private List<EntityUid> _uids = new();
 
-    public override bool Execute(RitualData args, out string? outstr)
+    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         if (Reagents == null)
         {
             //should only happen if someone fucked up their ritual yaml
-            outstr = Loc.GetString("heretic-ritual-unknown");
+            _popup.PopupEntity(Loc.GetString("heretic-ritual-unknown"), platform, performer);
             return false;
         }
         string reagStrings = "";
@@ -29,14 +30,11 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
         {
             reagStrings += reagent.Id + ", ";
 
-            outstr = null;
-            _lookup = args.EntityManager.System<EntityLookupSystem>();
-
-            var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
+            var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
             foreach (var ent in lookup)
             {
-                if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle))
+                if (!TryComp<PuddleComponent>(ent, out var puddle))
                     continue;
 
                 if (puddle.Solution == null)
@@ -60,15 +58,15 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
         //take off the comma + space on the end of the reagStrings
         reagStrings = reagStrings.Substring(0, reagStrings.Length - 2);
-        outstr = Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", reagStrings));
+        _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", reagStrings)), platform, performer);
         return false;
-
     }
 
-    public override void Finalize(RitualData args)
+    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         foreach (var uid in _uids)
-            args.EntityManager.QueueDeleteEntity(uid);
-        _uids = new();
+            QueueDel(uid);
+
+        _uids = [];
     }
 }
