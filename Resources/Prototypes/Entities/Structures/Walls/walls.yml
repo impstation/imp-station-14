@@ -408,9 +408,9 @@
   name: plasma wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/plasma.rsi
+    sprite: _Impstation/Structures/Walls/plasma.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/plasma.rsi
+    sprite: _Impstation/Structures/Walls/plasma.rsi # Impstation
   - type: Construction
     graph: Girder
     node: plasmaWall
@@ -1236,9 +1236,9 @@
   name: uranium wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/uranium.rsi
+    sprite: _Impstation/Structures/Walls/uranium.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/uranium.rsi
+    sprite: _Impstation/Structures/Walls/uranium.rsi # Impstation
   - type: Construction
     graph: Girder
     node: uraniumWall
