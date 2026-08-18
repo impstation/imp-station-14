@@ -136,9 +136,9 @@
   name: clock wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/clock.rsi
+    sprite: _Impstation/Structures/Walls/clock.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/clock.rsi
+    sprite: _Impstation/Structures/Walls/clock.rsi # Impstation
   - type: Construction
     graph: ClockworkGirder
     node: clockworkWall
@@ -382,9 +382,9 @@
   name: ice wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/ice.rsi
+    sprite: _Impstation/Structures/Walls/ice.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/ice.rsi
+    sprite: _Impstation/Structures/Walls/ice.rsi # Impstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -1742,9 +1742,9 @@
     - Wall
   - type: Sprite
     #drawdepth: SmallObjects #so bullets pass 'through' # imp edit, make this more wall-like. ideally bullets would be able to both damage the wall and pass through them, but I don't think that's possible
-    sprite: Structures/Walls/card.rsi
+    sprite: _Impstation/Structures/Walls/card.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/card.rsi
+    sprite: _Impstation/Structures/Walls/card.rsi # Impstation
     state: full
   - type: Construction
     graph: Cardwall
@@ -1789,7 +1789,7 @@
         sound:
           collection: WoodDestroy
   - type: IconSmooth
-    key: cards
+    key: walls # Impstation
     base: card
   - type: Occluder
   - type: BlockWeather
