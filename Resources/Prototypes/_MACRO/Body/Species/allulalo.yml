@@ -177,7 +177,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: BloodAllulalo
-        Quantity: 250 #should be 50 less than the default of 300. theyre small
+        Quantity: 500 # used to be 300 - 50 = 250u due to smaller size, doubled for refactor
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

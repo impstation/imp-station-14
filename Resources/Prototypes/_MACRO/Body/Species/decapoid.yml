@@ -215,7 +215,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: CopperBlood # real life crustaceans are in the same clade as spiders and share a blood type
-        Quantity: 300
+        Quantity: 600
   - type: Puller #TODO: port pull speed modifier
     needsHands: false # they drag with the claw, or their back legs
   - type: Fixtures
