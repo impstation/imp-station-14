@@ -23,7 +23,7 @@
   outputItems:
     ClothingNeckAmberFocus: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteoutputItemsKnowledge
 
 - type: hereticRitual
   id: CodexCicatrix
@@ -199,8 +199,8 @@
   icon:
     sprite: _Impstation/Heretic/abilities_heretic.rsi
     state: reality_uncoil
-  outputItemsKnowledge: PriestFinalHymn
-  outputItemsEvent: !type:EventHereticAscension
+  outputKnowledge: PriestFinalHymn
+  outputEvent: !type:EventHereticAscension
   ritualBehavior:
   - !type:Sacrifice
     min: 4
@@ -231,8 +231,8 @@
   icon:
     sprite: Interface/Alerts/temperature.rsi
     state: cold3
-  outputItemsKnowledge: WaltzAtTheEndOfTime
-  outputItemsEvent: !type:EventHereticAscension
+  outputKnowledge: WaltzAtTheEndOfTime
+  outputEvent: !type:EventHereticAscension
   ritualBehavior:
   - !type:Sacrifice
     min: 3
@@ -310,8 +310,8 @@
   icon:
     sprite: Structures/meat_spike.rsi
     state: spike
-  outputItemsKnowledge: ManhuntsReversal
-  outputItemsEvent: !type:EventHereticAscension
+  outputKnowledge: ManhuntsReversal
+  outputEvent: !type:EventHereticAscension
   ritualBehavior:
   - !type:Sacrifice
     min: 3

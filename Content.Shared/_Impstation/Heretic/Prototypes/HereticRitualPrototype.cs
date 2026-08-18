@@ -17,6 +17,11 @@ public sealed partial class HereticRitualPrototype : IPrototype
     [DataField] public string LocName = "heretic-ritual-unknown";
 
     /// <summary>
+    /// Used for the radial menu.
+    /// </summary>
+    [DataField] public string LocDesc = string.Empty;
+
+    /// <summary>
     /// How many items with certain tags are required for the ritual?
     /// </summary>
     [DataField] public Dictionary<ProtoId<TagPrototype>, int>? RequiredTags;
