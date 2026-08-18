@@ -89,8 +89,8 @@ public sealed partial class TegSystem
             _efficiencyDamage.SetDamageMultiplier(entB.Comp3, stressB);
 
         // Calculate efficiency multiplier from lubrication
-        var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(entA, dt, stressA);
-        var (efficiencyB, consumedLubricantB) = CirculatorEfficiency(entB, dt, stressB);
+        var (efficiencyA, consumedLubricantA) = _reagentEfficiency.ApplyEfficiency((EntityUid)entA, dt, stressA);
+        var (efficiencyB, consumedLubricantB) = _reagentEfficiency.ApplyEfficiency((EntityUid)entB, dt, stressB);
         var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
         // Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
@@ -101,23 +101,6 @@ public sealed partial class TegSystem
         UpdateCirculatorHazardAppearance(entB, efficiencyB, stressB);
 
         return averageCirculatorEfficiency;
-    }
-
-    /// <summary>
-    /// Calculates the efficiency of each circulator using their lubricant solutions.
-    /// Consumption ramps up as the circulatorRate increases.
-    /// </summary>
-    /// <param name="dt">The amount of time since the last efficiency calculation.</param>
-    /// <param name="circulatorStress">The speed the circulator is running at.</param>
-    /// <returns></returns>
-    private (float, Solution) CirculatorEfficiency(EntityUid uid, float dt, float circulatorStress)
-    {
-        // Do nothing if there's no gas flow
-        // TODO: this causes a desync with the component, this returns 1 but the component's PreviousEfficiency isn't updated. Remove this
-        if (circulatorStress == 0)
-            return (1f, new Solution());
-
-        return _reagentEfficiency.ApplyEfficiency(uid, dt, circulatorStress);
     }
 
     private float DeltaPToStress(float δp)
