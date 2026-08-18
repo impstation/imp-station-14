@@ -46,13 +46,8 @@ public sealed partial class TegSystem
     /// Finds the average efficiency between both TEG circulators by calling <see cref="ReagentEfficiency.ApplyEfficiency"/> on both circulators.
     /// As a result, this function also causes the consumption of the lubricant in the circulators' solutions.
     /// This function also handles damage dealing to the circulators.
-    /// This function also handles checking the failure state, potentially triggering it.
     /// This function also handles applying reagent special effects. (Not yet implemented)
-    /// This function also handles updating the hazard visuals of the circulators.
     /// </summary>
-    /// <remarks>
-    /// TODO: This function does way too much and needs to be refactored or repurposed while still minimizing edits to the upstream generator update function.
-    /// </remarks>
     /// <param name="circA">The first circulator</param>
     /// <param name="circB">The second circulator</param>
     /// <param name="δpA">The delta pressure experienced by the first circulator</param>

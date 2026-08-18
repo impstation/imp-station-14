@@ -49,8 +49,9 @@ public sealed partial class TegSystem
     {
         if (!IsOpen(ent))
         {
+            // Cancel the attempt
             args.Cancelled = true;
-            //Show popup
+            // Show popup
             _popup.PopupEntity(Loc.GetString("openable-component-try-use-closed", ("owner", ent)), ent, args.Repairer);
         }
     }
