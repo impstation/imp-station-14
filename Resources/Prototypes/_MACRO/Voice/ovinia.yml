@@ -18,6 +18,7 @@
 
 - type: emoteSounds
   id: MaleOvinia
+  voiceSelectorName: humanoid-profile-editor-voice-masculine
   params:
     variation: 0.125
   sounds:
@@ -56,6 +57,7 @@
 
 - type: emoteSounds
   id: FemaleOvinia
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
   params:
     variation: 0.125
   sounds:
