@@ -10,10 +10,7 @@ public sealed partial class EfficiencyDamageComponent : Component
     /// <summary>
     /// Final multiplier to the calculated damage before application.
     /// </summary>
-    /// <remarks>
-    /// TODO: This field is potentially edited by code, but also should exist for flat, user-defined multipliers.
-    /// Should this be a DataField or not?
-    /// </remarks>
+    /// TODO: This is kind of redundant since you can specify a damage amount in the Damage field.
     [DataField]
     public float DamageMultiplier = 1f;
 
@@ -29,15 +26,19 @@ public sealed partial class EfficiencyDamageComponent : Component
     [DataField]
     public float MinimumNominalEfficiency = 50f;
     // Damage Values
+
+    /// <summary>
+    /// The kind and amount of damage dealt to the entity every tick (while running subnominally).
+    /// </summary>
     [DataField]
     public DamageSpecifier Damage = default!;
 
     /// <summary>
-    /// The upper bound of damage every tick.
+    /// The upper bound of damage scaling. When running at minimum efficiency, the damage dealt will be this value * Damage * DamageMultiplier.
     /// </summary>
     /// <remarks>
     /// Does not account for <see cref="DamageMultiplier"/>. E.g. if DamageMultipier == 2f, then the upper bound for damage is 2 times this value.
     /// </remarks>
     [DataField]
-    public float MaxDamagePerTick = 1f;
+    public float MaxDamageScaling = 1f;
 }

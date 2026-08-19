@@ -39,7 +39,7 @@ public sealed class EfficiencyDamageSystem : EntitySystem
 
         // Calculate damage based on the efficiency, scaling linearly.
         float scaling = 1 - args.Efficiency / ent.Comp.MinimumNominalEfficiency; //TODO: ensure this calculation is correct
-        float damage = float.Lerp(0, ent.Comp.MaxDamagePerTick, scaling);
+        float damage = float.Lerp(0, ent.Comp.MaxDamageScaling, scaling);
 
         // Apply damage multiplier
         damage *= ent.Comp.DamageMultiplier; // TODO: this causes the damage dealt to go over *MaximumDamagePerTick*, which is not intuitive.
