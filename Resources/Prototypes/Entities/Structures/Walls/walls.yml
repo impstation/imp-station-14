@@ -663,9 +663,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: _Impstation/Structures/Walls/solid_rust.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: _Impstation/Structures/Walls/solid_rust.rsi # Impstation
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -1063,9 +1063,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: _Impstation/Structures/Walls/solid_rust.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: _Impstation/Structures/Walls/solid_rust.rsi # Impstation
     state: full
   - type: Construction
     graph: Girder
