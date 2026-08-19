@@ -108,9 +108,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: _Impstation/Structures/Windows/tinted_window.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: _Impstation/Structures/Windows/tinted_window.rsi # Impstation
   - type: IconSmooth
     base: twindow
   - type: Construction
