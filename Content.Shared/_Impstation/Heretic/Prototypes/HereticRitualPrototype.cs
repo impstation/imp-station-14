@@ -1,11 +1,12 @@
 using Content.Shared._Impstation.Heretic.Ritual;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[DataDefinition]
+[Serializable, NetSerializable, DataDefinition]
 [Prototype]
 public sealed partial class HereticRitualPrototype : IPrototype
 {
@@ -39,7 +40,7 @@ public sealed partial class HereticRitualPrototype : IPrototype
     /// <summary>
     /// What will be spawned on success?
     /// </summary>
-    [DataField] public Dictionary<EntProtoId, int> OutputItems;
+    [DataField] public Dictionary<EntProtoId, int>? OutputItems;
 
     /// <summary>
     /// Icon for the radial menu.
@@ -50,4 +51,6 @@ public sealed partial class HereticRitualPrototype : IPrototype
     /// What the ritual does.
     /// </summary>
     [DataField] public List<IRitualBehavior> RitualBehavior;
+
+    public HereticRitualPrototype Clone() => this;
 }

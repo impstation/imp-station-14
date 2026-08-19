@@ -8,6 +8,11 @@ public sealed partial class AshAscend : Sacrifice
 {
     private List<EntityUid> _usableUids = new();
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     public void DoAshAscendRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // Check for sacrificable things.

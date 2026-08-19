@@ -16,6 +16,11 @@ public sealed partial class ReagentPuddle : EntitySystem, IRitualBehavior
 
     private List<EntityUid> _uids = new();
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         if (Reagents == null)

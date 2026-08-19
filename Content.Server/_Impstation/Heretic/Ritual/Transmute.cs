@@ -10,12 +10,13 @@ public sealed partial class Transmute : EntitySystem, IRitualBehavior
 {
     [Dependency] private readonly HereticRitualSystem _ritual = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
-        // Check if we have everything required.
-        if (!_ritual.TryDoRitual(performer, platform, ritualId))
-            return false;
-
         return true;
     }
     public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)

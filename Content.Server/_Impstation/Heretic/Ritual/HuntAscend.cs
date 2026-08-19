@@ -11,6 +11,11 @@ public sealed partial class HuntAscend : Sacrifice
     /// </summary>
     private List<EntityUid> _usableUids = new();
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     public void DoHuntAscendRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // Check for sacrificable things.

@@ -29,7 +29,6 @@ public partial class Sacrifice : EntitySystem, IRitualBehavior
     [Dependency] private readonly HereticSystem _heretic = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly HereticRitualSystem _ritual = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
     // Fields
@@ -70,12 +69,13 @@ public partial class Sacrifice : EntitySystem, IRitualBehavior
     /// </summary>
     protected List<EntityUid> Uids = [];
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
-        // Check if we have everything required.
-        if (!_ritual.TryDoRitual(performer, platform, ritualId))
-            return false;
-
         // Check if there's even anything on the circle, if there is, add it to a list.
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
         if (lookup.Count == 0)

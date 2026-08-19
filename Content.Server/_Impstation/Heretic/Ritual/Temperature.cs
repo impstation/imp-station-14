@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
-public sealed partial class Temperature : IRitualBehavior
+public sealed partial class Temperature : EntitySystem, IRitualBehavior
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -21,6 +21,11 @@ public sealed partial class Temperature : IRitualBehavior
     /// Max temp in celsius
     /// </summary>
     [DataField] public float MaxThreshold = float.PositiveInfinity;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
 
     public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {

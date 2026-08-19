@@ -64,7 +64,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return false;
 
-        var rit = _series.CreateCopy(GetRitual(ritualId), notNullableOverride: true);
+        var rit = _series.CreateCopy(GetRitual(ritualId).Clone(), notNullableOverride: true);
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
         var missingList = new List<string>();
@@ -184,6 +184,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // Get the ritual and all of its behaviors
         var rit = _series.CreateCopy(GetRitual(heretic.ChosenRitual), notNullableOverride: true);
         var behaviors = rit.RitualBehavior ?? new();
+
+        if (!TryDoRitual(args.User, ent, rit))
+            return;
 
         // Check all conditions are met.
         foreach (var behavior in behaviors)

@@ -14,6 +14,11 @@ public sealed partial class MuteGhoulify : Sacrifice
     [Dependency] private readonly MinionSystem _minion = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     public void DoMuteGhoulifyRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // Check for sacrificable things, as well as required items.
