@@ -51,12 +51,6 @@ public sealed partial class TegCirculatorComponent : Component
 
     // IMP ADD START
     /// <summary>
-    /// The minimum fill level before a warning visual is displayed.
-    /// </summary>
-    [DataField]
-    public float WarningFillLevel = 0.25f;
-
-    /// <summary>
     /// Cache for REC to avoid comp lookups every atmos tick.
     /// </summary>
     /// <remarks>
@@ -71,17 +65,5 @@ public sealed partial class TegCirculatorComponent : Component
     /// TODO: Bad pattern/design? I have no idea.
     /// </remarks>
     public EfficiencyDamageComponent? EfficiencyDamageComponentCache = null;
-
-    /// <summary>
-    /// The threshold at which subnominal visuals start to be shown.
-    /// </summary>
-    [DataField]
-    public float MaximumNominalDamage = 50;
-
-    /// <summary>
-    /// The minimum and maximum size of the circulator's explosion.
-    /// </summary>
-    [DataField]
-    public (float, float) ExplosionRadiusRange = (4f, 8f);
     // IMP ADD END
 }

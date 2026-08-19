@@ -32,11 +32,12 @@ public sealed partial class EfficiencyDamageComponent : Component
     [DataField]
     public DamageSpecifier Damage = default!;
 
-
+    /// <summary>
+    /// The upper bound of damage every tick.
+    /// </summary>
+    /// <remarks>
+    /// Does not account for <see cref="DamageMultiplier"/>. E.g. if DamageMultipier == 2f, then the upper bound for damage is 2 times this value.
+    /// </remarks>
     [DataField]
     public float MaxDamagePerTick = 1f;
-
-
-    [DataField]
-    public float MinDamagePerTick = 0f;
 }
