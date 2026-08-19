@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Ritual;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -14,7 +15,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -25,13 +25,20 @@ public sealed partial class HereticRitualSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISerializationManager _series = default!;
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+
+    [Dependency] private readonly TransmuteBehavior _transmute = default!;
+    [Dependency] private readonly TemperatureBehavior _temperature = default!;
+    [Dependency] private readonly SacrificeBehavior _sacrifice = default!;
+    [Dependency] private readonly ReagentPuddleBehavior _reagentPuddle = default!;
+    [Dependency] private readonly MuteGhoulifyBehavior _muteGhoulify = default!;
+    [Dependency] private readonly HuntAscendBehavior _huntAscend = default!;
+    [Dependency] private readonly AshAscendBehavior _ashAscend = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
     public List<EntityUid> ToDelete = new();
@@ -48,7 +55,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     public HereticRitualPrototype GetRitual(ProtoId<HereticRitualPrototype>? id)
     {
-        if (id == null) throw new ArgumentNullException();
+        if (id == null)
+            throw new ArgumentNullException();
+
         return _proto.Index<HereticRitualPrototype>(id);
     }
 
@@ -59,17 +68,17 @@ public sealed partial class HereticRitualSystem : EntitySystem
     /// <param name="platform"></param>
     /// <param name="ritualId"></param>
     /// <returns></returns>
-    public bool TryDoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    private bool TryDoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return false;
 
-        var rit = _series.CreateCopy(GetRitual(ritualId).Clone(), notNullableOverride: true);
+        var ritual = GetRitual(ritualId);
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
         var missingList = new List<string>();
 
-        var requiredTags = rit.RequiredTags?.ToDictionary(e => e.Key, e => e.Value) ?? new();
+        var requiredTags = ritual.RequiredTags?.ToDictionary(e => e.Key, e => e.Value) ?? new();
 
         foreach (var look in lookup)
         {
@@ -182,34 +191,101 @@ public sealed partial class HereticRitualSystem : EntitySystem
         }
 
         // Get the ritual and all of its behaviors
-        var rit = _series.CreateCopy(GetRitual(heretic.ChosenRitual), notNullableOverride: true);
-        var behaviors = rit.RitualBehavior ?? new();
+        var ritual = GetRitual(heretic.ChosenRitual);
+        var behaviors = ritual.RitualBehavior ?? new();
 
-        if (!TryDoRitual(args.User, ent, rit))
+        if (!TryDoRitual(args.User, ent, ritual))
             return;
 
         // Check all conditions are met.
         foreach (var behavior in behaviors)
         {
-            if (behavior.DoRitual(args.User, ent, rit) == false)
-                return;
+            // There are probably so many better ways to do this.
+            switch (behavior)
+            {
+                // Anything that inherits from SacrificeBehavior
+                // Needs to have DoRitual first to check for sacrificable bodies.
+                case SacrificeBehavior:
+                    if (behavior is SacrificeBehavior)
+                    {
+                        if (_sacrifice.DoRitual(args.User, ent, ritual) == false)
+                            return;
+                        break;
+                    }
+                    if (behavior is MuteGhoulifyBehavior)
+                    {
+                        if (_muteGhoulify.DoRitual(args.User, ent, ritual) == false)
+                            return;
+                        break;
+                    }
+                    if (behavior is HuntAscendBehavior)
+                    {
+                        if (_huntAscend.DoRitual(args.User, ent, ritual) == false && _huntAscend.DoHuntAscendRitual(args.User, ent, ritual) == false)
+                            return;
+                        break;
+                    }
+                    if (behavior is AshAscendBehavior)
+                    {
+                        if (_ashAscend.DoRitual(args.User, ent, ritual) == false && _ashAscend.DoAshAscendRitual(args.User, ent, ritual) == false)
+                            return;
+                        break;
+                    }
+                    break;
+
+                case TransmuteBehavior:
+                    if (_transmute.DoRitual(args.User, ent, ritual))
+                        return;
+                    break;
+
+                case TemperatureBehavior:
+                    if (_temperature.DoRitual(args.User, ent, ritual))
+                        return;
+                    break;
+
+                case ReagentPuddleBehavior:
+                    if (_reagentPuddle.DoRitual(args.User, ent, ritual))
+                        return;
+                    break;
+            }
         }
 
         // Execute the ritual behaviors.
         foreach (var behavior in behaviors)
         {
-            behavior.DoRitualEffect(args.User, ent, rit);
+            switch (behavior)
+            {
+                case SacrificeBehavior:
+                    if (behavior is SacrificeBehavior)
+                    {
+                        _sacrifice.DoRitualEffect(args.User, ent, ritual);
+                        break;
+                    }
+                    if (behavior is MuteGhoulifyBehavior)
+                    {
+                        _muteGhoulify.DoMuteGhoulifyRitualEffect(args.User, ent, ritual);
+                        break;
+                    }
+                    break;
+
+                case TransmuteBehavior:
+                    _transmute.DoRitualEffect(args.User, ent, ritual);
+                    break;
+
+                case ReagentPuddleBehavior:
+                    _reagentPuddle.DoRitualEffect(args.User, ent, ritual);
+                    break;
+            }
         }
 
         // Delete entities that need to be deleted.
         DeleteOnSuccess();
 
         // Raise the events that need to be raised, and add the knowledge that needs to be added.
-        if (rit.OutputEvent != null)
-            EntityManager.EventBus.RaiseLocalEvent(args.User, rit.OutputEvent, true);
+        if (ritual.OutputEvent != null)
+            EntityManager.EventBus.RaiseLocalEvent(args.User, ritual.OutputEvent, true);
 
-        if (rit.OutputKnowledge != null)
-            _knowledge.AddKnowledge(args.User, heretic, (ProtoId<HereticKnowledgePrototype>)rit.OutputKnowledge);
+        if (ritual.OutputKnowledge != null)
+            _knowledge.AddKnowledge(args.User, heretic, (ProtoId<HereticKnowledgePrototype>)ritual.OutputKnowledge);
 
         // Yay yippee.
         _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));

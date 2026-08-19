@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
-public sealed partial class ReagentPuddle : EntitySystem, IRitualBehavior
+public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -21,7 +21,7 @@ public sealed partial class ReagentPuddle : EntitySystem, IRitualBehavior
         base.Initialize();
     }
 
-    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         if (Reagents == null)
         {
@@ -67,7 +67,7 @@ public sealed partial class ReagentPuddle : EntitySystem, IRitualBehavior
         return false;
     }
 
-    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         foreach (var uid in _uids)
             QueueDel(uid);

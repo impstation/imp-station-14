@@ -8,7 +8,7 @@
     sprite: Mobs/Species/Human/organs.rsi
     state: heart-on
   ritualBehavior:
-  - !type:Sacrifice
+  - !type:SacrificeBehavior
 
 - type: hereticRitual
   id: AmberFocus
@@ -23,7 +23,7 @@
   outputItems:
     ClothingNeckAmberFocus: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: CodexCicatrix
@@ -39,7 +39,7 @@
   outputItems:
     CodexCicatrix: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 
 ### ash path
@@ -56,7 +56,7 @@
   outputItems:
     HereticBladeAsh: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: MaskOfMadness
@@ -73,7 +73,7 @@
   outputItems:
     ClothingMaskMadHeretic: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: AscensionAsh
@@ -85,10 +85,10 @@
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
   ritualBehavior:
-  - !type:Sacrifice
+  - !type:SacrificeBehavior
     min: 3
     max: 3
-  - !type:AshAscend
+  - !type:AshAscendBehavior
 
 
 ### flesh path
@@ -104,8 +104,8 @@
   outputItems:
     HereticBladeFlesh: 1
   ritualBehavior:
-  - !type:Transmute
-  - !type:ReagentPuddle
+  - !type:TransmuteBehavior
+  - !type:ReagentPuddleBehavior
     reagents:
     - Blood
     - GrayBlood
@@ -130,7 +130,7 @@
   requiredTags:
     Poppy: 1
   ritualBehavior:
-  - !type:MuteGhoulify
+  - !type:MuteGhoulifyBehavior
 
 - type: hereticRitual
   id: RawRitual
@@ -145,8 +145,8 @@
   outputItems:
     MobGhoulProphet: 1
   ritualBehavior:
-  - !type:Transmute
-  - !type:ReagentPuddle
+  - !type:TransmuteBehavior
+  - !type:ReagentPuddleBehavior
     reagents:
     - Blood
     - GrayBlood
@@ -176,8 +176,8 @@
   outputItems:
     MobGhoulStalker: 1
   ritualBehavior:
-  - !type:Transmute
-  - !type:ReagentPuddle
+  - !type:TransmuteBehavior
+  - !type:ReagentPuddleBehavior
     reagents:
     - Blood
     - GrayBlood
@@ -202,7 +202,7 @@
   outputKnowledge: PriestFinalHymn
   outputEvent: !type:EventHereticAscension
   ritualBehavior:
-  - !type:Sacrifice
+  - !type:SacrificeBehavior
     min: 4
     max: 4
 
@@ -220,8 +220,8 @@
   outputItems:
     HereticBladeVoid: 1
   ritualBehavior:
-  - !type:Transmute
-  - !type:Temperature
+  - !type:TransmuteBehavior
+  - !type:TemperatureBehavior
     minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
 
 - type: hereticRitual
@@ -234,10 +234,10 @@
   outputKnowledge: WaltzAtTheEndOfTime
   outputEvent: !type:EventHereticAscension
   ritualBehavior:
-  - !type:Sacrifice
+  - !type:SacrificeBehavior
     min: 3
     max: 3
-  - !type:Temperature
+  - !type:TemperatureBehavior
     minThreshold: -20
 
 ##hunt path
@@ -254,7 +254,7 @@
   outputItems:
     WeaponRevolverSerpentine: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: MeteoricPouch
@@ -269,7 +269,7 @@
   outputItems:
     HereticAmmoPouch: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: LionhunterRifle
@@ -285,7 +285,7 @@
   outputItems:
     WeaponSniperLionhunter: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: SkaptodonCloak
@@ -301,7 +301,7 @@
   outputItems:
     HereticSkaptodonCloak: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: AscensionHunt
@@ -313,10 +313,10 @@
   outputKnowledge: ManhuntsReversal
   outputEvent: !type:EventHereticAscension
   ritualBehavior:
-  - !type:Sacrifice
+  - !type:SacrificeBehavior
     min: 3
     max: 3
-  - !type:HuntAscend
+  - !type:HuntAscendBehavior
 
 ###side knowledge
 - type: hereticRitual
@@ -332,7 +332,7 @@
   outputItems:
     ClothingOuterArmorHeretic: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: PriestRitual
@@ -347,7 +347,7 @@
   outputItems:
     HereticEldritchFlask: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: SeekersHeartRitual
@@ -362,7 +362,7 @@
   outputItems:
     HereticBookSensor: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: HereticMirrorRitual
@@ -378,7 +378,7 @@
   outputItems:
     HereticMirror: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: HereticKeyRitual
@@ -393,4 +393,4 @@
   outputItems:
     HereticKeyThrowing: 1
   ritualBehavior:
-  - !type:Transmute
+  - !type:TransmuteBehavior

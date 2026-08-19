@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
-public sealed partial class AshAscend : Sacrifice
+public sealed partial class AshAscendBehavior : SacrificeBehavior
 {
     private List<EntityUid> _usableUids = new();
 
@@ -13,12 +13,8 @@ public sealed partial class AshAscend : Sacrifice
         base.Initialize();
     }
 
-    public void DoAshAscendRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public bool DoAshAscendRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
-        // Check for sacrificable things.
-        if (!DoRitual(performer, platform, ritualId))
-            return;
-
         // Check for burning corpses.
         for (int i = 0; i < Max; i++)
         {
@@ -31,13 +27,11 @@ public sealed partial class AshAscend : Sacrifice
         if (_usableUids.Count < Min)
         {
             Popup.PopupEntity(Loc.GetString("heretic-ritual-fail-sacrifice-ash"), platform, performer);
-            return;
+            return false;
         }
-
-        // Otherwise, do the ritual
-        DoRitualEffect(performer, platform, ritualId);
 
         // Reset _usableUids.
         _usableUids = [];
+        return true;
     }
 }

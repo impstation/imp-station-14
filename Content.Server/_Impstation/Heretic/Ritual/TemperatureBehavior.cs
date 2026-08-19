@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
-public sealed partial class Temperature : EntitySystem, IRitualBehavior
+public sealed partial class TemperatureBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -27,7 +27,7 @@ public sealed partial class Temperature : EntitySystem, IRitualBehavior
         base.Initialize();
     }
 
-    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         var mix = _atmos.GetTileMixture(platform);
 
@@ -48,7 +48,7 @@ public sealed partial class Temperature : EntitySystem, IRitualBehavior
         return true;
     }
 
-    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // No effect. Use with other ritual behaviors.
     }

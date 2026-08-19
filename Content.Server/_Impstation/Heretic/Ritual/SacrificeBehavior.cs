@@ -22,7 +22,7 @@ namespace Content.Server.Heretic.Ritual;
 /// </summary>
 /// <remarks> Marked as virtual because this also is used by ascensions.</remarks>
 [Virtual]
-public partial class Sacrifice : EntitySystem, IRitualBehavior
+public partial class SacrificeBehavior : SharedRitualBehaviorSystem
 {
     // Dependencies
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -74,7 +74,7 @@ public partial class Sacrifice : EntitySystem, IRitualBehavior
         base.Initialize();
     }
 
-    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // Check if there's even anything on the circle, if there is, add it to a list.
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
@@ -111,7 +111,7 @@ public partial class Sacrifice : EntitySystem, IRitualBehavior
         return true;
     }
 
-    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // TryDoRitual already checks this, but we need hereticComp later.
         if (!TryComp<HereticComponent>(performer, out var hereticComp))

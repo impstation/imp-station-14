@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
-public sealed partial class HuntAscend : Sacrifice
+public sealed partial class HuntAscendBehavior : SacrificeBehavior
 {
     /// <summary>
     /// List of entities which meet the requirements for the ritual.
@@ -16,12 +16,8 @@ public sealed partial class HuntAscend : Sacrifice
         base.Initialize();
     }
 
-    public void DoHuntAscendRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public bool DoHuntAscendRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
-        // Check for sacrificable things.
-        if (!DoRitual(performer, platform, ritualId))
-            return;
-
         // This is effectively just the ash ascencion but with cuffed corpses.
         // Check for cuffed corpses.
         for (int i = 0; i < Max; i++)
@@ -35,13 +31,11 @@ public sealed partial class HuntAscend : Sacrifice
         if (_usableUids.Count < Min)
         {
             Popup.PopupEntity(Loc.GetString("heretic-ritual-fail-sacrifice-hunt"), platform, performer);
-            return;
+            return false;
         }
-
-        // Otherwise, do the ritual
-        DoRitualEffect(performer, platform, ritualId);
 
         // Reset _usableUids.
         _usableUids = [];
+        return true;
     }
 }

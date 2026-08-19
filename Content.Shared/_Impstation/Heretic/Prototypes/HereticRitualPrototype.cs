@@ -50,7 +50,5 @@ public sealed partial class HereticRitualPrototype : IPrototype
     /// <summary>
     /// What the ritual does.
     /// </summary>
-    [DataField] public List<IRitualBehavior> RitualBehavior;
-
-    public HereticRitualPrototype Clone() => this;
+    [DataField] public List<SharedRitualBehaviorSystem> RitualBehavior;
 }

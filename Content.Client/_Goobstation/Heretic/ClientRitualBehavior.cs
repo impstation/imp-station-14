@@ -5,56 +5,56 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.Heretic;
 
 [Virtual]
-public partial class Sacrifice : IRitualBehavior
+public partial class SacrificeBehavior : SharedRitualBehaviorSystem
 {
-    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         return true;
     }
 
-    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // Do nothing!
     }
 }
 
-public sealed partial class AshAscend : Sacrifice { }
-public sealed partial class HuntAscend : Sacrifice { }
-public sealed partial class MuteGhoulify : Sacrifice { }
+public sealed partial class AshAscendBehavior : SacrificeBehavior { }
+public sealed partial class HuntAscendBehavior : SacrificeBehavior { }
+public sealed partial class MuteGhoulifyBehavior : SacrificeBehavior { }
 
-public sealed partial class Temperature : IRitualBehavior
+public sealed partial class TemperatureBehavior : SharedRitualBehaviorSystem
 {
-    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         return true;
     }
 
-    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // Do nothing!
     }
 }
 
-public sealed partial class ReagentPuddle : IRitualBehavior
+public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 {
-    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         return true;
     }
 
-    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // Do nothing!
     }
 }
-public sealed partial class Transmute : IRitualBehavior
+public sealed partial class TransmuteBehavior : SharedRitualBehaviorSystem
 {
-    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         return true;
     }
 
-    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         // Do nothing!
     }

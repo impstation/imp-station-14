@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
-public sealed partial class Transmute : EntitySystem, IRitualBehavior
+public sealed partial class TransmuteBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly HereticRitualSystem _ritual = default!;
 
@@ -15,11 +15,11 @@ public sealed partial class Transmute : EntitySystem, IRitualBehavior
         base.Initialize();
     }
 
-    public bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         return true;
     }
-    public void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
         var output = _ritual.GetRitual(ritualId).OutputItems ?? new Dictionary<EntProtoId, int>();
         foreach (var ent in output.Keys)
