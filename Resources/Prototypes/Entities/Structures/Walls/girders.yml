@@ -104,7 +104,7 @@
 
 - type: entity
   id: ClockworkGirder
-  parent: ReinforcedGirder
+  # parent: ReinforcedGirder Impstation removal. It gained nothing from having a parent except breaking
   name: wall gear
   description: A large gear with mounting brackets for additional plating; This could be made into a wall with more brass plating.
   components:
