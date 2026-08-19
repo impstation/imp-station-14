@@ -165,9 +165,9 @@
   name: bananium wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/clown.rsi
+    sprite: _Impstation/Structures/Walls/clown.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/clown.rsi
+    sprite: _Impstation/Structures/Walls/clown.rsi # Impstation
   - type: Construction
     graph: Girder
     node: bananiumWall
