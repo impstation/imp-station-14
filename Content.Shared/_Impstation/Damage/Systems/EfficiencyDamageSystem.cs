@@ -38,18 +38,17 @@ public sealed class EfficiencyDamageSystem : EntitySystem
             return 0f;
 
         // Calculate damage based on the efficiency, scaling linearly.
-        float scaling = 1 - args.Efficiency / ent.Comp.MinimumNominalEfficiency; //TODO: ensure this calculation is correct
+        float scaling = 1 - args.Efficiency / ent.Comp.MinimumNominalEfficiency;
         float damage = float.Lerp(0, ent.Comp.MaxDamageScaling, scaling);
 
         // Apply damage multiplier
-        damage *= ent.Comp.DamageMultiplier; // TODO: this causes the damage dealt to go over *MaximumDamagePerTick*, which is not intuitive.
+        damage *= ent.Comp.DamageMultiplier;
 
         // Ensure we don't deal negative damage by clamping
         damage = damage < 0f ? 0f : damage;
 
         // Apply the damage and return the amount dealt.
-        Entity<DamageableComponent?> damageableEnt = (ent, ent.Comp.DamageableComponentCache);
-        _damageable.TryChangeDamage(damageableEnt, ent.Comp.Damage * damage, ignoreResistances: true);
+        _damageable.TryChangeDamage((ent, ent.Comp.DamageableComponentCache), ent.Comp.Damage * damage, ignoreResistances: true);
         return damage;
     }
 
