@@ -119,12 +119,11 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         var efficiency = 0f;
         foreach (var reagent in solution)
         {
-            efficiency += ent.Comp.Modifiers.TryGetValue(reagent.Reagent.Prototype, out var reagentEfficiency) ?
-                reagentEfficiency * (float)reagent.Quantity :
-                ent.Comp.DefaultModifier * (float)reagent.Quantity;
+            efficiency += ent.Comp.Modifiers.TryGetValue(reagent.Reagent.Prototype, out var reagentEfficiency) ? // Does the reagent have a modifier?
+                reagentEfficiency * (float)reagent.Quantity : // Yes, use the corresponding modifier value.
+                ent.Comp.DefaultModifier * (float)reagent.Quantity; // No, use the default modifier value.
         }
         efficiency /= (float)solution.Volume;
-        // efficiency /= consumedAmount + ent.Comp.CurrentConsumptionAccumulation;
 
         //Apply throttling to efficiency
         efficiency *= solution.Volume < throttleThresholdVolume ? (float)solution.Volume / throttleThresholdVolume : 1f;
