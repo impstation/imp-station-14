@@ -116,9 +116,32 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
-  - type: TemperatureProtection
+  - type: TemperatureProtection # imp add, i think???
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
+  - type: HideLayerClothing
+    slots:
+    - Tail
+    - Tenta # macro: for kodes
+
+- type: entity
+  abstract: true
+  parent: [ ClothingOuterEVASuitBase, GeigerCounterClothing ]
+  id: ClothingOuterHardsuitBase
+  name: base hardsuit
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
   - type: ClothingSpeedModifier
     walkModifier: 0.6
     sprintModifier: 0.6

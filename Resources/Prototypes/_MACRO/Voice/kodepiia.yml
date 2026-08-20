@@ -1,0 +1,97 @@
+- type: speechSounds
+  id: Kodepiia
+  saySound:
+    path: /Audio/_MACRO/Voice/Kodepiia/kodetalk.ogg
+  askSound:
+    path: /Audio/_MACRO/Voice/Kodepiia/kodeask.ogg
+  exclaimSound:
+    path: /Audio/_MACRO/Voice/Kodepiia/kodeexclaim.ogg
+
+- type: emoteSounds
+  id: UnisexKodepiia
+  voiceSelectorName: humanoid-profile-editor-voice-neutral
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: KodepiiaScreams
+    Laugh:
+      collection: KodepiiaLaugh
+    Sneeze:
+      collection: KodepiiaSneezes
+    Cough:
+      collection: KodepiiaCoughs
+    Sigh:
+      collection: KodepiiaSigh
+    Crying:
+      collection: KodepiiaCry
+    Whistle:
+      collection: KodepiiaWhistles
+    CatHisses:
+      collection: KodepiiaHisses
+    Hiss:
+      collection: KodepiiaHisses
+    CatMeow:
+      collection: KodepiiaMeows
+    KodeBoom:
+      collection: KodepiiaBooms
+    KodeRing:
+      collection: KodepiiaRings
+    KodeHonk:
+      collection: KodepiiaHonks
+      params:
+        volume: -5
+    KodePew:
+      collection: KodepiiaPews
+    KodeBang:
+      collection: KodepiiaBangs
+      params:
+        volume: -5
+    KodeBeep:
+      collection: KodepiiaBeeps
+    Yawn:
+      collection: KodepiiaYawn
+    Snore:
+      collection: KodepiiaSnores
+    KodeRev:
+      collection: KodepiiaRevs
+      params:
+        volume: -5
+    Click:
+      collection: KodepiiaClicks
+    Chitter:
+      collection: KodepiiaChitter
+    Squeak:
+      collection: KodepiiaSqueak
+    Chirp:
+      collection: KodepiiaChirps
+    Snarl:
+      collection: VulpkaninSnarls
+    Howl:
+      collection: VulpkaninHowls
+    Bark:
+      collection: VulpkaninBarks
+    Growl:
+      collection: VulpkaninGrowls
+    Whine:
+      collection: VulpkaninWhines
+    Honk:
+      collection: KodepiiaHonks
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: KodepiiaGasp
+    DefaultDeathgasp:
+      collection: KodepiiaDeathgasp
+    Squish:
+      collection: Squishes
+
+- type: speechVerb
+  id: Kodepiia
+  name: chat-speech-verb-name-kodepiia
+  speechVerbStrings:
+  - chat-speech-verb-kodepiia-1
+  - chat-speech-verb-kodepiia-2
+  - chat-speech-verb-kodepiia-3

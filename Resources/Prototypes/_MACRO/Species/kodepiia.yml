@@ -1,0 +1,33 @@
+- type: species
+  id: Kodepiia
+  name: species-name-kodepiia
+  roundStart: false
+# randomViable: true
+  prototype: MobKodepiia
+  dollPrototype: AppearanceKodepiia
+  skinColoration: Hues
+  maleFirstNames: KodepiiaFirst
+  femaleFirstNames: KodepiiaFirst
+  lastNames: KodepiiaLast
+  sexes:
+  - Unsexed
+  defaultSoundsBySex:
+  - UnisexKodepiia
+  - UnisexKodepiia
+  - UnisexKodepiia
+  voices:
+  - UnisexKodepiia
+  youngAge: 25
+  oldAge: 40
+#  ancientAge: 70
+
+# Developer Notes
+#
+# Kodepiia are cuttlefish-esque aliens.
+# They have a very striking and diverse set of markings and customization, to allow for two Kodepiia to look dramatically different from each other.
+# Kodepiia have an action that randomizes their appearance, similar to a DNA scrambler, once every ten minutes.
+# They also have a very large and mostly custom set of emote sounds.
+# Kodepiia get hungry faster than most other species, usually starving after twenty minutes without eating, and have a very restrictive diet: cooked protein makes them sick, and nutriment has no effect on them, meaning they must eat raw meat. They have a button that allows them to take a bite out of a crit or dead body to sate hunger, but if used too many times on the same body, will gib it.
+#
+# You might choose to enable them if you want a species with an unprecedented level of character customization, or if you want a species that engages with the service department in an unusual way. You may want to keep them disabled if your fork would not be comfortable with the mimicry identity of the species, or its ability to eat (and round remove) other players.
+# くコ:彡

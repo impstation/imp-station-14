@@ -1,5 +1,12 @@
 # Species
 - type: loadoutEffectGroup
+  id: Carnivorous
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Kodepiia
+
+- type: loadoutEffectGroup
   id: Aquatic
   effects:
   - !type:SpeciesLoadoutEffect

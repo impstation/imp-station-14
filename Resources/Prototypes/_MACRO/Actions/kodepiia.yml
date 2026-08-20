@@ -1,0 +1,34 @@
+- type: entity
+  parent: BaseAction
+  id: ActionKodepiiaScrambler
+  name: Scramble Appearance
+  description: Change your appearance in a rush. You don't have time to control what comes out!
+  components:
+  - type: Action
+    useDelay: 600
+  - type: Sprite
+    sprite: _MACRO/Interface/Actions/kodepiia.rsi
+    layers:
+    - state: kodepiia_shapeshift
+  - type: ConfirmableAction
+    popup: dna-scrambler-action-popup
+  - type: InstantAction
+    event: !type:KodepiiaScramblerEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionKodepiiaConsume
+  name: Consume
+  description: Take a bite out of an incapacitated target.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 60
+  - type: Sprite
+    sprite: _MACRO/Interface/Actions/kodepiia.rsi
+    layers:
+    - state: kodepiia_eat
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:ConsumeEvent
+    canTargetSelf: false

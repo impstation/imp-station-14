@@ -2,4 +2,6 @@
 species-name-allulalo = Allulalo
 species-name-gray = Gray
 species-name-gastropoid = Gastropoid
+species-name-kodepiia = Kodepiia
+species-name-ungu = Ungu
 species-name-decapoid = Decapoid

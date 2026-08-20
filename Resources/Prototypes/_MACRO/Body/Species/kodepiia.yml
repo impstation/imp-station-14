@@ -1,0 +1,306 @@
+- type: markingsGroup
+  id: Kodepiia
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 2
+      required: true
+      default: [ KodeHumanEyesUneven ]
+    enum.HumanoidVisualLayers.Head:
+      limit: 8
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Tenta:
+      limit: 1
+      required: true
+      default: [ KodeWingsBlade ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: true
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: true
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 8
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 8
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceKodepiia
+  categories: [ HideSpawnMenu ]
+  name: Kodepiia appearance
+  components:
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Kodepiia/displacement.rsi
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Kodepiia/displacement.rsi
+            state: hands
+  - type: InitialBody
+    organs:
+      Torso: OrganKodepiiaTorso
+      Head: OrganKodepiiaHead
+      LegLeft: OrganKodepiiaLegLeft
+      LegRight: OrganKodepiiaLegRight
+      FootLeft: OrganKodepiiaFootLeft
+      FootRight: OrganKodepiiaFootRight
+      Brain: OrganKodepiiaBrain
+      Eyes: OrganKodepiiaEyes
+      Tongue: OrganKodepiiaTongue
+      Appendix: OrganKodepiiaAppendix
+      Ears: OrganKodepiiaEars
+      Lungs: OrganKodepiiaLungs
+      Heart: OrganKodepiiaHeart
+      Stomach: OrganKodepiiaStomach
+      Liver: OrganKodepiiaLiver
+      Kidneys: OrganKodepiiaKidneys
+  - type: HumanoidProfile
+    species: Kodepiia
+
+- type: entity
+  parent:
+  - AppearanceKodepiia
+  - BaseSpeciesMobOrganic
+  id: MobKodepiia
+  name: Urist McSquid
+  components:
+  - type: KodepiiaScrambler
+  - type: ConsumeAction
+    popupSelfStart: kodepiia-consume-start-self
+    popupSelfEnd: kodepiia-consume-end-self
+    popupOthersStart: kodepiia-consume-start-others
+    popupOthersEnd: kodepiia-consume-end-self
+    consumeActionId: ActionKodepiiaConsume
+    damage:
+      types:
+        Cellular: 15
+        Piercing: 15
+    whitelist:
+      components:
+      - Respirator
+      - Bloodstream
+    blacklist:
+      components:
+      - SiliconLawBound
+  - type: TypingIndicator
+    proto: kodepiia
+  - type: Speech
+    speechSounds: Kodepiia
+    speechVerb: Kodepiia
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl','Hiss', 'KodeHonk', 'KodeRing', 'KodePew', 'KodeBang', 'KodeBeep', 'KodeRev', 'Squish', 'Chitter', 'Squeak', 'Click', 'Squish', 'KodeBoom', 'Chirp'] # my extremely normal beast
+  - type: Vocal
+    emoteSounds: UnisexKodepiia
+  - type: Damageable
+    damageModifierSet: Kodepiia
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#4f0000"
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodKodepiia
+        Quantity: 600
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      collection: BoxingHit
+    damage:
+      types:
+        Blunt: 5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatKodepiia
+      amount: 5
+  - type: Thirst
+  - type: Hunger
+    baseDecayRate: 0.15 # 10x default. 6 minutes to hungry and 15.5 minutes to starving
+  - type: Respirator
+    breathVolume: 1 # Twice as much - makes kodes sensitive to waste gases
+    updateIntervalMultiplier: 0.5 # Twice as fast
+    gaspEmoteCooldown: 4 # Twice as frequent
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganKodepiia
+  abstract: true
+  suffix: Kodepiia
+
+- type: entity
+  id: OrganKodepiiaMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Kodepiia ]
+
+- type: entity
+  id: OrganKodepiiaVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Kodepiia/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Kodepiia
+
+- type: entity
+  parent: [ OrganKodepiia, OrganKodepiiaVisual ]
+  id: OrganKodepiiaExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MACRO/Mobs/Species/Kodepiia/parts.rsi
+
+- type: entity
+  parent: OrganKodepiia
+  id: OrganKodepiiaInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MACRO/Mobs/Species/Kodepiia/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganKodepiiaExternal ]
+  id: OrganKodepiiaTorso
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Tenta
+
+- type: entity
+  parent: [ OrganBaseHead, OrganKodepiiaExternal ]
+  id: OrganKodepiiaHead
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganKodepiiaExternal ]
+  id: OrganKodepiiaLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganKodepiiaExternal ]
+  id: OrganKodepiiaLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganBaseHandLeft, OrganKodepiiaExternal ] # dont worry about it
+  id: OrganKodepiiaFootLeft
+  components:
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganBaseHandRight, OrganKodepiiaExternal ]
+  id: OrganKodepiiaFootRight
+  components:
+  - type: HandOrgan
+    handID: Right
+    data:
+      location: Right
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganKodepiiaInternal ]
+  id: OrganKodepiiaBrain
+  name: bille áu sac
+  description: "Allegedly still functioning."
+  components:
+  - type: Sprite
+    state: billeausac
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganKodepiiaInternal, OrganKodepiiaExternal ]
+  id: OrganKodepiiaEyes
+  name: opticullis
+  description: "The scavenger's kaleidoscope."
+  components:
+  - type: Sprite
+    layers:
+      - state: opticullis
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _MACRO/Mobs/Species/Kodepiia/parts.rsi
+      state: eyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganKodepiiaInternal ]
+  id: OrganKodepiiaTongue
+  name: slough
+  description: "Something that used to be skin." # concerning
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganKodepiiaInternal ]
+  id: OrganKodepiiaAppendix
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseEars, OrganKodepiiaInternal ]
+  id: OrganKodepiiaEars
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganKodepiiaInternal, OrganHumanMetabolizer ]
+  id: OrganKodepiiaLungs
+  name: fine coil
+  description: "Like lungs, but stretchier...?"
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganKodepiiaInternal, OrganKodepiiaMetabolizer ]
+  id: OrganKodepiiaHeart
+  name: COAT
+  description: "Allegedly 'quirked up' with 'the sauce,' if rumors are to be believed."
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganKodepiiaInternal, OrganKodepiiaMetabolizer ]
+  id: OrganKodepiiaStomach
+  name: primary gullet
+  description: "Leaky."
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+      - KodeEdible
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganKodepiiaInternal, OrganKodepiiaMetabolizer ]
+  id: OrganKodepiiaLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganKodepiiaInternal, OrganHumanMetabolizer ]
+  id: OrganKodepiiaKidneys

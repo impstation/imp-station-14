@@ -524,7 +524,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
+          type: [ Animal, Vox, Kodepiia ] #Macro, add Kodepiia
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -534,12 +534,12 @@
         probability: 0.1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
+          type: [ Animal, Vox, Plant, Kodepiia ] #Macro, add Kodepiia
           inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
+          type: [ Animal, Vox, Plant, Kodepiia ] #Macro, add Kodepiia
           inverted: true
         damage:
           types:
@@ -563,15 +563,14 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
-      # imp edit start
-      - !type:HealthChange
+      # macro edit start
+      - !type:EvenHealthChange
         probability: 0.5
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Kodepiia ]
+          type: [Kodepiia]
         damage:
-          groups:
-            Brute: -0.4
+          Brute: -0.4
       - !type:SatiateHunger
         conditions:
         - !type:MetabolizerTypeCondition
@@ -581,13 +580,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Kodepiia ]
-      - !type:AdjustReagent # Frontier
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Goblin ]
-        reagent: Protein
-        amount: 0.5
-      # imp edit end
+      # macro edit end
 
 - type: reagent
   id: Allicin

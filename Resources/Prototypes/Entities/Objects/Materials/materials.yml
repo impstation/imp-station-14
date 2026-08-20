@@ -845,11 +845,11 @@
           Quantity: 3
   - type: Item
     heldPrefix: bones
-  - type: Tag # imp
+  - type: Tag # imp and macro add
     tags:
-    - DroneUsable
-    - RawMaterial
-    - KodeEdible
+    - RawMaterial # macro
+    - KodeEdible # macro
+    - DroneUsable # imp
   - type: PluralName # imp
     oneOf: plural-name-some
     someOf: plural-name-bundle-1

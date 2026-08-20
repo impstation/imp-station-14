@@ -1,0 +1,40 @@
+- type: entity
+  name: raw kodepiia meat
+  parent: FoodMeatRawBase
+  id: FoodMeatKodepiia
+  description: Is it still moving...?
+  components:
+  - type: Sprite
+    sprite: _MACRO/Objects/Consumable/Food/Meat/kodepiia_meat.rsi
+    state: kodepiia
+  - type: Construction
+    graph: KodepiiaFlakes
+    node: start
+    defaultTarget: crispy kodepiia flakes
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - kodepiia
+
+- type: entity
+  name: crispy kodepiia flakes
+  parent: FoodMeatCookedBase
+  id: FoodMeatKodepiiaCooked
+  description: Crackly, salty, and just a little alive.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: _MACRO/Objects/Consumable/Food/Meat/kodepiia_meat.rsi
+    layers:
+    - state: kodepiia-cooked
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: Construction
+    graph: KodepiiaFlakes
+    node: crispy kodepiia flakes
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - kodepiia

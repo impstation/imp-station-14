@@ -42,7 +42,22 @@
   - type: Organ
     category: Torso
   - type: Sprite
-    state: torso #imp edit, removed '_m" sprite as part of upstream fix for sexed organs
+    state: torso
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Chest
+    data:
+      state: torso
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - Chest
+      - Tail
+      - Overlay
+      - TailOverlay
+      - UndergarmentTop
+      - UndergarmentBottom
+      - Special
+      - Tenta # MACRO ADD // Kode arms
 
 - type: entity
   parent: OrganBase

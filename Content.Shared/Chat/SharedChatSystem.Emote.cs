@@ -9,12 +9,12 @@ namespace Content.Shared.Chat;
 
 public abstract partial class SharedChatSystem
 {
-    private FrozenDictionary<string, ImmutableList<EmotePrototype>> _wordEmoteDict = FrozenDictionary<string, ImmutableList<EmotePrototype>>.Empty; // DeltaV - Multiple emotes
+    private FrozenDictionary<string, List<EmotePrototype>> _wordEmoteDict = FrozenDictionary<string, List<EmotePrototype>>.Empty; // Macro, list instead of individual
 
     private void CacheEmotes()
     {
-        var dict = new Dictionary<string, ImmutableList<EmotePrototype>>(); // DeltaV - Multiple triggers for the same emote
-        var emotes = _prototypeManager.EnumeratePrototypes<EmotePrototype>();
+        var dict = new Dictionary<string, List<EmotePrototype>>(); // Macro, list instead of individual
+        var emotes = ProtoMan.EnumeratePrototypes<EmotePrototype>();
         foreach (var emote in emotes)
         {
             foreach (var word in emote.ChatTriggers)
@@ -22,16 +22,16 @@ public abstract partial class SharedChatSystem
                 var lowerWord = word.ToLower();
                 if (dict.TryGetValue(lowerWord, out var value))
                 {
-                    // Begin DeltaV modification - Multiple emotes for the same words
-                    dict[lowerWord] = value.Add(emote);
+                    // Macro removal, changed to a list of emote prototypes
+                    // var errMsg = $"Duplicate of emote word {lowerWord} in emotes {emote.ID} and {value.ID}";
+                    // Log.Error(errMsg);
 
-                    var errMsg = $"Duplicate of emote word {lowerWord}";
-                    Log.Debug(errMsg); // IMP EDIT: really these should be warnings but for some fucking reason it breaks linter and they dont pay me enough to troubleshoot it another 2 hours -mq
-
+                    value.Add(emote); // Macro
                     continue;
                 }
 
-                dict.Add(lowerWord, ImmutableList.Create(emote)); // End DeltaV modification
+                var emoteList = new List<EmotePrototype>() { emote }; // Macro
+                dict.Add(lowerWord, emoteList); // Macro, added list instead of individual
             }
         }
 
@@ -173,7 +173,7 @@ public abstract partial class SharedChatSystem
     protected bool TryEmoteChatInput(EntityUid source, string textInput)
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
-        if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emotes)) // DeltaV, renames to emotes
+        if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emoteList)) // Macro, output list instead of individual
             return true;
         bool validEmote = false; // DeltaV - Multiple emotes for the same trigger
         foreach (var emote in emotes)
@@ -181,11 +181,15 @@ public abstract partial class SharedChatSystem
             if (!AllowedToUseEmote(source, emote) || !TryInvokeEmoteEvent(source, emote)) // imp
                 continue;
 
-            validEmote = true; // DeltaV
+        foreach (var emote in emoteList) // Macro
+        {
+            if (!AllowedToUseEmote(source, emote))
+                continue; // Macro, continue instead of instantly returning
+
+            return TryInvokeEmoteEvent(source, emote);
         }
 
-        return validEmote; //imp
-
+        return true; // Macro, default if no emotes were valid
     }
     /// <summary>
     /// Checks if we can use this emote based on the emotes whitelist, blacklist, and availability to the entity.

@@ -20,8 +20,29 @@
   offset: 0, 0
 
 - type: typingIndicator
+  id: kodepiia
+  spritePath: /Textures/_MACRO/Effects/speech.rsi
+  typingState: kode
+  idleState: kode # TODO: new idle state
+  offset: -0.45, 0.35
+
+- type: typingIndicator
+  id: Ungu
+  spritePath: /Textures/_MACRO/Effects/speech.rsi
+  typingState: ungu
+  idleState: ungu
+  offset: 0, 0.1
+
+- type: typingIndicator
   id: allulalo
   spritePath: /Textures/_MACRO/Effects/speech.rsi
   typingState: allulalo
   idleState: allulalo-idle
   offset: -0.45, 0.35
+
+- type: typingIndicator
+  id: ovinia
+  spritePath: /Textures/_MACRO/Effects/speech.rsi
+  typingState: ovinia0
+  idleState: ovinia-idle
+  offset: 0, 0

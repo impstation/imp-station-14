@@ -18,8 +18,10 @@
       - LHand
 
 - type: entity
-  parent: OrganBase
-  id: OrganBaseHandRightInactive # Allows you to define a left hand that works visually only
+  parent:
+  - OrganBase
+  - OrganBaseChildExternal
+  id: OrganBaseHandRightInactive # Allows you to define a right hand that works visually only
   name: right hand
   abstract: true
   components:

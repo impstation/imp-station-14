@@ -9,3 +9,180 @@
   - hiss
   - hisses
   - hissed
+
+# Kode
+- type: emote
+  id: KodeHonk
+  name: chat-emote-name-honk
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/honk.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-honk"]
+  chatTriggers:
+    - honk
+    - honks
+    - honking
+    - honked
+
+- type: emote
+  id: KodeRing
+  name: chat-emote-name-ring
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/ping.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-rings"]
+  chatTriggers:
+    - ring
+    - rings
+    - ringing
+    - ringed
+    - rang
+
+- type: emote
+  id: KodePew
+  name: chat-emote-name-pew
+  category: Vocal
+  available: false
+  icon: _MACRO/Interface/Emotes/pew.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-pews"]
+  chatTriggers:
+    - pew
+    - pews
+    - pewpew
+
+- type: emote
+  id: KodeBang
+  name: chat-emote-name-bang
+  category: Vocal
+  available: false
+  icon: _MACRO/Interface/Emotes/bang.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-bangs"]
+  chatTriggers:
+    - bang
+    - bangs
+    - banging
+    - banged
+
+- type: emote
+  id: KodeBeep
+  name: chat-emote-name-beep
+  category: Vocal
+  icon: Interface/Emotes/beep.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-beep"]
+  chatTriggers:
+    - beep
+    - beeps
+    - beeping
+    - beeped
+
+- type: emote
+  id: KodeRev
+  name: chat-emote-name-rev
+  category: Vocal
+  available: false
+  icon: _MACRO/Interface/Emotes/revs.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-revs"]
+  chatTriggers:
+    - rev
+    - revs
+    - revving
+    - revved
+
+- type: emote
+  id: KodeBoom
+  name: chat-emote-name-boom
+  category: Vocal
+  available: false
+  icon: _MACRO/Interface/Emotes/bang.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-booms"]
+  chatTriggers:
+    - boom
+    - booms
+    - boomed
+    - booming
+
+# Ovinia
+- type: emote
+  id: Baa
+  name: chat-emote-name-baa
+  category: Vocal
+  available: false
+  icon: _MACRO/Interface/Emotes/baa.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - OviniaEmotes
+  chatMessages: [ chat-emote-msg-baa ]
+  chatTriggers:
+    - baas
+    - baa
+    - baahs
+    - baah
+    - baahed
+    - baah'd
+    - baahing
+    - bah
+    - bahs
+    - bahed
+    - bah'd
+
+# Ungu
+- type: emote
+  id: Moo
+  name: chat-emote-name-moo
+  category: Vocal
+  icon: _MACRO/Interface/Emotes/moo.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+    tags:
+    - OviniaEmotes
+  chatMessages: [ chat-emote-msg-moo ]
+  chatTriggers:
+    - moos
+    - moo
+    - mooed
+    - moo'd

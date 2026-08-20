@@ -263,6 +263,9 @@
       effects:
       - !type:SatiateHunger
         conditions:
+        - !type:MetabolizerTypeCondition # macro add
+          type: [Kodepiia]
+          inverted: true
         - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
