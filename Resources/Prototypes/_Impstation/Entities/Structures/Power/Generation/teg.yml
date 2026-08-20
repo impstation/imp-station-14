@@ -90,9 +90,9 @@
     - type: ReagentEfficiency
       solutionName: lube
       modifiers:
-        SpaceLube: 1.2
-        SpaceGlue: 0.01
-        WeldingFuel: 0.6
+        SpaceLube: 2.0
+        SpaceGlue: -1
+        WeldingFuel: 0.9
       consumption: 0.1 # About 15 mins of runtime with 100u capacity
     - type: RefillableSolution
       solution: lube
@@ -113,7 +113,7 @@
           Structural: 1
       maxDamagePerTick: 1
       minDamagePerTick: 0
-      minimumNominalEfficiency: 50
+      minimumNominalEfficiency: 0.5
     - type: Damageable
       damageContainer: StructuralInorganic
     - type: Repairable

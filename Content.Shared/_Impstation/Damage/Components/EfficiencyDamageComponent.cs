@@ -24,7 +24,7 @@ public sealed partial class EfficiencyDamageComponent : Component
     /// The value at which damage begins. If efficiency drops below this value, damage will start to be applied.
     /// </summary>
     [DataField]
-    public float MinimumNominalEfficiency = 50f;
+    public float MinimumNominalEfficiency = 0.5f;
     // Damage Values
 
     /// <summary>
