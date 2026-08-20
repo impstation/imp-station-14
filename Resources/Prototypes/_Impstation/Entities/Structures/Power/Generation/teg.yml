@@ -91,7 +91,7 @@
       solutionName: lube
       modifiers:
         SpaceLube: 2.0
-        SpaceGlue: -1
+        SpaceGlue: -1.0
         WeldingFuel: 0.9
       consumption: 0.1 # About 15 mins of runtime with 100u capacity
     - type: RefillableSolution
@@ -111,8 +111,6 @@
       damage:
         types:
           Structural: 1
-      maxDamagePerTick: 1
-      minDamagePerTick: 0
       minimumNominalEfficiency: 0.5
     - type: Damageable
       damageContainer: StructuralInorganic
@@ -129,11 +127,6 @@
           - !type:PlaySoundBehavior
             sound:
               collection: MetalBreak
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              MaterialWoodPlank:
-                min: 2
-                max: 2
           - !type:ExplodeBehavior
     - type: Explosive
       explosionType: Default
