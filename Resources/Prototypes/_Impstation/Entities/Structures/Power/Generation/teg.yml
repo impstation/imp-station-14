@@ -105,6 +105,8 @@
       locVolume: "lube-gauge-examinable-solution-on-examine-volume"
     - type: DumpableSolution
       solution: lube
+    - type: Climbable
+      acceptDragAndDrop: false # Need this, otherwise DumpableSolution won't work.
 
     # Integrity and failure state
     - type: EfficiencyDamage
