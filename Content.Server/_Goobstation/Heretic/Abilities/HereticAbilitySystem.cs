@@ -1,9 +1,8 @@
-using Content.Server._Goobstation.Heretic.Components;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Server._Impstation.Heretic.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
-using Content.Shared.Interaction;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.EntitySystems;
@@ -11,25 +10,27 @@ using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
+using Content.Shared.Interaction;
 using Content.Shared.Medical;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Store.Components;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Random;
-using Robust.Server.GameObjects;
-using Content.Shared.Stunnable;
 using Content.Shared.StatusEffect;
+using Content.Shared.Store.Components;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared._Starlight.CollectiveMind;
+using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -51,6 +52,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly BlindableSystem _blindable = default!;
@@ -60,7 +62,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
 
@@ -72,7 +73,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
+            if (TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath
             || HasComp<MinionComponent>(look))
                 continue;
 

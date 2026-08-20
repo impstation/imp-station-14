@@ -16,3 +16,13 @@
   cost: 800
   category: cargoproduct-category-name-engineering
   group: market
+
+- type: cargoProduct
+  id: EngineeringSupermatter
+  icon:
+    sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter_shard.rsi
+    state: supermatter-shard
+  product: CrateEngineeringSupermatterShard
+  cost: 40000
+  category: cargoproduct-category-name-engineering
+  group: market

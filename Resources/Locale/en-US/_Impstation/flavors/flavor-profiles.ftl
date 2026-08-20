@@ -76,6 +76,8 @@ flavor-complex-poormansfrezon = like a good time
 flavor-complex-doublegreen = bitter and nauseating
 flavor-complex-liquidlunch = like a pureed rat
 
+flavor-complex-gamers = like a plumber's touch
+
 flavor-complex-safe = safe
 flavor-complex-profane = profane
 
@@ -127,3 +129,5 @@ flavor-complex-allulalo = like hand sanitizer
 flavor-complex-pear = like pear
 flavor-complex-concerning = Concerning
 flavor-complex-magic = like your head is swirling and spinning
+
+flavor-complex-vanilla-cafe-latte = like a creamy vanilla morning
