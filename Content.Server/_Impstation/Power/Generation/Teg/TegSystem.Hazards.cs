@@ -3,11 +3,7 @@ using Content.Shared.Power.Generation.Teg;
 using Content.Shared.Wires;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Server.Atmos.Piping.Unary.Components;
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Jittering;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Repairable;
 using Content.Server.Popups;
 using Content.Shared._Impstation.ReagentEfficiency;
 using Content.Shared._Impstation.Repairable;
@@ -17,8 +13,6 @@ namespace Content.Server.Power.Generation.Teg;
 
 public sealed partial class TegSystem
 {
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly GasOutletInjectorSystem _gasInjectorSystem = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -51,7 +45,7 @@ public sealed partial class TegSystem
     }
 
     /// <summary>
-    /// Cancels the repair doafter if the circulator is not opened.
+    /// Cancels the repair doafter if the circulator is not open.
     /// </summary>
     private void OnRepairAttempt(Entity<TegCirculatorComponent> ent, ref RepairAttemptEvent args)
     {
@@ -77,7 +71,6 @@ public sealed partial class TegSystem
 
         // Apply subnominal visuals if taking damage
         // TODO: Jittering uses so many component lookups. Optimize or remove this wholesale.
-        // TODO: Could look better
         EfficiencyDamageComponent? effDamage = null;
         if (stress > 0f && ResolveEfficiencyDamage(ent, ref effDamage) && efficiency < effDamage.MinimumNominalEfficiency)
         {
