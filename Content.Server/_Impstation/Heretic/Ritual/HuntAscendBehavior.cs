@@ -1,13 +1,14 @@
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Heretic.Prototypes;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
+/// <summary>
+/// Behavior for hunt path ascensions. Inherits from <see cref="SacrificeBehavior"/>
+/// </summary>
 public sealed partial class HuntAscendBehavior : SacrificeBehavior
 {
     /// <summary>
-    /// List of entities which meet the requirements for the ritual.
+    /// List of entities that meet the conditions for the hunt ascension.
     /// </summary>
     private List<EntityUid> _usableUids = new();
 
@@ -16,7 +17,13 @@ public sealed partial class HuntAscendBehavior : SacrificeBehavior
         base.Initialize();
     }
 
-    public bool DoHuntAscendRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    /// <summary>
+    /// Conditions check for the hunt ascension.
+    /// </summary>
+    /// <param name="performer">Entity performing the ritual.</param>
+    /// <param name="platform">The transmutation rune.</param>
+    /// <returns>If the conditions succeed or not.</returns>
+    public bool DoHuntAscendRitual(EntityUid performer, EntityUid platform)
     {
         // This is effectively just the ash ascencion but with cuffed corpses.
         // Check for cuffed corpses.

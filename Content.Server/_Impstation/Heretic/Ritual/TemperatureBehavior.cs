@@ -7,6 +7,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
+/// <summary>
+/// Behavior for making a ritual require certain temperature conditions.
+/// </summary>
 public sealed partial class TemperatureBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
@@ -29,6 +32,7 @@ public sealed partial class TemperatureBehavior : SharedRitualBehaviorSystem
 
     public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
+        // Get the gas mixture for the center tile of the platform.
         var mix = _atmos.GetTileMixture(platform);
 
         if (mix == null || mix.TotalMoles == 0) // just accept space as it is

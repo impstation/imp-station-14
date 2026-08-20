@@ -32,6 +32,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
+    // Behavior systems
     [Dependency] private readonly TransmuteBehavior _transmute = default!;
     [Dependency] private readonly TemperatureBehavior _temperature = default!;
     [Dependency] private readonly SacrificeBehavior _sacrifice = default!;
@@ -194,17 +195,17 @@ public sealed partial class HereticRitualSystem : EntitySystem
         var ritual = GetRitual(heretic.ChosenRitual);
         var behaviors = ritual.RitualBehavior ?? new();
 
+        // Check that we have all of the items needed.
         if (!TryDoRitual(args.User, ent, ritual))
             return;
 
-        // Check all conditions are met.
+        // Check all other conditions are met.
         foreach (var behavior in behaviors)
         {
             // There are probably so many better ways to do this.
             switch (behavior)
             {
                 // Anything that inherits from SacrificeBehavior
-                // Needs to have DoRitual first to check for sacrificable bodies.
                 case SacrificeBehavior:
                     if (behavior is SacrificeBehavior)
                     {
@@ -220,21 +221,16 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     }
                     if (behavior is HuntAscendBehavior)
                     {
-                        if (_huntAscend.DoRitual(args.User, ent, ritual) == false && _huntAscend.DoHuntAscendRitual(args.User, ent, ritual) == false)
+                        if (_huntAscend.DoRitual(args.User, ent, ritual) == false && _huntAscend.DoHuntAscendRitual(args.User, ent) == false)
                             return;
                         break;
                     }
                     if (behavior is AshAscendBehavior)
                     {
-                        if (_ashAscend.DoRitual(args.User, ent, ritual) == false && _ashAscend.DoAshAscendRitual(args.User, ent, ritual) == false)
+                        if (_ashAscend.DoRitual(args.User, ent, ritual) == false && _ashAscend.DoAshAscendRitual(args.User, ent) == false)
                             return;
                         break;
                     }
-                    break;
-
-                case TransmuteBehavior:
-                    if (_transmute.DoRitual(args.User, ent, ritual))
-                        return;
                     break;
 
                 case TemperatureBehavior:
@@ -262,7 +258,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     }
                     if (behavior is MuteGhoulifyBehavior)
                     {
-                        _muteGhoulify.DoMuteGhoulifyRitualEffect(args.User, ent, ritual);
+                        _muteGhoulify.DoMuteGhoulifyRitualEffect(args.User);
                         break;
                     }
                     break;
@@ -296,12 +292,15 @@ public sealed partial class HereticRitualSystem : EntitySystem
         _adminLogManager.Add(LogType.Action, LogImpact.High, $"{args.User} performed ritual {heretic.ChosenRitual}");
     }
 
+    /// <summary>
+    /// Event called when the ritual rune is examined.
+    /// </summary>
     private void OnExamine(Entity<HereticRitualRuneComponent> ent, ref ExaminedEvent args)
     {
-        if (!TryComp<HereticComponent>(args.Examiner, out var h))
+        if (!TryComp<HereticComponent>(args.Examiner, out var hereticComp))
             return;
 
-        var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).LocName : null;
+        var ritual = hereticComp.ChosenRitual != null ? GetRitual(hereticComp.ChosenRitual).LocName : null;
         var name = ritual != null ? Loc.GetString(ritual) : "None";
         args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
     }

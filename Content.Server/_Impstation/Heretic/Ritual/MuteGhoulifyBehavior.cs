@@ -2,13 +2,14 @@ using Content.Server._Impstation.Heretic.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared._Impstation.Heretic;
 using Content.Shared._Impstation.Heretic.Components;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
+/// <summary>
+/// Behavior for creating mute ghouls. Inherits from <see cref="SacrificeBehavior"/>
+/// </summary>
 public sealed partial class MuteGhoulifyBehavior : SacrificeBehavior
 {
     [Dependency] private readonly MinionSystem _minion = default!;
@@ -19,13 +20,18 @@ public sealed partial class MuteGhoulifyBehavior : SacrificeBehavior
         base.Initialize();
     }
 
-    public void DoMuteGhoulifyRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    /// <summary>
+    /// Turns the entity being sacrificed into a mute ghoul.
+    /// </summary>
+    /// <param name="performer">Entity performing the ritual.</param>
+    public void DoMuteGhoulifyRitualEffect(EntityUid performer)
     {
         // Make ghoul.
         foreach (var uid in Uids)
         {
             var ghoul = new GhoulComponent()
             {
+                // 125 health, for mobs with 200 health baseline.
                 HealthDivisor = 1.60
             };
             EntityManager.AddComponent(uid, ghoul, overwrite: true);
@@ -41,6 +47,7 @@ public sealed partial class MuteGhoulifyBehavior : SacrificeBehavior
             _popup.PopupEntity(popupOthers, uid, PopupType.LargeCaution);
         }
 
+        // Reset the list of UIDs.
         Uids = [];
     }
 }

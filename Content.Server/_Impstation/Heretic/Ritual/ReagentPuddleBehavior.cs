@@ -7,14 +7,24 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
+/// <summary>
+/// Behavior for making a ritual require certain reagents (in puddle form).
+/// </summary>
 public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PrototypeManager _proto = default!;
 
+    /// <summary>
+    /// Whitelist for reagents that can be used for the given ritual.
+    /// </summary>
     [DataField] public List<ProtoId<ReagentPrototype>>? Reagents;
 
-    private List<EntityUid> _uids = new();
+    /// <summary>
+    /// The puddles of whatever that are being checked.
+    /// </summary>
+    private List<EntityUid> _puddles = new();
 
     public override void Initialize()
     {
@@ -23,17 +33,19 @@ public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 
     public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
+        // We need reagents to not be null.
         if (Reagents == null)
         {
-            //should only happen if someone fucked up their ritual yaml
             _popup.PopupEntity(Loc.GetString("heretic-ritual-unknown"), platform, performer);
             return false;
         }
+
+        // List of reagents that eventually gets pushed as a popup, if none of the whitelisted reagents are found.
         string reagStrings = "";
 
         foreach (var reagent in Reagents)
         {
-            reagStrings += reagent.Id + ", ";
+            reagStrings += _proto.Index<ReagentPrototype>(reagent.Id).LocalizedName + ", ";
 
             var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
@@ -50,10 +62,10 @@ public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
                 if (!soln.Comp.Solution.ContainsPrototype(reagent))
                     continue;
 
-                _uids.Add(ent);
+                _puddles.Add(ent);
             }
 
-            if (_uids.Count == 0)
+            if (_puddles.Count == 0)
             {
                 continue;
             }
@@ -69,9 +81,11 @@ public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 
     public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
     {
-        foreach (var uid in _uids)
+        // Delete all the puddles on ritual success.
+        foreach (var uid in _puddles)
             QueueDel(uid);
 
-        _uids = [];
+        // Reset the puddleslist.
+        _puddles = [];
     }
 }

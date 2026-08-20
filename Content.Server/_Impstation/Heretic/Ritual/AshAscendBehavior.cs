@@ -1,11 +1,15 @@
 using Content.Shared.Atmos.Components;
-using Content.Shared.Heretic.Prototypes;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
+/// <summary>
+/// Behavior for ash path ascensions. Inherits from <see cref="SacrificeBehavior"/>
+/// </summary>
 public sealed partial class AshAscendBehavior : SacrificeBehavior
 {
+    /// <summary>
+    /// List of entities that meet the conditions for the ash ascension.
+    /// </summary>
     private List<EntityUid> _usableUids = new();
 
     public override void Initialize()
@@ -13,7 +17,13 @@ public sealed partial class AshAscendBehavior : SacrificeBehavior
         base.Initialize();
     }
 
-    public bool DoAshAscendRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    /// <summary>
+    /// Conditions check for the ash ascension.
+    /// </summary>
+    /// <param name="performer">Entity performing the ritual.</param>
+    /// <param name="platform">The transmutation rune.</param>
+    /// <returns>If the conditions succeed or not.</returns>
+    public bool DoAshAscendRitual(EntityUid performer, EntityUid platform)
     {
         // Check for burning corpses.
         for (int i = 0; i < Max; i++)

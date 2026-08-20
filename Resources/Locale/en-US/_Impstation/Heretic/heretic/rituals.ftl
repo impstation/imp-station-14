@@ -18,6 +18,7 @@ heretic-ritual-fail-reagentpuddle = This ritual needs a puddle of one of these: 
 heretic-ritual-fail-temperature-hot = It is too hot here.
 heretic-ritual-fail-temperature-cold = It is not cold enough here.
 heretic-ritual-fail-sacrifice-ash = All sacrifices must be dead or dying, and burning.
+heretic-ritual-fail-sacrifice-hunt = All sacrifices must be dead or dying, and handcuffed.
 
 ## side quests
 heretic-ritual-side-knowledge = Ritual of Knowledge
@@ -52,5 +53,3 @@ heretic-ritual-hunt-blade = Principle of Strife
 heretic-ritual-hunt-bag = Meteoric Pouch
 heretic-ritual-hunt-lionhunter = Lionhunter's Rifle
 heretic-ritual-hunt-cloak = Skaptodon Cloak
-
-heretic-ritual-fail-sacrifice-hunt = There's either not enough of them dead, or handcuffed.

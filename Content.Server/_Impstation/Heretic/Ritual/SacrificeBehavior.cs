@@ -18,20 +18,18 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
-/// Class for handling sacrifices.
+/// Behavior for making a ritual require an entity to be sacrificed.
 /// </summary>
 /// <remarks> Marked as virtual because this also is used by ascensions.</remarks>
 [Virtual]
 public partial class SacrificeBehavior : SharedRitualBehaviorSystem
 {
-    // Dependencies
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
-    // Fields
     /// <summary>
     /// Minimum amount of corpses.
     /// </summary>
@@ -78,6 +76,8 @@ public partial class SacrificeBehavior : SharedRitualBehaviorSystem
     {
         // Check if there's even anything on the circle, if there is, add it to a list.
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
+
+        // If there's Nothing, tell the performer.
         if (lookup.Count == 0)
         {
             Popup.PopupEntity(Loc.GetString("heretic-ritual-fail-sacrifice"), platform, performer);
@@ -87,21 +87,21 @@ public partial class SacrificeBehavior : SharedRitualBehaviorSystem
         foreach (var look in lookup)
         {
             if (!TryComp<MobStateComponent>(look, out var mobstate) // only mobs
-            || !HasComp<HumanoidAppearanceComponent>(look) //player races only
-            || HasComp<NoSacrificeComponent>(look) //no reusing corpses
-            || HasComp<GhoulComponent>(look)) //shouldn't happen because they gib on death but. sanity check
+            || !HasComp<HumanoidAppearanceComponent>(look) // player races only
+            || HasComp<NoSacrificeComponent>(look) // no reusing corpses
+            || HasComp<GhoulComponent>(look)) // shouldn't happen because they gib on death but. sanity check
                 continue;
 
             if (mobstate.CurrentState != MobState.Alive)
                 Uids.Add(look);
 
-            if (mobstate.CurrentState == MobState.Critical) //if still alive, do enough damage to kill
+            if (mobstate.CurrentState == MobState.Critical) // if still alive, do enough damage to kill
             {
                 _dmg.TryChangeDamage(look, SacDamage, true, origin: performer);
             }
         }
 
-        // If none are dead, say so.
+        // If we have less corpses than what is required by the ritual, tell the performer.
         if (Uids.Count < Min)
         {
             Popup.PopupEntity(Loc.GetString("heretic-ritual-fail-sacrifice-ineligible"), platform, performer);
