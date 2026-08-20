@@ -715,3 +715,23 @@
     FoodKebabSkewer: 1
     FoodMochiSlice: 3
   recipeType: Microwave
+
+- type: microwaveMealRecipe
+  id: RecipeCakeChocolate
+  name: chocolate cake recipe
+  result: FoodCakeChocolate
+  time: 15
+  group: Cake
+  solids:
+    FoodCakeBatterChocolate: 1
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeCakeCottonUnfrosted
+  name: cotton cake recipe
+  result: FoodCakeCottonUnfrosted
+  time: 15
+  group: Cake
+  solids:
+    FoodCakeBatterCotton: 1
+  recipeType: Oven
