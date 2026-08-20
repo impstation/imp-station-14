@@ -237,6 +237,10 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         supplier.MaxSupply = component.PowerSmoothingFactor * (power * component.RampFactor) +
                              (1 - component.PowerSmoothingFactor) * supplier.MaxSupply;
 
+        // imp edit: Moved further up in the function
+        // var circBComp = Comp<TegCirculatorComponent>(circB);
+        // var circAComp = Comp<TegCirculatorComponent>(circA);
+
         circAComp.LastPressureDelta = δpA;
         circAComp.LastMolesTransferred = airA.TotalMoles;
         circBComp.LastPressureDelta = δpB;

@@ -52,17 +52,11 @@ public sealed partial class TegCirculatorComponent : Component
     /// <summary>
     /// Cache for REC to avoid comp lookups every atmos tick.
     /// </summary>
-    /// <remarks>
-    /// TODO: Bad pattern/design? I have no idea.
-    /// </remarks>
     public ReagentEfficiencyComponent? ReagentEfficiencyComponentCache = null;
 
     /// <summary>
     /// Cache for <see cref="EfficiencyDamageComponent"/> to avoid comp lookups every atmos tick.
     /// </summary>
-    /// <remarks>
-    /// TODO: Bad pattern/design? I have no idea.
-    /// </remarks>
     public EfficiencyDamageComponent? EfficiencyDamageComponentCache = null;
 
     /// <summary>
