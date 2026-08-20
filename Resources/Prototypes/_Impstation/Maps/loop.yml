@@ -1,0 +1,69 @@
+- type: gameMap
+  id: Loop
+  mapName: 'Loop Station'
+  mapPath: /Maps/_Impstation/loop.yml
+  minPlayers: 30
+  maxPlayers: 70
+  stations:
+    Loop:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Loop Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_wode.yml
+        - type: StationJobs
+          availableJobs: # Total of 69 (nice)
+            #command - 8
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            HospitalityDirector: [ 1, 1 ]
+            #service - 13-14
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 2 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceAttendant: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
+            #engineering - 7-9
+            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 4, 4 ]
+            TechnicalAssistant: [ 2, 2 ]
+            #medical - 7-9
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 4, 4 ]
+            Paramedic: [ 1, 1 ]
+            MedicalIntern: [ 2, 2 ]
+            #science - 4-6
+            Scientist: [ 4, 4 ]
+            ResearchAssistant: [ 2, 2 ]
+            #security - 9 - 11
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 4, 4 ]
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 2, 2 ]
+            Lawyer: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ]
+            #supply - 7-9
+            SalvageSpecialist: [ 2, 2 ]
+            CargoTechnician: [ 4, 4 ]
+            Courier: [ 1, 1 ]
+            SupplyAssistant: [ 2, 2 ]
+            #civilian
+            Passenger: [ -1, -1 ]
+            #silicon - 3
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]
