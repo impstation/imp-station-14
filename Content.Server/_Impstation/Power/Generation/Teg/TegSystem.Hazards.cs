@@ -36,10 +36,18 @@ public sealed partial class TegSystem
     }
 
     /// <returns>Whether this circulator is open.</returns>
-    public bool IsOpen(EntityUid uid)
+    public bool IsOpen(Entity<TegCirculatorComponent> ent)
     {
+        // Check the circulator component to avoid a TryComp.
+        if (ent.Comp.Open != null)
+            return (bool)ent.Comp.Open;
+
         // Try to get the WiresPanel component and see if it's open.
-        return TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open; //TODO: Optimize out this trycomp
+        var open = TryComp<WiresPanelComponent>(ent, out var panel) && panel.Open;
+
+        // Populate the cache.
+        ent.Comp.Open = open;
+        return open;
     }
 
     /// <summary>

@@ -25,21 +25,19 @@ public sealed partial class TegSystem
     /// </summary>
     private void OnPanelChanged(EntityUid uid, TegCirculatorComponent comp, PanelChangedEvent args)
     {
-        // Open the circulator. "Expose" the air injector to the atmosphere and allow reagent transfer.
-        if (args.Open)
-        {
-            // AddSolutionAccessibility(uid);
-            _openable.SetOpen(uid, true);
-            ChangeInjectorState(uid, true);
-        }
+        SetOpen((uid, comp), args.Open);
+    }
 
-        // Close the circulator.
-        else
-        {
-            // RemoveSolutionAccessibility(uid);
-            _openable.SetOpen(uid, false);
-            ChangeInjectorState(uid, false);
-        }
+    /// <summary>
+    /// Sets the circulator open state and changes relevant fields and components.
+    /// When open, the "air injector" turns on and the circulator is able to be lubricated.
+    /// </summary>
+    /// <param name="open">Whether the circulator is open.</param>
+    public void SetOpen(Entity<TegCirculatorComponent> ent, bool open)
+    {
+        _openable.SetOpen(ent, open);
+        ChangeInjectorState(ent, open);
+        ent.Comp.Open = open;
     }
 
     /// <summary>

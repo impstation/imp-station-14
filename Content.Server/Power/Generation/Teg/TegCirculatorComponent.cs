@@ -1,7 +1,6 @@
 ﻿using Content.Shared.Atmos;
-using Content.Shared._Impstation.ReagentEfficiency;
-using Content.Shared._Impstation.Damage;
-using YamlDotNet.Core; // IMP ADD: for rework
+using Content.Shared._Impstation.ReagentEfficiency; // IMP ADD: for rework
+using Content.Shared._Impstation.Damage; // IMP ADD: for rework
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -65,5 +64,10 @@ public sealed partial class TegCirculatorComponent : Component
     /// TODO: Bad pattern/design? I have no idea.
     /// </remarks>
     public EfficiencyDamageComponent? EfficiencyDamageComponentCache = null;
+
+    /// <summary>
+    /// "Cache" to prevent <see cref="WiresPanelComponent"/> lookups.
+    /// </summary>
+    public bool? Open;
     // IMP ADD END
 }

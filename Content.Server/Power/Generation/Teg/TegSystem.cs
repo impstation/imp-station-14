@@ -148,23 +148,23 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         var circA = tegGroup.CirculatorA!.Owner;
         var circB = tegGroup.CirculatorB!.Owner;
 
-        var circAComp = Comp<TegCirculatorComponent>(circA); // IMP EDIT: moved up from further down in the function
-        var circBComp = Comp<TegCirculatorComponent>(circB); // IMP EDIT: moved up from further down in the function
+        // IMP EDIT: moved up from further down in the function
+        var circAComp = Comp<TegCirculatorComponent>(circA);
+        var circBComp = Comp<TegCirculatorComponent>(circB);
 
-        var entA = new Entity<TegCirculatorComponent>(circA, circAComp); // IMP ADD: for use with lubrication
-        var entB = new Entity<TegCirculatorComponent>(circB, circBComp); // IMP ADD: for use with lubrication
+        // IMP ADD: for use with lubrication
+        var entA = new Entity<TegCirculatorComponent>(circA, circAComp);
+        var entB = new Entity<TegCirculatorComponent>(circB, circBComp);
 
         var (inletA, outletA) = GetPipes(circA);
         var (inletB, outletB) = GetPipes(circB);
 
         // IMP ADD: Find whether the circulators are opened
-        // Optimization? Comp() is called many other times in this function, so this should be ok?
-        // Could cache WiresPanelComponent in CirculatorComponent for Resolve() to run faster?
-        var openA = IsOpen(circA);
-        var openB = IsOpen(circB);
+        var openA = IsOpen(entA);
+        var openB = IsOpen(entB);
 
-        var (airA, δpA) = openA ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletA.Air, outletA.Air); // IMP EDIT: Only transfer air if closed
-        var (airB, δpB) = openB ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletB.Air, outletB.Air); // IMP EDIT: Only transfer air if closed
+        var (airA, δpA) = openA ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletA.Air, outletA.Air); // IMP EDIT: Only transfer air if the circulator is closed
+        var (airB, δpB) = openB ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletB.Air, outletB.Air); // IMP EDIT: Only transfer air if the circulator is closed
 
         // IMP ADD: Calculate efficiencies of circulators. May trigger failure state!
         var averageCirculatorEfficiency = AverageCirculatorEfficiency(entA, entB, δpA, δpB, args.dt);
