@@ -74,11 +74,13 @@ public sealed class ContrabandSystem : EntitySystem
         {
             // department restricted text
             departmentExamineMessage =
-                GenerateDepartmentExamineMessage(component.AllowedDepartments, component.AllowedJobs);
+                // imp. add severity examine color
+                GenerateDepartmentExamineMessage(component.AllowedDepartments, component.AllowedJobs, ContrabandItemType.Item, severity.ExamineColor);
         }
         else
         {
-            departmentExamineMessage = Loc.GetString(severity.ExamineText);
+            // imp. add severity examine color
+            departmentExamineMessage = Loc.GetString(severity.ExamineText, ("color", severity.ExamineColor));
         }
 
         // text based on ID card
@@ -114,7 +116,8 @@ public sealed class ContrabandSystem : EntitySystem
             iconTexture);
     }
 
-    public string GenerateDepartmentExamineMessage(HashSet<ProtoId<DepartmentPrototype>> allowedDepartments, HashSet<ProtoId<JobPrototype>> allowedJobs, ContrabandItemType itemType = ContrabandItemType.Item)
+    // imp. add severity examine color
+    public string GenerateDepartmentExamineMessage(HashSet<ProtoId<DepartmentPrototype>> allowedDepartments, HashSet<ProtoId<JobPrototype>> allowedJobs, ContrabandItemType itemType, string color)
     {
         var localizedDepartments = allowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
         var jobs = allowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
@@ -124,7 +127,8 @@ public sealed class ContrabandSystem : EntitySystem
         var list = ContentLocalizationManager.FormatList(localizedDepartments.Concat(localizedJobs).ToList());
 
         // department restricted text
-        return Loc.GetString("contraband-examine-text-Restricted-department", ("departments", list), ("type", itemType));
+        // imp. add severity examine color
+        return Loc.GetString("contraband-examine-text-Restricted-department", ("departments", list), ("type", itemType), ("color", color));
     }
 
     private FormattedMessage GetContrabandExamine(String deptMessage, String carryMessage)
