@@ -1,12 +1,12 @@
-# For mantles
-- type: loadoutEffectGroup
-  id: MasterCE
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChiefEngineer
-      time: 10h # imp, was 20
+# # For mantles
+# - type: loadoutEffectGroup
+#   id: MasterCE
+#   effects:
+#   - !type:JobRequirementLoadoutEffect Imp
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobChiefEngineer
+#       time: 10h # imp, was 20
 
 # Jumpsuit
 - type: loadout
@@ -49,9 +49,9 @@
   id: ChiefEngineerMantle
   equipment:
     neck: ClothingNeckMantleCE
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterCE
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: MasterCE
 
 - type: startingGear
   id: ChiefEngineerMantle

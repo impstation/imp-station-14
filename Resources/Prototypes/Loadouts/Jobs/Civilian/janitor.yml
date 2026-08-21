@@ -1,11 +1,11 @@
-- type: loadoutEffectGroup
-  id: SeniorJanitorial
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobJanitor
-      time: 30h # imp, was 52
+# - type: loadoutEffectGroup
+#   id: SeniorJanitorial
+#   effects:
+#   - !type:JobRequirementLoadoutEffect Imp
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobJanitor
+#       time: 30h # imp, was 52
 
 # Head
 - type: loadout

@@ -1,12 +1,3 @@
-- type: loadoutEffectGroup
-  id: VeteranCommand
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Command
-      time: 30h
-
 # Back
 - type: loadout
   id: CommandVeteranBackpack
@@ -44,6 +35,3 @@
   id: CommandVeteranHeadset
   equipment:
     ears: ClothingHeadsetCommandveteran
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranCommand
