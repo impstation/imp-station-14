@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/09/2026 13:41:17
+  time: 05/29/2026 11:23:07
   entityCount: 441
 maps: []
 grids:
@@ -175,7 +175,7 @@ entities:
     - type: DeviceList
       devices:
       - 239
-      - 155
+      - 154
       - 156
     - type: Fixtures
       fixtures: {}
@@ -1785,11 +1785,11 @@ entities:
       parent: 1
 - proto: GasPipeTJunctionAlt2
   entities:
-  - uid: 154
+  - uid: 155
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 11.5,3.5
+      pos: 11.5,4.5
       parent: 1
   - uid: 321
     components:
@@ -1814,7 +1814,8 @@ entities:
   - uid: 148
     components:
     - type: Transform
-      pos: 11.5,4.5
+      rot: 3.141592653589793 rad
+      pos: 11.5,3.5
       parent: 1
 - proto: GasVentPump
   entities:
@@ -1871,11 +1872,11 @@ entities:
       - 274
 - proto: GasVentScrubberAlt2
   entities:
-  - uid: 155
+  - uid: 154
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 10.5,3.5
+      pos: 10.5,4.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:

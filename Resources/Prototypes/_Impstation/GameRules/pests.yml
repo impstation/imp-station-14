@@ -214,3 +214,16 @@
     entries:
     - id: MobSlurgle
       prob: 0.01
+
+- type: entity
+  id: TurtleMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 4
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobTurtle
+      prob: 0.05

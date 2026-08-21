@@ -48,8 +48,8 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: _Impstation/Mobs/Animals/bros.rsi
-          state: bros
+        - sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
+          state: icon
     - type: ClusterSpawner
       prototypes:
         - MobBros
@@ -177,8 +177,8 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: _Impstation/Mobs/Animals/foes.rsi
-          state: foes
+        - sprite: _Impstation/Mobs/Animals/Bros/foes.rsi
+          state: icon
     - type: ClusterSpawner
       prototypes:
         - MobFoes

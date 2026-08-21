@@ -327,6 +327,8 @@
       tableId: PackageImpTacticalMaidCosplay
     - !type:NestedSelector
       tableId: PackageImpMaidCosplay
+    - !type:NestedSelector
+      tableId: PackageImpConductorCosplay
     - id: MailImpContractKillerKit
 
 - type: entityTable
@@ -395,6 +397,14 @@
     - id: ClothingHeadJesterEvilHat
     - id: ClothingUniformJesterEvil
     - id: ClothingShoesJesterEvilJanglers
+
+- type: entityTable
+  id: PackageImpConductorCosplay
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadHatConductor
+    - id: ClothingUniformJumpsuitNanotrasen
+    - id: TrainWhistle
 #clothing
 - type: entityTable
   id: PackageImpClothesEntityTable

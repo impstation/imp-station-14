@@ -14,6 +14,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Content.Shared.Tag; // imp
 
 namespace Content.Shared.Materials;
 
@@ -30,8 +31,10 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!; // imp
 
     public const string ActiveReclaimerContainerId = "active-material-reclaimer-container";
+    private static string _gibbableTag = "RecyclerGibbable"; // imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -95,8 +98,10 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         if (!CanStart(uid, component))
             return false;
 
+        /* imp, comment this part out since we're damaging ungibbable mobs
         if (HasComp<MobStateComponent>(item) && !CanGib(uid, item, component)) // whitelist? We be gibbing, boy!
             return false;
+        */
 
         if (_whitelistSystem.IsWhitelistFail(component.Whitelist, item) ||
             _whitelistSystem.IsWhitelistPass(component.Blacklist, item))
@@ -214,7 +219,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
                component.Enabled &&
                !component.Broken &&
                HasComp<BodyComponent>(victim) &&
-               _emag.CheckFlag(uid, EmagType.Interaction);
+               (_emag.CheckFlag(uid, EmagType.Interaction) || _tagSystem.HasTag(victim, _gibbableTag)); // imp edit, mobs are gibbable if they have the tag
     }
 
     /// <summary>

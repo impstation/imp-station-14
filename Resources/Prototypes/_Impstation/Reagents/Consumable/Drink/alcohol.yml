@@ -1031,3 +1031,32 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+
+- type: reagent
+  id: GamersDelight
+  name: reagent-name-gamers
+  parent: BaseAlcohol
+  desc: reagent-desc-gamers
+  physicalDesc: reagent-physical-desc-salty
+  flavor: gamers
+  color: "#ff3e40"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/gamersdelight.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+      - !type:Emote
+        emote: Scream
+        showInChat: true
+        force: true
+        probability: 0.35

@@ -93,9 +93,9 @@
         Quantity: 150
 
 - type: entity
-  name: terrelli feind-fish
+  name: terrelli fiend-fish
   parent: MobShark
-  id: MobFeindfish
+  id: MobFiendfish
   description: Also known as the friend-fish.
   components:
   - type: Sprite
@@ -141,9 +141,9 @@
 
 - type: entity
   name: terrelli friend-fish
-  parent: MobFeindfish
+  parent: MobFiendfish
   id: MobFriendfish
-  description: Also known as the feind-fish.
+  description: Also known as the fiend-fish.
   components:
   - type: HTN
     rootTask:

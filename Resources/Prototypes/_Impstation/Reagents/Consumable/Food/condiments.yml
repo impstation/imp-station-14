@@ -104,3 +104,26 @@
   name: reagent-name-black-food-coloring
   desc: reagent-desc-black-food-coloring
   color: "#363636"
+
+# Syrups
+
+- type: reagent
+  id: VanillaSyrup
+  name: reagent-name-vanilla-syrup
+  group: Foods
+  desc: reagent-desc-vanilla-syrup
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: vanilla
+  color: "#fdf9e8"
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:ReagentCondition #Only satiates when eaten with nutriment
+          reagent: Nutriment
+          min: 0.1
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+          inverted: true
+        factor: 1

@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
@@ -15,6 +16,7 @@ namespace Content.Shared.Xenoarchaeology.Equipment;
 /// </summary>
 public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 {
+    [Dependency] private readonly SharedDeviceLinkSystem _linkSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
@@ -27,12 +29,23 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         SubscribeLocalEvent<AdvancedNodeScannerComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<AdvancedNodeScannerComponent, PortDisconnectedEvent>(OnPortDisconnected);
         SubscribeLocalEvent<AdvancedNodeScannerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<AdvancedNodeScannerComponent, LinkAttemptEvent>(OnLinkAttempt);
+
         SubscribeLocalEvent<XenoArtifactComponent, ArtifactUnlockingFinishedEvent>(OnUnlockingFinished);
     }
 
     private void OnMapInit(EntityUid uid, AdvancedNodeScannerComponent comp, MapInitEvent args)
     {
-        UpdateANSLinkAppearance((uid, comp), comp.AnalyzerEntity is not null);
+        UpdateAdvancedNodeScannerLinkAppearance((uid, comp), comp.AnalyzerEntity is not null);
+    }
+
+    /// <summary>
+    /// Can only connect advanced node scanner to the artifact analyzer!
+    /// </summary>
+    private void OnLinkAttempt(EntityUid uid, AdvancedNodeScannerComponent comp, LinkAttemptEvent args)
+    {
+        if (!HasComp<ArtifactAnalyzerComponent>(args.Sink))
+            args.Cancel();
     }
 
     /// <summary>
@@ -40,35 +53,64 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
     /// the analyzer's knowledge of the advanced node scanner,
     /// the artifact ON the analyzer pad's knowledge of the advanced node scanner
     /// and turns on the "linked light".
-    /// The console is handled in the Analyzer's side of things
     /// </summary>
     private void OnNewLink(Entity<AdvancedNodeScannerComponent> ent, ref NewLinkEvent args)
     {
         if (!TryComp<ArtifactAnalyzerComponent>(args.Sink, out var analyzer))
             return;
 
-        ent.Comp.AnalyzerEntity = args.Sink;
-        analyzer.AdvancedNodeScanner = ent;
-
-        // Turn the 'linked' light on
-        UpdateANSLinkAppearance(ent, true);
-
-        if (analyzer.CurrentArtifact is { } artifact && TryComp<XenoArtifactComponent>(artifact, out var artifactComp))
+        // Make previously linked analyzer (if any) forget
+        if (ent.Comp.AnalyzerEntity != null && ent.Comp.AnalyzerEntity != args.Sink)
         {
-            _artifact.SetAdvancedNodeScanner((artifact, artifactComp), ent.Owner);
-            Dirty(artifact, artifactComp);
+            _linkSystem.RemoveSinkFromSource(ent.Owner, ent.Comp.AnalyzerEntity.Value);
         }
 
-        Dirty(args.Sink, analyzer);
+        // If the new analyzer is currently connected to another A.N.S, no it isn't
+        if (analyzer.AdvancedNodeScanner != null && analyzer.AdvancedNodeScanner != ent)
+        {
+            _linkSystem.RemoveSinkFromSource(analyzer.AdvancedNodeScanner.Value, args.Sink);
+        }
+
+        ent.Comp.AnalyzerEntity = args.Sink;
+        UpdateAdvancedNodeScannerLinkChains((args.Sink, analyzer), ent);
+
+        // Turn the 'linked' light on
+        UpdateAdvancedNodeScannerLinkAppearance(ent, true);
+
         Dirty(ent);
     }
 
     /// <summary>
-    /// erases the advanced node scanner's knowledge of the analyzer it is unlinking from,
-    /// the analyzer's knowledge of the advanced node scanner,
-    /// the artifact ON the analyzer pad's knowledge of the advanced node scanner
-    /// and turns off the "linked light"
-    /// We also clear the analysis console's knowledge of advanced node scanner.
+    /// Helper function to provide analyzer, console, and artifact with Advanced Node Scanner info, including null.
+    /// </summary>
+    private void UpdateAdvancedNodeScannerLinkChains(Entity<ArtifactAnalyzerComponent> analyzer,
+        Entity<AdvancedNodeScannerComponent>? ans)
+    {
+        // Analyzer
+        analyzer.Comp.AdvancedNodeScanner = ans;
+        Dirty(analyzer);
+
+        // artifact
+        if (analyzer.Comp.CurrentArtifact is { } artifact && TryComp<XenoArtifactComponent>(artifact, out var artifactComp))
+        {
+            _artifact.SetAdvancedNodeScanner((artifact, artifactComp), ans);
+            Dirty(artifact, artifactComp);
+        }
+
+        // console
+        if (analyzer.Comp.Console is { } console && TryComp<AnalysisConsoleComponent>(console, out var consoleComp))
+        {
+            consoleComp.AdvancedNodeScanner = ans;
+            Dirty(console, consoleComp);
+        }
+    }
+
+    /// <summary>
+    /// erases the advanced node scanner's knowledge of the analyzer it is unlinking from
+    /// 1. the analyzer's knowledge of the advanced node scanner
+    /// 2. the artifact ON the analyzer pad's knowledge of the advanced node scanner
+    /// 3.and turns off the "linked light"
+    /// 4. We also clear the analysis console's knowledge of advanced node scanner
     /// </summary>
     private void OnPortDisconnected(Entity<AdvancedNodeScannerComponent> ent, ref PortDisconnectedEvent args)
     {
@@ -77,23 +119,10 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
         if (TryComp<ArtifactAnalyzerComponent>(analyzerEntity, out var analyzer))
         {
-            analyzer.AdvancedNodeScanner = null;
-            Dirty(analyzerEntity, analyzer);
-
-            if (analyzer.Console is { } console && TryComp<AnalysisConsoleComponent>(analyzer.Console, out var analysisConsoleComponent))
-            {
-                analysisConsoleComponent.AdvancedNodeScanner = null;
-                Dirty(console, analysisConsoleComponent);
-            }
-
-            if (analyzer.CurrentArtifact is { } artifact && TryComp<XenoArtifactComponent>(artifact, out var artifactComp))
-            {
-                _artifact.SetAdvancedNodeScanner((artifact, artifactComp), null);
-                Dirty(artifact, artifactComp);
-            }
+            UpdateAdvancedNodeScannerLinkChains((analyzerEntity, analyzer), null);
         }
         // Turn the 'linked' light off
-        UpdateANSLinkAppearance(ent, false);
+        UpdateAdvancedNodeScannerLinkAppearance(ent, false);
 
         ent.Comp.AnalyzerEntity = null;
         Dirty(ent);
@@ -102,7 +131,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
     /// <summary>
     /// Updates the appearance of the advanced node scanner - turns the 'linked' light on or off.
     /// </summary>
-    private void UpdateANSLinkAppearance(Entity<AdvancedNodeScannerComponent> ent, bool linked)
+    private void UpdateAdvancedNodeScannerLinkAppearance(Entity<AdvancedNodeScannerComponent> ent, bool linked)
     {
         if (!TryComp<AppearanceComponent>(ent.Owner, out var appearance))
             return;

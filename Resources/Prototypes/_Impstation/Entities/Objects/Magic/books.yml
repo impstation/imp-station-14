@@ -233,7 +233,7 @@
   - type: MimeGearMenu
     possibleSets:
     - InvisibleWall
-    - InvisibleChair
+    # - InvisibleChair #Disabled until a safe implementation is made
     - InvisibleBox
   - type: ActivatableUI
     key: enum.MimeGearMenuUIKey.Key
@@ -264,8 +264,8 @@
 - type: entity
   parent: BaseItem
   id: SpellbookMimeInvisibleChair
-  name: "Guide to Mimery: Invisible Chairs"
-  description: Useful when science is having too much fun with an artifact.
+  name: "Guide to Forbidden Mimery: Invisible Chairs"
+  description: Guide to the forbidden Invisible Chair Technique, which was banned in 2783 after it resulted in the disappearance of 13 mimes.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Misc/book.rsi

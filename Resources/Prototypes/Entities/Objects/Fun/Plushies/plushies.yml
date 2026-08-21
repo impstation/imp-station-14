@@ -1038,6 +1038,18 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: AtmosianPlushie
+    # imp edits #
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 2.25
+    energy: 1
+    netsync: false
+  - type: ItemTogglePointLight
+  - type: ItemToggle
+   # end imp edits #
 
 - type: entity
   parent: BasePlushie
