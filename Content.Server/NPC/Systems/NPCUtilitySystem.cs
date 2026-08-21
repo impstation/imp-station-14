@@ -40,7 +40,7 @@ namespace Content.Server.NPC.Systems;
 /// <summary>
 /// Handles utility queries for NPCs.
 /// </summary>
-public sealed class NPCUtilitySystem : EntitySystem
+public sealed partial class NPCUtilitySystem : EntitySystem // Imp, added Partial
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
