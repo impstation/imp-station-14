@@ -46,7 +46,10 @@ public sealed partial class AlertLevelComponent : Component
                 return false;
             }
 
-            return level.Selectable && !level.DisableSelection && !IsLevelLocked;
+            /* Imp removal
+            return level.Selectable && !level.DisableSelection && !IsLevelLocked
+            */
+            return !level.DisableSelection && !IsLevelLocked; // Imp
         }
     }
 }

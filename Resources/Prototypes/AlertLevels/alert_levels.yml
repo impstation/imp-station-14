@@ -53,7 +53,7 @@
         path: /Audio/Misc/delta.ogg
         params:
           volume: -3
-      disableSelection: true
+      # disableSelection: true Imp removal
       color: DarkRed
       emergencyLightColor: Orange
       forceEnableEmergencyLights: true
