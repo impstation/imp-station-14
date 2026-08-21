@@ -28,3 +28,4 @@ AntagSynthesisSpecialist = Syndicate Synthesis Specialist
 AntagChangeling = Changeling
 AntagHeretic = Heretic
 AntagVRex = V-Rex
+AntagHound = Hound Of Whimsy
