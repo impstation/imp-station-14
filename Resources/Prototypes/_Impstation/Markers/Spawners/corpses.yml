@@ -1,0 +1,103 @@
+- type: entity
+  name: unidentified corpse
+  id: VisitorCorpseSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: passenger
+      - state: green
+  - type: RandomHumanoidSpawner
+    settings: CorpseBase
+
+- type: entity
+  name: unidentified corpse
+  suffix: Service
+  id: ServiceCorpseSpawner
+  parent: VisitorCorpseSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: botanist
+      - state: green
+  - type: RandomHumanoidSpawner
+    settings: CorpseService
+
+- type: entity
+  name: unidentified corpse
+  suffix: Engineer
+  id: EngineerCorpseSpawner
+  parent: VisitorCorpseSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: engineer
+      - state: green
+  - type: RandomHumanoidSpawner
+    settings: CorpseEngineer
+
+- type: entity
+  name: unidentified corpse
+  suffix: Cargo
+  id: CargoCorpseSpawner
+  parent: VisitorCorpseSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: cargo_tech
+      - state: green
+  - type: RandomHumanoidSpawner
+    settings: CorpseCargo
+
+- type: entity
+  name: unidentified corpse
+  suffix: Medic
+  id: MedicCorpseSpawner
+  parent: VisitorCorpseSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: doctor
+      - state: green
+  - type: RandomHumanoidSpawner
+    settings: CorpseMedic
+
+- type: entity
+  name: unidentified corpse
+  suffix: Science
+  id: ScienceCorpseSpawner
+  parent: VisitorCorpseSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: scientist
+      - state: green
+  - type: RandomHumanoidSpawner
+    settings: CorpseScience
+
+- type: entity
+  name: unidentified corpse
+  suffix: Security
+  id: SecurityCorpseSpawner
+  parent: VisitorCorpseSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: security_officer
+      - state: green
+  - type: RandomHumanoidSpawner
+    settings: CorpseSecurity
+
+- type: entity
+  name: unidentified corpse
+  suffix: Command
+  id: CommandCorpseSpawner
+  parent: VisitorCorpseSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: captain
+      - state: green
+  - type: RandomHumanoidSpawner
+    settings: CorpseCommand
