@@ -1,0 +1,118 @@
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobSlurgle
+  name: slurgle
+  description: Looks like this one likes you.
+  components:
+  - type: ContainmentField
+    throwForce: 0.1
+  - type: Physics
+    bodyType: KinematicController
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Impstation/Mobs/Aliens/slurgle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: empty
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: slurgle
+  - type: Body
+    prototype: Mouse
+  - type: NoSlip
+  - type: StatusEffects
+    allowed:
+    - ForcedSleep
+  - type: InteractionPopup
+    successChance: 0.99
+    interactSuccessString: petting-success-eeeplet # its squishy too
+    interactSuccessSound:
+      path: /Audio/_Impstation/Animals/slurglewurble.ogg
+    interactSuccessSpawn: EffectHearts
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - FootstepSound
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+  - type: PointLight
+    radius: 2
+    energy: 4
+    color: "#caf8fa"
+    castShadows: true
+  - type: Hunger
+    thresholds:
+      Overfed: 200
+      Okay: 190
+      Peckish: 150
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.3
+  - type: HTN
+    rootTask:
+      task: SlurgleCompound
+    blackboard:
+      NavPry: !type:Bool
+        true
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 20 # its so full of love
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: Pullable
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CyanFoodColoring # is it worth it.....
+        Quantity: 150
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      251: Dead  # you can kill them if you Really have to
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: Pops
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PuddleCyan:
+            min: 1
+            max: 1
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSlime
+  - type: Slippery
+    slipData:
+      superSlippery: true
+      launchForwardsMultiplier: 2
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: BatteryAmmoProvider
+    proto: MagicBubble
+    fireCost: 10
+  - type: BatterySelfRecharger
+    autoRechargeRate: 4
+  - type: Battery
+    maxCharge: 10
+    startingCharge: 10
+  - type: Gun
+    fireRate: 2
+    projectileSpeed: 2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/_Impstation/Animals/slurglebounce.ogg
+  - type: CombatMode
