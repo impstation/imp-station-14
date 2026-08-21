@@ -1,9 +1,8 @@
 using Content.Server.AlertLevel;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Ghost;
+using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Light.Components;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -13,10 +12,13 @@ namespace Content.Server._Impstation.GameTicking.Rules;
 /// <summary>
 ///     manages events that happen on a heretic ascension, such as setting the alert level to cobalt
 /// </summary>
-public sealed class AscensionRuleSystem : GameRuleSystem<AscensionRuleComponent>
+public sealed partial class AscensionRuleSystem : GameRuleSystem<AscensionRuleComponent>
 {
+    private readonly string _cobaltAlertLevel = "cobalt";
+
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
 
@@ -50,20 +52,23 @@ public sealed class AscensionRuleSystem : GameRuleSystem<AscensionRuleComponent>
 
     protected override void ActiveTick(EntityUid uid, AscensionRuleComponent comp, GameRuleComponent gameRule, float frameTime)
     {
+        base.ActiveTick(uid, comp, gameRule, frameTime);
+
         if (comp.TimeForCobaltEffects <= Timing.CurTime && !comp.CobaltEffectsTriggered)
         {
             comp.CobaltEffectsTriggered = true;
-            SetAlertLevelCobalt();
+            SetAlertLevelCobalt(comp);
         }
     }
 
-    private void SetAlertLevelCobalt()
-
+    private void SetAlertLevelCobalt(AscensionRuleComponent comp)
     {
+        _station.GetStationInMap(Transform(comp.Owner).MapID);
+
         if (!TryGetRandomStation(out var station))
             return;
-        if (_alertLevelSystem.GetLevel(station.Value) == "cobalt") // Don't cobalt if already cobalt
+        if (_alertLevelSystem.GetLevel(station.Value) == _cobaltAlertLevel) // Don't cobalt if already cobalt
             return;
-        _alertLevelSystem.SetLevel(station.Value, "cobalt", true, true, true);
+        _alertLevelSystem.SetLevel(station.Value, _cobaltAlertLevel, true, true, true);
     }
 }
