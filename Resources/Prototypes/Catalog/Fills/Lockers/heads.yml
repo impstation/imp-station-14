@@ -83,7 +83,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: LockerFillCaptainNoLaser
+        tableId: LockerFillCaptainNoLaserNoID # imp separate ID from locker
 
 # No Laser + Laser locker
 - type: entity
@@ -94,12 +94,12 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: LockerFillCaptainLaser
+        tableId: LockerFillCaptainLaserNoID # imp separate ID from locker
 
 # No Laser + Laser + Hardsuit locker
 - type: entity
   id: LockerCaptainFilledHardsuit
-  suffix: Filled, Hardsuit
+  suffix: Filled, Hardsuit, ID # imp
   parent: LockerCaptain
   components:
   - type: EntityTableContainerFill
