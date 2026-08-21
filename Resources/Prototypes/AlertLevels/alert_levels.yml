@@ -149,3 +149,11 @@
       emergencyLightColor: LightBlue
       forceEnableEmergencyLights: true
       shuttleTime: 600
+    cobalt:
+      announcement: alert-level-cobalt-announcement
+      selectable: false
+      sound: /Audio/_Impstation/Misc/cobalt.ogg
+      color: DeepSkyBlue
+      emergencyLightColor: DeepSkyBlue
+      forceEnableEmergencyLights: true
+      shuttleTime: 600
