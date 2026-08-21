@@ -30,8 +30,8 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
 
+    private TagSystem _tagSystem = default!;
     private AnimalHusbandrySystemImp _breedSystem = default!;
 
     /// <summary>
@@ -47,6 +47,7 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
+        _tagSystem = sysManager.GetEntitySystem<TagSystem>();
         _breedSystem = sysManager.GetEntitySystem<AnimalHusbandrySystemImp>();
     }
 
