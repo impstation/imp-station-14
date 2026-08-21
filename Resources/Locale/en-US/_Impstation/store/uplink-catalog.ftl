@@ -178,5 +178,59 @@ uplink-ananke-desc = Brutal and unapolagetic-- the Ananke plasma shotgun, bundle
 uplink-glykon-name = Glykon bundle
 uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 canisters of its proprietary liquid ammo.
 
+uplink-syndicate-bowler-hat-razor-name = Razor Lined Bowler Hat
+uplink-syndicate-bowler-hat-razor-desc = Looks to be a simple bowler hat but the edges of the brim are razor sharp. A simple flick and off with their head.
+
+uplink-janitor-insul-name = Insulated Rubber Gloves
+uplink-janitor-insul-desc = Keep your hands both clean AND safe with these insulated rubber gloves.
+
+uplink-cleanade-lube-name = Disguised Lube Grenade
+uplink-cleanade-lube-desc = A lube grenade disguised as a cleanade. Keep it for yourself or give it out to the unsuspecting public.
+
+uplink-slippery-trash-bag-name = Lubed Trash Bag
+uplink-slippery-trash-bag-desc = A trash bag coated in a slippery coating to help you make a getaway.
+
+uplink-mop-sword-name = Sword Mop
+uplink-mop-sword-desc = All anyone else will see is a normal working mop until the time comes and you reveal your hidden blade.
+
+uplink-hidden-radio-botany-name = Hidden Uplink
+uplink-hidden-radio-botany-desc = An uplink disguised as a plant analyzer. Keep it for yourself or give it to a trusted ally to aid your mission. Telecrystals not included.
+
+uplink-food-pepper-shaker-lead-name = Lead Pepper Shaker
+uplink-food-pepper-shaker-lead-desc = Add a little spice to the crews life for what they have left of it. Contains 15 units of lead.
+
+uplink-pitcher-napalm-name = Pitcher Full of Napalm
+uplink-pitcher-napalm-desc = Nothing quite like waking up to the smell of napalm in the morning. A pitcher full of 50 units of Napalm.
+
+uplink-d4-sharp-name = Bag of Extra Sharp D4's
+uplink-d4-sharp-desc = Anyone who steps on this is going to roll a natural one and fall on the floor rolling in pain.
+
+uplink-emergency-medipen-mute-name = Mute Toxin Auto Injector
+uplink-emergency-medipen-mute-desc = An auto injector disguised as an emergency medipen filled with 15 units of mute toxin.
+
+uplink-clothing-shoes-white-no-sound-name = Mute Mime Shoes
+uplink-clothing-shoes-white-no-sound-desc = A silent threat. No one will hear you coming in this special pair of shoes.
+
+uplink-hidden-uplink-radio-science-name = Hidden Uplink
+uplink-hidden-uplink-radio-science-desc = An uplink disguised as a anomaly scanner. Keep it for yourself or give it to a trusted ally to aid your mission. Telecrystals not included.
+
+uplink-clothing-syndi-head-cone-name = Hidden Compartment Warning Cone
+uplink-clothing-syndi-head-cone-desc = An unassuming cone thats hiding a secret. Use it to secretly stash goods or to plant surprises for later.
+
+uplink-network-configurator-with-trigger-name = Network Configurator With Signaler
+uplink-network-configurator-with-trigger-desc = It may look and work like a regular network configurator but it hides a hidden long range signaler for all your triggering needs.
+
+uplink-utility-knife-syndi-name = Chemical Utility Knife
+uplink-utility-knife-syndi-desc = A utility knife with special grooves that can hold up to 10 units of chemicals.
+
+uplink-hand-labeler-radio-jammer-name = Disguised Radio Jammer
+uplink-hand-labeler-radio-jammer-desc = A radio jammer hidden inside an hand labeler. You can both jam their comms and label the corpse!
+
+uplink-lead-chemistry-vial-name = Lead Vial
+uplink-lead-chemistry-vial-desc = A small vial containing 15 units of lead.
+
+uplink-chem-goggles-flash-immune-name = Flash Protection Chem Goggles
+uplink-chem-goggles-flash-immune-desc = Keep your eyes safe from bright lights while you cook your products.
+
 uplink-phone-syndicate-name = Blood-Red Phone
 uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
