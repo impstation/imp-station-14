@@ -2,8 +2,8 @@
   id: Bedlam
   mapName: 'Bedlam'
   mapPath: /Maps/_Impstation/bedlam.yml
-  minPlayers: 8
-  maxPlayers: 25
+  minPlayers: 0 # Originally 8
+  maxPlayers: 15 # Originally 25
   stations:
     Bedlam:
       stationProto: StandardNanotrasenStation
