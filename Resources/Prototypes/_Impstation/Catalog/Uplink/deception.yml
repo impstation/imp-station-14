@@ -42,3 +42,13 @@
     blacklist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkSlipperySpesos
+  name: uplink-fake-cash-name
+  description: uplink-fake-cash-desc
+  productEntity: SlipperySpesos
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDeception
