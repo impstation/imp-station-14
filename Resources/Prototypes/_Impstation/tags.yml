@@ -25,6 +25,12 @@
   id: BlasterCell
 
 - type: Tag
+  id: Boar
+
+- type: Tag
+  id: BoarWild
+
+- type: Tag
   id: BoarFriend #lets boar choose the tagged entity as a target for NPCImprintingOnSpawnBehavior
 
 - type: Tag
@@ -44,6 +50,12 @@
 
 - type: Tag
   id: BROS
+
+- type: Tag
+  id: Buck
+
+- type: Tag
+  id: Bull
 
 - type: Tag
   id: Butterfly
@@ -74,6 +86,9 @@
 
 - type: Tag
   id: ChemGoggles
+
+- type: Tag
+  id: Hen
 
 - type: Tag
   id: Chopsticks
@@ -218,6 +233,9 @@
 
 - type: Tag
   id: Insuls # anything with the APPEARANCE of insuls, not anything that insulates.
+
+- type: Tag
+  id: Incubated
 
 - type: Tag
   id: Ingredient
@@ -374,6 +392,9 @@
 
 - type: Tag
   id: RipleyLimb
+
+- type: Tag
+  id: Rooster
 
 - type: Tag
   id: RubberStamp
