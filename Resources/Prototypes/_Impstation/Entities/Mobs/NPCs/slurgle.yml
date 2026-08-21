@@ -4,6 +4,8 @@
   name: slurgle
   description: Looks like this one likes you.
   components:
+  - type: ContainmentField
+    throwForce: 0.1
   - type: Physics
     bodyType: KinematicController
   - type: Sprite
@@ -37,7 +39,7 @@
     speedModifier: 2
   - type: PointLight
     radius: 2
-    energy: 2
+    energy: 4
     color: "#caf8fa"
     castShadows: true
   - type: Hunger
@@ -68,12 +70,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1001: Dead  # you can kill them if you Really have to
+      251: Dead  # you can kill them if you Really have to
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 250
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -101,16 +103,16 @@
     proto: MagicBubble
     fireCost: 10
   - type: BatterySelfRecharger
-    autoRechargeRate: 2
+    autoRechargeRate: 4
   - type: Battery
     maxCharge: 10
     startingCharge: 10
   - type: Gun
-    fireRate: 1
+    fireRate: 2
     projectileSpeed: 2
     useKey: false
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
-    soundGunshot: /Audio/Effects/pop.ogg
+    soundGunshot: /Audio/_Impstation/Animals/slurglebounce.ogg
   - type: CombatMode
