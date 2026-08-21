@@ -1,0 +1,320 @@
+# Common Zombies
+
+- type: startingGear
+  id: ZombieBotany
+  equipment:
+    jumpsuit: ClothingZombieUniformBotany
+    shoes: ClothingShoesColorGreen
+    head: ClothingHeadBandGreen
+    back: ClothingBackpackDuffelHydroponics
+
+- type: startingGear
+  id: ZombieCargo
+  equipment:
+    jumpsuit: ClothingZombieUniformCargo
+    shoes: ClothingShoesColorBlack
+    head: ClothingHeadHatCargosoft
+    back: ClothingBackpackDuffelCargo
+    pocket1: AppraisalTool
+    pocket2: SpaceCash500
+
+- type: startingGear
+  id: ZombieCivilian1
+  equipment:
+    jumpsuit: ClothingZombieUniformFlannel
+    shoes: ClothingShoesBootsWork
+    back: ClothingBackpackSatchelLeather
+    pocket1: VapeDisposablePen
+    pocket2: GalpatricaVapeCart
+
+- type: startingGear
+  id: ZombieCivilian2
+  equipment:
+    jumpsuit: ClothingZombieUniformPassenger
+    shoes: ClothingShoesColorWhite
+
+- type: startingGear
+  id: ZombieCourier
+  equipment:
+    jumpsuit: ClothingZombieUniformCourier
+    shoes: ClothingShoesColorBlack
+    head: ClothingHeadHatCouriersoft
+    back: MailBag
+    pocket1: Envelope
+    pocket2: DrinkColaCan
+    outerClothing: ClothingOuterWinterCargo
+
+- type: startingGear
+  id: ZombieEngineer
+  equipment:
+    jumpsuit: ClothingZombieUniformEngineer
+    shoes: ClothingShoesBootsWork
+    head: ClothingHeadHatHardhatYellow
+    back: ClothingBackpackEngineering
+    eyes: ClothingEyesGlasses
+    pocket1: Screwdriver
+    pocket2: Wrench
+
+- type: startingGear
+  id: ZombieMedical1
+  equipment:
+    jumpsuit: ClothingZombieUniformMedical
+    shoes: ClothingShoesColorWhite
+    head: ClothingHeadHatCorpsoft
+    neck: ClothingNeckStethoscope
+    belt: ClothingBeltMedical
+    back: ClothingBackpackMedical
+    outerClothing: ClothingOuterCoatLab
+    pocket1: PillCanisterTricordrazine
+    pocket2: PillCanisterDermaline
+
+- type: startingGear
+  id: ZombieMedical2
+  equipment:
+    jumpsuit: ClothingZombieUniformVirology
+    shoes: ClothingShoesColorWhite
+    head: ClothingHeadMirror
+    belt: ClothingBeltMedical
+    back: ClothingBackpackVirology
+    outerClothing: ClothingOuterCoatLabViro
+    pocket1: PillCanisterTricordrazine
+    pocket2: PillCanisterBicaridine
+
+
+- type: startingGear
+  id: ZombieScience1
+  equipment:
+    jumpsuit: ClothingZombieUniformScience
+    shoes: ClothingShoesColorBlack
+    neck: ClothingNeckTieSci
+    belt: ClothingBeltMedical
+    back: ClothingBackpackScience
+    eyes: ClothingEyesGlasses
+
+- type: startingGear
+  id: ZombieScience2
+  equipment:
+    jumpsuit: ClothingZombieUniformResearch
+    shoes: ClothingShoesColorPurple
+    head: ClothingHeadHatBeretRND
+    belt: ClothingBeltMedical
+    back: ClothingBackpackScience
+    eyes: ClothingEyesGlasses
+
+- type: startingGear
+  id: ZombieService
+  equipment:
+    jumpsuit: ClothingZombieUniformService
+    shoes: ClothingShoesColorBlack
+    head: ClothingHeadBandBlack
+    back: ClothingBackpack
+    pocket1: Fork
+    pocket2: FoodShakerPepper
+
+
+
+
+# Uncommon Zombies
+
+- type: startingGear
+  id: ZombieAtmos
+  equipment:
+    jumpsuit: ClothingZombieUniformEngineer
+    shoes: ClothingShoesBootsWork
+    head: ClothingHeadHelmetFire
+    mask: ClothingMaskGasAtmos
+    back: ClothingBackpackEngineering
+    outerClothing: ClothingOuterSuitFire
+  storage:
+    back:
+    - FireExtinguisher
+    - CrowbarYellow
+    - Ointment
+    - EmergencyMedipen
+
+- type: startingGear
+  id: ZombieJanitor
+  equipment:
+    jumpsuit: ClothingZombieUniformJanitor
+    shoes: ClothingShoesGaloshes
+    head: ClothingHeadHatHoodBioJanitor
+    back: ClothingBackpackSatchel
+    belt: ClothingBeltJanitorFilled
+    outerClothing: ClothingOuterBioJanitor
+
+- type: startingGear
+  id: ZombieClown
+  equipment:
+    jumpsuit: ClothingUniformCircusClown
+    shoes: ClothingShoesCircus
+    head: ClothingHeadHatCircusClown
+    mask: ClothingMaskClown
+    id: ClownPDA
+    back: ClothingBackpackClown
+    pocket1: BikeHorn
+    pocket2: ClownRecorder
+
+- type: startingGear
+  id: ZombieSalvage
+  equipment:
+    jumpsuit: ClothingZombieUniformSalvage
+    shoes: ClothingShoesBootsCombat
+    mask: ClothingMaskGasExplorer
+    back: ClothingBackpackSatchelSalvage
+    pocket1: WeaponCrusherDagger
+    pocket2: HandheldGPSBasic
+  storage:
+    back:
+    - TreasureCoinGold
+    - TreasureCoinGold
+    - TreasureCoinGold
+    - TreasureCoinIron
+    - TreasureCoinIron
+    - TreasureCoinIron
+    - TreasureCoinIron
+    - TreasureCoinIron
+    - TreasureCoinIron
+    - TreasureCoinIron
+    - TreasureCoinSilver
+    - TreasureCoinSilver
+    - TreasureCoinSilver
+    - TreasureCoinSilver
+
+- type: startingGear
+  id: ZombieSecurity
+  equipment:
+    jumpsuit: ClothingZombieUniformSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetBasic
+    belt: ClothingBeltSecurityWebbing
+    back: ClothingBackpackSecurity
+    eyes: ClothingEyesGlassesCheapSunglasses
+    outerClothing: ClothingOuterArmorBasic
+    pocket1: FlashlightSeclite
+    pocket2: LauncherCitationator
+
+
+
+
+
+# Rare Zombies
+
+- type: startingGear
+  id: ZombieCaptain1
+  equipment:
+    jumpsuit: ClothingZombieUniformCaptain
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesSunglasses
+    head: ClothingHeadHatCaptain
+    neck: ClothingNeckCloakCap
+    belt: ClothingBeltSheathFilled
+    back: ClothingBackpackCaptain
+    outerClothing: ClothingOuterArmorCaptainCarapace
+    pocket1: SpaceCash5000
+
+- type: startingGear
+  id: ZombieCaptain2
+  equipment:
+    jumpsuit: ClothingZombieUniformCaptain
+    shoes: ClothingShoesLeather
+    eyes: ClothingEyesGlassesCaptainvisor
+    head: ClothingHeadHatBeretCaptain
+    neck: ClothingNeckCloakCapFormal
+    belt: WeaponDisabler
+    back: ClothingBackpackSatchelCaptain
+    outerClothing: ClothingOuterArmorCaptainCarapace
+    pocket1: NukeDiskFake
+    pocket2: FlippoEngravedLighter
+
+- type: startingGear
+  id: ZombieSyndicate1
+  equipment:
+    jumpsuit: ClothingZombieUniformSyndicate
+    head: ClothingHeadHelmetSwatSyndicate
+    eyes: ClothingEyesHudSyndicate
+    outerClothing: ClothingOuterArmorBasic
+    back: ClothingBackpack
+    shoes: ClothingShoesBootsCombatFilled
+    pocket1: SyndicateFlippo
+    pocket2: RubberStampHatePaperwork
+  storage:
+    back:
+    - BoxSurvivalSyndicate
+
+- type: startingGear
+  id: ZombieSyndicate2
+  equipment:
+    jumpsuit: ClothingZombieUniformSyndicate
+    head: ClothingHeadHelmetSwatSyndicate
+    eyes: ClothingEyesHudSyndicate
+    outerClothing: ClothingOuterArmorBasic
+    back: ClothingBackpack
+    shoes: ClothingShoesBootsCombatFilled
+    pocket1: SawAdvanced
+    pocket2: FoodTreatChunk
+  storage:
+    back:
+    - DeadlyDanFamilyPack
+
+- type: startingGear
+  id: ZombiePirate1
+  equipment:
+    jumpsuit: ClothingZombieUniformPirate
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadBandRed
+    back: ClothingBackpackSatchelLeather
+    belt: ClothingBeltUtility
+    pocket1: WeaponPistolFlintlock
+    pocket2: HandheldGPSBasic
+  storage:
+    back:
+    - Cutlass
+
+- type: startingGear
+  id: ZombiePirate2
+  equipment:
+    jumpsuit: ClothingZombieUniformPirate
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatPirateTricord
+    back: ClothingBackpackSatchelLeather
+    belt: ClothingBeltUtility
+    outerClothing: ClothingOuterCoatPirate
+    pocket1: SmokingPipeFilledTobacco
+    pocket2: HandheldGPSBasic
+    suitstorage: WeaponShotgunBlunderbuss
+  storage:
+    back:
+    - Cutlass
+
+- type: startingGear
+  id: ZombieIntern
+  equipment:
+    jumpsuit: ClothingZombieUniformCentcom
+    head: ClothingHeadHatCentcommIntern
+    back: ClothingBackpackSatchel
+    eyes: ClothingEyesGlasses
+    shoes: ClothingShoesColorBlack
+    belt: Stunbaton
+    pocket1: WeaponPistolZipper
+    pocket2: RubberStampDenied
+
+- type: startingGear
+  id: ZombieCultist
+  equipment:
+    jumpsuit: ClothingZombieUniformFlannel
+    shoes: ClothingShoesCult
+    head: ClothingHeadHatHoodCulthood
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterRobesCult
+    pocket1: Machete
+    pocket2: OrganHumanHeart
+
+- type: startingGear
+  id: ZombieMascot
+  equipment:
+    jumpsuit: ClothingZombieUniformSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: MascotZombieGriffyHead
+    outerClothing: MascotZombieGriffySuit
+    pocket1: GriffyPen
+    pocket2: PaperSecurityGriffyManual
