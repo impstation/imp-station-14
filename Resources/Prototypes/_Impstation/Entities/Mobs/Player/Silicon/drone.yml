@@ -168,6 +168,10 @@
     - Maintenance
   - type: DroneVision
   - type: ZombieImmune
+  - type: StationAiVision #imp, acts as an ai camera
+    range: 2
+  - type: Eye # imp, so borgs can see the ai eye
+    visMask: 5
 
 # Drone actions
 

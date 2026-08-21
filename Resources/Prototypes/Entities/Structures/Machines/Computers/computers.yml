@@ -1477,7 +1477,7 @@
           type: WiresBoundUserInterface
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess # imp edit, from BaseComputer
   id: ComputerSurveillanceWirelessCameraMonitor
   name: wireless camera monitor
   description: A wireless surveillance camera monitor. You're watching them. Maybe.
@@ -1817,7 +1817,7 @@
 
 - type: entity
   id: StationAiFixerComputer
-  parent: BaseComputer
+  parent: BaseComputerAiAccess # imp edit, from BaseComputer
   name: AI restoration console
   description: Used to repair damaged artifical intelligences.
   components:

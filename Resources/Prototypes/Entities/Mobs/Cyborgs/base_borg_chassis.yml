@@ -262,6 +262,8 @@
     requiredMobState:
     - Critical
     - Dead
+  - type: Eye # imp, so borgs can see the ai eye
+    visMask: 5
 
 - type: entity
   abstract: true
@@ -349,6 +351,10 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: LawSynced # imp
+  - type: StationAiVision #imp acts as an ai camera
+    range: 3
+  - type: Eye # imp, so borgs can see the ai eye
+    visMask: 5
 
 - type: entity
   id: BaseBorgChassisSyndicate
