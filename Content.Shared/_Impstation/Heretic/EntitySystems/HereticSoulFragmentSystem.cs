@@ -13,9 +13,9 @@ public sealed partial class HereticSoulFragmentSystem : EntitySystem
         SubscribeLocalEvent<HereticSoulFragmentComponent, ExaminedEvent>(OnExamined);
     }
 
-private void OnExamined(Entity<HereticSoulFragmentComponent> ent, ref ExaminedEvent args)
+    private void OnExamined(Entity<HereticSoulFragmentComponent> ent, ref ExaminedEvent args)
     {
-        if(TryComp<HereticComponent>(args.Examiner, out _))
+        if (HasComp<HereticComponent>(args.Examiner))
         {
             args.PushMarkup(markup: Loc.GetString(ent.Comp.Message));
         }

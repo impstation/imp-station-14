@@ -78,19 +78,19 @@
 
 - type: entity
   parent: SoulFragmentSight
-  id: SoulFragmentRhythm
-  name: soul fragment - rhythm
+  id: SoulFragmentHeart
+  name: soul fragment - heart
   description: The Note's gifts.
   components:
   - type: Item
     size: Tiny
   - type: Sprite
     sprite: _Impstation/Heretic/soul_fragments.rsi
-    state: rhythm
+    state: heart
     noRot: true
   - type: Icon
     sprite: _Impstation/Heretic/soul_fragments.rsi
-    state: rhythm
+    state: heart
   - type: PointLight
     radius: 1.5
     energy: 3
@@ -100,23 +100,23 @@
       - Organ
       - Heart
   - type: HereticSoulFragment
-    message: heretic-soul-fragment-rhythm
+    message: heretic-soul-fragment-heart
 
 - type: entity
   parent: SoulFragmentSight
-  id: SoulFragmentSpeech
-  name: soul fragment - speech
+  id: SoulFragmentBreath
+  name: soul fragment - breath
   description: The Alchemist's gifts.
   components:
   - type: Item
     size: Tiny
   - type: Sprite
     sprite: _Impstation/Heretic/soul_fragments.rsi
-    state: speech
+    state: breath
     noRot: true
   - type: Icon
     sprite: _Impstation/Heretic/soul_fragments.rsi
-    state: speech
+    state: breath
   - type: PointLight
     radius: 1.5
     energy: 3
@@ -126,23 +126,23 @@
       - Organ
       - Lungs
   - type: HereticSoulFragment
-    message: heretic-soul-fragment-speech
+    message: heretic-soul-fragment-breath
 
 - type: entity
   parent: SoulFragmentSight
-  id: SoulFragmentSword
-  name: soul fragment - sword
-  description: The Fugitive's gifts.
+  id: SoulFragmentStone
+  name: soul fragment - stone
+  description: The Warden's gifts.
   components:
   - type: Item
     size: Tiny
   - type: Sprite
     sprite: _Impstation/Heretic/soul_fragments.rsi
-    state: sword
+    state: stone
     noRot: true
   - type: Icon
     sprite: _Impstation/Heretic/soul_fragments.rsi
-    state: sword
+    state: stone
   - type: PointLight
     radius: 1.5
     energy: 3
@@ -152,23 +152,23 @@
       - Organ
       - Kidneys
   - type: HereticSoulFragment
-    message: heretic-soul-fragment-sword
+    message: heretic-soul-fragment-stone
 
 - type: entity
   parent: SoulFragmentSight
-  id: SoulFragmentShield
-  name: soul fragment - shield
-  description: The Warden's gifts.
+  id: SoulFragmentLife
+  name: soul fragment - life
+  description: The Fugitive's gifts.
   components:
   - type: Item
     size: Tiny
   - type: Sprite
     sprite: _Impstation/Heretic/soul_fragments.rsi
-    state: shield
+    state: life
     noRot: true
   - type: Icon
     sprite: _Impstation/Heretic/soul_fragments.rsi
-    state: shield
+    state: life
   - type: PointLight
     radius: 1.5
     energy: 3
@@ -178,4 +178,4 @@
       - Organ
       - Liver
   - type: HereticSoulFragment
-    message: heretic-soul-fragment-shield
+    message: heretic-soul-fragment-life
