@@ -208,9 +208,9 @@
   components:
   - type: StationEvent
     earliestStart: 10
-    weight: 2
+    weight: 0.4
     duration: 60
   - type: VentCrittersRule
     entries:
     - id: MobSlurgle
-      prob: 0.04
+      prob: 0.01

@@ -5,7 +5,7 @@
   description: Looks like this one likes you.
   components:
   - type: Physics
-    bodyType: Dynamic
+    bodyType: KinematicController
   - type: Sprite
     drawdepth: Mobs
     sprite: _Impstation/Mobs/Aliens/slurgle.rsi
@@ -17,26 +17,6 @@
   - type: Body
     prototype: Mouse
   - type: NoSlip
-  - type: Examiner
-  - type: MobMover
-  - type: InputMover
-  - type: MovementIgnoreGravity
-    weightless: true
-  - type: FloatingVisuals
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        - MidImpassable
-        - LowImpassable
-        density: 1000
   - type: StatusEffects
     allowed:
     - ForcedSleep
@@ -50,20 +30,21 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+    - FootstepSound
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 6
+    speedModifier: 2
   - type: PointLight
     radius: 2
-    energy: 4
+    energy: 2
     color: "#caf8fa"
     castShadows: true
   - type: Hunger
     thresholds:
       Overfed: 200
-      Okay: 150
-      Peckish: 100
+      Okay: 190
+      Peckish: 150
       Starving: 50
       Dead: 0
     baseDecayRate: 0.3
@@ -74,7 +55,7 @@
       NavPry: !type:Bool
         true
   - type: NPCImprintingOnSpawnBehaviour
-    spawnFriendsSearchRadius: 40 # its so full of love
+    spawnFriendsSearchRadius: 20 # its so full of love
     whitelist:
       components:
       - HumanoidAppearance
@@ -87,12 +68,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      2001: Dead  # you can kill them if you Really have to
+      1001: Dead  # you can kill them if you Really have to
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -104,3 +85,32 @@
           PuddleCyan:
             min: 1
             max: 1
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSlime
+  - type: Slippery
+    slipData:
+      superSlippery: true
+      launchForwardsMultiplier: 2
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: BatteryAmmoProvider
+    proto: MagicBubble
+    fireCost: 10
+  - type: BatterySelfRecharger
+    autoRechargeRate: 2
+  - type: Battery
+    maxCharge: 10
+    startingCharge: 10
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Effects/pop.ogg
+  - type: CombatMode

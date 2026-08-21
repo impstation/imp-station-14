@@ -6,4 +6,7 @@
           task: FoodCompound
     - tasks:
         - !type:HTNCompoundTask
+          task: InnateRangedCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
           task: KisserTomatoCompound
