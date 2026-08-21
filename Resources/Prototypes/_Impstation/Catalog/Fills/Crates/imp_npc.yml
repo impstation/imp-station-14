@@ -155,6 +155,19 @@
           amount: 4
 
 - type: entity
+  id: CrateNPCTurtle
+  parent: CrateLivestock
+  name: crate of turtles
+  description: A crate containing three turtles. They were ethically sourced.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobTurtle
+          amount: 3
+
+- type: entity
   parent: CrateLivestock
   id: CrateUrist
   name: urist crate

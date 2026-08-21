@@ -3,6 +3,7 @@
   id: HereticSidePath1Sensor
   name: knowledge-path-side-s1-sensor-name
   description: knowledge-path-side-s1-sensor-desc
+  flavorText: knowledge-path-side-s1-sensor-flavor
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: living_heart }
   productHereticKnowledge: SeekersHeartRitual
   cost:
@@ -18,6 +19,7 @@
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
+  flavorText: knowledge-path-side-s3-armor-flavor
   icon: { sprite: _Goobstation/Heretic/eldritch_hood.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
@@ -48,6 +50,7 @@
   id: HereticSidePath3Mirror #imp
   name: knowledge-path-side-s3-mirror-name
   description: knowledge-path-side-s3-mirror-desc
+  flavorText: knowledge-path-side-s3-mirror-flavor
   icon: { sprite: _Impstation/Heretic/wildering_mirror.rsi, state: heretic-mirror-icon }
   productHereticKnowledge: HereticMirrorRitual
   cost:
@@ -63,6 +66,7 @@
   id: HereticSidePath3Key #imp
   name: knowledge-path-side-s3-key-name
   description: knowledge-path-side-s3-key-desc
+  flavorText: knowledge-path-side-s3-key-flavor
   icon: { sprite: _Impstation/Heretic/frangiclave.rsi, state: frangiclave }
   productHereticKnowledge: HereticKeyRitual
   cost:
