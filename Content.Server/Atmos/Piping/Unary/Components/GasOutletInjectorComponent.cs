@@ -10,6 +10,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
     public sealed partial class GasOutletInjectorComponent : Component
     {
 
+        [DataField] // IMP ADD: make accessible in YAML
         [ViewVariables(VVAccess.ReadWrite)]
         public bool Enabled = true;
 

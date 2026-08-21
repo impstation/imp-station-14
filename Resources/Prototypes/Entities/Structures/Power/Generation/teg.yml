@@ -59,6 +59,7 @@
     - type: Rotatable
 
     # Note that only the TEG center is an AtmosDevice.
+    # IMP: ^Not true with Maintenance Required circulators. They also recieve AtmosDeviceUpdateEvents solely for their internal air injectors. Other processing still handled by generator.
     # It fires processing on behalf of its connected circulators.
     - type: AtmosDevice
     - type: TegGenerator
