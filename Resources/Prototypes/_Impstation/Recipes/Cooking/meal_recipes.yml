@@ -731,6 +731,31 @@
   recipeType: Microwave
 
 - type: microwaveMealRecipe
+  id: RecipePigBlanket
+  name: pig in a blanket recipe
+  result: FoodMealPigblanket
+  resultCount: 3
+  time: 20
+  solids:
+     FoodDoughRope: 3
+     FoodMeatSausage: 1
+     FoodButterSlice: 1
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMilkape
+  name: Milk ape recipe
+  result: FoodMealMilkape
+  resultCount: 1
+  time: 15
+  reagents:
+    Milk: 15
+  solids:
+     FoodSnackChocolateBar: 1
+     MonkeyCubeSanitized: 3
+  recipeType: Oven
+
+- type: microwaveMealRecipe
   id: RecipeCakeChocolate
   name: chocolate cake recipe
   result: FoodCakeChocolate

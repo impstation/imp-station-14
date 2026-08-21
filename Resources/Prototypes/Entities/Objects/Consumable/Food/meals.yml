@@ -441,12 +441,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10 # imp
+        maxVol: 15 # imp 
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 8 # imp edit
+        - ReagentId: Protein # imp edit
+          Quantity: 2 # imp edit
   - type: Tag
     tags:
     - Meat
@@ -590,6 +590,18 @@
       - chocolate
   - type: Sprite
     state: milkape
+  - type: SolutionContainerManager # imp edit start
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Theobromine
+          Quantity: 4
+        - ReagentId: Milk
+          Quantity: 6 # imp edit end
+
 # Tastes like milk, chocolate, the jungle.
 
 - type: entity
