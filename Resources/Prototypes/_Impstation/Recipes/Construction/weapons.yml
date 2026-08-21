@@ -1,0 +1,23 @@
+- type: construction
+  id: ScrapSword
+  graph: ScrapSword
+  startNode: start
+  targetNode: sword
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: MicrowaveSledgehammer
+  graph: MicrowaveSledgehammer
+  startNode: start
+  targetNode: sledgehammer
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: BigScrapSword
+  graph: BigScrapSword
+  startNode: start
+  targetNode: bigSword
+  category: construction-category-weapons
+  objectType: Item
