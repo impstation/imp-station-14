@@ -38,11 +38,6 @@ public sealed partial class HereticRitualPrototype : IPrototype
     [DataField] public ProtoId<HereticKnowledgePrototype>? OutputKnowledge;
 
     /// <summary>
-    /// What will be spawned on success?
-    /// </summary>
-    [DataField] public Dictionary<EntProtoId, int>? OutputItems;
-
-    /// <summary>
     /// Icon for the radial menu.
     /// </summary>
     [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon");

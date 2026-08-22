@@ -14,6 +14,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -22,7 +23,7 @@ namespace Content.Server.Heretic.Ritual;
 /// </summary>
 /// <remarks> Marked as virtual because this also is used by ascensions.</remarks>
 [Virtual]
-[DataDefinition]
+[Serializable]
 public partial class SacrificeBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -125,7 +126,7 @@ public partial class SacrificeBehavior : SharedRitualBehaviorSystem
             var knowledgeGain = isCommand ? CommandSacrificePoints : SacrificePoints;
 
             //add the component to track the hell adventure
-            AddComp<InHellComponent>(Uids[i]);
+            EnsureComp<InHellComponent>(Uids[i]);
 
             //make a hell event and send it
             //idk why i split these up but i'll probably thank myself for it later

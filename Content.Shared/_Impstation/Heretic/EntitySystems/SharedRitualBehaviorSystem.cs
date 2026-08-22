@@ -3,7 +3,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Heretic.Ritual;
 
-public abstract class SharedRitualBehaviorSystem : EntitySystem
+[ImplicitDataDefinitionForInheritors]
+public abstract partial class SharedRitualBehaviorSystem : EntitySystem
 {
     public override void Initialize()
     {

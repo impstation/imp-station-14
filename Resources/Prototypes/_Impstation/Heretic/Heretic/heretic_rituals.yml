@@ -20,10 +20,10 @@
   requiredTags:
     GlassShard: 1
     Eyes: 1
-  outputItems:
-    ClothingNeckAmberFocus: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      ClothingNeckAmberFocus: 1
 
 - type: hereticRitual
   id: CodexCicatrix
@@ -36,10 +36,10 @@
     Heart: 1
     Book: 1
     Write: 1
-  outputItems:
-    CodexCicatrix: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      CodexCicatrix: 1
 
 ### ash path
 - type: hereticRitual
@@ -52,10 +52,10 @@
   requiredTags:
     Knife: 1
     WeldingTool: 1
-  outputItems:
-    HereticBladeAsh: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      HereticBladeAsh: 1
 
 - type: hereticRitual
   id: MaskOfMadness
@@ -69,10 +69,10 @@
     Candle: 4
     Stunbaton: 1
     Liver: 1
-  outputItems:
-    ClothingMaskMadHeretic: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      ClothingMaskMadHeretic: 1
 
 - type: hereticRitual
   id: AscensionAsh
@@ -100,8 +100,6 @@
     state: icon
   requiredTags:
     Knife: 1
-  outputItems:
-    HereticBladeFlesh: 1
   ritualBehavior:
   - !type:ReagentPuddleBehavior
     reagents:
@@ -117,7 +115,10 @@
     - BloodKodepiia
     - SynthBlood
     - AnomalocaridCopperBlood
+    - BloodAllulalo
   - !type:TransmuteBehavior
+    outputItems:
+      HereticBladeFlesh: 1
 
 - type: hereticRitual
   id: ImperfectRitual
@@ -141,8 +142,6 @@
   requiredTags:
     Eyes: 1
     Stomach: 1
-  outputItems:
-    MobGhoulProphet: 1
   ritualBehavior:
   - !type:ReagentPuddleBehavior
     reagents:
@@ -159,6 +158,8 @@
     - SynthBlood
     - AnomalocaridCopperBlood
   - !type:TransmuteBehavior
+    outputItems:
+      MobGhoulProphet: 1
 
 - type: hereticRitual
   id: LonelyRitual
@@ -172,8 +173,6 @@
     Heart: 1
     Stomach: 1
     Lungs: 1
-  outputItems:
-    MobGhoulStalker: 1
   ritualBehavior:
   - !type:ReagentPuddleBehavior
     reagents:
@@ -190,6 +189,8 @@
     - SynthBlood
     - AnomalocaridCopperBlood
   - !type:TransmuteBehavior
+    outputItems:
+      MobGhoulStalker: 1
 
 - type: hereticRitual
   id: AscensionFlesh
@@ -216,11 +217,11 @@
     state: icon
   requiredTags:
     Knife: 1
-  outputItems:
-    HereticBladeVoid: 1
   ritualBehavior:
   - !type:TemperatureBehavior
   - !type:TransmuteBehavior
+    outputItems:
+      HereticBladeVoid: 1
 
 - type: hereticRitual
   id: AscensionVoid
@@ -249,10 +250,10 @@
   requiredTags:
     Knife: 1
     Sidearm: 1
-  outputItems:
-    WeaponRevolverSerpentine: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      WeaponRevolverSerpentine: 1
 
 - type: hereticRitual
   id: MeteoricPouch
@@ -264,10 +265,10 @@
   requiredTags:
     PillCanister: 1
     Pipe: 1
-  outputItems:
-    HereticAmmoPouch: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      HereticAmmoPouch: 1
 
 - type: hereticRitual
   id: LionhunterRifle
@@ -280,10 +281,10 @@
     Sidearm: 1
     Meat: 1
     Eyes: 1
-  outputItems:
-    WeaponSniperLionhunter: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      WeaponSniperLionhunter: 1
 
 - type: hereticRitual
   id: SkaptodonCloak
@@ -296,10 +297,10 @@
     Scarf: 1
     GlassShard: 1
     Brain: 1
-  outputItems:
-    HereticSkaptodonCloak: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      HereticSkaptodonCloak: 1
 
 - type: hereticRitual
   id: AscensionHunt
@@ -327,10 +328,10 @@
   requiredTags:
     Table: 1
     GasMask: 1
-  outputItems:
-    ClothingOuterArmorHeretic: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      ClothingOuterArmorHeretic: 1
 
 - type: hereticRitual
   id: PriestRitual
@@ -342,10 +343,10 @@
   requiredTags:
     WaterTank: 1
     GlassShard: 1
-  outputItems:
-    HereticEldritchFlask: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      HereticEldritchFlask: 1
 
 - type: hereticRitual
   id: SeekersHeartRitual
@@ -357,10 +358,10 @@
   requiredTags:
     Heart: 1
     Flare: 1
-  outputItems:
-    HereticBookSensor: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      HereticBookSensor: 1
 
 - type: hereticRitual
   id: HereticMirrorRitual
@@ -373,10 +374,10 @@
     LightBulb: 1
     Crowbar: 1
     Eyes: 1
-  outputItems:
-    HereticMirror: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      HereticMirror: 1
 
 - type: hereticRitual
   id: HereticKeyRitual
@@ -388,7 +389,7 @@
   requiredTags:
     WhitelistChameleonIdCard: 1
     Organ: 1
-  outputItems:
-    HereticKeyThrowing: 1
   ritualBehavior:
   - !type:TransmuteBehavior
+    outputItems:
+      HereticKeyThrowing: 1

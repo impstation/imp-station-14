@@ -3,14 +3,16 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Popups;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
 /// Behavior for making a ritual require certain reagents (in puddle form).
 /// </summary>
-[DataDefinition]
+[Serializable]
 public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -20,7 +22,7 @@ public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
     /// <summary>
     /// Whitelist for reagents that can be used for the given ritual.
     /// </summary>
-    [DataField] public List<ProtoId<ReagentPrototype>>? Reagents { get; set; } = [];
+    [DataField] public List<ProtoId<ReagentPrototype>>? Reagents { get; set; }
 
     /// <summary>
     /// The puddles of whatever that are being checked.
@@ -58,9 +60,9 @@ public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
                 if (puddle.Solution == null)
                     continue;
 
-                var soln = puddle.Solution.Value;
+                var solution = puddle.Solution.Value;
 
-                if (!soln.Comp.Solution.ContainsPrototype(reagent))
+                if (!solution.Comp.Solution.ContainsPrototype(reagent))
                     continue;
 
                 _puddles.Add(ent);
@@ -74,8 +76,10 @@ public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
             return true;
         }
 
-        //take off the comma + space on the end of the reagStrings
-        reagStrings = reagStrings.Substring(0, reagStrings.Length - 2);
+        // take off the comma + space on the end of the reagStrings
+        char[] trim = { ' ', ',' };
+        reagStrings = reagStrings.TrimEnd(trim);
+
         _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", reagStrings)), platform, performer);
         return false;
     }
@@ -88,5 +92,10 @@ public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 
         // Reset the puddleslist.
         _puddles = [];
+    }
+
+    public static explicit operator ReagentPuddleBehavior(Type v)
+    {
+        throw new NotImplementedException();
     }
 }

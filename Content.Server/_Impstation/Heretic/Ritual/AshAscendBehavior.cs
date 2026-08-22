@@ -1,11 +1,12 @@
 using Content.Shared.Atmos.Components;
+using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
 /// Behavior for ash path ascensions. Inherits from <see cref="SacrificeBehavior"/>
 /// </summary>
-[DataDefinition]
+[Serializable]
 public sealed partial class AshAscendBehavior : SacrificeBehavior
 {
     /// <summary>

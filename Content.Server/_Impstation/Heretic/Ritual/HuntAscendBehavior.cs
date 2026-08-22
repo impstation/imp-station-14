@@ -1,11 +1,12 @@
 using Content.Shared.Cuffs.Components;
+using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
 /// Behavior for hunt path ascensions. Inherits from <see cref="SacrificeBehavior"/>
 /// </summary>
-[DataDefinition]
+[Serializable]
 public sealed partial class HuntAscendBehavior : SacrificeBehavior
 {
     /// <summary>

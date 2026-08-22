@@ -4,13 +4,14 @@ using Content.Shared.Atmos;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
 /// Behavior for making a ritual require certain temperature conditions.
 /// </summary>
-[DataDefinition]
+[Serializable]
 public sealed partial class TemperatureBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;

@@ -15,6 +15,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -200,32 +201,96 @@ public sealed partial class HereticRitualSystem : EntitySystem
             switch (behavior)
             {
                 case MuteGhoulifyBehavior:
+                    // No datafields.
                     if (_muteGhoulify.DoRitual(args.User, ent, ritual) == false)
                         return;
                     break;
 
                 case HuntAscendBehavior:
+                    // Yes, this is silly.
+                    // Explicitly cast the behavior to the ritual type.
+                    HuntAscendBehavior ritualHuntAscend = new();
+                    if (behavior is HuntAscendBehavior)
+                        ritualHuntAscend = (HuntAscendBehavior)behavior;
+
+                    // Assign the behavior's fields to the ritual's system.
+                    _huntAscend.Max = ritualHuntAscend.Max;
+                    _huntAscend.Min = ritualHuntAscend.Min;
+                    _huntAscend.SacrificePoints = ritualHuntAscend.SacrificePoints;
+                    _huntAscend.CommandSacrificePoints = ritualHuntAscend.CommandSacrificePoints;
+                    _huntAscend.SacDamage = ritualHuntAscend.SacDamage;
+
+                    // Do.
                     if (_huntAscend.DoRitual(args.User, ent, ritual) == false && _huntAscend.DoHuntAscendRitual(args.User, ent) == false)
                         return;
                     break;
 
                 case AshAscendBehavior:
+                    // Explicitly cast the behavior to the ritual type.
+                    AshAscendBehavior ritualAshAscend = new();
+                    if (behavior is AshAscendBehavior)
+                        ritualAshAscend = (AshAscendBehavior)behavior;
+
+                    // Assign the behavior's fields to the ritual's system.
+                    _ashAscend.Max = ritualAshAscend.Max;
+                    _ashAscend.Min = ritualAshAscend.Min;
+                    _ashAscend.SacrificePoints = ritualAshAscend.SacrificePoints;
+                    _ashAscend.CommandSacrificePoints = ritualAshAscend.CommandSacrificePoints;
+                    _ashAscend.SacDamage = ritualAshAscend.SacDamage;
+
+                    // Do.
                     if (_ashAscend.DoRitual(args.User, ent, ritual) == false && _ashAscend.DoAshAscendRitual(args.User, ent) == false)
                         return;
                     break;
 
                 // Anything that inherits from SacrificeBehavior has to be above this.
                 case SacrificeBehavior:
+                    // Ignore inheritors.
+                    if (behavior is HuntAscendBehavior || behavior is AshAscendBehavior || behavior is MuteGhoulifyBehavior)
+                        continue;
+
+                    // Explicitly cast the behavior to the ritual type.
+                    SacrificeBehavior ritualSacrifice = new();
+                    if (behavior is SacrificeBehavior)
+                        ritualSacrifice = (SacrificeBehavior)behavior;
+
+                    // Assign the behavior's fields to the ritual's system.
+                    _sacrifice.Max = ritualSacrifice.Max;
+                    _sacrifice.Min = ritualSacrifice.Min;
+                    _sacrifice.SacrificePoints = ritualSacrifice.SacrificePoints;
+                    _sacrifice.CommandSacrificePoints = ritualSacrifice.CommandSacrificePoints;
+                    _sacrifice.SacDamage = ritualSacrifice.SacDamage;
+
+                    // Do.
                     if (_sacrifice.DoRitual(args.User, ent, ritual) == false)
                         return;
                     break;
 
                 case TemperatureBehavior:
+                    // Explicitly cast the behavior to the ritual type.
+                    TemperatureBehavior ritualTemp = new();
+                    if (behavior is TemperatureBehavior)
+                        ritualTemp = (TemperatureBehavior)behavior;
+
+                    // Assign the behavior's fields to the ritual's system.
+                    _temperature.MaxThreshold = ritualTemp.MaxThreshold;
+                    _temperature.MinThreshold = ritualTemp.MinThreshold;
+
+                    // Do.
                     if (_temperature.DoRitual(args.User, ent, ritual) == false)
                         return;
                     break;
 
                 case ReagentPuddleBehavior:
+                    // Explicitly cast the behavior to the ritual type.
+                    ReagentPuddleBehavior ritualReagent = new();
+                    if (behavior is ReagentPuddleBehavior)
+                        ritualReagent = (ReagentPuddleBehavior)behavior;
+
+                    // Assign the behavior's fields to the ritual's system.
+                    _reagentPuddle.Reagents = ritualReagent.Reagents;
+
+                    // Do.
                     if (_reagentPuddle.DoRitual(args.User, ent, ritual) == false)
                         return;
                     break;
@@ -241,11 +306,28 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     _muteGhoulify.DoMuteGhoulifyRitualEffect(args.User);
                     break;
 
+                case HuntAscendBehavior:
+                    _huntAscend.DoRitualEffect(args.User, ent, ritual);
+                    break;
+
+                case AshAscendBehavior:
+                    _ashAscend.DoRitualEffect(args.User, ent, ritual);
+                    break;
+
                 case SacrificeBehavior:
                     _sacrifice.DoRitualEffect(args.User, ent, ritual);
                     break;
 
                 case TransmuteBehavior:
+                    // Explicitly cast the behavior to the ritual type.
+                    TransmuteBehavior ritualTrans = new();
+                    if (behavior is TransmuteBehavior)
+                        ritualTrans = (TransmuteBehavior)behavior;
+
+                    // Assign the behavior's fields to the ritual's system.
+                    _transmute.OutputItems = ritualTrans.OutputItems;
+
+                    // Do.
                     _transmute.DoRitualEffect(args.User, ent, ritual);
                     break;
 
