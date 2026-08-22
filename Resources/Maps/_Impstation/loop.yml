@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/20/2026 19:23:25
-  entityCount: 18353
+  time: 08/22/2026 04:39:02
+  entityCount: 18374
 maps:
 - 1
 grids:
@@ -9749,6 +9749,8 @@ entities:
     - type: Transform
       pos: -23.5,35.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 2550
     components:
     - type: Transform
@@ -10110,6 +10112,13 @@ entities:
     - type: Transform
       pos: -66.5,78.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        8952:
+        - - DoorStatus
+          - DoorBolt
   - uid: 8100
     components:
     - type: Transform
@@ -10127,6 +10136,13 @@ entities:
     - type: Transform
       pos: -63.5,78.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        6448:
+        - - DoorStatus
+          - DoorBolt
     - type: AccessReader
       accessListsOriginal: []
   - uid: 13402
@@ -10134,11 +10150,25 @@ entities:
     - type: Transform
       pos: -28.5,-12.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        13404:
+        - - DoorStatus
+          - DoorBolt
   - uid: 13404
     components:
     - type: Transform
       pos: -28.5,-9.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        13402:
+        - - DoorStatus
+          - DoorBolt
   - uid: 14633
     components:
     - type: Transform
@@ -14921,10 +14951,11 @@ entities:
       parent: 2
 - proto: BoxingBell
   entities:
-  - uid: 5751
+  - uid: 18372
     components:
     - type: Transform
-      pos: -51.5,61.5
+      rot: 1.5707963267948966 rad
+      pos: -50.5,61.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -24601,6 +24632,81 @@ entities:
     components:
     - type: Transform
       pos: -44.5,-1.5
+      parent: 2
+  - uid: 18354
+    components:
+    - type: Transform
+      pos: -29.5,29.5
+      parent: 2
+  - uid: 18355
+    components:
+    - type: Transform
+      pos: -29.5,31.5
+      parent: 2
+  - uid: 18356
+    components:
+    - type: Transform
+      pos: -29.5,30.5
+      parent: 2
+  - uid: 18357
+    components:
+    - type: Transform
+      pos: -29.5,32.5
+      parent: 2
+  - uid: 18358
+    components:
+    - type: Transform
+      pos: -13.5,35.5
+      parent: 2
+  - uid: 18359
+    components:
+    - type: Transform
+      pos: -14.5,35.5
+      parent: 2
+  - uid: 18360
+    components:
+    - type: Transform
+      pos: -15.5,35.5
+      parent: 2
+  - uid: 18361
+    components:
+    - type: Transform
+      pos: -17.5,35.5
+      parent: 2
+  - uid: 18362
+    components:
+    - type: Transform
+      pos: -18.5,35.5
+      parent: 2
+  - uid: 18363
+    components:
+    - type: Transform
+      pos: -19.5,35.5
+      parent: 2
+  - uid: 18364
+    components:
+    - type: Transform
+      pos: -20.5,35.5
+      parent: 2
+  - uid: 18365
+    components:
+    - type: Transform
+      pos: -16.5,35.5
+      parent: 2
+  - uid: 18366
+    components:
+    - type: Transform
+      pos: -20.5,36.5
+      parent: 2
+  - uid: 18367
+    components:
+    - type: Transform
+      pos: -21.5,36.5
+      parent: 2
+  - uid: 18368
+    components:
+    - type: Transform
+      pos: -22.5,36.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -37523,10 +37629,10 @@ entities:
       parent: 2
 - proto: CardBoxNanotrasen
   entities:
-  - uid: 8964
+  - uid: 18373
     components:
     - type: Transform
-      pos: -14.598243,71.80217
+      pos: -14.4809265,68.600365
       parent: 2
 - proto: CargoMailTeleporter
   entities:
@@ -44217,7 +44323,7 @@ entities:
   - uid: 8231
     components:
     - type: Transform
-      pos: -26.36392,67.62711
+      pos: -26.367622,67.87556
       parent: 2
   - uid: 8473
     components:
@@ -46328,7 +46434,7 @@ entities:
       pos: -23.5,42.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -159325.88
+      secondsUntilStateChange: -160836.5
       state: Closing
 - proto: CurtainsWhite
   entities:
@@ -46348,7 +46454,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -442363.28
+      secondsUntilStateChange: -443873.9
       state: Opening
   - uid: 6747
     components:
@@ -46356,7 +46462,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -442364
+      secondsUntilStateChange: -443874.62
       state: Opening
   - uid: 6749
     components:
@@ -46364,7 +46470,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -442362.56
+      secondsUntilStateChange: -443873.2
       state: Opening
   - uid: 6750
     components:
@@ -46372,7 +46478,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -442361.94
+      secondsUntilStateChange: -443872.56
       state: Opening
 - proto: CyberPen
   entities:
@@ -47804,6 +47910,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: -55.5,32.5
       parent: 2
+- proto: DefaultStationBeaconDetectiveRoom
+  entities:
+  - uid: 18370
+    components:
+    - type: Transform
+      pos: -2.5,29.5
+      parent: 2
 - proto: DefaultStationBeaconDisposals
   entities:
   - uid: 6376
@@ -47850,6 +47963,13 @@ entities:
     components:
     - type: Transform
       pos: -48.5,-0.5
+      parent: 2
+- proto: DefaultStationBeaconEvac
+  entities:
+  - uid: 18369
+    components:
+    - type: Transform
+      pos: -70.5,43.5
       parent: 2
 - proto: DefaultStationBeaconEVAStorage
   entities:
@@ -52097,27 +52217,14 @@ entities:
     - type: Transform
       pos: -64.5,13.5
       parent: 2
-  - uid: 3817
-    components:
-    - type: Transform
-      pos: -29.5,8.5
-      parent: 2
-  - uid: 7154
-    components:
-    - type: Transform
-      pos: -10.5,64.5
-      parent: 2
     - type: FaxMachine
-      name: Law Office
-  - uid: 7402
+      name: Chapelbrary
+- proto: FaxMachineCaptain
+  entities:
+  - uid: 18374
     components:
     - type: Transform
-      pos: -50.5,71.5
-      parent: 2
-  - uid: 13554
-    components:
-    - type: Transform
-      pos: -21.5,47.5
+      pos: -14.5,71.5
       parent: 2
 - proto: FaxMachineCommand
   entities:
@@ -52126,11 +52233,8 @@ entities:
     - type: Transform
       pos: -22.5,68.5
       parent: 2
-  - uid: 649
-    components:
-    - type: Transform
-      pos: -12.5,32.5
-      parent: 2
+    - type: FaxMachine
+      name: Command
 - proto: FaxMachineEngineering
   entities:
   - uid: 2153
@@ -52138,6 +52242,15 @@ entities:
     - type: Transform
       pos: -10.5,17.5
       parent: 2
+    - type: FaxMachine
+      name: Engineering
+  - uid: 3817
+    components:
+    - type: Transform
+      pos: -29.5,8.5
+      parent: 2
+    - type: FaxMachine
+      name: Chief Engineer
 - proto: FaxMachineHoP
   entities:
   - uid: 650
@@ -52152,6 +52265,15 @@ entities:
     - type: Transform
       pos: -22.5,23.5
       parent: 2
+    - type: FaxMachine
+      name: Medical
+  - uid: 8964
+    components:
+    - type: Transform
+      pos: -12.5,32.5
+      parent: 2
+    - type: FaxMachine
+      name: Chief Medical Officer
 - proto: FaxMachineScience
   entities:
   - uid: 652
@@ -52159,11 +52281,15 @@ entities:
     - type: Transform
       pos: 22.5,44.5
       parent: 2
+    - type: FaxMachine
+      name: Research Director
   - uid: 653
     components:
     - type: Transform
       pos: 20.5,35.5
       parent: 2
+    - type: FaxMachine
+      name: Science
 - proto: FaxMachineSecurity
   entities:
   - uid: 4547
@@ -52171,6 +52297,22 @@ entities:
     - type: Transform
       pos: -16.5,45.5
       parent: 2
+    - type: FaxMachine
+      name: Security
+  - uid: 5751
+    components:
+    - type: Transform
+      pos: -10.5,64.5
+      parent: 2
+    - type: FaxMachine
+      name: Lawyer
+  - uid: 7402
+    components:
+    - type: Transform
+      pos: -21.5,47.5
+      parent: 2
+    - type: FaxMachine
+      name: Brigmedic
 - proto: FaxMachineService
   entities:
   - uid: 3786
@@ -52178,11 +52320,22 @@ entities:
     - type: Transform
       pos: -66.5,57.5
       parent: 2
+    - type: FaxMachine
+      name: Hospitality Director
   - uid: 5384
     components:
     - type: Transform
       pos: -63.5,38.5
       parent: 2
+    - type: FaxMachine
+      name: Service
+  - uid: 7154
+    components:
+    - type: Transform
+      pos: -50.5,71.5
+      parent: 2
+    - type: FaxMachine
+      name: Reporter
 - proto: FaxMachineSupply
   entities:
   - uid: 654
@@ -52190,11 +52343,15 @@ entities:
     - type: Transform
       pos: 3.5,73.5
       parent: 2
+    - type: FaxMachine
+      name: Quartermaster
   - uid: 3260
     components:
     - type: Transform
       pos: 15.5,71.5
       parent: 2
+    - type: FaxMachine
+      name: Cargo
 - proto: FenceWoodSmallCorner
   entities:
   - uid: 3057
@@ -57556,7 +57713,7 @@ entities:
   - uid: 9695
     components:
     - type: Transform
-      pos: -18.701431,68.77702
+      pos: -26.601164,67.45368
       parent: 2
 - proto: FoodBreadGarlicSlice
   entities:
@@ -57633,7 +57790,7 @@ entities:
   - uid: 12813
     components:
     - type: Transform
-      pos: -18.373306,68.68327
+      pos: -26.476997,67.45368
       parent: 2
 - proto: FoodCartCold
   entities:
@@ -58153,6 +58310,12 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 14209
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -47.5,38.5
+      parent: 2
   - uid: 16686
     components:
     - type: Transform
@@ -73837,10 +74000,10 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#03FCD3FF'
-  - uid: 14209
+  - uid: 13554
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
+      rot: 1.5707963267948966 rad
       pos: -48.5,38.5
       parent: 2
 - proto: GasThermoMachineHeater
@@ -82071,6 +82234,13 @@ entities:
     - type: Transform
       pos: -22.5,74.5
       parent: 2
+- proto: HolopadCommandBridgeLongRange
+  entities:
+  - uid: 649
+    components:
+    - type: Transform
+      pos: -22.5,72.5
+      parent: 2
 - proto: HolopadCommandCaptain
   entities:
   - uid: 16820
@@ -85768,7 +85938,7 @@ entities:
   - uid: 7129
     components:
     - type: Transform
-      pos: -14.50365,68.67319
+      pos: -18.54219,68.79743
       parent: 2
 - proto: PianoInstrument
   entities:
@@ -106228,6 +106398,13 @@ entities:
     - type: AccessReader
       accessListsOriginal:
       - - Hydroponics
+- proto: VendingMachinePride
+  entities:
+  - uid: 18371
+    components:
+    - type: Transform
+      pos: -58.5,25.5
+      parent: 2
 - proto: VendingMachineRestockBooze
   entities:
   - uid: 16016
@@ -119182,7 +119359,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -76168.414
+      secondsUntilStateChange: -77679.05
       state: Opening
     - type: Airlock
       autoClose: False
