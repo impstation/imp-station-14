@@ -24,6 +24,20 @@
   recipeType: Assembler
 
 - type: microwaveMealRecipe
+  id: RecipeTurtleSoup
+  name: turtle soup recipe
+  result: FoodSoupTurtle
+  group: Soup
+  time: 15
+  reagents:
+    Water: 10
+    TableSalt: 10
+  solids:
+    FoodBowlTurtleBig: 1
+    FoodMeatLizard: 1
+  recipeType: Oven
+
+- type: microwaveMealRecipe
   id: RecipeClothLollipop
   name: cloth lollipop recipe
   result: FoodMealClothLollipop
