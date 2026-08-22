@@ -10,16 +10,17 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for making a ritual require certain reagents (in puddle form).
 /// </summary>
+[DataDefinition]
 public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PrototypeManager _proto = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     /// <summary>
     /// Whitelist for reagents that can be used for the given ritual.
     /// </summary>
-    [DataField] public List<ProtoId<ReagentPrototype>>? Reagents;
+    [DataField] public List<ProtoId<ReagentPrototype>>? Reagents { get; set; } = [];
 
     /// <summary>
     /// The puddles of whatever that are being checked.

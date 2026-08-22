@@ -41,7 +41,6 @@
   ritualBehavior:
   - !type:TransmuteBehavior
 
-
 ### ash path
 - type: hereticRitual
   id: BladeAsh
@@ -104,7 +103,6 @@
   outputItems:
     HereticBladeFlesh: 1
   ritualBehavior:
-  - !type:TransmuteBehavior
   - !type:ReagentPuddleBehavior
     reagents:
     - Blood
@@ -119,6 +117,7 @@
     - BloodKodepiia
     - SynthBlood
     - AnomalocaridCopperBlood
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: ImperfectRitual
@@ -145,7 +144,6 @@
   outputItems:
     MobGhoulProphet: 1
   ritualBehavior:
-  - !type:TransmuteBehavior
   - !type:ReagentPuddleBehavior
     reagents:
     - Blood
@@ -160,6 +158,7 @@
     - BloodKodepiia
     - SynthBlood
     - AnomalocaridCopperBlood
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: LonelyRitual
@@ -176,7 +175,6 @@
   outputItems:
     MobGhoulStalker: 1
   ritualBehavior:
-  - !type:TransmuteBehavior
   - !type:ReagentPuddleBehavior
     reagents:
     - Blood
@@ -191,6 +189,7 @@
     - BloodKodepiia
     - SynthBlood
     - AnomalocaridCopperBlood
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: AscensionFlesh
@@ -220,9 +219,8 @@
   outputItems:
     HereticBladeVoid: 1
   ritualBehavior:
-  - !type:TransmuteBehavior
   - !type:TemperatureBehavior
-    minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
+  - !type:TransmuteBehavior
 
 - type: hereticRitual
   id: AscensionVoid
@@ -234,11 +232,11 @@
   outputKnowledge: WaltzAtTheEndOfTime
   outputEvent: !type:EventHereticAscension
   ritualBehavior:
+  - !type:TemperatureBehavior
+    minThreshold: -20
   - !type:SacrificeBehavior
     min: 3
     max: 3
-  - !type:TemperatureBehavior
-    minThreshold: -20
 
 ##hunt path
 - type: hereticRitual
@@ -313,10 +311,10 @@
   outputKnowledge: ManhuntsReversal
   outputEvent: !type:EventHereticAscension
   ritualBehavior:
+  - !type:HuntAscendBehavior
   - !type:SacrificeBehavior
     min: 3
     max: 3
-  - !type:HuntAscendBehavior
 
 ###side knowledge
 - type: hereticRitual

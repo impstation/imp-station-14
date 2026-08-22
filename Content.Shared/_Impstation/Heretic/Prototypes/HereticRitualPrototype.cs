@@ -1,13 +1,12 @@
 using Content.Shared._Impstation.Heretic.Ritual;
 using Content.Shared.Tag;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
+[DataDefinition, Serializable, NetSerializable]
 [Prototype]
 public sealed partial class HereticRitualPrototype : IPrototype
 {
@@ -51,5 +50,5 @@ public sealed partial class HereticRitualPrototype : IPrototype
     /// <summary>
     /// What the ritual does.
     /// </summary>
-    [DataField] public List<SharedRitualBehaviorSystem> RitualBehavior;
+    [DataField] public List<SharedRitualBehaviorSystem> RitualBehavior = [];
 }

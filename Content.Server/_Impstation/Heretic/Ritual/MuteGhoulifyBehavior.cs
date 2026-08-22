@@ -10,6 +10,7 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for creating mute ghouls. Inherits from <see cref="SacrificeBehavior"/>
 /// </summary>
+[DataDefinition]
 public sealed partial class MuteGhoulifyBehavior : SacrificeBehavior
 {
     [Dependency] private readonly MinionSystem _minion = default!;

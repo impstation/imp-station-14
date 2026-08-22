@@ -10,6 +10,7 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for making a ritual require certain temperature conditions.
 /// </summary>
+[DataDefinition]
 public sealed partial class TemperatureBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
@@ -18,12 +19,12 @@ public sealed partial class TemperatureBehavior : SharedRitualBehaviorSystem
     /// <summary>
     /// Min temp in celsius
     /// </summary>
-    [DataField] public float MinThreshold = 0f;
+    [DataField] public float MinThreshold { get; set; } = 0f;
 
     /// <summary>
     /// Max temp in celsius
     /// </summary>
-    [DataField] public float MaxThreshold = float.PositiveInfinity;
+    [DataField] public float MaxThreshold { get; set; } = float.PositiveInfinity;
 
     public override void Initialize()
     {

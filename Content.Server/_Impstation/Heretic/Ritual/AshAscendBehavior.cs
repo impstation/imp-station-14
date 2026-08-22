@@ -5,6 +5,7 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for ash path ascensions. Inherits from <see cref="SacrificeBehavior"/>
 /// </summary>
+[DataDefinition]
 public sealed partial class AshAscendBehavior : SacrificeBehavior
 {
     /// <summary>

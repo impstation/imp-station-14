@@ -9,6 +9,7 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for rituals which spawn an entity on success.
 /// </summary>
+[DataDefinition]
 public sealed partial class TransmuteBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly HereticRitualSystem _ritual = default!;

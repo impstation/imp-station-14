@@ -152,12 +152,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
-        if (_knowledge.AllKnownRituals(heretic).Count == 0)
-        {
-            _popup.PopupEntity(Loc.GetString("heretic-ritual-norituals"), args.User, args.User);
-            return;
-        }
-
         _uiSystem.OpenUi(ent.Owner, HereticRitualRuneUiKey.Key, args.User);
     }
 
@@ -205,41 +199,34 @@ public sealed partial class HereticRitualSystem : EntitySystem
             // There are probably so many better ways to do this.
             switch (behavior)
             {
-                // Anything that inherits from SacrificeBehavior
+                case MuteGhoulifyBehavior:
+                    if (_muteGhoulify.DoRitual(args.User, ent, ritual) == false)
+                        return;
+                    break;
+
+                case HuntAscendBehavior:
+                    if (_huntAscend.DoRitual(args.User, ent, ritual) == false && _huntAscend.DoHuntAscendRitual(args.User, ent) == false)
+                        return;
+                    break;
+
+                case AshAscendBehavior:
+                    if (_ashAscend.DoRitual(args.User, ent, ritual) == false && _ashAscend.DoAshAscendRitual(args.User, ent) == false)
+                        return;
+                    break;
+
+                // Anything that inherits from SacrificeBehavior has to be above this.
                 case SacrificeBehavior:
-                    if (behavior is SacrificeBehavior)
-                    {
-                        if (_sacrifice.DoRitual(args.User, ent, ritual) == false)
-                            return;
-                        break;
-                    }
-                    if (behavior is MuteGhoulifyBehavior)
-                    {
-                        if (_muteGhoulify.DoRitual(args.User, ent, ritual) == false)
-                            return;
-                        break;
-                    }
-                    if (behavior is HuntAscendBehavior)
-                    {
-                        if (_huntAscend.DoRitual(args.User, ent, ritual) == false && _huntAscend.DoHuntAscendRitual(args.User, ent) == false)
-                            return;
-                        break;
-                    }
-                    if (behavior is AshAscendBehavior)
-                    {
-                        if (_ashAscend.DoRitual(args.User, ent, ritual) == false && _ashAscend.DoAshAscendRitual(args.User, ent) == false)
-                            return;
-                        break;
-                    }
+                    if (_sacrifice.DoRitual(args.User, ent, ritual) == false)
+                        return;
                     break;
 
                 case TemperatureBehavior:
-                    if (_temperature.DoRitual(args.User, ent, ritual))
+                    if (_temperature.DoRitual(args.User, ent, ritual) == false)
                         return;
                     break;
 
                 case ReagentPuddleBehavior:
-                    if (_reagentPuddle.DoRitual(args.User, ent, ritual))
+                    if (_reagentPuddle.DoRitual(args.User, ent, ritual) == false)
                         return;
                     break;
             }
@@ -250,17 +237,12 @@ public sealed partial class HereticRitualSystem : EntitySystem
         {
             switch (behavior)
             {
+                case MuteGhoulifyBehavior:
+                    _muteGhoulify.DoMuteGhoulifyRitualEffect(args.User);
+                    break;
+
                 case SacrificeBehavior:
-                    if (behavior is SacrificeBehavior)
-                    {
-                        _sacrifice.DoRitualEffect(args.User, ent, ritual);
-                        break;
-                    }
-                    if (behavior is MuteGhoulifyBehavior)
-                    {
-                        _muteGhoulify.DoMuteGhoulifyRitualEffect(args.User);
-                        break;
-                    }
+                    _sacrifice.DoRitualEffect(args.User, ent, ritual);
                     break;
 
                 case TransmuteBehavior:

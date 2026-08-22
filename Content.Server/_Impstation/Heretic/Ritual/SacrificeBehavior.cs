@@ -22,6 +22,7 @@ namespace Content.Server.Heretic.Ritual;
 /// </summary>
 /// <remarks> Marked as virtual because this also is used by ascensions.</remarks>
 [Virtual]
+[DataDefinition]
 public partial class SacrificeBehavior : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -33,28 +34,28 @@ public partial class SacrificeBehavior : SharedRitualBehaviorSystem
     /// <summary>
     /// Minimum amount of corpses.
     /// </summary>
-    [DataField] public float Min = 1;
+    [DataField] public float Min { get; set; } = 1;
 
     /// <summary>
     /// Maximum amount of corpses.
     /// </summary>
-    [DataField] public float Max = 1;
+    [DataField] public float Max { get; set; } = 1;
 
     /// <summary>
     /// Points gained on sacrificing a normal crewmember.
     /// </summary>
-    [DataField] public float SacrificePoints = 2f;
+    [DataField] public float SacrificePoints { get; set; } = 2f;
 
     /// <summary>
     /// Points gained on sacrificing a command member.
     /// </summary>
-    [DataField] public float CommandSacrificePoints = 3f;
+    [DataField] public float CommandSacrificePoints { get; set; } = 3f;
 
     /// <summary>
     /// The type of damage to do to victims who aren't already dead.
     /// </summary>
     [DataField]
-    public DamageSpecifier SacDamage = new()
+    public DamageSpecifier SacDamage { get; set; } = new()
     {
         DamageDict = new()
         {
