@@ -1,5 +1,4 @@
 using Content.Shared.Cuffs.Components;
-using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 

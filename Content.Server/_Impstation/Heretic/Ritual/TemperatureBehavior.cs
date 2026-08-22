@@ -4,7 +4,6 @@ using Content.Shared.Atmos;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 

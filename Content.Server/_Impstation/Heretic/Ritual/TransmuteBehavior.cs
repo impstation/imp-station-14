@@ -1,9 +1,7 @@
-using Content.Server.Heretic.EntitySystems;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared._Impstation.Heretic.Ritual;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 

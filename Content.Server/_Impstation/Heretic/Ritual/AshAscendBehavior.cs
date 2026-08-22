@@ -1,5 +1,4 @@
 using Content.Shared.Atmos.Components;
-using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 

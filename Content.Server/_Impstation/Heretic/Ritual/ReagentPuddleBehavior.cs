@@ -3,10 +3,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Popups;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
@@ -92,10 +89,5 @@ public sealed partial class ReagentPuddleBehavior : SharedRitualBehaviorSystem
 
         // Reset the puddleslist.
         _puddles = [];
-    }
-
-    public static explicit operator ReagentPuddleBehavior(Type v)
-    {
-        throw new NotImplementedException();
     }
 }

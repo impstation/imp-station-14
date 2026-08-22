@@ -4,7 +4,6 @@ using Content.Shared._Impstation.Heretic;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
-using Robust.Shared.Serialization;
 
 namespace Content.Server.Heretic.Ritual;
 
