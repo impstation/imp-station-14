@@ -48,7 +48,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 
         foreach (var knowledge in heretic.KnownKnowledge)
         {
-            if (!_prototypeManager.TryIndex(knowledge, out var knowledgePrototype))
+            if (!_prototypeManager.Resolve(knowledge, out var knowledgePrototype))
                 continue;
 
             if (knowledgePrototype.RitualPrototypes == null)
@@ -56,8 +56,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 
             foreach (var ritual in knowledgePrototype.RitualPrototypes)
             {
-
-                if (!_prototypeManager.TryIndex(ritual, out var ritualPrototype))
+                if (!_prototypeManager.Resolve(ritual, out var ritualPrototype))
                     continue;
 
                 var button = new HereticRitualMenuButton
