@@ -1,16 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: analysis console's extract button is slightly quieter
-    type: Tweak
-  - message: analysis console won't spoil contents of puddles
-    type: Tweak
-  - message: analysis console won't keep track of artifact that has left (preventing
-      other artifacts from being scanned)
-    type: Fix
-  id: 2405
-  time: '2025-11-10T03:00:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3690
 - author: VeeNomine
   changes:
   - message: Added more access to specific doors and comms to Tck'ut.
@@ -4098,3 +4086,11 @@
   id: 2904
   time: '2026-08-21T12:29:03.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4551
+- author: Darkmajia
+  changes:
+  - message: Most of the ChefVend's stock has been halved to match upstream values.
+      To match, cargo restocks for the machine are cheaper.
+    type: Tweak
+  id: 2905
+  time: '2026-08-24T07:47:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4542
