@@ -1,6 +1,7 @@
 - type: entity
   parent: [ SimpleSpaceMobBase ]
   id: MobMonarchGrub
+  suffix: Stage 1
   name: monarch grub
   description: The parasitic spawn of a Monarch ray.
   components:
@@ -75,6 +76,8 @@
         state: grub1eyes-equipped-HELMET
         shader: unshaded
     equippedPrefix: 0
+    slots:
+    - HEAD
   - type: SelfUnremovableClothing
   - type: TriggerOnDidEquip
   - type: TimerTrigger
@@ -86,10 +89,12 @@
     keysIn:
     - timer
     polymorph: MobMonarchGrub2
+  - type: MonarchRay
 
 - type: entity
   parent: [ MobMonarchGrub ]
   id: MobMonarchGrubStage2
+  suffix: Stage 2
   name: monarch grub
   description: The parasitic spawn of a Monarch ray.
   components:
@@ -103,7 +108,7 @@
     keysIn:
     - timer
     polymorph: MobMonarchGrub3
-  - type: TriggerOnDidUnEquip
+  - type: TriggerOnDidUnequip
   - type: DamageOnTrigger
     targetContainer: true
     damage:
@@ -133,44 +138,54 @@
 - type: entity
   parent: [ MobMonarchGrub ]
   id: MobMonarchGrubStage3
+  suffix: Stage 3
   name: young monarch ray
   description: A baby monarch ray, this one only just grew it's wings.
   components:
-  - type: TriggerOnSpawn
+  #- type: TriggerOnSpawn
+  # instant death. disabled for testing.
   - type: DamageOnTrigger
     targetContainer: true  # this is gonna need cotainter damage from my reverse bear trap pr
     damage:
-      types:
-        # something round removing
+      groups:
+        Genetic: 200
+  - type: Sprite
+    sprite: _Impstation/Mobs/Aliens/monarch.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: baby
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: babyeyes
+      shader: unshaded
   # need something here that means when the entity wearing this as a hat dies its consciousness is transfered to the grub, which then CanEscapeInventory.
 
 - type: entity
   parent: [ SimpleSpaceMobBase ]
   id: MobMonarchRay
   name: monarch ray
-  description:
-  components:
+  #description:
+  #components:
 
 - type: entity
-  name:
+  name: monarch trap
   parent: [BaseItem]
   id: MonarchTrap
   description:
   components:
   - type: Item
     size: Normal
-  - type: Sprite
-    sprite:
-    state:
-  - type: EmitSoundOnThrow
-    sound:
-  - type: EmitSoundOnLand
-    sound:
+  #- type: Sprite
+   # sprite:
+    #state:
+  #- type: EmitSoundOnThrow
+   # sound:
+  #- type: EmitSoundOnLand
+   # sound:
   - type: Construction
     graph: Bola
     node: bola
   - type: Damageable
-    damageContainer: Organic
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:
