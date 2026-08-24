@@ -27,3 +27,10 @@
   strategy: !type:ClampedHslColoration
     saturation: [0.0, 0.60]
     lightness: [0.2, 0.9]
+
+- type: skinColoration
+  id: None
+  strategy: !type:ClampedHsvColoration
+    hue: [0, 0]
+    saturation: [0, 0]
+    value: [1, 1]
