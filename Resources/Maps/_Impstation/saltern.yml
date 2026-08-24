@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/23/2026 21:08:18
-  entityCount: 14812
+  time: 08/24/2026 21:50:25
+  entityCount: 14811
 maps:
 - 658
 grids:
@@ -70471,11 +70471,6 @@ entities:
     components:
     - type: Transform
       pos: -5.5,45.5
-      parent: 31
-  - uid: 14812
-    components:
-    - type: Transform
-      pos: 57.5,-1.5
       parent: 31
 - proto: LinkedCaptainIDCardSpawner2
   entities:
