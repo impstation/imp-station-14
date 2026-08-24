@@ -132,19 +132,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
     }
 
     /// <summary>
-    /// Helper method for deleting entities on ritual success.
-    /// </summary>
-    public void DeleteOnSuccess()
-    {
-        foreach (var ent in ToDelete)
-        {
-            QueueDel(ent);
-        }
-
-        ToDelete = [];
-    }
-
-    /// <summary>
     /// Runs when someone clicks a rune with their empty hand
     /// </summary>
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
@@ -206,11 +193,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     break;
 
                 case HuntAscendBehavior:
-                    // Yes, this is silly.
-                    // Explicitly cast the behavior to the ritual type.
-                    HuntAscendBehavior ritualHuntAscend = new();
-                    if (behavior is HuntAscendBehavior)
-                        ritualHuntAscend = (HuntAscendBehavior)behavior;
+                    // Cast the behavior to the ritual type.
+                    HuntAscendBehavior ritualHuntAscend = behavior as HuntAscendBehavior ?? new();
 
                     // Assign the behavior's fields to the ritual's system.
                     _huntAscend.Max = ritualHuntAscend.Max;
@@ -220,15 +204,13 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     _huntAscend.SacDamage = ritualHuntAscend.SacDamage;
 
                     // Do.
-                    if (_huntAscend.DoRitual(args.User, ent, ritual) == false && _huntAscend.DoHuntAscendRitual(args.User, ent) == false)
+                    if (!_huntAscend.DoRitual(args.User, ent, ritual) && !_huntAscend.DoHuntAscendRitual(args.User, ent))
                         return;
                     break;
 
                 case AshAscendBehavior:
-                    // Explicitly cast the behavior to the ritual type.
-                    AshAscendBehavior ritualAshAscend = new();
-                    if (behavior is AshAscendBehavior)
-                        ritualAshAscend = (AshAscendBehavior)behavior;
+                    // Cast the behavior to the ritual type.
+                    AshAscendBehavior ritualAshAscend = behavior as AshAscendBehavior ?? new();
 
                     // Assign the behavior's fields to the ritual's system.
                     _ashAscend.Max = ritualAshAscend.Max;
@@ -238,7 +220,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     _ashAscend.SacDamage = ritualAshAscend.SacDamage;
 
                     // Do.
-                    if (_ashAscend.DoRitual(args.User, ent, ritual) == false && _ashAscend.DoAshAscendRitual(args.User, ent) == false)
+                    if (!_ashAscend.DoRitual(args.User, ent, ritual) && !_ashAscend.DoAshAscendRitual(args.User, ent))
                         return;
                     break;
 
@@ -248,10 +230,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     if (behavior is HuntAscendBehavior || behavior is AshAscendBehavior || behavior is MuteGhoulifyBehavior)
                         continue;
 
-                    // Explicitly cast the behavior to the ritual type.
-                    SacrificeBehavior ritualSacrifice = new();
-                    if (behavior is SacrificeBehavior)
-                        ritualSacrifice = (SacrificeBehavior)behavior;
+                    // Cast the behavior to the ritual type.
+                    SacrificeBehavior ritualSacrifice = behavior as SacrificeBehavior ?? new();
 
                     // Assign the behavior's fields to the ritual's system.
                     _sacrifice.Max = ritualSacrifice.Max;
@@ -266,10 +246,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     break;
 
                 case TemperatureBehavior:
-                    // Explicitly cast the behavior to the ritual type.
-                    TemperatureBehavior ritualTemp = new();
-                    if (behavior is TemperatureBehavior)
-                        ritualTemp = (TemperatureBehavior)behavior;
+                    // Cast the behavior to the ritual type.
+                    TemperatureBehavior ritualTemp;
+                    ritualTemp = behavior as TemperatureBehavior ?? new();
 
                     // Assign the behavior's fields to the ritual's system.
                     _temperature.MaxThreshold = ritualTemp.MaxThreshold;
@@ -281,10 +260,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     break;
 
                 case ReagentPuddleBehavior:
-                    // Explicitly cast the behavior to the ritual type.
-                    ReagentPuddleBehavior ritualReagent = new();
-                    if (behavior is ReagentPuddleBehavior)
-                        ritualReagent = (ReagentPuddleBehavior)behavior;
+                    // Cast the behavior to the ritual type.
+                    ReagentPuddleBehavior ritualReagent = behavior as ReagentPuddleBehavior ?? new();
 
                     // Assign the behavior's fields to the ritual's system.
                     _reagentPuddle.Reagents = ritualReagent.Reagents;
@@ -314,14 +291,16 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     break;
 
                 case SacrificeBehavior:
+                    // Ignore inheritors.
+                    if (behavior is HuntAscendBehavior || behavior is AshAscendBehavior || behavior is MuteGhoulifyBehavior)
+                        continue;
+
                     _sacrifice.DoRitualEffect(args.User, ent, ritual);
                     break;
 
                 case TransmuteBehavior:
-                    // Explicitly cast the behavior to the ritual type.
-                    TransmuteBehavior ritualTrans = new();
-                    if (behavior is TransmuteBehavior)
-                        ritualTrans = (TransmuteBehavior)behavior;
+                    // Cast the behavior to the ritual type.
+                    TransmuteBehavior ritualTrans = behavior as TransmuteBehavior ?? new();
 
                     // Assign the behavior's fields to the ritual's system.
                     _transmute.OutputItems = ritualTrans.OutputItems;
@@ -337,7 +316,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
         }
 
         // Delete entities that need to be deleted.
-        DeleteOnSuccess();
+        foreach (var entity in ToDelete)
+        {
+            QueueDel(entity);
+        }
 
         // Raise the events that need to be raised, and add the knowledge that needs to be added.
         if (ritual.OutputEvent != null)
@@ -353,6 +335,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         // Log it.
         _adminLogManager.Add(LogType.Action, LogImpact.High, $"{args.User} performed ritual {heretic.ChosenRitual}");
+
+        // Reset ToDelete.
+        ToDelete = [];
     }
 
     /// <summary>
