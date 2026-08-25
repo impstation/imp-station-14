@@ -1,0 +1,40 @@
+- type: entity
+  id: BrainBallTop
+  parent: PartSilicon
+  name: osi enclosure top
+  components:
+  - type: BodyPart
+    partType: Head
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/cyborg_parts.rsi
+    state: ball_top
+  - type: Icon
+    sprite: _Impstation/Objects/Specific/Robotics/cyborg_parts.rsi
+    state: ball_top
+  - type: Tag
+    tags:
+    - Trash
+    - BrainBallTop
+  - type: Item
+    heldPrefix: borg-head
+
+- type: entity
+  id: BrainBallBot
+  parent: PartSilicon
+  name: osi enclosure bottom
+  components:
+  - type: BodyPart
+    partType: Torso
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/cyborg_parts.rsi
+    state: ball_bot
+  - type: Icon
+    sprite: _Impstation/Objects/Specific/Robotics/cyborg_parts.rsi
+    state: ball_bot
+  - type: Tag
+    tags:
+    - Trash
+    - BrainBallBot
+  - type: Item
+    heldPrefix: borg-chest
+

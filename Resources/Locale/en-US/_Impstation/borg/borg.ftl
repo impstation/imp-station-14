@@ -8,4 +8,6 @@ borg-type-any-transponder = cyborg
 station-ai-transponder = station ai
 toggle-borg-pda = View PDA
 
-borg-mmi-fail-popup = The brain suddenly dissolves on contact with the interface!
+borg-mmi-fail-unborgable-popup = The brain suddenly dissolves on contact with the interface!
+borg-mmi-fail-deny-contract-popup = This employee has not yet accepted the borgification contract!
+borg-hibernation-confirm-popup = THIS ACTION WILL PERMANENTLY PUT YOUR BRAIN INTO HIBERNATION! Use it again to confirm.
