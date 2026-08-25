@@ -12,21 +12,20 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Tools.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.Tools.Systems;
 
 public sealed partial class KeyRingSystem : EntitySystem
 {
-    [Dependency] private SharedDoorSystem _doorSystem = default!;
-    [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] private LockSystem _lockSystem = default!;
-    [Dependency] private SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private readonly LockSystem _lockSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -43,7 +42,7 @@ public sealed partial class KeyRingSystem : EntitySystem
             var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, ent.GetHashCode());
             var rand = new System.Random(seed);
 
-            ent.Comp.UseDelay = TimeSpan.FromSeconds((rand.NextDouble() % ent.Comp.MaxUseTime)+ent.Comp.MinUseTime);//system.random nextdouble doesn't have min and max args so i had to do it manually.
+            ent.Comp.UseDelay = TimeSpan.FromSeconds(rand.NextFloat(ent.Comp.Usetime.Min, ent.Comp.Usetime.Max));
         }
         if (!TryComp<AccessReaderComponent>(args.Target, out var accessReader))
             return;
@@ -55,9 +54,7 @@ public sealed partial class KeyRingSystem : EntitySystem
         var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.UseDelay, new SimpleToolDoAfterEvent(), ent, target: args.Target, args.Used)
         {
             BreakOnDamage = true,
-            BreakOnHandChange = true,
-            BreakOnMove = true,
-            BreakOnWeightlessMove = true,
+            BreakOnMove = true
         };
 
         _doAfter.TryStartDoAfter(doargs);
@@ -82,51 +79,42 @@ public sealed partial class KeyRingSystem : EntitySystem
             return;
         }
 
-        var isDoor = false;
-        var isLock = false;
-        if(!_accessReaderSystem.GetMainAccessReader(args.Target.Value, out var accessReader))
-               return;
+        var doorComp = CompOrNull<DoorComponent>(args.Target.Value);
+        var lockComp = CompOrNull<LockComponent>(args.Target.Value);
 
-        if (TryComp<DoorComponent>(args.Target.Value, out var doorComp))
-            isDoor = true;
-
-        if(TryComp<LockComponent>(args.Target.Value, out var lockComponent))
-            isLock = true;
-        if (!isDoor&& !isLock)
+        if ((doorComp == null && lockComp == null) ||
+            !_accessReaderSystem.GetMainAccessReader(args.Target.Value, out var accessReader))
             return;
+
         var accessComponent = accessReader.Value.Comp;
         var isAirlock = HasComp<AirlockComponent>(args.Target);
 
-        foreach (var accessList in accessComponent.AccessLists)
+        if (!_accessReaderSystem.AreAccessTagsAllowed(ent.Comp.Blacklist, accessComponent))
         {
-            foreach (var accessType in ent.Comp.Blacklist)
-            {
-                if (!accessList.Contains(accessType))
-                    continue;
-                if (isDoor&&isAirlock)
-                    _doorSystem.Deny(args.Target.Value, doorComp, user: args.User, predicted: true);
-                return;
-            }
+            if (isAirlock)
+                _doorSystem.Deny(args.Target.Value, doorComp, user: args.User, predicted: true);
+            return;
         }
 
-        if (isDoor && _doorSystem.TryToggleDoor(args.Target.Value, doorComp, user: args.User, predicted: true)) {
+        if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, user: args.User, predicted: true))
+        {
             _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp!.State}");
         }
-        else if (isLock)
+        else
         {
-            _lockSystem.ToggleLock(args.Target.Value, args.User, lockComponent);
+            _lockSystem.ToggleLock(args.Target.Value, args.User, lockComp);
             _adminLogger.Add(LogType.Action,
                 LogImpact.Medium,
-                $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} locked: {lockComponent!.Locked}");
+                $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} locked: {lockComp!.Locked}");
         }
 
         //TODO: Replace with random predicted when we get that.
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, ent.GetHashCode());
         var rand = new System.Random(seed);
 
-        ent.Comp.UseDelay = TimeSpan.FromSeconds((rand.NextDouble() % ent.Comp.MaxUseTime)+ent.Comp.MinUseTime);
+        ent.Comp.UseDelay = TimeSpan.FromSeconds(rand.NextFloat(ent.Comp.Usetime.Min, ent.Comp.Usetime.Max));
         _audio.Stop(ent.Comp.KeyringAudioStream);
         _audio.PlayPredicted(ent.Comp.SuccessAudio, args.Target.Value, args.User);
         Dirty(ent);

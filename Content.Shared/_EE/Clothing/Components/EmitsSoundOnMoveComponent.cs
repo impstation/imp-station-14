@@ -27,7 +27,7 @@ public sealed partial class EmitsSoundOnMoveComponent : Component
     public TimeSpan CooldownTimer = TimeSpan.Zero;
 
     /// <summary>
-    ///   Whether this item is equipped in a inventory item slot.
+    ///   Whether this item is equipped in a valid item slot, invalid itemslots are defined by the InvalidSlots datafield.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public bool IsSlotValid = true;
@@ -45,7 +45,7 @@ public sealed partial class EmitsSoundOnMoveComponent : Component
     public bool RequiresWorn;
 
     /// <summary>
-    ///     What slots we don't want noises to be emmited from, pocket by default
+    ///     What slots we don't want noises to be emitted from, pocket by default
     /// </summary>
     [DataField]
     public SlotFlags InvalidSlots = SlotFlags.POCKET;

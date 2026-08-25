@@ -1,25 +1,23 @@
-
 using Content.Shared.Access;
+using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.Tools.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class KeyRingComponent : Component
 {
     [DataField, AutoNetworkedField]
     public TimeSpan UseDelay = TimeSpan.Zero;
 
-    [DataField("blacklist")]
-    public HashSet<AccessLevelPrototype> Blacklist = new();
+    [DataField]
+    public HashSet<ProtoId<AccessLevelPrototype>> Blacklist = new();
 
-    [DataField("minUseTime")]
-    public double MinUseTime = 15;
-
-    [DataField("maxUseTime")]
-    public double MaxUseTime = 30;
+    [DataField]
+    public MinMax Usetime = new (15,30);
 
     [DataField]
     public EntityUid? KeyringAudioStream;
@@ -43,4 +41,3 @@ public sealed partial class KeyRingComponent : Component
         }
     };
 }
-
