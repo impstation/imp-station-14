@@ -17,12 +17,10 @@ namespace Content.Shared._EE.Clothing.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class EmitsSoundOnMoveComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
     [DataField(required: true), AutoNetworkedField]
     public SoundSpecifier SoundCollection = default!;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("requiresGravity"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool RequiresGravity = true;
 
     [DataField, AutoNetworkedField]

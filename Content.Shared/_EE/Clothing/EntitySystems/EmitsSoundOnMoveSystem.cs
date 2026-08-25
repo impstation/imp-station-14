@@ -4,14 +4,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Shared._EE.Clothing.Components;
 using Content.Shared._EE.Movement.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Gravity;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._EE.Clothing.EntitySystems;
@@ -28,22 +27,22 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
     {
         base.Initialize();
         _clothingQuery = GetEntityQuery<ClothingComponent>();
-        SubscribeLocalEvent<Components.EmitsSoundOnMoveComponent, GotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<Components.EmitsSoundOnMoveComponent, GotUnequippedEvent>(OnUnequipped);
-        SubscribeLocalEvent<Components.EmitsSoundOnMoveComponent, InventoryRelayedEvent<MakeFootstepSoundEvent>>(OnFootstep);
+        SubscribeLocalEvent<EmitsSoundOnMoveComponent, GotEquippedEvent>(OnEquipped);
+        SubscribeLocalEvent<EmitsSoundOnMoveComponent, GotUnequippedEvent>(OnUnequipped);
+        SubscribeLocalEvent<EmitsSoundOnMoveComponent, InventoryRelayedEvent<MakeFootstepSoundEvent>>(OnFootstep);
     }
 
-    private void OnEquipped(Entity<Components.EmitsSoundOnMoveComponent> ent, ref GotEquippedEvent args)
+    private void OnEquipped(Entity<EmitsSoundOnMoveComponent> ent, ref GotEquippedEvent args)
     {
         ent.Comp.IsSlotValid = !args.SlotFlags.HasFlag(ent.Comp.InvalidSlots);
     }
 
-    private void OnUnequipped(Entity<Components.EmitsSoundOnMoveComponent> ent, ref GotUnequippedEvent args)
+    private void OnUnequipped(Entity<EmitsSoundOnMoveComponent> ent, ref GotUnequippedEvent args)
     {
         ent.Comp.IsSlotValid = true;
     }
 
-    private void OnFootstep(Entity<Components.EmitsSoundOnMoveComponent> ent, ref InventoryRelayedEvent<MakeFootstepSoundEvent> args)
+    private void OnFootstep(Entity<EmitsSoundOnMoveComponent> ent, ref InventoryRelayedEvent<MakeFootstepSoundEvent> args)
     {
         var uid = ent.Owner;
         var component = ent.Comp;
@@ -57,9 +56,6 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
         if (xform.GridUid is null)
             return;
 
-        if (component.RequiresGravity && _gravity.IsWeightless(uid))
-            return;
-
         var parent = xform.ParentUid;
 
         var isWorn = parent is { Valid: true } &&
@@ -71,11 +67,11 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
             return;
 
         var sound = component.SoundCollection;
-        var audioParams = sound.Params
-            .WithVolume(sound.Params.Volume)
-            .WithVariation(sound.Params.Variation ?? 0f);
+        sound.Params = sound.Params
+                        .WithVolume(sound.Params.Volume)
+                        .WithVariation(sound.Params.Variation ?? 0f);
 
-        _audio.PlayPredicted(sound, uid, uid, audioParams);
+        _audio.PlayPredicted(sound, uid, uid);
         ent.Comp.CooldownTimer=_timing.CurTime + ent.Comp.SoundCooldown;
         Dirty(ent);
     }
