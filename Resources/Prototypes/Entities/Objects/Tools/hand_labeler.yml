@@ -15,6 +15,7 @@
     - type: ActivatableUI
       key: enum.HandLabelerUiKey.Key
       inHandsOnly: true
+      verbOnly: true
     - type: UserInterface
       interfaces:
         enum.HandLabelerUiKey.Key:
