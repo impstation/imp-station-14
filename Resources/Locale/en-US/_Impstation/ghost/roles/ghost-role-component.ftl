@@ -203,3 +203,11 @@ ghost-role-information-syndicate-instigator-description = You are a barely-equip
 ghost-role-information-syndicate-instigator-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-solo-antagonist-name}[/bold][/color]. Covert syndicate agents are not guaranteed to help you.
 
                                           You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-evilgorilla-name = Evil gorilla
+ghost-role-information-evilgorilla-description = You were brought into this world to kill.
+ghost-role-information-evilgorilla-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other Evil Gorillas, if they so happen to be around. Beat the shit out of everything.
+
+                                          You are free to do what you want, provided it is sufficiently hostile. If there are any members of your team, [bold]work with them to wreak havoc.[/bold]
+
+                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
