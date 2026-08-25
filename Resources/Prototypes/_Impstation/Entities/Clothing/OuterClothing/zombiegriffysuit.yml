@@ -1,0 +1,61 @@
+- type: entity
+  name: griffy suit
+  description: The body of Griffy, the Sec Safety Dog! What's that smell...?
+  id: MascotZombieGriffySuit
+  parent: ClothingOuterBase
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/Zombies/mascot.rsi
+    layers:
+      - state: suit-icon
+  - type: Item
+    sprite: _Impstation/Clothing/OuterClothing/Misc/mascotgriffysuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/Zombies/mascot.rsi
+    slots:
+    - outerClothing
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Heat: 1.2
+        Cold: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HideLayerClothing
+    slots:
+    - Tail
+    - Special
+
+- type: entity
+  name: griffy head
+  description: The head of Griffy, the Sec Safety Dog! Cleverly modified for extra ventilation!
+  id: MascotZombieGriffyHead
+  parent: ClothingHeadBase
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/Zombies/mascot.rsi
+    layers:
+      - state: helmet-icon
+  - type: Item
+    sprite: _Impstation/Clothing/Head/Misc/mascotgriffyhead.rsi
+    size: Normal
+  - type: IngestionBlocker
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/Zombies/mascot.rsi
+    equipDelay: 2
+    unequipDelay: 2
+  - type: IdentityBlocker
+  - type: VoiceMask
+    voiceMaskName: Griffy?
+    addAction: false
+  - type: MultiHandedItem
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - SnoutCover
+    - HeadTop
+    - HeadSide
