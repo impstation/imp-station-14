@@ -322,8 +322,6 @@
     sprite: _Impstation/Objects/Devices/keyring.rsi # ideally to be replaced with a custom sprite some point in the future
     state: icon
   - type: KeyRing
-    minUseTime: 5
-    maxUseTime: 10
   - type: EmitsSoundOnMove
     soundCollection:
       collection: FootstepKeyRing
