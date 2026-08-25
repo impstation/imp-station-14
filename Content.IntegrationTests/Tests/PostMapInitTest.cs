@@ -141,6 +141,7 @@ namespace Content.IntegrationTests.Tests
             "Haven",
             "Jellyfish",
             "Lilboat",
+            "Luna",
             "MarathonImp",
             "OasisImp",
             "PackedImp",

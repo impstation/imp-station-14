@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Heretic.Components;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Server._Impstation.Heretic.Components;
 using Content.Server._Impstation.Heretic.EntitySystems;
 using Content.Server.Polymorph.Systems;
