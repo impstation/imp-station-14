@@ -188,7 +188,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             {
                 case MuteGhoulifyBehavior:
                     // No datafields.
-                    if (_muteGhoulify.DoRitual(args.User, ent, ritual) == false)
+                    if (!_muteGhoulify.DoRitual(args.User, ent, ritual))
                         return;
                     break;
 
@@ -241,7 +241,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     _sacrifice.SacDamage = ritualSacrifice.SacDamage;
 
                     // Do.
-                    if (_sacrifice.DoRitual(args.User, ent, ritual) == false)
+                    if (!_sacrifice.DoRitual(args.User, ent, ritual))
                         return;
                     break;
 
@@ -255,7 +255,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     _temperature.MinThreshold = ritualTemp.MinThreshold;
 
                     // Do.
-                    if (_temperature.DoRitual(args.User, ent, ritual) == false)
+                    if (!_temperature.DoRitual(args.User, ent, ritual))
                         return;
                     break;
 
@@ -267,7 +267,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     _reagentPuddle.Reagents = ritualReagent.Reagents;
 
                     // Do.
-                    if (_reagentPuddle.DoRitual(args.User, ent, ritual) == false)
+                    if (!_reagentPuddle.DoRitual(args.User, ent, ritual))
                         return;
                     break;
             }

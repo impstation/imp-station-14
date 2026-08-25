@@ -84,10 +84,9 @@
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
   ritualBehavior:
-  - !type:SacrificeBehavior
+  - !type:AshAscendBehavior
     min: 3
     max: 3
-  - !type:AshAscendBehavior
 
 
 ### flesh path
@@ -315,7 +314,6 @@
   outputEvent: !type:EventHereticAscension
   ritualBehavior:
   - !type:HuntAscendBehavior
-  - !type:SacrificeBehavior
     min: 3
     max: 3
 
