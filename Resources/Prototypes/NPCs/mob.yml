@@ -28,6 +28,9 @@
     - tasks:
         - !type:HTNCompoundTask
           task: FoodCompound
+    - tasks: # Imp Task
+        - !type:HTNCompoundTask
+          task: BreedCompound
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound

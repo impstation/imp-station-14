@@ -1,0 +1,11 @@
+- type: entity
+  id: OrganVegetarianAnimalStomach
+  parent: OrganAnimalRuminantStomach
+  name: vegetarian stomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Fruit
+      - Vegetable
