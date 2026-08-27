@@ -3,13 +3,13 @@
 using System.Linq;
 using Content.Server.Construction.Completions;
 using Content.Server.Popups;
-using Content.Shared.VentCraw.Tube.Components;
-using Content.Shared.VentCraw.Components;
+using Content.Shared._Starlight.VentCraw.Tube.Components;
+using Content.Shared._Starlight.VentCraw.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Movement.Systems;
-using Content.Shared.VentCraw;
+using Content.Shared._Starlight.VentCraw;
 using Content.Shared.Verbs;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Hands.EntitySystems;
@@ -20,7 +20,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
 
-namespace Content.Server.VentCraw
+namespace Content.Server._Starlight.VentCraw
 {
     public sealed class VentCrawTubeSystem : EntitySystem
     {
