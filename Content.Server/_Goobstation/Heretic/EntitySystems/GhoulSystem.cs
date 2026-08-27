@@ -21,7 +21,6 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
