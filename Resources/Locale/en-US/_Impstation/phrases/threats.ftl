@@ -3,7 +3,6 @@ imp-phrase-caution = Caution
 imp-phrase-hazard = Hazard
 imp-phrase-evacuate = Evacuate
 imp-phrase-sus = Suspicious
-imp-phrase-lost = Lost
 imp-phrase-stolen = Stolen
 
 imp-phrase-spaced = Spaced

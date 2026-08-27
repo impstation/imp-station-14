@@ -209,7 +209,7 @@ imp-phrase-engie = Engineer
 imp-phrase-ce = Chief Engineer
 
 imp-phrase-rd = Research Director
-imp-phrase-sci = Scientist
+imp-phrase-scijob = Scientist
 
 imp-phrase-hd = Hospitality Director
 imp-phrase-chef = Chef
