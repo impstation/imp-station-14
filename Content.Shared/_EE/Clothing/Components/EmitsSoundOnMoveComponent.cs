@@ -17,13 +17,16 @@ namespace Content.Shared._EE.Clothing.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class EmitsSoundOnMoveComponent : Component
 {
+    /// <summary>
+    /// Sounds used by the item
+    /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public SoundSpecifier SoundCollection = default!;
 
-    [DataField, AutoNetworkedField]
-    public bool RequiresGravity = true;
-
-    [DataField, AutoNetworkedField]
+    /// <summary>
+    /// Timer for cooldown between noises
+    /// </summary>
+    [AutoNetworkedField]
     public TimeSpan CooldownTimer = TimeSpan.Zero;
 
     /// <summary>

@@ -45,6 +45,8 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
 
         if (!_timing.IsFirstTimePredicted)
             return;
+        if(!ent.Comp.IsSlotValid)
+            return;
         if (_timing.CurTime < ent.Comp.CooldownTimer)
             return;
 
