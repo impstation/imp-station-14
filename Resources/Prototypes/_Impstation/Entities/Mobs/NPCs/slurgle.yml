@@ -5,7 +5,7 @@
   description: Looks like this one likes you.
   components:
   - type: ContainmentField
-    throwForce: 0.1
+    throwForce: 0.4
   - type: Physics
     bodyType: KinematicController
   - type: Sprite
@@ -90,10 +90,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSlime
-  - type: Slippery
-    slipData:
-      superSlippery: true
-      launchForwardsMultiplier: 2
   - type: StepTrigger
     requiredTriggeredSpeed: 0
   - type: NpcFactionMember
