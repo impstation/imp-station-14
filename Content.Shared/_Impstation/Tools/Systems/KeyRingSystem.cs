@@ -42,7 +42,7 @@ public sealed partial class KeyRingSystem : EntitySystem
             var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, ent.GetHashCode());
             var rand = new System.Random(seed);
 
-            ent.Comp.UseDelay = TimeSpan.FromSeconds(rand.NextFloat(ent.Comp.Usetime.Min, ent.Comp.Usetime.Max));
+            ent.Comp.UseDelay = TimeSpan.FromSeconds(rand.NextFloat(ent.Comp.UseTime.Min, ent.Comp.UseTime.Max));
         }
         if (!TryComp<AccessReaderComponent>(args.Target, out var accessReader))
             return;
@@ -87,22 +87,22 @@ public sealed partial class KeyRingSystem : EntitySystem
             return;
 
         var accessComponent = accessReader.Value.Comp;
-        var isAirlock = HasComp<AirlockComponent>(args.Target);
 
-        if (!_accessReaderSystem.AreAccessTagsAllowed(ent.Comp.Blacklist, accessComponent))
+        if (_accessReaderSystem.AreAccessTagsAllowed(ent.Comp.Blacklist, accessComponent))//since were checking against a black list, if the contained tag is allowed, return.
         {
-            if (isAirlock)
+            _audio.Stop(ent.Comp.KeyringAudioStream);
+            if (HasComp<AirlockComponent>(args.Target))
                 _doorSystem.Deny(args.Target.Value, doorComp, user: args.User, predicted: true);
             return;
         }
 
-        if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, user: args.User, predicted: true))
+        if (doorComp != null && _doorSystem.TryToggleDoor(args.Target.Value, doorComp, user: args.User, predicted: true))//Door system throws an error if you feed it a null doorcomp so we check
         {
             _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp!.State}");
         }
-        else
+        else//if it's not a door it's a lock.
         {
             _lockSystem.ToggleLock(args.Target.Value, args.User, lockComp);
             _adminLogger.Add(LogType.Action,
@@ -114,7 +114,7 @@ public sealed partial class KeyRingSystem : EntitySystem
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, ent.GetHashCode());
         var rand = new System.Random(seed);
 
-        ent.Comp.UseDelay = TimeSpan.FromSeconds(rand.NextFloat(ent.Comp.Usetime.Min, ent.Comp.Usetime.Max));
+        ent.Comp.UseDelay = TimeSpan.FromSeconds(rand.NextFloat(ent.Comp.UseTime.Min, ent.Comp.UseTime.Max));
         _audio.Stop(ent.Comp.KeyringAudioStream);
         _audio.PlayPredicted(ent.Comp.SuccessAudio, args.Target.Value, args.User);
         Dirty(ent);

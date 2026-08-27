@@ -10,18 +10,32 @@ namespace Content.Shared._Impstation.Tools.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class KeyRingComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    /// <summary>
+    /// Stored doafter length
+    /// </summary>
+    [AutoNetworkedField]
     public TimeSpan UseDelay = TimeSpan.Zero;
 
+    /// <summary>
+    /// List of access tags to blacklist
+    /// </summary>
     [DataField]
     public HashSet<ProtoId<AccessLevelPrototype>> Blacklist = new();
 
+    /// <summary>
+    /// Range of time for the keyring to use.
+    /// </summary>
     [DataField]
-    public MinMax Usetime = new (15,30);
+    public MinMax UseTime = new (15,30);
 
-    [DataField]
+    /// <summary>
+    /// Audio stream for the key ring.
+    /// </summary>
     public EntityUid? KeyringAudioStream;
 
+    /// <summary>
+    /// Audio played on a successful use
+    /// </summary>
     [DataField]
     public SoundSpecifier SuccessAudio = new SoundPathSpecifier("/Audio/_Impstation/Items/keyring_success.ogg")
     {
@@ -31,6 +45,9 @@ public sealed partial class KeyRingComponent : Component
         }
     };
 
+    /// <summary>
+    /// Audio played when using the item.
+    /// </summary>
     [DataField]
     public SoundSpecifier AttemptAudio = new SoundPathSpecifier("/Audio/_Impstation/Items/keyring_attempt.ogg")
     {

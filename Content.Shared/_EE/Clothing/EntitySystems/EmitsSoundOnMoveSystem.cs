@@ -52,14 +52,8 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.CooldownTimer)
             return;
         var xform = Transform(uid);
-        // Space does not transmit sound
-        if (xform.GridUid is null)
-            return;
 
-        var parent = xform.ParentUid;
-
-        var isWorn = parent is { Valid: true } &&
-                     _clothingQuery.TryGetComponent(uid, out var clothing)
+        var isWorn = _clothingQuery.TryGetComponent(uid, out var clothing)
                      && clothing.InSlot != null
                      && component.IsSlotValid;
 
