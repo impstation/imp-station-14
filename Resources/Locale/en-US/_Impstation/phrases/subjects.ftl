@@ -221,7 +221,7 @@ imp-phrase-botanist = Botanist
 imp-phrase-zookeeper = Zookeeper
 imp-phrase-boxer = Boxer
 imp-phrase-reporter = Reporter
-imp-phase-librarian = Librarian
+imp-phrase-librarian = Librarian
 imp-phrase-chaplain = Chaplain
 
 imp-phrase-cmo = Chief Medical Officer
@@ -240,7 +240,7 @@ imp-phrase-secof = Security Officer
 imp-phrase-det = Detective
 imp-phrase-brigmed = Brigmedic
 
-imo-phrase-intern = Intern
+imp-phrase-intern = Intern
 imp-phrase-passenger = Passenger
 imp-phrase-lawyer = Lawyer
 imp-phrase-cyborg = Cyborg

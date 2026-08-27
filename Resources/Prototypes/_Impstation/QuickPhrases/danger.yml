@@ -109,11 +109,6 @@
   text: imp-phrase-sus
 
 - type: quickPhrase
-  id: LostPhraseImp
-  parent: BaseDangerImpStatus
-  text: imp-phrase-lost
-
-- type: quickPhrase
   id: StolenPhraseImp
   parent: BaseDangerImpStatus
   text: imp-phrase-stolen
