@@ -15,8 +15,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.Tools.Systems;
-
-public sealed partial class KeyRingSystem : EntitySystem
+/// <summary>
+/// System for the HD keyring an item that can open any door or lock, handles toggling of doors and locks, use of the item, and event subscriptions.
+/// </summary>
+public sealed class KeyRingSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
@@ -35,6 +37,11 @@ public sealed partial class KeyRingSystem : EntitySystem
         SubscribeLocalEvent<KeyRingComponent, SimpleToolDoAfterEvent>(KeyRingDoAfter);
     }
 
+    /// <summary>
+    /// Tries starting the doafter if the keyring is used on an entity.
+    /// </summary>
+    /// <param name="ent">The key ring</param>
+    /// <param name="args"></param>
     private void TryStartKeyRingDoAfter(Entity<KeyRingComponent> ent, ref AfterInteractEvent args)
     {
         if (ent.Comp.UseDelay==TimeSpan.Zero){// wanted this to be on startup but it caused a test fail
@@ -44,9 +51,9 @@ public sealed partial class KeyRingSystem : EntitySystem
 
             ent.Comp.UseDelay = TimeSpan.FromSeconds(rand.NextFloat(ent.Comp.UseTime.Min, ent.Comp.UseTime.Max));
         }
-        if (!TryComp<AccessReaderComponent>(args.Target, out var accessReader))
-            return;
-        if (!HasComp<DoorComponent>(args.Target) && !HasComp<LockComponent>(args.Target))
+
+        if (!HasComp<AccessReaderComponent>(args.Target) ||
+            (!HasComp<DoorComponent>(args.Target) && !HasComp<LockComponent>(args.Target)))
         {
             args.Handled = true;
             return;
@@ -83,7 +90,7 @@ public sealed partial class KeyRingSystem : EntitySystem
         var lockComp = CompOrNull<LockComponent>(args.Target.Value);
 
         if ((doorComp == null && lockComp == null) ||
-            !_accessReaderSystem.GetMainAccessReader(args.Target.Value, out var accessReader))
+            !_accessReaderSystem.GetMainAccessReader(args.Target.Value, out var accessReader))//check again if it's a valid target.
             return;
 
         var accessComponent = accessReader.Value.Comp;
@@ -102,7 +109,7 @@ public sealed partial class KeyRingSystem : EntitySystem
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp!.State}");
         }
-        else//if it's not a door it's a lock.
+        else//If it's not a door it's a lock. According to our checks
         {
             _lockSystem.ToggleLock(args.Target.Value, args.User, lockComp);
             _adminLogger.Add(LogType.Action,

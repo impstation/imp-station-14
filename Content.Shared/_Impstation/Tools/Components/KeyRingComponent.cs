@@ -6,7 +6,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.Tools.Components;
-
+/// <summary>
+/// Component for the HD's keyring, an item that can open any door or lock, stores relevant information such as audio paths, use delays, audio stream, and access black list.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class KeyRingComponent : Component
 {
