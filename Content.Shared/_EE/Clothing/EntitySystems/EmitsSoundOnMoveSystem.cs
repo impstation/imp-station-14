@@ -18,7 +18,6 @@ namespace Content.Shared._EE.Clothing.EntitySystems;
 public sealed class EmitsSoundOnMoveSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private EntityQuery<ClothingComponent> _clothingQuery;
@@ -28,20 +27,20 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
         base.Initialize();
         _clothingQuery = GetEntityQuery<ClothingComponent>();
         SubscribeLocalEvent<EmitsSoundOnMoveComponent, GotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<EmitsSoundOnMoveComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<EmitsSoundOnMoveComponent, InventoryRelayedEvent<MakeFootstepSoundEvent>>(OnFootstep);
     }
 
+    //when equipped check if valid
     private void OnEquipped(Entity<EmitsSoundOnMoveComponent> ent, ref GotEquippedEvent args)
     {
         ent.Comp.IsSlotValid = !args.SlotFlags.HasFlag(ent.Comp.InvalidSlots);
     }
 
-    private void OnUnequipped(Entity<EmitsSoundOnMoveComponent> ent, ref GotUnequippedEvent args)
-    {
-        ent.Comp.IsSlotValid = true;
-    }
-
+    /// <summary>
+    /// Handle footsteps
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
     private void OnFootstep(Entity<EmitsSoundOnMoveComponent> ent, ref InventoryRelayedEvent<MakeFootstepSoundEvent> args)
     {
         var uid = ent.Owner;
@@ -50,14 +49,6 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
         if (_timing.CurTime < ent.Comp.CooldownTimer)
-            return;
-        var xform = Transform(uid);
-
-        var isWorn = _clothingQuery.TryGetComponent(uid, out var clothing)
-                     && clothing.InSlot != null
-                     && component.IsSlotValid;
-
-        if (component.RequiresWorn && !isWorn)
             return;
 
         var sound = component.SoundCollection;

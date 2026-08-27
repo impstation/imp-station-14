@@ -39,12 +39,6 @@ public sealed partial class EmitsSoundOnMoveComponent : Component
     public TimeSpan SoundCooldown = TimeSpan.FromSeconds(3);
 
     /// <summary>
-    ///     Whether or not this item must be worn in order to make sounds.
-    /// </summary>
-    [DataField]
-    public bool RequiresWorn;
-
-    /// <summary>
     ///     What slots we don't want noises to be emitted from, pocket by default
     /// </summary>
     [DataField]
