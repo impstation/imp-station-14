@@ -20,12 +20,9 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private EntityQuery<ClothingComponent> _clothingQuery;
-
     public override void Initialize()
     {
         base.Initialize();
-        _clothingQuery = GetEntityQuery<ClothingComponent>();
         SubscribeLocalEvent<EmitsSoundOnMoveComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<EmitsSoundOnMoveComponent, InventoryRelayedEvent<MakeFootstepSoundEvent>>(OnFootstep);
     }
@@ -37,7 +34,7 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
     }
 
     /// <summary>
-    /// Handle footsteps
+    /// Handle making sounds on footsteps
     /// </summary>
     /// <param name="ent"></param>
     /// <param name="args"></param>
