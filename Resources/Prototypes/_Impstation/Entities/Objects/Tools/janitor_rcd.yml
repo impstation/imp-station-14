@@ -1,0 +1,21 @@
+- type: entity
+  id: RCDRechargingJanitor
+  parent: RCD
+  name: janitorial RCD
+  description: Perfect for sweeping all that messed up plating under the metaphorical rug. Just slap a tile over it.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/janitor_rcd.rsi
+    state: icon
+  - type: LimitedCharges
+    maxCharges: 10
+  - type: AutoRecharge
+    rechargeDuration: 10
+  - type: RCD
+    availablePrototypes:
+    - RCDFloorSteel
+    - RCDFloorSteelDark
+    - RCDFloorSteelWhite
+    - RCDFloorTechMaint
+    - RCDMousetrap
+    - RCDWetFloorSign

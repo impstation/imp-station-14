@@ -1,0 +1,79 @@
+# tiles
+- type: rcd
+  id: RCDFloorSteel
+  name: rcd-component-floor-steel
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel.png
+  mode: ConstructTile
+  prototype: FloorSteel
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDFloorSteelDark
+  name: rcd-component-floor-steel-dark
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel_dark.png
+  mode: ConstructTile
+  prototype: FloorDark
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDFloorSteelWhite
+  name: rcd-component-floor-steel-white
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel_white.png
+  mode: ConstructTile
+  prototype: FloorWhite
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDFloorTechMaint
+  name: rcd-component-floor-techmaint
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_techmaint.png
+  mode: ConstructTile
+  prototype: FloorTechMaint
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+# other crap
+- type: rcd
+  id: RCDMousetrap
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/mousetrap.png
+  mode: ConstructObject
+  prototype: Mousetrap
+  cost: 5
+  delay: 1
+  rotation: Fixed
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDWetFloorSign
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/wet_floor_sign.png
+  mode: ConstructObject
+  prototype: WetFloorSign
+  cost: 3
+  delay: 1
+  rotation: Fixed
+  fx: EffectRCDConstruct1
