@@ -61,9 +61,9 @@
   category: Main
   sprite: /Textures/_Impstation/Interface/Radial/RCD/mousetrap.png
   mode: ConstructObject
-  prototype: Mousetrap
+  prototype: MousetrapArmed # mousetrap snipe. mousetrap snipe. it's gonna be so fucking cool. 
   cost: 5
-  delay: 1
+  delay: 0 # hit a clip on a mouse . mousetrap snipe. please. show me it if you pull it off
   rotation: Fixed
   fx: EffectRCDConstruct1
 
@@ -74,6 +74,17 @@
   mode: ConstructObject
   prototype: WetFloorSign
   cost: 3
+  delay: 1
+  rotation: Fixed
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDSpaceCleaner
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/space_cleaner_tablet.png
+  mode: ConstructObject
+  prototype: SpaceCleanerTablet
+  cost: 5
   delay: 1
   rotation: Fixed
   fx: EffectRCDConstruct1

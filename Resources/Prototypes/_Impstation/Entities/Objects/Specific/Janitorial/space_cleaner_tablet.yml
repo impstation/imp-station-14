@@ -1,0 +1,41 @@
+- type: entity
+  id: SpaceCleanerTablet
+  name: space cleaner concentrate tablet
+  parent: BaseItem
+  description: A tablet of concentrated space cleaner. Dissolve in 5u of water for 30u of space cleaner.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Janitorial/space_cleaner_tablet.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+    sprite: _Impstation/Objects/Specific/Janitorial/space_cleaner_tablet.rsi
+  - type: Edible
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions: #eating it, dissolving it, and grinding it will all do different things.  i am so wise
+      grind:
+        maxVol: 25
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 25
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ammonia # don't eat this. why are you eating it. stop. 
+          Quantity: 8
+        - ReagentId: SodiumPolyacrylate #this is a dried little puck. yucky ew!
+          Quantity: 2
+      dissolve:
+        maxVol: 25
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 20
+        - ReagentId: Ammonia
+          Quantity: 5
+  - type: SolutionSpiker
+    sourceSolution: dissolve
+  - type: Extractable
+    grindableSolutionName: grind
+  - type: StaticPrice
+    price: 0
