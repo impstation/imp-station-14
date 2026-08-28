@@ -2,7 +2,7 @@
 - type: rcd
   id: RCDFloorSteel
   name: rcd-component-floor-steel
-  category: Main
+  category: WallsAndFlooring
   sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel.png
   mode: ConstructTile
   prototype: FloorSteel
@@ -16,7 +16,7 @@
 - type: rcd
   id: RCDFloorSteelDark
   name: rcd-component-floor-steel-dark
-  category: Main
+  category: WallsAndFlooring
   sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel_dark.png
   mode: ConstructTile
   prototype: FloorDark
@@ -30,7 +30,7 @@
 - type: rcd
   id: RCDFloorSteelWhite
   name: rcd-component-floor-steel-white
-  category: Main
+  category: WallsAndFlooring
   sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel_white.png
   mode: ConstructTile
   prototype: FloorWhite
@@ -44,7 +44,7 @@
 - type: rcd
   id: RCDFloorTechMaint
   name: rcd-component-floor-techmaint
-  category: Main
+  category: WallsAndFlooring
   sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_techmaint.png
   mode: ConstructTile
   prototype: FloorTechMaint
@@ -55,21 +55,44 @@
     - CanBuildOnEmptyTile
   fx: EffectRCDConstruct1
 
+#lights (just da fixtures. put yer own bulbs in.)
+- type: rcd
+  id: RCDEmptySmallLight
+  category: Lighting
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/small.png
+  mode: ConstructObject
+  prototype: PoweredSmallLightEmpty
+  cost: 3
+  delay: 1
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDEmptyTubeLight
+  category: Lighting
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tube.png
+  mode: ConstructObject
+  prototype: PoweredlightEmpty
+  cost: 3
+  delay: 1
+  rotation: User
+  fx: EffectRCDConstruct1
+
 # other crap
 - type: rcd
   id: RCDMousetrap
-  category: Main
+  category: Janitorial
   sprite: /Textures/_Impstation/Interface/Radial/RCD/mousetrap.png
   mode: ConstructObject
   prototype: MousetrapArmed # mousetrap snipe. mousetrap snipe. it's gonna be so fucking cool. 
   cost: 5
   delay: 0 # hit a clip on a mouse . mousetrap snipe. please. show me it if you pull it off
   rotation: Fixed
-  fx: EffectRCDConstruct1
+  fx: EffectRCDConstruct0
 
 - type: rcd
   id: RCDWetFloorSign
-  category: Main
+  category: Janitorial
   sprite: /Textures/_Impstation/Interface/Radial/RCD/wet_floor_sign.png
   mode: ConstructObject
   prototype: WetFloorSign
@@ -80,11 +103,11 @@
 
 - type: rcd
   id: RCDSpaceCleaner
-  category: Main
+  category: Janitorial
   sprite: /Textures/_Impstation/Interface/Radial/RCD/space_cleaner_tablet.png
   mode: ConstructObject
   prototype: SpaceCleanerTablet
-  cost: 5
+  cost: 3
   delay: 1
   rotation: Fixed
   fx: EffectRCDConstruct1

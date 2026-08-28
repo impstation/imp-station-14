@@ -14,19 +14,21 @@
   - type: BadFood
   - type: SolutionContainerManager
     solutions: #eating it, dissolving it, and grinding it will all do different things.  i am so wise
-      grind:
+      grind: #grinds into pure space cleaner
         maxVol: 25
         reagents:
         - ReagentId: SpaceCleaner
           Quantity: 25
-      food:
+      food: #Thusd Bodge. you'll never see these reagents so they can be aaaaanything to simulate my yucky
         maxVol: 10
         reagents:
         - ReagentId: Ammonia # don't eat this. why are you eating it. stop. 
-          Quantity: 8
+          Quantity: 6
         - ReagentId: SodiumPolyacrylate #this is a dried little puck. yucky ew!
-          Quantity: 2
-      dissolve:
+          Quantity: 3
+        - ReagentId: SoapReagent
+          Quantity: 1 #mouth clean :)
+      dissolve: #if added to 5u water like instructed, reacts nicely yadda yadda you get the idea
         maxVol: 25
         reagents:
         - ReagentId: SpaceCleaner
