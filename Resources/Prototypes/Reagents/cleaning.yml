@@ -71,7 +71,7 @@
       - !type:HealthChange
         damage:
           types:
-            Caustic: 0.25
+            Caustic: 0.01
   #imp edit end
   tileReactions:
     - !type:CleanTileReaction {}

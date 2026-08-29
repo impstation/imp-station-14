@@ -7,10 +7,11 @@
   - type: Sprite
     sprite: _Impstation/Objects/Tools/janitor_rcd.rsi
     state: icon
+    #the idea is that it fucking sucks to use this for anything but tiles. everything costs all 20 charges which takes 5 minutes to recharge
   - type: LimitedCharges
-    maxCharges: 10
+    maxCharges: 20
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 15
   - type: RCD
     availablePrototypes:
     - RCDFloorSteel

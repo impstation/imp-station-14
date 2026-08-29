@@ -55,14 +55,14 @@
     - CanBuildOnEmptyTile
   fx: EffectRCDConstruct1
 
-#lights (just da fixtures. put yer own bulbs in.)
+#lights (just da fixtures. put yer own bulbs in)
 - type: rcd
   id: RCDEmptySmallLight
   category: Lighting
   sprite: /Textures/_Impstation/Interface/Radial/RCD/small.png
   mode: ConstructObject
   prototype: PoweredSmallLightEmpty
-  cost: 3
+  cost: 20
   delay: 1
   rotation: User
   fx: EffectRCDConstruct1
@@ -73,7 +73,7 @@
   sprite: /Textures/_Impstation/Interface/Radial/RCD/tube.png
   mode: ConstructObject
   prototype: PoweredlightEmpty
-  cost: 3
+  cost: 20
   delay: 1
   rotation: User
   fx: EffectRCDConstruct1
