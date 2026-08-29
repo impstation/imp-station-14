@@ -1,0 +1,49 @@
+- type: entity
+  parent: BaseItem
+  id: ToyHammerScary
+  name: rubber hammer
+  description: A brightly colored scary hammer made of rubber.
+#  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: Objects/Fun/rubber_hammer.rsi
+      state: icon
+    - type: IncreaseDamageOnWield
+      damage:
+        types:
+          Blunt: 1000
+    - type: Wieldable
+      freeHandsRequired: 0
+    - type: StaminaDamageOnHit
+      damage: 8
+    - type: Item
+      size: Small
+      sprite: Objects/Fun/rubber_hammer.rsi
+    - type: Appearance
+    - type: DisarmMalus
+      malus: 1
+    - type: MeleeWeapon
+      autoAttack: true
+      soundHit:
+        collection: RubberHammer
+        params:
+            variation: 0.03
+
+- type: entity
+  suffix: armed
+  parent: LandMineExplosive
+  id: LandMineDog
+#  categories: [ HideSpawnMenu ]
+  components:
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+  - type: Armable
+  - type: Sprite
+    drawdepth: Items
+    sprite: _Impstation/Misc/impcc.rsi
+    layers:
+    - state: dog
+    - state: dpg_explode
+      shader: unshaded
+      map: [ "enum.ToggleableVisuals.Layer" ]
