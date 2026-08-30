@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: keekee38
-  changes:
-  - message: added a few phrases to the AAC tablet
-    type: Add
-  id: 2417
-  time: '2025-11-11T00:57:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3596
 - author: mqole
   changes:
   - message: You can now use items on things people are wearing or holding.
@@ -4088,3 +4081,12 @@
   id: 2916
   time: '2026-08-25T20:37:04.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4560
+- author: DinnerCalzone, FlippenPage, Kipdotnet
+  changes:
+  - message: A rework of the body system has been merged. This should not have any
+      effects on gameplay at the moment, but please report if you notice anything
+      that seems out of place.
+    type: Add
+  id: 2917
+  time: '2026-08-30T08:26:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4561
