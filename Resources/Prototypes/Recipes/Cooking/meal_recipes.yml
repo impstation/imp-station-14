@@ -2703,14 +2703,3 @@
     FoodCakePlain: 1
   recipeType: Oven # Frontier
 
-- type: microwaveMealRecipe
-  id: RecipeSteakTartare
-  name: steak tartare recipe
-  result: FoodMealSteakTartare
-  time: 10
-  group: Savory
-  reagents:
-    UncookedAnimalProteins: 15
-    Egg: 6
-    Everyspice: 5
-  recipeType: Assembler # imp

@@ -262,3 +262,30 @@
   - type: Tag
     tags:
     - Trash
+
+- type: entity #imp food added for kodes to sit down and have a proper meal
+  parent: FoodMealBase
+  id: FoodMealSteakTartare
+  name: Steak Tartare
+  description: A raw, minced steak. Not for the weak stomachs.
+  components:
+  - type: Item
+    storedOffset: 0,-3
+  - type: FlavorProfile
+    flavors:
+    - raw-egg
+    - meaty
+  - type: Sprite
+    state: steaktartare
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 45
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
+        - ReagentId: Egg
+          Quantity: 6
+  - type: Tag
+    tags:
+    - Meat
