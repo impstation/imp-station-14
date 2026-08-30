@@ -266,7 +266,7 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealSteakTartare
-  name: Steak Tartare
+  name: steak tartare
   description: A raw, minced steak topped with an egg yolk. Not for the weak-stomached.
   components:
   - type: Item
@@ -276,6 +276,7 @@
     - raw-egg
     - meaty
   - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Steaktartare.rsi
     state: steaktartare
   - type: SolutionContainerManager
     solutions:
