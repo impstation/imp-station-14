@@ -263,11 +263,11 @@
     tags:
     - Trash
 
-- type: entity #imp food added for kodes to sit down and have a proper meal
+- type: entity
   parent: FoodMealBase
   id: FoodMealSteakTartare
   name: Steak Tartare
-  description: A raw, minced steak topped with an egg yolk. Not for the weak stomachs.
+  description: A raw, minced steak topped with an egg yolk. Not for the weak-stomached.
   components:
   - type: Item
     storedOffset: 0,-3
@@ -280,12 +280,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45
+        maxVol: 30
         reagents:
         - ReagentId: UncookedAnimalProteins
-          Quantity: 20
+          Quantity: 15
         - ReagentId: Egg
-          Quantity: 6
+          Quantity: 5
   - type: Tag
     tags:
     - Meat

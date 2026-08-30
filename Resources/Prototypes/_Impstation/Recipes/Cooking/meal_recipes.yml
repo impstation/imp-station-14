@@ -756,8 +756,9 @@
   result: FoodMealSteakTartare
   time: 10
   group: Savory
+  solids:
+    FoodMeatPatty: 1
   reagents:
-    UncookedAnimalProteins: 15
-    Egg: 6
+    Egg: 3
     Everyspice: 5
   recipeType: Assembler
