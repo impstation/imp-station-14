@@ -1,9 +1,0 @@
-- type: entity
-  id: MirrorApid
-  name: mirror
-  suffix: apid
-  parent: Mirror
-  components:
-  - type: Sprite
-    sprite: _Impstation/Structures/Wallmounts/apidmirror.rsi
-    state: mirror

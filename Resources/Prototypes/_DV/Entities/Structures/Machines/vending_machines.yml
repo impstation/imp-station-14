@@ -1,9 +1,0 @@
-- type: entity
-  parent: VendingMachineBooze
-  id: VendingMachineBoozeUnlocked
-  suffix: Unlocked, Maint
-  components:
-  - type: VendingMachine
-    pack: BoozeOMatUnlockedInventory
-  - type: AccessReader
-    enabled: false

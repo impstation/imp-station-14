@@ -1,5 +1,0 @@
-light_mode unshaded;
-
-void fragment() {
-    COLOR.rgba = vec4(1.0, 0.0, 0.0, 1.0);
-}

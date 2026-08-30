@@ -1,1 +1,0 @@
-trait-subcategory-weight = Weight
