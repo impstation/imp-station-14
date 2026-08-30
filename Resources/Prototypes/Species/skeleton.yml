@@ -8,7 +8,7 @@
   markingLimits: MobHumanMarkingLimits
   maleFirstNames: NamesSkeletonFirst
   femaleFirstNames: NamesSkeletonFirst
-  dollPrototype: MobSkeletonPersonDummy
+  dollPrototype: AppearanceSkeletonPerson
   skinColoration: TintedHues
 
 - type: speciesBaseSprites
@@ -25,23 +25,25 @@
     LFoot: MobSkeletonLFoot
     RFoot: MobSkeletonRFoot
 
+# IMP 4 NUBODY: removed gender specific head sprites pending visual nubody demolition
+
 - type: humanoidBaseSprite
   id: MobSkeletonHead
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobSkeletonHeadMale
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobSkeletonHeadFemale
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobSkeletonTorso

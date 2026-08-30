@@ -1,0 +1,14 @@
+﻿# for eating trash
+- type: entity
+  id: OrganRatStomach
+  parent: OrganAnimalStomach
+  suffix: Rat
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ClothMade
+      - Paper
+      - Pill
+  - type: Metabolizer
+    metabolizerTypes: [ Moth, Animal ]
