@@ -148,6 +148,9 @@
         enum.InstrumentVisuals.Layer:
           False: { visible: false }
           True: { visible: true }
+  - type: Instrument
+    allowPercussion: false
+    program: 52
   # imp edit end
 
 
