@@ -592,3 +592,47 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi
+  
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformAtmosFlightSuit
+  name: atmospheric technician flightsuit
+  description: A harnessed, secure flightsuit for all the flying atmos techs do.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/atmos_flightsuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/atmos_flightsuit.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoSColonel
+  name: head of security's dress uniform
+  description: A vintage uniform adorned with a truly gratuitous amount of medals. Worn with jodhpurs.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSecurityShorts
+  name: security jumpshorts
+  description: A looser fitting (and shorter!) jumpsuit for the officer that favors freedom of movement. Beware scraped knees.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/security_shorts.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/security_shorts.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformPorterShorts
+  name: porter jumpshorts
+  description: A rugged uniform for dodging ankle biters like dogs & clowns. The letter on the back stands for mail!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/porter_shorts.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/porter_shorts.rsi

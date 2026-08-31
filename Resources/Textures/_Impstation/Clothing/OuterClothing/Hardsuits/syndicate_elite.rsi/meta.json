@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created from an amalgamate of the Syndicate-Nukeops armor found across a vast swathe of spritesheets and versions of the game. Original helmet icon base by an unknown artist; please contact us if you know the correct accredation for it. Dog states modified from base states by Sparlight (GitHub). anomalocarid sprite edits by doop",
+    "copyright": "Created from an amalgamate of the Syndicate-Nukeops armor found across a vast swathe of spritesheets and versions of the game. Original helmet icon base by an unknown artist; please contact us if you know the correct accredation for it. Dog states modified from base states by Sparlight (GitHub). anomalocarid sprite edits by doop. equipped-OUTERCLOTHING-reptilian edited by Squamatic (GitHub), based on tail sprites by Tiniest Shark (github). Recolored by msTheowo (github)",
     "size": {
         "x": 32,
         "y": 32
@@ -14,6 +14,10 @@
         {
             "name": "equipped-OUTERCLOTHING-dog",
             "directions": 4
+        },
+        {
+          "name": "equipped-OUTERCLOTHING-reptilian",
+          "directions": 4
         },
         {
             "name": "equipped-OUTERCLOTHING-vox",

@@ -3,6 +3,25 @@
   name: xenoborg laser gun
   parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
   id: WeaponLaserGunXenoborg
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/xenoborg_laser.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-1
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/xenolaser.ogg
+  - type: BatteryAmmoProvider
+    proto: XenoborgLightLaser
+  - type: Appearance
 
 - type: entity
   name: xenoborg heavy laser gun
@@ -10,12 +29,20 @@
   id: WeaponLaserCannonXenoborg
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_cannon.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/xenoborg_laser_cannon.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
+    - state: mag-unshaded-1
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/xenocannon.ogg
   - type: BatteryAmmoProvider
-    proto: RedHeavyLaser
+    proto: XenoborgHeavyLaser
+  - type: Appearance

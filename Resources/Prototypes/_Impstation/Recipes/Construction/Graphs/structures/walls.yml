@@ -1,0 +1,25 @@
+- type: constructionGraph
+  id: WallDecapoid
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: reinforcedwall
+      steps:
+            - tool: Welding
+              doAfter: 10
+  - node: reinforcedwall
+    entity: WallReinforced
+
+- type: constructionGraph
+  id: WallDecapoidDiagonal
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: reinforcedwalldiagonal
+      steps:
+            - tool: Welding
+              doAfter: 10
+  - node: reinforcedwalldiagonal
+    entity: WallReinforcedDiagonal

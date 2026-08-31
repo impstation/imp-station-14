@@ -142,7 +142,7 @@
   - type: StationEvent
     startAnnouncement: true #!!
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/ShuttleEvent/eternal.yml
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/eternal.yml # imp add antag chance
 
 - type: entity
   id: UnknownShuttleFlatline
@@ -151,7 +151,7 @@
   - type: StationEvent
     startAnnouncement: true #!!
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/ShuttleEvent/flatline.yml
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/flatline.yml # imp add antag chance
 
 - type: entity
   id: UnknownShuttleGym

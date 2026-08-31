@@ -38,7 +38,6 @@
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp, Assign GroupTankHarness to jobs without outer clothing and GroupTankHarnessWithOuterwear to jobs with
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -57,7 +56,6 @@
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 # Silicons
 - type: roleLoadout
@@ -88,7 +86,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobBartender
@@ -108,7 +105,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -124,7 +120,6 @@
   - ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobChef
@@ -144,7 +139,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobLibrarian
@@ -160,7 +154,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobLawyer
@@ -179,7 +172,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobChaplain
@@ -201,7 +193,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobJanitor
@@ -221,7 +212,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobBotanist
@@ -241,7 +231,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobClown
@@ -260,7 +249,6 @@
   - ClownJobTrinkets
   - GroupBreathToolDecapoidInventoryClown # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobMime
@@ -280,7 +268,6 @@
   - MimeJobTrinkets
   - GroupBreathToolDecapoidInventoryMime # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobMusician
@@ -301,7 +288,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 # Cargo
 - type: roleLoadout
@@ -321,7 +307,6 @@
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -342,7 +327,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -361,7 +345,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 # Engineering
 - type: roleLoadout
@@ -380,7 +363,6 @@
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -393,7 +375,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -412,7 +393,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -431,7 +411,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 # Science
 - type: roleLoadout
@@ -452,7 +431,6 @@
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobScientist
@@ -473,7 +451,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -487,7 +464,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
-  - GroupTankHarnessAquatic #imp special
 
 # Security
 - type: roleLoadout
@@ -509,7 +485,6 @@
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
   - SecurityCommandFirearm # imp
   - SecurityCommandAmmo # imp
 
@@ -532,7 +507,6 @@
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
   - SecurityCommandFirearm # imp
   - SecurityCommandAmmo # imp
 
@@ -555,7 +529,6 @@
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
   - SecurityOfficerFirearm # imp
   - SecurityOfficerAmmo # imp
 
@@ -576,7 +549,6 @@
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
   - DetectiveFirearm # imp
   - DetectiveAmmo # imp
 
@@ -591,7 +563,6 @@
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp. wtf does upstream hate cadets
-  - GroupTankHarnessAquatic #imp special
 
 # Medical
 - type: roleLoadout
@@ -614,7 +585,6 @@
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
-  - GroupTankHarnessCommandWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -635,7 +605,6 @@
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -649,7 +618,6 @@
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobChemist
@@ -669,7 +637,6 @@
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 - type: roleLoadout
   id: JobParamedic
@@ -690,7 +657,6 @@
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic # imp special
 
 # Wildcards
 - type: roleLoadout
@@ -708,7 +674,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: JobPsychologist
@@ -727,7 +692,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessAquatic #imp special
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
@@ -740,7 +704,6 @@
   - GroupSpeciesBreathTool
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 # gives vox a nitrogen breathing tank
 # other species get nothing
@@ -756,7 +719,6 @@
   - GroupSpeciesBreathTool
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: RoleSurvivalClown
@@ -764,7 +726,6 @@
   - SurvivalClown
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: RoleSurvivalExtended
@@ -773,7 +734,6 @@
   - GroupSpeciesBreathTool
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: RoleSurvivalMedical
@@ -782,7 +742,6 @@
   - GroupSpeciesBreathToolMedical
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: RoleSurvivalSecurity
@@ -791,7 +750,6 @@
   - GroupSpeciesBreathToolSecurity
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: RoleSurvivalSyndicate
@@ -800,7 +758,6 @@
   - GroupSpeciesBreathTool
   - GroupTankHarness
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: RoleSurvivalMilitaryDouble
@@ -815,7 +772,6 @@
   - GroupSpeciesBreathTool
   - GroupPocketTankDouble
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: RoleSurvivalEVA
@@ -823,11 +779,9 @@
   - GroupEVATank
   - SurvivalExtended
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
   id: RoleSurvivalSpaceNinja
   groups:
   - GroupEVATank
   - GroupBreathToolDecapoid # imp special
-  - GroupTankHarnessAquatic #imp special

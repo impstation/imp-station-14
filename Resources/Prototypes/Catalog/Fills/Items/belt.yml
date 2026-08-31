@@ -51,7 +51,7 @@
   id: BeltSecurityEntityTable
   table: !type:AllSelector
     children:
-    #- id: Stunbaton  impcluded in SecLink
+    - id: Stunbaton
     - id: Handcuffs
       amount: 2
     - id: HoloprojectorSecurity
@@ -228,3 +228,6 @@
         children:
         - id: FoodShakerSalt
         - id: FoodShakerPepper
+        - id: TinyMeasuringSpoon #imp
+        - id: SmallMeasuringSpoon #imp
+        - id: Whisk #imp

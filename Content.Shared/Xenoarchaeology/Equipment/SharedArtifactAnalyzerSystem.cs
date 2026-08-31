@@ -6,6 +6,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
+using Content.Shared.Xenoarchaeology.Artifact; // imp edit
 
 namespace Content.Shared.Xenoarchaeology.Equipment;
 
@@ -17,6 +18,8 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
+    [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
+    [Dependency] private readonly SharedAdvancedNodeScannerSystem _advancedNodeScanner = default!;  //IMP
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -38,16 +41,44 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
     private void OnItemPlaced(Entity<ArtifactAnalyzerComponent> ent, ref ItemPlacedEvent args)
     {
         ent.Comp.CurrentArtifact = args.OtherEntity;
-        // imp edit start, give whatever's on the pad the biased component
+        // imp edit start
+        // give whatever's on the pad the biased component
         var bias = EnsureComp<XenoArtifactBiasedComponent>(args.OtherEntity);
         if (ent.Comp.Console != null)
             bias.Provider = ent.Comp.Console.Value;
+
+        if (!TryComp<XenoArtifactComponent>(args.OtherEntity, out var artifact))
+        {
+            Dirty(ent);
+            return;
+        }
+        //If the pad has a linked advanced node scanner, let the artifact know
+        if (ent.Comp.AdvancedNodeScanner is { } advancedNodeScanner && !MetaData(advancedNodeScanner).EntityDeleted)
+        {
+            _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), advancedNodeScanner);
+            _advancedNodeScanner.CheckForTriggeredNodes(advancedNodeScanner, (args.OtherEntity, artifact));
+            Dirty(args.OtherEntity, artifact);
+        }
+        else
+        {
+            // No linked advanced node scanner, explicitly set to null in case something destroyed the advanced node scanner.
+            _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), null);
+            Dirty(args.OtherEntity, artifact);
+        }
         // imp edit end
         Dirty(ent);
     }
 
     private void OnItemRemoved(Entity<ArtifactAnalyzerComponent> ent, ref ItemRemovedEvent args)
     {
+        //imp edit start
+        if (TryComp<XenoArtifactComponent>(args.OtherEntity, out var artifact))
+        {
+            _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), null);
+            Dirty(args.OtherEntity, artifact);
+        }
+        //imp edit end
+
         if (args.OtherEntity != ent.Comp.CurrentArtifact)
             return;
 
@@ -68,39 +99,47 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
         foreach (var sink in linkedEntities)
         {
-            if (!TryComp<ArtifactAnalyzerComponent>(sink, out var analyzer))
-                continue;
-
-            ent.Comp.AnalyzerEntity = sink;
-            analyzer.Console = ent.Owner;
-            Dirty(ent);
-            Dirty(sink, analyzer);
-            break;
+            if (TryComp<ArtifactAnalyzerComponent>(sink, out var analyzer))
+            {
+                ent.Comp.AnalyzerEntity = sink;
+                analyzer.Console = ent.Owner;
+                if (analyzer.AdvancedNodeScanner is { } advNodeScan) //IMP advanced node scanner
+                    ent.Comp.AdvancedNodeScanner = advNodeScan;
+                Dirty(ent);
+                Dirty(sink, analyzer);
+            }
         }
     }
 
     private void OnNewLinkConsole(Entity<AnalysisConsoleComponent> ent, ref NewLinkEvent args)
     {
-        if (args.SourcePort != ent.Comp.LinkingPort || !HasComp<ArtifactAnalyzerComponent>(args.Sink))
+        if (args.SourcePort != ent.Comp.LinkingPort || !TryComp<ArtifactAnalyzerComponent>(args.Sink, out var analyzer)) //IMP HasComp to TryComp
             return;
+
+        if (analyzer.AdvancedNodeScanner is { } advNodeScan) //IMP advanced node scanner
+            ent.Comp.AdvancedNodeScanner = advNodeScan;
 
         ent.Comp.AnalyzerEntity = args.Sink;
         Dirty(ent);
     }
 
+    // IMP edit this whole function to fit in advanced node scanner
     private void OnNewLinkAnalyzer(Entity<ArtifactAnalyzerComponent> ent, ref NewLinkEvent args)
     {
-        if (args.SinkPort != ent.Comp.LinkingPort || !HasComp<AnalysisConsoleComponent>(args.Source))
+        if (args.SinkPort != ent.Comp.LinkingPort)
             return;
 
-        ent.Comp.Console = args.Source;
-        Dirty(ent);
-
-        //#IMP add/refresh bias comp for artifact
-        if (ent.Comp.CurrentArtifact is {} artifact)
+        if (HasComp<AnalysisConsoleComponent>(args.Source))
         {
-            var bias = EnsureComp<XenoArtifactBiasedComponent>(artifact);
-            bias.Provider = args.Source;
+            ent.Comp.Console = args.Source;
+            Dirty(ent);
+
+            //#IMP add/refresh bias comp for artifact
+            if (ent.Comp.CurrentArtifact is {} artifact)
+            {
+                var bias = EnsureComp<XenoArtifactBiasedComponent>(artifact);
+                bias.Provider = args.Source;
+            }
         }
     }
 
@@ -112,8 +151,12 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
     private void OnLinkAttemptAnalyzer(Entity<ArtifactAnalyzerComponent> ent, ref LinkAttemptEvent args)
     {
+        //IMP, bypass this cancel if linking to advanced node scanner
+        if (HasComp<AdvancedNodeScannerComponent>(args.Source))
+            return;
+
         if (ent.Comp.Console != null)
-            args.Cancel(); // can only link to one device at a time
+            args.Cancel(); // can only link to one console at a time
     }
 
     private void OnPortDisconnectedConsole(Entity<AnalysisConsoleComponent> ent, ref PortDisconnectedEvent args)
@@ -122,6 +165,7 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
             return;
 
         ent.Comp.AnalyzerEntity = null;
+        ent.Comp.AdvancedNodeScanner = null; //IMP advanced node scanner
         Dirty(ent);
     }
 

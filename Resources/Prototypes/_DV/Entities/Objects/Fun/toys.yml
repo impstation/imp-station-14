@@ -27,3 +27,11 @@
     damage: 5
   - type: Execution
     doAfterDuration: 3.0
+  # Imp start
+  - type: WeaponRandom
+    damageBonus:
+      types:
+        Piercing: 150
+    damageSound:
+      path: /Audio/Weapons/bladeslice.ogg
+  # Imp end

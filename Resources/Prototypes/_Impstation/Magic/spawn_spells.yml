@@ -21,3 +21,357 @@
       - id: MagicInstantEffectSpaceGrease
   - type: SpeakOnAction
     sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnFinFinSpell
+  name: Your Best Friend
+  description: This spell summons FinFin!
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/finfinspawn.ogg
+    icon:
+      sprite: _Impstation/Objects/Fun/toys.rsi
+      state: plushie_finfin
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobFinfin
+        amount: 1
+      offset: 0, 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-bff
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnWizSpore
+  name: Summon Spores
+  description: Go my spores!
+  components:
+  - type: Action
+    useDelay: 180
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+    icon:
+      sprite: _Impstation/Mobs/Animals/Magic/miniwiz.rsi
+      state: miniwiz
+  - type: TargetAction
+    range: 5
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobWizSpore
+        amount: 12
+      offset: 0, 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-wiz
+  - type: Magic
+    requiresClothes: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionCurse
+  name: Curse
+  description: Summons a powerful curse that latches on to someone, maybe don't stand to close...
+  components:
+  - type: Action
+    useDelay: 800
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Ambience/ambiruin2.ogg
+    icon:
+      sprite: _Impstation/Mobs/Animals/Magic/curse.rsi
+      state: omen
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: AnomalyTrapCurse
+        amount: 1
+      offset: 0, 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-curse
+  - type: Magic
+    requiresClothes: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnLight
+  name: Summon lights
+  description: Happy litte guys who light up the room.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+    icon:
+      sprite: _Impstation/Mobs/Animals/Magic/light.rsi
+      state: light
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobLightSquid
+        amount: 1
+      offset: 0, 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-light
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnSteel
+  name: Conjure Steel
+  description: This spell summons a stack of steel on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/Sheets/metal.rsi
+      state: steel_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetSteel
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-steel
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnWood
+  name: Conjure Wood
+  description: This spell summons a stack of wood on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/materials.rsi
+      state: wood_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MaterialWoodPlank
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-wood
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnPlastic
+  name: Conjure Plastic
+  description: This spell summons a stack of plastic on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/Sheets/other.rsi
+      state: plastic_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetPlastic
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-plastic
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnPlasma
+  name: Conjure Plasma
+  description: This spell summons a stack of plasma on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/Sheets/other.rsi
+      state: plasma_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetPlasma
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-plasma
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnGold
+  name: Conjure Gold
+  description: This spell summons a stack of gold on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/ingots.rsi
+      state: gold_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: IngotGold
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-gold
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnSilver
+  name: Conjure Silver
+  description: This spell summons a stack of silver on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/ingots.rsi
+      state: silver_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: IngotSilver
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-silver
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnUranium
+  name: Conjure Uranium
+  description: This spell summons a stack of uranium on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/Sheets/other.rsi
+      state: uranium_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetUranium
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-uranium
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnBrass
+  name: Conjure Brass
+  description: This spell summons a stack of brass on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/Sheets/metal.rsi
+      state: brass_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetBrass
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-brass
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnCloth
+  name: Conjure Cloth
+  description: This spell summons a stack of cloth on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/materials.rsi
+      state: cloth_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MaterialCloth
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-cloth
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnGlass
+  name: Conjure Glass
+  description: This spell summons a stack of glass on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Materials/Sheets/glass.rsi
+      state: glass_3
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetGlass
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-glass

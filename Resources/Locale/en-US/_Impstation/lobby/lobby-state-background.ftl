@@ -75,3 +75,9 @@ lobby-state-background-hercrystal-artist = FlapWrap
 
 lobby-state-background-allaboard-title = All Aboard!
 lobby-state-background-allaboard-artist = mqole
+
+lobby-state-background-foe-title = Mime Dead No Coords
+lobby-state-background-foe-artist = Starlighthowls
+
+lobby-state-background-deadgirl-title = Dead Girl's Wild Ride
+lobby-state-background-deadgirl-artist = MistyNull

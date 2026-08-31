@@ -29,4 +29,10 @@ public sealed partial class SpawnOnTriggerComponent : BaseXOnTriggerComponent
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Predicted;
+
+    /// <summary>
+    /// Imp - Limits the amount of times this component can trigger.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int? MaxTriggers = null;
 }

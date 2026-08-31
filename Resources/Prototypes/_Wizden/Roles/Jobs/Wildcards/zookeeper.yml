@@ -5,10 +5,11 @@
   playTimeTracker: JobZookeeper
   startingGear: ZookeeperGear
   icon: "JobIconZookeeper"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd # imp, hop changed to hd
   access:
   - Service
   - Maintenance
+  - Zoo # imp
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: MonkeyDay
@@ -17,31 +18,34 @@
 - type: startingGear #imp
   id: ZookeeperGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSafari
-    head: ClothingHeadSafari
-    shoes: ClothingShoesColorWhite
+#   jumpsuit: ClothingUniformJumpsuitSafari # imp, moved to loadout
+#   head: ClothingHeadSafari # imp, moved to loadout
+#   shoes: ClothingShoesColorWhite # imp, moved to loadout
     id: ZookeeperPDA
-    belt: ClothingBeltUtility #imp
+    belt: ClothingBeltDart #imp
     ears: ClothingHeadsetService
-  inhand: #imp
+  storage: #imp edit start
+    back:
     - WeaponRifleTranq
-  storage:
-    belt: #imp
+    belt:
+    - TranqDart
     - TranqDart
     - TranqDart
     - TranqDart
     - IrwizineDart
     - IrwizineDart
     - IrwizineDart
+    - IrwizineDart #imp edit end
 
 - type: chameleonOutfit
   id: ZookeeperChameleonOutfit
   job: Zookeeper
   equipment:
+    jumpsuit: ClothingUniformJumpsuitSafari # imp
+    head: ClothingHeadSafari # imp
     eyes: ClothingEyesGlassesCheapSunglasses
     mask: ClothingMaskBreath
-    outerClothing: ClothingOuterWinterColorLightBrown
+    outerClothing: ClothingOuterWinterZookeeper #imp
     neck: ClothingNeckScarfStripedBrown
-    belt: ClothingBeltUtility #imp
-    gloves: ClothingHandsGlovesColorBrown
+    gloves: ClothingHandsGlovesColorLightBrown #imp
 

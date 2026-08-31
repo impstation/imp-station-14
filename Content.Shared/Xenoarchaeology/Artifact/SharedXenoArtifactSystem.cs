@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
+using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -68,6 +69,18 @@ public abstract partial class SharedXenoArtifactSystem : EntitySystem
             return;
 
         ent.Comp.Suppressed = val;
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// IMP!! Updates an artifacts knowledge of what advanced node scanner is (or that there isn't) linked to the artifact's pad.
+    /// </summary>
+    /// <param name="ent"> The artifact </param>
+    /// <param name="advancedNodeScanner"> the advanced node scanner entity, can be null</param>
+    // IMP
+    public void SetAdvancedNodeScanner(Entity<XenoArtifactComponent> ent, EntityUid? advancedNodeScanner)
+    {
+        ent.Comp.AdvancedNodeScanner = advancedNodeScanner;
         Dirty(ent);
     }
 }

@@ -293,3 +293,26 @@
     - state: booktamlin
   - type: Paper
     content: book-text-tamlin
+
+- type: entity
+  parent: BookBase
+  id: BookButlerCode
+  name: examining the butler code
+  description: 
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#414144"
+    - state: decor_spine
+      color: "#5a3075"
+    - state: decor_wingette_circle
+      color: "#bba145"
+    - state: icon_text
+      color: "#dfc8e6"
+    - state: icon_bar
+      color: "#dfc8e6"
+  - type: Paper
+    content: book-text-butlercode

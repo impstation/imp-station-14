@@ -7,3 +7,4 @@ id-card-access-level-mime = Mime
 id-card-access-level-musician = Musician
 id-card-access-level-reporter = Reporter
 id-card-access-level-vault = Vault
+id-card-access-level-zoo = Zoo

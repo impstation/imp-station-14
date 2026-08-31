@@ -103,6 +103,9 @@ trait-inconsistent-handwriting-desc = For whatever reason, you just can't keep a
 trait-chaos-magic-victim-name = Chaos magic victim
 trait-chaos-magic-victim-desc = At the start of each shift, you will roll 5 random traits or accents, excluding signature fonts.
 
+trait-random-character-name = Random character
+trait-random-character-desc = Every round you are a new person, given a random species, appearance, and name. Selected traits are preserved.
+
 trait-category-randomizers = Randomizers
 
 trait-unadapted-to-space-name = Unadapted to space
@@ -121,9 +124,14 @@ trait-slight-desc = You're lighter than average.
 
 trait-soft-hands-name = Soft hands
 trait-soft-hands-desc = You're too weak to wield anything.
+                       Incompatible with Allulalo.
 
 trait-hated-by-dogs-name = Hated by dogs
 trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
 
 trait-hemorrhage-name = Hemorrhaging
 trait-hemorrhage-desc = You lose more blood while bleeding.
+
+trait-hungry-name = Hungry
+trait-hungry-desc = You skipped breakfast and will get hungry 5x faster than the average humanoid.
+                       Incompatible with Kodepiia.

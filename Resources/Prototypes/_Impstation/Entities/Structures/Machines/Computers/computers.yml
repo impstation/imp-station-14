@@ -58,6 +58,39 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
 
+- type: entity
+  parent: [ BaseComputerShuttle, BaseCommandContraband ]
+  id: ComputerShuttleGenericDrone
+  name: drone shuttle console # admin tricks rename this to something specific if you want
+  description: Used to pilot the drone shuttle. #ditto
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    - map: ["computerLayerScreen"]
+      state: eris_control
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+  - type: DroneConsole
+    components:
+      - type: GenericDroneShuttle
+  - type: RadarConsole
+    maxRange: 256
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#3150ff"
+  #- type: Computer #no circuitboard since this is exclusively for mapping
+  #  board: CargoShuttleConsoleCircuitboard
+
 # kill this for personal economy okay?
 - type: entity
   parent: ComputerBroken

@@ -85,3 +85,34 @@
   - type: InjectableSolution
     solution: beaker
 
+# curse anom
+
+- type: entity
+  id: AnomalyInjectionCurse
+  parent: AnomalyInjectionBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: "#9E00FF"
+    lightEnergy: 8
+    lightRadius: 15
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        spawnOnSuperCritical: true
+        minAmount: 2
+        maxAmount: 6
+        minRange: 1.5
+        maxRange: 2.5
+      spawns:
+      - MobBadOmen
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 1
+        maxAmount: 1
+        minRange: 3
+        maxRange: 4.5
+      spawns:
+      - MobAugury
+

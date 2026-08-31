@@ -9,6 +9,7 @@ chat-emote-name-coo = Coo
 chat-emote-name-blink = Blink
 chat-emote-name-boom = Boom!
 chat-emote-name-multichirp = Multichirp
+chat-emote-name-beatingchest = Beat Chest
 
 # Message
 chat-emote-msg-bubble = bubbles.

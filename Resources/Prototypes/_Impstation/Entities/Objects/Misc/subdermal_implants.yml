@@ -31,3 +31,37 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ButlerBombImplant
+  name: butler bomb implant
+  description: This implant detonates the user upon activation.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantComponents: #they need to be implanted when you spawn the remote for it to function correctly
+    - type: TriggerOnSignal
+    - type: DeviceLinkSink
+      ports:
+      - Trigger
+      preventManualLinking: true
+    - type: AutoLinkReceiver
+      channel: Butler
+      acrossGrids: true
+    - type: GibOnTrigger
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: AutoLinkReceiver
+    channel: Butler
+    acrossGrids: true
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 30
+    intensitySlope: 5
+    totalIntensity: 20
+    canCreateVacuum: false

@@ -1,0 +1,97 @@
+- type: entity
+  parent: BaseActionPolymorph
+  id: ActionPolymorphWizardTinySpider
+  name: Spider Polymorph
+  description: Polymorphs you into a Spider.
+  components:
+  - type: Action
+    useDelay: 30
+    icon:
+      sprite: _Impstation/Mobs/Animals/ductspider.rsi
+      state: idle
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: WizardTinySpider
+
+- type: entity
+  parent: BaseActionPolymorph
+  id: ActionPolymorphMagicRock
+  name: Rock Polymorph
+  description: Turns you into a rock.
+  components:
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: Objects/Decoration/Flora/flora_rockssolid.rsi
+      state: rocksolid01
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: MagicRockPolymorph
+
+- type: entity
+  parent: BaseSmiteAction
+  id: ActionFood
+  name: Consume # its NOT a vore thing
+  description: im so hungry i could eat a...
+  components:
+  - type: Action
+    useDelay: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/desk_bell_ring.ogg
+    icon:
+      sprite: Objects/Consumable/Food/Baked/cake.rsi
+      state: berry_delight
+  - type: SpeakOnAction
+    sentence: action-speech-spell-food
+  - type: Magic
+  - type: EntityTargetAction
+    event: !type:ChangeComponentsSpellEvent
+      toAdd:
+      - type: Edible
+        requiresSpecialDigestion: false
+        requireDead: false
+      - type: FlavorProfile
+        flavors:
+          - concerning
+      - type: EatSign
+      - type: InjectableSolution
+        solution: food
+      - type: RefillableSolution
+        solution: food
+      - type: SolutionContainerManager
+        solutions:
+          food:
+            maxVol: 2
+            reagents:
+            - ReagentId: Nutriment
+              Quantity: 1
+            - ReagentId: Vitamin
+              Quantity: 1
+      - type: Tag
+        tags:
+        - KodeEdible
+        - ClothMade
+        - ClothFood
+        - UnguFood
+        - FoodSnack
+        - Meat
+
+- type: entity
+  parent: BaseSmiteAction
+  id: ActionPacify
+  name: Pacify
+  description: Someone needs a time out.
+  components:
+  - type: Magic
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/Toys/toysqueak1.ogg
+    icon:
+      sprite: Objects/Fun/Plushies/moth.rsi
+      state: icon
+  - type: SpeakOnAction
+    sentence: action-speech-spell-pacify
+  - type: EntityTargetAction
+    event: !type:ChangeComponentsSpellEvent
+      toAdd:
+      - type: Pacified

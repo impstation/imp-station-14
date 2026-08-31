@@ -2,14 +2,14 @@
   parent: BaseAction
   id: ActionSpawnMagicarpSpell
   name: Summon Magicarp
-  description: This spell summons three Magi-Carp to your aid! May or may not turn on user.
+  description: This spell summons three Magi-Carp to your aid! # Imp edit
   components:
   - type: Action
     useDelay: 10
     itemIconStyle: BigAction
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: spell_default
+      sprite: Mobs/Aliens/Carps/magic.rsi # imp edit
+      state: icon
   - type: TargetAction
     range: 4
   - type: WorldTargetAction

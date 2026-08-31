@@ -1,0 +1,31 @@
+- type: parallax
+  id: Monarch
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/purple_nebula.png"
+      slowness: 0.98
+      scale: 1,1
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/XenoParallaxNeb.png"
+      slowness: 0.95
+      scale: "2, 2"
+      scrolling: "0.1, -0.05"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_Impstation/Parallaxes/ray.png"
+      slowness: 0.5
+      scale: "0.5, 0.5"
+      scrolling: "0.02, 0.0"
+      worldHomePosition: "0.0, -100"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.987265625
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
+      slowness: 0.984352

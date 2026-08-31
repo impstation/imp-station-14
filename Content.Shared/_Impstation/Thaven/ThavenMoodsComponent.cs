@@ -1,25 +1,24 @@
-using Content.Shared.Actions;
-using Robust.Shared.Audio;
+using Content.Shared.Dataset;
+using Content.Shared.Random;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Impstation.Thaven.Components;
+namespace Content.Shared._Impstation.Thaven;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedThavenMoodSystem))]
 public sealed partial class ThavenMoodsComponent : Component
 {
     /// <summary>
-    /// Whether to include SharedMoods that all thaven have.
+    /// The dataset from which wildcard moods are pulled.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool FollowsSharedMoods = true;
+    public ProtoId<DatasetPrototype> WildcardDataset = "ThavenMoodsWildcard";
 
     /// <summary>
-    /// The non-shared moods that are active.
+    /// The weighted dataset used to determine which dataset is used for the ion storm event.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<ThavenMood> Moods = new();
+    public ProtoId<WeightedRandomPrototype> IonStormDataset = "RandomThavenMoodDataset";
 
     /// <summary>
     /// Whether to allow emagging to add a random wildcard mood.
@@ -46,40 +45,8 @@ public sealed partial class ThavenMoodsComponent : Component
     public float IonStormAddChance = 0.25f;
 
     /// <summary>
-    /// The probability that an ion storm will pull a mood from the wildcard dataset.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float IonStormWildcardChance = 0.2f;
-
-    /// <summary>
-    /// The maximum number of moods that en entity can be given by ion storms.
+    /// The maximum number of moods that an entity can be given by ion storms.
     /// </summary>
     [DataField, AutoNetworkedField]
     public int MaxIonMoods = 4;
-
-    /// <summary>
-    /// Notification sound played if your moods change.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public SoundSpecifier? MoodsChangedSound = new SoundPathSpecifier("/Audio/_Impstation/Thaven/moods_changed.ogg");
-
-    [DataField(serverOnly: true)]
-    public EntityUid? Action;
-}
-
-public sealed partial class ToggleMoodsScreenEvent : InstantActionEvent;
-
-[NetSerializable, Serializable]
-public enum ThavenMoodsUiKey : byte
-{
-    Key
-}
-
-/// <summary>
-/// BUI state to tell the client what the shared moods are.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class ThavenMoodsBuiState(List<ThavenMood> sharedMoods) : BoundUserInterfaceState
-{
-    public readonly List<ThavenMood> SharedMoods = sharedMoods;
 }

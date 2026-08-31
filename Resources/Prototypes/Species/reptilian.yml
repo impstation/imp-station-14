@@ -7,7 +7,7 @@
   sprites: MobReptilianSprites
   defaultSkinTone: "#34a223"
   markingLimits: MobReptilianMarkingLimits
-  dollPrototype: MobReptilianDummy
+  dollPrototype: AppearanceReptilian
   skinColoration: Hues
   maleFirstNames: NamesReptilianMale
   femaleFirstNames: NamesReptilianFemale
@@ -63,7 +63,7 @@
       points: 2
       required: false
     HeadSide:
-      points: 1
+      points: 2 #imp
       required: false
     UndergarmentTop:
       points: 1

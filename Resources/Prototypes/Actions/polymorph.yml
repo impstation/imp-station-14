@@ -28,8 +28,8 @@
   components:
   - type: Action
     icon:
-      sprite: Mobs/Animals/spider.rsi
-      state: tarantula
+      sprite: _Impstation/Mobs/Animals/ductspider.rsi # imp edit
+      state: idle # imp edit
   - type: InstantAction
     event: !type:PolymorphActionEvent
       protoId: WizardSpider
@@ -54,6 +54,8 @@
   name: Ethereal Jaunt
   description: Melt into the Ethereal Plane for a quick getaway!
   components:
+  - type: SpeakOnAction # imp add
+    sentence: action-speech-spell-jaunt
   - type: Magic
   - type: Action
     useDelay: 30
@@ -76,7 +78,7 @@
   description: Melt into the Ethereal Plane for an even quicker getaway!
   components:
   - type: Action
-    useDelay: 25
+    useDelay: 20 # imp edit
 
 - type: entity
   parent: ActionPolymorphJaunt
@@ -85,4 +87,4 @@
   description: Are you even tangible anymore?
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 10 # imp edit

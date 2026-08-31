@@ -1,0 +1,214 @@
+- type: entity
+  id: PolymorphAshJauntAnimation
+  name: Unknown
+  description: You can't figure out what that is.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Heretic/polymorphs.rsi
+    state: ash_jaunt
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: PolymorphAshJauntEndAnimation
+  name: Unknown
+  description: You can't figure out what that is.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Heretic/polymorphs.rsi
+    state: ash_jaunt_end
+  - type: TimedDespawn
+    lifetime: 1
+
+# TODO: this whole thing seems like a mess and would be better off using BaseMobJaunt
+- type: entity
+  id: PolymorphAshJaunt
+  name: Unknown
+  description: You can't figure out what that is.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MindContainer
+  - type: InputMover
+  - type: MobMover
+  - type: Input
+    context: "ghost"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 80
+        mask:
+        - GhostImpassable
+  - type: MovementIgnoreGravity
+    weightless: true
+  - type: GravityAffected
+  - type: Actions
+  - type: NoSlip
+  - type: Eye
+    drawFov: false
+    visMask:
+      - Normal
+      - Ghost
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: DoAfter
+  - type: Alerts
+
+# heretic ascend flesh form
+- type: entity
+  parent: BaseMob
+  id: MobHereticFleshAscend
+  name: eldritch horror
+  description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
+  categories: [ DoNotMap ] # imp
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Heretic
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 7.5
+    weightlessModifier: 1.5
+  - type: Sprite # contains imp changes
+    drawdepth: Mobs
+    sprite: _Goobstation/Heretic/eldritch_horror.rsi
+    noRot: true
+    layers:
+    - map: [ "fleshMap" ]
+      state: flesh
+    - map: [ "bloodMap" ]
+      state: blood
+    - map: [ "eyesMap" ]
+      state: eyes
+  - type: RandomSprite # imp. it's not actually random, but we do what we must with the tools we are given. this gets edited by HereticAbilitySystem.Flesh on ascention.
+    selected:
+      fleshMap:
+        flesh: "#ffd2ba"
+      bloodMap:
+        blood: "#9e0000"
+      eyesMap:
+        eyes: "#000000"
+  - type: Destructible # imp. replaces DamageSpriteVisuals
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior # don't want this to be more complicated than it needs to be
+        spawn:
+          EldritchInfluenceSpent:
+            min: 1
+            max: 1
+      - !type:SpillBehavior
+        solution: blood
+  - type: SolutionContainerManager # imp. Little bit o' everybody in there.
+    solutions:
+      blood:
+        # maxVol: 900 # imp: gonna just let it decide its max volume automatically if thats ok
+        reagents:
+        - ReagentId: ShimmeringBlood
+          Quantity: 100
+        - ReagentId: InsectBlood
+          Quantity: 100
+        - ReagentId: Slime
+          Quantity: 100
+        - ReagentId: GrayBlood
+          Quantity: 100
+        - ReagentId: SynthBlood
+          Quantity: 100
+        - ReagentId: CopperBlood
+          Quantity: 100
+        - ReagentId: BloodKodepiia
+          Quantity: 100
+        - ReagentId: AmmoniaBlood
+          Quantity: 100
+        - ReagentId: Blood
+          Quantity: 100
+        - ReagentId: AnomalocaridCopperBlood
+          Quantity: 100
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Critical
+      1000: Dead
+  - type: Damageable
+    damageContainer: Biological
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - RadiationProtection
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    autoAttack: true
+    attackRate: 2.5
+    damage:
+      types:
+       Blunt: 20
+       Structural: 60
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+  - type: Devourer
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
+    chemical: Ichor
+    healRate: 15.0
+    whitelist:
+      components:
+      - MobState
+      - Door
+      tags:
+      - Wall
+  - type: Metabolizer
+    solutionOnBody: false
+    updateInterval: 0.25
+    metabolizerTypes: [ Dragon ]
+    groups:
+    - id: Medicine
+    - id: Poison
+  # imp note - removed Butcherable because it now explodes into blood when it dies.
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+  - type: HereticMansusLink
+  - type: Examiner
+  - type: Pullable

@@ -25,18 +25,6 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  id: Bonfire
-  graph: Bonfire
-  startNode: start
-  targetNode: bonfire
-  category: construction-category-structures
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
   id: SecretReinf
   name: recipes-reinforced-secret-door-name
   description: recipes-reinforced-secret-door-desc
@@ -166,3 +154,29 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: WindowCardboard
+  graph: CardboardStructures
+  startNode: start
+  targetNode: window
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: WindowDirectionalCardboard
+  graph: CardboardStructures
+  startNode: start
+  targetNode: directional
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

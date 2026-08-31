@@ -151,7 +151,7 @@ public sealed partial class StoreSystem
             return;
 
         //condition checking because why not
-        if (listing.Conditions != null)
+        if (listing.Conditions != null && !component.PassAllConditions) // imp edit, add "&& !component.PassAllConditions"
         {
             var args = new ListingConditionArgs(component.AccountOwner ?? GetBuyerMind(buyer), uid, listing, EntityManager);
             var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));

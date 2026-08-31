@@ -20,4 +20,10 @@ public sealed partial class AntagLoadProfileRuleComponent : Component
     /// </summary>
     [DataField]
     public HashSet<ProtoId<SpeciesPrototype>>? SpeciesOverrideBlacklist;
+
+    /// <summary>
+    /// Imp addition, whether to use a random profile.
+    /// </summary>
+    [DataField]
+    public bool RandomProfile;
 }

@@ -9,7 +9,7 @@
     stampedColor: "#4191f2"
     stampState: "paper_stamp-admin-assistant"
   - type: Sprite
-    sprite: _DV/Objects/Misc/stamps.rsi
+    sprite: _Impstation/Objects/Misc/stamps.rsi # imp
     state: stamp-admin-assistant
 
 - type: entity
@@ -23,8 +23,8 @@
     stampedColor: "#ff0000"
     stampState: "paper_stamp-generic"
   - type: Sprite
-    sprite: _DV/Objects/Misc/stamps.rsi
-    state: stamp-hate-paperwork
+    sprite: _Impstation/Objects/Misc/stamps.rsi # imp
+    state: stamp-syndicate # imp
   - type: IgnitionSource
     ignited: true
     temperature: 10

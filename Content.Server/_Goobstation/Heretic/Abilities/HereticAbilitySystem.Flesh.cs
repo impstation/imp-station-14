@@ -1,5 +1,5 @@
-using Content.Server._Goobstation.Heretic.Components;
-using Content.Server.Body.Components;
+using Content.Shared._Impstation.Heretic.Components;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Reagent; // imp
 using Content.Shared.Damage.Components; // imp
@@ -142,7 +142,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         Color eyeColor;
         Color bloodColor;
         if (TryComp<HumanoidAppearanceComponent>(entity, out var humanoid) && TryComp<BloodstreamComponent>(entity, out var bloodstream) // get the humanoidappearance and bloodstream
-        && bloodstream.BloodReferenceSolution.Contents[1].Reagent.Prototype is { } reagentProto // TODO: FIX THIS
+        && bloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype is { } reagentProto // TODO: FIX THIS
         && _prot.TryIndex(reagentProto, out ReagentPrototype? blood) && blood != null) // get the blood reagent
         {
             skinColor = humanoid.SkinColor;

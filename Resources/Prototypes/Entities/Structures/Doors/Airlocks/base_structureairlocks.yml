@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: Airlock
   parent: BaseStructure
   name: airlock
@@ -183,6 +183,9 @@
     - Airlocks
     - WirePanels
     - Networking
+  - type: AcousticData # VDS
+    absorption: 10
+    reflectRay: true
   placement:
     mode: SnapgridCenter
 

@@ -1,4 +1,6 @@
-# .25 caseless deals 21 pierce per shot (CartridgeCaselessRifle)
+# .25 caseless (CartridgeCaselessRifle) should deal 21 pierce per shot on average (+11).
+# Base Rifle Weapons have a default GunDamage bonus of +9 Piercing.
+
 - type: entity
   name: Basilisk-11
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
@@ -25,6 +27,14 @@
       - Burst
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/nemesis.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 11 #21 pierce for .25 Caseless
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg

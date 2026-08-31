@@ -26,3 +26,6 @@ fax-machine-ui-paper-not-inserted = No paper
 fax-machine-chat-notify = Received new fax message from "{$fax}" fax
 
 fax-machine-printed-paper-name = printed paper
+
+# imp edit
+fax-machine-on-examine-success = This fax machine's name is {$id}

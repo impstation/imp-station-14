@@ -61,6 +61,25 @@
     - type: RandomHumanoidSpawner
       settings: VisitorLibrarianCryptid
 
+- type: entity
+  id: RandomHumanoidVisitorParamedicFlatline
+  name: visiting paramedic ghost role
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: paramedic
+    - type: RandomHumanoidSpawner
+      settings: VisitorParamedicFlatline
+
+- type: entity
+  id: RandomHumanoidVisitorChaplainEternal
+  name: visiting chaplain ghost role
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: chaplain
+    - type: RandomHumanoidSpawner
+      settings: VisitorChaplainEternal
 
 # CentComm Interns
 - type: entity

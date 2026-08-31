@@ -107,16 +107,18 @@
   id: CrateArmoryTranq
   parent: [ CrateWeaponSecure, BaseRestrictedZookeeperContraband ]
   name: tranquiliser dart crate
-  description: Contains five Irwizine darts and five Tranquilizer darts. Requires Armory access to open to ensure only the zookeeper gets its contents.
+  description: Contains one box of Irwizine darts and one box of Tranquilizer darts. Requires Zoo access to open to ensure only the zookeeper gets its contents.
   components:
+  - type: AccessReader
+    access: [["Zoo"]]
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: TranqDart
-          amount: 5
-        - id: IrwizineDart
-          amount: 3
+        - id: BoxTranqDart
+          amount: 1
+        - id: BoxIrwizineDart
+          amount: 1
 
 - type: entity
   id: CrateArmoryStarflare

@@ -2,7 +2,7 @@
 
 - type: entity
   save: false
-  parent: [ BaseMob, MobCombat, MobBloodstream ]
+  parent: [ BaseMob, MobCombat, MobBloodstream, BaseMobDinosaurBody ]
   id: BaseMobDinosaur
   suffix: AI
   description: A mesozoic soldier, ready to live or die for the Dino Wars.
@@ -60,8 +60,6 @@
     allowedStates:
     - Alive
     - Dead
-  - type: Body
-    prototype: Dinosaur
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Dinosaur
@@ -254,6 +252,16 @@
       - Door
       tags:
       - Wall
+  - type: TwoStageTrigger
+    triggerDelay: 10.45
+    components:
+      - type: SpawnOnTrigger
+        proto: DinoLootSpawner
+        keysIn:
+        - stageTwo
+      - type: GibOnTrigger
+        keysIn:
+        - stageTwo
 
 # Small Dinosaurs
 
@@ -709,8 +717,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      750: Dead
-      850: Critical
+      750: Critical
+      850: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       600: 0.8

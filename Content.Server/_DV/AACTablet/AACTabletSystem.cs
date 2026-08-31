@@ -7,6 +7,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Server.Popups; // imp
 using Content.Shared.Abilities.Mime; // imp
+using Content.Shared.Mind; // imp
 
 namespace Content.Server._DV.AACTablet;
 
@@ -16,6 +17,7 @@ public sealed class AACTabletSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!; // imp
+    [Dependency] private readonly SharedMindSystem _mind = default!; // imp
 
     private readonly List<string> _localisedPhrases = [];
 
@@ -33,7 +35,8 @@ public sealed class AACTabletSystem : EntitySystem
             return;
 
         // imp start
-        if (TryComp<MimePowersComponent>(message.Actor, out var comp) && comp.Enabled)
+        var mind = _mind.GetMind(message.Actor);
+        if (TryComp<MimePowersComponent>(mind, out var comp) && comp.Enabled)
         {
             _popupSystem.PopupEntity(Loc.GetString("mime-cant-use-AAC-tablet"), message.Actor, message.Actor);
             return;

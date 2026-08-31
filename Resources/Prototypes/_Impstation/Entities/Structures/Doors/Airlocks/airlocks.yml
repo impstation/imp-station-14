@@ -220,6 +220,14 @@
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/theatre.rsi
 
+- type: entity
+  parent: AirlockService
+  id: AirlockZoo
+  suffix: Zoo
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/zoo.rsi
+
 # Supply
 - type: entity
   parent: AirlockCargo
@@ -451,6 +459,14 @@
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Glass/theatre.rsi
+
+- type: entity
+  parent: AirlockServiceGlass
+  id: AirlockZooGlass
+  suffix: Zoo
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/zoo.rsi
 
 # Supply
 

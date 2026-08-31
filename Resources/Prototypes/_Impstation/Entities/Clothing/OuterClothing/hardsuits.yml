@@ -189,3 +189,17 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+# Hemolymph-blue Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitSyndieBlue
+  name: hemolymph-blue hardsuit
+  description: A heavily armored hardsuit designed for work in special oper- Why is it blue?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieBlue

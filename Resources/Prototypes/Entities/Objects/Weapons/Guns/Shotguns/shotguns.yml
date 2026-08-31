@@ -309,7 +309,8 @@
 
 - type: entity
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
-  id: WeaponShotgunHushpup
+  id: WeaponShotgunHushpupWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   name: Hushpup
   description: An obscure modification of the Enforcer, fitted with an experimental muffler. Great for those with a strict moral code. Uses .50 shotgun shells.
   components:

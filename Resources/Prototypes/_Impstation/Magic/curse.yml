@@ -1,0 +1,92 @@
+- type: entity
+  parent: BaseAction
+  id: ActionCurseAttack
+  name: "[color=red]Manifest Darkness[/color]"
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: _Impstation/Magic/curse.rsi
+      state: curse_tentacle_spawn
+    iconOn:
+      sprite: _Impstation/Magic/curse.rsi
+      state: curse_tentacle_wiggle
+    sound:
+      path: "/Audio/_Impstation/Magic/cursespawn.ogg"
+    useDelay: 8
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:CurseSummonTentacleAction
+
+- type: entity
+  id: CurseTentacle
+  name: creeping darkness
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Impstation/Magic/curse.rsi
+    layers:
+    - state: curse_tentacle_wiggle
+  - type: StunOnContact
+    blacklist:
+      tags:
+      - Goliath
+  - type: Fixtures
+    fixtures:
+      fix:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - Impassable
+        layer:
+        - Impassable
+        hard: false
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: SpawnOnDespawn
+    prototype: EffectCurseTentacleRetract
+
+- type: entity
+  id: BaseEffectCurseTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  name: creeping darkness
+  abstract: true
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: _Impstation/Magic/curse.rsi
+  - type: InteractionOutline
+  - type: TimedDespawn
+    lifetime: 0.7
+
+- type: entity
+  id: EffectCurseTentacleSpawn
+  parent: BaseEffectCurseTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  name: creeping darkness
+  components:
+    - type: Sprite
+      state: curse_tentacle_spawn
+    - type: SpawnOnDespawn
+      prototype: CurseTentacle
+
+- type: entity
+  id: EffectCurseTentacleRetract
+  parent: BaseEffectCurseTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: curse_tentacle_retract
+  - type: EffectVisuals
+  - type: AnimationPlayer
