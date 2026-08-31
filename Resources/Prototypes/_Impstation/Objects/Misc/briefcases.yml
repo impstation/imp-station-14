@@ -1,0 +1,13 @@
+- type: entity
+  parent: BriefcaseWeapon
+  id: BriefcaseWeaponLong
+  suffix: Gun, Long, Empty
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/Briefcases/weapon_case.rsi
+  - type: Item
+    size: Large
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,5,1
