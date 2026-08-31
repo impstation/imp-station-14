@@ -41,6 +41,39 @@
     sprite: _Impstation/Structures/Wallmounts/posters.rsi
     state: poster55_legit
 
+- type: entity
+  parent: PosterBase
+  id: PosterLegitXiaoGuiTaiKongZhan
+  name: "XiaoGui Station"
+  description: "A poster displaying IMP sector's name. It's in another language."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster501_legit
+#Transcript: 小鬼太空站
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitNaMiXingJi
+  name: "Nanotrasen"
+  description: "A poster of Nanotrasen's logo. It's in another language because of an outreach program."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster502_legit
+#Transcript: 纳米辰星
+#This is my take on translating Nanotrasen to Chinese, pronounced Na Mi Chen Xing and means "nano-morningstar"
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitAnchor
+  name: "The Anchor"
+  description: "A motivational medical poster featuring the author of the book 'Guide To Medical'"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster55_legit
+
 #Station Map Posters
 
 - type: entity
