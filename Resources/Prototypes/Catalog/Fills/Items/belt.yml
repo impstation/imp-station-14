@@ -107,15 +107,18 @@
         - id: Brutepack
         - id: Ointment
         - id: Gauze
+        # Imp edit start
+        - id: SyringeInaprovaline
         # Reagents reflect the bottles in CoreMedicineReagentBottleTable
-        - id: ChemistryBottleSaline
-        - id: ChemistryBottleBicaridine
-        - id: ChemistryBottleDexalin
-        - id: ChemistryBottleDylovene
-        - id: ChemistryBottleHyronalin
-        - id: ChemistryBottleKelotane
-        - id: ChemistryBottleEpinephrine # A power item for medical players that feels thematic and worth stealing
-        - id: PillCanisterTricordrazine
+        #- id: ChemistryBottleSaline
+        #- id: ChemistryBottleBicaridine
+        #- id: ChemistryBottleDexalin
+        #- id: ChemistryBottleDylovene
+        #- id: ChemistryBottleHyronalin
+        #- id: ChemistryBottleKelotane
+        #- id: ChemistryBottleEpinephrine # A power item for medical players that feels thematic and worth stealing
+        #- id: PillCanisterTricordrazine
+        # Imp edit end
 
 - type: entity
   parent: ClothingBeltMedicalEMT
@@ -129,13 +132,18 @@
         - id: Bloodpack
           amount: 2
         - id: Gauze
-        # Reagents focused on emergency response rather than outright healing
-        - id: ChemistryBottleInaprovaline
-          amount: 2
-        - id: ChemistryBottleHaloperidol
-        - id: ChemistryBottleEthylredoxrazine
-        - id: ChemistryBottleIpecac
-        - id: ChemistryBottleCharcoal
+        # Imp edit start
+        - id: Brutepack
+        - id: Ointment
+        - id: SyringeInaprovaline
+        # Reagents focused on emergency response rather than outright healing. Impstation has removed them all. Yay!
+        #- id: ChemistryBottleInaprovaline
+        #  amount: 2
+        #- id: ChemistryBottleHaloperidol
+        #- id: ChemistryBottleEthylredoxrazine
+        #- id: ChemistryBottleIpecac
+        #- id: ChemistryBottleCharcoal
+        # Imp edit end
 
 - type: entity
   id: ClothingBeltPlantFilled
