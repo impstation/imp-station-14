@@ -34,8 +34,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingOuterCoatJensenSyndie
-        - id: ClothingUniformJumpsuitTacticool
+        # - id: ClothingOuterCoatJensenSyndie Imp Removal Upstream tried to put them in
+        # - id: ClothingUniformJumpsuitTacticool Imp Removal
         - id: ClothingEyesGlassesSunglasses
         - id: SpaceCash30000
         - id: EncryptionKeySyndie
