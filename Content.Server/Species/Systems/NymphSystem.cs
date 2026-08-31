@@ -56,7 +56,7 @@ public sealed partial class NymphSystem : EntitySystem
         // IMP EDIT END - Unborgable trait support
 
         // Move the mind if there is one and it's supposed to be transferred
-        if (comp.TransferMind == true && _mindSystem.TryGetMind(args.Target, out var mindId, out var mind))
+        if (comp.TransferMind && _mindSystem.TryGetMind(uid, out var mindId, out var mind)) // imp early merge
             _mindSystem.TransferTo(mindId, nymph, mind: mind);
 
         // Delete the old organ
