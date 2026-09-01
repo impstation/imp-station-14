@@ -6,7 +6,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
-using Content.Shared._Impstation.PerfectThrower; // imp
+using Content.Shared._Impstation.Containers; // imp
 
 namespace Content.Server.Containers;
 
