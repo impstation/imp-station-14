@@ -35,7 +35,7 @@
   - type: AirAlarm
     autoMode: false
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Impstation/Structures/Wallmounts/air_monitors.rsi # Imp
     layers:
     - state: alarm0
       map: ["airAlarmBase"]

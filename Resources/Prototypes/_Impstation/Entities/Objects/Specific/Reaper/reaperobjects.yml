@@ -14,5 +14,6 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+      - sprite: _Impstation/Structures/Wallmounts/Lighting/light_tube.rsi # Imp
+        offset: 0,0.1875 # Imp
         state: base

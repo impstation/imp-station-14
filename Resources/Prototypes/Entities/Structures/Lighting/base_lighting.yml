@@ -22,8 +22,9 @@
     graph: LightFixture
     node: tubeLight
   - type: Sprite
-    sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+    sprite: _Impstation/Structures/Wallmounts/Lighting/light_tube.rsi # Imp
     drawdepth: WallMountedItems
+    offset: 0,0.1875 # Imp
     layers:
     - map: ["enum.PoweredLightLayers.Base"]
       state: base
@@ -98,7 +99,7 @@
   parent: AlwaysPoweredWallLight
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+    sprite: _Impstation/Structures/Wallmounts/Lighting/light_tube.rsi # Imp
     state: empty
   - type: PointLight
     enabled: false

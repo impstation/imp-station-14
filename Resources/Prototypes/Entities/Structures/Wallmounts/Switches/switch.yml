@@ -9,7 +9,8 @@
   - type: StationAiWhitelist
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch.rsi # Imp
+    offset: 0,-0.0625 # Imp
     state: on
   - type: SignalSwitch
   - type: UseDelay
@@ -62,7 +63,8 @@
   - type: StationAiWhitelist
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch.rsi # Imp
+    offset: 0,-0.0625 # Imp
     state: dead
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
@@ -113,7 +115,8 @@
     arc: 360
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch.rsi # Imp
+    offset: 0,-0.0625 # Imp
     state: on
   - type: Rotatable
   - type: ExtensionCableReceiver
@@ -180,7 +183,7 @@
   - type: AccessReader
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Wallmounts/locked_switch.rsi
+    sprite: _Impstation/Structures/Wallmounts/locked_switch.rsi # Imp
     layers:
     - state: base
     - state: locked
@@ -454,7 +457,7 @@
     canCollide: false
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch_frame.rsi # Imp
     state: grey
   - type: Rotatable
   - type: Fixtures
@@ -466,7 +469,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch_frame.rsi # Imp
     state: grey
 
 - type: entity
@@ -476,7 +479,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch_frame.rsi # Imp
     state: caution
 
 - type: entity
@@ -486,7 +489,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch_frame.rsi # Imp
     state: caution_security
 
 - type: entity
@@ -496,7 +499,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch_frame.rsi # Imp
     state: exit
 
 - type: entity
@@ -506,5 +509,5 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _Impstation/Structures/Wallmounts/switch_frame.rsi # Imp
     state: janitor

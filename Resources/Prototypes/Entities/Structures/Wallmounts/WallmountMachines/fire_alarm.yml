@@ -68,7 +68,7 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Impstation/Structures/Wallmounts/air_monitors.rsi # Imp
     layers:
     - state: fire0
       map: ["fireAlarmBase"]
@@ -115,7 +115,7 @@
   description: A fire alarm assembly. Very mild.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Impstation/Structures/Wallmounts/air_monitors.rsi # Imp
     layers:
     - state: fire_b1
       map: [ "enum.ConstructionVisuals.Layer" ]

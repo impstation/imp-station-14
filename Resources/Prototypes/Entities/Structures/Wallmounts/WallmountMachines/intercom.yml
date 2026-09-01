@@ -40,6 +40,7 @@
     noRot: false
     drawdepth: SmallObjects
     sprite: _Impstation/Structures/Wallmounts/intercom.rsi #imp edit
+    offset: 0,-0.3125 # Imp - 1 pixel is 0.03125. This moves it 10 pixels down
     layers:
     - state: base
     - state: unshaded
