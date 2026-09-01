@@ -1,4 +1,7 @@
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent; // Imp Edit
+using Robust.Shared.Prototypes; // Imp Edit
+
 namespace Content.Server._CD.Traits;
 
 /// <summary>
@@ -16,7 +19,7 @@ public sealed partial class SynthComponent : Component
     /// <summary>
     /// VDS - The reagent that replaces the synth's blood
     /// </summary>
-    // Imp Edit - Changed to string.
+    // Imp Edit - Changed to ProtoId<ReagentPrototype>.
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public string SynthBloodReagent = "SynthBlood";
+    public ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
 }

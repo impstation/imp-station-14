@@ -43,6 +43,7 @@ public sealed class SynthSystem : EntitySystem
         _bloodstream.ChangeBloodReagents(uid, bloodSolution); // DeltaV - make strings static readonly
                                                               // VDS - update to use new ChangeBloodReagents
                                                               // IMP - component.SynthBloodReagent > bloodSolution
+
         // Gives them the DamagedSiliconAccent component
         EnsureComp<DamagedSiliconAccentComponent>(uid, out var accent);
         accent.EnableChargeCorruption = false; //Disables corruption on low battery. This would always be active since non-silicons don't have a battery
