@@ -1,17 +1,58 @@
+
 {
-    "version": 1,
-    "license": "CC0-1.0",
-    "copyright": "dog sprite from https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b, and edited by Starlighthowls",
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "dog sprite from https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b, and edited by Starlighthowls. Gleef by crocodilecarousel. Rest By Doop!",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "symbol",
+        "delays": [
+          [
+            0.07,
+            0.07,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.07
+          ]
+        ]
     },
-    "states": [
-        {
-            "name": "dog"
-        },
-        {
-            "name": "dog_explode"
-        }
-    ]
+    {
+        "name": "plushie_goldbug"
+    },
+    {
+        "name": "plushie_goldbug-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "plushie_goldbug-inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "goldbug-equipped-HELMET",
+        "directions": 4
+    },
+    {
+        "name": "poster_leech"
+    },
+    {
+        "name": "dog"
+    },
+    {
+        "name": "gleef-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "gleef-inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "plushie_gleef"
+    }
+  ]
 }

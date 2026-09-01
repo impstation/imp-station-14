@@ -1,7 +1,8 @@
 - type: entity
-  parent: BaseItem
+  parent: ToyHammer
   id: ToyHammerScary
   name: rubber hammer
+  suffix: scary
   description: A brightly colored scary hammer made of rubber.
 #  categories: [ HideSpawnMenu ]
   components:
@@ -30,6 +31,7 @@
             variation: 0.03
 
 - type: entity
+  name: dog
   suffix: armed
   parent: LandMineExplosive
   id: LandMineDog
@@ -45,9 +47,237 @@
     layers:
     - state: dog
     - state: dog
-      shader: unshaded
       map: [ "enum.ToggleableVisuals.Layer" ]
 
-#goliath spawner
-#gray blood pool
-#bucket of water
+- type: entity
+  parent: BaseStructure
+  id: BrettKellyGooPod
+  suffix: CentComm Prop
+  categories: [ DoNotMap ]
+  name: Gravestone™ generation pod
+  description: A special machine for generating specialized biological assets, similar to a cloning pod. This one seems to have a partially finished bioform floating inside.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Misc/impcc.rsi/goopod.rsi
+    drawdepth: Mobs
+    layers:
+     - state: pod
+     - state: unshaded-pod
+       shader: unshaded
+  - type: PointLight
+    color: "#7c2324"
+    energy: 1
+    offset: 0,-0.5
+    radius: 4
+    softness: 5
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGleef
+  suffix: SPAWN AT YOUR OWN RISK # im serious i dont even want this spawned by admins
+  categories: [ DoNotMap ]
+  name: Gleef plushie
+  description: Try not to catch his attention, lest you get insulted on all comms.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Misc/impcc.rsi
+    state: plushie_gleef
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Misc/impcc.rsi
+    inhandVisuals:
+      left:
+      - state: gleef-inhand-left
+      right:
+      - state: gleef-inhand-right
+
+- type: entity
+  id: MobGoliathNice
+  parent: MobGoliath
+  name: goliath
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Passive
+
+- type: entity
+  name: nice goliath spawner
+  id: SpawnMobGoliathNice
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath
+  - type: ConditionalSpawner
+    prototypes:
+    - MobGoliathNice
+
+- type: entity
+  name: bombadilidiidae spawner
+  id: SpawnMobBombadillo
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Impstation/Mobs/Animals/bombadillo.rsi
+      state: idle
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBombadillo
+
+- type: entity
+  name: light squid spawner
+  id: SpawnMobLightSquid
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Impstation/Mobs/Animals/Magic/light.rsi
+      state: light
+  - type: ConditionalSpawner
+    prototypes:
+    - MobLightSquid
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleBloodGraySmall
+  suffix: GrayBlood (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: GrayBlood
+          Quantity: 5
+
+- type: entity
+  parent: Bucket
+  id: BucketFull
+  suffix: Water (250u)
+  name: bucket
+  description: It's a boring old bucket.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 250
+        reagents:
+          - ReagentId: Water
+            Quantity: 250
+
+- type: entity
+  id: Woodcock
+  parent: BannerBase
+  name: American woodcock
+  description: The American woodcock (Scolopax minor), sometimes colloquially referred to as the timberdoodle, mudbat, bogsucker, night partridge, or Labrador twister[2][3] is a small shorebird species found primarily in the eastern half of North America. Woodcocks spend most of their time on the ground in brushy, young-forest habitats, where the birds' brown, black, and gray plumage provides excellent camouflage.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Misc/impcc.rsi/woodcock.rsi
+    state: woodcock
+
+#Doop's Stuff
+
+- type: entity
+  id: LeechLamp
+  parent: BaseStructure
+  suffix: CentComm Prop
+  name: hirudinean manifestation
+  description: Some kind of weird glowy thing. Probably just a fancy lamp.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Misc/impcc.rsi
+      state: symbol
+      noRot: true
+      offset: "0.0,0.3"
+    - type: Reflect
+      reflectProb: 1
+      spread: 75
+    - type: Physics
+      bodyType: Static
+    - type: PointLight
+      radius: 2.5
+      energy: 2
+      color: "#91ff00"
+
+- type: entity
+  parent: PlushieBug
+  id: PlushieGoldBug
+  name: golden bug plushie
+  description: You need it. You need it more than anything.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Misc/impcc.rsi
+    state: plushie_goldbug
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blune: 10
+    soundHit:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    animation: WeaponArcBite
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 10
+    staminaCost: 5
+  - type: Item
+    sprite: _Impstation/Misc/impcc.rsi
+    inhandVisuals:
+      left:
+        - state: plushie_goldbug-inhand-left
+      right:
+        - state: plushie_goldbug-inhand-right
+  - type: Edible
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+  - type: GoobAbsorbable #delicious
+    biomassRestored: 0.1
+  - type: FlavorProfile
+    flavors:
+      - whimsy
+  - type: Extractable
+    grindableSolutionName: bugblood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Gold
+          Quantity: 5
+        - ReagentId: HeartbreakerToxin
+          Quantity: 5
+      bugblood:
+        maxVol: 10
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Objects/Fun/Centcomm/centcommprops.rsi
+    equippedPrefix: goldbug
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: goldbug-equipped-HELMET
+        offset: "0, 0.06"
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitLeech
+  name: alien poster
+  description: "A poster of a horrible alien creature you don't recognize. It's a little cute!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Misc/impcc.rsi
+    state: poster_leech
