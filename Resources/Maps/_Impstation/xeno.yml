@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/30/2026 19:12:07
-  entityCount: 20005
+  time: 07/29/2026 23:26:31
+  entityCount: 20011
 maps:
 - 1
 grids:
@@ -5993,8 +5993,8 @@ entities:
             0: 65535
           9,-16:
             0: 207
-            4: 4352
-            5: 49152
+            3: 4352
+            4: 49152
           10,-19:
             0: 65535
           10,-18:
@@ -6003,7 +6003,7 @@ entities:
             0: 65535
           10,-16:
             0: 255
-            6: 24576
+            5: 24576
           11,-20:
             0: 65280
           11,-19:
@@ -6015,7 +6015,7 @@ entities:
           11,-16:
             0: 63
             2: 34816
-            7: 12288
+            6: 12288
           12,-20:
             0: 65416
           12,-19:
@@ -6264,7 +6264,7 @@ entities:
             0: 59392
           11,-15:
             1: 65408
-            7: 3
+            6: 3
           12,-14:
             0: 62926
           11,-14:
@@ -6276,7 +6276,7 @@ entities:
             0: 61262
           12,-12:
             0: 43215
-            3: 4352
+            7: 4352
           13,-15:
             0: 65280
             2: 14
@@ -6374,12 +6374,12 @@ entities:
             1: 63624
           11,-12:
             0: 4508
-            3: 52224
+            7: 52224
           12,-11:
-            3: 4369
+            7: 4369
             0: 52424
           11,-11:
-            3: 52428
+            7: 52428
             0: 4371
           12,-10:
             0: 17748
@@ -6593,12 +6593,12 @@ entities:
             1: 12288
           9,-15:
             1: 65296
-            5: 12
+            4: 12
           9,-14:
             0: 36848
           10,-15:
             1: 65280
-            6: 6
+            5: 6
           10,-14:
             0: 65520
           -8,-24:
@@ -6673,11 +6673,6 @@ entities:
           temperature: 293.15
           moles: {}
         - volume: 2500
-          temperature: 235
-          moles:
-            Oxygen: 27.225372
-            Nitrogen: 102.419266
-        - volume: 2500
           temperature: 293.15
           moles:
             WaterVapor: 6666.982
@@ -6693,6 +6688,11 @@ entities:
           temperature: 293.15
           moles:
             Nitrogen: 6666.982
+        - volume: 2500
+          temperature: 235
+          moles:
+            Oxygen: 27.225372
+            Nitrogen: 102.419266
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -10340,7 +10340,7 @@ entities:
       pos: 11.5,-30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -153296.03
+      secondsUntilStateChange: -153436.56
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10951,7 +10951,7 @@ entities:
       pos: -34.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22582.342
+      secondsUntilStateChange: -22722.877
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -86579,6 +86579,40 @@ entities:
     components:
     - type: Transform
       pos: 68.51949,-38.591267
+      parent: 2
+- proto: LinkedCaptainIDCardSpawner
+  entities:
+  - uid: 18625
+    components:
+    - type: Transform
+      pos: 41.5,-83.5
+      parent: 2
+  - uid: 19018
+    components:
+    - type: Transform
+      pos: 18.5,-42.5
+      parent: 2
+  - uid: 20009
+    components:
+    - type: Transform
+      pos: -23.5,-81.5
+      parent: 2
+  - uid: 20010
+    components:
+    - type: Transform
+      pos: -48.5,-44.5
+      parent: 2
+  - uid: 20011
+    components:
+    - type: Transform
+      pos: 55.5,-41.5
+      parent: 2
+- proto: LinkedCaptainIDCardSpawner5
+  entities:
+  - uid: 18626
+    components:
+    - type: Transform
+      pos: -37.5,-52.5
       parent: 2
 - proto: LiquidNitrogenCanister
   entities:
