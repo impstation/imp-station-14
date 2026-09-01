@@ -5092,100 +5092,54 @@ entities:
     - type: Transform
       pos: -10.386757,8.623476
       parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 548
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 6072
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 6072
   - uid: 671
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 6073
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 6073
   - uid: 5258
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 23037
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 23037
   - uid: 9037
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 18746
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 18746
   - uid: 9044
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 18747
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 18747
   - uid: 9045
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 18748
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 18748
   - uid: 9046
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 18749
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 18749
   - uid: 9047
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 18750
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 18750
   - uid: 9048
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 18751
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 18751
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 5256
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 23037
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 23037
 - proto: AirAlarm
   entities:
   - uid: 17
@@ -8979,12 +8933,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,1.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 5181
-      - 23344
 - proto: AltarFangs
   entities:
   - uid: 16924
@@ -39294,8 +39242,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - invalid
     - type: Fixtures
       fixtures: {}
 - proto: ClosetWallEmergencyFilledRandom
@@ -41913,17 +41859,13 @@ entities:
     - type: Transform
       pos: 6.5,-7.5
       parent: 2
-- proto: CrateSyndicateSecure
+- proto: CrateSyndicate
   entities:
   - uid: 16810
     components:
     - type: Transform
       pos: 67.5,-31.5
       parent: 2
-    - type: AccessReader
-      accessListsOriginal:
-      - - SyndicateAgent
-        - NuclearOperative
 - proto: CrateTrashCart
   entities:
   - uid: 5482
@@ -47367,14 +47309,6 @@ entities:
     - type: Transform
       pos: -9.669072,-27.525703
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 548
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 548
 - proto: DoubleEmergencyOxygenTankFilled
   entities:
   - uid: 6073
@@ -47382,14 +47316,6 @@ entities:
     - type: Transform
       pos: -9.590947,-27.526
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 671
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 671
 - proto: Dresser
   entities:
   - uid: 6074
@@ -49261,12 +49187,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -10.5,-30.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 153
-      - 905
   - uid: 4629
     components:
     - type: Transform
@@ -49308,37 +49228,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 13.5,4.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 5181
-      - 23344
-      - 6229
   - uid: 5149
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 14.5,1.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 5181
-      - 23344
-      - 6229
   - uid: 5255
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -7.5,-32.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 905
   - uid: 5449
     components:
     - type: Transform
@@ -70822,23 +70723,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -11.5,-32.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 153
-      - 905
   - uid: 4567
     components:
     - type: Transform
       pos: -9.5,-31.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 153
-      - 905
 - proto: GasVentPumpVox
   entities:
   - uid: 5126
@@ -70847,12 +70736,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 16.5,2.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 5181
-      - 23344
 - proto: GasVentScrubber
   entities:
   - uid: 162
@@ -71991,12 +71874,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 153
-      - 905
 - proto: GasVentScrubberDecapoidAlt1
   entities:
   - uid: 1134
@@ -72007,12 +71884,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 153
-      - 905
 - proto: GasVentScrubberVox
   entities:
   - uid: 5077
@@ -72023,12 +71894,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 5181
-      - 23344
   - uid: 5078
     components:
     - type: Transform
@@ -72036,12 +71901,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 5181
-      - 23344
 - proto: GasVolumePump
   entities:
   - uid: 9030
@@ -78885,17 +78744,6 @@ entities:
     - type: Transform
       pos: -45.703224,26.71875
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 5258
-    - type: Jetpack
-      toggleActionEntity: 5256
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 5256
-          - 5258
 - proto: Jug
   entities:
   - uid: 21399
@@ -81585,79 +81433,31 @@ entities:
     - type: Transform
       pos: -52.516,-3.61447
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 9037
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 9037
   - uid: 18747
     components:
     - type: Transform
       pos: -52.4535,-3.567595
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 9044
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 9044
   - uid: 18748
     components:
     - type: Transform
       pos: -52.594124,-3.473845
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 9045
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 9045
   - uid: 18749
     components:
     - type: Transform
       pos: -52.531624,-3.411345
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 9046
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 9046
   - uid: 18750
     components:
     - type: Transform
       pos: -52.3285,-3.39572
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 9047
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 9047
   - uid: 18751
     components:
     - type: Transform
       pos: -52.79725,-3.36447
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 9048
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 9048
 - proto: PlasticFlapsAirtightClear
   entities:
   - uid: 861
@@ -99182,13 +98982,6 @@ entities:
     components:
     - type: Transform
       pos: -33.5,20.5
-      parent: 2
-- proto: TorsoHuman
-  entities:
-  - uid: 18547
-    components:
-    - type: Transform
-      pos: -69.589386,-7.742252
       parent: 2
 - proto: TowelColorBlue
   entities:
