@@ -71,6 +71,7 @@ public sealed class DevourSystem : EntitySystem
             {
                 case MobState.Critical:
                 case MobState.Dead:
+                case MobState.Alive: // imp
 
                     _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DevourTime, new DevourDoAfterEvent(), ent.Owner, target: target, used: ent.Owner)
                     {
@@ -78,7 +79,6 @@ public sealed class DevourSystem : EntitySystem
                     });
                     break;
                 case MobState.Invalid:
-                case MobState.Alive:
                 default:
                     _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-fail-target-alive"), ent.Owner, ent.Owner);
                     break;
