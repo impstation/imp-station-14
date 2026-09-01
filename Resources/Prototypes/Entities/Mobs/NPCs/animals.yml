@@ -154,6 +154,7 @@
     - Bee
     - Trash
     - MultitoolDefibrillatorTarget #imp
+    - RecyclerGibbable # imp
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -452,6 +453,7 @@
     - VimPilot
     - MultitoolDefibrillatorTarget # imp
     - KodeEdible # imp
+    - RecyclerGibbable # imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -525,7 +527,7 @@
 
 - type: entity
   name: mothroach
-  parent: MobCockroach
+  parent: [ BaseMobMothroach, MobCockroach ]
   id: MobMothroach
   description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
@@ -637,12 +639,11 @@
     - CannotSuicide
     - VimPilot
     - MultitoolDefibrillatorTarget #imp
+    - RecyclerGibbable # imp
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
     - Mouse
-  - type: Body
-    prototype: Mothroach
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -906,6 +907,7 @@
     - Trash
     - MultitoolDefibrillatorTarget #imp
     - Butterfly #imp, for butterfly orchid
+    - RecyclerGibbable # imp
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -930,7 +932,7 @@
 
 - type: entity
   name: cow
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobRuminant ]
   id: MobCow
   description: Moo.
   components:
@@ -1003,8 +1005,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -1021,7 +1021,7 @@
 
 - type: entity
   name: crab
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobHemocyanin ]
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
@@ -1086,8 +1086,6 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-  - type: Body
-    prototype: AnimalHemocyanin
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.3
@@ -1110,7 +1108,7 @@
 
 - type: entity
   name: goat
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobRuminant ]
   id: MobGoat
   description: Her spine consists of long sharp segments, no wonder she is so grumpy.
   components:
@@ -1202,8 +1200,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1376,10 +1372,6 @@
       Male: Gorilla
       Female: Gorilla
       Unsexed: Gorilla
-  - type: Grammar
-    attributes:
-      proper: true
-      gender: male
   # imp edit end
 
 - type: entity
@@ -1484,7 +1476,7 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
@@ -1546,6 +1538,10 @@
       state: "creampie_human"
       visible: false
   - type: Hands
+    activeHandId: Hand
+    hands:
+      Hand:
+        location: Left
   - type: ComplexInteraction
   - type: GenericVisualizer
     visuals:
@@ -1553,9 +1549,6 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body
-    prototype: Primate
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1914,12 +1907,12 @@
 
 - type: entity
   name: mouse
-  parent: SimpleMobBase
+  parent:
+  - SimpleMobBase
+  - BaseMobAnimal
   id: MobMouse
   description: Squeak!
   components:
-  - type: Body
-    prototype: Mouse
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -2050,6 +2043,7 @@
     - Mouse
     - Meat
     - MultitoolDefibrillatorTarget #imp
+    - RecyclerGibbable # imp
   - type: Respirator
     damage:
       types:
@@ -2353,6 +2347,7 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget #imp edit
+    - RecyclerGibbable # imp
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.2
@@ -2431,6 +2426,7 @@
   - type: Tag
     tags:
     - MultitoolDefibrillatorTarget
+    - RecyclerGibbable
   - type: GoobAbsorbable
     biomassRestored: 0.1
   - type: Carriable
@@ -2509,6 +2505,7 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget # imp
+    - RecyclerGibbable # imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -2842,7 +2839,7 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobHemocyaninSpider, MobCombat ] #imp edit, use HemocyaninSpider instead of Hemocyanin
   id: MobSpiderBase
   abstract: true
   components:
@@ -2865,8 +2862,6 @@
     - id: FoodMeatSpiderLeg # imp
       amount: 2
   - type: CombatMode
-  - type: Body
-    prototype: AnimalHemocyaninSpider #Imp for edible spider silk
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -3521,6 +3516,7 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget
+    - RecyclerGibbable # imp
   # imp edit start
 
 - type: entity
@@ -3793,6 +3789,7 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget
+    - RecyclerGibbable
   # imp edit end
 
 - type: entity
@@ -3928,7 +3925,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, MobHamsterSecretStash] #imp edit, added MobHamsterSecretStash
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
@@ -4032,6 +4029,7 @@
     - Hamster
     - Meat
     - MultitoolDefibrillatorTarget #imp
+    - RecyclerGibbable # imp
   - type: Respirator
     damage:
       types:
@@ -4088,20 +4086,6 @@
   - type: VentCrawler
     enterDelay: 1
   - type: AlwaysRevolutionaryConvertible
-  - type: SecretStash 
-    secretStashName: secret-stash-hamster
-    blacklist:
-      tags:
-      - QuantumSpinInverter # grinder problems
-    tryInsertItemSound: /Audio/Effects/Fluids/blood2.ogg
-    tryRemoveItemSound: /Audio/Effects/Fluids/blood1.ogg
-  - type: ToolOpenable
-    openToolQualityNeeded: Slicing
-    closeToolQualityNeeded: Welding
-    name: secret-stash-hamster
-  - type: ContainerContainer
-    containers:
-      stash: !type:ContainerSlot {}
   # imp edit end
 
 - type: entity
@@ -4184,7 +4168,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [BaseMobAnimal, SimpleMobBase, StripableInventoryBase]
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
@@ -4246,7 +4230,7 @@
   - type: Speech
     speechVerb: Plant
     speechSounds: Alto
-    allowedEmotes: ['Chirp']
+    allowedEmotes: ['Chirp', 'Multichirp'] # imp - let them multichirp
   - type: Vocal
     sounds:
       Male: UnisexDiona
@@ -4257,6 +4241,7 @@
     - DoorBumpOpener
     - VimPilot
     - DionaHivemind #imp
+    - DionaNymph #imp
   - type: Emoting
   - type: BodyEmotes
     soundsId: Nymph
@@ -4442,14 +4427,18 @@
             sprite: Mobs/Pets/displacements.rsi
             state: corgi_head_displacement
   - type: Hands # HANDS!
+    activeHandId: Right
+    hands:
+      Right:
+        location: Right
+      Left:
+        location: Left
   - type: Puller
   - type: Cuffable # bad dog!
   - type: BlockWriting # dogs can't write, paws unwieldy; mouth-writing is a myth
   - type: Stripping
   - type: ComplexInteraction
   # Implement custom borgi body type
-  - type: Body
-    prototype: SmartCorgi
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 180

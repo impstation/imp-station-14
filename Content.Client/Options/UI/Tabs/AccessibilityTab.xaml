@@ -11,6 +11,7 @@
                 <!-- Imp add -->
                 <CheckBox Name="DisableSinguloWarpingCheckBox" Text="{Loc 'ui-options-disable-singulo-warp'}" />
                 <CheckBox Name="DisableAiStaticCheckBox" Text="{Loc 'ui-options-disable-ai-static'}" />
+                <CheckBox Name="EnableBiomagneticPolarizationSymbolsCheckBox" Text="{Loc 'ui-options-enable-biomagnetic-polarization-symbols'}" />
                 <CheckBox Name="EnableColorNameCheckBox" Text="{Loc 'ui-options-enable-color-name'}" />
                 <CheckBox Name="ColorblindFriendlyCheckBox" Text="{Loc 'ui-options-colorblind-friendly'}" />
                 <CheckBox Name="DisableWeatherCheckBox" Text="{Loc 'ui-options-disable-weather'}" />
