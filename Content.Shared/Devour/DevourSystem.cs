@@ -79,6 +79,7 @@ public sealed class DevourSystem : EntitySystem
                     });
                     break;
                 case MobState.Invalid:
+              //case MobState.Alive: // imp
                 default:
                     _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-fail-target-alive"), ent.Owner, ent.Owner);
                     break;
