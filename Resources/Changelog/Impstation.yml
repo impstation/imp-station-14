@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: sev7ves
-  changes:
-  - message: Temporarily disabled flashes for people with reduced motion on.
-    type: Tweak
-  id: 2425
-  time: '2025-11-13T01:58:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3719
 - author: Fancyplanks, Skeepo, kipdotnet
   changes:
   - message: Cargo can now order a special decapoid robot.
@@ -4075,3 +4068,11 @@
   id: 2924
   time: '2026-09-01T06:57:20.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4594
+- author: msTheowo
+  changes:
+  - message: Apids and Skeletons can now be generated as either Ghostroles or with
+      the Random Character trait.
+    type: Add
+  id: 2925
+  time: '2026-09-02T02:45:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4590
