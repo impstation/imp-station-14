@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/30/2026 06:59:38
-  entityCount: 14979
+  time: 08/31/2026 05:14:00
+  entityCount: 14977
 maps:
 - 1
 grids:
@@ -10019,10 +10019,15 @@ entities:
       fixtures: {}
   - uid: 14805
     components:
+    - type: MetaData
+      name: Bridge Hall APC
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -19.5,15.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Engineering
     - type: Fixtures
       fixtures: {}
 - proto: APCElectronics
@@ -40987,10 +40992,25 @@ entities:
       parent: 2
 - proto: DecalSpawnerDirtMonospace
   entities:
+  - uid: 1044
+    components:
+    - type: Transform
+      pos: -14.5,13.5
+      parent: 2
+  - uid: 1958
+    components:
+    - type: Transform
+      pos: -15.5,7.5
+      parent: 2
   - uid: 2045
     components:
     - type: Transform
       pos: -23.5,29.5
+      parent: 2
+  - uid: 2448
+    components:
+    - type: Transform
+      pos: -15.5,13.5
       parent: 2
   - uid: 6899
     components:
@@ -41006,6 +41026,11 @@ entities:
     components:
     - type: Transform
       pos: -1.5,6.5
+      parent: 2
+  - uid: 7932
+    components:
+    - type: Transform
+      pos: -14.5,12.5
       parent: 2
   - uid: 8045
     components:
@@ -41071,6 +41096,11 @@ entities:
     components:
     - type: Transform
       pos: -30.5,5.5
+      parent: 2
+  - uid: 13620
+    components:
+    - type: Transform
+      pos: -13.5,6.5
       parent: 2
   - uid: 13639
     components:
@@ -41139,11 +41169,6 @@ entities:
     - type: Transform
       pos: -10.5,12.5
       parent: 2
-  - uid: 2448
-    components:
-    - type: Transform
-      pos: -15.5,12.5
-      parent: 2
   - uid: 2450
     components:
     - type: Transform
@@ -41193,6 +41218,11 @@ entities:
     components:
     - type: Transform
       pos: -18.5,11.5
+      parent: 2
+  - uid: 12449
+    components:
+    - type: Transform
+      pos: -12.5,8.5
       parent: 2
   - uid: 12821
     components:
@@ -41453,11 +41483,6 @@ entities:
     components:
     - type: Transform
       pos: -12.5,4.5
-      parent: 2
-  - uid: 13620
-    components:
-    - type: Transform
-      pos: -14.5,7.5
       parent: 2
   - uid: 13621
     components:
@@ -41818,11 +41843,6 @@ entities:
     components:
     - type: Transform
       pos: -10.5,17.5
-      parent: 2
-  - uid: 14386
-    components:
-    - type: Transform
-      pos: -14.5,12.5
       parent: 2
   - uid: 14387
     components:
@@ -50977,10 +50997,10 @@ entities:
       parent: 2
 - proto: FloraTreeConifer
   entities:
-  - uid: 1044
+  - uid: 3107
     components:
     - type: Transform
-      pos: -19.58578,-2.5042477
+      pos: -20.513523,-3.7109516
       parent: 2
   - uid: 4981
     components:
@@ -51148,12 +51168,6 @@ entities:
       parent: 2
 - proto: FloraTreeStumpConifer
   entities:
-  - uid: 1958
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.364422,-2.808557
-      parent: 2
   - uid: 7062
     components:
     - type: Transform
@@ -51174,6 +51188,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -36.927628,7.9861326
+      parent: 2
+  - uid: 14137
+    components:
+    - type: Transform
+      pos: -16.888523,-2.7578266
       parent: 2
 - proto: FoamBlade
   entities:
@@ -70830,13 +70849,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 14979
-    components:
-    - type: Transform
-      pos: -17.5,5.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
 - proto: IntercomEngineering
   entities:
   - uid: 5954
@@ -74339,6 +74351,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 7947
+    components:
+    - type: Transform
+      pos: -16.5,8.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: PosterLegitSafetyMothDelam
   entities:
   - uid: 12270
@@ -74406,10 +74425,10 @@ entities:
       fixtures: {}
 - proto: PosterLegitSafetyMothSSD
   entities:
-  - uid: 7140
+  - uid: 5098
     components:
     - type: Transform
-      pos: -16.5,5.5
+      pos: -27.5,12.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -74559,11 +74578,6 @@ entities:
     components:
     - type: Transform
       pos: -42.5,-36.5
-      parent: 2
-  - uid: 12449
-    components:
-    - type: Transform
-      pos: -10.5,10.5
       parent: 2
 - proto: PottedPlantRD
   entities:
@@ -75538,16 +75552,6 @@ entities:
     components:
     - type: Transform
       pos: -56.5,-28.5
-      parent: 2
-  - uid: 7932
-    components:
-    - type: Transform
-      pos: 29.5,14.5
-      parent: 2
-  - uid: 7947
-    components:
-    - type: Transform
-      pos: 33.5,14.5
       parent: 2
   - uid: 7948
     components:
@@ -77223,11 +77227,6 @@ entities:
     - type: Transform
       pos: -5.5,12.5
       parent: 2
-  - uid: 3107
-    components:
-    - type: Transform
-      pos: -12.5,15.5
-      parent: 2
   - uid: 4439
     components:
     - type: Transform
@@ -77263,11 +77262,6 @@ entities:
     - type: Transform
       pos: -54.5,-3.5
       parent: 2
-  - uid: 5098
-    components:
-    - type: Transform
-      pos: -15.5,4.5
-      parent: 2
   - uid: 6842
     components:
     - type: Transform
@@ -77297,6 +77291,11 @@ entities:
     components:
     - type: Transform
       pos: 15.5,0.5
+      parent: 2
+  - uid: 7140
+    components:
+    - type: Transform
+      pos: -16.5,5.5
       parent: 2
   - uid: 7831
     components:
@@ -77726,11 +77725,6 @@ entities:
     components:
     - type: Transform
       pos: -27.5,16.5
-      parent: 2
-  - uid: 14137
-    components:
-    - type: Transform
-      pos: -29.5,13.5
       parent: 2
   - uid: 14138
     components:
