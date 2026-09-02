@@ -158,9 +158,9 @@
     guides:
     - VoltageNetworks
     - Power
-  - type: Lock             #imp
-    unlockOnClick: false
-  - type: LockedWiresPanel #imp
+  - type: Lock             #imp start
+    unlockOnClick: false   
+  - type: LockedWiresPanel #imp end
 
 # APC under construction
 - type: entity
@@ -209,8 +209,8 @@
   components:
   - type: WiresPanel
     open: true
-  - type: Lock
-    locked: false
+  - type: Lock      #imp
+    locked: false   #imp
 
 # APCs in use
 - type: entity
