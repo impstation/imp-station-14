@@ -216,6 +216,11 @@
   text: imp-phrase-inject
 
 - type: quickPhrase
+  id: DrawPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-draw
+
+- type: quickPhrase
   id: MiningPhraseImp
   parent: BaseVerbs
   text: imp-phrase-mining
