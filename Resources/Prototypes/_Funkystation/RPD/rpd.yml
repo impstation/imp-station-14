@@ -247,7 +247,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/radiator.png
   mode: ConstructObject
   prototype: HeatExchangerRetro
-  cost: 2
+  cost: 3
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -259,7 +259,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/he_bend.png
   mode: ConstructObject
   prototype: HeatExchangerRetroBend
-  cost: 2
+  cost: 3
   delay: 0
   collisionMask: Impassable
   rotation: User
