@@ -7,6 +7,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Serialization;
+using Content.Shared._Impstation.Repairable; // imp: The RepairAttemptEvent is stored here
 
 namespace Content.Shared.Repairable;
 
@@ -108,6 +109,18 @@ public sealed partial class RepairableSystem : EntitySystem
 
             delay *= ent.Comp.SelfRepairPenalty;
         }
+
+        // IMP ADD START: Raise an attempt that can be cancelled.
+        // TODO: Ensure that we will actually perform a repair. Using the wrong tool will still trigger the below lines. Tool quality is checked in UseTool()
+        // Currently, ANY tool used on a damaged entity will cause this code to be run, potentially causing erroneous popups in those systems' handler functions.
+        var attempt = new RepairAttemptEvent(args.User, ent, ent.Comp, delay);
+        RaiseLocalEvent(ent, ref attempt);
+
+        if (attempt.Cancelled)
+            return;
+
+        delay += attempt.AdditionalDelay;
+        // IMP ADD END
 
         // Run the repairing doafter
         args.Handled = _toolSystem.UseTool(args.Used, args.User, ent.Owner, delay, ent.Comp.QualityNeeded, new RepairDoAfterEvent(), ent.Comp.FuelCost);

@@ -75,7 +75,7 @@ public sealed partial class OpenableSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, OpenableComponent comp, ExaminedEvent args)
     {
-        if (!comp.Opened || !args.IsInDetailsRange)
+        if (!comp.Opened || !args.IsInDetailsRange || !comp.ShowExamineText) // IMP EDIT: ShowExamineText condition
             return;
 
         var text = Loc.GetString(comp.ExamineText);
@@ -90,7 +90,7 @@ public sealed partial class OpenableSystem : EntitySystem
 
     private void OnGetVerbs(EntityUid uid, OpenableComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (args.Hands == null || !args.CanAccess || !args.CanInteract || _lock.IsLocked(uid))
+        if (args.Hands == null || !args.CanAccess || !args.CanInteract || _lock.IsLocked(uid) || !comp.VerbMenuAccessible) // IMP EDIT: VerbMenuAccessible condition
             return;
 
         AlternativeVerb verb;

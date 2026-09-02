@@ -38,5 +38,13 @@ namespace Content.Shared.Climbing.Components
         /// </summary>
         [DataField("finishClimbSound")]
         public SoundSpecifier? FinishClimbSound = null;
+
+        // IMP ADD START
+        /// <summary>
+        ///     Allows or prevents drag and drop events from being considered.
+        /// </summary>
+        [DataField]
+        public bool AcceptDragAndDrop = true;
+        // IMP ADD END
     }
 }

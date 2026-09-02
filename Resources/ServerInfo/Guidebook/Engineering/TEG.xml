@@ -29,6 +29,26 @@
   The gasses in the two "loops" are never mixed, [color=#a4885c]only energy is exchanged between them[/color].
   The hot side will cool down, the cold side will heat up.
 
+  <!--IMP ADD START-->
+  ## Lubrication
+
+  The circulators require lubrication function properly. Ensure they are properly lubricated before use!
+
+  <Box>
+    <GuideEntityEmbed Entity="Screwdriver" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="Beaker" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WeldingFuelTank" Caption="" Margin="0"/>
+  </Box>
+
+  To apply lubricant, first unlock the circulator, open the housing with a screwdriver, then apply the lubricant from your container. Then close and lock the circulator to finish up.
+
+  Welding fuel is an acceptible lubricant. It isn't particularly good, but it's abundant in engineering. There are better (and worse!) choices that can change the efficiency of power generation, so ask your chemist!
+
+  As the TEG runs, make sure it stays topped up on lubricant. When it runs low on lubricant, its efficiency will go down and may even take damage when critically low on lubricant. Ensure the circulators don't tear themselves apart.
+
+  [color=red]DRAIN ALL GAS FROM THE CIRCULATOR'S INTAKE BEFORE OPENING IT![/color]
+  <!--IMP ADD END-->
+
   ## The Pipes
 
   There are 2 major [textlink="pipenets" link="PipeNetworks"] to worry about here: [color=red]The Hot Loop[/color] (where gas will be burnt for heat), and [color=cyan]The Cold Loop[/color] (where circulated, heated waste gas will either be removed into space or cooled back down).
