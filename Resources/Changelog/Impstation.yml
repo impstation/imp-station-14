@@ -1,71 +1,4 @@
 ﻿Entries:
-- author: mqole
-  changes:
-  - message: You can now use items on things people are wearing or holding.
-    type: Add
-  id: 2418
-  time: '2025-11-11T01:50:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3657
-- author: mqole, Huaqas
-  changes:
-  - message: Dragons, carp, spiders, and zombies now have their own collective mind
-      channels! Use +c, +s, or +z.
-    type: Add
-  - message: You can now see what collective minds you have access to using the character
-      menu.
-    type: Add
-  - message: Paradox clones now inherit access to the collective minds of their original.
-    type: Add
-  - message: Ghosts can now see messages sent using collective minds.
-    type: Fix
-  - message: The Mycorrhizal Gestalt has been renamed to the Mycorrhizae.
-    type: Tweak
-  id: 2419
-  time: '2025-11-11T02:04:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3703
-- author: lobsterpaw
-  changes:
-  - message: Adds a new shuttle to the rare salvage ruins pool!
-    type: Add
-  id: 2420
-  time: '2025-11-11T09:05:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3636
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Handheld Criminal Records computer has been removed from the SecLink
-      radio, but is still present in the Detective's closet, and will now spawn in
-      the Head of Security's inventory.
-    type: Tweak
-  - message: Three new items can now be purchased in the SecLink Radio under the "Utility"
-      section!
-    type: Add
-  id: 2421
-  time: '2025-11-11T19:14:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3540
-- author: mqole
-  changes:
-  - message: The handheld crew monitor works again.
-    type: Fix
-  id: 2422
-  time: '2025-11-12T08:01:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3715
-- author: mousesweater
-  changes:
-  - message: welding masks don't fit on borgs. get flashed, idiot.
-    type: Remove
-  id: 2423
-  time: '2025-11-12T08:43:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3709
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: You can craft a cool glaive at the Security Techfab now!
-    type: Add
-  - message: You can choose a knife and a tourniquet for your security loadout now
-      instead of a pistol and magazine!
-    type: Add
-  id: 2424
-  time: '2025-11-12T08:47:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3710
 - author: sev7ves
   changes:
   - message: Temporarily disabled flashes for people with reduced motion on.
@@ -4090,3 +4023,55 @@
   id: 2917
   time: '2026-08-30T08:26:09.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4561
+- author: Princess-Cheeseballs
+  changes:
+  - message: Diona minds are now correctly transferred to their nymphs when they gib.
+    type: Fix
+  id: 2918
+  time: '2026-08-31T02:52:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4581
+- author: mousesweater
+  changes:
+  - message: Swimsuits are REAL. Swim swim! Find them in BeachDrobes when these vending
+      machines are shipped to participating stations!
+    type: Add
+  id: 2919
+  time: '2026-08-31T15:47:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4572
+- author: crocodilecarousel
+  changes:
+  - message: Liquid frezon tile
+    type: Add
+  id: 2920
+  time: '2026-08-31T16:08:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4568
+- author: FlippenPage
+  changes:
+  - message: Kode can properly sing again
+    type: Fix
+  id: 2921
+  time: '2026-08-31T17:30:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4579
+- author: FancyPlanks
+  changes:
+  - message: Walls and windows have received a visual refresh
+    type: Tweak
+  id: 2922
+  time: '2026-08-31T17:07:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4539
+- author: portfiend
+  changes:
+  - message: Eveything ok
+    type: Fix
+  id: 2923
+  time: '2026-08-31T19:36:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4587
+- author: yesteryuri
+  changes:
+  - message: Fixed ant displacements
+    type: Fix
+  - message: Gastropoid speech sounds are snaily once again
+    type: Fix
+  id: 2924
+  time: '2026-09-01T06:57:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4594
