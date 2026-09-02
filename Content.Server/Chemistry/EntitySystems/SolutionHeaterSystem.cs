@@ -91,7 +91,7 @@ public sealed class SolutionHeaterSystem : EntitySystem
                 {
                     // imp edit start- sets a minimum temperature (for coldplates!) controlled by MinTemperature
                     if (heater.MinTemperature != null && soln.Comp.Solution.Temperature <= heater.MinTemperature.Value)
-                    continue;
+                        continue;
                     // imp edit end
                     _solutionContainer.AddThermalEnergy(soln, energy);
                 }
