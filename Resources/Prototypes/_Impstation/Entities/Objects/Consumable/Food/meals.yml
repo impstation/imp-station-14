@@ -92,7 +92,7 @@
     tags:
     - ClothMade
     - ClothFood
-    
+
 
 # pompom foods
 
@@ -134,12 +134,12 @@
     tags:
     - ClothFood
     - ClothMade
-    
+
 - type: entity
   name: puff-puff
   parent: FoodMealBase
   id: FoodMealPuffPuff
-  description: A popular street food for moths, known by many names across the galaxy. 
+  description: A popular street food for moths, known by many names across the galaxy.
   components:
   - type: FlavorProfile
     flavors:
@@ -155,7 +155,7 @@
     requiresSpecialDigestion: true
     trash:
     - FoodPacketFoodBoatTrash
-  - type: SolutionContainerManager 
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 35
@@ -172,7 +172,7 @@
     tags:
     - ClothFood
     - ClothMade
-    
+
 - type: entity
   name: pomgo
   parent: FoodMealBase
@@ -194,7 +194,7 @@
     requiresSpecialDigestion: true
     trash:
     - FoodKebabSkewer
-  - type: SolutionContainerManager 
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 35
@@ -209,7 +209,7 @@
     tags:
     - ClothFood
     - ClothMade
-    
+
 - type: entity
   name: pompette
   parent: FoodMealBase
@@ -231,7 +231,7 @@
     heldPrefix: pompette
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager 
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 50
@@ -248,7 +248,7 @@
     tags:
     - ClothFood
     - ClothMade
-    
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
@@ -262,3 +262,70 @@
   - type: Tag
     tags:
     - Trash
+
+#chinese cultural exports
+- type: entity
+  id: FoodMealTomatoAndEgg
+  parent: FoodMealBase
+  name: stir-fried tomato and egg
+  description: The unshakable pillar of Chinese cuisine since 1920.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - flavor-complex-tomato
+    - flavor-complex-egg
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/chinese.rsi
+    state: tomato-and-egg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Tag
+    tags:
+    - meat
+
+- type: entity
+  name: mapo tofu
+  parent: FoodBowlBase
+  id: FoodMealMapoTofu
+  description: "Not spicy at all" according to the Space Sichuanese.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - spicy
+    - like tofu
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/chinese.rsi
+    layers:
+    - state: bowl
+    - state: rice-egg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30 # imp
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2 # imp
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: EggCooked # imp
+          Quantity: 6
+        - ReagentId: Sugar # imp
+          Quantity: 6
+        - ReagentId: JuiceCarrot # imp
+          Quantity: 5
+  - type: Tag
+    tags:
+    #    - Meat # imp
+    - ReptilianFood # imp
+    - Soup
+    - UnguFood # imp
+
