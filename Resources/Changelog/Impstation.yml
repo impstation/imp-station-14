@@ -1,21 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: You can craft a cool glaive at the Security Techfab now!
-    type: Add
-  - message: You can choose a knife and a tourniquet for your security loadout now
-      instead of a pistol and magazine!
-    type: Add
-  id: 2424
-  time: '2025-11-12T08:47:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3710
-- author: sev7ves
-  changes:
-  - message: Temporarily disabled flashes for people with reduced motion on.
-    type: Tweak
-  id: 2425
-  time: '2025-11-13T01:58:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3719
 - author: Fancyplanks, Skeepo, kipdotnet
   changes:
   - message: Cargo can now order a special decapoid robot.
@@ -4076,3 +4059,20 @@
   id: 2923
   time: '2026-08-31T19:36:26.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4587
+- author: yesteryuri
+  changes:
+  - message: Fixed ant displacements
+    type: Fix
+  - message: Gastropoid speech sounds are snaily once again
+    type: Fix
+  id: 2924
+  time: '2026-09-01T06:57:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4594
+- author: msTheowo
+  changes:
+  - message: Apids and Skeletons can now be generated as either Ghostroles or with
+      the Random Character trait.
+    type: Add
+  id: 2925
+  time: '2026-09-02T02:45:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4590
