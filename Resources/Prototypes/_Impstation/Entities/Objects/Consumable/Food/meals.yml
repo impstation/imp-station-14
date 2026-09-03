@@ -314,14 +314,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35
+        maxVol: 44
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 12
         - ReagentId: Vitamin
-          Quantity: 10
+          Quantity: 12
         - ReagentId: CapsaicinOil #never trust an inland Chinese person when they tell you something isn't spicy
-          Quantity: 5
+          Quantity: 10
   - type: Tag
     tags:
     - Soup

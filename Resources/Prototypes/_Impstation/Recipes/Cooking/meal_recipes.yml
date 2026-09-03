@@ -755,6 +755,7 @@
   id: RecipeTomatoAndEgg
   name: tomato and egg stir fry recipe
   result: FoodMealTomatoAndEgg
+  group: Savory
   time: 10
   solids:
     FoodTomato: 2
@@ -766,13 +767,14 @@
   - Oven
 
 - type: microwaveMealRecipe
-  id: RecipeTomatoAndEgg
-  name: tomato and egg stir fry recipe
-  result: FoodMealTomatoAndEgg
+  id: RecipeMapoTofu
+  name: mapo tofu recipe
+  result: FoodMealMapoTofu
   time: 10
+  group: Savory
   solids:
     FoodTofuSlice: 3
-    FoodChiliPepper: 5
+    FoodChiliPepper: 3
     FoodGarlic: 1
     FoodBowlBig: 1
   reagents:
