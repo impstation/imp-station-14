@@ -749,3 +749,33 @@
   solids:
     FoodCakeBatterCotton: 1
   recipeType: Oven
+
+#Chinese foods
+- type: microwaveMealRecipe
+  id: RecipeTomatoAndEgg
+  name: tomato and egg stir fry recipe
+  result: FoodMealTomatoAndEgg
+  time: 10
+  solids:
+    FoodTomato: 2
+    FoodPlate: 1
+  reagents:
+    Egg: 12
+    Soysauce: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeTomatoAndEgg
+  name: tomato and egg stir fry recipe
+  result: FoodMealTomatoAndEgg
+  time: 10
+  solids:
+    FoodTofuSlice: 3
+    FoodChiliPepper: 5
+    FoodGarlic: 1
+    FoodBowlBig: 1
+  reagents:
+    Water: 10
+  recipeType:
+  - Oven

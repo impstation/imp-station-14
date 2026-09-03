@@ -263,69 +263,67 @@
     tags:
     - Trash
 
-#chinese cultural exports
+
+#chinese foods
 - type: entity
   id: FoodMealTomatoAndEgg
   parent: FoodMealBase
-  name: stir-fried tomato and egg
-  description: The unshakable pillar of Chinese cuisine since 1920.
+  name: tomato and egg stir fry
+  description: The unshakable pillar of Chinese cuisine since 1920. Good with rice.
   components:
   - type: FlavorProfile
     flavors:
-    - flavor-complex-tomato
-    - flavor-complex-egg
+    - tomato
+    - egg
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/chinese.rsi
     state: tomato-and-egg
+    sprite: _Impstation/Objects/Consumable/Food/chinese.rsi
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Protein
           Quantity: 10
-        - ReagentId: Protein
-          Quantity: 5
   - type: Tag
     tags:
-    - meat
+    - Meat
+  - type: Edible
+    trash:
+    - FoodPlate
 
 - type: entity
   name: mapo tofu
   parent: FoodBowlBase
   id: FoodMealMapoTofu
-  description: "Not spicy at all" according to the Space Sichuanese.
+  #had to do the description like this otherwise the quotation marks brick the whole file
+  description: |
+    "Not spicy at all" according to the Space Sichuanese.
   components:
   - type: FlavorProfile
     flavors:
     - spicy
-    - like tofu
+    - tofu
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/chinese.rsi
     layers:
     - state: bowl
-    - state: rice-egg
+    - state: mapo-tofu
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2 # imp
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: EggCooked # imp
-          Quantity: 6
-        - ReagentId: Sugar # imp
-          Quantity: 6
-        - ReagentId: JuiceCarrot # imp
+          Quantity: 10
+        - ReagentId: CapsaicinOil #never trust an inland Chinese person when they tell you something isn't spicy
           Quantity: 5
   - type: Tag
     tags:
-    #    - Meat # imp
-    - ReptilianFood # imp
     - Soup
-    - UnguFood # imp
+    - UnguFood
 
