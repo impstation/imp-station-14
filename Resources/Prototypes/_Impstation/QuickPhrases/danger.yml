@@ -104,6 +104,11 @@
   text: imp-phrase-hazard
 
 - type: quickPhrase
+  id: BrokenPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-broken
+
+- type: quickPhrase
   id: SusPhraseImp
   parent: BaseDangerImpStatus
   text: imp-phrase-sus
