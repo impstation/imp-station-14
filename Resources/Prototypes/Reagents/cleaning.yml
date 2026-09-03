@@ -64,15 +64,6 @@
   recognizable: true
   boilingPoint: 147.0 # Made this up, loosely based on bleach
   meltingPoint: -11.0
-  #imp edit start - why could you drink this without getting yucky yuck before. fixed that shit.
-  metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Caustic: 0.01
-  #imp edit end
   tileReactions:
     - !type:CleanTileReaction {}
     - !type:CleanDecalsReaction {}

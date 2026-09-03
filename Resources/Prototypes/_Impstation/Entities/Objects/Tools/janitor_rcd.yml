@@ -2,12 +2,12 @@
   id: RCDRechargingJanitor
   parent: RCD
   name: janitorial RCD
-  description: Perfect for sweeping all that messed up plating under the metaphorical rug. Just slap a tile over it.
+  description: Perfect for sweeping all that messed up plating under the metaphorical rug. Just slap a tile over it. And maybe stick to tiles. It's not too good at other things...
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Tools/janitor_rcd.rsi
     state: icon
-    #the idea is that it fucking sucks to use this for anything but tiles. everything costs all 20 charges which takes 5 minutes to recharge
+    #the idea is that it fucking sucks to use this for anything but tiles. everything that isnt tiles costs all 20 charges which takes 5 minutes to recharge
   - type: LimitedCharges
     maxCharges: 20
   - type: AutoRecharge
@@ -18,8 +18,6 @@
     - RCDFloorSteelDark
     - RCDFloorSteelWhite
     - RCDFloorTechMaint
-    - RCDEmptyTubeLight
-    - RCDEmptySmallLight
     - RCDMousetrap
     - RCDWetFloorSign
     - RCDSpaceCleaner
