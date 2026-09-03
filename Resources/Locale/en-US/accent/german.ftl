@@ -10,6 +10,7 @@ accent-german-words-replace-3 = ze
 
 accent-german-words-4 = shit
 accent-german-words-replace-4 = scheiße
+# imp, edited the ss to ß cause thats how its written
 
 accent-german-words-5 = sausage
 accent-german-words-replace-5 = wurst
@@ -48,9 +49,11 @@ accent-german-words-replace-15 = hier
 
 accent-german-words-16 = fool
 accent-german-words-replace-16 = tor
+# imp changed fully from idiot > dummkopf to fool > Tor
 
 accent-german-words-17 = fools
 accent-german-words-replace-17 = toren
+# imp changed fully from idiot > dummköpfe to fools > Toren
 
 accent-german-words-18 = butterfly
 accent-german-words-replace-18 = schmetterling
@@ -122,7 +125,7 @@ accent-german-words-replace-39 = dumm
 
 accent-german-words-40 = stupid
 accent-german-words-replace-40 = idiotisch
-
+# imp changed to idiotisch from doof
 accent-german-words-41 = wonderful
 accent-german-words-replace-41 = wunderbar
 
@@ -150,6 +153,7 @@ accent-german-words-replace-48 = hallo
 
 accent-german-words-49 = hello
 accent-german-words-replace-49 = hallo
+#imp changes to hallo from guten tag
 
 accent-german-words-50 = ambulance
 accent-german-words-replace-50 = krankenwagen
@@ -198,6 +202,7 @@ accent-german-words-replace-61 = kugelblitz
 accent-german-words-62 = car
 accent-german-words-replace-62 = auto
 
+# imp start
 accent-german-words-63 = you're welcome
 accent-german-words-63-2 = yw
 accent-german-words-63-3 = your welcome
@@ -211,8 +216,8 @@ accent-german-words-replace-64 = kein problem
 accent-german-words-65 = beast
 accent-german-words-replace-65 = biest
 
-accent-german-words-66 = engineer
-accent-german-words-replace-66 = ingenieur
+accent-german-words-66 = chief engineer
+accent-german-words-replace-66 = leitender ingenieur
 
 accent-german-words-67 = chef
 accent-german-words-replace-67 = koch
@@ -227,6 +232,7 @@ accent-german-words-70 = supermatter
 accent-german-words-replace-70 = supermaterie
 
 accent-german-words-71 = hospitality director
+accent-german-words-71-2 = HD
 accent-german-words-replace-71 = gastfreundschaftlichkeitsdirektor
 
 accent-german-words-72 = director
@@ -269,8 +275,8 @@ accent-german-words-replace-83 = guten tag
 accent-german-words-84 = detective
 accent-german-words-replace-84 = detektiv
 
-accent-german-words-85 = officer
-accent-german-words-replace-85 = offizier
+accent-german-words-85 = chief medical officer
+accent-german-words-replace-85 = chefarzt
 
 accent-german-words-86 = courier
 accent-german-words-replace-86 = kurier
@@ -304,12 +310,13 @@ accent-german-words-95 = master
 accent-german-words-replace-95 = meister
 
 accent-german-words-96 = meat
+accent-german-words-96-2 = flesh
 accent-german-words-replace-96 = fleisch
 
 accent-german-words-97 = syndicate
 accent-german-words-replace-97 = syndikat
 
-accent-german-words-98 = Syndie
+accent-german-words-98 = syndie
 accent-german-words-replace-98 = syndikalist
 
 accent-german-words-99 = pda
@@ -317,3 +324,19 @@ accent-german-words-replace-99 = handy
 
 accent-german-words-100 = welp
 accent-german-words-replace-100 = tja
+
+accent-german-words-101 = officer
+accent-german-words-replace-101 = offizier
+
+accent-german-words-102 = engineer
+accent-german-words-replace-102 = ingenieur
+
+accent-german-words-103 = quartermaster
+accent-german-words-replace-103 = quartiermeister
+
+accent-german-words-104 = muscle
+accent-german-words-replace-104 = muskel
+
+accent-german-words-105 = muscles
+accent-german-words-replace-105 = muskeln
+# imp end
