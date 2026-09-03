@@ -176,13 +176,13 @@
 
 - type: entity
   parent: ImmovableRodGondal
-  id: SecretChineseFork
+  id: ImmovableRodSecretChineseFork
   name: Secret Chinese Fork
   description: YOU HAVE UNLOCKED THE SECRET CHINESE FORK. WHY WOULD YOU DO THAT??!!
   components:
   - type: ImmovableRod
-    minSpeed: 0.15
-    maxSpeed: 0.15
+    minSpeed: 0.27
+    maxSpeed: 0.27
     eviscerationPopup: immovable-rod-penetrated-mob-chinesefork
   - type: TimedDespawn
     lifetime: 89.0
