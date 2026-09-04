@@ -52,7 +52,7 @@ ghoul-notif-text =
     Protect your new master and follow their orders.
 ghoul-notif-title = Return to Flesh
 
-##hell memory loss notification
+## hell memory loss notification
 hell-memory-title = Memory Loss
 hell-memory-text =
     Your mind has been harvested by a Heretic, driving you to madness!
