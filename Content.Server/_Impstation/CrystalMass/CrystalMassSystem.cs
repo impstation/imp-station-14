@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Server.Spreader;
-using Content.Shared._EE.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.CrystalMass;
 using Content.Shared.Damage.Components;
 using Content.Shared.Ghost;
