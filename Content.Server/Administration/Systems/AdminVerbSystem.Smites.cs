@@ -65,7 +65,6 @@ using Content.Shared._Impstation.Administration.Components; //imp
 using Content.Shared.Damage; //imp
 using Content.Shared.Damage.Prototypes; //imp
 
-
 namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
@@ -100,8 +99,8 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SuperBonkSystem _superBonkSystem = default!;
     [Dependency] private readonly SlipperySystem _slipperySystem = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!; // imp
 
     private readonly EntProtoId _actionViewLawsProtoId = "ActionViewLaws";
     private readonly ProtoId<SiliconLawsetPrototype> _crewsimovLawset = "Crewsimov";
@@ -198,14 +197,13 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"),
             Act = () =>
             {
-                if (HasComp<SwordDamoclesComponent>(args.Target)) // if it has the component already
+                if (RemComp<SwordDamoclesComponent>(args.Target)) // if it has the component already, remove it
                 {
-                    _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageTypePiercing), 500), ignoreResistances: true, interruptsDoAfters: true); // do damage defined by the component
-                    RemComp<SwordDamoclesComponent>(args.Target); // and remove the component
+                    _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageTypePiercing), 500), ignoreResistances: true, interruptsDoAfters: true); // & do damage defined by the component
                 }
                 else // if it doesn't
                 {
-                    EnsureComp<SwordDamoclesComponent>(args.Target); // give it the component
+                    AddComp<SwordDamoclesComponent>(args.Target); // give it the component
                 }
             },
             Impact = LogImpact.Extreme,
@@ -221,14 +219,13 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"),
             Act = () =>
             {
-                if (HasComp<SwordDamoclesComponent>(args.Target)) // if it has the component already
+                if (RemComp<SwordDamoclesComponent>(args.Target)) // if it has the component already, remove it
                 {
-                    _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageTypeBlunt), 1000), ignoreResistances: true, interruptsDoAfters: true); // do damage
-                    RemComp<SwordDamoclesComponent>(args.Target); // and remove the component
+                    _gibbing.Gib(args.Target); // & gib the
                 }
                 else // if it doesn't
                 {
-                    EnsureComp<SwordDamoclesComponent>(args.Target); // give it the component
+                    AddComp<SwordDamoclesComponent>(args.Target); // give it the component
                 }
             },
             Impact = LogImpact.Extreme,
