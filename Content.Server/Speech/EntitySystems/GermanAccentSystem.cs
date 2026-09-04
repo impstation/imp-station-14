@@ -27,7 +27,7 @@ public sealed class GermanAccentSystem : EntitySystem
         // TODO: The ReplacementAccentSystem should have random replacements this built-in.
         foreach (Match match in RegexThe.Matches(msg))
         {
-            if (_random.Prob(0.3f))
+            if (_random.Prob(0.1f)) //imp edit from 0.3 to 0.1, every article gets 10% chance so it isnt too common
             {
                 // just shift T, H and E over to D, A and S to preserve capitalization
                 msg = msg.Substring(0, match.Index) +
@@ -36,6 +36,26 @@ public sealed class GermanAccentSystem : EntitySystem
                       (char)(msg[match.Index + 2] + 14) +
                       msg.Substring(match.Index + 3);
             }
+            else //imp start
+            if (_random.Prob(0.1f)) //whole bit here is imp for other articles, keeping the probality
+                {
+                    // shift T and H over to D and I
+                    msg = msg.Substring(0, match.Index) +
+                      (char)(msg[match.Index] - 16) +
+                      (char)(msg[match.Index + 1] + 1) +
+                      (char)(msg[match.Index + 2] + 0) +
+                      msg.Substring(match.Index + 3);
+                }
+                else
+                if (_random.Prob(0.1f)) //whole bit here is imp for other articles 2
+                    {
+                        // shift T, H and E over to D, E and R to preserve capitalization
+                        msg = msg.Substring(0, match.Index) +
+                          (char)(msg[match.Index] - 16) +
+                          (char)(msg[match.Index + 1] - 3) +
+                          (char)(msg[match.Index + 2] + 13) +
+                          msg.Substring(match.Index + 3);
+                    } //imp end
         }
 
         // now, apply word replacements
