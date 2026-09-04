@@ -37,7 +37,7 @@
     - type: SolutionContainerManager
       solutions:
         drainBuffer:
-          maxVol: 500 # imp edit
+          maxVol: 750 # imp edit
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: StructuralMetallic
