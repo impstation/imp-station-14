@@ -80,3 +80,96 @@
   # - type: Reflect
   # - type: ThrowingAngle
   #   angle: 300
+
+- type: entity
+  parent: [BaseSword, BaseSecurityCommandContraband]
+  id: SwordHoSNodachi
+  name: Head of Security's Nodachi
+  description: Placeholder.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Melee/hos_nodachi.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: power-unshaded-6
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
+      shader: unshaded
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Melee/hos_nodachi.rsi
+    size: Huge
+    shape:
+    - 0,0,9,0
+  - type: Tag
+    tags:
+    - HosNodachi
+  ## flashlight and battery
+  - type: Appearance
+  - type: MagazineVisuals # it seems a little weird to use MagazineVisuals on something that doesn't have a magazine but if it works it works.
+    magState: power       # Someone tell me if there's a better way to do a power bar indicator
+    steps: 7
+    zeroVisible: false
+  - type: BatteryAmmoProvider # I'm kinda mad that this works
+    proto: FoodPieBananaCream
+    fireCost: 36 # this doesn't matter anyways. it's not a gun, it doesn't shoot.
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot {}
+  - type: HandheldLight
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
+  - type: PointLight
+    energy: 10
+    color: "#dac37b"
+    enabled: false
+    radius: 3
+    netsync: false
+  ## weapon
+  - type: MeleeWeapon
+    attackRate: 0.70
+    angle: 105
+    range: 1.75
+    swingLeft: true
+    damage:
+      types:
+        Slash: 30
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: DisarmMalus
+  - type: DamageOtherOnHit
+    staminaCost: 5
+    damage:
+      types:
+        Piercing: 15
+        Slash: 10
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
