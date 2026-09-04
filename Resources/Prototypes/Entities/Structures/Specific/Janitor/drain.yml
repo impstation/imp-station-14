@@ -1,6 +1,5 @@
 - type: entity
   id: FloorDrain
-  suffix: Large # imp edit
   name: drain
   description: Drains puddles around it. Useful for dumping mop buckets or keeping certain rooms clean.
   placement:
@@ -38,7 +37,7 @@
     - type: SolutionContainerManager
       solutions:
         drainBuffer:
-          maxVol: 750 # imp edit
+          maxVol: 500 # imp edit
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: StructuralMetallic
