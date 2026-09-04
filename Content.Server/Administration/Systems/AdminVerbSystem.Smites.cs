@@ -61,6 +61,9 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server.Resist; //imp
+using Content.Shared._Impstation.Administration.Components; //imp
+using Content.Shared.Damage; //imp
+using Content.Shared.Damage.Prototypes; //imp
 
 namespace Content.Server.Administration.Systems;
 
@@ -97,9 +100,12 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SuperBonkSystem _superBonkSystem = default!;
     [Dependency] private readonly SlipperySystem _slipperySystem = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!; // imp
 
     private readonly EntProtoId _actionViewLawsProtoId = "ActionViewLaws";
     private readonly ProtoId<SiliconLawsetPrototype> _crewsimovLawset = "Crewsimov";
+    private static readonly ProtoId<DamageTypePrototype> DamageTypePiercing = "Piercing"; //imp
+    private static readonly ProtoId<DamageTypePrototype> DamageTypeBlunt = "Blunt"; //imp
 
     private readonly EntProtoId _siliconMindRole = "MindRoleSiliconBrain";
     private const string SiliconLawBoundUserInterface = "SiliconLawBoundUserInterface";
@@ -181,6 +187,52 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", killSignName, Loc.GetString("admin-smite-kill-sign-description"))
         };
         args.Verbs.Add(killSign);
+
+        // imp changes start
+        var swordDamoclesName = Loc.GetString("admin-smite-sword-of-damocles-name").ToLowerInvariant();
+        Verb swordDamocles = new()
+        {
+            Text = swordDamoclesName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"),
+            Act = () =>
+            {
+                if (RemComp<SwordDamoclesComponent>(args.Target)) // if it has the component already, remove it
+                {
+                    _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageTypePiercing), 500), ignoreResistances: true, interruptsDoAfters: true); // & do damage defined by the component
+                }
+                else // if it doesn't
+                {
+                    AddComp<SwordDamoclesComponent>(args.Target); // give it the component
+                }
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", swordDamoclesName, Loc.GetString("admin-smite-sword-of-damocles-description"))
+        };
+        args.Verbs.Add(swordDamocles);
+
+        var swordDamoclesGibName = Loc.GetString("admin-smite-gib-of-damocles-name").ToLowerInvariant();
+        Verb swordDamoclesGib = new()
+        {
+            Text = swordDamoclesGibName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"),
+            Act = () =>
+            {
+                if (RemComp<SwordDamoclesComponent>(args.Target)) // if it has the component already, remove it
+                {
+                    _gibbing.Gib(args.Target); // & gib the
+                }
+                else // if it doesn't
+                {
+                    AddComp<SwordDamoclesComponent>(args.Target); // give it the component
+                }
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", swordDamoclesGibName, Loc.GetString("admin-smite-gib-of-damocles-description"))
+        };
+        args.Verbs.Add(swordDamoclesGib);
+        // imp changes end
 
         // imp: hiddenKillSign too
         var hiddenKillSignName = Loc.GetString("admin-smite-kill-sign-hidden-name").ToLowerInvariant();
