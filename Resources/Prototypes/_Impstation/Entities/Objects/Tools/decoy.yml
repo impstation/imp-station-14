@@ -1,0 +1,32 @@
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioGondal
+  name: noise maker reinforcment
+  description: Call in a tiny, but still very loud, gondal.
+  components:
+    - type: GhostRole
+      name: "Decoy Gondal"
+      description: "Sing your heart out and dont get caught!"
+      rules: ghost-role-information-familiar-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: default
+    - type: GhostRoleMobSpawner
+      prototype: MobBabyGondal
+
+- type: entity
+  parent: BaseItem
+  id: SlipperySpesos
+  name: spesos
+  description: You gotta have money. There are 1000000 things in the stack.
+  suffix: Fake
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Economy/cash.rsi
+    state: cash_1000000
+  - type: Lubed
+    slipStrength: 10
+    slipsLeft: 200
+    applyNamePrefix: false
