@@ -611,6 +611,8 @@ public sealed partial class SupermatterSystem
 
         sm.YellLast = _timing.CurTime;
         _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
+        if (sm.AllowAccent == true) //imp, check bool for allowing formatted announcements
+            message = _chat.TransformSpeech(uid, message); //imp
         _radio.SendRadioMessage(uid, message, channel, uid);
     }
 
@@ -841,7 +843,7 @@ public sealed partial class SupermatterSystem
             // Everyone else gets hallucinations
             // These values match the paracusia disability, since we can't double up on paracusia
             // TODO: change this from paracusia to actual hallucinations whenever those are real
-            var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");
+            var paracusiaSounds = new SoundCollectionSpecifier(sm.ParacusiaCollection); //imp edit, "Paracusia" > sm.ParacusiaCollection
             var paracusiaMinTime = 0.1f;
             var paracusiaMaxTime = 300f;
             var paracusiaDistance = 7f;
