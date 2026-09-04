@@ -169,3 +169,13 @@
     interfaces:
       enum.PleebnarTelepathyUIKey.Key:
         type: PleebnarTelepathyBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: CombatModeVisuals
+    hideBaseLayer: true
+    sprite:
+      sprite: _Impstation/Mobs/Aliens/pleebnar.rsi
+      state: pleebnar_harm
+  - type: Inventory
+    speciesId: hamster
+    templateId: hamster
