@@ -87,6 +87,7 @@
   - type: ActiveRadio
     channels:
     - Common
+    - Binary # imp
   - type: DoAfter
   - type: Electrified
     enabled: false
@@ -109,6 +110,19 @@
   - type: AcousticData # VDS
     absorption: 20
     reflectRay: true
+# imp edit start
+  - type: Input
+    context: "human"
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  - type: Tag
+    tags:
+    - SiliconEmotes
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+# imp edit end
 
 - type: entity
   id: VendingMachineWallmount
