@@ -64,6 +64,7 @@
   - type: PhysicalComposition
     materialComposition:
       SheetPrinter: 100 # Corvax-Printer-End
+  - type: StationAiWhitelist #imp
 
 - type: entity
   name: paper
