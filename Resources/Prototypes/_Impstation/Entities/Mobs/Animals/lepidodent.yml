@@ -1,6 +1,6 @@
 - type: entity
   name: lepidodent
-  parent: [ MobMouse, BaseMobLepidodentBody ]
+  parent: [ BaseMobLepidodentBody, MobMouse ]
   id: MobLepidodent
   description: An unstoppable eating machine.
   components:
