@@ -10,7 +10,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: crawling
-    - map: ["enum.CombatModeVisualsVisuals.Combat"]
+    - map: ["enum.CombatModeVisualLayers.Combat"]
       state: standing
       visible: false
       offset: 0, 0.51 # gotta be weirdly specific here
@@ -22,6 +22,9 @@
     beginCombatMessage: "evilgorilla-begin-combat-popup"
   - type: CombatModeVisuals
     hideBaseLayer: true
+    sprite:
+      sprite: _Impstation/Mobs/Animals/evilgorilla.rsi
+      state: standing
 
 - type: entity
   parent: MobEvilGorilla
