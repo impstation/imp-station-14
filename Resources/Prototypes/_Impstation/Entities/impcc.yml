@@ -4,7 +4,7 @@
   name: rubber hammer
   suffix: scary
   description: A brightly colored scary hammer made of rubber.
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
       sprite: Objects/Fun/rubber_hammer.rsi
@@ -35,7 +35,7 @@
   suffix: armed
   parent: LandMineExplosive
   id: LandMineDog
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: ItemToggle
     activated: true
@@ -52,8 +52,7 @@
 - type: entity
   parent: BaseStructure
   id: BrettKellyGooPod
-  suffix: CentComm Prop
-  categories: [ DoNotMap ]
+  categories: [ HideSpawnMenu ]
   name: Gravestone™ generation pod
   description: A special machine for generating specialized biological assets, similar to a cloning pod. This one seems to have a partially finished bioform floating inside.
   components:
@@ -74,8 +73,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieGleef
-  suffix: SPAWN AT YOUR OWN RISK # im serious i dont even want this spawned by admins
-  categories: [ DoNotMap ]
+  categories: [ HideSpawnMenu ]
   name: Gleef plushie
   description: Try not to catch his attention, lest you get insulted on all comms.
   components:
@@ -94,6 +92,7 @@
 - type: entity
   id: MobGoliathNice
   parent: MobGoliath
+  categories: [ HideSpawnMenu ]
   name: goliath
   components:
   - type: NpcFactionMember
@@ -103,6 +102,7 @@
 - type: entity
   name: nice goliath spawner
   id: SpawnMobGoliathNice
+  categories: [ HideSpawnMenu ]
   parent: MarkerBase
   components:
   - type: Sprite
@@ -118,6 +118,7 @@
   name: bombadilidiidae spawner
   id: SpawnMobBombadillo
   parent: MarkerBase
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -145,7 +146,7 @@
 - type: entity
   parent: PuddleTemporary
   id: PuddleBloodGraySmall
-  suffix: GrayBlood (5u)
+  suffix: GrayBlood (100u)
   components:
   - type: SolutionContainerManager
     solutions:
@@ -153,7 +154,7 @@
         maxVol: 1000
         reagents:
         - ReagentId: GrayBlood
-          Quantity: 5
+          Quantity: 100
 
 - type: entity
   parent: Bucket
@@ -180,12 +181,193 @@
     sprite: _Impstation/Misc/impcc.rsi/woodcock.rsi
     state: woodcock
 
-#Doop's Stuff
+- type: entity
+  parent: WeaponTurretAllHostile
+  id: WeaponTurretCentComm
+  suffix: CentComm
+  components:
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - CentralCommand
+
+- type: entity
+  id: StarCore
+  parent: OrganSlimePersonCore
+  name: sentient slime core
+  description: It's like a little star.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: _Impstation/Misc/impcc.rsi
+      state: brain
+      noRot: true
+      layers:
+      - state: brain
+        shader: unshaded
+    - type: PointLight
+      radius: 1.5
+      energy: 2
+      color: "#f1e5f1"
+
+- type: reagent
+  parent: Slime
+  id: SlimeBlack
+  color: "#000000"
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleBloodSlimeBlackSmall
+  categories: [ HideSpawnMenu ]
+  suffix: SlimeBlack (100u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: SlimeBlack
+          Quantity: 100
+
+- type: entity
+  parent: PosterBase
+  id: PosterGumbo
+  name: gumbo
+  categories: [ HideSpawnMenu ]
+  suffix: Gumbo
+  components:
+  - type: Sprite
+    sprite: _Impstation/Misc/impcc.rsi
+    state: gumbo
+
+- type: entity
+  parent: ImmovableRod
+  id: ImmovableImp
+  categories: [ HideSpawnMenu ]
+  name: imp plushie
+  description: Hey, it's this stoner!
+  suffix: Keep tiles, Still, No despawn
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_imp
+  - type: ImmovableRod
+    randomizeVelocity: false
+    maxSpeed: 0
+    destroyTiles: false
+    hitSoundProbability: 1.0
+
+- type: entity
+  name: PTA Corpse Spawner
+  id: PTACorpseSpawner
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - PTACorpse
+
+- type: entity
+  parent: MobGray
+  suffix: Dead
+  save: false
+  id: PTACorpse
+  categories: [ HideSpawnMenu ]
+  name: planes trains and automobiles
+  components:
+  - type: Damageable
+    damage:
+      types:
+        Bloodloss: 49
+        Asphyxiation: 76
+        Slash: 56
+        Blunt: 19
+  - type: Loadout
+    prototypes: [ PTAGear ]
+
+- type: startingGear
+  id: PTAGear
+  equipment:
+    outerClothing: ClothingOuterHardsuitEVA
+    suitstorage: OxygenTankFilled
+    head: ClothingHeadHelmetEVA
+
+- type: startingGear
+  id: InternSirvalGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcommIntern
+    ears: ClothingHeadsetCentCom
+    id: CentcommInternPDA
+  inhand:
+    - Throngler
+
+- type: entity
+  name: Sirval Intern
+  suffix: AI
+  id: MobInternSirval
+  categories: [ HideSpawnMenu ]
+  parent: MobScurret
+  components:
+    - type: Loadout
+      prototypes: [ InternSirvalGear ]
+    - type: NpcFactionMember
+      factions:
+      - Passive
+    - type: FactionException
+    - type: NPCRetaliation
+      attackMemoryLength: 800
+      anyInteraction: true
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+
+- type: entity
+  name: Sirval Intern Spawner
+  id: SirvalInternSpawner
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - MobInternSirval
+
+- type: entity
+  name: Boogie Bot Spawner
+  id: BoogieBotSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - MobBoogieBot
+
+- type: entity
+  id: BigGreenButtonNormal
+  parent: SignalButton
+  name: big green button
+  description: Press it... if you dare?
+  components:
+  - type: Appearance
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Specific/big_red_button.rsi
+    layers:
+    - state: green
 
 - type: entity
   id: LeechLamp
   parent: BaseStructure
-  suffix: CentComm Prop
+  categories: [ HideSpawnMenu ]
   name: hirudinean manifestation
   description: Some kind of weird glowy thing. Probably just a fancy lamp.
   components:
@@ -208,6 +390,7 @@
   parent: PlushieBug
   id: PlushieGoldBug
   name: golden bug plushie
+  categories: [ HideSpawnMenu ]
   description: You need it. You need it more than anything.
   components:
   - type: Sprite
@@ -276,6 +459,7 @@
   parent: PosterBase
   id: PosterLegitLeech
   name: alien poster
+  categories: [ HideSpawnMenu ]
   description: "A poster of a horrible alien creature you don't recognize. It's a little cute!"
   components:
   - type: Sprite
