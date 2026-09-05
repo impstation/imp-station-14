@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/05/2026 10:32:41
-  entityCount: 8817
+  time: 09/05/2026 11:26:16
+  entityCount: 8829
 maps:
 - 1
 grids:
@@ -5138,6 +5138,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 8818
+    components:
+    - type: Transform
+      pos: 3.5,13.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: AppraisalTool
   entities:
   - uid: 4846
@@ -6906,7 +6913,7 @@ entities:
   - uid: 125
     components:
     - type: Transform
-      pos: 1.5,8.5
+      pos: 1.5,12.5
       parent: 2
   - uid: 132
     components:
@@ -12153,6 +12160,21 @@ entities:
     - type: Transform
       pos: 5.5,-39.5
       parent: 2
+  - uid: 8819
+    components:
+    - type: Transform
+      pos: 2.5,12.5
+      parent: 2
+  - uid: 8820
+    components:
+    - type: Transform
+      pos: 3.5,12.5
+      parent: 2
+  - uid: 8821
+    components:
+    - type: Transform
+      pos: 3.5,13.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 569
@@ -15135,6 +15157,46 @@ entities:
     components:
     - type: Transform
       pos: -1.5,7.5
+      parent: 2
+  - uid: 8822
+    components:
+    - type: Transform
+      pos: 3.5,13.5
+      parent: 2
+  - uid: 8823
+    components:
+    - type: Transform
+      pos: 3.5,12.5
+      parent: 2
+  - uid: 8824
+    components:
+    - type: Transform
+      pos: 3.5,11.5
+      parent: 2
+  - uid: 8825
+    components:
+    - type: Transform
+      pos: 3.5,10.5
+      parent: 2
+  - uid: 8826
+    components:
+    - type: Transform
+      pos: 2.5,10.5
+      parent: 2
+  - uid: 8827
+    components:
+    - type: Transform
+      pos: 1.5,10.5
+      parent: 2
+  - uid: 8828
+    components:
+    - type: Transform
+      pos: 0.5,10.5
+      parent: 2
+  - uid: 8829
+    components:
+    - type: Transform
+      pos: -0.5,10.5
       parent: 2
 - proto: CableMVStack10
   entities:
@@ -46148,6 +46210,10 @@ entities:
         - False
       - - 3238
         - False
+      - - 6951
+        - False
+      - - 3238
+        - False
   - uid: 3233
     components:
     - type: Transform
@@ -46178,6 +46244,8 @@ entities:
         - False
       - - 3262
         - False
+      - - 3262
+        - False
   - uid: 3234
     components:
     - type: Transform
@@ -46186,6 +46254,10 @@ entities:
       parent: 2
     - type: RoboticArm
       inputItems:
+      - - 3262
+        - False
+      - - 3254
+        - False
       - - 3262
         - False
       - - 3254
