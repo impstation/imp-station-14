@@ -1,11 +1,11 @@
 using Content.Server.Body.Systems;
 using Content.Server.Database;
-using Content.Shared.Body.Components; // Imp Edit
 using Content.Shared.Chat.TypingIndicator;
-using Content.Shared.Chemistry.Components; // Imp Edit
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Speech.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Body.Components; // Imp Edit
+using Content.Shared.Chemistry.Components; // Imp Edit
 
 namespace Content.Server._CD.Traits;
 
