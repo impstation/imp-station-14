@@ -7,8 +7,6 @@
   - type: MachineBoard
     prototype: ChemistryColdplate
   - type: Construction # can be deconstructed into a hotplate board
-    deconstructionTarget: null
-    graph: ChemPlateBoard
     node: coldplate
 
 - type: entity
