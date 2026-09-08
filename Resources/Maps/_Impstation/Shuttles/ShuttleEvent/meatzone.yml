@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/30/2026 02:45:33
-  entityCount: 514
+  time: 09/08/2026 18:37:41
+  entityCount: 517
 maps: []
 grids:
 - 1
@@ -218,6 +218,51 @@ entities:
     - type: RadiationGridResistance
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+- proto: AirAlarm
+  entities:
+  - uid: 397
+    components:
+    - type: Transform
+      pos: 4.5,-0.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 280
+      - 314
+      - 277
+      - 315
+      - 278
+      - 316
+      - 241
+      - 285
+    - type: AccessReader
+      accessListsOriginal:
+      - - Atmospherics
+      access:
+      - - Atmospherics
+      - - Kitchen
+    - type: Fixtures
+      fixtures: {}
+- proto: AirAlarmFreezer
+  entities:
+  - uid: 398
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-0.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 286
+      - 87
+    - type: AccessReader
+      accessListsOriginal:
+      - - Atmospherics
+      access:
+      - - Atmospherics
+      - - Kitchen
+    - type: Fixtures
+      fixtures: {}
 - proto: AirCanister
   entities:
   - uid: 440
@@ -364,6 +409,16 @@ entities:
     - type: Transform
       pos: 1.5,-3.5
       parent: 1
+- proto: BookHowToCookForFortySpaceman
+  entities:
+  - uid: 396
+    components:
+    - type: Transform
+      parent: 392
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 392
 - proto: BoxFolderYellowThreePapers
   entities:
   - uid: 154
@@ -1131,8 +1186,8 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 253
           - 219
+          - 253
           - 217
           - 216
           - 220
@@ -1142,14 +1197,15 @@ entities:
           - 228
           - 147
           - 229
+          - 396
+          - 139
           - 140
-          - 158
           - 143
           - 151
           - 155
           - 156
           - 157
-          - 139
+          - 158
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -2379,6 +2435,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 9.5,-0.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 398
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 241
@@ -2386,6 +2445,9 @@ entities:
     - type: Transform
       pos: 8.5,3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 397
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 277
@@ -2394,6 +2456,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 397
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 278
@@ -2402,6 +2467,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.50000006,-0.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 397
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 280
@@ -2409,6 +2477,9 @@ entities:
     - type: Transform
       pos: 0.5,8.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 397
     - type: AtmosPipeColor
       color: '#0335FCFF'
 - proto: GasVentScrubber
@@ -2418,6 +2489,9 @@ entities:
     - type: Transform
       pos: 9.5,3.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 397
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 286
@@ -2426,6 +2500,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 8.5,-1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 398
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 314
@@ -2434,6 +2511,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,7.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 397
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 315
@@ -2442,6 +2522,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,2.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 397
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 316
@@ -2450,6 +2533,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,-0.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 397
     - type: AtmosPipeColor
       color: '#FF1212FF'
 - proto: GeneratorBasic15kW

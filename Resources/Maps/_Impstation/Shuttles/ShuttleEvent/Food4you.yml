@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/30/2026 02:42:12
-  entityCount: 370
+  time: 09/08/2026 18:34:06
+  entityCount: 371
 maps: []
 grids:
 - 1
@@ -119,6 +119,30 @@ entities:
     - type: GasTileOverlay
     - type: ExplosionAirtightGrid
     - type: RadiationGridResistance
+- proto: AirAlarm
+  entities:
+  - uid: 371
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,7.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 225
+      - 223
+      - 221
+      - 226
+      - 224
+      - 222
+    - type: AccessReader
+      accessListsOriginal:
+      - - Atmospherics
+      access:
+      - - Atmospherics
+      - - Kitchen
+    - type: Fixtures
+      fixtures: {}
 - proto: AirCanister
   entities:
   - uid: 91
@@ -489,36 +513,36 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 368
-          - 367
-          - 124
-          - 116
-          - 139
-          - 138
-          - 123
-          - 120
-          - 117
-          - 113
-          - 110
-          - 118
-          - 19
-          - 83
-          - 122
-          - 198
-          - 262
-          - 263
-          - 264
-          - 265
-          - 266
-          - 267
-          - 125
-          - 348
-          - 137
-          - 136
-          - 261
-          - 260
-          - 259
           - 258
+          - 259
+          - 260
+          - 261
+          - 136
+          - 137
+          - 348
+          - 125
+          - 267
+          - 266
+          - 265
+          - 264
+          - 263
+          - 262
+          - 198
+          - 122
+          - 83
+          - 19
+          - 118
+          - 110
+          - 113
+          - 117
+          - 120
+          - 123
+          - 138
+          - 139
+          - 116
+          - 124
+          - 367
+          - 368
     - type: Fixtures
       fixtures: {}
 - proto: ComputerTabletopShuttle
@@ -1885,6 +1909,11 @@ entities:
     - type: Transform
       pos: -2.5,5.5
       parent: 1
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 371
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 225
@@ -1893,6 +1922,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,6.5
       parent: 1
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 371
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 226
@@ -1900,6 +1934,11 @@ entities:
     - type: Transform
       pos: 1.5,11.5
       parent: 1
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 371
     - type: AtmosPipeColor
       color: '#0335FCFF'
 - proto: GasVentScrubberAlt1
@@ -1909,6 +1948,11 @@ entities:
     - type: Transform
       pos: -0.5,11.5
       parent: 1
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 371
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 222
@@ -1916,6 +1960,11 @@ entities:
     - type: Transform
       pos: -4.5,5.5
       parent: 1
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 371
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 223
@@ -1924,6 +1973,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,5.5
       parent: 1
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 371
     - type: AtmosPipeColor
       color: '#990000FF'
 - proto: GeneratorBasic15kW
