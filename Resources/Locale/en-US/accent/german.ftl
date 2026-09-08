@@ -250,8 +250,8 @@ accent-german-words-replace-74 = zwerg
 accent-german-words-75 = dwarven
 accent-german-words-replace-75= zwergisch
 
-accent-german-words-76 = son of a bitch
-accent-german-words-replace-76 = huhrensohn
+accent-german-words-76 = pig
+accent-german-words-replace-76 = schwein
 
 accent-german-words-77 = heretic
 accent-german-words-replace-77 = häretiker
@@ -260,7 +260,7 @@ accent-german-words-78 = red shell
 accent-german-words-replace-78 = rotpanzer
 
 accent-german-words-79 = chaplain
-accent-german-words-replace-79 = kaplan
+accent-german-words-replace-79 = geistlicher
 
 accent-german-words-80 = paramedic
 accent-german-words-replace-80 = sanitäter
@@ -307,7 +307,7 @@ accent-german-words-93 = sir
 accent-german-words-replace-93 = herr
 
 accent-german-words-94 = mistress
-accent-german-words-replace-94 = herrin
+accent-german-words-replace-94 = dame
 
 accent-german-words-95 = master
 accent-german-words-replace-95 = meister
