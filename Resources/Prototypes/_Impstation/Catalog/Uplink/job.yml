@@ -286,6 +286,13 @@
   description: uplink-shock-dart-box-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Casings/chem_darts.rsi, state: shockdart }
   productEntity: BoxShockDart
+
+- type: listing
+  id: uplinkBatozineDartBox
+  name: uplink-batozine-dart-box-name
+  description: uplink-batozine-dart-box-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Casings/chem_darts.rsi, state: batozinedart }
+  productEntity: BoxBatozineDart
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 3

@@ -101,3 +101,103 @@
     - jungle
     - banana
     - metallic
+
+- type: entity
+  name: turtle soup
+  parent: FoodBowlTurtle
+  id: FoodSoupTurtle
+  description: This is what happens to turtles that don't make it to the sea.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - meaty
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl_turtle
+    - state: turtlesoup
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Protein
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 15
+  - type: Tag
+    tags:
+    - Soup
+    - Meat
+
+- type: entity
+  name: turtle shell bowl
+  parent: FoodBowlBig
+  id: FoodBowlTurtleBig
+  description: A lovely green bowl.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl_turtle
+    - map: [ "enum.SolutionContainerLayers.Fill" ]
+      state: turtlesoup
+      visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: fill-
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingHeadHatTurtleShell:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Edible
+    edible: Drink
+    solution: food
+    destroyOnEmpty: true
+    trash:
+    - ClothingHeadHatTurtleShell
+    utensil: Spoon
+
+- type: entity
+  name: turtle shell bowl
+  parent: FoodBowlBase
+  id: FoodBowlTurtle
+  description: A lovely green bowl.
+  components:
+  - type: Edible
+    trash:
+    - FoodBowlTurtleBig
+    utensil: Spoon
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
+    state: bowl_turtle
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingHeadHatTurtleShell:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

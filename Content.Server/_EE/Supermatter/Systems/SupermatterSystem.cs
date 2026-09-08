@@ -45,6 +45,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Mobs; // Imp
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -139,16 +140,14 @@ public sealed partial class SupermatterSystem : EntitySystem
         HandleStatus(uid, sm);
         HandleSoundLoop(uid, sm);
         HandleAccent(uid, sm);
-
-        if (sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
-        {
-            SupermatterZap(uid, sm);
-            GenerateAnomalies(uid, sm);
-        }
+        GenerateAnomalies(uid, sm);
+        SupermatterZap(uid, sm);
     }
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
+        if (sm.IsShard && TryComp<MobStateComponent>(args.OtherEntity, out var mobState) && mobState.CurrentState == MobState.Alive) // Imp
+            return;
         TryCollision(uid, sm, args.OtherEntity, args.OtherBody);
     }
 
@@ -159,6 +158,9 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
     {
+        if (sm.IsShard) // Imp
+            return;
+
         var target = args.User;
 
         if (HasComp<SupermatterImmuneComponent>(target) || HasComp<GodmodeComponent>(target))
@@ -200,7 +202,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (HasComp<SupermatterDestabalizerComponent>(item))
         {
-            if (sm.DestabilizingCrystal)
+            if (sm.DestabilizingCrystal || sm.IsShard)
                 return;
 
             // Prevent if integrity is below 80%
@@ -228,6 +230,9 @@ public sealed partial class SupermatterSystem : EntitySystem
         // TODO: supermatter scalpel
         if (HasComp<UnremoveableComponent>(item))
         {
+            if (sm.IsShard) // Imp
+                return;
+
             if (!sm.HasBeenPowered)
                 LogFirstPower(uid, sm, target);
 
@@ -318,7 +323,13 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (!TryComp<GravityWellComponent>(ent, out var gravityWell))
             return;
 
-        var nextPulse = 0.5f * _random.NextFloat(1f, 30f);
+        var randomPulse = 0.5f * _random.NextFloat(1f, 30f);
+        var nextPulse = randomPulse;
+
+        // Weights nextPulse to be closer to 0.5 depending on amount of moles, otherwise randomPulse
+        if (ent.Comp.GasStorage is { })
+            nextPulse = Math.Clamp(randomPulse / (ent.Comp.GasStorage.TotalMoles / 150f), 0.5f, randomPulse);
+
         _gravityWell.SetPulsePeriod(ent, TimeSpan.FromSeconds(nextPulse), gravityWell);
 
         var audioParams = AudioParams.Default.WithMaxDistance(gravityWell.MaxRange);

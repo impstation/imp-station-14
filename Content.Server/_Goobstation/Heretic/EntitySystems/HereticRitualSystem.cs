@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Heretic.Components;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.Components;
 using Content.Shared._Goobstation.Heretic.Components;
@@ -56,7 +56,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return false;
 
-        var rit = _series.CreateCopy((HereticRitualPrototype) GetRitual(ritualId).Clone(), notNullableOverride: true);
+        var rit = _series.CreateCopy((HereticRitualPrototype)GetRitual(ritualId).Clone(), notNullableOverride: true);
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
         var missingList = new List<string>();
@@ -164,7 +164,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             RaiseLocalEvent(performer, rit.OutputEvent, true);
 
         if (rit.OutputKnowledge != null)
-            _knowledge.AddKnowledge(performer, hereticComp, (ProtoId<HereticKnowledgePrototype>) rit.OutputKnowledge);
+            _knowledge.AddKnowledge(performer, hereticComp, (ProtoId<HereticKnowledgePrototype>)rit.OutputKnowledge);
 
         return true;
     }
@@ -226,7 +226,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
-        if (!TryDoRitual(args.User, ent, (ProtoId<HereticRitualPrototype>) heretic.ChosenRitual))
+        if (!TryDoRitual(args.User, ent, (ProtoId<HereticRitualPrototype>)heretic.ChosenRitual))
             return;
 
         _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));

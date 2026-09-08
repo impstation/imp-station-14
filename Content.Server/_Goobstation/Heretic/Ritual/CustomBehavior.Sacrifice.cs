@@ -1,9 +1,11 @@
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
+using Content.Shared._Impstation.Heretic;
 using Content.Shared._Impstation.Heretic.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
-using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
@@ -37,9 +39,21 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     [DataField] public float SacrificePoints = 2f;
 
     /// <summary>
-    ///     Points gained on sacrificing a normal crewmember.
+    ///     Points gained on sacrificing a command member.
     /// </summary>
     [DataField] public float CommandSacrificePoints = 3f;
+
+    /// <summary>
+    /// The type of damage to do to victims who aren't already dead.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier SacDamage = new()
+    {
+        DamageDict = new()
+        {
+            {"Asphyxiation", 100},
+        }
+    };
 
     // this is awful but it works so i'm not complaining
     // i'm complaining -kandiyaki
@@ -48,6 +62,8 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
     private SharedMindSystem _mind = default!;
+    private DamageableSystem _dmg = default!;
+
 
     protected List<EntityUid> Uids = [];
 
@@ -58,6 +74,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         _heretic = args.EntityManager.System<HereticSystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _mind = args.EntityManager.System<SharedMindSystem>();
+        _dmg = args.EntityManager.System<DamageableSystem>();
 
         //if the performer isn't a heretic, stop
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out _))
@@ -85,6 +102,11 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
             if (mobstate.CurrentState != MobState.Alive)
                 Uids.Add(look);
+
+            if (mobstate.CurrentState == MobState.Critical) //if still alive, do enough damage to kill
+            {
+                _dmg.TryChangeDamage(look, SacDamage, true, origin: args.Performer);
+            }
         }
 
         //if none are dead, say so

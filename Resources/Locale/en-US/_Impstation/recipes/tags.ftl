@@ -55,3 +55,7 @@ construction-graph-tag-pompom = pompoms
 # unique
 construction-graph-tag-memorial-ash = your vaporized loved one
 construction-graph-tag-light-sun = the sun
+
+# food
+construction-graph-tag-frosting-spacemans = spacemans frosting
+construction-graph-tag-frosting-vanilla = vanilla frosting

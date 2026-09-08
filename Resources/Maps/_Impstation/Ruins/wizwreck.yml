@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 267.2.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/28/2025 18:13:42
-  entityCount: 624
+  time: 06/02/2026 23:00:06
+  entityCount: 629
 maps: []
 grids:
 - 768
@@ -556,6 +556,7 @@ entities:
     - type: GridPathfinding
     - type: ImplicitRoof
     - type: NavMap
+    - type: ExplosionAirtightGrid
 - proto: ActionToggleInternals
   entities:
   - uid: 100
@@ -875,6 +876,9 @@ entities:
         76:
           position: 0,0
           _rotation: South
+        2:
+          position: 1,0
+          _rotation: South
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -882,6 +886,7 @@ entities:
           occludes: True
           ents:
           - 76
+          - 2
   - uid: 607
     components:
     - type: Transform
@@ -903,6 +908,7 @@ entities:
           ents:
           - 77
           - 85
+    - type: ActiveUserInterface
   - uid: 608
     components:
     - type: Transform
@@ -916,6 +922,9 @@ entities:
         86:
           position: 0,0
           _rotation: South
+        43:
+          position: 1,0
+          _rotation: South
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -923,6 +932,7 @@ entities:
           occludes: True
           ents:
           - 86
+          - 43
 - proto: BoxFolderBase
   entities:
   - uid: 614
@@ -2314,6 +2324,11 @@ entities:
     - type: Transform
       pos: -0.5,7.5
       parent: 768
+    - type: Door
+      secondsUntilStateChange: -561.61816
+      state: Closing
+    - type: Firelock
+      emergencyCloseCooldown: 219.7331156
 - proto: Fireplace
   entities:
   - uid: 354
@@ -3364,12 +3379,24 @@ entities:
     - type: Transform
       pos: 1.5621729,-0.9631119
       parent: 768
+- proto: PersonalAIMagic
+  entities:
+  - uid: 176
+    components:
+    - type: Transform
+      pos: -1.5137708,6.444047
+      parent: 768
 - proto: PlasmaDoor
   entities:
   - uid: 17
     components:
     - type: Transform
       pos: -0.5,-8.5
+      parent: 768
+  - uid: 62
+    components:
+    - type: Transform
+      pos: -0.5,7.5
       parent: 768
   - uid: 663
     components:
@@ -3392,7 +3419,7 @@ entities:
       pos: -0.5,-4.5
       parent: 768
     - type: Door
-      secondsUntilStateChange: -12167.538
+      secondsUntilStateChange: -12794.565
       state: Opening
 - proto: PlasmaReinforcedWindowDirectional
   entities:
@@ -3402,16 +3429,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,-13.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 247
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,-14.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
 - proto: PonderingOrb
   entities:
   - uid: 109
@@ -3553,71 +3576,51 @@ entities:
     - type: Transform
       pos: -1.5,7.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 6
     components:
     - type: Transform
       pos: 0.5,7.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 154
     components:
     - type: Transform
       pos: 0.5,-16.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 172
     components:
     - type: Transform
       pos: 4.5,1.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 230
     components:
     - type: Transform
       pos: -4.5,-0.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 231
     components:
     - type: Transform
       pos: -4.5,-1.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 232
     components:
     - type: Transform
       pos: -4.5,-2.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 236
     components:
     - type: Transform
       pos: -1.5,-4.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 237
     components:
     - type: Transform
       pos: 0.5,-4.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
   - uid: 239
     components:
     - type: Transform
       pos: -0.5,-12.5
       parent: 768
-    - type: DeltaPressure
-      gridUid: 768
 - proto: SalvageHumanCorpseSpawner
   entities:
   - uid: 791
@@ -3726,20 +3729,20 @@ entities:
     - type: Transform
       pos: -5.5,3.5
       parent: 768
-  - uid: 43
-    components:
-    - type: Transform
-      pos: -1.5,-0.5
-      parent: 768
   - uid: 44
     components:
     - type: Transform
-      pos: 0.5,-1.5
+      pos: -0.5,4.5
       parent: 768
-  - uid: 62
+  - uid: 173
     components:
     - type: Transform
-      pos: -1.5,-2.5
+      pos: -0.5,-10.5
+      parent: 768
+  - uid: 175
+    components:
+    - type: Transform
+      pos: 3.5,-12.5
       parent: 768
 - proto: SpellbookSafeLibrarianAnchoring
   entities:
@@ -3765,12 +3768,28 @@ entities:
       parent: 607
     - type: Physics
       canCollide: False
+- proto: SpellbookSafeLibrarianFlashlight
+  entities:
+  - uid: 43
+    components:
+    - type: Transform
+      parent: 608
+    - type: Physics
+      canCollide: False
 - proto: SpellbookSafeLibrarianPrying
   entities:
   - uid: 75
     components:
     - type: Transform
       parent: 74
+    - type: Physics
+      canCollide: False
+- proto: SpellbookSafeLibrarianScissors
+  entities:
+  - uid: 2
+    components:
+    - type: Transform
+      parent: 583
     - type: Physics
       canCollide: False
 - proto: SpellbookSafeLibrarianScrewing
@@ -3819,8 +3838,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
 - proto: TableFancyBlack
@@ -3979,6 +3998,11 @@ entities:
     - type: Transform
       pos: -2.5,9.5
       parent: 768
+  - uid: 174
+    components:
+    - type: Transform
+      pos: -1.5,2.5
+      parent: 768
 - proto: VendingMachineCoffee
   entities:
   - uid: 628
@@ -3999,13 +4023,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,6.5
-      parent: 768
-- proto: VendingMachineMagivend
-  entities:
-  - uid: 2
-    components:
-    - type: Transform
-      pos: -1.5,2.5
       parent: 768
 - proto: VendingMachineTankDispenserEVA
   entities:
@@ -4205,6 +4222,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-12.5
+      parent: 768
+- proto: WizardPhone
+  entities:
+  - uid: 177
+    components:
+    - type: Transform
+      pos: 2.534311,-9.965759
       parent: 768
 - proto: WoodblockInstrument
   entities:

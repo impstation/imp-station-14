@@ -1,0 +1,14 @@
+- type: entity
+  id: BasePlayerVariationPass
+  parent: BaseGameRule
+  abstract: true
+  components:
+  - type: PlayerVariationPassRule
+
+- type: entity
+  id: GhostMediumVariationPass
+  parent: BasePlayerVariationPass
+  components:
+  - type: ModifyComponentsVariationPass
+    addedComponents:
+    - type: Medium

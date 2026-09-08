@@ -127,7 +127,7 @@
       state: crystal_cascade_1
       drawdepth: FloorTiles
     - type: CrystalMass
-      secondaryChance: 0.1667
+      secondaryChance: 0.05
       startupAppearance: true
     - type: ActiveTileClearCrystalMass
     - type: ActiveEdgeSpreader
@@ -150,7 +150,7 @@
         shader: unshaded
       drawdepth: FloorTiles
     - type: CrystalMass
-      secondaryChance: 0.8333
+      secondaryChance: 0.95
       secondarySpawnPrototype: CrystalMassSpreader
       startupAppearance: false
       isLight: true

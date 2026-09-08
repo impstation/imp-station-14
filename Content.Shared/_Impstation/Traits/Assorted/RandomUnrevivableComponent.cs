@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Impstation.Traits;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class RandomUnrevivableComponent : Component
 {
-    [DataField("chance")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public float Chance = 0.5f;
 }

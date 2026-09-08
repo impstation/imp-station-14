@@ -1,0 +1,56 @@
+﻿- type: entity
+  id: LinkedCaptainIDCardSpawner
+  suffix: Weight 1
+  name: linked captain id card spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/id_cards.rsi
+      state: stripe_top
+      color: "#1b67a5"
+    - sprite: Objects/Misc/id_cards.rsi
+      state: stripe_bottom
+      color: "#0e4069"
+    - sprite: Objects/Misc/id_cards.rsi
+      state: gold
+    - sprite: Objects/Misc/id_cards.rsi
+      state: gold
+    - sprite: Interface/Misc/job_icons.rsi
+      offset: -0.09375, 0.0625
+      state: Captain
+  - type: LinkedSpawner
+    prototype: CaptainIDCard
+
+- type: entity
+  parent: LinkedCaptainIDCardSpawner
+  id: LinkedCaptainIDCardSpawner2
+  suffix: Weight 2
+  components:
+  - type: LinkedSpawner
+    weight: 2
+
+- type: entity
+  parent: LinkedCaptainIDCardSpawner
+  id: LinkedCaptainIDCardSpawner3
+  suffix: Weight 3
+  components:
+  - type: LinkedSpawner
+    weight: 3
+
+- type: entity
+  parent: LinkedCaptainIDCardSpawner
+  id: LinkedCaptainIDCardSpawner4
+  suffix: Weight 4
+  components:
+  - type: LinkedSpawner
+    weight: 4
+
+- type: entity
+  parent: LinkedCaptainIDCardSpawner
+  id: LinkedCaptainIDCardSpawner5
+  suffix: Weight 5
+  components:
+  - type: LinkedSpawner
+    weight: 5
