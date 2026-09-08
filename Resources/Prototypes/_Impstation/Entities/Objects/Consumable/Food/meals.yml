@@ -263,30 +263,21 @@
     tags:
     - Trash
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealSteakTartare
+  name: steak tartare
+  description: A raw, minced steak topped with an egg yolk. Not for the weak-stomached.
+  components:
+  - type: Item
+    storedOffset: 0,-3
+  - type: FlavorProfile
+    flavors:
+    - raw-egg
+    - meaty
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Steaktartare.rsi
+    state: steaktartare
 
 #chinese foods
 - type: entity
