@@ -144,98 +144,98 @@
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightLed
     entity: PoweredFloorLightLed
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightExterior
     entity: PoweredFloorLightExterior
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightSodium
     entity: PoweredFloorLightSodium
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightOld
     entity: PoweredFloorLightOld
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightUv
     entity: PoweredFloorLightUv
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightCyan
     entity: PoweredFloorLightCyan
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightBlue
     entity: PoweredFloorLightBlue
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightYellow
     entity: PoweredFloorLightYellow
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightPink
     entity: PoweredFloorLightPink
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightOrange
     entity: PoweredFloorLightOrange
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightBlack
     entity: PoweredFloorLightBlack
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightRed
     entity: PoweredFloorLightRed
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightGreen
     entity: PoweredFloorLightGreen
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightTube # Box Change: don't check for the specific tags since we remove them
+      - remove: LightTube
         name: construction-graph-tag-light-tube
 #bulbs to hole
   - node: smallFloorLight
@@ -243,28 +243,28 @@
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightLed
     entity: PoweredSmallFloorLightLed
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightDim
     entity: PoweredSmallFloorLightDim
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightWarm
     entity: PoweredSmallFloorLightWarm
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightCold
     entity: PoweredSmallFloorLightCold
@@ -278,56 +278,56 @@
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightBlue
     entity: PoweredSmallFloorLightBlue
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightYellow
     entity: PoweredSmallFloorLightYellow
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightPink
     entity: PoweredSmallFloorLightPink
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightOrange
     entity: PoweredSmallFloorLightOrange
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightBlack
     entity: PoweredSmallFloorLightBlack
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightRed
     entity: PoweredSmallFloorLightRed
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightGreen
     entity: PoweredSmallFloorLightGreen
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBulb # Box Change: don't check for the specific tags since we remove them
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
 #admemes
   - node: floorLightSun
