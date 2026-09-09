@@ -85,6 +85,8 @@ public abstract class SharedLightBulbSystem : EntitySystem
         bulb.State = state;
         Dirty(uid, bulb);
         UpdateAppearance(uid, bulb);
+        if (state != LightBulbState.Normal) // imp
+            SetBrokenTags(uid);
     }
 
     public void PlayBreakSound(EntityUid uid, LightBulbComponent? bulb = null, EntityUid? user = null)
