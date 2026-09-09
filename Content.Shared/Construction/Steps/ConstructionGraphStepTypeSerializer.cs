@@ -51,11 +51,6 @@ namespace Content.Shared.Construction.Steps
             {
                 return typeof(EntityRemoveConstructionGraphStep);
             }
-			
-            if (node.Has("lightAllTags") || node.Has("lightAnyTags")) // imp
-            {
-                return typeof(ValidLightConstructionGraphStep);
-            }
 
             return null;
         }

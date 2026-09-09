@@ -26,117 +26,117 @@
 #bulbs
     - to: smallFloorLight
       steps:
-      - lightAllTags: [LightBulb, LightNormal]
+      - allTags: [LightBulb, LightNormal]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightLed
       steps:
-      - lightAllTags: [LightBulb, LightLed]
+      - allTags: [LightBulb, LightLed]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightDim
       steps:
-      - lightAllTags: [LightBulb, LightDim]
+      - allTags: [LightBulb, LightDim]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightWarm
       steps:
-      - lightAllTags: [LightBulb, LightWarm]
+      - allTags: [LightBulb, LightWarm]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightCold
       steps:
-      - lightAllTags: [LightBulb, LightCold]
+      - allTags: [LightBulb, LightCold]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightCyan
       steps:
-      - lightAllTags: [LightBulb, LightCyan]
+      - allTags: [LightBulb, LightCyan]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightBlue
       steps:
-      - lightAllTags: [LightBulb, LightBlue]
+      - allTags: [LightBulb, LightBlue]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightYellow
       steps:
-      - lightAllTags: [LightBulb, LightYellow]
+      - allTags: [LightBulb, LightYellow]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightPink
       steps:
-      - lightAllTags: [LightBulb, LightPink]
+      - allTags: [LightBulb, LightPink]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightOrange
       steps:
-      - lightAllTags: [LightBulb, LightOrange]
+      - allTags: [LightBulb, LightOrange]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightBlack
       steps:
-      - lightAllTags: [LightBulb, LightBlack]
+      - allTags: [LightBulb, LightBlack]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightRed
       steps:
-      - lightAllTags: [LightBulb, LightRed]
+      - allTags: [LightBulb, LightRed]
         name: construction-graph-tag-light-bulb
     - to: smallFloorLightGreen
       steps:
-      - lightAllTags: [LightBulb, LightGreen]
+      - allTags: [LightBulb, LightGreen]
         name: construction-graph-tag-light-bulb
 #tubes
     - to: floorLight
       steps:
-      - lightAllTags: [LightTube, LightNormal]
+      - allTags: [LightTube, LightNormal]
         name: construction-graph-tag-light-tube
     - to: floorLightLed
       steps:
-      - lightAllTags: [LightTube, LightLed]
+      - allTags: [LightTube, LightLed]
         name: construction-graph-tag-light-tube
     - to: floorLightExterior
       steps:
-      - lightAllTags: [LightTube, LightExterior]
+      - allTags: [LightTube, LightExterior]
         name: construction-graph-tag-light-tube
     - to: floorLightSodium
       steps:
-      - lightAllTags: [LightTube, LightSodium]
+      - allTags: [LightTube, LightSodium]
         name: construction-graph-tag-light-tube
     - to: floorLightOld
       steps:
-      - lightAllTags: [LightTube, LightOld]
+      - allTags: [LightTube, LightOld]
         name: construction-graph-tag-light-tube
     - to: floorLightUv
       steps:
-      - lightAllTags: [LightTube, LightUv]
+      - allTags: [LightTube, LightUv]
         name: construction-graph-tag-light-tube
     - to: floorLightCyan
       steps:
-      - lightAllTags: [LightTube, LightCyan]
+      - allTags: [LightTube, LightCyan]
         name: construction-graph-tag-light-tube
     - to: floorLightBlue
       steps:
-      - lightAllTags: [LightTube, LightBlue]
+      - allTags: [LightTube, LightBlue]
         name: construction-graph-tag-light-tube
     - to: floorLightYellow
       steps:
-      - lightAllTags: [LightTube, LightYellow]
+      - allTags: [LightTube, LightYellow]
         name: construction-graph-tag-light-tube
     - to: floorLightPink
       steps:
-      - lightAllTags: [LightTube, LightPink]
+      - allTags: [LightTube, LightPink]
         name: construction-graph-tag-light-tube
     - to: floorLightOrange
       steps:
-      - lightAllTags: [LightTube, LightOrange]
+      - allTags: [LightTube, LightOrange]
         name: construction-graph-tag-light-tube
     - to: floorLightBlack
       steps:
-      - lightAllTags: [LightTube, LightBlack]
+      - allTags: [LightTube, LightBlack]
         name: construction-graph-tag-light-tube
     - to: floorLightRed
       steps:
-      - lightAllTags: [LightTube, LightRed]
+      - allTags: [LightTube, LightRed]
         name: construction-graph-tag-light-tube
     - to: floorLightGreen
       steps:
-      - lightAllTags: [LightTube, LightGreen]
+      - allTags: [LightTube, LightGreen]
         name: construction-graph-tag-light-tube
 #admeme (you can't get the tube with the proper tag in-game without admin intervention)
     - to: floorLightSun
       steps:
-      - lightAllTags: [LightTube, SunTube]
+      - allTags: [LightTube, SunTube]
         name: construction-graph-tag-light-sun
 #tube to hole
   - node: floorLight
