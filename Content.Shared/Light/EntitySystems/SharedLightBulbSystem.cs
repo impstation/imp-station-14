@@ -1,7 +1,10 @@
+// Box TODO: revert this shit the milisecond floorlights get refactored this sucks
 using Content.Shared.Destructible;
 using Content.Shared.Light.Components;
+using Content.Shared.Tag; // Box Change: imp floorlights
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes; // Box Change: imp floorlights
 
 namespace Content.Shared.Light.EntitySystems;
 
@@ -9,6 +12,28 @@ public abstract class SharedLightBulbSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    // Start Box Change: prevent imp floorlights from infinitely recycling broken lights
+    [Dependency] private readonly TagSystem _tags = default!;
+    private HashSet<ProtoId<TagPrototype>> _tagsToRemove = [ // I fucjing hate this
+        "LightBlue",
+        "LightBlack",
+        "LightCyan",
+        "LightDim",
+        "LightExterior",
+        "LightGreen",
+        "LightLed",
+        "LightNormal",
+        "LightOld",
+        "LightOrange",
+        "LightPink",
+        "LightRed",
+        "LightService",
+        "LightSodium",
+        "LightUv",
+        "LightWarm",
+        "LightYellow"
+        ];
+    // End Box Change
 
     public override void Initialize()
     {
@@ -29,11 +54,13 @@ public abstract class SharedLightBulbSystem : EntitySystem
     {
         PlayBreakSound(uid, bulb);
         SetState(uid, LightBulbState.Broken, bulb);
+        SetBrokenTags(uid); // Box Change: imp floorlights
     }
 
     private void OnBreak(EntityUid uid, LightBulbComponent component, BreakageEventArgs args)
     {
         SetState(uid, LightBulbState.Broken, component);
+        SetBrokenTags(uid); // Box Change: imp floorlights
     }
 
     /// <summary>
@@ -80,4 +107,13 @@ public abstract class SharedLightBulbSystem : EntitySystem
         _appearance.SetData(uid, LightBulbVisuals.State, bulb.State, appearance);
         _appearance.SetData(uid, LightBulbVisuals.Color, bulb.Color, appearance);
     }
+
+    //Start Box Change: prevent imp floorlights from infinitely recycling broken lights
+    private void SetBrokenTags(EntityUid uid)
+    {
+        if (!TryComp<TagComponent>(uid, out var tags))
+            return;
+        _tags.RemoveTags(uid, _tagsToRemove);
+    }
+    //End Box Change
 }
