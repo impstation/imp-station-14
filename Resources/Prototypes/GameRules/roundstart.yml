@@ -326,7 +326,7 @@
         text: head-rev-role-greeting
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
+      # startingGear: HeadRevGear imp, given by action now
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
