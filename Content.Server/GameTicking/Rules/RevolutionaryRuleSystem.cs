@@ -32,6 +32,7 @@ using Content.Shared.Cuffs.Components;
 using Robust.Shared.Player;
 using Content.Server.AlertLevel; // imp edit
 using Content.Server.Announcements.Systems; // imp edit
+using Content.Shared.Actions; // imp
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -56,6 +57,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!; // imp edit
     [Dependency] private readonly AnnouncerSystem _announcer = default!; // imp edit
+    [Dependency] private readonly SharedActionsSystem _actions = default!; // imp
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -69,6 +71,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
+        SubscribeLocalEvent<RevolutionaryRuleComponent, AfterAntagEntitySelectedEvent>(OnAfterAntagSelected); // imp
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
     }
@@ -124,6 +127,14 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         }
         args.AddLine("");
     }
+
+    // imp start
+    private void OnAfterAntagSelected(Entity<RevolutionaryRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
+    {
+        if (TryComp<HeadRevolutionaryComponent>(args.EntityUid, out var headRev))
+            _actions.AddAction(args.EntityUid, headRev.GivenAction);
+    }
+    // imp end
 
     private void OnGetBriefing(EntityUid uid, RevolutionaryRoleComponent comp, ref GetBriefingEvent args)
     {

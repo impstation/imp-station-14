@@ -1,15 +1,4 @@
 - type: entity
-  parent: MarkerBase
-  id: HeadRevolutionaryBriefcaseSpawner
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EntityTableSpawner
-    table: !type:AllSelector
-      children:
-      - id: HeadRevolutionaryBriefcase
-      - id: RedspaceLifeline
-
-- type: entity
   parent: CybersunBriefcase
   id: HeadRevolutionaryBriefcase
   suffix: Do Not Map
