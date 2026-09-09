@@ -12,5 +12,3 @@
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: HeadRevolutionaryBriefcaseSpawner
-      posData: !type:TargetInFrontSingle
-      preventCollideWithCaster: false
