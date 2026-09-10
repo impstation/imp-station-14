@@ -203,8 +203,10 @@ public sealed partial class AdminVerbSystem
                 }
                 else // if it doesn't
                 {
-                    AddComp<SwordDamoclesComponent>(args.Target); // give it the marker component
-                    AddComp<KillSignComponent>(args.Target); // give it the killsign component
+                    EnsureComp<SwordDamoclesComponent>(args.Target); // give it the marker component
+                    EnsureComp<KillSignComponent>(args.Target, out var killSignSword); // give it the killsign component
+                    killSignSword.Sprite = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"); // set the right sprite path
+                    killSignSword.DoOffset = true; // make it offset
                 }
             },
             Impact = LogImpact.Extreme,
@@ -227,8 +229,10 @@ public sealed partial class AdminVerbSystem
                 }
                 else // if it doesn't
                 {
-                    AddComp<SwordDamoclesComponent>(args.Target); // give it the marker component
-                    AddComp<KillSignComponent>(args.Target); // give it the killsign component
+                    EnsureComp<SwordDamoclesComponent>(args.Target); // give it the marker component
+                    EnsureComp<KillSignComponent>(args.Target, out var killSignSword); // give it the killsign component
+                    killSignSword.Sprite = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"); // set the right sprite path
+                    killSignSword.DoOffset = true; // make it offset
                 }
             },
             Impact = LogImpact.Extreme,
