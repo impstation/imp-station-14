@@ -198,11 +198,13 @@ public sealed partial class AdminVerbSystem
             {
                 if (RemComp<SwordDamoclesComponent>(args.Target)) // if it has the component already, remove it
                 {
+                    RemComp<KillSignComponent>(args.Target); // remove the killsign
                     _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageTypePiercing), 500), ignoreResistances: true, interruptsDoAfters: true); // & do damage defined by the component
                 }
                 else // if it doesn't
                 {
-                    AddComp<SwordDamoclesComponent>(args.Target); // give it the component
+                    AddComp<SwordDamoclesComponent>(args.Target); // give it the marker component
+                    AddComp<KillSignComponent>(args.Target); // give it the killsign component
                 }
             },
             Impact = LogImpact.Extreme,
@@ -220,11 +222,13 @@ public sealed partial class AdminVerbSystem
             {
                 if (RemComp<SwordDamoclesComponent>(args.Target)) // if it has the component already, remove it
                 {
+                    RemComp<KillSignComponent>(args.Target); // remove the killsign
                     _gibbing.Gib(args.Target); // & gib the
                 }
                 else // if it doesn't
                 {
-                    AddComp<SwordDamoclesComponent>(args.Target); // give it the component
+                    AddComp<SwordDamoclesComponent>(args.Target); // give it the marker component
+                    AddComp<KillSignComponent>(args.Target); // give it the killsign component
                 }
             },
             Impact = LogImpact.Extreme,
