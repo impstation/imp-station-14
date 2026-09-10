@@ -1,26 +1,4 @@
 - type: entity
-  abstract: true
-  parent: BaseStorageItem
-  id: BoxBase
-  components:
-  - type: Sprite
-    sprite: _Wizden/Objects/Storage/boxes.rsi # imp
-  - type: Item
-    sprite: _Wizden/Objects/Storage/boxes.rsi # imp
-    size: Large
-    shape:
-    - 0,0,2,2
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,2,2
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-  - type: StaticPrice
-    price: 10
-
-- type: entity
   parent: BaseStorageItem
   id: Casingsbag
   name: bag of bullet casings
