@@ -105,7 +105,6 @@ public sealed partial class AdminVerbSystem
     private readonly EntProtoId _actionViewLawsProtoId = "ActionViewLaws";
     private readonly ProtoId<SiliconLawsetPrototype> _crewsimovLawset = "Crewsimov";
     private static readonly ProtoId<DamageTypePrototype> DamageTypePiercing = "Piercing"; //imp
-    private static readonly ProtoId<DamageTypePrototype> DamageTypeBlunt = "Blunt"; //imp
 
     private readonly EntProtoId _siliconMindRole = "MindRoleSiliconBrain";
     private const string SiliconLawBoundUserInterface = "SiliconLawBoundUserInterface";
