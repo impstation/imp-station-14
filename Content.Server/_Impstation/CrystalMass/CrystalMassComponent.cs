@@ -21,7 +21,7 @@ public sealed partial class CrystalMassComponent : Component
     /// Used to reduce the concurrent amount of audio playing
     /// </summary>
     [DataField]
-    public float SpawningAudioChance = 0.5f;
+    public float SpawningAudioChance = 0.1f;
 
     /// <summary>
     /// Chance for a secondary entity to spawn instead when spread
@@ -69,14 +69,14 @@ public sealed partial class CrystalMassComponent : Component
     public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/supermatter.ogg")
     {
         Params = AudioParams.Default
-            .WithVolume(-3f)
+            .WithVolume(-5f)
     };
 
     [DataField]
     public SoundSpecifier SpawningCrystalSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/cracking_crystal.ogg")
     {
         Params = AudioParams.Default
-            .WithVolume(1f)
+            .WithVolume(2f)
             .WithVariation(0.25f)
     };
 

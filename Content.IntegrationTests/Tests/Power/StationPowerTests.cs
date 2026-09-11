@@ -69,6 +69,8 @@ public sealed class StationPowerTests
         "Pathway",
         "Whisper",
         "Monarch",
+        "Whalefall",
+        "OmegaImp",
 
         // DEROTATED:
         //"RelicImp",

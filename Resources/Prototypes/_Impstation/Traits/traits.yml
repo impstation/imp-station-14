@@ -96,6 +96,14 @@
       - SpeechTraits
 
 - type: trait
+  id: RandomCharacter
+  name: trait-random-character-name
+  description: trait-random-character-desc
+  category: RandomizerTraits
+  cost: 0
+  # random character stuff works thanks to GameTicker.Spawning
+
+- type: trait
   id: Echolalia
   name: trait-echolalia-name
   description: trait-echolalia-desc
@@ -137,7 +145,7 @@
   name: trait-soft-hands-name
   description: trait-soft-hands-desc
   category: Traits
-  excludedSpecies: 
+  excludedSpecies:
     - Allulalo
   components:
   - type: UnableToWield
@@ -168,7 +176,7 @@
   name: trait-hungry-name
   description: trait-hungry-desc
   category: Traits
-  excludedSpecies: 
+  excludedSpecies:
     - Kodepiia
   components:
   - type: HungryTrait

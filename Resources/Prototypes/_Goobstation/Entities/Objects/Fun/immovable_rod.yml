@@ -14,7 +14,10 @@
     noRot: false
   - type: ImmovableVoidRod
   - type: Physics
+    bodyType: Dynamic
     linearDamping: 0
+  - type: TileFrictionModifier
+    modifier: 0
   - type: PointLight
     radius: 3
     color: blue

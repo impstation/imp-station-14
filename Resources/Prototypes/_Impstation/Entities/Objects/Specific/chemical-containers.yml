@@ -126,7 +126,7 @@
     currentLabel: space cleaner
   - type: SolutionContainerManager
     solutions:
-      beaker:
+      drink: # imp, beaker isnt a functional component here
         reagents:
         - ReagentId: SpaceCleaner
           Quantity: 200

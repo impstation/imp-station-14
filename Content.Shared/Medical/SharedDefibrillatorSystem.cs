@@ -16,9 +16,11 @@ using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Random; // imp rdnr
 using Content.Shared._Impstation.Traits; // imp rdnr
-using Content.Shared.Whitelist; // imp multitool defib
+using Content.Shared.Whitelist; // Imp RDNR
+using Content.Shared.Random.Helpers; // Imp RDNR
+using Robust.Shared.Random; // imp rdnr
+using Robust.Shared.Timing; // imp multitool defib
 
 namespace Content.Shared.Medical;
 
@@ -42,7 +44,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!; // imp rdnr
+    [Dependency] private readonly IGameTiming _timing = default!; // Imp, RDNR
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // imp multitool defib
 
     private readonly HashSet<EntityUid> _interacters = new();
@@ -220,24 +222,6 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                 _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString(unrevivable.ReasonMessage),
                     InGameICChatType.Speak, true);
         }
-        // imp edit start, rdnr
-        else if (TryComp<RandomUnrevivableComponent>(target, out var rdnr))
-        {
-            if (rdnr.Chance < _random.NextDouble())
-            {
-                if (ent.Comp.ShowMessages)
-                    _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
-                rdnr.Chance = 0f;
-                var addDnr = EnsureComp<UnrevivableComponent>(target);
-                addDnr.Cloneable = true;
-                RemComp<RandomUnrevivableComponent>(target);
-            }
-            else
-            {
-                rdnr.Chance -= 0.1f;
-            }
-        }
-        // imp edit end, rdnr
         else
         {
             if (_mobState.IsDead(target, targetMobState))
@@ -250,36 +234,61 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                 _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var deadThreshold, targetThresholds) &&
                 targetDamageable.TotalDamage < deadThreshold)
             {
-                // imp allowskipcrit start
-                if (ent.Comp.AllowSkipCrit &&
-                    _mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var critThreshold, targetThresholds) &&
-                    targetDamageable.TotalDamage < critThreshold)
+                // imp edit start, rdnr
+                if (TryComp<RandomUnrevivableComponent>(target, out var rdnr))
                 {
-                    _mobState.ChangeMobState(target, MobState.Alive, targetMobState, user);
-                    failedRevive = false;
-                }
-                else //imp end
-                {
-                    _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
-                    failedRevive = false;
-                }
-            }
+                    // TODO: Replace with RandomPredicted once the engine PR is merged
+                    var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
+                    var rand = new System.Random(seed);
 
-            // Imp Only show return-to-body / no-mind messaging when a revive actually succeeded.
-            if (!failedRevive)
-            {
-                if (_mind.TryGetMind(target, out var mindUid, out var mindComp) &&
-                    _player.TryGetSessionById(mindComp.UserId, out var playerSession))
-                {
-                    // notify them they're being revived.
-                    if (mindComp.CurrentEntity != target)
-                        OpenReturnToBodyEui((mindUid, mindComp), playerSession);
+                    if (rand.Prob(rdnr.Chance))
+                    {
+                        if (ent.Comp.ShowMessages)
+                            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
+                        var addDnr = EnsureComp<UnrevivableComponent>(target);
+                        addDnr.Cloneable = true;
+                        RemComp<RandomUnrevivableComponent>(target);
+                    }
+                    else
+                    {
+                        failedRevive = false;
+                        rdnr.Chance += 0.1f;
+                        Dirty(target, rdnr);
+                    }
                 }
                 else
+                // imp edit end, rdnr
                 {
-                    if (ent.Comp.ShowMessages) //imp add if
-                        _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-no-mind"),
-                            InGameICChatType.Speak, true);
+                    /* Imp, move mobstate logic to be handled elsewhere
+                    _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
+                    */
+                    failedRevive = false;
+                }
+
+                if (!failedRevive) // imp edit, move handling of after revival logic into a if statement, as RDNR could roll
+                {
+                    // imp allowskipcrit start
+                    if (ent.Comp.AllowSkipCrit &&
+                        _mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var critThreshold, targetThresholds) &&
+                        targetDamageable.TotalDamage < critThreshold)
+                        _mobState.ChangeMobState(target, MobState.Alive, targetMobState, user);
+                    else
+                        _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
+                    // imp end
+
+                    if (_mind.TryGetMind(target, out var mindUid, out var mindComp) &&
+                        _player.TryGetSessionById(mindComp.UserId, out var playerSession))
+                    {
+                        // notify them they're being revived.
+                        if (mindComp.CurrentEntity != target)
+                            OpenReturnToBodyEui((mindUid, mindComp), playerSession);
+                    }
+                    else
+                    {
+                        if (ent.Comp.ShowMessages) //imp add if
+                            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-no-mind"),
+                                InGameICChatType.Speak, true);
+                    }
                 }
             }
         }

@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 23:40:41
+  time: 08/12/2026 22:25:23
   entityCount: 2767
 maps:
 - 1
@@ -8119,7 +8119,7 @@ entities:
     - type: Transform
       pos: 21.5,-3.5
       parent: 2
-- proto: DoorRemoteAll
+- proto: DoorRemoteCustom
   entities:
   - uid: 1056
     components:

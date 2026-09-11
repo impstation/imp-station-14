@@ -161,3 +161,25 @@
     layers:
     - state: box_chef
     - state: vegetarian
+
+- type: entity
+  parent: BoxCardboardIngredient
+  id: BoxCardboardIngredientBaking
+  suffix: baking
+  description: A box containing supplementary ingredients and tools for the aspiring baker.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ReagentContainerFlour
+        - id: FoodCondimentPacketSugar
+        - id: FoodEgg
+        - id: FoodEgg
+        - id: DrinkGlassWhite
+        - id: ExtractBottleVanilla
+        - id: TinyMeasuringSpoon
+  - type: Sprite
+    layers:
+    - state: box_chef
+    - state: sweets
