@@ -2,6 +2,8 @@
   id: Apid
   name: species-name-apid
   roundStart: false
+  randomViable: true
+  randomChance: 0.5
   prototype: MobApid
   sprites: MobApidSprites
   defaultSkinTone: "#385878"

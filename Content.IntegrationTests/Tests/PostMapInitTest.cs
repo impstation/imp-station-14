@@ -156,6 +156,7 @@ namespace Content.IntegrationTests.Tests
             "Pathway",
             "Whisper",
             "LoopImp",
+            "OmegaImp",
 
             // DEROTATED:
             //"RelicImp",
