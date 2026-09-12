@@ -105,29 +105,8 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         return false;
     }
 
-    public bool GetKnowledgeRituals(ProtoId<HereticKnowledgePrototype> knowledge, [NotNullWhen(true)] out List<ProtoId<HereticRitualPrototype>>? rituals)
-    {
-        if (GetKnowledge(knowledge).RitualPrototypes != null)
-        {
-            rituals = GetKnowledge(knowledge).RitualPrototypes;
-        }
-        rituals = null;
-        return rituals != null;
-    }
-
     public bool HasKnowledge(HereticComponent comp, ProtoId<HereticKnowledgePrototype> knowledge)
     {
         return comp.KnownKnowledge.Contains(knowledge);
-    }
-    public List<ProtoId<HereticRitualPrototype>> AllKnownRituals(HereticComponent comp)
-    {
-        var rituals = new List<ProtoId<HereticRitualPrototype>>();
-        foreach (var knowledge in comp.KnownKnowledge)
-        {
-            var ritualPrototypes = GetKnowledge(knowledge).RitualPrototypes;
-            if (ritualPrototypes != null)
-                rituals.AddRange(ritualPrototypes);
-        }
-        return rituals;
     }
 }
