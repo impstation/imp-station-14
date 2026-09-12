@@ -1,6 +1,17 @@
 ﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
 
 - type: listing
+  id: UplinkBowlerHatRazor
+  name: uplink-syndicate-bowler-hat-razor-name
+  description: uplink-syndicate-bowler-hat-razor-desc
+  icon: { sprite:  Clothing/Head/Hats/bowler_hat.rsi, state: icon}
+  productEntity: ClothingHeadHatBowlerHatRazor
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: uplinkValuShot
   name: uplink-valushot-name
   description: uplink-valushot-desc
