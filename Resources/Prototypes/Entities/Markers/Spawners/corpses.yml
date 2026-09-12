@@ -1,6 +1,7 @@
 - type: entity
   name: Human Corpse Spawner
   id: SalvageHumanCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: MarkerBase
   components:
   - type: Sprite
@@ -14,6 +15,7 @@
 - type: entity
   name: Random Service Corpse Spawner
   id: RandomServiceCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
@@ -27,6 +29,7 @@
 - type: entity
   name: Random Engineer Corpse Spawner
   id: RandomEngineerCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
@@ -40,6 +43,7 @@
 - type: entity
   name: Random Cargo Corpse Spawner
   id: RandomCargoCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
@@ -53,6 +57,7 @@
 - type: entity
   name: Random Medic Corpse Spawner
   id: RandomMedicCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
@@ -66,6 +71,7 @@
 - type: entity
   name: Random Science Corpse Spawner
   id: RandomScienceCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
@@ -79,6 +85,7 @@
 - type: entity
   name: Random Security Corpse Spawner
   id: RandomSecurityCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
@@ -92,6 +99,7 @@
 - type: entity
   name: Random Command Corpse Spawner
   id: RandomCommandCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
