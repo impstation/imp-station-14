@@ -198,6 +198,9 @@ ghost-role-information-magic-monkey-desc = A wizards Apprentice.
 ghost-role-information-carp-radio-name = Big mouth carp
 ghost-role-information-carp-radio-desc = A stuffed carp containing a transmitter that picks up distant space radio shows.
 
+ghost-role-information-baby-gondal-name = Gondal Noise Maker
+ghost-role-information-baby-gondal-desc = A syndicate alligned baby gondal.
+
 ghost-role-information-syndicate-instigator-name = Syndicate Instigator
 ghost-role-information-syndicate-instigator-description = You are a barely-equipped trainee nuclear operative sent to test the station's defenses. Try to destroy the station.
 ghost-role-information-syndicate-instigator-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-solo-antagonist-name}[/bold][/color]. Covert syndicate agents are not guaranteed to help you.
