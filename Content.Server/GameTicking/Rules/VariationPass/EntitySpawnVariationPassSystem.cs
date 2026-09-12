@@ -1,7 +1,7 @@
 ﻿using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Random;
-using System.Linq; // imp
+using Content.Shared.Tag; // imp
 
 namespace Content.Server.GameTicking.Rules.VariationPass;
 
@@ -9,13 +9,14 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntitySpawnVariationPassComponent>
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!; // imp edit
+    [Dependency] private readonly TagSystem _tags = default!; // imp edit
 
     protected override void ApplyVariation(Entity<EntitySpawnVariationPassComponent> ent, ref StationVariationPassEvent args)
     {
         var totalTiles = Stations.GetTileCount(args.Station.AsNullable());
 
         var dirtyMod = Random.NextGaussian(ent.Comp.TilesPerEntityAverage, ent.Comp.TilesPerEntityStdDev);
-        var trashTiles = Math.Max((int) (totalTiles * (1 / dirtyMod)), 0);
+        var trashTiles = Math.Max((int)(totalTiles * (1 / dirtyMod)), 0);
 
         for (var i = 0; i < trashTiles; i++)
         {
@@ -25,17 +26,15 @@ public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntityS
             // imp edit
             var valid = true;
 
-            if (ent.Comp.ComponentBlacklist != null)
+            if (ent.Comp.TagsBlacklist != null && ent.Comp.TagsBlacklist.Length > 0)
             {
                 foreach (var otherEnt in _lookup.GetEntitiesIntersecting(coords))
                 {
-                    foreach (var comp in ent.Comp.ComponentBlacklist.Values.Where(comp => HasComp(otherEnt, comp.Component.GetType())))
-                    {
-                        if (!valid)
-                            continue;
+                    if (!_tags.HasAnyTag(otherEnt, ent.Comp.TagsBlacklist))
+                        continue;
 
-                        valid = false;
-                    }
+                    valid = false;
+                    break;
                 }
             }
 
