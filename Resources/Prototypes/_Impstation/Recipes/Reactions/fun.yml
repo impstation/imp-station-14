@@ -210,3 +210,17 @@
   effects:
     - !type:SpawnEntity
       entity: ShardCrystalBlack
+
+- type: reaction
+  id: CreatePulpBall
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    Pulp:
+      amount: 15
+    Water:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: PaperPulpBall # CHANGE THIS TO PULP BALL LATER!!!!!!
