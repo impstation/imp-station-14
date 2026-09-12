@@ -35,11 +35,11 @@ public sealed class ClientNotifierManager : IClientNotifierManager
         };
         _netManager.ClientSendMessage(msg);
     }
-/// <summary>
-/// Get the currently stored notifier system, throw an error if accessed before loaded.
-/// </summary>
-/// <returns></returns>
-/// <exception cref="InvalidOperationException"></exception>
+    /// <summary>
+    /// Get the currently stored notifier system, throw an error if accessed before loaded.
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
     public PlayerNotifierSettings GetNotifier()
     {
         if (_notifier is null)
