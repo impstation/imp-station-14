@@ -96,7 +96,7 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    allowedEmotes: ['Click', 'Chitter', 'Hiss'] #imp edit to add Hiss
   - type: Vocal
     sounds:
       Male: MaleArachnid #imp edit, uses human sounds as a fallback for emotes that otherwise are missing sounds
