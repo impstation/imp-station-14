@@ -16,6 +16,16 @@
   - BorgModuleAppraisal
   - BorgModuleCourier # Imp
 
+  addComponents: # imp
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,9,3
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
   radioChannels:
   - Supply
   - Science
