@@ -265,7 +265,10 @@ public sealed partial class ShuttleSystem
         Angle angle,
         float? startupTime = null,
         float? hyperspaceTime = null,
-        string? priorityTag = null)
+        string? priorityTag = null,
+        SoundSpecifier? travelSound = null, // imp
+        SoundSpecifier? arrivalSound = null, // imp
+        bool destroyFloor = false) // imp
     {
         if (!TrySetupFTL(shuttleUid, component, out var hyperspace))
             return;
@@ -281,6 +284,10 @@ public sealed partial class ShuttleSystem
         hyperspace.TargetCoordinates = coordinates;
         hyperspace.TargetAngle = angle;
         hyperspace.PriorityTag = priorityTag;
+        if (travelSound != null) // imp
+            hyperspace.TravelSound = travelSound; // imp
+        hyperspace.ArrivalSound = arrivalSound; // imp
+        hyperspace.DestroyFloor = destroyFloor; // imp
 
         _console.RefreshShuttleConsoles(shuttleUid);
 
@@ -505,6 +512,13 @@ public sealed partial class ShuttleSystem
 
             mapId = mapCoordinates.MapId;
         }
+        // imp start, entire else if so that when / if TryFTLProximity is implemented as the default else this still works
+        else if (comp.DestroyFloor)
+        {
+            mapId = _transform.GetMapId(target);
+            _transform.SetCoordinates(uid, xform, target, rotation: comp.TargetAngle);
+        }
+        // imp end
         // Position ftl
         else
         {
@@ -533,7 +547,9 @@ public sealed partial class ShuttleSystem
         _thruster.DisableLinearThrusters(entity.Comp2);
 
         comp.TravelStream = _audio.Stop(comp.TravelStream);
-        var audio = _audio.PlayPvs(_arrivalSound, uid);
+
+        var soundToPlay = comp.ArrivalSound == null ? _arrivalSound : comp.ArrivalSound; // imp
+        var audio = _audio.PlayPvs(soundToPlay, uid); // imp, switched from _arrivalSound to soundToPlay
         _audio.SetGridAudio(audio);
 
         if (TryComp<FTLDestinationComponent>(uid, out var dest))
@@ -546,6 +562,18 @@ public sealed partial class ShuttleSystem
                 ? ArrivalsFTLCooldown
                 : FTLCooldown);
         comp.StateTime = StartEndTime.FromCurTime(_gameTiming, cooldown);
+
+        // imp start
+        if (comp.DestroyFloor)
+        {
+            var enumerator = xform.ChildEnumerator;
+            while (enumerator.MoveNext(out var child))
+                comp.FTLTravellingEntities.Add(child);
+
+            RemoveTiles(entity);
+        }
+        // imp end
+
         _console.RefreshShuttleConsoles(uid);
         _mapSystem.SetPaused(mapId, false);
         Smimsh(uid, xform: xform);
@@ -944,9 +972,9 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Flattens / deletes everything under the grid upon FTL.
     /// </summary>
-    private void Smimsh(EntityUid uid, FixturesComponent? manager = null, MapGridComponent? grid = null, TransformComponent? xform = null)
+    private void Smimsh(EntityUid uid, FixturesComponent? manager = null, MapGridComponent? grid = null, TransformComponent? xform = null, FTLComponent? ftl = null) // imp add FTLComponent? ftl = null
     {
-        if (!Resolve(uid, ref manager, ref grid, ref xform) || xform.MapUid == null)
+        if (!Resolve(uid, ref manager, ref grid, ref xform, ref ftl) || xform.MapUid == null) // imp add ref ftl
             return;
 
         if (!TryComp(xform.MapUid, out BroadphaseComponent? lookup))
@@ -1009,7 +1037,70 @@ public sealed partial class ShuttleSystem
             }
         }
 
+        // imp start
+        if (ftl.DestroyFloor)
+        {
+            var children = new List<EntityUid>();
+            var enumerator = xform.ChildEnumerator;
+            while (enumerator.MoveNext(out var child))
+                children.Add(child);
+
+            foreach (var child in children)
+            {
+                if (!ftl.FTLTravellingEntities.Remove(child))
+                {
+                    if (_immuneQuery.HasComponent(child))
+                        continue;
+
+                    if (_bodyQuery.HasComponent(child))
+                    {
+                        _logger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(child):player} got gibbed by the shuttle" +
+                                                                    $" {ToPrettyString(uid)} arriving from FTL at {xform.Coordinates:coordinates}");
+                        _gibbing.Gib(child);
+                    }
+
+                    QueueDel(child);
+                }
+            }
+        }
+        // imp end
+
         var ev = new ShuttleFlattenEvent(xform.MapUid.Value, aabbs);
         RaiseLocalEvent(ref ev);
+    }
+
+    /// <summary>
+    /// Imp.
+    /// Removes all tiles that are under the grid upon FTL arrival.
+    /// </summary>
+    private void RemoveTiles(EntityUid uid, FixturesComponent? manager = null, TransformComponent? xform = null)
+    {
+        if (!Resolve(uid, ref manager, ref xform) || xform.MapUid == null)
+            return;
+
+        // Flatten anything not parented to a grid.
+        var transform = _physics.GetRelativePhysicsTransform((uid, xform), xform.MapUid.Value);
+        var grids = new List<Entity<MapGridComponent>>();
+
+        foreach (var fixture in manager.Fixtures.Values)
+        {
+            if (!fixture.Hard)
+                continue;
+
+            // Shift it slightly
+            // Create a small border around it.
+            var aabb = fixture.Shape.ComputeAABB(transform, 0).Enlarged(0.2f);
+
+            _mapManager.FindGridsIntersecting(xform.MapID, aabb, ref grids);
+            foreach (var intersectingGrid in grids)
+            {
+                if (intersectingGrid.Owner == xform.GridUid)
+                    continue;
+
+                foreach (var tile in _mapSystem.GetTilesIntersecting(intersectingGrid.Owner, intersectingGrid.Comp, aabb))
+                    _mapSystem.SetTile(tile.GridUid, intersectingGrid.Comp, tile.GridIndices, Tile.Empty);
+            }
+            grids.Clear();
+        }
     }
 }
