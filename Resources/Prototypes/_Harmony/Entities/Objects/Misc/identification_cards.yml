@@ -1,0 +1,48 @@
+﻿## ERP Sepcial Forces
+- type: entity
+  parent: IDCardStandard
+  id: ERPLeaderIDCard
+  name: ERP leader ID card
+  suffix: Harmony
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+      sprite: &imp-card-rsi _Impstation/Objects/Misc/id_cards.rsi #imp
+    - state: stripe_top
+      color: &color-centcomm-top "#00a85b" #imp edit, greened
+    - state: stripe_bottom
+      color: &color-centcomm-bottom "#006c2e" #imp edit, greened
+    - sprite: &icon-rsi Interface/Misc/job_icons.rsi #imp
+      offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
+      state: ERTLeader
+  - type: PresetIdCard
+    job: ERPLeader
+  - type: Item
+    heldPrefix: gold
+  - type: NanoChatCard # DeltaV
+    listNumber: false
+
+- type: entity
+  parent: IDCardStandard
+  id: ERPClownIDCard
+  name: ERP clown ID card
+  suffix: Harmony
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+      sprite: *imp-card-rsi
+    - state: stripe_top
+      color: *color-centcomm-top #imp edit, greened
+    - state: stripe_bottom
+      color: *color-centcomm-bottom #imp edit, greened
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Clown
+  - type: PresetIdCard
+    job: ERPClown
+  - type: Item
+    heldPrefix: gold
+  - type: NanoChatCard # DeltaV
+    listNumber: false
