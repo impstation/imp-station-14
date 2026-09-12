@@ -19,6 +19,96 @@
       sprite: _Impstation/Structures/Wallmounts/posters.rsi
       state: poster65_contraband
 
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandHorror
+  name: "Ei Uoo Lorf Erth"
+  description: "A promotional poster for a Gray horror movie. The tagline reads: When thusd hulls breach, erth wind modeni thusd biggest problem."
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster66_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandCowGirl
+  name: "Cow Girl CowGirl"
+  description: "Is that… a cow girl that's also a cowgirl?? Sick and sensual as hell."
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster69_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandTracy
+  name: "Nicole Tracy"
+  description: "This Captain always brings her sabre to the beach to slice up some watermelons."
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster71_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandKate
+  name: "Syndie Kate"
+  description: "Watch out for this Agent, she'll make your heart go THOOMP."
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster72_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandMystery
+  name: "Defaced Poster"
+  description: "The original... PENIS MYSTERY?"
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster77_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandCode
+  name: "Syndi Sneaky Tip: Use Your Words!"
+  description: "Try to slip any codewords you've been given into conversations with others & watch for when others use theirs, you never know what new friends you might make! Remember! Saying codewords without context sounds silly to anyone listening! (And we're also listening. Always.)"
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster83_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandWash
+  name: "Syndi Sneaky Tip: Wash Your (Red) Hands!"
+  description: "Cleaning up after your little accidents is a great way to throw Security off your tail through wiping off prints on your weapons weapons with soap, mopping up any leftover blood or turning off suit sensors! Remember! You didn't do anything wrong if no one finds out !"
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster84_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandStress
+  name: "Syndi Sneaky Tip: Don't Stress Over Slaughter!"
+  description: "There are lots of ways to kill someone, some more effective then others, but that doesn't mean there's anything wrong with something simple as long as someone dies! Remember! The only thing you owe them is a shallow grave!"
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster85_contraband
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandSyndieGear
+  name: "Syndi Sneaky Tip: Tools Of The Trade! (The Trade Is Crime!)"
+  description: "An understanding of your Syndicate Approved Equipment is an amazing boon to any Agent (& therefore a bane to The Crew) so be sure to experiment with your Telecrystals, either spending them all at once, or holding onto some to buy equipment in an emergency! Remember! You can always try trading your Telecrystals or planning with other Agents on what you can use your tools for!"
+  components:
+    - type: Sprite
+      sprite: _Impstation/Structures/Wallmounts/posters.rsi
+      state: poster86_contraband
+
 #Legit Imp Posters
 
 - type: entity
@@ -40,6 +130,276 @@
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/posters.rsi
     state: poster55_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSlimeSafe
+  name: "Slime Safe Advertisement"
+  description: "It's a simplistic advertisement for some kind of water additive for Slime People. Doesn't look like the ad department's best work."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster67_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitGllang
+  name: "This is Gllang"
+  description: "That's Gllang."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster68_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitLink
+  name: "Link Up"
+  description: "A poster promoting the buddy system."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster70_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitRat
+  name: "Anti-Rodent Poster"
+  description: "Rat swarms are NOT your friends! It looks like something has taken a few bites out of it..."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster73_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitPussy
+  name: "Pussy Awareness Poster"
+  description: "Stop drinking the drink that kills you!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster74_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitEeeplet
+  name: "Hang In There Baaah-beee"
+  description: "It shows an eeeplet clinging to some wires."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster75_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitDino
+  name: "Dino War-ning!"
+  description: "Please be aware this location has been or will be home to a dino portal."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster76_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitCoords
+  name: "Keep Calm"
+  description: "Seems like good advice."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster78_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitWhistle
+  name: "Sec Safety Tip: Signal For Safety!"
+  description: "When you need to talk, search or even arrest someone & they don't notice you, pointing at them or blowing a whistle works wonders to get their attention! Remember! Ignoring you further may constitute as Failure To Comply!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster79_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitEarOut
+  name: "Sec Safety Tip: Keep An Ear Out!"
+  description: "Don't forget to listen to The Security Channel in your headset for SOS signals, reports from fellow Officers & especially orders from superiors! Remember! Communication (and obedience) are vital for a Sec Safe Station!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster80_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitFF
+  name: "Sec Safety Tip: Don't Shoot Friends!"
+  description: "In the event of a fight that requires firearms, always make sure to not only watch to not shoot your fellow Officers but not to get in their line of fire as well! Remember! Firearms, Energyarms & Grenades are safe only in the right paws!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster81_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitTools
+  name: "Sec Safety Tip: Tools Of The Trade! (The Trade Is Safety!)"
+  description: "An understanding of Security Grade Equipment is an incredible boon to any Officer (& therefore The Crew) so make sure to always check The Secvend or The Armory for the answer to any situation! Remember! The third to forth greatest tool to Security is Teamwork, so never be afraid to ask for equipment advice!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster82_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitUrist
+  name: "WANTED: Urist McHitman AKA Crush Killfist AKA Bane Lastlaugh AKA TERRORHEAD AKA Nasty Badd AKA Augustus Evil"
+  description: "For Attempted Murder, Secure Trespass & Tier 3 Possession. Last seen fleeing Station 8 on an improvised shuttle. Considered armed & dangerous with possible ties to The Syndicate. A reward of up to 5,000 Spesos for capture."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster87_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitFu
+  name: "FU"
+  description: "A classic wish for luck and prosperity. Someone probably forgot to remove it after the new year celebrations."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster88_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitFuDao
+  name: "FU DAO"
+  description: "A classic wish for luck and prosperity. It's placed upside down to invite extra luck."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster88-2_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitLizard
+  name: "WANTED: Take-Some-More"
+  description: "For multiple counts of Assault, Petty Theft, Tier 1 Possession & Damage of Property. Last seen in the Lemure System. Considered dangerous & leader of the 'Sunburn-Bathers' criminal gang. A reward of up to 2000 Spesos for capture, with additional rewards for gang members."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster89_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitVulture
+  name: "The Migration Committee"
+  description: "Trouble finding work? Sector experiencing record-breaking calamities? Just fed up with the old? Call Us! Our team of highly specialized avian-adjacent immigration consultants are here to help YOU spread your wings and find your new home."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster90_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSlime
+  name: "WANTED: Jo Ochre"
+  description: "For One count of Tax Evasion, one count of Failure To Pay Rent & one count of Failure To Comply. Last seen in her apartment asteroid in The Quasit System. Considered a master of manipulation utilizing techniques such as sobbing loudly & bringing up her status as a signal mother of 10. A reward of 250 Spesos for capture."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster91_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitClown
+  name: "WANTED: Butch Dutster AKA Tummy The Clown"
+  description: "For one count of Disturbance against a member of Central Command. Last seen at Central Command Headquarters. Considered dangerous in presence of pastries. A reward of 10 000 000 Spesos for capture, dead or alive."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster92_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitGray
+  name: "WANTED: Doctor Sez"
+  description: "For multiple counts of Trespass, Kidnapping & Practicing Medical Without A License. Location Unknown. Utilizes unknown teleportation technology used to enter dorms & abduct victims. A reward of up to 1005 Spesos for capture."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster93_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitRepli
+  name: "Use Organic Multitool"
+  description: "Use your brain! The new Interactive Repli-Set Puzzle Game! Better with friends! Can you appease your hole?"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster94_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitEarth
+  name: "Visit Earth"
+  description: "Landmarks depicted may or may not still exist."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster95_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitTEG
+  name: "The Myth Of A Safe TEG"
+  description: "Before you space Atmos, isn't there someone you forgot to ask?"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster96_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitClothes
+  name: "Fashion Line"
+  description: "A poster advertising a new fashion line of clothes. Made with REAL synthetic fibers!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster97_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitWork
+  name: "Work For A Future"
+  description: "A poster encouraging you to work for your future. It's in another language."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster98_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitIon
+  name: "Ion Rifle"
+  description: "A poster displaying an Ion Rifle. It's in another language."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster99_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitInternals
+  name: "Safety: Internals"
+  description: "A poster instructing the viewer to wear internals in the rare environments where there is no oxygen or the air has been rendered toxic. It's in another language, but the diagram is helpful enough."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: poster100_legit
 
 #Station Map Posters
 
