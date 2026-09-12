@@ -352,11 +352,11 @@
       - MindRoleSyndicateInstigator
 
 - type: entity
-  id: ExplosiveMineResurgence
+  id: ExplosiveMineResurfacing
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 2
+    weight: 3
     earliestStart: 20
     reoccurrenceDelay: 30
     minimumPlayers: 25
@@ -367,4 +367,4 @@
       min: 8
       max: 10
     emptyTilesOnly: true
-    announcement: station-event-explosive-mine-resurgence-announcement
+    announcement: station-event-explosive-mine-resurfacing-announcement
