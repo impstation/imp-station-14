@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Made by Simul-ad-Astra (Github) for Impstation",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "icon"
+        },
+        {
+            "name": "sword"
+        },
+        {
+            "name": "shell"
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "sword-equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "shell-equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        },
+        {
+            "name": "sword-equipped-SUITSTORAGE",
+            "directions": 4
+        },
+        {
+            "name": "shell-equipped-SUITSTORAGE",
+            "directions": 4
+        }
+    ]
+}
