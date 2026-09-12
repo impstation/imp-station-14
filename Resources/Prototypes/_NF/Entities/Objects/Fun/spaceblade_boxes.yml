@@ -7,7 +7,7 @@
     state: sb_box_unfolded
 
 - type: entity
-  parent: MysteryFigureBox
+  parent: BaseItem # imp, changed from MysteryFigureBox due to it being changed to use SpawnEntityTableOnTrigger
   id: MysterySpaceBladeBox
   name: mystery space blade box
   description: A box containing a mystery space blade. The side of the box depicts a few blacked-out 'rare' space blades.
@@ -68,3 +68,5 @@
       - id: SpaceBladeRatKing # imp
         orGroup: SB
         prob: 0.10
+    sound: # imp add
+      path: /Audio/Effects/unwrap.ogg
