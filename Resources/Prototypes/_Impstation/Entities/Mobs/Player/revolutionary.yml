@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnRevolutionaryBriefcase
+  name: Redspace Revolutionary Briefcase
+  description: Redspaces in revolutionary equipment from Cybersun at a target location
+  components:
+  - type: Action
+    icon:
+      sprite: _Impstation/Objects/Storage/Briefcases/briefcase_cybersun.rsi
+      state: icon
+    removeActionAfterUse: true
+  - type: TargetAction
+    range: 3
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes: 
+      - id: HeadRevolutionaryBriefcase 
+      - id: RedspaceLifeline
