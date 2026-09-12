@@ -72,3 +72,22 @@
         reagents:
         - ReagentId: JuiceGrape
           Quantity: 30
+
+- type: entity
+  parent: DrinkTeacupEmpty
+  id: DrinkNightTimeTeacup
+  name: night time tea
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Tea
+          Quantity: 10
+        - ReagentId: ChloralHydrate
+          Quantity: 10
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/teacup.rsi
+    state: icon-vend-tea
+  - type: TrashOnSolutionEmpty
+    solution: drink

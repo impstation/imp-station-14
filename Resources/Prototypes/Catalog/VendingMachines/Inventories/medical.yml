@@ -13,6 +13,9 @@
   contrabandInventory:
     PillCanisterRandom: 1
     PowerCellSmall: 2
+  emaggedInventory: # imp
+    BrutepackAdvanced1: 1 # imp
+    OintmentAdvanced1: 1 # imp
 
 - type: vendingMachineInventory
   id: NanoMedCivilianWallInventory
@@ -56,6 +59,9 @@
     PillCanisterRandom: 3
     PillSpaceDrugs: 3
     FoodApple: 1
+  emaggedInventory: # imp
+    BrutepackAdvanced1: 3 # imp
+    OintmentAdvanced1: 3 # imp
 
 - type: vendingMachineInventory
   id: NanoMedCivilianInventory
