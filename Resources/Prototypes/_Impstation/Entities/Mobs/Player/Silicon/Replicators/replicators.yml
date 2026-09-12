@@ -81,6 +81,7 @@
       - DoorBumpOpener
       - CanPilot
       - VimPilot
+      - SiliconEmotes
   - type: MobState
     allowedStates:
       - Alive
@@ -163,6 +164,7 @@
     whitelist:
       components:
       - AACTablet
+  - type: Emoting
 
 - type: entity
   id: MobReplicatorQueen
