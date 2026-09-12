@@ -1,0 +1,14 @@
+- type: entity
+  parent: [ EncryptionKey, BaseSiliconScienceContraband ]
+  id: EncryptionKeyAi
+  name: station ai encryption key
+  description: An encryption key that is used by the Station AI to spy on you.
+  components:
+  - type: EncryptionKey
+    channels:
+    - AI
+    defaultChannel: AI
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: ai_label

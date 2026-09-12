@@ -33,6 +33,7 @@
           - RadioSpeaker
     - type: ActiveListener
       range: 10
+    - type: StationAiVision #imp
     - type: UserInterface
       interfaces:
         enum.SurveillanceCameraSetupUiKey.Camera:

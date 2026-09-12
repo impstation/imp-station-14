@@ -137,6 +137,7 @@
     onUse: false
     onActivate: false
     predictable: false
+  - type: StationAiWhitelist #imp
 
 - type: entity
   parent: BasePDA
