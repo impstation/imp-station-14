@@ -910,27 +910,7 @@
   minLimit: 0
   loadouts:
   - ScarfOrange
-
-- type: loadoutGroup
-  id: AtmosphericTechnicianNeck
-  name: loadout-group-atmospheric-technician-neck
-  minLimit: 0
-  loadouts:
-  - ScarfLightBlue
-
-- type: loadoutGroup
-  id: AtmosphericTechnicianHead
-  name: loadout-group-atmospheric-technician-head
-  minLimit: 0
-  loadouts:
-  - SeniorEngineerBeret
-
-- type: loadoutGroup
-  id: AtmosphericTechnicianPDA
-  name: loadout-group-atmospheric-technician-id
-  loadouts:
-  - AtmosphericTechnicianPDA
-  - SeniorAtmosphericTechnicianPDA
+  - ScarfLightBlue # atmos
 
 # science
 
