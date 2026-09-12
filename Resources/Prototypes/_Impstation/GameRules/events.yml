@@ -361,8 +361,7 @@
     reoccurrenceDelay: 30
     minimumPlayers: 25
   - type: RandomSpawnRule
-    prototype: LandmineOrDudRareGibSpawner
-    spawnEffect: EffectDesynchronizerExit
+    prototype: ExplosiveMineResurgenceSpawner
     minMaxEntities:
       min: 8
       max: 10

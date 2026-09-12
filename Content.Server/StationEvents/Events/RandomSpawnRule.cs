@@ -6,6 +6,11 @@ using Content.Server.Announcements.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 // Imp end
+// Moffstation - Start - Syndicate dead drop
+using Content.Server.Radio.EntitySystems;
+using Content.Server.Pinpointer;
+using Robust.Shared.Utility;
+// Moffstation - End
 
 namespace Content.Server.StationEvents.Events;
 
@@ -15,9 +20,14 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    // Imp end
+    // Moffstation - Start - Syndicate dead drop
+    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
+    // Moffstation - End
 
     /// <summary>
-    /// Imp summary.
+    /// Imp start.
     /// Announcement sent in system since EE announcement system dosen't support delays or specifying the announcement through yaml.
     /// </summary>
     protected override void Added(EntityUid uid, RandomSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -36,9 +46,10 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
     // Imp end
 
     /// <summary>
-    /// Imp summary.
+    /// Imp edited summary.
     /// Finds a random tile on the station and spawns a entity and its effect if specified.
     /// Conditionally checks for if the tile has another dynamic or static entity on it before spawning.
+    /// Conditionally sends a radio message with the sender being the name of the entity spawned. 
     /// </summary>
     protected override void Started(EntityUid uid, RandomSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -63,9 +74,15 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
             // Imp end
 
             Sawmill.Info($"Spawning {comp.Prototype} at {coords}");
-            Spawn(comp.Prototype, coords);
-            // Imp TODO: make effects follow the entity moving
-            Spawn(comp.SpawnEffect, coords); // Imp, added effects that do not follow the entity around
+            var ent = Spawn(comp.Prototype, coords); // Moff, tied spawned to a ent
+
+            // Moffstation - Syndicate dead drop
+            if (comp.RadioMessage is {} radioMessage)
+            {
+                var message = Loc.GetString(radioMessage, ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(ent)))); // Imp, changed from radioMessage.Message to radioMessage
+                _radio.SendRadioMessage(ent, message, comp.Channel, ent); // Imp, changed from radioMessage.Channel to comp.Channel
+            }
+            // Moffstation - End
         }
     }
 }

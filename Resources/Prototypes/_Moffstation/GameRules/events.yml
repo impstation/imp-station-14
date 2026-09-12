@@ -1,0 +1,23 @@
+# Syndicate dead drop
+- type: entity
+  parent: BaseGameRule
+  id: SyndicateDeadDrop
+  components:
+  - type: StationEvent
+    # startAnnouncement: station-syndicate-dead-drop-announcement imp, announcement system different
+    # startAudio: imp, announcement system different
+    #   path: /Audio/Announcements/attention.ogg
+    earliestStart: 20 # imp, raised to 20 from 0
+    duration: 1
+    reoccurrenceDelay: 25 # imp
+    minimumPlayers: 20 # imp, raised to 20 from 1
+    # maxOccurrences: 2 imp removal
+    weight: 4 # imp, lowered to 4 from 10
+  - type: RandomSpawnRule
+    prototype: SyndieDeadDropSpawner
+    announcement: station-syndicate-dead-drop-announcement # imp
+    minMaxEntities: # imp, make it spawn 2 each event
+      min: 2
+      max: 2
+    radioMessage: syndicate-dead-drop-announcement # imp, changed to directly reference message instead of {channel: Syndicate, message: "syndicate-dead-drop-announcement"}
+    channel: Syndicate # imp add
