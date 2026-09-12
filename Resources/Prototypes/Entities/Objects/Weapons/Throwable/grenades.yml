@@ -1,7 +1,7 @@
 - type: entity
   name: explosive grenade
   description: Causes a small but devastating blast. As the proverb goes, enter every room with a boom. #imp
-  parent: [VolatileGrenadeBase, GrenadeBase, Tier3Contraband] #imp contraband
+  parent: [VolatileGrenadeBase, TimerGrenadeBase, Tier3Contraband] #imp contraband
   id: ExGrenade
   components:
   - type: ExplodeOnTrigger
@@ -24,7 +24,7 @@
 - type: entity
   name: flashbang
   description: THINK FAST, CHUCKLENUTS! #imp
-  parent: [ FragileGrenadeBase, GrenadeBase, BaseSecurityContraband ]
+  parent: [ ImpactGrenadeBase, BaseSecurityContraband ]
   id: GrenadeFlashBang
   components:
   - type: Sprite
@@ -75,12 +75,12 @@
     - type: TimedDespawn
       lifetime: 0.5
 
-#The explosive values for these are pretty god damn mediocre, but SS14's explosion system is hard to understand - this is a good enough approximation of how it was in SS13.
-#Ideally, there should be a weak radius around the bomb outside of its gibbing / spacing range capable of dealing fair damage to players / structures.
+# Tuned to be a general bomb that deals equipment damage without explicitly gibbing, however it will still gladly instakill anyone that mishandles it.
+# One of the few syndie bombs that should punch holes in space.
 - type: entity
   name: syndicate minibomb
   description: A syndicate-manufactured explosive used to stow destruction and cause chaos.
-  parent: [VolatileGrenadeBase, GrenadeBase, Tier3Contraband] #imp contraband
+  parent: [ImpactGrenadeBase, Tier3Contraband] #imp contraband
   id: SyndieMiniBomb
   components:
   - type: Sprite
@@ -109,7 +109,7 @@
 - type: entity
   name: self destruct
   description: Go out on your own terms!
-  parent: GrenadeBase
+  parent: TimerGrenadeBase
   id: SelfDestructSeq
   categories: [ HideSpawnMenu ]
   components:
@@ -135,7 +135,7 @@
 
 
 - type: entity
-  parent: [ FragileGrenadeBase, GrenadeBase, BaseSyndicateContraband ]
+  parent: [ FragileGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband ]
   id: SingularityGrenade
   name: singularity grenade
   description: A grenade that simulates the power of a singularity, pulling everything around itself into a heap. #imp
@@ -268,7 +268,7 @@
 - type: entity
   name: the nuclear option
   description: Please don't throw it; think of the children! #imp
-  parent: GrenadeBase
+  parent: TimerGrenadeBase
   id: NuclearGrenade
   components:
   - type: Sprite
@@ -360,30 +360,26 @@
 - type: entity
   name: EMP grenade
   description: A grenade designed to wreak havoc on electronic systems.
-  parent: [FragileGrenadeBase, GrenadeBase, Tier2Contraband] #imp, contraband
+  parent: [ImpactGrenadeBase, Tier2Contraband] #imp, contraband
   id: EmpGrenade
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Grenades/empgrenade.rsi #imp
   - type: EmpOnTrigger
     keysIn:
-    - timer
+    - trigger
     range: 5.5
     energyConsumption: 50000
   - type: DeleteOnTrigger
     keysIn:
-    - timer
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/countdown.ogg
+    - trigger
   - type: StaticPrice
     price: 666 # 2000 for 3, I love fractions
 
 - type: entity
   name: holy hand grenade
   description: O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.
-  parent: [GrenadeBase, Tier3Contraband] #imp, contraband
+  parent: [TimerGrenadeBase, Tier3Contraband] #imp, contraband
   id: HolyHandGrenade
   components:
   - type: Sprite
@@ -414,7 +410,7 @@
 - type: entity
   name: trick grenade
   description: All the grenade without any of the boom.
-  parent: GrenadeBase
+  parent: TimerGrenadeBase
   id: GrenadeDummy
   components:
   - type: Sprite
