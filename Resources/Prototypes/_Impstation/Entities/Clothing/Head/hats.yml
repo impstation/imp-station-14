@@ -543,3 +543,14 @@
     sprite: _Impstation/Clothing/Head/Hats/hos_colonelcap.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/hos_colonelcap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGnomeHat
+  name: gnome hat
+  description: A pointy red hat.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/gnomehat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/gnomehat.rsi
