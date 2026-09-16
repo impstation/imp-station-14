@@ -1139,7 +1139,14 @@
   - StationEngineerHazardsuit
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
-  - SpaceEngineerJumpsuit # imp
+  # IMP START
+  - SpaceEngineerJumpsuit
+  - AtmosphericTechnicianJumpsuit
+  - AtmosphericTechnicianJumpskirt
+  - AtmosphericTechnicianJumpsuitCasual
+  - FlightsuitAtmos
+  - FlightskirtAtmos
+  # IMP END
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -1148,6 +1155,11 @@
   - StationEngineerBackpack
   - StationEngineerSatchel
   - StationEngineerDuffel
+  # IMP START
+  - AtmosphericTechnicianBackpack
+  - AtmosphericTechnicianSatchel
+  - AtmosphericTechnicianDuffel
+  # IMP END
 
 - type: loadoutGroup
   id: StationEngineerOuterClothing
@@ -1156,13 +1168,19 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
-  - BomberEngineering #imp
+  # IMP START
+  - BomberEngineering
+  - AtmosphericTechnicianWintercoat
+  - BomberAtmos
+  - BomberAtmosHolo
+  # IMP END
 
 - type: loadoutGroup
   id: StationEngineerShoes
   name: loadout-group-station-engineer-shoes
   loadouts:
   - WorkBoots
+  - WhiteShoes # IMP
   - EngineeringWinterBoots
   - EngineerClownShoes # imp
 
@@ -1172,6 +1190,10 @@
   loadouts:
   - StationEngineerPDA
   - SeniorEngineerPDA
+  # IMP START
+  - AtmosphericTechnicianPDA
+  - SeniorAtmosphericTechnicianPDA
+  # IMP END
 
 - type: loadoutGroup
   id: StationEngineerJobTrinkets
@@ -1179,6 +1201,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieStationEngineer
+  - LizardPlushieAtmosphericTechnician # IMP
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit

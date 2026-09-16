@@ -2,16 +2,16 @@
 - type: loadoutEffectGroup
   id: SeniorEngineering
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 5h # imp, was 6
+  # - !type:JobRequirementLoadoutEffect # IMP REMOVE ATMOS
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobAtmosphericTechnician
+  #     time: 5h # imp, was 6
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 5h # imp, was 6
+      time: 6h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
