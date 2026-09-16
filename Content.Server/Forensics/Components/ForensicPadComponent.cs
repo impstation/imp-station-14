@@ -11,5 +11,17 @@ namespace Content.Server.Forensics
 
         public bool Used = false;
         public String Sample = string.Empty;
+
+        // imp start 
+        // What it can take a sample of.
+        [DataField]
+        public bool Fingerprint = false;
+        [DataField]
+        public bool Fiber = false;
+        [DataField]
+        public bool Reagent = false;
+        [DataField]
+        public bool ReagentContraband = false;
+        // imp end
     }
 }

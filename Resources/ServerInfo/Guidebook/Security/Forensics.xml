@@ -33,13 +33,18 @@
   You can print the forensic information of the object you scanned so you never miss it. Now with the paper containing DNA you can simply find a [color=#a4885c]Station Records Computer[/color] and look for a person whose DNA matches. Same applies to finding whose fingerprint it is.
 
   ## Taking Fingerprints
-  It is also possible to take someone's fingerprints while on scene if you make them take off their gloves and apply a forensic pad to their fingers. No need to run back to [color=#a4885c]Station Records Computer[/color] to check if the butler did it!
+  It is also possible to take someone's fingerprints while on scene if you make them take off their gloves and apply a Forensic Pad to their fingers. No need to run back to [color=#a4885c]Station Records Computer[/color] to check if the butler did it!
 
-  <GuideEntityEmbed Entity="ForensicPad"/>
+  <Box>
+    <GuideEntityEmbed Entity="ForensicPad"/>
+    <GuideEntityEmbed Entity="ReagentPad"/>
+  </Box>
 
   ## Classifying chemicals
 
-  Forensic pads can also be used to take a sample of a chemical and determine its contraband status.
+  Forensic and Chemical Pads can be used to take a sample of a chemical and determine its reagent makeup -without chem goggles.
+  
+  Forensics have additional functionality to determine a reagent's Contraband Status, displayed via color ([color=yellow]minor[/color], [color=crimson]syndicate[/color], [color=purple]magical[/color], etc)
 
   ## Fibers
   Whenever people wearing gloves touch anything on the station, they are bound to leave behind some fibers. This complicates things, but nothing is unsolvable for a real detective.

@@ -258,6 +258,12 @@
     Glass: 100
     Plastic: 100
 
+# imp
+- type: latheRecipe
+  parent: ForensicPad
+  id: ReagentPad
+  result: ReagentPad
+
 - type: latheRecipe
   id: JetInjector
   result: JetInjector
