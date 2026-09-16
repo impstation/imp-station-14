@@ -188,7 +188,7 @@ uplink-mousetrap-name = Giant Mousetrap
 uplink-mousetrap-desc = A really big trap, for really big 'mice'.
 
 uplink-bear-trap-name = Cindy head trap
-uplink-bear-trap-desc = You swear you saw this in a movie once... (Multitool linking required.)
+uplink-bear-trap-desc = You swear you saw this in a movie once... Multitool linking required.
 
 uplink-trash-crusher-name = Trash Compactor Cart
 uplink-trash-crusher-desc = A special janitor cart with crushing pistions hidden inside.
