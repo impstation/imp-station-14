@@ -1,63 +1,4 @@
 ﻿Entries:
-- author: mousesweater
-  changes:
-  - message: cerberus no longer has stunning abilities
-    type: Fix
-  - message: cutbacks on the supernatural division of the syndicate have resulted
-      in weaker necronomicons at a steeper price.
-    type: Tweak
-  id: 2440
-  time: '2025-11-20T10:24:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3714
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Pacifists must not be allowed to shoot Cool Guns!
-    type: Fix
-  id: 2441
-  time: '2025-11-20T10:25:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3740
-- author: honeyed-lemons
-  changes:
-  - message: Heretics can access the store after being cloned.
-    type: Fix
-  id: 2442
-  time: '2025-11-20T10:38:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3742
-- author: TheGrimbeeper
-  changes:
-  - message: reduced toy RPG stun power by 50%. The nerfing will continue until morale
-      improves.
-    type: Tweak
-  id: 2443
-  time: '2025-11-21T06:51:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3749
-- author: kipdotnet
-  changes:
-  - message: Allulalo now recieve less speed benefits from Hyperzine, Desoxyephedrine,
-      and Ephedrine.
-    type: Tweak
-  - message: Allulalo now metabolise narcotics, medicine and poison 50% faster, as
-      well as getting hungry and thirsty 30% faster. You want to be fast? Sure. Everything
-      is faster.
-    type: Tweak
-  id: 2444
-  time: '2025-11-23T08:30:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3750
-- author: FlippenPage
-  changes:
-  - message: wow the black utility belt crafting recipe was broken for 9 months! hope
-      someone got FIRED for that blunder.
-    type: Fix
-  id: 2445
-  time: '2025-11-23T08:48:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3744
-- author: SixValentine
-  changes:
-  - message: reHash Update
-    type: Tweak
-  id: 2446
-  time: '2025-11-23T08:54:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3738
 - author: TuttlePants
   changes:
   - message: Bounty Hunters now spawn with a randomized appearance
@@ -4071,3 +4012,56 @@
   id: 2939
   time: '2026-09-07T21:55:19.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4607
+- author: coyragon96
+  changes:
+  - message: Grays now gain nutritional benefit from uranium and can quench their
+      thirst with radium!
+    type: Tweak
+  id: 2940
+  time: '2026-09-10T11:07:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4620
+- author: coyragon96
+  changes:
+  - message: Removed two of the visiting chef shuttles.
+    type: Remove
+  - message: Updated an existing chef shuttle and added a new one!
+    type: Tweak
+  id: 2941
+  time: '2026-09-10T11:12:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4574
+- author: Yental
+  changes:
+  - message: Omega has been refurbished!
+    type: Add
+  id: 2942
+  time: '2026-09-10T19:35:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4582
+- author: meatsmall
+  changes:
+  - message: the artifact point light effect is less harsh now.
+    type: Tweak
+  id: 2943
+  time: '2026-09-11T08:09:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4625
+- author: crocodilecarousel
+  changes:
+  - message: Big Log bench, available in construction menu
+    type: Add
+  id: 2944
+  time: '2026-09-12T04:52:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4628
+- author: crocodilecarousel
+  changes:
+  - message: Turtle spawner
+    type: Add
+  id: 2945
+  time: '2026-09-12T08:26:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4630
+- author: Raccoononi
+  changes:
+  - message: Two new posters in Chinese, one containing NT logo and another containing
+      impstation name.
+    type: Add
+  id: 2946
+  time: '2026-09-16T08:50:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4583
