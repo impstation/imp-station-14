@@ -78,11 +78,7 @@
   suffix: Giant, Admeme
   description: Useful for killing R.O.U.S.
   components:
-    - type: DamageOnTrigger
-      targetUser: true
-      damage:
-        types:
-          Blunt: 1000
+    - type: GibOnTrigger
 
 - type: entity
   name: happy cindy-cat mask
