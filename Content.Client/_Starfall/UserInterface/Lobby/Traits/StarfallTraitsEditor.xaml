@@ -1,0 +1,16 @@
+<traits:StarfallTraitsEditor
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:traits="clr-namespace:Content.Client._Starfall.UserInterface.Lobby.Traits"
+    HorizontalExpand="True"
+    VerticalExpand="True">
+
+    <!-- Aurora's Song - Remove the sheetlet's duplicate outer card and padding for the existing profile tab. -->
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="6">
+        <!-- Aurora's Song - Trait search field. -->
+        <LineEdit Name="SearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'ui-actionmenu-search-bar-placeholder-text'}" />
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="TraitsList" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+    </BoxContainer>
+</traits:StarfallTraitsEditor>
