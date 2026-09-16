@@ -127,3 +127,19 @@
     duration: 0.5
   - type: TimedDespawn
     lifetime: 0.5
+
+- type: entity
+  parent: CleanerGrenade
+  id: CleanerGrenadeLube
+  name: cleanade
+  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  suffix: Lube
+  components:
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 25
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceLube
+        Quantity: 20

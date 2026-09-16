@@ -170,3 +170,10 @@
     sprite: _Impstation/Clothing/Eyes/Glasses/monocle.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Eyes/Glasses/monocle.rsi
+
+- type: entity
+  parent: ClothingEyesGlassesChemical
+  suffix: Flash protection
+  id: ClothingEyesGlassesChemicalSyndi
+  components:
+  - type: FlashImmunity

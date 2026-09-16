@@ -1,0 +1,26 @@
+# Uplinks
+- type: entity
+  parent: [BaseItem, StorePresetUplink]
+  id: BaseUplinkRadioNoncontra
+  name: syndicate uplink
+  description: Suspicious looking device...
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/uplink.rsi
+    layers:
+    - state: icon_base
+    - state: icon_unshaded
+      shader: unshaded
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: old-radio
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: UplinkBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Telecrystal: 0
