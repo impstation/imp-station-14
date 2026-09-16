@@ -1,0 +1,29 @@
+<traits:StarfallTraitCard
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:traits="clr-namespace:Content.Client._Starfall.UserInterface.Lobby.Traits"
+    HorizontalExpand="True"
+    MouseFilter="Stop">
+
+    <PanelContainer Name="Card"
+                    StyleClasses="StarfallTraitCard"
+                    HorizontalExpand="True"
+                    MinHeight="42">
+
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      VerticalAlignment="Center"
+                      SeparationOverride="6">
+
+            <CheckBox Name="Checkbox"
+                      Access="Public"
+                      VerticalAlignment="Center" />
+
+            <Label Name="NameLabel"
+                   VerticalAlignment="Center" />
+
+            <Label Name="CostLabel"
+                   VerticalAlignment="Center" />
+        </BoxContainer>
+    </PanelContainer>
+</traits:StarfallTraitCard>
