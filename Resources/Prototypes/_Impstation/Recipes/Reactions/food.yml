@@ -154,7 +154,7 @@
   effects:
     - !type:SpawnEntity
       entity: FoodMochiPaste
-      
+
 # syrups
 
 - type: reaction
@@ -201,3 +201,75 @@
       amount: 3
   products:
     VanillaSyrup: 5
+
+# frostings
+
+- type: reaction
+  id: VanillaFrosting
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    VanillaExtract:
+      amount: 2
+    Sugar:
+      amount: 5
+    Milk:
+      amount: 5
+  effects:
+  - !type:SpawnEntity
+    entity: FoodFrostingVanilla
+
+- type: reaction
+  id: SpacemansFrosting
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    PolypyryliumOligomers:
+      amount: 10
+    Sugar:
+      amount: 5
+    Milk:
+      amount: 5
+  effects:
+  - !type:SpawnEntity
+    entity: FoodFrostingSpaceman
+
+- type: reaction
+  id: CreateCakeBatterChocolate
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Flour:
+      amount: 15
+    Egg:
+      amount: 12
+    Sugar:
+      amount: 5
+    Milk:
+      amount: 5
+    CocoaPowder:
+      amount: 5
+  effects:
+  - !type:SpawnEntity
+    entity: FoodCakeBatterChocolate
+
+- type: reaction
+  id: CreateCottonCakeBatter
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Fiber:
+      amount: 10
+    Water:
+      amount: 10
+    Flour:
+      amount: 5
+  effects:
+  - !type:SpawnEntity
+    entity: FoodCakeBatterCotton

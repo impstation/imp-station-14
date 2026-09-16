@@ -141,6 +141,7 @@ namespace Content.IntegrationTests.Tests
             "Haven",
             "Jellyfish",
             "Lilboat",
+            "Luna",
             "MarathonImp",
             "OasisImp",
             "PackedImp",
@@ -154,6 +155,7 @@ namespace Content.IntegrationTests.Tests
             "Xeno",
             "Pathway",
             "Whisper",
+            "OmegaImp",
 
             // DEROTATED:
             //"RelicImp",
