@@ -25,6 +25,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+using Content.Shared._EE.Movement.Events;// EE edit
 
 namespace Content.Shared.Movement.Systems;
 
@@ -567,7 +568,10 @@ public abstract partial class SharedMoverController : VirtualController
 
         if (mobMover.StepSoundDistance < distanceNeeded)
             return false;
-
+        //EE edit start
+        var footstepSoundEv = new MakeFootstepSoundEvent();
+        RaiseLocalEvent(uid, footstepSoundEv);
+        //EE edit end
         mobMover.StepSoundDistance -= distanceNeeded;
 
         if (FootstepModifierQuery.TryComp(uid, out var moverModifier))
