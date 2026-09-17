@@ -475,6 +475,8 @@ marking-HumanHairJed = Pleasant
 
 marking-HumanHairJedPonytail = Pleasant (Tied)
 
+marking-HumanHairWaterfall = Waterfall
+
 # HeadSide
 
 # HeadTop
