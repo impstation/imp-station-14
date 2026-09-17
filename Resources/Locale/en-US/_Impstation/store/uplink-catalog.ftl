@@ -180,3 +180,6 @@ uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 c
 
 uplink-phone-syndicate-name = Blood-Red Phone
 uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
+
+uplink-murderscenebundle-name = Murder Scene Bundle
+uplink-murderscenebundle-desc = Everything you need to create a convincing murder scene, includes six dead crew balloons, convincing fake blood, and bullet casings!
