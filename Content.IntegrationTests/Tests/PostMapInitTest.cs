@@ -140,6 +140,7 @@ namespace Content.IntegrationTests.Tests
             "Hummingbird",
             "Haven",
             "Jellyfish",
+            "Dove",
             "Lilboat",
             "Luna",
             "MarathonImp",

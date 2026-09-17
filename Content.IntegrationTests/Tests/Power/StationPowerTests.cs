@@ -54,6 +54,7 @@ public sealed class StationPowerTests
         "GateImp",
         "Hummingbird",
         "Jellyfish",
+        "Dove",
         "Lilboat",
         "MarathonImp",
         "OasisImp",
