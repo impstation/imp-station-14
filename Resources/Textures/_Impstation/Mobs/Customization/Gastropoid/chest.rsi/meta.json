@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "puff1/2, spots, streaks, and stripes sprited by Widgetbeck (github), freckled, glow, lines, loops, painted, seam, splash, and gradient sprited by emmetian (github) for Impstation",
+    "copyright": "puff1/2, spots, streaks, and stripes sprited by Widgetbeck (github), freckled, glow, lines, loops, painted, seam, splash, and gradient sprited by emmetian (github). longtail, bigtail, legs and grub by StarlightHowls for Impstation",
     "size": {
         "x": 32,
         "y": 32
@@ -57,6 +57,22 @@
         },
         {
             "name": "gradient",
+            "directions": 4
+        },
+        {
+            "name": "bigtail",
+            "directions": 4
+        },
+        {
+            "name": "longtail",
+            "directions": 4
+        },
+        {
+            "name": "legs",
+            "directions": 4
+        },
+        {
+            "name": "grub",
             "directions": 4
         }
     ]
