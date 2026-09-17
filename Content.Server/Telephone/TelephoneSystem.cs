@@ -21,6 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using System.Linq;
+using Content.Shared._DV.AACTablet; // imp
 
 namespace Content.Server.Telephone;
 
@@ -81,7 +82,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
             return;
 
         // Ignore background chatter from non-player entities
-        if (!HasComp<MindContainerComponent>(args.Source))
+        if (HasComp<AACTabletComponent>(args.Source) ^ !HasComp<MindContainerComponent>(args.Source)) // imp. allows AAC users to be able to speak through holopads
             return;
 
         // Simple check to make sure that we haven't sent this message already this frame
