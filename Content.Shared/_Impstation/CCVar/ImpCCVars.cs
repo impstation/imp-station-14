@@ -1,3 +1,5 @@
+using Content.Shared._Impstation.Supermatter.Components;
+using Content.Shared.Atmos;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 
@@ -5,7 +7,7 @@ namespace Content.Shared._Impstation.CCVar;
 
 // ReSharper disable once InconsistentNaming
 [CVarDefs]
-public sealed class ImpCCVars : CVars
+public sealed partial class ImpCCVars : CVars
 {
     /// <summary>
     /// Toggles the proximity warping effect on the singularity.
