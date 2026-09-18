@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: DVDPlayerOfDiscordFame
   changes:
-  - message: Traitors can now purchase bundles of extended magazines for the Viper
-      or Cobra!
-    type: Add
-  id: 2451
-  time: '2025-11-23T09:34:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3747
-- author: DVDPlayerOfDiscordFame
-  changes:
   - message: Massively nerfed the HoP's origami skills so they can no longer make
       their certificate look like a disabler.
     type: Fix
@@ -4064,3 +4056,10 @@
   id: 2950
   time: '2026-09-16T10:29:15.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4638
+- author: yesteryuri
+  changes:
+  - message: Medical HUD glasses are available in the MediDrobe with other HUDs
+    type: Fix
+  id: 2951
+  time: '2026-09-17T06:29:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4642
