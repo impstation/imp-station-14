@@ -9,20 +9,12 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Reef Station {1}'
+          mapNameTemplate: '{0} Reef Salvage Construct {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'NT-RCH-'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
-        - type: StationSpecificMeteor
-          meteorReplacements:
-            MeteorSmall: MeteorWeakSmall
-            MeteorMedium: MeteorWeakMedium
-            MeteorLarge: MeteorWeakLarge
-            ImmovableRodKeepTilesStill: MeteorHolyFuckOhGod
-          announcementReplacements:
-            station-event-immovable-rod-spawn-announcement: station-event-meteor-doomsday-spawn-announcement
+          emergencyShuttlePath: /Maps/Shuttles/emergency_salvage.yml
         - type: StationJobs
           availableJobs: # Total of 64 jobs roundstart, max of 78 inc. latejoins and trainees.
             # command - 8
