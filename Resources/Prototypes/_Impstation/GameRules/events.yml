@@ -359,7 +359,7 @@
     weight: 3
     earliestStart: 20
     reoccurrenceDelay: 30
-    minimumPlayers: 25
+    minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: LandmineOrDudRareGibSpawner
     spawnEffect: EffectDesynchronizerExit
