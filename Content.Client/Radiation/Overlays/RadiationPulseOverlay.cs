@@ -42,7 +42,7 @@ namespace Content.Client.Radiation.Overlays
 
         protected override void Draw(in OverlayDrawArgs args)
         {
-            if (ScreenTexture == null)
+            if (ScreenTexture == null || args.Viewport.Eye == null) // imp, added || args.Viewport.Eye == null
                 return;
 
             var worldHandle = args.WorldHandle;
@@ -57,7 +57,7 @@ namespace Content.Client.Radiation.Overlays
                 // In other words, specifically NOT IViewportControl.WorldToScreen (which uses outer coordinates).
                 var tempCoords = viewport.WorldToLocal(instance.CurrentMapCoords.Position);
                 tempCoords.Y = viewport.Size.Y - tempCoords.Y;
-                shd?.SetParameter("renderScale", viewport.RenderScale);
+                shd?.SetParameter("renderScale", viewport.RenderScale * viewport.Eye.Scale); // imp, added * viewport.Eye.Scale
                 shd?.SetParameter("positionInput", tempCoords);
                 shd?.SetParameter("range", instance.Range);
                 var life = (_gameTiming.RealTime - instance.Start).TotalSeconds / instance.Duration;

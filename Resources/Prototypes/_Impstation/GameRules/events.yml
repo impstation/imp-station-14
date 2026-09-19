@@ -368,3 +368,15 @@
       max: 10
     emptyTilesOnly: true
     announcement: station-event-explosive-mine-resurgence-announcement
+
+- type: entity
+  id: LocalizedRadiationStorm
+  parent: BaseStationEventLongDelay
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 20
+    reoccurrenceDelay: 30
+    duration: 450 # 7.5 minutes
+    minimumPlayers: 20
+  - type: LocalizedRadiationStormRule

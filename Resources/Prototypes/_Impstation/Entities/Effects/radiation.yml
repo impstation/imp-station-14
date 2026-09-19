@@ -1,0 +1,7 @@
+- type: entity
+  parent: RadiationPulse
+  id: SmallRadiationPulse
+  components:
+  - type: RadiationSource
+    intensity: 15
+    slope: 4
