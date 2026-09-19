@@ -1,0 +1,159 @@
+- type: entity
+  name: mochi paste
+  parent: FoodBakingBase
+  id: FoodMochiPaste
+  description: ready to shape!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: paste
+  - type: SliceableFood
+    count: 3
+    slice: FoodMochiSlice
+
+- type: entity
+  name: moth-chi paste
+  parent: FoodBakingBase
+  id: FoodMoth-chiPaste
+  description: ready to shape!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - cotton
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: mothchi-paste
+  - type: SliceableFood
+    count: 3
+    slice: FoodMoth-chiSlice
+
+- type: entity
+  name: mochi
+  parent: FoodBakingBase
+  id: FoodMochiSlice
+  description: A little ball of mochi.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: slice
+  - type: Tag
+    tags:
+    - FoodSnack
+    - UnguFood
+    - ReptilianFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: moth-chi
+  parent: FoodBakingBase
+  id: FoodMoth-chiSlice
+  description: A little ball of moth-chi.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - cotton
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: mothchi-slice
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+    - ClothFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+
+- type: entity
+  name: berry daifuku
+  parent: FoodMealBase
+  id: FoodDaifuku
+  description: A little ball of mochi stuffed with a sweet filling.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - UnguFood
+    - ReptilianFood
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,0,0
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: daifuku
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: JuiceBerry
+          Quantity: 2
+
+- type: entity
+  name: mitarashi dango
+  parent: FoodMealBase
+  id: FoodMDango
+  description: Sweet, skewered, glazed mochi.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - UnguFood
+    - ReptilianFood
+  - type: Edible
+    trash:
+    - FoodKebabSkewer
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,0,0
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: mdango
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: Soysauce
+          Quantity: 2
+
+- type: entity
+  name: hanami dango
+  parent: FoodMDango
+  id: FoodHDango
+  description: Sweet, skewered mochi.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: hdango
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3

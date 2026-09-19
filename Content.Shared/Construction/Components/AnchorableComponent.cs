@@ -24,6 +24,17 @@ namespace Content.Shared.Construction.Components
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public float Delay = 1f;
+
+        // IMP ADD START
+        /// <summary>
+        /// Extra delay when anchoring or unanchoring. Resets to 0 when anchoring is complete or cancelled.
+        /// </summary>
+        /// <remarks>
+        /// Currently only used for AtmosUnsafeAnchorSystem
+        /// </remarks>
+        [ViewVariables(VVAccess.ReadOnly)]
+        public float AdditionalDelay = 0f;
+        // IMP ADD END
     }
 
     [Flags]

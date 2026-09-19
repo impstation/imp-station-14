@@ -1,3 +1,4 @@
+using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;
@@ -14,6 +15,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Update(float frameTime)
     {
@@ -54,6 +56,8 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         _stun.TryAddParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(2.5f));
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);
+        _damageable.TryChangeDamage(args.OtherEntity, ent.Comp.CollideDamage, origin: args.OurEntity);
+
         var tags = tag?.Tags ?? new();
 
         var proto = Prototype(args.OtherEntity);

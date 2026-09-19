@@ -28,6 +28,7 @@ using Robust.Shared.Utility;
 #if EXCEPTION_TOLERANCE
 using Robust.Shared.Exceptions;
 #endif
+using Content.Shared._Impstation.CCVar; // imp
 
 namespace Content.Server.GameTicking
 {
@@ -74,6 +75,7 @@ namespace Content.Server.GameTicking
         private ISawmill _sawmill = default!;
 
         private bool _randomizeCharacters;
+        private bool _randomizeCharactersRandomViableSpecies; // imp add
 
         public override void Initialize()
         {
@@ -86,6 +88,7 @@ namespace Content.Server.GameTicking
             _sawmillReplays = _logManager.GetSawmill("ticker.replays");
 
             Subs.CVar(_cfg, CCVars.ICRandomCharacters, e => _randomizeCharacters = e, true);
+            Subs.CVar(_cfg, ImpCCVars.ICRandomSpeciesRandomViable, e => _randomizeCharactersRandomViableSpecies = e, true); // imp add
 
             // Initialize the other parts of the game ticker.
             InitializeStatusShell();

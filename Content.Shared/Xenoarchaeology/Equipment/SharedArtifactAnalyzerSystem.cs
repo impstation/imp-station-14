@@ -141,19 +141,6 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
                 bias.Provider = args.Source;
             }
         }
-
-        if (!TryComp<AdvancedNodeScannerComponent>(args.Source, out var ansComp))
-        {
-            ent.Comp.AdvancedNodeScanner = args.Source;
-            Dirty(ent);
-
-            // Propogate the ANS to console
-            if (ent.Comp.Console is { } console && TryComp<AnalysisConsoleComponent>(console, out var consoleComp))
-            {
-                consoleComp.AdvancedNodeScanner = args.Source;
-                Dirty(console, consoleComp);
-            }
-        }
     }
 
     private void OnLinkAttemptConsole(Entity<AnalysisConsoleComponent> ent, ref LinkAttemptEvent args)

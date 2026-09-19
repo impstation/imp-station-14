@@ -28,7 +28,13 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> DisableAiStatic =
         CVarDef.Create("accessibility.disable_ai_static", false, CVar.CLIENTONLY | CVar.ARCHIVE);
-        
+
+    /// </summary>
+    /// Makes the Biomagnetic Polarization status effect polarity show as a large symbol ontop of the entity.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableBiomagneticPolarizationSymbols =
+        CVarDef.Create("accessibility.enable_biomagnetic_polarization_symbols", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// <summary>
     /// The number of shared moods to give thaven by default.
     /// </summary>
@@ -79,6 +85,12 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> AntagPlaytimeBiasing =
         CVarDef.Create("antag.play_time_biasing", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If true, random characters made with "ic.random_characters" can be non-roundstart species.
+    /// </summary>
+    public static readonly CVarDef<bool> ICRandomSpeciesRandomViable =
+        CVarDef.Create("ic.random_species_random_viable", true, CVar.SERVERONLY);
 
     /// <summary>
     /// How many characters the notifier text can be.
