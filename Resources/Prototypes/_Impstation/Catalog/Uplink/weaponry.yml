@@ -103,11 +103,11 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkAkurraBundle
+  id: UplinkAkurra
   name: uplink-akurra-name
   description: uplink-akurra-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledAkurra
+  productEntity: BriefcaseWeaponAkurraFilled
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 8
@@ -115,6 +115,11 @@
     Telecrystal: 12
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: uplinkOuroboros
@@ -132,8 +137,8 @@
 
 - type: listing
   id: uplinkNemesisBR
-  name: uplink-nemesis-br-name
-  description: uplink-nemesis-br-desc
+  name: uplink-basilisk-name
+  description: uplink-basilisk-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Rifles/nemesis.rsi, state: icon }
   productEntity: BriefcaseWeaponBasiliskFilled
   discountCategory: veryRareDiscounts
@@ -146,6 +151,25 @@
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkAkurraBundle
+  name: uplink-akurra-bundle-name
+  description: uplink-akurra-bundle-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledAkurra
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
       tags:
       - NukeOpsUplink
 
@@ -179,8 +203,8 @@
 
 - type: listing
   id: uplinkNemesisBRBundle
-  name: uplink-nemesis-br-name
-  description: uplink-nemesis-br-desc
+  name: uplink-basilisk-bundle-name
+  description: uplink-basilisk-bundle-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Rifles/nemesis.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledBR
   discountCategory: veryRareDiscounts

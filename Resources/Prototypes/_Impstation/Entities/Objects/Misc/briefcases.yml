@@ -48,6 +48,8 @@
     sprite: _Impstation/Objects/Storage/Briefcases/weapon_case_medium.rsi
   - type: Item
     size: Large
+    shape:
+    - 0,0,4,2
   - type: Storage
     maxItemSize: Large
     grid:
