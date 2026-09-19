@@ -11,11 +11,25 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkRevolverPython
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Revolvers/python.rsi, state: icon }
+  productEntity: BriefcaseWeaponPythonFilled
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkAdderBundle
   name: uplink-adder-name
   description: uplink-adder-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi, state: icon }
-  productEntity: AdderBox
+  productEntity: BriefcaseWeaponAdderFilled
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 3
@@ -32,7 +46,7 @@
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 3
-  productEntity: TaipanBox
+  productEntity: BriefcaseWeaponTaipanFilled
   cost:
     Telecrystal: 5
   categories:
@@ -82,7 +96,7 @@
   name: uplink-super-mosin-name
   description: uplink-super-mosin-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Snipers/star_service.rsi, state: base }
-  productEntity: ClothingBackpackDuffelSyndicateFilledSuperMosin
+  productEntity: BriefcaseWeaponStarServiceFilled
   cost:
     Telecrystal: 8
   categories:
@@ -106,7 +120,8 @@
   id: uplinkOuroboros
   name: uplink-ouroboros-name
   description: uplink-ouroboros-desc
-  productEntity: WeaponSpecialOuroboros
+  icon: { sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi, state: icon }
+  productEntity: BriefcaseWeaponOuroborosFilled
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 10
@@ -116,10 +131,30 @@
   - UplinkWeaponry
 
 - type: listing
+  id: uplinkNemesisBR
+  name: uplink-nemesis-br-name
+  description: uplink-nemesis-br-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Rifles/nemesis.rsi, state: icon }
+  productEntity: BriefcaseWeaponBasiliskFilled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: uplinkFlamethrower
   name: uplink-flamethrower-name
   description: uplink-flamethrower-desc
-  productEntity: WeaponFlamerXiuhcoatl
+  icon: { sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi, state: icon }
+  productEntity: BriefcaseWeaponXiuhcoatlFilled
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 14
@@ -143,7 +178,7 @@
   - UplinkWeaponry
 
 - type: listing
-  id: uplinkNemesisBR
+  id: uplinkNemesisBRBundle
   name: uplink-nemesis-br-name
   description: uplink-nemesis-br-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Rifles/nemesis.rsi, state: icon }
@@ -155,6 +190,11 @@
     Telecrystal: 18
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: uplinkAnankeBundle
@@ -214,7 +254,7 @@
   id: UplinkOuroBros
   name: uplink-ourobros-name
   description: uplink-ourobros-desc
-  productEntity: WeaponSpecialOuroBros
+  productEntity: BriefcaseWeaponOurobrosFilled
   cost:
     Telecrystal: 30
   categories:

@@ -180,3 +180,9 @@ uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 c
 
 uplink-phone-syndicate-name = Blood-Red Phone
 uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
+
+uplink-c20r-name = C-20R Gorgon
+uplink-c20r-desc = Old faithful: The classic C-20R Gorgon Submachine Gun.
+
+uplink-bulldog-name = Hydra
+uplink-bulldog-desc = Lean and mean: Contains the popular Hydra Shotgun.

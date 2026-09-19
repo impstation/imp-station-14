@@ -66,7 +66,7 @@
 
 - type: entity
   id: BriefcaseWeaponHushpupFilled
-  parent: BriefcaseWeaponSmall
+  parent: ImpBriefcaseWeaponMedium #Impstation
   name: secure hushpup case
   components:
   - type: EntityTableContainerFill
@@ -78,7 +78,7 @@
 
 - type: entity
   id: BriefcaseWeaponC20Filled
-  parent: BriefcaseWeaponSmall
+  parent: ImpBriefcaseWeaponMedium #Impstation
   name: secure C-20r case
   components:
   - type: EntityTableContainerFill
@@ -88,7 +88,7 @@
 
 - type: entity
   id: BriefcaseWeaponBulldogFilled
-  parent: BriefcaseWeaponLong # Impstation - OUR BULLDOG IS SO LONG
+  parent: ImpBriefcaseWeaponMedium #Impstation
   name: secure bulldog case
   components:
   - type: EntityTableContainerFill
@@ -108,7 +108,7 @@
 
 - type: entity
   id: BriefcaseWeaponChinaLakeFilled
-  parent: BriefcaseWeapon
+  parent: ImpBriefcaseWeaponLarge #Impstation
   name: secure china lake case
   components:
   - type: EntityTableContainerFill
