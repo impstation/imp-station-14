@@ -5,9 +5,6 @@
   suffix: Crusher
   components:
   - type: ArtifactCrusher
-    crushingWhitelist:
-      components:
-      - XenoArtifact
     crushingDamage:
       types:
         Blunt: 10
@@ -16,8 +13,6 @@
   - type: EntityStorage
     capacity: 1
     whitelist:
-      components:
-      - XenoArtifact
       tags:
       - CanPilot # People
       - VimPilot # Pets
