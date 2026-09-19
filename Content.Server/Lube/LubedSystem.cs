@@ -68,6 +68,8 @@ public sealed class LubedSystem : EntitySystem
 
     private void OnRefreshNameModifiers(Entity<LubedComponent> entity, ref RefreshNameModifiersEvent args)
     {
+        if (!entity.Comp.ApplyNamePrefix) // imp addition
+          return;
         args.AddModifier("lubed-name-prefix");
     }
 }

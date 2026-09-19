@@ -1,0 +1,33 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitBee
+  name: beekeeping suit
+  description: A special suit that keeps you safe from bees!
+  components:
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Suits/beesuit.rsi
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Suits/beesuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHoodBee
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHoodBee
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hoods/beesuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hoods/beesuit.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: FactionClothing
+    faction: Bee
