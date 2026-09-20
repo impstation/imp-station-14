@@ -7,8 +7,8 @@
   - type: Stomach
     specialDigestible:
       tags:
-      - ClothMade
-      - Paper
-      - Pill
+      - Trash
+    isSpecialDigestibleExclusive: false
   - type: Metabolizer
-    metabolizerTypes: [ Moth, Animal ]
+    maxReagents: 3
+    metabolizerTypes: [ Animal, Rat ]
