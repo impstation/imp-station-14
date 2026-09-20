@@ -19,7 +19,7 @@ public sealed partial class SynthComponent : Component
     /// <summary>
     /// VDS - The reagent that replaces the synth's blood
     /// </summary>
-    // Imp Edit - Changed to ProtoId<ReagentPrototype>.
+    // Imp Edit - Changed to ProtoId<ReagentPrototype>, made ReadOnly.
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
 }
