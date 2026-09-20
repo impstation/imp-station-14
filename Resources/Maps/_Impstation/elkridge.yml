@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/02/2026 16:15:45
-  entityCount: 18815
+  time: 09/17/2026 02:43:00
+  entityCount: 18816
 maps:
 - 1
 grids:
@@ -22989,15 +22989,16 @@ entities:
     - type: Transform
       pos: -19.544432,-21.40435
       parent: 2
-  - uid: 16983
-    components:
-    - type: Transform
-      pos: -30.397633,-10.487191
-      parent: 2
   - uid: 16984
     components:
     - type: Transform
       pos: 27.076672,5.5483246
+      parent: 2
+  - uid: 18816
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -30.432917,-10.075387
       parent: 2
 - proto: BoxFolderClipboardThreePapers
   entities:
@@ -85218,6 +85219,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -28.5,-1.5
+      parent: 2
+- proto: GlassBoxNukeDiskFilled
+  entities:
+  - uid: 16983
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -30.5,-10.5
       parent: 2
 - proto: GoldRing
   entities:
