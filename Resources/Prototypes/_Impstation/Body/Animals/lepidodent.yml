@@ -1,3 +1,4 @@
+# for eating normal food and cloth
 - type: entity
   id: OrganLepidodentStomach
   parent: OrganAnimalStomach
@@ -12,6 +13,8 @@
       - ClothMade
       - Paper
       - Pill
+  - type: Metabolizer
+    metabolizerTypes: [ Moth, Animal ]
 
 - type: entity
   id: BaseMobLepidodentBody

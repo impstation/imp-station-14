@@ -72,6 +72,13 @@
       state: "creampie_human"
       visible: false
 
+    # we put kode sing here so we dont have to redefine the whole fucking block elsewhere
+    # it should be fine because kode are the only thing with the componentry to make this visible
+    - map: [ enum.InstrumentVisuals.Layer ]
+      sprite: _DV/Effects/harpysinger.rsi
+      state: singing_music_notes
+      visible: false
+
 - type: entity
   id: BaseSpeciesAppearance
   parent:

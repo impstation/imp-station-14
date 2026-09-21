@@ -1603,8 +1603,6 @@
     board: ComputerMassMediaCircuitboard
   - type: DeviceNetworkRequiresPower
   - type: NewsWriter
-  - type: AccessReader
-    access: [[ "Reporter" ]] #imp edit
   - type: ActivatableUI
     key: enum.NewsWriterUiKey.Key
   - type: ActivatableUIRequiresVision
@@ -1921,6 +1919,9 @@
       state: generic_panel_open
   # - type: Computer
   #   board: SyndicateCommsComputerCircuitboard
+  - type: Anchorable
+    flags:
+    - Anchorable # No taking the console along!
   - type: PointLight
     radius: 1.5
     energy: 1.6

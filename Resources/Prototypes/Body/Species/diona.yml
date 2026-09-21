@@ -258,6 +258,7 @@
   id: OrganDionaBrainNymphing
   components:
   - type: Nymph
+    transferMind: true # imp early merge
     entityPrototype: OrganDionaNymphBrain
 
 - type: entity
