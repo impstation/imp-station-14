@@ -36,7 +36,10 @@ public sealed class SynthSystem : EntitySystem
         if (!TryComp<BloodstreamComponent>(uid, out var bloodStream))
             return;
 
-        Solution bloodSolution = new(component.SynthBloodReagent, bloodStream.BloodReferenceSolution.Volume);
+        Solution bloodSolution = new(component.SynthBloodReagent, bloodStream.BloodReferenceSolution.Volume)
+        {
+            MaxVolume = bloodStream.BloodReferenceSolution.Volume
+        };
         // Imp Edit End
 
         // Give them synth blood. Ion storm notif is handled in that system
