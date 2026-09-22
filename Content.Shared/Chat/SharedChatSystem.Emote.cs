@@ -181,15 +181,16 @@ public abstract partial class SharedChatSystem
             if (!AllowedToUseEmote(source, emote) || !TryInvokeEmoteEvent(source, emote)) // imp
                 continue;
 
-        foreach (var emote in emoteList) // Macro
-        {
-            if (!AllowedToUseEmote(source, emote))
-                continue; // Macro, continue instead of instantly returning
+            foreach (var emote in emoteList) // Macro
+            {
+                if (!AllowedToUseEmote(source, emote))
+                    continue; // Macro, continue instead of instantly returning
 
-            return TryInvokeEmoteEvent(source, emote);
+                return TryInvokeEmoteEvent(source, emote);
+            }
+
+            return true; // Macro, default if no emotes were valid
         }
-
-        return true; // Macro, default if no emotes were valid
     }
     /// <summary>
     /// Checks if we can use this emote based on the emotes whitelist, blacklist, and availability to the entity.

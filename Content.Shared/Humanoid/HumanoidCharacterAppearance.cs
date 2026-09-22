@@ -95,7 +95,8 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var skinType = protoMan.Index<SpeciesPrototype>(species).SkinColoration;
         var strategy = protoMan.Index(skinType).Strategy;
-
+    }
+}
         // IMP: we dont need any of this lol
         /* var newSkinColor = strategy.InputType switch
         {
@@ -257,3 +258,4 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         return new(this);
     }
 }
+*/
