@@ -1,7 +1,7 @@
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Shuttles.Events;
-using Content.Server.Spawners.Components; // IMP add
+using Content.Server.Shuttles.Events; // IMP addition
+using Content.Server.Spawners.Components;
 using Content.Shared.Whitelist;
 using Robust.Server.Physics;
 using Robust.Shared.Map;
