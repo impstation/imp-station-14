@@ -17,7 +17,7 @@ namespace Content.Server._Impstation.Homunculi;
 
 public sealed class HomunculusSystem : EntitySystem
 {
-    [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private readonly HumanoidProfileSystem _appearance = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IncubatorSystem _incubator = default!;
@@ -120,7 +120,7 @@ public sealed class HomunculusSystem : EntitySystem
 
         foreach (var urist in entities)
         {
-            if (!TryComp<HumanoidAppearanceComponent>(urist, out var appearanceComponent))
+            if (!TryComp<HumanoidProfileComponent>(urist, out var appearanceComponent))
                 return;
 
             skinColors.Add(appearanceComponent.SkinColor);
@@ -139,7 +139,7 @@ public sealed class HomunculusSystem : EntitySystem
                 }
             }
         }
-        if (!TryComp<HumanoidAppearanceComponent>(homunculi, out var homAppearanceComponent))
+        if (!TryComp<HumanoidProfileComponent>(homunculi, out var homAppearanceComponent))
             return;
 
         if (skinColors.Count > 0)

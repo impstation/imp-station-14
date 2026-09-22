@@ -141,7 +141,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         Color skinColor;
         Color eyeColor;
         Color bloodColor;
-        if (TryComp<HumanoidAppearanceComponent>(entity, out var humanoid) && TryComp<BloodstreamComponent>(entity, out var bloodstream) // get the humanoidappearance and bloodstream
+        if (TryComp<HumanoidProfileComponent>(entity, out var humanoid) && TryComp<BloodstreamComponent>(entity, out var bloodstream) // get the humanoidappearance and bloodstream
         && bloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype is { } reagentProto // TODO: FIX THIS
         && _prot.TryIndex(reagentProto, out ReagentPrototype? blood) && blood != null) // get the blood reagent
         {

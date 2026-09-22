@@ -22,6 +22,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes; // imp
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._MACRO.Species.Kodepiia.Consume;
@@ -48,6 +49,7 @@ public abstract partial class SharedConsumeSystem : EntitySystem
     [Dependency] private SharedRottingSystem _rotting = default!;
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private StomachSystem _stomach = default!;
+    [Dependency] protected readonly IPrototypeManager ProtoMan = default!; // imp
 
     private int _gibThreshold;
 
@@ -55,7 +57,15 @@ public abstract partial class SharedConsumeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BodyComponent, ConsumeGetLargestStomachEvent>(_body.RelayEvent);
+        // imp. KILL THESE SUBSCRIPTIONS AFTER WE UPDATE ENGINE! REPLACE WITH SUBSCRIPTION ATTRIBUTES.
+
+        SubscribeLocalEvent<StomachComponent, BodyRelayedEvent<ConsumeGetLargestStomachEvent>>(OnGetLargestStomach);
+
+        SubscribeLocalEvent<ConsumeActionComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ConsumeActionComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ConsumeActionComponent, ConsumeEvent>(OnConsumeAction);
+        SubscribeLocalEvent<ConsumeActionComponent, ConsumeDoAfterEvent>(OnConsumeDoAfter);
+        SubscribeLocalEvent<ConsumeActionComponent, ComponentStartup>(OnStartup);
 
         Subs.CVar(_config,
             MacroCCVars.ConsumptionGibThreshold,
@@ -67,7 +77,6 @@ public abstract partial class SharedConsumeSystem : EntitySystem
     ///     Give consumers an action to targeting entities for consumption.
     /// </summary>
     /// <param name="ent">The consumer entity.</param>
-    [SubscribeLocalEvent]
     private void OnStartup(Entity<ConsumeActionComponent> ent, ref ComponentStartup args)
     {
         _actions.AddAction(ent, ref ent.Comp.ConsumeAction, ent.Comp.ConsumeActionId);
@@ -77,7 +86,6 @@ public abstract partial class SharedConsumeSystem : EntitySystem
     ///     Remove the "consume" action from consumers.
     /// </summary>
     /// <param name="ent">The consumer entity.</param>
-    [SubscribeLocalEvent]
     private void OnShutdown(Entity<ConsumeActionComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Owner, ent.Comp.ConsumeAction);
@@ -87,7 +95,6 @@ public abstract partial class SharedConsumeSystem : EntitySystem
     ///     Attempt to begin consuming a target if a valid target is selected.
     /// </summary>
     /// <param name="ent">The consumer entity.</param>
-    [SubscribeLocalEvent]
     private void OnConsumeAction(Entity<ConsumeActionComponent> ent, ref ConsumeEvent args)
     {
         var target = args.Target;
@@ -137,7 +144,6 @@ public abstract partial class SharedConsumeSystem : EntitySystem
     ///     Take a bite out of a valid target if we successfully finish consumption.
     /// </summary>
     /// <param name="ent">The consumer entity.</param>
-    [SubscribeLocalEvent]
     private void OnConsumeDoAfter(Entity<ConsumeActionComponent> ent, ref ConsumeDoAfterEvent args)
     {
         if (args.Cancelled
@@ -167,7 +173,6 @@ public abstract partial class SharedConsumeSystem : EntitySystem
     ///     Update the largest stomach if this stomach is larger than the previous one.
     /// </summary>
     /// <param name="ent">The stomach entity.</param>
-    [SubscribeLocalEvent]
     private void OnGetLargestStomach(Entity<StomachComponent> ent, ref BodyRelayedEvent<ConsumeGetLargestStomachEvent> args)
     {
         if (!TryGetStomachSolution(ent.AsNullable(), out var stomachSol))

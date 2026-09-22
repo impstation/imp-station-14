@@ -234,7 +234,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
             //get the character's gender
             var genderString = "epicene"; //default to they/them'ing people
-            if (TryComp<HumanoidAppearanceComponent>(GetEntity(mind.OriginalOwnedEntity!), out var appearance))
+            if (TryComp<HumanoidProfileComponent>(GetEntity(mind.OriginalOwnedEntity!), out var appearance))
             {
                 genderString = appearance.Gender.ToString().ToLowerInvariant();
             }

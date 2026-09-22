@@ -126,7 +126,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
             //get the operative's gender
             var genderString = "epicene"; //default to they/them'ing people
-            if (TryComp<HumanoidAppearanceComponent>(GetEntity(mindComp.OriginalOwnedEntity!), out var appearance))
+            if (TryComp<HumanoidProfileComponent>(GetEntity(mindComp.OriginalOwnedEntity!), out var appearance))
             {
                 genderString = appearance.Gender.ToString().ToLowerInvariant();
             }

@@ -15,6 +15,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._MACRO.Tools.Components; // macro
+using Content.Shared.Whitelist; // imp
 
 namespace Content.Shared.Tools.Systems;
 

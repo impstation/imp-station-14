@@ -1,4 +1,5 @@
 ﻿using Content.Shared._Impstation.Xenoarchaeology.Artifact.XAE.Components;
+using Content.Shared.Body;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Forensics.Systems;
@@ -16,7 +17,8 @@ public sealed class XAEScrambleDNASystem : BaseXAESystem<XAEScrambleDNAComponent
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedForensicsSystem _forensicsSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
@@ -46,12 +48,13 @@ public sealed class XAEScrambleDNASystem : BaseXAESystem<XAEScrambleDNAComponent
     private void ScrambleTargetDNA(EntityUid target, XAEScrambleDNAComponent component)
     {
         // TODO: Implement cross-species transformation (requires de-transforms from all species and transforms to all species)
-        if (TryComp<HumanoidAppearanceComponent>(target, out var humanoid))
+        if (TryComp<HumanoidProfileComponent>(target, out var humanoid) && TryComp<VisualBodyComponent>(target, out var visBody))
         {
             var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
             newProfile.Gender = humanoid.Gender; // No Gender dysphoria please
             newProfile.Sex = humanoid.Sex; // No Sex dysphoria either
-            _humanoidAppearance.LoadProfile(target, newProfile, humanoid);
+            _visualBody.ApplyProfileTo((target, visBody), newProfile);
+            _humanoidProfile.ApplyProfileTo((target, humanoid), newProfile);
             _metaData.SetEntityName(target, newProfile.Name, raiseEvents: false); //NT systems recognise you as someone else
             if (HasComp<DnaComponent>(target))
                 _forensicsSystem.RandomizeDNA(target);
