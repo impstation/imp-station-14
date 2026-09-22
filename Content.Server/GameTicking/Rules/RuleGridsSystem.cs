@@ -27,7 +27,7 @@ public sealed class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
 
         SubscribeLocalEvent<RuleGridsComponent, RuleLoadedGridsEvent>(OnLoadedGrids);
         SubscribeLocalEvent<RuleGridsComponent, AntagSelectLocationEvent>(OnSelectLocation);
-        SubscribeLocalEvent<FTLStartedEvent>(OnFTLStarted); // imp addition
+        SubscribeLocalEvent<FTLStartedEvent>(OnFTLStarted); // IMP addition
     }
 
     private void OnGridSplit(ref GridSplitEvent args)
