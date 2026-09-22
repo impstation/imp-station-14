@@ -1,8 +1,8 @@
 - type: species
   id: Allulalo
   name: species-name-allulalo
-  roundStart: false
-  #randomViable: true
+  roundStart: true
+  randomViable: true
   prototype: MobAllulalo
   defaultSkinTone: "#385878"
   dollPrototype: AppearanceAllulalo

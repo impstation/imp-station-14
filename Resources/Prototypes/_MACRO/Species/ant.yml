@@ -1,8 +1,8 @@
 ﻿- type: species
   id: Ant
   name: species-name-ant
-  roundStart: false
-  #randomViable: false
+  roundStart: true # for testing
+  randomViable: false
   prototype: MobAnt
   dollPrototype: AppearanceAnt
   skinColoration: Hues

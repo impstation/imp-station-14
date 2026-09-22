@@ -1,8 +1,8 @@
 - type: species
   id: Gastropoid
   name: species-name-gastropoid
-  roundStart: false
-  #randomViable: false
+  roundStart: true
+  randomViable: true
   prototype: MobGastropoid
   defaultSkinTone: "#385878"
   dollPrototype: AppearanceGastropoid

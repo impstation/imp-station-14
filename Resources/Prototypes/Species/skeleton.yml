@@ -1,7 +1,7 @@
 - type: species
   id: Skeleton
   name: species-name-skeleton
-  roundStart: false
+  roundStart: true # testing
   randomViable: true # imp
   randomChance: 0.33 # imp
   prototype: MobSkeletonPerson

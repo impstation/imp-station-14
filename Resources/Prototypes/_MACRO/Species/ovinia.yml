@@ -1,8 +1,8 @@
 - type: species
   id: Ovinia
   name: species-name-ovinia
-  roundStart: false
-  #randomViable: false
+  roundStart: true # idk if theyre gonna be roundstart but true for testing
+  randomViable: true
   prototype: MobOvinia
   defaultSkinTone: "#ffffff"
   dollPrototype: AppearanceOvinia

@@ -1,8 +1,8 @@
 - type: species
   id: Apid
   name: species-name-apid
-  roundStart: false
-  #randomViable: false
+  roundStart: true # for testing but... what if
+  randomViable: true
   prototype: MobApid
   defaultSkinTone: "#fcd719"
   dollPrototype: AppearanceApid
