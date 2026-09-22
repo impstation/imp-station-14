@@ -14,7 +14,7 @@ public abstract partial class SharedChatSystem
     private void CacheEmotes()
     {
         var dict = new Dictionary<string, List<EmotePrototype>>(); // Macro, list instead of individual
-        var emotes = ProtoMan.EnumeratePrototypes<EmotePrototype>();
+        var emotes = _prototypeManager.EnumeratePrototypes<EmotePrototype>();
         foreach (var emote in emotes)
         {
             foreach (var word in emote.ChatTriggers)
@@ -175,23 +175,18 @@ public abstract partial class SharedChatSystem
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emoteList)) // Macro, output list instead of individual
             return true;
-        bool validEmote = false; // DeltaV - Multiple emotes for the same trigger
-        foreach (var emote in emotes)
+
+        foreach (var emote in emoteList) // Macro
         {
-            if (!AllowedToUseEmote(source, emote) || !TryInvokeEmoteEvent(source, emote)) // imp
-                continue;
+            if (!AllowedToUseEmote(source, emote))
+                continue; // Macro, continue instead of instantly returning
 
-            foreach (var emote in emoteList) // Macro
-            {
-                if (!AllowedToUseEmote(source, emote))
-                    continue; // Macro, continue instead of instantly returning
-
-                return TryInvokeEmoteEvent(source, emote);
-            }
-
-            return true; // Macro, default if no emotes were valid
+            return TryInvokeEmoteEvent(source, emote);
         }
+
+        return true; // Macro, default if no emotes were valid
     }
+
     /// <summary>
     /// Checks if we can use this emote based on the emotes whitelist, blacklist, and availability to the entity.
     /// </summary>

@@ -29,7 +29,7 @@ public sealed partial class MakeSyndientEntityEffectSystem : EntityEffectSystem<
         // Stops from adding a ghost role to things like people who already have a mind
         if (TryComp<MindContainerComponent>(entity, out var mindContainer) && mindContainer.HasMind ||
         //slightly hacky way to make sure it doesn't work on humanoid ghost roles that haven't been claimed yet
-            HasComp<HumanoidAppearanceComponent>(entity))
+            HasComp<HumanoidProfileComponent>(entity))
         {
             return;
         }

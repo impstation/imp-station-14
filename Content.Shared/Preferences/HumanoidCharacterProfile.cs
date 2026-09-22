@@ -20,6 +20,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Robust.Shared;
 using YamlDotNet.RepresentationModel;
+using Content.Shared._CD.Records; // imp
 
 namespace Content.Shared.Preferences
 {

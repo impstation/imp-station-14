@@ -95,10 +95,8 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var skinType = protoMan.Index<SpeciesPrototype>(species).SkinColoration;
         var strategy = protoMan.Index(skinType).Strategy;
-    }
-}
-        // IMP: we dont need any of this lol
-        /* var newSkinColor = strategy.InputType switch
+
+        var newSkinColor = strategy.InputType switch
         {
             SkinColorationStrategyInput.Unary => strategy.FromUnary(random.NextFloat(0f, 100f)),
             SkinColorationStrategyInput.Color => strategy.ClosestSkinColor(new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1)),
@@ -107,70 +105,10 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
 
         return new HumanoidCharacterAppearance(newEyeColor, newSkinColor, new());
 
-        // helper functions:
-        // (this one is upstream)
         float RandomizeColor(float channel)
         {
             return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
         }
-
-        // imp:
-        List<Color> GetComplementaryColors(Color color, double angle)
-        {
-            var hsl = Color.ToHsl(color);
-
-            // sorry about how messy these are, but to get all random values we need to reroll for positive and negative HSL
-            var hVal = hsl.X + angle;
-            hVal = hVal >= 0.360 ? hVal - 0.360 : hVal;
-            var positiveHSL = new Vector4((float)hVal, MathHelper.Clamp01(hsl.Y + random.Next(-20, 0) / 100f), MathHelper.Clamp01(hsl.Z + random.Next(-15, 15) / 100f), hsl.W);
-
-            var hVal1 = hsl.X - angle;
-            hVal1 = hVal1 <= 0 ? hVal1 + 0.360 : hVal1;
-            var negativeHSL = new Vector4((float)hVal1, MathHelper.Clamp01(hsl.Y + random.Next(-20, 0) / 100f), MathHelper.Clamp01(hsl.Z + random.Next(-15, 15) / 100f), hsl.W);
-
-            var c0 = Color.FromHsl(positiveHSL);
-            var c1 = Color.FromHsl(negativeHSL);
-
-            var palette = new List<Color> { color, c0, c1 };
-            return palette;
-        }
-
-        // return a list of triadic complementary colors
-        List<Color> GetTriadicComplementaries(Color color)
-        {
-            return GetComplementaryColors(color, 0.120);
-        }
-
-        // return a list of split complementary colors
-        List<Color> GetSplitComplementaries(Color color)
-        {
-            return GetComplementaryColors(color, 0.150);
-        }
-
-        // return a list containing the base color and two copies of a single complemenary color
-        List<Color> GetOneComplementary(Color color)
-        {
-            return GetComplementaryColors(color, 0.180);
-        }
-
-        Color SquashToSkinLuminosity(Color skinColor, Color toSquash)
-        {
-            var skinColorHSL = Color.ToHsl(skinColor);
-            var toSquashHSL = Color.ToHsl(toSquash);
-
-            // check if the skin color is as dark as or darker than the marking color:
-            if (toSquashHSL.Z <= skinColorHSL.Z)
-            {
-                // if it is, don't fuck with it
-                return toSquash;
-            }
-
-            // otherwise, create a new color with the H, S, and A of toSquash, but the L of skinColor
-            var newColor = new Vector4(toSquashHSL.X, toSquashHSL.Y, skinColorHSL.Z, toSquashHSL.W);
-            return Color.FromHsl(newColor);
-        }
-        // IMP EDIT END
-        // SORRY TO ANYONE WHO HAS TO EDIT THIS
     }
 
     public static Color ClampColor(Color color)
@@ -258,4 +196,3 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         return new(this);
     }
 }
-*/

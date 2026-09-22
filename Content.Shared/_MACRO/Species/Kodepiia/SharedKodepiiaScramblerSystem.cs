@@ -12,13 +12,20 @@ public abstract partial class SharedKodepiiaScramblerSystem : EntitySystem
 {
     [Dependency] private SharedActionsSystem _actionsSystem = default!;
 
-    [SubscribeLocalEvent]
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        // imp. KILL THESE SUBSCRIPTIONS AFTER WE UPDATE ENGINE! REPLACE WITH SUBSCRIPTION ATTRIBUTES.
+        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<KodepiiaScramblerComponent, ComponentShutdown>(OnShutdown);
+    }
+
     private void OnStartup(Entity<KodepiiaScramblerComponent> ent, ref ComponentStartup args)
     {
         _actionsSystem.AddAction(ent, ref ent.Comp.ScramblerAction, ent.Comp.ScramblerActionId);
     }
 
-    [SubscribeLocalEvent]
     private void OnShutdown(Entity<KodepiiaScramblerComponent> ent, ref ComponentShutdown args)
     {
         _actionsSystem.RemoveAction(ent.Owner, ent.Comp.ScramblerAction);

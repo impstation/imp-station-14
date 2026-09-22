@@ -3,8 +3,8 @@ using Content.Server._Impstation.Heretic.Components;
 using Content.Server.Antag;
 using Content.Server.Cloning;
 using Content.Server.EUI;
-using Content.Server.Humanoid;
 using Content.Shared._Impstation.Heretic.Components;
+using Content.Shared.Body;
 using Content.Shared.Cloning;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
@@ -39,7 +39,7 @@ public sealed class HellWorldSystem : EntitySystem
 
     [Dependency] private readonly BlindableSystem _blind = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -52,6 +52,7 @@ public sealed class HellWorldSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
 
     private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
     private readonly ProtoId<CloningSettingsPrototype> _cloneSettings = "HellClone";
@@ -236,7 +237,8 @@ public sealed class HellWorldSystem : EntitySystem
     private void OnInit(EntityUid ent, HellVictimComponent component, ComponentInit args)
     {
         //TODO: apply this to markings as well
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+        if (TryComp<VisualBodyComponent>(ent, out var humanoid)
+        && _visualBody.TryGatherMarkingsData(ent, null, out var profiles, out _, out var markings))
         {
             //there's no color saturation methods so you get this garbage instead
             var skinColor = humanoid.SkinColor;
@@ -244,8 +246,10 @@ public sealed class HellWorldSystem : EntitySystem
             colorHSV.Y /= 4;
             var newColor = Color.FromHsv(colorHSV);
             //make them look like they've seen some shit
-            _humanoid.SetSkinColor(ent, newColor, true, false, humanoid);
-            _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, Color.White, true, humanoid);
+
+            var sacdProfiles = profiles.ToDictionary(pair => pair.Key,
+                pair => pair.Value with { EyeColor = Color.White, SkinColor = newColor });
+            _visualBody.ApplyProfiles(ent, sacdProfiles);
         }
     }
 
