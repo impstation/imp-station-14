@@ -1,7 +1,7 @@
 - type: entity
-  name: Draculighter
+  name: draculighter
   parent: FlippoLighter
-  id: DracuLighter # yes there is one more capital in this one vs the name. Are you mad at me
+  id: DracuLighter
   description: "A vampiric Flippo, perfect for lighting up a drack pack."
   components:
   - type: Sprite
