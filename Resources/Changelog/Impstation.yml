@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Squamatic
-  changes:
-  - message: Ceremonies involving the traditional Gray blaster will now be held at
-      an appropriate volume.
-    type: Fix
-  id: 2456
-  time: '2025-11-30T05:07:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3784
 - author: Smugman
   changes:
   - message: Recruiters and Synthesis Specialists are less rare now
@@ -4059,3 +4051,12 @@
   id: 2955
   time: '2026-09-21T02:47:44.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4562
+- author: Guy_some1
+  changes:
+  - message: Gave ERT security a backpack
+    type: Add
+  - message: ERT leaders not spawning with valkyrie
+    type: Fix
+  id: 2956
+  time: '2026-09-21T19:32:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4646
