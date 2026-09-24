@@ -15,3 +15,6 @@
       - CanPilot # People
       - VimPilot # Pets
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      paper_label: !type:ContainerSlot
