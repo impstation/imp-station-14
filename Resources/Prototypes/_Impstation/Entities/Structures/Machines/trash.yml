@@ -1,6 +1,6 @@
 - type: entity
   id: CrateTrashCartCrusher
-  parent: [ BaseMachine, CrateTrashCart ]
+  parent: CrateTrashCart
   name: trash cart
   suffix: Crusher
   components:
@@ -15,9 +15,3 @@
       - CanPilot # People
       - VimPilot # Pets
   - type: Appearance
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
-      entity_storage: !type:Container
-      output_container: !type:Container
