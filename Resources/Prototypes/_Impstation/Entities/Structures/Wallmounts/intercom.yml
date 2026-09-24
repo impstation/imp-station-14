@@ -12,6 +12,7 @@
       - EncryptionKeyCommon
       - EncryptionKeySecurity
       - EncryptionKeyMedical
+      - EncryptionKeyAi
 
 - type: entity
   id: IntercomMedSci
@@ -26,6 +27,7 @@
       - EncryptionKeyCommon
       - EncryptionKeyMedical
       - EncryptionKeyScience
+      - EncryptionKeyAi
 
 #departmental heads
 - type: entity
@@ -41,6 +43,7 @@
       - EncryptionKeyCommon
       - EncryptionKeyCommand
       - EncryptionKeyEngineering
+      - EncryptionKeyAi
 
 - type: entity
   id: IntercomCommandMedical
@@ -55,6 +58,7 @@
       - EncryptionKeyCommon
       - EncryptionKeyCommand
       - EncryptionKeyMedical
+      - EncryptionKeyAi
 
 - type: entity
   id: IntercomCommandScience
@@ -69,6 +73,7 @@
       - EncryptionKeyCommon
       - EncryptionKeyCommand
       - EncryptionKeyScience
+      - EncryptionKeyAi
 
 - type: entity
   id: IntercomCommandSecurity
@@ -83,6 +88,7 @@
       - EncryptionKeyCommon
       - EncryptionKeyCommand
       - EncryptionKeySecurity
+      - EncryptionKeyAi
 
 - type: entity
   id: IntercomCommandService
@@ -97,6 +103,7 @@
       - EncryptionKeyCommon
       - EncryptionKeyCommand
       - EncryptionKeyService
+      - EncryptionKeyAi
 
 - type: entity
   id: IntercomCommandSupply
@@ -111,3 +118,4 @@
       - EncryptionKeyCommon
       - EncryptionKeyCommand
       - EncryptionKeyCargo
+      - EncryptionKeyAi
