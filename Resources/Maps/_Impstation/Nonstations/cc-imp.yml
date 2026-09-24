@@ -3444,7 +3444,8 @@ entities:
     - type: ExplosionAirtightGrid
     - type: NavMap
     - type: FTLDestination
-    - type: StationCentcomm
+    - type: BecomesStation
+      id: centcomm
     - type: Shuttle
       dampingModifier: 0.25
 - proto: ActionToggleLight
