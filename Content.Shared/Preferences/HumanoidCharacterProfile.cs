@@ -286,6 +286,7 @@ namespace Content.Shared.Preferences
                 Gender = gender,
                 Species = species,
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
+                CDCharacterRecords = PlayerProvidedCharacterRecords.DefaultRecords(), // imp, add cdcharacterrecords to random characters
             };
         }
 
