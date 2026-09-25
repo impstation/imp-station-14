@@ -1,15 +1,6 @@
 ﻿Entries:
 - author: TheGrimbeeper
   changes:
-  - message: Some natural artifact effects were only happening once, instead of infinite.
-      (Natural artifact effects that are 'only active while their node is the current
-      one').
-    type: Fix
-  id: 2467
-  time: '2025-12-06T01:50:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3787
-- author: TheGrimbeeper
-  changes:
   - message: Anomalous Gifts detected on the station
     type: Tweak
   id: 2468
@@ -4047,3 +4038,11 @@
   id: 2966
   time: '2026-09-25T09:24:06.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4658
+- author: Toasterblast
+  changes:
+  - message: Janitor's Treet, which obviously implies they eat floor tiles. (janitorial
+      RCD as a yummy treat for particularly yucky maps)
+    type: Add
+  id: 2967
+  time: '2026-09-25T09:34:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4567
