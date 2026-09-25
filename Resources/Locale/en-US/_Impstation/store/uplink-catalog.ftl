@@ -19,8 +19,11 @@ uplink-advanced-mimery-desc = The classical two part series on how to further ho
 uplink-zipper-ap-name = Zipper .22
 uplink-zipper-ap-desc = A regretful purchase from a liquidation sale. Comes loaded with armor-piercing rounds. Uses .22 auto.
 
-uplink-nemesis-br-name = Basilisk-11 bundle
-uplink-nemesis-br-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle, bundled with 3 magazines.
+uplink-basilisk-name = Basilisk-11
+uplink-basilisk-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle.
+
+uplink-basilisk-bundle-name = Basilisk-11 bundle
+uplink-basilisk-bundle-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle, bundled with 2 magazines.
 
 uplink-rifle-magazine-nemesis-name = Rifle magazine (.25 caseless)
 uplink-rifle-magazine-nemesis-desc = Rifle magazine with 24 cartridges. Compatible with the Basilisk-11.
@@ -52,8 +55,11 @@ uplink-saw-ammo-desc = A box of 50 cartridges compatible with the L6 Nidhogg lig
 uplink-adder-name = Adder bundle
 uplink-adder-desc = One state-of-the-art Adder plasma pistol, bundled with 2 canisters of its proprietary liquid ammo.
 
-uplink-akurra-name = Akurra bundle
-uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled with 4 canisters of its proprietary liquid ammo.
+uplink-akurra-name = Akurra
+uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled with 2 canisters of its proprietary liquid ammo.
+
+uplink-akurra-bundle-name = Akurra
+uplink-akurra-bundle-desc = Fearsome as it is advanced, the venerable Akurra bundled with 4 canisters of its proprietary liquid ammo.
 
 uplink-flamethrower-name = FG13 Xiuhcoatl flamethrower
 uplink-flamethrower-desc = Invite Nanotrasen to the cookout with this portable incendiary weapon.
@@ -183,3 +189,9 @@ uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 c
 
 uplink-phone-syndicate-name = Blood-Red Phone
 uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
+
+uplink-c20r-name = C-20R Gorgon
+uplink-c20r-desc = Old faithful: The classic C-20R Gorgon Submachine Gun.
+
+uplink-bulldog-name = Hydra
+uplink-bulldog-desc = Lean and mean: Contains the popular Hydra Shotgun.
