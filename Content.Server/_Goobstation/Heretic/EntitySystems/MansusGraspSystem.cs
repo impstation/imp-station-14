@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Heretic.Components;
+using Content.Server._Impstation.Heretic.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
@@ -20,7 +20,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.NPC.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;
@@ -33,7 +32,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
-using Content.Shared._Impstation.Heretic; // imp edit
+using Content.Shared._Impstation.Heretic;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -42,7 +41,6 @@ namespace Content.Server.Heretic.EntitySystems;
 /// </summary>
 public sealed partial class MansusGraspSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -59,11 +57,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly MovementModStatusSystem _movementModStatus = default!;
 
-
-
-    private readonly ProtoId<NpcFactionPrototype> _hereticFaction = "Heretic";
     public static readonly EntProtoId FlashSlowdown = "FlashSlowdownStatusEffect";
-
 
     /// <summary>
     /// Applies mansus grasp effect. huge switch case for each path
@@ -243,7 +237,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     {
         var tags = ent.Comp.Tags;
 
-        if(!TryComp<HandsComponent>(args.User, out var userHands))
+        if (!TryComp<HandsComponent>(args.User, out var userHands))
         {
             return;
         }
@@ -253,7 +247,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
         || !MansusGraspActive(args.User) && !(userHands.Count <= 1) // no grasp or no extra hand to make a grasp
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
-        || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw")) // not a writing implement or decapoid claw
+        || !tags.Contains("Write") && !tags.Contains("DecapoidClaw") // not a writing implement or decapoid claw
         || args.Target != null && HasComp<ItemComponent>(args.Target)) //don't allow clicking items (otherwise the circle gets stuck to them)
             return;
 
@@ -295,15 +289,18 @@ public sealed partial class MansusGraspSystem : EntitySystem
     /// </summary
     private void OnFleshGraspDoAfter(Entity<HereticComponent> ent, ref FleshGraspDoAfterEvent ev)
     {
-        if (!ev.Cancelled)
-        {
-            var minion = EnsureComp<MinionComponent>(ev.Target);
-            EnsureComp<GhoulComponent>(ev.Target);
-            minion.BoundOwner = ent;
-            minion.FactionsToAdd.Add(_hereticFaction);
-            _minion.ConvertEntityToMinion((ev.Target, minion), true, true, true);
-            var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
-            _popup.PopupEntity(popupOthers, ev.Target, PopupType.LargeCaution);
-        }
+        if (ev.Cancelled)
+            return;
+
+        // Convert the entity into a ghoul.
+        var minion = EnsureComp<MinionComponent>(ev.Target);
+        EnsureComp<GhoulComponent>(ev.Target);
+        minion.BoundOwner = ent;
+        _minion.ConvertEntityToMinion((ev.Target, minion), true);
+        Dirty(ev.Target, minion);
+
+        // Show a big popup to everyone in the vicinity.
+        var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
+        _popup.PopupEntity(popupOthers, ev.Target, PopupType.LargeCaution);
     }
 }

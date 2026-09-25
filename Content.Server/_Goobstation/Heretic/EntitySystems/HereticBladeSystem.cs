@@ -112,7 +112,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         var queuedel = true;
 
         // void path exxclusive
-        if (_knowledge.HasKnowledge(heretic,"SeekingBlade"))
+        if (_knowledge.HasKnowledge(heretic, "SeekingBlade"))
         {
             var look = _lookupSystem.GetEntitiesInRange<HereticCombatMarkComponent>(Transform(ent).Coordinates, 20f);
             if (look.Count > 0)
@@ -143,7 +143,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString("heretic-blade-examine"));
 
-        if (_knowledge.HasKnowledge(heretic,"SeekingBlade"))
+        if (_knowledge.HasKnowledge(heretic, "SeekingBlade"))
             sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
 
         args.PushMarkup(sb.ToString());

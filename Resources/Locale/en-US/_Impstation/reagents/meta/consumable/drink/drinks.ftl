@@ -15,3 +15,6 @@ reagent-desc-feverdream = A creamy, hallucinogenic cocktail of thaven blood, abs
 
 reagent-name-liquidlunch = liquid lunch
 reagent-desc-liquidlunch = For when you need your lunch on the go.
+
+reagent-name-cafe-latte-vanilla = vanilla cafe latte
+reagent-desc-cafe-latte-vanilla = A smooth relaxing way to start your shift.
