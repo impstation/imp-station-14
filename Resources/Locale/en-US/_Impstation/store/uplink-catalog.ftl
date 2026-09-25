@@ -191,7 +191,7 @@ uplink-bear-trap-name = Cindy head trap
 uplink-bear-trap-desc = You swear you saw this in a movie once... Multitool linking required.
 
 uplink-trash-crusher-name = Trash Compactor Cart
-uplink-trash-crusher-desc = A special janitor cart with crushing pistions hidden inside.
+uplink-trash-crusher-desc = A special janitor cart with crushing pistons hidden inside.
 
 uplink-fake-cash-name = Slippery Spesos
 uplink-fake-cash-desc = Not actually real but good luck holding it long enough to tell.
