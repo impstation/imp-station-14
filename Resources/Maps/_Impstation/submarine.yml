@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/18/2026 02:36:00
-  entityCount: 44301
+  time: 09/25/2026 21:43:18
+  entityCount: 44322
 maps:
 - 18185
 grids:
@@ -26448,6 +26448,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 29.5,2.5
       parent: 2
+  - uid: 42848
+    components:
+    - type: Transform
+      pos: 11.5,-9.5
+      parent: 2
 - proto: AirlockMedicalLocked
   entities:
   - uid: 428
@@ -38410,6 +38415,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 57.5,-1.5
+      parent: 2
+- proto: BongWizard
+  entities:
+  - uid: 42836
+    components:
+    - type: Transform
+      pos: 28.407907,-19.905903
       parent: 2
 - proto: BookAtmosDistro
   entities:
@@ -91200,19 +91212,16 @@ entities:
   - uid: 36962
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -76.5,16.5
       parent: 2
   - uid: 36963
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -75.5,17.5
       parent: 2
   - uid: 36966
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -75.5,16.5
       parent: 2
   - uid: 37186
@@ -91223,19 +91232,16 @@ entities:
   - uid: 41974
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -76.5,17.5
       parent: 2
   - uid: 41985
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -75.5,18.5
       parent: 2
   - uid: 41987
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -76.5,18.5
       parent: 2
   - uid: 43884
@@ -103175,12 +103181,12 @@ entities:
   - uid: 3452
     components:
     - type: Transform
-      pos: 38.543716,-22.383816
+      pos: 38.599564,-22.185938
       parent: 2
   - uid: 3453
     components:
     - type: Transform
-      pos: 38.555435,-22.16116
+      pos: 38.55269,-22.107813
       parent: 2
   - uid: 6527
     components:
@@ -103337,6 +103343,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -96.43583,0.64129686
+      parent: 2
+  - uid: 42712
+    components:
+    - type: Transform
+      pos: 38.52144,-22.185938
       parent: 2
   - uid: 42788
     components:
@@ -112060,6 +112071,13 @@ entities:
     - type: Transform
       pos: 84.5,0.5
       parent: 2
+- proto: DefaultStationBeaconEvac
+  entities:
+  - uid: 42674
+    components:
+    - type: Transform
+      pos: 1.5,93.5
+      parent: 2
 - proto: DefaultStationBeaconEVAStorage
   entities:
   - uid: 28973
@@ -112119,6 +112137,13 @@ entities:
     - type: Transform
       pos: 66.5,-2.5
       parent: 2
+- proto: DefaultStationBeaconLawOffice
+  entities:
+  - uid: 12450
+    components:
+    - type: Transform
+      pos: -3.5,63.5
+      parent: 2
 - proto: DefaultStationBeaconLibrary
   entities:
   - uid: 37198
@@ -112167,11 +112192,6 @@ entities:
     components:
     - type: Transform
       pos: -26.5,65.5
-      parent: 2
-  - uid: 38083
-    components:
-    - type: Transform
-      pos: -30.5,64.5
       parent: 2
 - proto: DefaultStationBeaconPsychology
   entities:
@@ -112283,11 +112303,6 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconTelecoms
   entities:
-  - uid: 38713
-    components:
-    - type: Transform
-      pos: -77.5,14.5
-      parent: 2
   - uid: 44602
     components:
     - type: Transform
@@ -193201,6 +193216,13 @@ entities:
     - type: Transform
       pos: 7.5,18.5
       parent: 2
+- proto: GroundCannabis
+  entities:
+  - uid: 42838
+    components:
+    - type: Transform
+      pos: 28.578934,-20.271177
+      parent: 2
 - proto: GroundTobacco
   entities:
   - uid: 40917
@@ -194673,6 +194695,13 @@ entities:
     components:
     - type: Transform
       pos: -62.5,-3.5
+      parent: 2
+- proto: ImpstationMemorialJoint
+  entities:
+  - uid: 42837
+    components:
+    - type: Transform
+      pos: 29.485184,-20.411802
       parent: 2
 - proto: InflatableWall
   entities:
@@ -198730,13 +198759,13 @@ entities:
     - type: Transform
       pos: 44.5,34.5
       parent: 2
-- proto: LinkedCaptainIDCardSpawner3
-  entities:
-  - uid: 42261
+  - uid: 42705
     components:
     - type: Transform
-      pos: -29.5,36.5
+      pos: 30.5,-20.5
       parent: 2
+- proto: LinkedCaptainIDCardSpawner3
+  entities:
   - uid: 42274
     components:
     - type: Transform
@@ -198757,6 +198786,41 @@ entities:
     - type: Transform
       pos: -84.5,31.5
       parent: 2
+  - uid: 42683
+    components:
+    - type: Transform
+      pos: 46.5,29.5
+      parent: 2
+  - uid: 42704
+    components:
+    - type: Transform
+      pos: 21.5,24.5
+      parent: 2
+  - uid: 42849
+    components:
+    - type: Transform
+      pos: -11.5,-10.5
+      parent: 2
+  - uid: 42850
+    components:
+    - type: Transform
+      pos: -30.5,-23.5
+      parent: 2
+  - uid: 42851
+    components:
+    - type: Transform
+      pos: -78.5,17.5
+      parent: 2
+  - uid: 42852
+    components:
+    - type: Transform
+      pos: -61.5,17.5
+      parent: 2
+  - uid: 42853
+    components:
+    - type: Transform
+      pos: -5.5,35.5
+      parent: 2
 - proto: LinkedCaptainIDCardSpawner4
   entities:
   - uid: 42272
@@ -198771,6 +198835,11 @@ entities:
       parent: 2
 - proto: LinkedCaptainIDCardSpawner5
   entities:
+  - uid: 24344
+    components:
+    - type: Transform
+      pos: -29.5,36.5
+      parent: 2
   - uid: 42273
     components:
     - type: Transform
@@ -205679,6 +205748,18 @@ entities:
     - type: Transform
       pos: -38.306152,-18.582682
       parent: 2
+  - uid: 42261
+    components:
+    - type: Transform
+      pos: 30.000628,-19.956001
+      parent: 2
+- proto: PlushieImpOld
+  entities:
+  - uid: 38713
+    components:
+    - type: Transform
+      pos: 28.950665,-19.782833
+      parent: 2
 - proto: PlushieLamp
   entities:
   - uid: 33590
@@ -210654,7 +210735,12 @@ entities:
       parent: 2
 - proto: PoweredFloorLightUv
   entities:
-  - uid: 24557
+  - uid: 42710
+    components:
+    - type: Transform
+      pos: 27.5,-20.5
+      parent: 2
+  - uid: 42847
     components:
     - type: Transform
       pos: 31.5,-19.5
@@ -215485,6 +215571,12 @@ entities:
     components:
     - type: Transform
       pos: -86.5,-97.5
+      parent: 2
+  - uid: 42711
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 39.5,-21.5
       parent: 2
   - uid: 42811
     components:
@@ -238174,13 +238266,6 @@ entities:
     - type: Transform
       pos: -4.5,-10.5
       parent: 2
-- proto: SpawnMobCatBingus
-  entities:
-  - uid: 12450
-    components:
-    - type: Transform
-      pos: 20.5,-35.5
-      parent: 2
 - proto: SpawnMobCatException
   entities:
   - uid: 35717
@@ -238195,13 +238280,22 @@ entities:
     - type: Transform
       pos: -84.5,-9.5
       parent: 2
-- proto: SpawnMobChemDog
+- proto: SpawnMobCatGeneric
+  entities:
+  - uid: 38083
+    components:
+    - type: Transform
+      pos: 20.5,-35.5
+      parent: 2
+- proto: SpawnMobCatKitten
   entities:
   - uid: 16300
     components:
     - type: Transform
       pos: 15.5,-35.5
       parent: 2
+- proto: SpawnMobChemDog
+  entities:
   - uid: 38493
     components:
     - type: Transform
@@ -241550,13 +241644,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -49.5,-14.5
-      parent: 2
-- proto: StatueReaper
-  entities:
-  - uid: 24344
-    components:
-    - type: Transform
-      pos: 29.5,-19.5
       parent: 2
 - proto: StatueVenusBlue
   entities:
@@ -251429,6 +251516,33 @@ entities:
     components:
     - type: Transform
       pos: -71.5,-7.5
+      parent: 2
+- proto: WallpaperBannerRainbow
+  entities:
+  - uid: 24557
+    components:
+    - type: Transform
+      pos: 27.608498,-17.823606
+      parent: 2
+  - uid: 42796
+    components:
+    - type: Transform
+      pos: 28.655373,-17.886106
+      parent: 2
+  - uid: 42833
+    components:
+    - type: Transform
+      pos: 29.686623,-17.886106
+      parent: 2
+  - uid: 42834
+    components:
+    - type: Transform
+      pos: 30.717873,-17.870481
+      parent: 2
+  - uid: 42835
+    components:
+    - type: Transform
+      pos: 31.483498,-17.917356
       parent: 2
 - proto: WallReinforced
   entities:
