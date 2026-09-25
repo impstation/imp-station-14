@@ -96,12 +96,8 @@
     containers:
       projectiles: !type:ContainerSlot
       ballistic-ammo: !type:Container
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - HolyArrow
-        - HolyArrowEvil
-    capacity: 1
+  - type: ContainerAmmoProvider
+    container: projectiles
   - type: Appearance
   - type: ItemMapper
     spriteLayers:
