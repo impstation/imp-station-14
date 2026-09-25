@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/23/2026 01:45:42
-  entityCount: 18423
+  time: 09/25/2026 08:03:53
+  entityCount: 18428
 maps:
 - 1
 grids:
@@ -2944,6 +2944,7 @@ entities:
             id: ThreeQuarterTileOverlayGreyscale90
           decals:
             3196: 22,28
+            3331: 34,38
         - node:
             zIndex: 5
             color: '#8D1C9996'
@@ -5266,17 +5267,6 @@ entities:
       nextAttack: -25.418168
     - type: EmitSoundOnCollide
       nextSound: -25.418168
-- proto: ActionToggleLight
-  entities:
-  - uid: 12850
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 9559
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 9559
 - proto: AirAlarm
   entities:
   - uid: 17
@@ -7635,7 +7625,7 @@ entities:
       pos: -7.5,-22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -74793.3
+      secondsUntilStateChange: -75158.58
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7977,7 +7967,7 @@ entities:
       pos: 12.5,21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -71552.91
+      secondsUntilStateChange: -71918.19
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8554,7 +8544,7 @@ entities:
       pos: -38.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -65037.133
+      secondsUntilStateChange: -65402.41
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26081,6 +26071,36 @@ entities:
     - type: Transform
       pos: -15.5,-31.5
       parent: 2
+  - uid: 13868
+    components:
+    - type: Transform
+      pos: -15.5,-28.5
+      parent: 2
+  - uid: 13869
+    components:
+    - type: Transform
+      pos: -16.5,-28.5
+      parent: 2
+  - uid: 13870
+    components:
+    - type: Transform
+      pos: -14.5,-28.5
+      parent: 2
+  - uid: 13874
+    components:
+    - type: Transform
+      pos: -13.5,-28.5
+      parent: 2
+  - uid: 13875
+    components:
+    - type: Transform
+      pos: -12.5,-28.5
+      parent: 2
+  - uid: 13876
+    components:
+    - type: Transform
+      pos: -17.5,-26.5
+      parent: 2
   - uid: 14546
     components:
     - type: Transform
@@ -41506,7 +41526,7 @@ entities:
   - uid: 16665
     components:
     - type: Transform
-      pos: 9.40126,-52.396107
+      pos: 8.962065,-52.6046
       parent: 2
 - proto: ClothingNeckScarfStripedBlue
   entities:
@@ -49198,7 +49218,7 @@ entities:
   - uid: 21657
     components:
     - type: Transform
-      pos: -31.624031,13.006725
+      pos: -31.753368,12.983973
       parent: 2
 - proto: DrinkSodaWaterCan
   entities:
@@ -50994,7 +51014,7 @@ entities:
       pos: 1.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -26467.525
+      secondsUntilStateChange: -26832.805
       state: Closing
   - uid: 6280
     components:
@@ -51556,7 +51576,7 @@ entities:
       pos: 12.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31996.66
+      secondsUntilStateChange: -32361.94
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 286.3997156
@@ -51833,7 +51853,7 @@ entities:
       pos: -40.5,-22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -74756.89
+      secondsUntilStateChange: -75122.17
       state: Closing
   - uid: 6397
     components:
@@ -52960,7 +52980,7 @@ entities:
   - uid: 20804
     components:
     - type: Transform
-      pos: -31.5,12.5
+      pos: -31.706493,12.796473
       parent: 2
 - proto: FoodBoxPizzaFilled
   entities:
@@ -79648,7 +79668,7 @@ entities:
   - uid: 23250
     components:
     - type: Transform
-      pos: -31.5,12.5
+      pos: -31.378368,13.108973
       parent: 2
 - proto: HappyHonkMime
   entities:
@@ -81951,29 +81971,6 @@ entities:
       parent: 2
 - proto: Lantern
   entities:
-  - uid: 9559
-    components:
-    - type: Transform
-      pos: -17.309433,-48.11893
-      parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 12850
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 12850
-    - type: ActionsContainer
   - uid: 9560
     components:
     - type: Transform
@@ -81989,6 +81986,11 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+  - uid: 13845
+    components:
+    - type: Transform
+      pos: -17.503965,-47.816887
+      parent: 2
 - proto: LargeBeaker
   entities:
   - uid: 16997
@@ -115997,6 +115999,30 @@ entities:
       parent: 2
 - proto: Window
   entities:
+  - uid: 9559
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,34.5
+      parent: 2
+  - uid: 12850
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 33.5,36.5
+      parent: 2
+  - uid: 13839
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 33.5,38.5
+      parent: 2
+  - uid: 13840
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 35.5,34.5
+      parent: 2
   - uid: 14084
     components:
     - type: Transform
@@ -116057,26 +116083,6 @@ entities:
     - type: Transform
       pos: -28.5,-26.5
       parent: 2
-  - uid: 15121
-    components:
-    - type: Transform
-      pos: 35.5,34.5
-      parent: 2
-  - uid: 15124
-    components:
-    - type: Transform
-      pos: 37.5,34.5
-      parent: 2
-  - uid: 15125
-    components:
-    - type: Transform
-      pos: 33.5,38.5
-      parent: 2
-  - uid: 15126
-    components:
-    - type: Transform
-      pos: 33.5,36.5
-      parent: 2
   - uid: 15708
     components:
     - type: Transform
@@ -116099,28 +116105,28 @@ entities:
       parent: 2
 - proto: WindowDiagonal
   entities:
-  - uid: 15127
-    components:
-    - type: Transform
-      rot: 4.71238898038469 rad
-      pos: 33.5,39.5
-      parent: 2
-  - uid: 15128
+  - uid: 13817
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,35.5
       parent: 2
-  - uid: 15129
+  - uid: 13823
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.5,34.5
+      parent: 2
+  - uid: 13837
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 33.5,39.5
+      parent: 2
+  - uid: 13838
     components:
     - type: Transform
       pos: 34.5,34.5
-      parent: 2
-  - uid: 15130
-    components:
-    - type: Transform
-      rot: 4.71238898038469 rad
-      pos: 38.5,34.5
       parent: 2
 - proto: WindowDirectional
   entities:
