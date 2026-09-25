@@ -136,7 +136,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     /// </summary>
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
     {
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
+        if (!TryComp<HereticComponent>(args.User, out _))
             return;
 
         _uiSystem.OpenUi(ent.Owner, HereticRitualRuneUiKey.Key, args.User);
@@ -144,15 +144,11 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnRitualChosenMessage(Entity<HereticRitualRuneComponent> ent, ref HereticRitualMessage args)
     {
-        var user = args.Actor;
-
-        if (!TryComp<HereticComponent>(user, out var heretic))
+        if (!TryComp<HereticComponent>(args.Actor, out _))
             return;
 
-        heretic.ChosenRitual = args.ProtoId;
-
-        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).LocName);
-        _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
+        var ritualName = Loc.GetString(GetRitual(args.ProtoId).LocName);
+        _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), args.Actor, args.Actor);
     }
 
     /// <summary>
@@ -349,7 +345,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
 
         var ritual = hereticComp.ChosenRitual != null ? GetRitual(hereticComp.ChosenRitual).LocName : null;
-        var name = ritual != null ? Loc.GetString(ritual) : "None";
-        args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
+        var name = ritual != null ? Loc.GetString(ritual) : Loc.GetString("heretic-ritual-rune-no-ritual");
+
+        args.PushMarkup(Loc.GetString("heretic-ritual-rune-examine", ("ritual", name)));
     }
 }
