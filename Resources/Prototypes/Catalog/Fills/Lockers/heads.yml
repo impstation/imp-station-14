@@ -215,22 +215,24 @@
   table: !type:AllSelector
     children:
   #imp edit start
-    - id: BoxEncryptionKeyMedical
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: ClothingEyesHudMedical
+    #- id: ClothingBeltMedicalFilled
     - id: ClothingHandsGlovesNitrile
-    - id: ClothingHeadsetAltMedical
     - id: ClothingMaskSterile
-    - id: DoorRemoteMedical
     - id: HandheldCrewMonitor
     - id: Hypospray
-    - id: BoxCMOCircuitboards
     - id: MedkitFilled
-    - id: RubberStampCMO
     - id: MedTekCartridge
     - id: PersonalAILearnerMedical #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
     - id: ClothingEyesHudMedChem #impspecial
+    # Standard command gear
+    - id: RubberStampCMO
+    - id: ClothingHeadsetAltMedical
+    - id: DoorRemoteMedical
+    - id: BoxEncryptionKeyMedical
+    - id: BoxCMOCircuitboards
   #imp edit end
 
 # Hardsuit table, used for suit storage as well

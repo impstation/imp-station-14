@@ -2,33 +2,43 @@
   id: MediDrobeInventory
   startingInventory:
   #imp edit start
-    ClothingBackpackDuffelMedical: 4
-    ClothingBackpackMedical: 4
-    ClothingBackpackSatchelMedical: 4
-    ClothingUniformJumpsuitMedicalDoctor: 4
-    ClothingUniformJumpskirtMedicalDoctor: 4
+    ## Essential Medical Clothing
+    #ClothingEyesHudMedical: 2
+    #ClothingEyesEyepatchHudMedical: 2
+    ## Optional Clothing
+    #ClothingHeadHatParamedicsoft: 1
+    #ClothingMaskSterile: 2
+    #ClothingUniformJumpsuitParamedic: 1
+    #ClothingUniformJumpskirtParamedic: 1
+    #ClothingOuterCoatParamedicWB: 1
+    #ClothingOuterWinterPara: 1
+    ClothingBackpackDuffelMedical: 4 #was 2
+    ClothingBackpackMedical: 4 #was 2
+    ClothingBackpackSatchelMedical: 4 #was 2
+    ClothingUniformJumpsuitMedicalDoctor: 4 #was 2
+    ClothingUniformJumpskirtMedicalDoctor: 4 #was 2
     ClothingBeltMedical: 4
-    ClothingHeadHatBeretMedic: 4
-    ClothingHeadNurseHat: 4
-    ClothingOuterCoatLab: 4
-    ClothingShoesColorWhite: 4
-    ClothingHandsGlovesLatex: 4
-    ClothingHandsGlovesNitrile: 2
-    ClothingHeadsetMedical: 4
-    ClothingEyesGlassesHudMedical: 2 # imp
+    ClothingHeadHatBeretMedic: 4 #was 2
+    ClothingHeadNurseHat: 4 #was 2
+    ClothingOuterCoatLab: 4 #was 2
+    ClothingShoesColorWhite: 4 #was 2
+    ClothingHandsGlovesLatex: 4 #was 2
+    ClothingHandsGlovesNitrile: 2 
+    ClothingHeadsetMedical: 4 #was 2
+    ClothingEyesGlassesHudMedical: 2 # imp special
     ClothingOuterWinterMed: 2    
     ClothingOuterHospitalGown: 5
-    UniformScrubsColorGreen: 4
-    UniformScrubsColorBlue: 4
-    UniformScrubsColorPurple: 4
-    ClothingHeadHatSurgcapGreen: 4 
-    ClothingHeadHatSurgcapBlue: 4
-    ClothingHeadHatSurgcapPurple: 4
-    ClothingNeckCloakBlanketShock: 3 # imp
-    ClothingUniformJumpskirtNurse: 4 # imp
-    ClothingOuterApronNurse: 4 # imp
-    ClothingOuterCoatBomberMedical: 2 # imp
-    ClothingNeckScarfStripedLightBlue: 2 # imp
+    UniformScrubsColorGreen: 4 #was 2
+    UniformScrubsColorBlue: 4 #was 2
+    UniformScrubsColorPurple: 4 #was 2
+    ClothingHeadHatSurgcapGreen: 4 #was 2
+    ClothingHeadHatSurgcapBlue: 4 #was 2
+    ClothingHeadHatSurgcapPurple: 4 #was 2
+    ClothingNeckCloakBlanketShock: 3 # imp special
+    ClothingUniformJumpskirtNurse: 4 # imp special
+    ClothingOuterApronNurse: 4 # imp special
+    ClothingOuterCoatBomberMedical: 2 # imp special
+    ClothingNeckScarfStripedLightBlue: 2 # imp special
   #imp edit end
     ClothingShoesBootsWinterMed: 2
   contrabandInventory:

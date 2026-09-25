@@ -5,6 +5,17 @@
   table: !type:AllSelector
     children:
  #imp edit start
+    #- !type:NestedSelector
+    #  tableId: CoreMedicineReagentBottleTable
+    #  rolls: 2
+    #- !type:GroupSelector # Basic topicals
+    #  rolls: 7
+    #  children:
+    #  - id: Brutepack
+    #  - id: Ointment
+    #  - id: Bloodpack
+    #  - id: Gauze
+    #    weight: 0.5
     - id: BoxSyringe
     - id: ChemistryBottleEpinephrine
     - id: Brutepack
@@ -47,6 +58,11 @@
   table: !type:AllSelector
     children:
     #imp edit start
+    #- id: ClothingEyesHudMedical
+    #- id: ClothingBeltMedicalFilled
+    #- id: JetInjector
+    #- id: ChemistryBottleLaughter # Widely recognized as the best medicine :o)
+    #  prob: 0.01
     - id: HandheldHealthAnalyzer
       prob: 0.6
     - id: ClothingHeadMirror
@@ -110,6 +126,22 @@
     - id: Dropper
     - id: HandLabeler
       prob: 0.5 # imp 
+  # Imp start
+    #- id: BarSpoon # Should be replaced by a stirring tool with medical theming, like a glass rod
+    #- !type:AllSelector # The wonderful world of chemical storage
+    #  children:
+    #  - id: BoxSyringe
+    #  - id: BoxBottle
+    #  - id: BoxVial
+    #  - id: BoxBeaker
+    #  - id: BoxPillCanister
+    #  - !type:GroupSelector # Remind chemists once in a while of alternate storage options
+    #    prob: 0.2
+    #    children:
+    #    - id: SprayBottle
+    #    - id: Bucket
+    #    - id: DrinkCartonMilk
+  # Imp end
 
 - type: entity
   parent: LockerChemistry
@@ -126,7 +158,7 @@
   table: !type:AllSelector
     children:
   #imp edit start
-    - id: ClothingHeadHatParamedicSirenCap
+    - id: ClothingHeadHatParamedicSirenCap #imp special
     - id: ClothingOuterHardsuitVoidParamed
     - id: ClothingOuterCoatParamedicWB
     - id: ClothingHeadHatParamedicsoft
@@ -140,6 +172,15 @@
     - id: HandheldGPSBasic
     - id: MedkitFilled
       prob: 0.3 
+    #- id: ClothingBeltMedicalEMTFilled
+    #- id: JetInjector
+    #- id: HandheldHealthAnalyzer
+    #- id: BoxBodyBag
+    #- !type:GroupSelector
+    #  children:
+    #  - id: RollerBedSpawnFolded
+    #  - id: CheapRollerBedSpawnFolded
+    #  - id: EmergencyRollerBedSpawnFolded
   # imp edit end
 - type: entity
   parent: LockerParamedic

@@ -18,32 +18,41 @@
   id: NanoMedCivilianWallInventory
   startingInventory:
     HandheldHealthAnalyzer: 1
-    AloeCream: 2
-    Gauze: 3
+  #imp start
+    #Tourniquet: 3 
+    AloeCream: 2 #was 3
+    Gauze: 3 
     Brutepack: 3
-    Ointment: 2
+    Ointment: 2 
     Bloodpack: 3
+    #ChemistryBottleInaprovaline: 3 
     ChemistryBottleEpinephrine: 3
     Syringe: 3
-    PillCanisterTricordrazine: 2
+    #PillTricordrazine: 10 #imp
+    PillCanisterTricordrazine: 2 #gave canisters instead of individual pills
   contrabandInventory:
     PillCanisterRandom: 1
-    PowerCellSmall: 2
+    PowerCellSmall: 2 
+  #imp end
 
 - type: vendingMachineInventory
   id: NanoMedPlusInventory
   startingInventory:
     HandheldHealthAnalyzer: 3
   #imp edit start
-    Gauze: 5
-    Brutepack: 5
-    Ointment: 5
-    Bloodpack: 5
+    #ClothingBeltMedicalFilled: 2 #spawns on them
+    #ClothingBeltMedicalEMTFilled: 1 #spawns on them
+    #EmergencyRollerBedSpawnFolded: 1 #spawns on them
+    #BoxBodyBag: 1
+    Gauze: 5 #was 4
+    Brutepack: 5 #was 4
+    Ointment: 5 #was 4
+    Bloodpack: 5 #was 4
     Tourniquet: 2
     ChemistryBottleEpinephrine: 3
     ChemistryBottleBicaridine: 1
     Syringe: 5
-    JetInjector: 2
+    JetInjector: 2 #was 3
     BoxBottle: 3
     PillCanisterTricordrazine: 3
     PillCanisterIron: 1
@@ -63,14 +72,20 @@
   startingInventory:
     HandheldHealthAnalyzer: 3
   #imp edit start
-    AloeCream: 3
+    #Tourniquet: 5
+    AloeCream: 3 #was 5
     Gauze: 5
     Brutepack: 5
     Ointment: 4
     Bloodpack: 5
+    #ChemistryBottleInaprovaline: 5
     Syringe: 5
     BoxBottle: 3
-    PillCanisterTricordrazine: 2
+    #PillTricordrazine: 10
+    #PillIron: 5
+    #PillCopper: 5
+  #gave canisters instead of individual pills
+    PillCanisterTricordrazine: 2 
     PillCanisterIron: 1
     PillCanisterCopper: 1
     PillCanisterPotassiumIodide: 1
