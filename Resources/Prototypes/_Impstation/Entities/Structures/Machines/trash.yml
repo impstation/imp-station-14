@@ -17,4 +17,6 @@
   - type: Appearance
   - type: ContainerContainer
     containers:
+      entity_storage: !type:Container
+      output_container: !type:Container
       paper_label: !type:ContainerSlot
