@@ -4,17 +4,20 @@
   id: LockerFillMedicine
   table: !type:AllSelector
     children:
-    - !type:NestedSelector
-      tableId: CoreMedicineReagentBottleTable
-      rolls: 2
-    - !type:GroupSelector # Basic topicals
-      rolls: 7
-      children:
-      - id: Brutepack
-      - id: Ointment
-      - id: Bloodpack
-      - id: Gauze
-        weight: 0.5
+ #imp edit start
+    - id: BoxSyringe
+    - id: ChemistryBottleEpinephrine
+    - id: Brutepack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Ointment
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Bloodpack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Gauze
+  #imp edit end
 
 - type: entity
   parent: LockerMedicine
@@ -43,12 +46,31 @@
   id: LockerFillMedicalDoctor
   table: !type:AllSelector
     children:
-    - id: ClothingEyesHudMedical
-    - id: ClothingBeltMedicalFilled
-    - id: JetInjector
+    #imp edit start
     - id: HandheldHealthAnalyzer
-    - id: ChemistryBottleLaughter # Widely recognized as the best medicine :o)
-      prob: 0.01
+      prob: 0.6
+    - id: ClothingHeadMirror
+      prob: 0.1
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatSurgcapGreen
+        weight: 0.1
+      - id: ClothingHeadHatSurgcapPurple
+        weight: 0.05
+      - id: ClothingHeadHatSurgcapBlue
+        weight: 0.90
+    - !type:GroupSelector
+      children:
+      - id: UniformScrubsColorBlue
+        weight: 0.5
+      - id: UniformScrubsColorGreen
+        weight: 0.1
+      - id: UniformScrubsColorPurple
+        weight: 0.05
+    - id: ClothingMaskSterile
+  #imp edit end
 
 - type: entity
   parent: LockerMedical
@@ -87,20 +109,7 @@
     - id: ChemBag
     - id: Dropper
     - id: HandLabeler
-    - id: BarSpoon # Should be replaced by a stirring tool with medical theming, like a glass rod
-    - !type:AllSelector # The wonderful world of chemical storage
-      children:
-      - id: BoxSyringe
-      - id: BoxBottle
-      - id: BoxVial
-      - id: BoxBeaker
-      - id: BoxPillCanister
-      - !type:GroupSelector # Remind chemists once in a while of alternate storage options
-        prob: 0.2
-        children:
-        - id: SprayBottle
-        - id: Bucket
-        - id: DrinkCartonMilk
+      prob: 0.5 # imp 
 
 - type: entity
   parent: LockerChemistry
@@ -116,19 +125,22 @@
   id: LockerFillParamedic
   table: !type:AllSelector
     children:
-    - id: ClothingHeadHatParamedicSirenCap #imp
+  #imp edit start
+    - id: ClothingHeadHatParamedicSirenCap
     - id: ClothingOuterHardsuitVoidParamed
+    - id: ClothingOuterCoatParamedicWB
+    - id: ClothingHeadHatParamedicsoft
+    - id: ClothingOuterWinterPara
+    - id: ClothingUniformJumpsuitParamedic
+    - id: ClothingUniformJumpskirtParamedic
     - id: ClothingEyesHudMedical
-    - id: ClothingBeltMedicalEMTFilled
-    - id: JetInjector
-    - id: HandheldHealthAnalyzer
-    - id: BoxBodyBag
-    - !type:GroupSelector
-      children:
-      - id: RollerBedSpawnFolded
-      - id: CheapRollerBedSpawnFolded
-      - id: EmergencyRollerBedSpawnFolded
-
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - id: ClothingMaskSterile
+    - id: HandheldGPSBasic
+    - id: MedkitFilled
+      prob: 0.3 
+  # imp edit end
 - type: entity
   parent: LockerParamedic
   id: LockerParamedicFilled

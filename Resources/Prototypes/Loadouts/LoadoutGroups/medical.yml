@@ -39,6 +39,28 @@
   - EmergencyDiscountMedical # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
+#imp start
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - MedicalGlassesHud
+  - Glasses
+  - GlassesCheapSunglasses
+  - EyePatch
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  - GlassesJamjar
+  - GlassesJensen
+#imp end
+
 # Chief Medical Officer
 
 - type: loadoutGroup
