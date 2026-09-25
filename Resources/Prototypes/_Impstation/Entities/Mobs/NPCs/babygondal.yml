@@ -52,7 +52,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Dead
+      40: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
     baseSprintSpeed : 8
@@ -62,11 +62,7 @@
         Base: baby-alive
       Dead:
         Base: baby-dead
-  - type: NoSlip
   - type: PressureImmunity
-  - type: Insulated
-  - type: CanEscapeInventory
-    baseResistTime: 3
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
