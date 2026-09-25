@@ -24,6 +24,20 @@
   recipeType: Assembler
 
 - type: microwaveMealRecipe
+  id: RecipeTurtleSoup
+  name: turtle soup recipe
+  result: FoodSoupTurtle
+  group: Soup
+  time: 15
+  reagents:
+    Water: 10
+    TableSalt: 10
+  solids:
+    FoodBowlTurtleBig: 1
+    FoodMeatLizard: 1
+  recipeType: Oven
+
+- type: microwaveMealRecipe
   id: RecipeClothLollipop
   name: cloth lollipop recipe
   result: FoodMealClothLollipop
@@ -735,3 +749,16 @@
   solids:
     FoodCakeBatterCotton: 1
   recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeSteakTartare
+  name: steak tartare recipe
+  result: FoodMealSteakTartare
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatPatty: 1
+  reagents:
+    Egg: 3
+    Everyspice: 5
+  recipeType: Assembler
