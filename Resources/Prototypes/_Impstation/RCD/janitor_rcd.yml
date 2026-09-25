@@ -1,0 +1,90 @@
+# tiles
+- type: rcd
+  id: RCDFloorSteel
+  name: rcd-component-floor-steel
+  category: WallsAndFlooring
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel.png
+  mode: ConstructTile
+  prototype: FloorSteel
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDFloorSteelDark
+  name: rcd-component-floor-steel-dark
+  category: WallsAndFlooring
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel_dark.png
+  mode: ConstructTile
+  prototype: FloorDark
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDFloorSteelWhite
+  name: rcd-component-floor-steel-white
+  category: WallsAndFlooring
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_steel_white.png
+  mode: ConstructTile
+  prototype: FloorWhite
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDFloorTechMaint
+  name: rcd-component-floor-techmaint
+  category: WallsAndFlooring
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/tile_techmaint.png
+  mode: ConstructTile
+  prototype: FloorTechMaint
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+# other crap
+- type: rcd
+  id: RCDMousetrap
+  category: Janitorial
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/mousetrap.png
+  mode: ConstructObject
+  prototype: MousetrapArmed # mousetrap snipe. mousetrap snipe. it's gonna be so fucking cool. 
+  cost: 20
+  delay: 0 # hit a clip on a mouse . mousetrap snipe. please. show me it if you pull it off
+  rotation: Fixed
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: RCDWetFloorSign
+  category: Janitorial
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/wet_floor_sign.png
+  mode: ConstructObject
+  prototype: WetFloorSign
+  cost: 20
+  delay: 1
+  rotation: Fixed
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: RCDSpaceCleaner
+  category: Janitorial
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/space_cleaner_tablet.png
+  mode: ConstructObject
+  prototype: SpaceCleanerTablet
+  cost: 20
+  delay: 1
+  rotation: Fixed
+  fx: EffectRCDConstruct1
