@@ -127,6 +127,9 @@ uplink-beenade-desc = The ultimate in distraction, this foaming grenade contains
 uplink-bros-grenade-name = BROSnade
 uplink-bros-grenade-desc = A colony of angry BROS captured in a glass bottle. UNGH
 
+uplink-fuseless-grenade-name = Fuseless Grenade
+uplink-fuseless-grenade-desc = An otherwise normal explosive grenade modified to go off immediately after activation. Great at parties!
+
 uplink-pin-straight-name = Straight Pride Pin
 uplink-pin-straight-desc = Demonstrate your support for the heterosexual community with this straight pride pin.
 
