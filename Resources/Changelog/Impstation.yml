@@ -1,21 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: Anomalous Gifts detected on the station
-    type: Tweak
-  id: 2468
-  time: '2025-12-06T01:51:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3805
-- author: meatsmall
-  changes:
-  - message: Moths have sprouted a new cuteness.
-    type: Add
-  - message: Moth markings on the base head layer no longer render when wearing a
-      helmet
-    type: Tweak
-  id: 2469
-  time: '2025-12-06T23:01:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3810
 - author: honeyed-lemons
   changes:
   - message: Decapoids no longer FUCKING DIE
@@ -4046,3 +4029,24 @@
   id: 2967
   time: '2026-09-25T09:34:02.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4567
+- author: coyragon96
+  changes:
+  - message: Added a bunch of emag interactions with vendors. Go find them all!
+    type: Add
+  id: 2968
+  time: '2026-09-25T10:16:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4534
+- author: DVD Player
+  changes:
+  - message: The Estoc is gone. Again.
+    type: Remove
+  - message: A lot of bundled weapons appear in the new fancy gun cases, that have
+      been updated!
+    type: Tweak
+  - message: Wizden uplink weaponries that were borked in the upmerge have been fixed!]
+    type: Fix
+  - message: The Python is back!
+    type: Fix
+  id: 2969
+  time: '2026-09-25T10:17:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4650
