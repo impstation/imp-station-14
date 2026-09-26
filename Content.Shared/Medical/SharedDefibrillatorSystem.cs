@@ -222,10 +222,12 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                 _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString(unrevivable.ReasonMessage),
                     InGameICChatType.Speak, true);
         }
-        else
+        else if (_mobState.IsDead(target, targetMobState)) // imp, added to the entire else
         {
+            /* imp, made the aphyx heal always apply since dead check is done for the entire else
             if (_mobState.IsDead(target, targetMobState))
-                _damageable.TryChangeDamage(target, ent.Comp.ZapHeal, true, origin: user);
+            */
+            _damageable.TryChangeDamage(target, ent.Comp.ZapHeal, true, origin: user);
 
             // Imp A successful defib requires post-zap damage to be below the target's dead threshold.
             // This preserves species-specific revive limits (e.g. human/ungu use different crit thresholds).
