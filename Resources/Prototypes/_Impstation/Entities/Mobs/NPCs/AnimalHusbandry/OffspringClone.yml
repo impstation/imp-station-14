@@ -1,0 +1,13 @@
+
+# These are the pure info we need to carry over between offspring
+- type: cloningSettings
+  id: BaseOffspringClone
+  components:
+  - MovementSpeedModifier
+  - DetailExaminable
+  - Dna
+  - NpcFactionMember
+  - Pacified # If a mob somehow got pacified during growth
+  - Damageable
+  - MobState
+  - StatusEffects
