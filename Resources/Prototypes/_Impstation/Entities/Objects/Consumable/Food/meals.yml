@@ -278,6 +278,18 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Steaktartare.rsi
     state: steaktartare
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+        - ReagentId: Egg
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
 
 #chinese foods
 - type: entity
