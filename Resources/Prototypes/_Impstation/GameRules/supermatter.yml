@@ -3,3 +3,25 @@
   parent: BaseGameRule
   components:
   - type: CascadeRule
+
+- type: entity
+  id: SupermatterRadiationStorm
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 5
+    startAnnouncement: true
+    endAnnouncement: true
+    duration: 300 # 5 minutes
+    minimumPlayers: 20
+  - type: RandomContinuousSpawnRule
+    table: !type:GroupSelector
+      children:
+      - id: SmallRadiationPulse
+      - id: MediumRadiationPulse
+        weight: 0.75
+      - id: RadiationPulse
+        weight: 0.5
+    amount:
+      min: 1
+      max: 3

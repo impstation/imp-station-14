@@ -1,12 +1,14 @@
 using Content.Shared.Radiation.Components;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
+using Robust.Shared.GameStates; // imp
 
 namespace Content.Shared.Radiation.Systems;
 
 public sealed class RadiationPulseSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!; // imp
 
     public override void Initialize()
     {
@@ -16,6 +18,8 @@ public sealed class RadiationPulseSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, RadiationPulseComponent component, ComponentStartup args)
     {
+        _pvs.AddGlobalOverride(uid); // imp
+
         component.StartTime = _timing.RealTime;
 
         // try to get despawn time or keep default duration time

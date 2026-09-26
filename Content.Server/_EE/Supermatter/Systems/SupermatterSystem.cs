@@ -105,7 +105,10 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         var query = EntityManager.EntityQueryEnumerator<SupermatterComponent>();
         while (query.MoveNext(out var uid, out var sm))
+        {
+            SupermatterRadiationPulse(uid, sm);
             AnnounceCoreDamage(uid, sm);
+        }
     }
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)

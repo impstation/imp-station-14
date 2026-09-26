@@ -30,6 +30,7 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionCheckBox(ImpCCVars.DisableWeather, DisableWeatherCheckBox); // imp
         Control.AddOptionCheckBox(ImpCCVars.DisableAiStatic, DisableAiStaticCheckBox); // imp
         Control.AddOptionCheckBox(ImpCCVars.EnableBiomagneticPolarizationSymbols, EnableBiomagneticPolarizationSymbolsCheckBox); // imp
+        Control.AddOptionCheckBox(ImpCCVars.EnableSimplifiedRadiationPulse, EnableSimplifiedRadiationPulseCheckBox); // imp
         Control.AddOptionCheckBox(DCCVars.NoVisionFilters, DisableFiltersCheckBox); // dv
 
         Control.AddOptionCheckBox(CCVars.AccessibilityClientCensorNudity, CensorNudityCheckBox);
