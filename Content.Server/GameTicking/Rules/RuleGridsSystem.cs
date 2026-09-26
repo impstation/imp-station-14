@@ -1,5 +1,6 @@
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Shuttles.Events; // IMP addition
 using Content.Server.Spawners.Components;
 using Content.Shared.Whitelist;
 using Robust.Server.Physics;
@@ -23,6 +24,7 @@ public sealed class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
 
         SubscribeLocalEvent<RuleGridsComponent, RuleLoadedGridsEvent>(OnLoadedGrids);
         SubscribeLocalEvent<RuleGridsComponent, AntagSelectLocationEvent>(OnSelectLocation);
+        SubscribeLocalEvent<FTLStartedEvent>(OnFTLStarted); // IMP addition
     }
 
     private void OnGridSplit(ref GridSplitEvent args)
@@ -74,6 +76,25 @@ public sealed class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
             args.Coordinates.Add(_transform.GetMapCoordinates(xform));
         }
     }
+    // IMP add start
+    private void OnFTLStarted(ref FTLStartedEvent args)
+    {
+        // this sucks but getting nullspaced sucks more. Should only be a handful of RuleGridsComponents as most things
+        // are used with Visiting roles, spawned with the grid, rather than using a SpawnPoint.
+        var query = EntityQueryEnumerator<RuleGridsComponent, TransformComponent>();
+
+        while (query.MoveNext(out var uid, out var comp, out var xform))
+        {
+            // the ShuttleComponent exists on args Entity, which should exist in the MapGrids of the comp
+            if (!comp.MapGrids.Contains(args.Entity))
+                return;
+
+            // get the translated MapId instead of the EntityId of the map
+            var mapId = _transform.GetMapId(args.TargetCoordinates);
+            comp.Map = mapId;
+        }
+    }
+    // IMP add end
 }
 
 /// <summary>
