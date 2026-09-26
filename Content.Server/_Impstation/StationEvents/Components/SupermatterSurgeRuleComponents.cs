@@ -12,20 +12,20 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// <summary>
     /// The entity uid of the supermatter selected
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid SupermatterUid;
 
     /// <summary>
     /// Minimum & maximum power that the supermatter can surge to
     /// </summary>
     [DataField]
-    public MinMax PowerMinMax = new(5000, 10000);
+    public MinMax Power = new(5000, 10000);
 
     /// <summary>
     /// Minimum & maximum heat modifier that the supermatter can surge to
     /// </summary>
     [DataField]
-    public (float, float) HeatModifierMinMax = (1f, 2f);
+    public MinMax HeatModifier = new(1, 2);
 
     /// <summary>
     /// Time tracker for next explosive lightning strike
@@ -37,7 +37,7 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Minimum & maximum time until next explosive lightning strike
     /// </summary>
     [DataField]
-    public MinMax LightningCooldownMinMax = new(10, 20);
+    public MinMax LightningCooldown = new(15, 20);
 
     /// <summary>
     /// Range that the explosive lightning can strike in
@@ -49,5 +49,5 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Amount of explosive lightning strikes
     /// </summary>
     [DataField]
-    public int ZapCount = 2;
+    public int ZapCount = 1;
 }
