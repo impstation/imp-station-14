@@ -25,7 +25,8 @@
   contrabandInventory:
     DrinkLithiumFlask: 1
     StrangePill: 3
-    ChemistryBottleToxin: 1
+  emaggedInventory: # imp
+    ChemistryBottleToxin: 1 # imp moved to emag
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
@@ -59,5 +60,6 @@
     ChemistryBottlePax: 3
     ChemistryBottleMuteToxin: 3
     ChemistryBottleLead: 2
-    ChemistryBottleToxin: 1
+  emaggedInventory: # imp
+    ChemistryBottleToxin: 1 # imp moved to emag
 
