@@ -409,16 +409,17 @@
   - type: Objective
     difficulty: 0.5
 
-- type: entity
-  parent: BaseThiefStealStructureObjective
-  id: TegStealObjective
-  components:
-  - type: NotJobRequirement
-    jobs: [ AtmosphericTechnician, StationEngineer ]
-  - type: StealCondition
-    stealGroup: Teg
-  - type: Objective
-    difficulty: 1
+# IMP REMOVE TEG
+# - type: entity
+#   parent: BaseThiefStealStructureObjective
+#   id: TegStealObjective
+#   components:
+#   - type: NotJobRequirement
+#     jobs: [ AtmosphericTechnician, StationEngineer ]
+#   - type: StealCondition
+#     stealGroup: Teg
+#   - type: Objective
+#     difficulty: 1
 
 - type: entity
   parent: BaseThiefStealStructureObjective
