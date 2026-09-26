@@ -1,0 +1,14 @@
+﻿<GridContainer xmlns="https://spacestation14.io"
+               Columns="2"
+               Margin="5 0">
+    <BoxContainer Name="JobDataHolder" Orientation="Horizontal">
+        <!-- Imp, change left margin from 0 to 2 -->
+        <TextureRect Name="JobIcon" TextureScale="2 2" VerticalAlignment="Center" Margin="2 0 4 0" />
+        <Label Name="JobTitle" HorizontalExpand="True" />
+    </BoxContainer>
+    <BoxContainer Orientation="Horizontal">
+        <Label Name="ReadyCount" HorizontalExpand="True" Text="{Loc 'ready-manifest-no-ready-count'}" />
+        <Label Name="ReadyIndicator" Margin="4 0" StyleClasses="LabelBig"
+               Text="{Loc 'ready-manifest-no-ready-indicator'}" />
+    </BoxContainer>
+</GridContainer>
