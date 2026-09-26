@@ -173,3 +173,22 @@
         pitch: 0.5
   - type: ScaleVisuals
     scale: 2, 1
+
+- type: entity
+  parent: ImmovableRodGondal
+  id: ImmovableRodSecretChineseFork
+  name: Secret Chinese Fork
+  description: YOU HAVE UNLOCKED THE SECRET CHINESE FORK. WHY WOULD YOU DO THAT??!!
+  components:
+  - type: ImmovableRod
+    minSpeed: 0.27
+    maxSpeed: 0.27
+    eviscerationPopup: immovable-rod-penetrated-mob-chinesefork
+  - type: TimedDespawn
+    lifetime: 89.0
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Impstation/Effects/redsuninthesky.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/secretchinesefork.rsi
+    state: secretchinesefork
