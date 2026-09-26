@@ -129,11 +129,12 @@ public sealed partial class SupermatterSystem : EntitySystem
     public void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
     {
         ProcessAtmos(uid, sm, args.dt);
-        sm.PreferredDelamType = ChooseDelamType(uid, sm);
         HandleDamage(uid, sm);
 
         if (sm.Damage >= sm.DamageDelaminationPoint || sm.Delamming)
             HandleDelamination(uid, sm);
+        else
+            sm.PreferredDelamType = ChooseDelamType(uid, sm);
 
         HandleLight(uid, sm);
         HandleVision(uid, sm);
@@ -384,8 +385,8 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         EntityManager.QueueDeleteEntity(target);
 
-        if (TryComp<SupermatterFoodComponent>(target, out var food))
-            sm.Power += food.Energy;
+        if (TryComp<SinguloFoodComponent>(target, out var food))
+            sm.MatterPower += (float)Math.Pow(food.Energy, 3) / 2f; // #mymagicnumbers
         else if (projectile != null)
             sm.Power += (float)projectile.Damage.GetTotal();
         else
