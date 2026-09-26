@@ -35,4 +35,11 @@ public sealed partial class ChasmFallingComponent : Component
     ///     Scale that the animation should bring entities to.
     /// </summary>
     public Vector2 AnimationScale = new Vector2(0.01f, 0.01f);
+
+    /// <summary>
+    ///     Imp.
+    ///     Chasm entity that added the ChasmFalling component
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid Trigger;
 }
