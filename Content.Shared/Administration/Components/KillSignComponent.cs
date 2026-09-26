@@ -27,6 +27,7 @@ public sealed partial class KillSignComponent : Component
     /// Whether the granted layer should be offset to be above the entity.
     /// </summary>
     [DataField, AutoNetworkedField]
+    [Obsolete("Set the Offset field instead of toggling DoOffset")]  // Imp: Unhardcode KillSign offset
     public bool DoOffset = true;
 
     /// <summary>
@@ -40,4 +41,12 @@ public sealed partial class KillSignComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Vector2 Scale = Vector2.One;
+
+    // Imp start
+    /// <summary>
+    /// The vertical offset of the sprite.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Offset = 0.0f;
+    // Imp end
 }
