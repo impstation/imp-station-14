@@ -12,7 +12,7 @@
           mapNameTemplate: '{0} Reef Salvage Construct {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'NT-RCH-'
+            prefixCreator: 'NT-RCH '
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_salvage.yml
         - type: StationJobs
