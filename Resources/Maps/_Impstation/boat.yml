@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/21/2026 00:04:50
-  entityCount: 25421
+  time: 09/12/2026 08:17:57
+  entityCount: 25425
 maps:
 - 1
 grids:
@@ -10360,7 +10360,7 @@ entities:
       pos: 10.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35205.188
+      secondsUntilStateChange: -35514.605
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10598,7 +10598,7 @@ entities:
       pos: 30.5,-49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41510.484
+      secondsUntilStateChange: -41819.902
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10739,7 +10739,7 @@ entities:
       pos: 10.5,88.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -188703.33
+      secondsUntilStateChange: -189012.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10750,7 +10750,7 @@ entities:
       pos: 10.5,87.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -188705.2
+      secondsUntilStateChange: -189014.62
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11507,7 +11507,7 @@ entities:
       pos: 38.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -384274.28
+      secondsUntilStateChange: -384583.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11997,7 +11997,7 @@ entities:
       access:
       - - Maintenance
     - type: Door
-      secondsUntilStateChange: -8002.8057
+      secondsUntilStateChange: -8312.224
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12063,7 +12063,7 @@ entities:
       pos: 45.5,12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8361.105
+      secondsUntilStateChange: -8670.523
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12101,7 +12101,7 @@ entities:
       pos: 44.5,15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -59470.9
+      secondsUntilStateChange: -59780.316
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14572,36 +14572,6 @@ entities:
     - type: Transform
       rot: -6.283185307179586 rad
       pos: 32.149254,51.61196
-      parent: 2
-- proto: BaseChemistryEmptyVial
-  entities:
-  - uid: 850
-    components:
-    - type: Transform
-      pos: 33.22602,-4.364249
-      parent: 2
-  - uid: 851
-    components:
-    - type: Transform
-      pos: 33.423553,-4.364249
-      parent: 2
-  - uid: 852
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.55652,-43.820763
-      parent: 2
-  - uid: 853
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 49.521446,-54.810284
-      parent: 2
-  - uid: 854
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 49.5296,-54.6309
       parent: 2
 - proto: BaseComputer
   entities:
@@ -47256,13 +47226,6 @@ entities:
       parent: 7234
     - type: Physics
       canCollide: False
-- proto: CaptainIDCard
-  entities:
-  - uid: 7236
-    components:
-    - type: Transform
-      pos: 1.8798966,92.003624
-      parent: 2
 - proto: CarbonDioxideCanister
   entities:
   - uid: 7237
@@ -60859,6 +60822,36 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 50.317234,-53.43966
+      parent: 2
+- proto: ChemistryEmptyVial
+  entities:
+  - uid: 850
+    components:
+    - type: Transform
+      pos: 33.22602,-4.364249
+      parent: 2
+  - uid: 851
+    components:
+    - type: Transform
+      pos: 33.423553,-4.364249
+      parent: 2
+  - uid: 852
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.55652,-43.820763
+      parent: 2
+  - uid: 853
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 49.521446,-54.810284
+      parent: 2
+  - uid: 854
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 49.5296,-54.6309
       parent: 2
 - proto: ChemistryHotplate
   entities:
@@ -77737,7 +77730,7 @@ entities:
       pos: 34.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -415612.56
+      secondsUntilStateChange: -415921.97
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -113283,6 +113276,46 @@ entities:
       rot: 3.141592653589793 rad
       pos: 60.46763,62.58931
       parent: 2
+- proto: LinkedCaptainIDCardSpawner
+  entities:
+  - uid: 25425
+    components:
+    - type: Transform
+      pos: 49.5,-47.5
+      parent: 2
+- proto: LinkedCaptainIDCardSpawner2
+  entities:
+  - uid: 25424
+    components:
+    - type: Transform
+      pos: 50.5,-16.5
+      parent: 2
+- proto: LinkedCaptainIDCardSpawner3
+  entities:
+  - uid: 21825
+    components:
+    - type: Transform
+      pos: 44.5,96.5
+      parent: 2
+  - uid: 25386
+    components:
+    - type: Transform
+      pos: 29.5,12.5
+      parent: 2
+- proto: LinkedCaptainIDCardSpawner4
+  entities:
+  - uid: 7236
+    components:
+    - type: Transform
+      pos: 13.5,88.5
+      parent: 2
+- proto: LinkedCaptainIDCardSpawner5
+  entities:
+  - uid: 22054
+    components:
+    - type: Transform
+      pos: 1.5,91.5
+      parent: 2
 - proto: LiveLetLiveCircuitBoard
   entities:
   - uid: 10080
@@ -115978,6 +116011,13 @@ entities:
     - type: Transform
       pos: 39.765156,62.4744
       parent: 2
+  - uid: 25423
+    components:
+    - type: Transform
+      pos: 45.148735,96.46668
+      parent: 2
+    - type: NetworkConfigurator
+      linkModeActive: False
 - proto: MysteryFigureBox
   entities:
   - uid: 17255
@@ -118137,23 +118177,6 @@ entities:
     - type: Transform
       pos: 5.414692,70.74322
       parent: 2
-- proto: PlushieBug
-  entities:
-  - uid: 17601
-    components:
-    - type: Transform
-      pos: 6.0187025,-46.489872
-      parent: 2
-  - uid: 17602
-    components:
-    - type: Transform
-      pos: -2.3992114,84.24117
-      parent: 2
-  - uid: 17603
-    components:
-    - type: Transform
-      pos: 54.39867,61.65081
-      parent: 2
 - proto: PlushieCarp
   entities:
   - uid: 17604
@@ -118381,6 +118404,21 @@ entities:
       parent: 2
 - proto: PlushieImp
   entities:
+  - uid: 17601
+    components:
+    - type: Transform
+      pos: 6.0187025,-46.489872
+      parent: 2
+  - uid: 17602
+    components:
+    - type: Transform
+      pos: -2.3992114,84.24117
+      parent: 2
+  - uid: 17603
+    components:
+    - type: Transform
+      pos: 54.39867,61.65081
+      parent: 2
   - uid: 17638
     components:
     - type: Transform
@@ -139489,12 +139527,6 @@ entities:
       - - Armory
 - proto: SurveillanceCameraAssembly
   entities:
-  - uid: 25386
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 54.5,67.5
-      parent: 2
   - uid: 25387
     components:
     - type: Transform
@@ -145166,13 +145198,6 @@ entities:
     - type: Transform
       pos: 7.847134,21.01781
       parent: 2
-- proto: ToyFigurineCaptain
-  entities:
-  - uid: 21825
-    components:
-    - type: Transform
-      pos: 1.3192205,92.03883
-      parent: 2
 - proto: ToyFigurineChaplain
   entities:
   - uid: 21826
@@ -147252,11 +147277,6 @@ entities:
       parent: 2
 - proto: ViolinInstrument
   entities:
-  - uid: 22054
-    components:
-    - type: Transform
-      pos: 8.443825,18.605982
-      parent: 2
   - uid: 22055
     components:
     - type: Transform
@@ -161855,6 +161875,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 32.5,19.5
+      parent: 2
+  - uid: 25422
+    components:
+    - type: Transform
+      pos: 34.5,2.5
       parent: 2
 - proto: WallSolid
   entities:
