@@ -88,24 +88,24 @@
 - type: entity
   parent: [ClothingUniformBase]
   id: ClothingUniformDetectiveSuitSkirt
-  name: detective suitskirt
+  name: detective's brown suitskirt
   description: Now excuse me, if I may just have a moment of your time...
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/detectivesuit.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/det_suitbrown.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/detectivesuit.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/det_suitbrown.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
   id: ClothingUniformMiamiViceSkirt
-  name: miami vice suitskirt
+  name: detective's white suitskirt
   description: When you need to arrest the clown at twelve o'clock and boogie board at one.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/miamivice.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/det_suitmiami.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/miamivice.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/det_suitmiami.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
