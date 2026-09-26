@@ -1,24 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Starflare EPDW-6 can now be purchased from cargo or found randomly
-      in some HoS offices!
-    type: Add
-  - message: The Military Blaster Cell can be unlocked with Advanced Sidearm Research
-      to give your TS-99 a bit more of a punch!
-    type: Add
-  - message: Removed the TT-10 from the random HoS office weapon pool
-    type: Tweak
-  id: 2473
-  time: '2025-12-09T04:11:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3770
-- author: TheGrimbeeper
-  changes:
-  - message: Fixed reinforced glass shard making mixing noise on spawn
-    type: Fix
-  id: 2474
-  time: '2025-12-09T04:40:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3804
 - author: yesteryuri
   changes:
   - message: The no species accent trait no longer blocks off other selectable accents
@@ -4052,3 +4032,17 @@
   id: 2972
   time: '2026-09-25T22:36:51.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4649
+- author: starlighthowls
+  changes:
+  - message: Changed two pixels, you don't get to know which ones.
+    type: Tweak
+  id: 2973
+  time: '2026-09-26T01:40:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4639
+- author: heirdragonair
+  changes:
+  - message: a y has been swapped for an i, find it
+    type: Fix
+  id: 2974
+  time: '2026-09-26T17:58:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4666
