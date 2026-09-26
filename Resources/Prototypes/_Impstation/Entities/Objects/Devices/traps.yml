@@ -5,19 +5,21 @@
   suffix: Giant
   description: Useful for catching R.O.U.S.
   components:
+  - type: Damageable
+    damageContainer: Inorganic
   - type: Pullable
   - type: Animateable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 50
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WoodDestroy
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WoodDestroy
   - type: Clickable
   - type: GravityAffected
   - type: Physics
