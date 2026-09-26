@@ -17,7 +17,11 @@ public sealed partial class PleebnarTelepathyActionComponent : Component
     public string? TelepathyActionId = "ActionPleebnarTelepathy";
 
     [DataField]
-    public string? WeirdAudioPath = "/Audio/_Impstation/Animals/pleebnar_weird.ogg";
+    public SoundSpecifier WeirdAudioPath = new SoundPathSpecifier("/Audio/_Impstation/Animals/pleebnar_weird.ogg")
+    {
+        Params = AudioParams.Default
+            .WithVolume(-2f)
+    };
 
     [DataField]
     public EntityUid? VisionAction;
