@@ -7,11 +7,29 @@
       time: 15h
       inverted: true # don't let experienced players select these
 
+- type: loadoutEffectGroup
+  id: Veteran #imp
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 50h # Should be enough to get a feel for the wider game, culture, and different roles. Ideally be able to work well under pressure 
+
 - type: loadout
   id: NoviceMark # no playtime lockout for needing time :)
   storage:
     back:
     - ClothingNeckNoviceMark
+  groupBy: "accessibility"
+
+- type: loadout
+  id: VeteranMark #imp. >/= 50 hours.
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Veteran
+  storage:
+    back:
+    - ClothingNeckVeteranMark
   groupBy: "accessibility"
 
 - type: loadout
