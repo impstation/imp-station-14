@@ -1,0 +1,10 @@
+- type: entity
+  parent: NukeOpsDeclarationOfWar
+  id: NukeOpsMiniDeclarationOfWar
+  name: miniature war declarator
+  description: Use to send a declaration of hostilities to the target, delaying your shuttle departure while they prepare for your assault. Such a brazen move will attract the attention of powerful benefactors within the Syndicate, who will supply your team with a mild amount of bonus telecrystals. Must be used at start of mission, or your benefactors will lose interest.
+  components:
+    - type: WarDeclarator
+      message: war-declarator-default-message
+      giftedTC: 20
+      ignorePopCheck: true
