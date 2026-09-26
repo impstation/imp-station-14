@@ -12,7 +12,7 @@ bounty-console-manifest-entry =
 bounty-console-manifest-reward = Reward: ${$reward}
 bounty-console-description-label = [color=gray]{$description}[/color]
 bounty-console-id-label = ID#{$id}
-#imp edit start - cargo bounty claiming & status
+# imp edit start - cargo bounty claiming & status
 bounty-console-claimed-by-none = None
 bounty-console-claimed-by-unknown = Unknown
 bounty-console-claimed-by = Claimed by: {$claimant}
@@ -32,7 +32,7 @@ bounty-console-status-tooltip = {$status ->
     [1] This bounty is waiting to be fulfilled
     *[other] This bounty has not yet been sent out for fulfilment
     }
-#imp edit end
+# imp edit end
 
 bounty-console-flavor-left = Bounties sourced from local unscrupulous dealers.
 bounty-console-flavor-right = v1.4
