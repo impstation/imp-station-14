@@ -3,6 +3,9 @@
   startingInventory:
     OxygenTankFilled: 10
     NitrogenTankFilled: 10
+  emaggedInventory: # imp
+    DoubleEmergencyOxygenTankFilled: 1 # imp
+    DoubleEmergencyNitrogenTankFilled: 1 # imp
 
 - type: vendingMachineInventory
   id: TankDispenserEngineeringInventory
@@ -10,3 +13,6 @@
     PlasmaTankFilled: 10
     NitrogenTankFilled: 10
     OxygenTankFilled: 10
+  emaggedInventory: # imp
+    DoubleEmergencyOxygenTankFilled: 1 # imp
+    DoubleEmergencyNitrogenTankFilled: 1 # imp
