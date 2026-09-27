@@ -208,6 +208,9 @@ uplink-fake-cash-desc = Not actually real but good luck holding it long enough t
 uplink-bee-suit-name = Bee-keeping Suit
 uplink-bee-suit-desc = Keeps you safe from stingers!
 
+uplink-murderscenebundle-name = Murder Scene Bundle
+uplink-murderscenebundle-desc = Everything you need to create a convincing murder scene, includes six dead crew balloons, convincing fake blood, and bullet casings!
+
 uplink-c20r-name = C-20R Gorgon
 uplink-c20r-desc = Old faithful: The classic C-20R Gorgon Submachine Gun.
 
