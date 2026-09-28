@@ -104,7 +104,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         });
 
         var spawns = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx);
-        if (!spawns.Any()) // No valid offspring
+        if (spawns == null || !spawns.Any()) // No valid offspring
             return false;
 
         // Add gestation to the approached mob

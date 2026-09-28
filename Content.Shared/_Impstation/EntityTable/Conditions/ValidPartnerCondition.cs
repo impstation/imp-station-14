@@ -17,8 +17,6 @@ namespace Content.Shared._Impstation.EntityTable.Conditions;
 /// </summary>
 public sealed partial class ValidPartnerCondition : EntityTableCondition
 {
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-
     public const string PartnerContextKey = "Partner";
 
     [DataField("validPartners")]
@@ -41,10 +39,12 @@ public sealed partial class ValidPartnerCondition : EntityTableCondition
         if (ValidPartners.Count == 0)
             return true;
 
+        var tagSystem = entMan.System<TagSystem>();
+
         // Check if the one we are breeding with is the mob required for this offspring
         foreach (var partnerName in ValidPartners)
         {
-            if (_tagSystem.HasTag(partner, partnerName)) return true;
+            if (tagSystem.HasTag(partner, partnerName)) return true;
         }
 
         return false;

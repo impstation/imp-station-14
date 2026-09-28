@@ -216,7 +216,7 @@
 
 - type: entity
   name: hen # Imp
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, BaseMobVegetarian ] # Impstation - Animal Husbandry Rewrite
   id: MobChicken
   description: Comes before an egg, and IS a dinosaur!
   components:
@@ -1020,8 +1020,6 @@
     - Chef
     - FoodRecipes
   # imp edit start
-  - type: Body
-    prototype: AnimalRuminant
   - type: ImpReproductive
     hungerPerBirth: 50
     sex: Female
@@ -4106,7 +4104,7 @@
 
 - type: entity
   name: pig
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseMobOmnivore ] # Impstation - Animal Husbandry Rewrite
   id: MobPig
   description: Oink.
   components:
