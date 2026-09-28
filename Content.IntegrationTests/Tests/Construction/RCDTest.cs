@@ -194,7 +194,7 @@ public sealed class RCDTest : InteractionTest
         // Deconstruct the steel tile.
         await Interact(null, pEast);
         await RunSeconds(settingDeconstructTile.Delay + 1); // wait for the deconstruction to finish
-        await AssertTile(Lattice, FromServer(pEast));
+        await AssertTile(Lattice, FromServer(pEast)); // Imp, our RCD's deconstruct down to the lattice, not the plate
 
         // Check that the cost of the deconstruction was subtracted from the current charges.
         newCharges = sCharges.GetCurrentCharges(ToServer(rcd));
