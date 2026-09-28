@@ -289,8 +289,6 @@
       - ReagentId: Blood
         Quantity: 100
   # imp edit start
-  - type: Body
-    prototype: AnimalRuminant
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
@@ -4174,8 +4172,6 @@
       task: PassiveLivestockCompound # Imp
   # imp edit start
   - type: ExaminableHunger
-  - type: Body
-    prototype: AnimalRuminant
   - type: GoobAbsorbable
     biomassRestored: 0.7
   - type: Carriable #DeltaV
