@@ -1,0 +1,43 @@
+- type: entity
+  id: SpaceCleanerTablet
+  name: space cleaner concentrate tablet
+  parent: BaseItem
+  description: A concentrated tablet of BLAM!-brand non-foaming space cleaner. Dissolve in 5u of water for 30u of BLAM!-brand non-foaming space cleaner. WARNING! Do not consume.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Janitorial/space_cleaner_tablet.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+    sprite: _Impstation/Objects/Specific/Janitorial/space_cleaner_tablet.rsi
+  - type: Edible
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions: #eating it, dissolving it, and grinding it will all do different things.  i am so wise
+      grind: #grinds into pure space cleaner
+        maxVol: 25
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 25
+      food: #Thusd Bodge. you'll never see these reagents so they can be aaaaanything to simulate my yucky
+        maxVol: 10
+        reagents:
+        - ReagentId: Ammonia # don't eat this. why are you eating it. stop. 
+          Quantity: 6
+        - ReagentId: SodiumPolyacrylate #this is a dried little puck. yucky ew!
+          Quantity: 3
+        - ReagentId: SoapReagent
+          Quantity: 1 #mouth clean :)
+      dissolve: #if added to 5u water like instructed, reacts nicely yadda yadda you get the idea
+        maxVol: 25
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 20
+        - ReagentId: Ammonia
+          Quantity: 5
+  - type: SolutionSpiker
+    sourceSolution: dissolve
+  - type: Extractable
+    grindableSolutionName: grind
+  - type: StaticPrice
+    price: 0
