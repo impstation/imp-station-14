@@ -310,6 +310,8 @@
       - id: SpectralLocator
       - id: LidSalami
         weight: 0.05
+      - id: CommemorativeFlippoLighter # funky
+        weight: 0.05
 
 - type: entity
   name: Maint Loot Spawner
@@ -336,7 +338,7 @@
       weight: 95
       children:
       - id: Machete
-      - id: Claymore
+#     - id: Claymore #imp
       - id: BaseBallBat
       - id: CombatKnife
       - id: Spear
@@ -348,6 +350,7 @@
     - !type:GroupSelector
       weight: 5
       children:
+      - id: Claymore #imp
       - id: Lighter
       - id: Matchbox
       - id: ClothingEyesBlindfold

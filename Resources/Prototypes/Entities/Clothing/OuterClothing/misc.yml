@@ -204,7 +204,7 @@
   parent: ClothingOuterWizardBase
   id: ClothingOuterWizardViolet
   name: violet wizard robes
-  description: A bizarre gem-encrusted violet robe that radiates magical energies.
+  description: A bizarre gem-encrusted violet robe that radiates magical energies, some of the gems seem to have blemishes. # imp edit, everything after the last comma
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Misc/violetwizard.rsi # imp edit
@@ -213,12 +213,13 @@
   - type: Tag
     tags:
     - CorgiWearable
-    - WhitelistChameleon
+   #- WhitelistChameleon #imp edit
+
 - type: entity
   parent: ClothingOuterWizardBase
   id: ClothingOuterWizard
   name: wizard robes
-  description: A bizarre gem-encrusted blue robe that radiates magical energies.
+  description: A bizarre gem-encrusted blue robe that radiates magical energies, some of the gems seem to have imperfections. # imp edit, everything after the last comma
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Misc/wizard.rsi # imp edit
@@ -227,13 +228,12 @@
   - type: Tag
     tags:
     - CorgiWearable
-    - WhitelistChameleon
-
+   #- WhitelistChameleon #imp edit
 - type: entity
   parent: ClothingOuterWizardBase
   id: ClothingOuterWizardRed
   name: red wizard robes
-  description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.
+  description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user, the gems lining the hem seem to be slightly discolored. # imp edit, everything after the last comma
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Misc/redwizard.rsi # imp edit
@@ -242,8 +242,7 @@
   - type: Tag
     tags:
     - CorgiWearable
-    - WhitelistChameleon
-
+   #- WhitelistChameleon #imp edit
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSkub

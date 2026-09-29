@@ -85,6 +85,37 @@
       PotencyDivisor: 25
 
 - type: seed
+  id: kisserTomatoFake
+  name: seeds-kissertomato-name
+  noun: seeds-noun-seeds
+  displayName: seeds-kissertomato-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/tomatokisser.rsi
+  packetPrototype: KisserTomatoFakeSeeds
+  productPrototypes:
+  - MobTomatoKisserFake
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 15
+  production: 6
+  yield: 2
+  potency: 10
+  waterConsumption: 0.60
+  nutrientConsumption: 0.70
+  idealLight: 8
+  idealHeat: 298
+  growthStages: 2
+  splatPrototype: PuddleSplatter
+  chemicals:
+    Blood:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    JuiceTomato:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+
+- type: seed
   id: rose
   name: seeds-rose-name
   noun: seeds-noun-seeds
@@ -356,7 +387,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-    LiftingConcentrate: 
+    LiftingConcentrate:
       Min: 1
       Max: 5
       PotencyDivisor: 25
@@ -378,4 +409,4 @@
   idealLight: 8
   growthStages: 3
   waterConsumption: 0.60
-      
+

@@ -5,6 +5,10 @@
   description: A device that will teleport everything around it to the thief's vault at the end of the shift.
   components:
     - type: ThiefBeacon
+      linkSound: # imp: jesus fuckign christ
+        path: /Audio/Machines/high_tech_confirm.ogg
+        params:
+          volume: -10 # be quite
     - type: StealArea
       range: 2 # Slightly larger than fulton beacon's random offset
     - type: Item

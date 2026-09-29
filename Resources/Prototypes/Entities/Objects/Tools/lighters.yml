@@ -29,6 +29,10 @@
   - type: ItemToggleSize
     activatedSize: Small
   - type: ItemToggleHot
+  - type: CheapLighter # funky
+    failChance: 0.1
+    soundFail:
+      collection: lighterFailSounds
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
     layers:
@@ -119,6 +123,10 @@
       visible: false
       shader: unshaded
       map: [ "flame" ]
+  - type: CheapLighter # funky
+    failChance: 0.4
+    soundFail:
+      collection: lighterFailSounds
   - type: RandomSprite
     available:
       - skin:
@@ -476,6 +484,10 @@
         - ReagentId: WeldingFuel
           Quantity: 3
         maxVol: 3
+  - type: CheapLighter # funky
+    failChance: 0.6
+    soundFail:
+      collection: lighterFailSounds
 
 - type: entity
   parent: [BaseBrandedLighter, Tier1Contraband] #imp contraband

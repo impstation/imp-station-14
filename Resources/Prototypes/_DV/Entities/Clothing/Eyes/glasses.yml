@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ ClothingEyesBase, BaseLensSlot ] # imp add BaseLensSlot
   id: ClothingEyesGlassesChemist
   name: safety glasses
   description: Glasses made for chemists and other workers dealing with caustic reagents.

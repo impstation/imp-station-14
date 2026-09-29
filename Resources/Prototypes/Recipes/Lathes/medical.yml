@@ -74,7 +74,7 @@
 
 - type: latheRecipe
   id: HandheldHealthAnalyzer
-  result: HandheldHealthAnalyzerEmpty
+  result: HandheldHealthAnalyzer
   categories:
   - Tools
   completetime: 4
@@ -152,6 +152,12 @@
   id: MedkitO2
   result: MedkitO2
   name: lathe-recipe-MedkitO2-name
+
+- type: latheRecipe #imp
+  parent: Medkit
+  id: MedkitN2
+  result: MedkitN2
+  name: lathe-recipe-MedkitN2-name
 
 - type: latheRecipe
   parent: Medkit

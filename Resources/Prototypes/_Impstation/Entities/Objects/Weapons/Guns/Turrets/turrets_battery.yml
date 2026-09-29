@@ -1,0 +1,23 @@
+- type: entity
+  parent: [BaseWeaponEnergyTurret]
+  name: automated disabler turret
+  id: WeaponTurretEnergyNanotrasen
+  description: An automated turret armed with a heavy disabler. It automatically fires on non-crew threats.
+  suffix: Nanotrasen
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PetsNT #listen. Nanotrasen faction makes it shoot syndies and this one doesnt
+  - type: BatteryAmmoProvider
+    proto: BulletEnergyTurretDisabler
+    fireCost: 100
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+    drawdepth: FloorObjects
+    granularLayersRendering: true
+    layers:
+    - state: support
+      renderingStrategy: NoRotation
+    - state: base
+    - state: stun
+      shader: unshaded

@@ -1,4 +1,6 @@
-# .10 mini deals 5 pierce per shot (CartridgeMinigun)
+# .10 mini (CartridgeMinigun) should deal 5 pierce per shot on average (-5).
+# The Base Heavy Machine Gun weapon has a default GunDamage "bonus" of -5 Piercing.
+
 - type: entity
   name: minigun
   id: WeaponMinigun

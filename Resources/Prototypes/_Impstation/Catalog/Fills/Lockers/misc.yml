@@ -63,7 +63,7 @@
 - type: entity
   id: ClosetEmergencyFilledWinter
   parent: ClosetEmergency
-  suffix: Filled, Winter
+  suffix: Filled, Ice Station
   components:
   - type: EntityTableContainerFill
     containers:
@@ -73,7 +73,7 @@
 - type: entity
   id: ClosetWallEmergencyFilledWinter
   parent: ClosetWallEmergency
-  suffix: Filled, Winter
+  suffix: Filled, Ice Station
   components:
   - type: EntityTableContainerFill
     containers:
@@ -83,7 +83,7 @@
 - type: entity
   id: ClosetEmergencyN2FilledWinter
   parent: ClosetEmergencyN2
-  suffix: Filled, Winter
+  suffix: Filled, Ice Station
   components:
   - type: EntityTableContainerFill
     containers:
@@ -93,7 +93,7 @@
 - type: entity
   parent: ClosetWallEmergencyN2
   id: ClosetWallEmergencyN2FilledWinter
-  suffix: Filled, Winter
+  suffix: Filled, Ice Station
   components:
   - type: EntityTableContainerFill
     containers:

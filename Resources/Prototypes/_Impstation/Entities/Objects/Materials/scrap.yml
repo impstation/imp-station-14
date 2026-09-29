@@ -17,3 +17,35 @@
     materialComposition:
       Steel: 500 # 5 sheets
       Plastic: 2000 # 20 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: PigIronCorpse
+  name: worthless pig iron artifact
+  description: Some ancient piece of scrap, even at its prime it mustn't have been much to behold.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Materials/Scrap/generic.rsi
+    layers:
+      - state: pig-iron
+        map: [ "base" ]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,4 # 5x5
+    heldPrefix: metal
+  - type: MultiHandedItem
+  - type: PhysicalComposition
+    materialComposition:
+      RawIron: 500
+      Plastic: 500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 1

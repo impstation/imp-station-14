@@ -1,11 +1,12 @@
 ﻿using Robust.Shared.Serialization;
+using Robust.Shared.GameStates; //IMP
 
 namespace Content.Shared.Research.Components
 {
     /// <summary>
     /// This is an entity that is able to connect to a <see cref="ResearchServerComponent"/>
     /// </summary>
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState] //IMP NetworkedComponent, AutoGenerateComponentState
     public sealed partial class ResearchClientComponent : Component
     {
         public bool ConnectedToServer => Server != null;
@@ -13,7 +14,7 @@ namespace Content.Shared.Research.Components
         /// <summary>
         /// The server the client is connected to
         /// </summary>
-        [ViewVariables(VVAccess.ReadOnly)]
+        [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField] //IMP AutoNetworkedField
         public EntityUid? Server { get; set; }
     }
 

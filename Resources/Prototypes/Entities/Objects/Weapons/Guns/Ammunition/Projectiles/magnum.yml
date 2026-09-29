@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseBullet
-  id: BulletMagnumWizden #imp - see the _Impstation directory for the version we use
+  id: BulletMagnum
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum)
   components:
@@ -11,7 +11,7 @@
 
 - type: entity
   parent: BaseBulletPractice
-  id: BulletMagnumPracticeWizden #imp - see the _Impstation directory for the version we use
+  id: BulletMagnumPractice
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum practice)
   components:
@@ -22,7 +22,7 @@
 
 - type: entity
   parent: BaseBulletIncendiary
-  id: BulletMagnumIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  id: BulletMagnumIncendiary
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum incendiary)
   components:
@@ -34,7 +34,7 @@
 
 - type: entity
   parent: BaseBulletAP
-  id: BulletMagnumAPWizden #imp - see the _Impstation directory for the version we use
+  id: BulletMagnumAP
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum armor-piercing)
   components:
@@ -46,7 +46,7 @@
 
 - type: entity
   parent: BaseBulletUranium
-  id: BulletMagnumUraniumWizden #imp - see the _Impstation directory for the version we use
+  id: BulletMagnumUranium
   categories: [ HideSpawnMenu ]
   name: bullet (.45 magnum uranium)
   components:

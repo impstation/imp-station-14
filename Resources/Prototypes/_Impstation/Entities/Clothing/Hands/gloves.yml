@@ -82,3 +82,35 @@
     fiberMaterial: fibers-web
     fiberColor: fibers-purple
   - type: FingerprintMask
+
+- type: entity
+  parent: [ ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband ]
+  id: ClothingHandsGlovesCombatBudget
+  name: budget combat gloves
+  description: These tactical gloves aren't fireproof and only might be shock resistant.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: RandomInsulation
+    list:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0.5
+    - 0.5
+    - 0.5
+    - 1.5
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+  - type: Fiber
+    fiberMaterial: fibers-insulative-frayed
+  - type: DamageOnShootProtection
+    damageProtection:
+      flatReductions:
+        Blunt: 2
+        Shock: 5

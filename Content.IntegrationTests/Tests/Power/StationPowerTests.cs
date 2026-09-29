@@ -49,9 +49,11 @@ public sealed class StationPowerTests
         "CogImp",
         "CoreImp",
         //"E1M1",
+        "Eclipse",
         "ElkridgeImp",
         "GateImp",
         "Hummingbird",
+        "Jellyfish",
         "Lilboat",
         "MarathonImp",
         "OasisImp",
@@ -59,24 +61,26 @@ public sealed class StationPowerTests
         "PlasmaImp",
         "ReachImp",
         "SalternImp",
+        "Schooner",
         "Submarine",
         "TrainImp",
         "Union",
         "Xeno",
         "Pathway",
         "Whisper",
+        "Monarch",
+        "Whalefall",
+        "LoopImp",
+        "OmegaImp",
 
         // DEROTATED:
-        //"Eclipse",
-        //"Luna",
-        //"Refsdal",
-        //"reHash",
         //"RelicImp",
-        //"Skimmer",
+
     };
 
     [Explicit]
     [Test, TestCaseSource(nameof(GameMaps))]
+    [Ignore("OOM fix - reenable after merging upstream test refactors")] // imp
     public async Task TestStationStartingPowerWindow(string mapProtoId)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -140,6 +144,7 @@ public sealed class StationPowerTests
     }
 
     [Test, TestCaseSource(nameof(GameMaps))]
+    [Ignore("OOM fix - reenable after merging upstream test refactors")] // imp
     public async Task TestApcLoad(string mapProtoId)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings

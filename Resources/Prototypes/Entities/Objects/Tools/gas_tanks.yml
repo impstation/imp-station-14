@@ -201,10 +201,10 @@
   - type: Sprite
     sprite: _Impstation/Objects/Tanks/oxygen_double.rsi #imp
   - type: Item
-    sprite: Objects/Tanks/emergency_double.rsi
+    sprite: _Impstation/Objects/Tanks/oxygen_double.rsi #imp
     storedSprite:
       state: storage
-      sprite: Objects/Tanks/emergency_double.rsi
+      sprite: _Impstation/Objects/Tanks/oxygen_double.rsi #imp
   - type: GasTank
     air:
       volume: 2.5

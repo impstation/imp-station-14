@@ -22,7 +22,7 @@
     gloves: ClothingHandsGlovesSpaceNinjaWeak # imp
     outerClothing: ClothingOuterSuitSpaceNinja
     shoes: ClothingShoesSpaceNinja
-    id: AgentIDCard
+    id: NinjaPDA
     ears: ClothingHeadsetNinja
     pocket1: SpiderCharge
     pocket2: PinpointerStation
@@ -52,7 +52,7 @@
 - type: chameleonOutfit
   id: NinjaChameleonOutfit
   name: roles-antag-space-ninja-name
+  icon: "JobIconNinja"
   startingGear: SpaceNinjaGear
   equipment:
-    id: PassengerPDA
     neck: ClothingNeckGoldmedal

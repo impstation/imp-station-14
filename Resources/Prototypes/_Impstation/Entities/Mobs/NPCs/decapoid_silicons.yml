@@ -157,6 +157,7 @@
     - FootstepSound
     - SiliconEmotes
     - EmagImmune
+    - DecapoidSilicon
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -203,6 +204,8 @@
     interactFailureString: petting-failure-decapoid-silicon
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Eye #allows borgs to see the ai eye
+    visMask: 5
 
 - type: entity #behold my abombination, mortal
   parent: BaseMobDecapoidSilicon
@@ -285,6 +288,8 @@
     - DoorBumpOpener
     - FootstepSound
     - SiliconEmotes
+    - EmagImmune
+    - DecapoidSilicon
   - type: BorgChassis
     maxModules: 3
     hasMindState: tcktck_e
@@ -347,6 +352,8 @@
     - External
     - Salvage
     - Cargo
+  - type: StationAiVision #acts as an ai camera
+    range: 2
 
 - type: entity
   parent: [BaseMobDecapoidSilicon, ShowSecurityIcons, ShowMedicalIcons]
@@ -426,6 +433,8 @@
     - SiliconEmotes
     - HudMedical
     - HudSecurity
+    - EmagImmune
+    - DecapoidSilicon
   - type: BorgChassis
     maxModules: 3
     hasMindState: tckut_e
@@ -461,6 +470,8 @@
     - Detective
     - Armory
     - Chemistry
+  - type: StationAiVision #acts as an ai camera
+    range: 2
 
 - type: entity
   parent: [ MobSiliconBase, BasePowerCell ]
@@ -500,6 +511,7 @@
     - SiliconEmotes
     - Bot
     - Unimplantable
+    - DecapoidSilicon
   - type: TypingIndicator #in case someone admin controls one
     proto: robot
   - type: Speech
@@ -571,3 +583,5 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 2000
+  - type: StationAiVision #acts as an ai camera
+    range: 1

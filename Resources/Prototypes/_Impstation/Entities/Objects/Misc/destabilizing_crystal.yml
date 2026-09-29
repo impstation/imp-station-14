@@ -1,0 +1,13 @@
+- type: entity
+  parent: [ BaseItem, BaseSyndicateContraband]
+  id: DestabilizingCrystal
+  name: destabilizing crystal
+  description: A crystal that seems to contain two gasses swirling together.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/destabilizing_crystal.rsi
+    layers:
+    - state: destabilizing_crystal
+  - type: Item
+  - type: SupermatterDestabalizer
+  - type: SupermatterImmune

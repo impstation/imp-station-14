@@ -1,0 +1,28 @@
+<Document>
+  # Advanced Node Scanner
+
+  The Advanced Node Scanner is a combination artifact scanner and data analysis device.
+  It is capable of increasing the quality of artifact data, and performing complex interpretations for easy display.
+
+  <Box>
+    <GuideEntityEmbed Entity="MachineAdvancedNodeScanner" Caption="Advanced Node Scanner"/>
+  </Box>
+
+  Link the advanced node scanner to an artifact analyzer, then view the additional information on the analyzer's analysis console.
+
+  ## Features
+  The Advanced Node Scanner provides enhanced information about your artifact for display on the analysis console. This includes:
+  - [bold]Unlock time remaining:[/bold] (R) Display the exact amount of time remaining until the current "unlock session" concludes.
+  - [bold]Triggered node information:[/bold] (R) Nodes that were triggered during the latest (or current) "unlock session" will be highlighted in Gold. Use this information to identify which stimuli to add or remove.
+  - [bold]Reveal hidden nodes:[/bold] (N) One more node layer is revealed for natural artifacts. This allows more informed navigation of the node "tree".
+  - [bold]Force direction:[/bold] (N) The "Down" button forces the next "current node" to be deeper when the artifact activates. The Advanced Node Scanner changes the "Down" button into three more precise buttons:
+  -   [italic]L Down:[/italic] Forces the next "current node" to be the node displayed leftmost on the analysis console node diagram.
+  -   [italic]R Down:[/italic] Forces the next "current node" to be the node displayed rightmost on the analysis console node diagram.
+  -   [italic]? Down:[/italic] Random selection of the next "current node" - same as normal "Down" button.
+
+  Key:
+  - (R): Applicable to reticulated artifacts
+  - (N): Applicable to natural artifacts
+
+  For both types of artifacts, presence of an Advanced Node Scanner will provide a bonus of 5% more research points.
+</Document>

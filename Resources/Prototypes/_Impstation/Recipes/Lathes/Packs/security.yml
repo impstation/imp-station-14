@@ -3,14 +3,12 @@
 - type: latheRecipePack
   id: SecurityPracticeStaticImp
   recipes:
-  - MagazineBoxLPistolPractice
   - MagazineLPistolPractice
 
 - type: latheRecipePack
   id: SecurityAmmoStaticImp
   recipes:
   - MagazineAmmoPouch
-  - MagazineBoxLPistol
   - MagazineBoxPistolStun
   - MagazineDMR
   - MagazineDMREmpty
@@ -45,8 +43,6 @@
 - type: latheRecipePack
   id: SecurityAmmoImp
   recipes:
-  - MagazineBoxLPistolIncendiary
-  - MagazineBoxLPistolUranium
   - MagazineDMRIncendiary
   - MagazineDMRUranium
   - MagazineLPistolIncendiary
@@ -72,8 +68,8 @@
   - WeaponShotgunEnforcerBeanbag
   - WeaponShotgunKammererBeanbag
   - WeaponRifleTranq
-  - TranqDart
-  - IrwizineDart
+  - BoxTranqDart
+  - BoxIrwizineDart
   - WeaponDisablerCarbine
 
 # Emagged

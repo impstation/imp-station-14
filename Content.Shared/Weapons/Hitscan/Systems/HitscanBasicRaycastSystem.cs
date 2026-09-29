@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Impstation.Physics.Systems; // Imp - CollisionFilter
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
@@ -20,6 +21,7 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly CollisionFilterSystem _collisionFilter = default!; // Imp - CollisionFilter
 
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;
 
@@ -47,7 +49,8 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
         var result = _container.IsEntityOrParentInContainer(shooter)
             ? rayCastResults.FirstOrNull()
             : rayCastResults.FirstOrNull(hit => hit.HitEntity == target
-                                                || CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true);
+                                                || CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true
+                                                    && _collisionFilter.HitscanCollisionCheck(shooter, hit.HitEntity)); // Imp - CollisionFilter
 
         var distanceTried = result?.Distance ?? ent.Comp.MaxDistance;
 

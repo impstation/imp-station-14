@@ -11,7 +11,7 @@ using Robust.Shared.Random;
 namespace Content.Server._Impstation.StationEvents.Events;
 
 /// <summary>
-/// Applies a given status effect to every humanoid on the station, for a random duration between max and min per-entity.
+/// Applies a given status effect to every humanoid on the station for a random duration between max and min per-entity.
 /// </summary>
 public sealed class GlobalStatusEffectRule : StationEventSystem<GlobalStatusEffectRuleComponent>
 {

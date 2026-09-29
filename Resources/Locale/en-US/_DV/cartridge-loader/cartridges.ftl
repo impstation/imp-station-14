@@ -39,6 +39,7 @@ nano-chat-confirm = Confirm
 
 # LogProbe additions
 log-probe-scan-nanochat = Scanned {$card}'s NanoChat logs
+log-probe-scan-nanochat-empty-pda = {$pda} doesn't contain an ID card!
 log-probe-header-access = Access Log Scanner
 log-probe-header-nanochat = NanoChat Log Scanner
 log-probe-label-message = Message

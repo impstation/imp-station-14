@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited kipdotnet (github) for Impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "directions": 4
+    },
+    {
+      "name": "lights",
+      "directions": 4
+    },
+    {
+      "name": "radiation",
+      "directions": 4,
+      "delays": [
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ]
+      ]
+    }
+  ]
+}

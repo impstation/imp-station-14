@@ -28,5 +28,6 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Boxer

@@ -109,7 +109,7 @@
     shakeSound: /Audio/Effects/waterswirl.ogg
   - type: DnaSubstanceTrace
   - type: ReactionMixer
-    mixOnInteract: false
+    mixerType: None
     reactionTypes:
     - Gildgrail #mix changed to make half holy water and half aquam divinos
     - Shake
@@ -220,12 +220,8 @@
   - type: ContainerContainer
     containers:
       projectiles: !type:ContainerSlot
-      ballistic-ammo: !type:Container
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - HolyArrow
-    capacity: 1
+  - type: ContainerAmmoProvider
+    container: projectiles
   - type: Appearance
   - type: ItemMapper
     spriteLayers:

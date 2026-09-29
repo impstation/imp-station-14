@@ -1,0 +1,48 @@
+- type: polymorph
+  id: WizardForcedPig
+  configuration:
+    entity: MobPig
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 60
+    polymorphSound: !type:SoundPathSpecifier
+      path: /Audio/Magic/forcewall.ogg
+    exitPolymorphSound: !type:SoundPathSpecifier
+      path: /Audio/Magic/forcewall.ogg
+
+- type: polymorph
+  id: WizardMagicDoor
+  configuration:
+    entity: WizardDoor
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: false
+    revertOnCrit: false
+    revertOnDeath: false
+    polymorphSound: !type:SoundPathSpecifier
+      path: /Audio/Magic/forcewall.ogg
+    exitPolymorphSound: !type:SoundPathSpecifier
+      path: /Audio/Magic/forcewall.ogg
+
+- type: polymorph
+  id: WizardTinySpider
+  configuration:
+    entity: MobTinySpiderWizard
+    transferName: false
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+
+- type: polymorph
+  id: MagicRockPolymorph
+  configuration:
+    entity: MagicRock
+    transferName: false
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true

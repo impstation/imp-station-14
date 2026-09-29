@@ -91,15 +91,8 @@
         - !type:GroupSelector
           rolls: 4
           children:
-            - id: FoodMacaronBerry
-            - id: FoodMacaronCherry
-            - id: FoodMacaronLemon
-            - id: FoodMacaronCotton
-              weight: 0.8
-            - id: FoodMacaronMimana
-              weight: 0.4
-            - id: FoodGummyWorm
-              weight: 0.1
+          - !type:NestedSelector
+            tableId: MacaronNoCottonEntityTable
   - type: Storage
     grid:
     - 0,0,1,1
@@ -109,6 +102,38 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/chalk_heart.rsi
     state: chalkheartpackage1
+
+- type: entity
+  parent: BoxMacarons
+  id: BoxMacaronsCottonAllowed
+  suffix: cotton-safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          rolls: 2
+          tableId: MacaronNoCottonEntityTable
+        - !type:GroupSelector
+          rolls: 2
+          children:
+            - !type:NestedSelector
+              tableId: MacaronNoCottonEntityTable
+            - id: FoodMacaronCotton
+              weight: 0.6
+
+- type: entityTable
+  id: MacaronNoCottonEntityTable
+  table: !type:GroupSelector
+    children:
+      - id: FoodMacaronBerry
+      - id: FoodMacaronCherry
+      - id: FoodMacaronLemon
+      - id: FoodMacaronMimana
+        weight: 0.3
+      - id: FoodGummyWorm
+        weight: 0.1
 
 - type: entity
   name: Discount Dan's Hot Sauce Sampler Pack

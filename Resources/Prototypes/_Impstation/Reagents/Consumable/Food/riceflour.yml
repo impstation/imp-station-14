@@ -1,0 +1,41 @@
+- type: reagent
+  id: RiceFlour
+  name: reagent-name-riceflour
+  group: Foods
+  desc: reagent-desc-riceflour
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: chalky
+  color: white
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 0.4
+      - !type:SatiateThirst
+        factor: -0.2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.1
+
+- type: reagent
+  id: MitarashiSyrup
+  name: reagent-name-msyrup
+  group: Foods
+  desc: reagent-desc-msyrup
+  physicalDesc: reagent-physical-desc-sticky
+  flavor: sweet
+  color: '#c67115'
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 0.4
+      - !type:SatiateThirst
+        factor: -0.2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.1

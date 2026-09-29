@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseBullet
-  id: BulletPistolWizden #imp - see the _Impstation directory for the version we use
+  id: BulletPistol
   categories: [ HideSpawnMenu ]
   name: bullet (.35 auto)
   components:
@@ -11,7 +11,7 @@
 
 - type: entity
   parent: BaseBulletPractice
-  id: BulletPistolPracticeWizden #imp - see the _Impstation directory for the version we use
+  id: BulletPistolPractice
   categories: [ HideSpawnMenu ]
   name: bullet (.35 auto practice)
   components:
@@ -22,7 +22,7 @@
 
 - type: entity
   parent: BaseBulletIncendiary
-  id: BulletPistolIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  id: BulletPistolIncendiary
   categories: [ HideSpawnMenu ]
   name: bullet (.35 auto incendiary)
   components:
@@ -34,7 +34,7 @@
 
 - type: entity
   parent: BaseBulletUranium
-  id: BulletPistolUraniumWizden #imp - see the _Impstation directory for the version we use
+  id: BulletPistolUranium
   categories: [ HideSpawnMenu ]
   name: bullet (.35 auto uranium)
   components:

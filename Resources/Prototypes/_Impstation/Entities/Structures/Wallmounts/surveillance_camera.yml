@@ -1,0 +1,123 @@
+- type: entity
+  abstract: true
+  id: WallmountWirelessSurveillanceCameraBase
+  name: camera
+  description: A surveillance camera. It's watching you. Kinda.
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      light:
+        shape:
+          !type:PhysShapeCircle
+          radius: 5
+        hard: false
+        mask:
+        - GhostImpassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,-0.2,-0.15"
+        density: 190
+        mask:
+        - None
+        layer:
+        - TabletopMachineLayer
+  - type: LightOnCollide
+  - type: PointLight
+    enabled: false
+    radius: 5
+  - type: SlimPoweredLight
+    enabled: false
+  - type: StationAiVision
+  - type: Clickable
+  - type: InteractionOutline
+  #- type: Construction #this is deliberately disabled- wireless cameras are normally a research only and this is just for mapping
+  #  graph: SurveillanceCamera
+  #  node: wirelesscamera
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: WallMount
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: Eye
+  - type: DeviceNetworkRequiresPower
+  - type: Transform
+    anchored: true
+  - type: WiresPanel
+  - type: Wires
+    alwaysRandomize: true
+    layoutId: SurveillanceCamera
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Electronic #imp edit to make their health less insane - was Metallic
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Structures/Wallmounts/camera.rsi
+    layers:
+      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+        state: camera
+        cycle: true
+  - type: Appearance
+  - type: SurveillanceCameraVisuals
+    sprites:
+      Active: camera
+      Disabled: camera_off
+      InUse: camera_in_use
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraSetupUiKey.Camera:
+        type: SurveillanceCameraSetupBoundUi
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: StaticPrice
+    price: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+        - SurveillanceCamera
+        - SurveillanceCameraMonitor
+        - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 50 #imp note - reduced camera health by a shit ton. this is ~10 crowbar hits
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8
+  - type: WirelessNetworkConnection
+    range: 1000
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wallmount
+
+- type: entity
+  parent: WallmountWirelessSurveillanceCameraBase
+  suffix: Entertainment
+  name: wireless camera
+  id: WallmountWirelessSurveillanceCamera
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SurveillanceCameraEntertainment
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+        - SurveillanceCameraEntertainment

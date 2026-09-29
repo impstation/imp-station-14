@@ -66,6 +66,15 @@
     containers:
       board: [ DoorElectronicsReporter ]
 
+- type: entity
+  parent: AirlockZoo
+  id: AirlockZooLocked
+  suffix: Zoo, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsZoo ]
+
 # Supply
 - type: entity
   parent: AirlockCourier
@@ -152,6 +161,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsReporter ]
+
+- type: entity
+  parent: AirlockZooGlass
+  id: AirlockZooGlassLocked
+  suffix: Zoo, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsZoo ]
 
 # Supply
 - type: entity
@@ -269,6 +287,14 @@
 - type: entity
   parent: AirlockReporterLocked
   id: AirlockMaintReporterLocked
+  name: maintenance access
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+
+- type: entity
+  parent: AirlockZooLocked
+  id: AirlockMaintZooLocked
   name: maintenance access
   components:
   - type: Sprite

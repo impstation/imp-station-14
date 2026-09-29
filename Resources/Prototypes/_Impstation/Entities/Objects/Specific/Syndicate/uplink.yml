@@ -1,0 +1,11 @@
+﻿- type: entity
+  parent: BaseUplinkRadio
+  id: BaseUplinkRadio5TC
+  suffix: 5 TC, NukeOps
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 5
+  - type: Tag
+    tags:
+    - NukeOpsUplink

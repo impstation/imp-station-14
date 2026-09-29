@@ -21,6 +21,9 @@
                 collection: GlassBreak
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: Construction #imp edit start
+      graph: StationMap
+      node: broken #imp edit end
 
 - type: entity
   parent: BaseWallmountMachine
@@ -104,6 +107,7 @@
       mask: /Textures/Effects/LightMasks/cone.png #imp
       autoRot: true #imp
       castShadows: true #imp
+    - type: StationAiWhitelist #imp
 
 - type: entity
   parent: BaseWallmountMetallic

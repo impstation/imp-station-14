@@ -14,19 +14,6 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkRevolverPython
-  name: uplink-revolver-python-name
-  description: uplink-revolver-python-desc
-  productEntity: WeaponRevolverPythonAP
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
-  categories:
-  - UplinkWeaponry
-
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
   id: UplinkPistolCobra
@@ -80,21 +67,21 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkEnergyCrossbow
-  name: uplink-energycrossbow-name
-  description: uplink-energycrossbow-desc
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  productEntity: WeaponEnergyCrossbow
-  cost:
-    Telecrystal: 5
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+# - type: listing #Imp - Replaced with the Taipan Bundle in the _Impstation Directory
+#   id: UplinkEnergyCrossbow
+#   name: uplink-energycrossbow-name
+#   description: uplink-energycrossbow-desc
+#   discountCategory: rareDiscounts
+#   discountDownTo:
+#     Telecrystal: 3
+#   productEntity: WeaponEnergyCrossbow
+#   cost:
+#     Telecrystal: 5
+#   categories:
+#   - UplinkWeaponry
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -131,9 +118,9 @@
   productEntity: ClothingHandsKnuckleDustersSyndicate
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkWeaponry
 
@@ -151,6 +138,7 @@
   - UplinkWeaponry
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -170,6 +158,7 @@
   - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -184,7 +173,7 @@
   discountDownTo:
     Telecrystal: 6
   cost:
-    Telecrystal: 12
+    Telecrystal: 10
   categories:
   - UplinkWeaponry
 
@@ -192,8 +181,8 @@
   id: UplinkHushpup
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Shotguns/hypnalis.rsi, state: icon } #Imp
+  productEntity: BriefcaseWeaponHushpupFilled
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 8
@@ -201,6 +190,25 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkC20R
+  name: uplink-c20r-name
+  description: uplink-c20r-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/MachineGuns/c20r.rsi, state: icon } #imp
+  productEntity: BriefcaseWeaponC20Filled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkC20RBundle
@@ -215,20 +223,68 @@
     Telecrystal: 17
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
-# - type: listing #imp #remove; Basilisk-11 at home
-#   id: UplinkEstocBundle
-#   name: uplink-estoc-bundle-name
-#   description: uplink-estoc-bundle-desc
-#   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
-#   productEntity: ClothingBackpackDuffelSyndicateFilledRifle
-#   discountCategory: veryRareDiscounts
-#   discountDownTo:
-#     Telecrystal: 11
-#   cost:
-#     Telecrystal: 18
-#   categories:
-#   - UplinkWeaponry
+- type: listing
+  id: UplinkBulldog
+  name: uplink-bulldog-name
+  description: uplink-bulldog-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon } #imp
+  productEntity: BriefcaseWeaponBulldogFilled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+#- type: listing #imp comment out, we have the basilisk
+#  id: UplinkEstoc
+#  name: uplink-estoc-name
+#  description: uplink-estoc-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+#  productEntity: BriefcaseWeaponDMRFilled
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 10
+#  cost:
+#    Telecrystal: 14
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+
+#- type: listing #imp comment out, we have the basilisk
+#  id: UplinkEstocBundle
+#  name: uplink-estoc-bundle-name
+#  description: uplink-estoc-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelSyndicateFilledRifle
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 11
+#  cost:
+#    Telecrystal: 18
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#3    whitelist:
+#      tags:
+#      - NukeOpsUplink
 
 - type: listing
   id: UplinkBulldogBundle
@@ -243,6 +299,11 @@
     Telecrystal: 20
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -257,13 +318,18 @@
     Telecrystal: 25
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkL6SawBundle
   name: uplink-l6-saw-bundle-name
   description: uplink-l6-saw-bundle-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/MachineGuns/l6.rsi, state: icon } #imp
-  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  productEntity: BriefcaseWeaponL6Filled
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 24
@@ -286,16 +352,11 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
-
-- type: listing
-  id: UplinkExplosiveGrenadeFlash
-  name: uplink-flash-grenade-name
-  description: uplink-flash-grenade-desc
-  productEntity: GrenadeFlashBang
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkSmokeGrenade
@@ -355,7 +416,7 @@
   discountDownTo:
     Telecrystal: 3
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
     - UplinkExplosives
   conditions:
@@ -391,6 +452,7 @@
   - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -447,6 +509,7 @@
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -462,22 +525,10 @@
     - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
-
-- type: listing
-  id: UplinkClusterGrenade
-  name: uplink-cluster-grenade-name
-  description: uplink-cluster-grenade-desc
-  productEntity: ClusterGrenade
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 5
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkExplosives
 
 - type: listing
   id: UplinkGrenadeShrapnel
@@ -504,19 +555,6 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
-
-- type: listing
-  id: UplinkEmpKit
-  name: uplink-emp-kit-name
-  description: uplink-emp-kit-desc
-  productEntity: ElectricalDisruptionKit
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 4
-  cost:
-    Telecrystal: 6
-  categories:
-    - UplinkExplosives
 
 # Ammo
 
@@ -562,7 +600,7 @@
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug } # imp
   productEntity: MagazineShotgunSlug
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
   - UplinkAmmo
 
@@ -575,18 +613,6 @@
   productEntity: MagazinePistolCaselessRifle
   cost:
     Telecrystal: 1
-  categories:
-  - UplinkAmmo
-
-# For the Python
-- type: listing
-  id: UplinkSpeedLoaderMagnumAP
-  name: uplink-speedloader-magnum-name
-  description: uplink-speedloader-magnu-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon } #imp
-  productEntity: SpeedLoaderMagnumAP
-  cost:
-    Telecrystal: 3
   categories:
   - UplinkAmmo
 
@@ -634,6 +660,7 @@
   - UplinkAmmo
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -698,6 +725,7 @@
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -728,7 +756,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 5
+    Telecrystal: 3
   categories:
   - UplinkChemicals
 
@@ -741,7 +769,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3
   categories:
   - UplinkChemicals
 
@@ -752,9 +780,9 @@
   productEntity: Stimpack
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1
   cost:
-    Telecrystal: 4
+    Telecrystal: 2
   categories:
   - UplinkChemicals
 
@@ -765,9 +793,9 @@
   productEntity: StimkitFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 3
   cost:
-    Telecrystal: 12
+    Telecrystal: 5
   categories:
   - UplinkChemicals
 
@@ -795,6 +823,7 @@
   - UplinkChemicals
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -847,9 +876,9 @@
   productEntity: ChameleonProjector
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2
   cost:
-    Telecrystal: 7
+    Telecrystal: 3
   categories:
   - UplinkDeception
 
@@ -918,9 +947,9 @@
   productEntity: BriefcaseSyndieLobbyingBundleFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # imp edit, 2 -> 1
   cost:
-    Telecrystal: 4
+    Telecrystal: 3 # imp edit, 4 -> 3
   categories:
     - UplinkDeception
 
@@ -963,6 +992,7 @@
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -981,6 +1011,7 @@
   - UplinkDeception
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1146,8 +1177,10 @@
     Telecrystal: 14
   categories:
   - UplinkDisruption
+  - UplinkObjective # imp
   conditions:
   - !type:StoreWhitelistCondition
+     makeHidden: true # imp add
      blacklist:
        tags:
        - NukeOpsUplink
@@ -1155,6 +1188,11 @@
     blacklist:
       components:
         - SurplusBundle #imp special (dud roll as a traitor unless you have dagd)
+  - !type:BuyerObjectiveWhitelistCondition # imp
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
 
 - type: listing
   id: UplinkNukieAntimovCircuitBoard
@@ -1170,6 +1208,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1189,6 +1228,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1208,6 +1248,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1227,6 +1268,7 @@
   - UplinkDisruption
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
         - NukeOpsUplink
@@ -1234,7 +1276,6 @@
       blacklist:
         components:
         - SurplusBundle
-
 
 - type: listing
   id: UplinkSingarityBeacon
@@ -1248,11 +1289,17 @@
     Telecrystal: 12
   categories:
     - UplinkDisruption
+    - UplinkObjective # imp
   conditions:
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
         - SurplusBundle # imp special. could maybe make a flatpack that only shows up in surplus bundles at some point, but rn its worse than useless and has a good chance of getting people stuck in wallsa nd shit
+  - !type:BuyerObjectiveWhitelistCondition # imp
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
 
 - type: listing
   id: UplinkCameraBug
@@ -1281,6 +1328,7 @@
   - UplinkAllies
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1300,6 +1348,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1316,6 +1365,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1332,6 +1382,7 @@
     - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1351,6 +1402,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1370,6 +1422,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1388,6 +1441,7 @@
   - UplinkAllies
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1437,6 +1491,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1523,6 +1578,7 @@
   - UplinkImplants
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1543,6 +1599,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1563,6 +1620,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1582,6 +1640,7 @@
   - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1597,6 +1656,7 @@
   - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1639,19 +1699,6 @@
   name: uplink-black-jetpack-name
   description: uplink-black-jetpack-desc
   productEntity: JetpackBlackFilled
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkWearables
-
-- type: listing
-  id: UplinkHolster
-  name: uplink-holster-name
-  description: uplink-holster-desc
-  productEntity: ClothingBeltSyndieHolster
   cost:
     Telecrystal: 1
   categories:
@@ -1671,7 +1718,7 @@
   id: UplinkChameleon
   name: uplink-chameleon-name
   description: uplink-chameleon-desc
-  productEntity: ClothingBackpackChameleonFill
+  productEntity: ClothingBackpackChameleonFillAgent
   icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
   discountCategory: usualDiscounts
   discountDownTo:
@@ -1701,9 +1748,9 @@
   productEntity: ClothingOuterVestWeb
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 1
-  cost:
     Telecrystal: 3
+  cost:
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -1727,9 +1774,9 @@
   productEntity: ClothingShoesBootsMagSyndie
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1
   cost:
-    Telecrystal: 4
+    Telecrystal: 2
   categories:
   - UplinkWearables
 
@@ -1739,11 +1786,8 @@
   description: uplink-eva-syndie-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
   cost:
-    Telecrystal: 2
+    Telecrystal: 1
   categories:
   - UplinkWearables
 
@@ -1757,7 +1801,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3
   categories:
   - UplinkWearables
 
@@ -1771,7 +1815,7 @@
   discountDownTo:
     Telecrystal: 4
   cost:
-    Telecrystal: 8
+    Telecrystal: 7
   categories:
   - UplinkWearables
 
@@ -1787,6 +1831,7 @@
   - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1834,6 +1879,7 @@
     - UplinkWearables
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1844,9 +1890,9 @@
   description: uplink-clothing-conducting-gloves-desc
   productEntity: ClothingHandsGlovesConducting
   cost:
-    Telecrystal: 2
+    Telecrystal: 1
   categories:
-  - UplinkWearables
+  - UplinkPointless
 
 - type: listing
   id: UplinkBackpackSyndicate
@@ -2063,6 +2109,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Botanist
 
@@ -2080,6 +2127,7 @@
     - UplinkJob
   conditions:
     - !type:BuyerJobCondition
+      makeHidden: true # imp add
       whitelist:
         - Passenger
 
@@ -2097,6 +2145,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
   - !type:BuyerWhitelistCondition
@@ -2118,6 +2167,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
 
@@ -2135,6 +2185,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Mime
     - Clown
@@ -2154,6 +2205,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2171,6 +2223,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2189,6 +2242,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2206,6 +2260,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chef
     - Botanist
@@ -2226,6 +2281,7 @@
   - UplinkJob
   conditions:
     - !type:BuyerDepartmentCondition
+      makeHidden: true # imp add
       whitelist:
       - Science
 
@@ -2243,6 +2299,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Janitor
   - !type:BuyerWhitelistCondition
@@ -2265,6 +2322,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Chef can also get this
+    makeHidden: true # imp add
     whitelist:
     - Scientist
     - ResearchDirector
@@ -2286,6 +2344,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Librarian
   - !type:BuyerWhitelistCondition
@@ -2308,6 +2367,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chef
     - Mime
@@ -2328,11 +2388,8 @@
   name: uplink-smuggler-satchel-name
   description: uplink-smuggler-satchel-desc
   productEntity: ClothingBackpackSatchelSmugglerUnanchored
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
   cost:
-    Telecrystal: 2
+    Telecrystal: 1
   categories:
   - UplinkDeception
 
@@ -2351,6 +2408,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
 
@@ -2369,6 +2427,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - MedicalDoctor
 
@@ -2386,5 +2445,6 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Lawyer

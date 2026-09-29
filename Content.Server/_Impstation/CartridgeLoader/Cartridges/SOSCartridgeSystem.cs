@@ -2,13 +2,17 @@ using Content.Server.Radio.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.PDA;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Random;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
 public sealed class SOSCartridgeSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
@@ -59,7 +63,9 @@ public sealed class SOSCartridgeSystem : EntitySystem
                         _radio.SendRadioMessage(uid, idCardComp.FullName + " " + component.LocalizedHelpMessage, component.HelpChannel, uid);
                     }
                 }
-
+                // Sound effect that is heard nearby
+                var sound = _random.Prob(component.TomSoundChance) ? component.TomActivationSound : component.ActivationSound;
+                _audio.PlayPvs(sound, args.Loader);
                 component.Timer = SOSCartridgeComponent.TimeOut;
             }
         }

@@ -13,6 +13,20 @@
     sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
 
 - type: entity
+  name: codex horae # what is this, some kind of Book of Hours?
+  description: Its chapters number one to 0 to twenty-one.
+  parent: Bible
+  id: HolyTextMansus
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
+    state: codex-horae
+  - type: Item
+    size: Small
+    heldPrefix: codex-horae
+    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
+
+- type: entity
   name: quran
   description: Printed in both original Arabic and Galactic Common.
   parent: Bible

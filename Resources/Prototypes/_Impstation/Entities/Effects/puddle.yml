@@ -1,0 +1,12 @@
+- type: entity
+  id: PuddleWater
+  parent: PuddleTemporary
+  suffix: Water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 40

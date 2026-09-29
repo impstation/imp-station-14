@@ -1,0 +1,46 @@
+- type: entity
+  id: BaseImplantOnlyImplanterCentcomm
+  parent: [ BaseImplantOnlyImplanter, BaseCentcommContraband ]
+  name: centcomm implanter
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. The insertion needle is coated with an analgesic.
+  abstract: true
+  components:
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/nt_implanter.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/nt_implanter.rsi
+    state: implanter1
+    layers:
+      - state: implanter0
+        map: [ "implantFull" ]
+        visible: true
+      - state: implanter1
+        map: [ "implantOnly" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ImplanterVisuals.Full:
+        implantFull:
+          True: {visible: true}
+          False: {visible: false}
+      enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+        implantOnly:
+          True: {state: broken}
+          False: {state: implanter1}
+  - type: Tag
+    tags: []
+
+- type: entity
+  id: BluespaceLifelineImplanter
+  suffix: Bluespace Lifeline
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: BluespaceLifelineImplant
+
+- type: entity
+  id: RedspaceLifelineImplanter
+  suffix: Redspace Lifeline
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: RedspaceLifelineImplant

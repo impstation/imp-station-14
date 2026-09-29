@@ -36,3 +36,31 @@
     sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodhd.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodhd.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterZookeeper
+  categories: [ HideSpawnMenu ]
+  name: zookeeper's coat hood
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodzookeeper.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodzookeeper.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodSwimsuitBlack
+  name: black swimsuit hood
+  description: Prevents sunburns specifically on your face!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hoods/hoodswimsuitblack.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hoods/hoodswimsuitblack.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair

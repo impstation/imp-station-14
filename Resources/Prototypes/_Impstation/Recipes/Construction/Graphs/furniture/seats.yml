@@ -1,0 +1,78 @@
+- type: constructionGraph
+  id: ImpSeat
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: chairapid
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: chairCardboard
+          steps:
+          - material: Cardboard
+            amount: 2
+            doAfter: 1
+
+    - node: chairapid
+      entity: ChairApid
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: chairCardboard
+      entity: ChairCardboard
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: MaterialCardboard1
+          amount: 2
+        steps:
+        - tool: Cutting
+          doAfter: 1
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: MaterialCardboard1
+          amount: 2
+        steps:
+        - tool: Slicing
+          doAfter: 1
+
+- type: constructionGraph
+  id: chairBigLog
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: chairbiglog
+          steps:
+            - tag: Log
+              name: construction-graph-tag-log
+              icon:
+                sprite: Objects/Specific/Hydroponics/towercap.rsi
+                state: produce
+              doAfter: 2
+    - node: chairbiglog
+      entity: ChairBigLog
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: Log
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 5 # its a heavy log

@@ -107,6 +107,12 @@
       types:
         Blunt: 10
     staminaCost: 35
+  - type: AcousticData # VDS
+    absorption: 15
+    reflectRay: true
+  - type: ParcelWrapOverride # imp
+    parcelPrototype: WrappedParcelLocker
+    wrapDelay: 2.0
 
 # steel closet base (that can be constructed/deconstructed)
 - type: entity
@@ -310,3 +316,6 @@
     stateDoorOpen: base
     stateDoorClosed: door
   - type: LockVisuals
+  - type: AcousticData # VDS
+    absorption: 20
+    reflectRay: true

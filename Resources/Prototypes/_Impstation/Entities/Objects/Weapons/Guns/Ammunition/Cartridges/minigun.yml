@@ -8,7 +8,7 @@
     tags:
     - CartridgeHeavyRifle
   - type: CartridgeAmmo
-    proto:    BulletHeavyRifle
+    proto:    BulletStandard
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
@@ -26,5 +26,5 @@
   parent: BaseCartridgeHeavyRifle
   components:
   - type: CartridgeAmmo
-    proto: BulletMinigun
+    proto: BulletStandard
     deleteOnSpawn: true

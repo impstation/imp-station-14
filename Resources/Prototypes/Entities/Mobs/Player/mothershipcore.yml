@@ -24,7 +24,7 @@
         layer:
         - MachineLayer
   - type: Sprite
-    sprite: Mobs/Silicon/mothership_core.rsi
+    sprite: _Impstation/Mobs/Silicon/Xenoborgs/mothership_core.rsi #Imp
     layers:
     - state: core-idle
       map: ["enum.LatheVisualLayers.IsRunning"]

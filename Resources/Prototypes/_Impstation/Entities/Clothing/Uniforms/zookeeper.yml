@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformZookeeperBeast
+  name: beast suit
+  description: You can feel the inner beast inside you...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/zookeeperbeast.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/zookeeperbeast.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformAnimalControlSuit
+  name: animal control suit
+  description: Great for those who plan on capturing wild animals.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/animalcontroljumpsuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/animalcontroljumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSafariPants
+  name: safari suit (pants)
+  description: Perfect for a jungle excursion, with pants.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/safaripants.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/safaripants.rsi

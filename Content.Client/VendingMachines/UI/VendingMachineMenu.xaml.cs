@@ -86,12 +86,15 @@ namespace Content.Client.VendingMachines.UI
         /// <summary>
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
+        ///     IMP: Also hides the store button if there is no store
         /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled)
+        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled, bool hasStore = false) // imp add hasStore
         {
             _enabled = enabled;
             _listItems.Clear();
             _amounts.Clear();
+
+            StoreButton.Visible = hasStore; // imp add
 
             if (inventory.Count == 0 && VendingContents.Visible)
             {

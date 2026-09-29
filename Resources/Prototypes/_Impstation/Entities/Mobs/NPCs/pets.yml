@@ -40,6 +40,20 @@
   - type: StealTarget
     stealGroup: AnimalNamedCat
   - type: PleebnarGibbable
+  - type: TooShortForUI #pipi is not old enough to play on computer
+    blacklist:
+      components:
+      - TooShortForUIBlacklist
+    whitelist:
+      components:
+      - TooShortForUIWhitelist
+  - type: Hands #she needs them for stamping
+  - type: ComplexInteraction
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-cat
+    stampedColor: "#1c1c1c"
+    stampState: "paper_stamp-cat"
+    stampLargeIcon: "large_stamp-cat"
 
 - type: entity
   name: Fin Fin
@@ -257,6 +271,20 @@
     spread: 75
   - type: VentCrawler
     enterDelay: 3
+  - type: TooShortForUI #dogs can't use computers
+    blacklist:
+      components:
+      - TooShortForUIBlacklist
+    whitelist:
+      components:
+      - TooShortForUIWhitelist
+  - type: Hands #he needs them for stamping
+  - type: ComplexInteraction #it's fine because dogs can't use computers
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-dog
+    stampedColor: "#1c1c1c"
+    stampState: "paper_stamp-dog"
+    stampLargeIcon: "large_stamp-dog"
 
 - type: entity
   name: Oswald

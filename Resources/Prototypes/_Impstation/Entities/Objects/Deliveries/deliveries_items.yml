@@ -65,7 +65,7 @@
           Quantity: 10
 
 - type: entity
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: homunculus kit
   id: HomunculusKitVialA
   name: vial a
@@ -90,7 +90,7 @@
         children:
         - id: HomunculusKitBeaker
         - id: HomunculusKitVialA
-        - id: BaseChemistryEmptyVial
+        - id: ChemistryEmptyVial
         - id: Syringe
         - id: PaperMailHomunculusKit
   - type: Sprite

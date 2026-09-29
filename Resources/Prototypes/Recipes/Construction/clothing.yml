@@ -70,13 +70,14 @@
   category: construction-category-clothing
   objectType: Item
 
-- type: construction
-  id: ClothingEyesHudMedSec
-  graph: HudMedSec
-  startNode: start
-  targetNode: medsecHud
-  category: construction-category-clothing
-  objectType: Item
+# imp edit, medsec is uncraftable
+#- type: construction
+#  id: ClothingEyesHudMedSec
+#  graph: HudMedSec
+#  startNode: start
+#  targetNode: medsecHud
+#  category: construction-category-clothing
+#  objectType: Item
 
 - type: construction
   id: ClothingShoeSlippersDuck

@@ -51,7 +51,8 @@ highlights-lawyer = Lawyer, Attorney
 highlights-librarian = Librarian, Library
 highlights-mime = Mime
 highlights-passenger = Passenger
-highlights-service-worker = Service Worker
+highlights-service-worker = Service Attendant, Service Worker
+# imp edit service worker
 
 # Station-specific
 highlights-reporter = Reporter, Journalist

@@ -1,0 +1,1 @@
+objective-condition-butler-serve = Serve {$targetName}, {CAPITALIZE($job)}

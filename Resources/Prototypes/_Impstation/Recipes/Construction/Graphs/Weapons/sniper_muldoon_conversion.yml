@@ -1,0 +1,14 @@
+- type: constructionGraph
+  id: UpgradeWeaponSniperMuldoon
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          steps:
+            - tag: WeaponSniperMuldoonUpgradeKit
+              doAfter: 2
+              name: construction-graph-tag-upgrade-kit-sniper-muldoon
+
+    - node: upgraded
+      entity: WeaponRifleTranqSniper

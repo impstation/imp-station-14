@@ -1,4 +1,6 @@
-# .60 anti-materiel deals 75 pierce and 226 structural per shot (CartridgeAntiMaterial)
+# .60 anti-materiel (CartridgeAntiMaterial) deals 75 pierce and 226 structural per shot.
+# Base Sniper Weapons do not have the GunDamage component by default, due to a wide variety of ammo types in this category and .60AM dealing a fixed damage.
+
 - type: entity
   name: Lindwyrm
   parent: [BaseWeaponSniper, BaseGunWieldable, Tier3Contraband]

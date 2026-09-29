@@ -7,7 +7,8 @@
     <Button Name="FocusButton" StyleClasses="OpenLeft" Access="Public">
         <BoxContainer HorizontalExpand="True" VerticalExpand="True" Orientation="Horizontal">
             <!-- Supermatter sprite -->
-            <TextureRect Name="SupermatterSprite" TexturePath="/Textures/_EE/Interface/Supermatter/supermatter.png" Margin="6 2" />
+            <!-- Imp, changed sprite to be set in SupermatterEntryContainer.xaml.cs -->
+            <TextureRect Name="SupermatterSprite" Margin="6 2" />
 
             <!-- Supermatter name -->
             <Label Name="SupermatterNameLabel" HorizontalExpand="True" Margin="5 0" />
@@ -104,7 +105,7 @@
                     <Label Name="MolesLabel" Text="{Loc 'supermatter-console-window-label-moles'}" HorizontalExpand="True" HorizontalAlignment="Left" />
                     <BoxContainer SetWidth="180" SetHeight="24" Orientation="Horizontal">
                         <PanelContainer Name="MolesBarBorder" HorizontalExpand="True" Margin="0">
-                            <ProgressBar Name="MolesBar" MinValue="0" MaxValue="50" Margin="1">
+                            <ProgressBar Name="MolesBar" MinValue="0" MaxValue="100" Margin="1">
                                 <Label Name="MolesBarLabel" HorizontalAlignment="Right" Margin="0 0 4 0" />
                             </ProgressBar>
                         </PanelContainer>

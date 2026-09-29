@@ -222,6 +222,7 @@
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
       roleLoadout: [ RoleSurvivalMilitaryDouble ]
+    - type: PerfectThrower # imp
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVA
@@ -587,7 +588,7 @@
         settings: default
       job: CentralCommandOfficial
     - type: Loadout
-      prototypes: [ CentcomGear ]
+      prototypes: [ CentcommGear ]
       roleLoadout: [ RoleSurvivalStandard ]
 
 ## Syndicate

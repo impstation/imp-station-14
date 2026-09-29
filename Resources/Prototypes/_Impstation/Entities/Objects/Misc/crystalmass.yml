@@ -1,0 +1,157 @@
+- type: entity
+  id: CrystalMass
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  name: crystal mass
+  description: You see this massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
+  components:
+    - type: Appearance
+    - type: Transform
+      anchored: true
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+          - ItemMask
+          layer:
+          - WallLayer
+          hard: false
+    - type: Clickable
+    - type: CrystalMassVisuals
+    - type: CrystalMass
+      startupAppearance: false
+    - type: StepTrigger
+      requiredTriggeredSpeed: 0
+      intersectRatio: 0.1
+      ignoreWeightless: true
+      stepOn: true
+
+- type: entity
+  parent: CrystalMass
+  id: CrystalMassOne
+  suffix: 1, Not Spreader
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_1
+      layers:
+      - state: crystal_cascade_1
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  parent: CrystalMass
+  id: CrystalMassTwo
+  suffix: 2, Not Spreader
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_2
+      layers:
+      - state: crystal_cascade_2
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  parent: CrystalMass
+  id: CrystalMassThree
+  suffix: 3, Not Spreader
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_3
+      layers:
+      - state: crystal_cascade_3
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  parent: CrystalMass
+  id: CrystalMassFour
+  suffix: 4, Not Spreader
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_4
+      layers:
+      - state: crystal_cascade_4
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  parent: CrystalMass
+  id: CrystalMassFive
+  suffix: 5, Not Spreader
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_5
+      layers:
+      - state: crystal_cascade_5
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  parent: CrystalMass
+  id: CrystalBulb
+  name: crystal bulb
+  description: You see this bright and massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
+  suffix: 6, Not Spreader
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_6
+      layers:
+      - state: crystal_cascade_6
+        shader: unshaded
+      drawdepth: FloorTiles
+    - type: PointLight
+      radius: 10
+      energy: 2
+      color: "#FBFF23"
+
+- type: entity
+  parent: CrystalMass
+  id: CrystalMassSpreader
+  suffix: DO NOT MAP, SPREADER
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_1
+      drawdepth: FloorTiles
+    - type: CrystalMass
+      secondaryChance: 0.05
+      startupAppearance: true
+    - type: ActiveTileClearCrystalMass
+    - type: ActiveEdgeSpreader
+    - type: EdgeSpreader
+      id: CrystalMass
+    - type: SinguloFood
+      energy: 200
+
+- type: entity
+  parent: CrystalMassSpreader
+  id: CrystalBulbSpreader
+  name: crystal bulb
+  description: You see this bright and massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_6
+      layers:
+      - state: crystal_cascade_6
+        shader: unshaded
+      drawdepth: FloorTiles
+    - type: CrystalMass
+      secondaryChance: 0.95
+      secondarySpawnPrototype: CrystalMassSpreader
+      startupAppearance: false
+      isLight: true
+    - type: ActiveTileClearCrystalMass

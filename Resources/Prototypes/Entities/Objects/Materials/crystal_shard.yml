@@ -10,7 +10,6 @@
     doAfterDuration: 4.0
   - type: Sprite
     layers:
-#      - sprite: Objects/Materials/Shards/crystal.rsi
       - sprite: _Impstation/Materials/crystal.rsi # imp
         state: shard1
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -185,15 +184,15 @@
   id: ShardCrystalRandom
   name: random crystal shard
   components:
-  - type: RandomSpawner
-    prototypes:
-      - ShardCrystalGreen
-      - ShardCrystalPink
-      - ShardCrystalYellow
-      - ShardCrystalBlack
-      - ShardCrystalOrange
-      - ShardCrystalBlue
-      - ShardCrystalCyan
-      - ShardCrystalRed
-      - ShardCrystalPurple # imp
-    chance: 1
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: ShardCrystalGreen
+      - id: ShardCrystalPink
+      - id: ShardCrystalYellow
+      - id: ShardCrystalBlack
+      - id: ShardCrystalOrange
+      - id: ShardCrystalBlue
+      - id: ShardCrystalCyan
+      - id: ShardCrystalRed
+      - id: ShardCrystalPurple # imp

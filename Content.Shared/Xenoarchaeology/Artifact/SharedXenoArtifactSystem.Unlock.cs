@@ -116,15 +116,15 @@ public abstract partial class SharedXenoArtifactSystem
             _audio.PlayPvs(soundEffect, ent.Owner);
         }
 
+        RaiseUnlockingFinished(ent, node); //#IMP switch position of this with RemComp
         RemComp(ent, unlockingComponent);
-        RaiseUnlockingFinished(ent, node);
         artifactComponent.NextUnlockTime = _timing.CurTime + artifactComponent.UnlockStateRefractory;
     }
 
     public void CancelUnlockingState(Entity<XenoArtifactUnlockingComponent, XenoArtifactComponent> ent)
     {
+        RaiseUnlockingFinished(ent, null); //#IMP switch position of this with RemComp
         RemComp(ent, ent.Comp1);
-        RaiseUnlockingFinished(ent, null);
     }
 
     /// <summary>

@@ -1,17 +1,29 @@
 uplink-animal-friends-kit-name = Animal Friends Kit
 uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on.
 
+uplink-syndietrumps-name = TippyTrumps mystery pack
+uplink-syndietrumps-desc = Contains five random cards that summon the creature depicted when thrown.
+
+uplink-kissertomato-fake-name = Syndicate Trained Kisser Tomato Seeds
+uplink-kissertomato-fake-desc = Kill 'em with kisses.
+
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
 uplink-cleaner-lake-upgrade-desc = A kit that can be used to remove the safety measures from a Shining Spring.
 
 uplink-cleaning-grenade-bleach-name = Box of heavy-duty cleanades
 uplink-cleaning-grenade-bleach-desc = A box containing some discontinued heavy-duty cleaning grenades. WARNING: DO NOT INHALE
 
+uplink-advanced-mimery-name = Guide to Advanced Mimery Series
+uplink-advanced-mimery-desc = The classical two part series on how to further hone your mime skills. Upon studying the series, the user should be able to make 3x1 invisible walls, and shoot bullets out of their fingers.
+
 uplink-zipper-ap-name = Zipper .22
 uplink-zipper-ap-desc = A regretful purchase from a liquidation sale. Comes loaded with armor-piercing rounds. Uses .22 auto.
 
-uplink-nemesis-br-name = Basilisk-11 bundle
-uplink-nemesis-br-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle, bundled with 3 magazines.
+uplink-basilisk-name = Basilisk-11
+uplink-basilisk-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle.
+
+uplink-basilisk-bundle-name = Basilisk-11 bundle
+uplink-basilisk-bundle-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle, bundled with 2 magazines.
 
 uplink-rifle-magazine-nemesis-name = Rifle magazine (.25 caseless)
 uplink-rifle-magazine-nemesis-desc = Rifle magazine with 24 cartridges. Compatible with the Basilisk-11.
@@ -43,8 +55,11 @@ uplink-saw-ammo-desc = A box of 50 cartridges compatible with the L6 Nidhogg lig
 uplink-adder-name = Adder bundle
 uplink-adder-desc = One state-of-the-art Adder plasma pistol, bundled with 2 canisters of its proprietary liquid ammo.
 
-uplink-akurra-name = Akurra bundle
-uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled with 4 canisters of its proprietary liquid ammo.
+uplink-akurra-name = Akurra
+uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled with 2 canisters of its proprietary liquid ammo.
+
+uplink-akurra-bundle-name = Akurra
+uplink-akurra-bundle-desc = Fearsome as it is advanced, the venerable Akurra bundled with 4 canisters of its proprietary liquid ammo.
 
 uplink-flamethrower-name = FG13 Xiuhcoatl flamethrower
 uplink-flamethrower-desc = Invite Nanotrasen to the cookout with this portable incendiary weapon.
@@ -118,6 +133,9 @@ uplink-beenade-desc = The ultimate in distraction, this foaming grenade contains
 uplink-bros-grenade-name = BROSnade
 uplink-bros-grenade-desc = A colony of angry BROS captured in a glass bottle. UNGH
 
+uplink-fuseless-grenade-name = Fuseless Grenade
+uplink-fuseless-grenade-desc = An otherwise normal explosive grenade modified to go off immediately after activation. Great at parties!
+
 uplink-pin-straight-name = Straight Pride Pin
 uplink-pin-straight-desc = Demonstrate your support for the heterosexual community with this straight pride pin.
 
@@ -136,7 +154,7 @@ uplink-extended-pistol-magazine-caseless-desc = Four high-capacity pistol magazi
 uplink-extended-pistol-magazine-name = Extended Pistol Magazine Bundle (.35 auto)
 uplink-extended-pistol-magazine-desc = Four high-capacity pistol magazines each loaded with 20 cartridges. Compatible with the Viper.
 
-uplink-treatchunk-free-name = Complimentary TreatChunk 
+uplink-treatchunk-free-name = Complimentary TreatChunk
 uplink-treatchunk-free-desc = A free TreatChunk hard candy, as a bonus for working with the Syndicate. Enjoy!
 
 uplink-treatchunk-bag-name = TreatChunk bag (15 count)
@@ -147,3 +165,36 @@ uplink-treatchunk-big-desc = An impractically large bag of TreatChunk hard candi
 
 uplink-hotsauces-name = Discount Dan's Hot Sauce Sampler Pack
 uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your spice tolerance to the test. Plus a free* gift from Discount Dan himself!
+
+uplink-taipan-name = Taipan bundle
+uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.
+
+uplink-destabilizing-crystal-name = Destabilizing Crystal
+uplink-destabilizing-crystal-desc = A crystal that can be used to destabilize the supermatter to cause a resonance cascade. Carefully apply this on a stable supermatter crystal and start the delamination. Prevent anyone from stopping you.
+
+uplink-romerol-traitor-name = Romerol Micro-Injector
+uplink-romerol-traitor-desc = One romerol micro-injector for causing a zombie outbreak.
+
+uplink-muldoon-sniper-kit-name = Muldoon Sniper Conversion Kit
+uplink-muldoon-sniper-kit-desc = An upgrade kit that modifies the muldoon to allow both darts and .60 anti-material rounds to fit and fire inside.
+
+uplink-batozine-dart-box-name = Batozine Dart Box
+uplink-batozine-dart-box-desc = A box of 4 tranquilizer darts that fit in the muldoon. Each dart contains 11 units of batozine and will make animals attack anything that isn't part of the Syndicate.
+
+uplink-ananke-name = Ananke bundle
+uplink-ananke-desc = Brutal and unapolagetic-- the Ananke plasma shotgun, bundled with 4 canisters of its proprietary liquid ammo.
+
+uplink-glykon-name = Glykon bundle
+uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 canisters of its proprietary liquid ammo.
+
+uplink-phone-syndicate-name = Blood-Red Phone
+uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
+
+uplink-murderscenebundle-name = Murder Scene Bundle
+uplink-murderscenebundle-desc = Everything you need to create a convincing murder scene, includes six dead crew balloons, convincing fake blood, and bullet casings!
+
+uplink-c20r-name = C-20R Gorgon
+uplink-c20r-desc = Old faithful: The classic C-20R Gorgon Submachine Gun.
+
+uplink-bulldog-name = Hydra
+uplink-bulldog-desc = Lean and mean: Contains the popular Hydra Shotgun.

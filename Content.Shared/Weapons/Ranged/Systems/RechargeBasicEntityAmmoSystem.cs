@@ -1,11 +1,8 @@
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Ranged.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using Content.Shared._Impstation.Weapons.Ranged.Events; // imp
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -14,9 +11,9 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
 
     public override void Initialize()
     {
@@ -39,7 +36,7 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
             if (recharge.NextCharge > _timing.CurTime)
                 continue;
 
-            if (_gun.UpdateBasicEntityAmmoCount(uid, ammo.Count.Value + 1, ammo))
+            if (_gun.UpdateBasicEntityAmmoCount((uid, ammo), ammo.Count.Value + 1))
             {
                 // We don't predict this because occasionally on client it may not play.
                 // PlayPredicted will still be predicted on the client.
@@ -67,46 +64,46 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
         }
     }
 
-    private void OnInit(EntityUid uid, RechargeBasicEntityAmmoComponent component, MapInitEvent args)
+    private void OnInit(Entity<RechargeBasicEntityAmmoComponent> ent, ref MapInitEvent args)
     {
-        component.NextCharge = _timing.CurTime;
-        Dirty(uid, component);
+        ent.Comp.NextCharge = _timing.CurTime;
+        Dirty(ent);
     }
 
-    private void OnExamined(EntityUid uid, RechargeBasicEntityAmmoComponent component, ExaminedEvent args)
+    private void OnExamined(Entity<RechargeBasicEntityAmmoComponent> ent, ref ExaminedEvent args)
     {
-        if (!component.ShowExamineText)
+        if (!ent.Comp.ShowExamineText)
             return;
 
-        if (!TryComp<BasicEntityAmmoProviderComponent>(uid, out var ammo)
+        if (!TryComp<BasicEntityAmmoProviderComponent>(ent, out var ammo)
             || ammo.Count == ammo.Capacity ||
-            component.NextCharge == null)
+            ent.Comp.NextCharge == null)
         {
             args.PushMarkup(Loc.GetString("recharge-basic-entity-ammo-full"));
             return;
         }
 
-        var timeLeft = component.NextCharge + _metadata.GetPauseTime(uid) - _timing.CurTime;
+        var timeLeft = ent.Comp.NextCharge + _metadata.GetPauseTime(ent) - _timing.CurTime;
         args.PushMarkup(Loc.GetString("recharge-basic-entity-ammo-can-recharge", ("seconds", Math.Round(timeLeft.Value.TotalSeconds, 1))));
     }
 
-    public void Reset(EntityUid uid, RechargeBasicEntityAmmoComponent? recharge = null)
+    public void Reset(Entity<RechargeBasicEntityAmmoComponent?> ent)
     {
-        if (!Resolve(uid, ref recharge, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
-        if (recharge.NextCharge == null || recharge.NextCharge < _timing.CurTime)
+        if (ent.Comp.NextCharge == null || ent.Comp.NextCharge < _timing.CurTime)
         {
             //imp edit begin - event-ify the recharge cd
             var rechargeEv = new GetAmmoRechargeTimeEvent
             {
-                Time = recharge.RechargeCooldown
+                Time = ent.Comp.RechargeCooldown
             };
-            RaiseLocalEvent(uid, ref rechargeEv);
+            RaiseLocalEvent(ent, ref rechargeEv);
             //imp edit end
 
-            recharge.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(rechargeEv.Time); //imp edit - changed from recharge.RechargeCooldown
-            Dirty(uid, recharge);
+            ent.Comp.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(rechargeEv.Time); //imp edit, ent.Comp.RechargeCooldown -> rechargeEv.Time
+            Dirty(ent);
         }
     }
 }

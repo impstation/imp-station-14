@@ -1,3 +1,7 @@
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent; // Imp Edit
+using Robust.Shared.Prototypes; // Imp Edit
+
 namespace Content.Server._CD.Traits;
 
 /// <summary>
@@ -11,4 +15,11 @@ public sealed partial class SynthComponent : Component
     /// </summary>
     [DataField]
     public float AlertChance = 0.3f;
+
+    /// <summary>
+    /// VDS - The reagent that replaces the synth's blood
+    /// </summary>
+    // Imp Edit - Changed to ProtoId<ReagentPrototype>, made ReadOnly.
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
 }

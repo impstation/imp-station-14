@@ -11,7 +11,10 @@ reagent-name-orangecoffee = orange coffee
 reagent-desc-orangecoffee = Slide me a drink, Barfriend.
 
 reagent-name-feverdream = fever dream
-reagent-desc-feverdream = A creamy, hallucinogenic cocktail of exotic blood, absinthe, and champagne, topped with frothed egg whites. Unpalatable if mixed incorrectly, and traditionally served with a thaven good luck charm. Open your eyes.
+reagent-desc-feverdream = A creamy, hallucinogenic cocktail of thaven blood, absinthe, and champagne, topped with frothed egg whites. Unpalatable if mixed incorrectly, and traditionally served with a thaven good luck charm. Open your eyes.
 
 reagent-name-liquidlunch = liquid lunch
 reagent-desc-liquidlunch = For when you need your lunch on the go.
+
+reagent-name-cafe-latte-vanilla = vanilla cafe latte
+reagent-desc-cafe-latte-vanilla = A smooth relaxing way to start your shift.

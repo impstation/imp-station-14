@@ -1,6 +1,5 @@
-using Content.Server.Body.Systems;
 using Content.Server.Stack;
-using Content.Shared.Body.Components;
+using Content.Shared.Gibbing;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
 using Content.Shared.Xenoarchaeology.Equipment;
@@ -18,7 +17,7 @@ namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly XenoArtifactSystem _artifact = default!; //imp
@@ -47,26 +46,23 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 }
             }
 
-            if (TryComp<XenoArtifactComponent>(contained, out var artifact) && artifact.Natural) //imp if statement and all code within
+            if (TryComp<XenoArtifactComponent>(contained, out var artifact)) //imp if statement and all code within
             {
                 var unlocking = EnsureComp<XenoArtifactUnlockingComponent>(contained);
                 _artifact.FinishUnlockingState((contained, unlocking, artifact));
             }
 
-            if (!TryComp<BodyComponent>(contained, out var body))
-                Del(contained);
-
             if (!HasComp<GoobChangelingComponent>(contained)) //#IMP if statement to make changelings immune to gibbing
             {
-                var gibs = _body.GibBody(contained, body: body, gibOrgans: true);
+                var gibs = _gibbing.Gib(contained);
                 foreach (var gib in gibs)
                 {
                     ContainerSystem.Insert((gib, null, null, null), crusher.OutputContainer);
                 }
             }
-            else
+            else //#IMP deals an extra burst of damage to changelings at the end
             {
-                _damageable.TryChangeDamage(contained, crusher.CrushingDamage * crusher.NonGibbedDamageMult); //#IMP deals an extra burst of damage to changelings at the end
+                _damageable.TryChangeDamage(contained, crusher.CrushingDamage * crusher.NonGibbedDamageMult);
             }
         }
     }

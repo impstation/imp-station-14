@@ -213,6 +213,9 @@
   - type: Produce
     seedId: towercap
   - type: Log
+  - type: Tag # imp
+    tags:
+    - Log
 
 - type: entity
   name: steel-cap log
@@ -1743,6 +1746,7 @@
   - type: Tag
     tags:
     - Ambrosia
+    - Ruminant #imp
   - type: FoodSequenceElement
     entries:
       Taco: AmbrosiaVulgaris
@@ -1785,6 +1789,7 @@
   - type: Tag
     tags:
     - Ambrosia
+    - Ruminant #imp
   - type: FoodSequenceElement
     entries:
       Taco: AmbrosiaDeus

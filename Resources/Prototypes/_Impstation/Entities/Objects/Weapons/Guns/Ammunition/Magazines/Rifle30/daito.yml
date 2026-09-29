@@ -1,8 +1,8 @@
 # Magazines compatible with the Daito.
 - type: entity
   id: BaseMagazineDaito
-  name: "magazine (.30 rifle)"
-  description: A 20-round .30 rifle magazine.
+  name: "Daito magazine (.30 tactical)"
+  description: A 20-round .30 tactical magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -36,8 +36,8 @@
 
 - type: entity
   id: MagazineDMR
-  name: "magazine (.30 rifle)"
-  description: A 20-round .30 rifle DMR magazine, marked as live-fire ammo.
+  name: "Daito magazine (.30 tactical)"
+  description: A 20-round .30 tactical magazine, marked as live-fire ammo.
   parent: BaseMagazineDaito
   components:
   - type: Sprite
@@ -60,8 +60,8 @@
 
 - type: entity
   id: MagazineDMREmpty
-  name: "magazine (.30 rifle any)"
-  description: A 20-round .30 rifle DMR magazine with no apparent markings.
+  name: "Daito magazine (.30 tactical any)"
+  description: A 20-round .30 tactical magazine with no apparent markings.
   suffix: empty
   parent: MagazineDMR
   components:
@@ -82,8 +82,8 @@
 
 - type: entity
   id: MagazineDMRPractice
-  name: "magazine (.30 rifle practice)"
-  description: A 20-round .30 rifle DMR magazine, marked as practice ammo.
+  name: "Daito magazine (.30 tactical practice)"
+  description: A 20-round .30 tactical magazine, marked as practice ammo.
   parent: MagazineDMR
   components:
   - type: BallisticAmmoProvider
@@ -107,8 +107,8 @@
 
 - type: entity
   id: MagazineDMRUranium
-  name: "magazine (.30 rifle uranium)"
-  description: A 20-round .30 rifle DMR magazine, marked as uranium ammo.
+  name: "Daito magazine (.30 tactical uranium)"
+  description: A 20-round .30 tactical magazine, marked as uranium ammo.
   parent: MagazineDMR
   components:
   - type: BallisticAmmoProvider
@@ -132,8 +132,8 @@
 
 - type: entity
   id: MagazineDMRIncendiary
-  name: "magazine (.30 rifle incendiary)"
-  description: A 20-round .30 rifle DMR magazine, marked as incendiary ammo.
+  name: "Daito magazine (.30 tactical incendiary)"
+  description: A 20-round .30 tactical magazine, marked as incendiary ammo.
   parent: MagazineDMR
   components:
   - type: BallisticAmmoProvider

@@ -135,13 +135,14 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             if (entXform.GridUid != gridUid)
                 continue;
 
-            if (!entXform.Anchored)
-                continue;
+            // imp edit, comment this out for supermatter shards (always unanchored)
+            //if (!entXform.Anchored)
+            //    continue;
 
             // Create entry
             var netEnt = GetNetEntity(ent);
 
-            var entry = new SupermatterConsoleEntry(netEnt, MetaData(ent).EntityName, entSupermatter.Status);
+            var entry = new SupermatterConsoleEntry(netEnt, MetaData(ent).EntityName, entSupermatter.Status, entSupermatter.IsShard); // Imp, passed supermatter shard component
 
             supermatterStateData.Add(entry);
         }
@@ -157,7 +158,8 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         if (!TryComp(focusSupermatter.Value, out TransformComponent? focusSupermatterXform))
             return null;
 
-        if (!focusSupermatterXform.Anchored ||
+        // imp edit, comment this out for supermatter shards (always unanchored)
+        if (//!focusSupermatterXform.Anchored ||
             focusSupermatterXform.GridUid != gridUid)
             return null;
 
@@ -172,7 +174,6 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             gases = sm.GasStorage;
 
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
 
         return new SupermatterFocusData(
             GetNetEntity(focusSupermatter.Value),
@@ -185,7 +186,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             tempThreshold * sm.DynamicHeatResistance,
             sm.HeatModifier,
             sm.GasHeatModifier,
-            gasEfficiency * 100);
+            sm.GasEfficiency * 100);
     }
 
     private static float GetIntegrity(SupermatterComponent sm)

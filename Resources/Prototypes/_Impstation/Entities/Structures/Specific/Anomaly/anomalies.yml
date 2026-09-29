@@ -1,0 +1,34 @@
+- type: entity
+  id: AnomalyCurseBase
+  parent: BaseAnomaly
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Anomaly
+    minPulseLength: 50
+    maxPulseLength: 100
+    supercriticalSoundAtAnimationStart:
+      collection: AnomalyCurseSupercritical
+  - type: PointLight
+    color: "#9E00FF"
+    lightEnergy: 4
+    lightRadius: 15
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        spawnOnSuperCritical: true
+        minAmount: 2
+        maxAmount: 6
+        minRange: 1.5
+        maxRange: 2.5
+      spawns:
+      - MobBadOmen
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 1
+        maxAmount: 1
+        minRange: 3
+        maxRange: 4.5
+      spawns:
+      - MobAugury

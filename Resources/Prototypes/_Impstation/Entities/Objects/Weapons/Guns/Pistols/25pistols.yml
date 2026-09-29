@@ -1,4 +1,6 @@
-# .25 caseless deals 21 pierce per shot (CartridgeCaselessRifle)
+# .25 caseless (CartridgeCaselessRifle) should deal 21 pierce per shot on average (+11).
+# Base Pistol Weapons have a default GunDamage bonus of +6 Piercing.
+
 - type: entity
   name: Cobra
   parent: [ BaseWeaponPistol, Tier3Contraband ]
@@ -24,6 +26,14 @@
         volume: -14
     availableModes:
     - SemiAuto
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 11
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ItemSlots
     slots:
       gun_magazine:

@@ -71,7 +71,7 @@ public sealed class SupermatterConsoleBoundInterfaceState(SupermatterConsoleEntr
 }
 
 [Serializable, NetSerializable]
-public struct SupermatterConsoleEntry(NetEntity entity, string entityName, SupermatterStatusType status)
+public struct SupermatterConsoleEntry(NetEntity entity, string entityName, SupermatterStatusType status, bool isShard) // Imp, added isShard
 {
     /// <summary>
     /// The entity in question
@@ -87,6 +87,12 @@ public struct SupermatterConsoleEntry(NetEntity entity, string entityName, Super
     /// Current warning level
     /// </summary>
     public SupermatterStatusType EntityStatus = status;
+
+    /// <summary>
+    /// Imp.
+    /// Whether the supermatter is a shard
+    /// </summary>
+    public bool IsShard = isShard;
 }
 
 [Serializable, NetSerializable]

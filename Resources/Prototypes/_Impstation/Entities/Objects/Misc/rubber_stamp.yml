@@ -8,8 +8,8 @@
     stampedName: stamp-component-stamped-name-hd
     stampedColor: "#40c42e"
     stampState: "paper_stamp-hd"
+    stampLargeIcon: "large_stamp-hd"
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/stamps.rsi
     state: stamp-hd
 
 - type: entity
@@ -24,5 +24,4 @@
     stampedColor: "#21a52e"
     stampState: "paper_stamp-ninja"
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/stamps.rsi
     state: stamp-ninja

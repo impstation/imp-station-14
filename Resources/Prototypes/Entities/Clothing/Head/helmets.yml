@@ -257,7 +257,7 @@
 
 #Wizard Helmet
 - type: entity
-  parent: ClothingHeadHelmetBase
+  parent: [ClothingHeadHelmetBase, ClothingHeadHatWizardBase] # imp, add ClothingHeadHatWizardBase
   id: ClothingHeadHelmetWizardHelm
   name: wizard helm
   description: Strange-looking helmet that most certainly belongs to a real magic user.
@@ -308,9 +308,9 @@
   description: An atmos fire helmet, able to keep the user cool in any situation.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    sprite: _Impstation/Clothing/Head/Helmets/atmos_firehelmet.rsi #imp
   - type: Clothing
-    sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    sprite: _Impstation/Clothing/Head/Helmets/atmos_firehelmet.rsi #imp
     quickEquip: true
   - type: IngestionBlocker
   - type: TemperatureProtection

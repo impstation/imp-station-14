@@ -6,6 +6,7 @@
     - AnalysisConsoleImp
     - XenoarchaeologyReticulated
     - XenoarchaeologyNatural
+    - AdvancedNodeScanner
 
 - type: guideEntry
   id: XenoarchaeologyReticulated
@@ -21,3 +22,8 @@
   id: AnalysisConsoleImp
   name: guide-entry-analysisconsole
   text: "/ServerInfo/_Impstation/Guidebook/Science/AnalysisConsole.xml"
+
+- type: guideEntry
+  id: AdvancedNodeScanner
+  name: guide-entry-advancednodescanner
+  text: "/ServerInfo/_Impstation/Guidebook/Science/AdvancedNodeScanner.xml"

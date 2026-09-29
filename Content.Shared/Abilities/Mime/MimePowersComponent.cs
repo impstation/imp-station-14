@@ -6,10 +6,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Abilities.Mime;
 
 /// <summary>
-/// Lets its owner entity use mime powers, like placing invisible walls.
+/// Lets its owner entity use mime powers, like placing invisible walls. Imp edit, it goes on minds now.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [AutoGenerateComponentPause]
+[ComponentProtoName("MimeVow")] // imp add
 public sealed partial class MimePowersComponent : Component
 {
     /// <summary>
@@ -18,6 +19,7 @@ public sealed partial class MimePowersComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
 
+    /* imp edit
     /// <summary>
     /// The wall prototype to use.
     /// </summary>
@@ -29,6 +31,7 @@ public sealed partial class MimePowersComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? InvisibleWallActionEntity;
+    */
 
     // The vow zone lies below
     [DataField, AutoNetworkedField]
@@ -72,5 +75,5 @@ public sealed partial class MimePowersComponent : Component
     [DataField]
     public LocId FailWriteMessage = "paper-component-illiterate-mime";
 
-    public override bool SendOnlyToOwner => true;
+    //public override bool SendOnlyToOwner => true; // imp edit
 }

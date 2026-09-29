@@ -103,6 +103,7 @@
 # Construction Frame
 
 - type: entity
+  parent: BaseWallmountMetallic #imp edit
   id: TimerFrame
   name: timer frame
   description: A construction frame for a timer.

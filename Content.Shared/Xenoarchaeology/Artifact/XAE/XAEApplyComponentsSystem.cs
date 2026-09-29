@@ -41,6 +41,7 @@ public sealed class XAEApplyComponentsSystem : BaseXAESystem<XAEApplyComponentsC
 
             var clone = EntityManager.ComponentFactory.GetComponent(registry.Value);
             AddComp(artifact, clone);
+            Dirty(artifact); //IMP: fix clients not knowing internal data of components (e.g healOnBuckle)
         }
     }
 }

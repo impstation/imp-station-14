@@ -47,7 +47,8 @@ research-technology-alternative-research = Alternative Research
 research-technology-magnets-tech = Localized Magnetism
 research-technology-advanced-parts = Advanced Parts
 research-technology-anomaly-harnessing = Anomaly Core Harnessing
-research-technology-abnormal-artifact-manipulation = Artifact Recycling
+#imp change research-technology-abnormal-artifact-manipulation
+research-technology-abnormal-artifact-manipulation = Advanced Xenoarcheology
 research-technology-gravity-manipulation = Gravity Manipulation
 research-technology-quantum-leaping = Quantum Leaping
 research-technology-bluespace-time-manipulation = Bluespace Time Manipulation

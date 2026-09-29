@@ -24,6 +24,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server._CD.Records; // CD - Character Records
 using Content.Shared._CD.Records; // CD - Character Records
+using Content.Shared._Impstation.Notifier; // imp - notifier
 
 namespace Content.Server.Database
 {
@@ -1843,6 +1844,60 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             await db.DbContext.SaveChangesAsync();
             return true;
+        }
+
+        #endregion
+
+        #region Notifier Settings
+        private static async Task DeletePlayerNotifierSettings(ServerDbContext db, NetUserId userId)
+        {
+            var notifierData = await db.NotifierData
+                .Where(c => c.UserId == userId.UserId)
+                .SingleOrDefaultAsync();
+
+            if (notifierData is null)
+            {
+                return;
+            }
+
+            db.NotifierData.Remove(notifierData);
+        }
+        public async Task SavePlayerNotifierSettingsAsync(NetUserId userId, PlayerNotifierSettings? notifierSettings)
+        {
+            await using var db = await GetDb();
+
+            if (notifierSettings is null)
+            {
+                await DeletePlayerNotifierSettings(db.DbContext, userId);
+                await db.DbContext.SaveChangesAsync();
+                return;
+            }
+
+            var currentNotifierData = await db.DbContext.NotifierData.AsSplitQuery().SingleOrDefaultAsync(p => p.UserId == userId.UserId);
+
+            if (currentNotifierData is null)
+            {
+                currentNotifierData = new NotifierData() { UserId = userId};
+
+                db.DbContext.NotifierData.Add(currentNotifierData);
+            }
+
+            currentNotifierData.NotifierFreetext = notifierSettings.Freetext;
+            currentNotifierData.Enabled = notifierSettings.Enabled;
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<PlayerNotifierSettings> GetPlayerNotifierSettingsAsync(NetUserId userId)
+        {
+            await using var db = await GetDb();
+
+            var notifierData = await db.DbContext.NotifierData.SingleOrDefaultAsync(p => p.UserId == userId.UserId);
+
+            if (notifierData is null)
+                return new();
+
+            return new(notifierData.NotifierFreetext, notifierData.Enabled);
         }
 
         #endregion

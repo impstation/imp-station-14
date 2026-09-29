@@ -11,6 +11,8 @@ using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Power.Components; // imp add
+using Content.Shared.Power.EntitySystems; // imp add
 
 namespace Content.Server.Store.Systems;
 
@@ -23,6 +25,9 @@ public sealed partial class StoreSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!; // imp
+
+    private readonly static string UnpoweredPopup = "store-currency-not-charged"; // imp add
 
     public override void Initialize()
     {
@@ -99,6 +104,15 @@ public sealed partial class StoreSystem : EntitySystem
         RaiseLocalEvent(args.Target.Value, ev);
         if (ev.Cancelled)
             return;
+
+        // IMP ADD: you cannot refund items that need charging unless they are fully charged!
+        if (TryComp<BatteryComponent>(uid, out var battery) &&
+            _battery.GetCharge(uid) < battery.MaxCharge)
+        {
+            _popup.PopupCursor(Loc.GetString(UnpoweredPopup), args.User);
+            return;
+        }
+        // IMP END
 
         if (!TryAddCurrency((uid, component), (args.Target.Value, store)))
             return;

@@ -5,12 +5,12 @@
   #- /Audio/Machines/Nuke/nuke_alarm.ogg
   #- /Audio/Misc/emergency_meeting.ogg
   - /Audio/Effects/countdown.ogg
-  - /Audio/Effects/explosion1.ogg
-  - /Audio/Effects/explosion2.ogg
+  #- /Audio/Effects/explosion1.ogg       imp edit
+  #- /Audio/Effects/explosion2.ogg       imp edit
   - /Audio/Effects/explosion3.ogg
-  - /Audio/Effects/explosion4.ogg
+  #- /Audio/Effects/explosion4.ogg       imp edit
   - /Audio/Effects/explosion5.ogg
-  - /Audio/Effects/explosion6.ogg
+  #- /Audio/Effects/explosion6.ogg       imp edit
   - /Audio/Effects/glass_break1.ogg
   - /Audio/Effects/glass_break2.ogg
   - /Audio/Effects/glass_break3.ogg
@@ -18,11 +18,11 @@
   - /Audio/Effects/bodyfall2.ogg
   - /Audio/Effects/bodyfall3.ogg
   - /Audio/Effects/bodyfall4.ogg
-  - /Audio/Effects/demon_dies.ogg
-  - /Audio/Effects/demon_attack1.ogg
+  #- /Audio/Effects/demon_dies.ogg       imp edit
+  #- /Audio/Effects/demon_attack1.ogg    imp edit
   - /Audio/Effects/clang.ogg
   - /Audio/Effects/metal_slam1.ogg
-  - /Audio/Effects/metal_slam5.ogg
+  #- /Audio/Effects/metal_slam5.ogg      imp edit
   - /Audio/Effects/minibombcountdown.ogg
   - /Audio/Effects/sadtrombone.ogg
   - /Audio/Effects/sparks1.ogg
@@ -38,11 +38,11 @@
   - /Audio/Machines/airlock_open.ogg
   - /Audio/Machines/airlock_ext_open.ogg
   - /Audio/Machines/anomaly_generate.ogg
-  - /Audio/Machines/phasein.ogg
+  #- /Audio/Machines/phasein.ogg        imp edit
   - /Audio/Machines/vending_restock_start.ogg
   - /Audio/Machines/vending_restock_done.ogg
   - /Audio/Magic/blink.ogg
-  - /Audio/Magic/disintegrate.ogg
+  #- /Audio/Magic/disintegrate.ogg      imp edit
   - /Audio/Magic/staff_animation.ogg
   - /Audio/Weapons/ebladeon.ogg
   - /Audio/Weapons/flash.ogg
@@ -54,7 +54,7 @@
   - /Audio/Weapons/punch4.ogg
   - /Audio/Weapons/genhit1.ogg
   - /Audio/Weapons/Guns/Hits/bullet_hit.ogg
-  - /Audio/Weapons/Guns/Hits/snap.ogg
+  #- /Audio/Weapons/Guns/Hits/snap.ogg  imp edit
   - /Audio/Weapons/Guns/Gunshots/atreides.ogg
   - /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - /Audio/Weapons/Guns/Gunshots/pistol.ogg
@@ -76,3 +76,227 @@
   - /Audio/Voice/Zombie/zombie-2.ogg
   - /Audio/Voice/Zombie/zombie-3.ogg
   - /Audio/Voice/Vox/shriek1.ogg
+  # imp edit start
+  - /Audio/Ambience/Objects/alarm.ogg
+  - /Audio/Animals/cat_hiss.ogg
+  - /Audio/Animals/space_dragon_roar.ogg
+  - /Audio/Animals/wawa_achoo.ogg
+  - /Audio/Effects/Fluids/blood2.ogg
+  - /Audio/Effects/Fluids/splat.ogg
+  - /Audio/Effects/Footsteps/slime1.ogg
+  - /Audio/Effects/Footsteps/slime2.ogg
+  - /Audio/Effects/Footsteps/snake1.ogg
+  - /Audio/Effects/Footsteps/snake2.ogg
+  - /Audio/Effects/Gasp/female_deathgasp_4.ogg
+  - /Audio/Effects/Gasp/male_deathgasp_2.ogg
+  - /Audio/Effects/Gasp/gasp_female1.ogg
+  - /Audio/Effects/Gasp/gasp_male1.ogg
+  - /Audio/Effects/Gasp/moth_DeathGasp.ogg
+  - /Audio/Effects/Grenades/Supermatter/smbeep.ogg
+  - /Audio/Effects/PowerSink/charge_fire.ogg
+  - /Audio/Effects/Shuttle/shuttle_impact2.ogg
+  - /Audio/Effects/bite.ogg
+  - /Audio/Effects/cig_snuff.ogg
+  - /Audio/Effects/closetclose.ogg
+  - /Audio/Effects/closetopen.ogg
+  - /Audio/Effects/docking.ogg
+  - /Audio/Effects/door_open.ogg
+  - /Audio/Effects/double_beep.ogg
+  - /Audio/Effects/falling.ogg
+  - /Audio/Effects/fence_rattle2.ogg
+  - /Audio/Effects/fire.ogg
+  - /Audio/Effects/gib2.ogg
+  - /Audio/Effects/guardian_warn.ogg
+  - /Audio/Effects/hallelujah.ogg
+  - /Audio/Effects/inneranomaly.ogg
+  - /Audio/Effects/internals.ogg
+  - /Audio/Effects/metal_slam4.ogg
+  - /Audio/Effects/metal_thud2.ogg
+  - /Audio/Effects/plant_rustle.ogg
+  - /Audio/Effects/teleport_arrival.ogg
+  - /Audio/Items/Artifact/artifact6.ogg
+  - /Audio/Items/Artifact/artifact-activation-fail1.ogg
+  - /Audio/Items/Defib/defib_failed.ogg
+  - /Audio/Items/Defib/defib_ready.ogg
+  - /Audio/Items/Dice/dice7.ogg
+  - /Audio/Items/Handcuffs/cuff_breakout_start.ogg
+  - /Audio/Items/Lighters/lighter3.ogg
+  - /Audio/Items/Medical/brutepack_begin.ogg
+  - /Audio/Items/Mining/fultext_deploy.ogg
+  - /Audio/Items/Toys/card_tube_bonk.ogg
+  - /Audio/Items/Toys/pushHornHonk.ogg
+  - /Audio/Items/Toys/sitcom_laugh2.ogg
+  - /Audio/Items/Whistle/whistle_2.ogg
+  - /Audio/Items/airhorn.ogg            # sorry.
+  - /Audio/Items/appraiser.ogg
+  - /Audio/Items/deconstruct.ogg
+  - /Audio/Items/hypospray.ogg
+  - /Audio/Items/jaws_cut.ogg
+  - /Audio/Items/jaws_pry.ogg
+  - /Audio/Items/pill.ogg
+  - /Audio/Items/pistol_cock.ogg
+  - /Audio/Items/smoke_grenade_prime.ogg
+  - /Audio/Items/trayhit1.ogg
+  - /Audio/Machines/Nuke/angry_beep.ogg
+  - /Audio/Machines/Nuke/confirm_beep.ogg
+  - /Audio/Machines/Nuke/general_beep.ogg
+  - /Audio/Machines/airlock_creaking.ogg
+  - /Audio/Machines/airlock_emergencyon.ogg
+  - /Audio/Machines/boltsdown.ogg
+  - /Audio/Machines/door_lock_off.ogg
+  - /Audio/Machines/double_ring.ogg
+  - /Audio/Machines/id_swipe.ogg
+  - /Audio/Machines/light_tube_on.ogg
+  - /Audio/Machines/printer.ogg
+  - /Audio/Machines/robotscream_6.ogg
+  - /Audio/Machines/screwdriveropen.ogg
+  - /Audio/Machines/terminal_insert_disc.ogg
+  - /Audio/Machines/timer.ogg
+  - /Audio/Machines/warning_buzzer.ogg
+  - /Audio/Magic/Eldritch/voidblink.ogg
+  - /Audio/Magic/ethereal_enter.ogg
+  - /Audio/Magic/fireball.ogg
+  - /Audio/Magic/staff_door.ogg
+  - /Audio/VentCrawling/crawling5.ogg
+  - /Audio/VentCrawling/crawling16.ogg
+  - /Audio/Machines/warning_buzzer_xenoborg.ogg
+  - /Audio/Voice/Arachnid/arachnid_laugh.ogg
+  - /Audio/Voice/Arachnid/arachnid_scream.ogg
+  - /Audio/Voice/Diona/diona_rustle2.ogg
+  - /Audio/Voice/Diona/diona_scream.ogg
+  - /Audio/Voice/Human/wilhelm_scream.ogg
+  - /Audio/Voice/Human/female_sigh.ogg
+  - /Audio/Voice/Human/male_sigh.ogg
+  - /Audio/Voice/Human/manlaugh2.ogg
+  - /Audio/Voice/Human/womanlaugh.ogg
+  - /Audio/Voice/Moth/moth_laugh.ogg
+  - /Audio/Voice/Moth/moth_scream.ogg
+  - /Audio/Voice/Moth/moth_chitter.ogg
+  - /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - /Audio/Voice/Talk/arachnid.ogg
+  - /Audio/Voice/Talk/arachnid_ask.ogg
+  - /Audio/Voice/Talk/arachnid_exclaim.ogg
+  - /Audio/Voice/Talk/lizard_ask.ogg
+  - /Audio/Voice/Talk/lizard_exclaim.ogg
+  - /Audio/Voice/Talk/slime.ogg
+  - /Audio/Voice/Talk/slime_ask.ogg
+  - /Audio/Voice/Talk/slime_exclaim.ogg
+  - /Audio/Voice/Talk/speak_2.ogg
+  - /Audio/Voice/Talk/vox.ogg
+  - /Audio/Voice/Talk/vox_ask.ogg
+  - /Audio/Voice/Talk/vox_exclaim.ogg
+  - /Audio/Voice/Talk/vulp.ogg
+  - /Audio/Voice/Vox/vox_laugh.ogg
+  - /Audio/Voice/Vox/vox_cough.ogg
+  - /Audio/Voice/Xenoborg/xenoborg_talk.ogg
+  - /Audio/Voice/Xenoborg/xenoborg_exclaim.ogg
+  - /Audio/Voice/Xenoborg/xenoborg_laugh_1.ogg
+  - /Audio/Voice/Xenoborg/xenoborg_laugh_3.ogg
+  - /Audio/Weapons/Guns/Bolt/rifle_bolt_closed.ogg
+  - /Audio/Weapons/Guns/EmptyAlarm/lmg_empty_alarm.ogg
+  - /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+  - /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - /Audio/Weapons/Guns/Hits/bullet_meat2.ogg
+  - /Audio/Weapons/Guns/Hits/energy_meat2.ogg
+  - /Audio/Weapons/Guns/MagIn/energycrossbow_reload.ogg
+  - /Audio/Weapons/eblade1.ogg
+  - /Audio/Weapons/ebladeoff.ogg
+  - /Audio/Weapons/emitter.ogg
+  - /Audio/Weapons/grille_hit.ogg
+  - /Audio/_DV/Items/TapeRecorder/play.ogg
+  - /Audio/_DV/Items/TapeRecorder/stop.ogg
+  - /Audio/_EE/Supermatter/charge.ogg
+  - /Audio/_EE/Supermatter/emitter2.ogg
+  - /Audio/_EE/Supermatter/marauder.ogg
+  - /Audio/_EE/Supermatter/accent/normal/6.ogg
+  - /Audio/_EE/Supermatter/accent/delam/23.ogg
+  - /Audio/_EE/Supermatter/status/engine_alert2.ogg
+  - /Audio/_EE/Supermatter/status/ohfuck.ogg
+  - /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg
+  - /Audio/_Goobstation/Heretic/castsummon.ogg
+  - /Audio/_Impstation/Allulalo/allulalo_say.ogg
+  - /Audio/_Impstation/Allulalo/allulalo_ask.ogg
+  - /Audio/_Impstation/Allulalo/allulalo_exclaim.ogg
+  - /Audio/_Impstation/Allulalo/allulalo_deathgasp.ogg
+  - /Audio/_Impstation/Animals/bananadeer_eee.ogg
+  - /Audio/_Impstation/Animals/bros_hurt.ogg
+  - /Audio/_Impstation/Animals/finfin3.ogg
+  - /Audio/_Impstation/Animals/pleebnar_scream.ogg
+  - /Audio/_Impstation/Animals/pleebnar_squeak.ogg
+  - /Audio/_Impstation/Animals/vrex_roar.ogg
+  - /Audio/_Impstation/Effects/Emotes/blink.ogg
+  - /Audio/_Impstation/Effects/Emotes/wetblink.ogg
+  - /Audio/_Impstation/Effects/Gasp/s_female_deathgasp_5.ogg
+  - /Audio/_Impstation/Effects/Gasp/s_male_deathgasp_2.ogg
+  - /Audio/_Impstation/Effects/Gasp/s_gasp_female_1.ogg
+  - /Audio/_Impstation/Effects/Gasp/s_gasp_male_2.ogg
+  - /Audio/_Impstation/Effects/falling.ogg
+  - /Audio/_Impstation/Effects/hollow_plastic4.ogg
+  - /Audio/_Impstation/Effects/replicator_speak.ogg
+  - /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - /Audio/_Impstation/Items/Toys/finfinhit.ogg
+  - /Audio/_Impstation/Items/SOS.ogg
+  - /Audio/_Impstation/Kodepiia/kodetalk.ogg
+  - /Audio/_Impstation/Kodepiia/kodeask.ogg
+  - /Audio/_Impstation/Kodepiia/kodeexclaim.ogg
+  - /Audio/_Impstation/Kodepiia/kodedeath1.ogg
+  - /Audio/_Impstation/Misc/replicator_sfx2.ogg
+  - /Audio/_Impstation/StrangeMoods/moods_changed_mono.ogg
+  - /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_talk.ogg
+  - /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_ask.ogg
+  - /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_exclaim.ogg
+  - /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_deathgasp.ogg
+  - /Audio/_Impstation/Voice/Arachnid/arachnid_gasp.ogg
+  - /Audio/_Impstation/Voice/Decapoid/decapoid_gasp.ogg
+  - /Audio/_Impstation/Voice/Decapoid/decapoid_deathgasp.ogg
+  - /Audio/_Impstation/Voice/Decapoid/decapoid_scream.ogg
+  - /Audio/_Impstation/Voice/Gastropoid/snail_gasp.ogg
+  - /Audio/_Impstation/Voice/Gastropoid/snail_deathgasp.ogg
+  - /Audio/_Impstation/Voice/Gastropoid/snail_scream.ogg
+  - /Audio/_Impstation/Voice/Gray/gray_gasp.ogg
+  - /Audio/_Impstation/Voice/Gray/gray_deathgasp.ogg
+  - /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+  - /Audio/_Impstation/Voice/Moth/mothgasp.ogg
+  - /Audio/_Impstation/Voice/Moth/mothyawn.ogg
+  - /Audio/_Impstation/Voice/Reptilian/reptilian_chirp1.ogg
+  - /Audio/_Impstation/Voice/Silicon/silicon_laugh.ogg
+  - /Audio/_Impstation/Voice/Silicon/silicon_scream.ogg
+  - /Audio/_Impstation/Voice/Slime/s_femalescream_2.ogg
+  - /Audio/_Impstation/Voice/Slime/s_malescream_5.ogg
+  - /Audio/_Impstation/Voice/Talk/Anomalite/anomalite_ask.ogg
+  - /Audio/_Impstation/Voice/Talk/Tcktck/tcktck_laugh.ogg
+  - /Audio/_Impstation/Voice/Talk/gray.ogg
+  - /Audio/_Impstation/Voice/Talk/gray_ask.ogg
+  - /Audio/_Impstation/Voice/Talk/gray_exclaim.ogg
+  - /Audio/_Impstation/Voice/Talk/snail.ogg
+  - /Audio/_Impstation/Voice/Talk/snail_ask.ogg
+  - /Audio/_Impstation/Voice/Talk/snail_exclaim.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_gasp.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_death_gasp.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_talk.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_ask.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_yell.ogg
+  - /Audio/_Impstation/Voice/Vox/voxgasp1.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/autodisabler.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/blasterrevolver.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/blasterweak.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/clake.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/daito.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/eshotgun.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/kammerer.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/kinetic_accel_full.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/light-pistol.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/mosin.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/nemesis.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/pistolp2.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
+  - /Audio/_Impstation/Weapons/Guns/Hits/gamemaker-explosion.ogg
+  - /Audio/_Impstation/Paracusia/anomalyvessel_3beeps.ogg
+  - /Audio/_Impstation/Paracusia/c4_3beeps.ogg
+  - /Audio/_Impstation/Paracusia/heartbeat_3beats.ogg
+  - /Audio/_Impstation/Paracusia/syndiebomb_3beeps.ogg
+  - /Audio/_NF/Machines/medical-assembler.ogg
+  # imp edit end

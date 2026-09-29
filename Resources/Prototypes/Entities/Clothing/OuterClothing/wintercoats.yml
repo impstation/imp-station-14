@@ -59,7 +59,7 @@
   name: atmospherics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _Impstation/Clothing/OuterClothing/WinterCoats/atmoscoat.rsi #imp
     layers:
     - state: ATMOS-icon
   - type: Item
@@ -69,7 +69,7 @@
       right:
       - state: ATMOS-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _Impstation/Clothing/OuterClothing/WinterCoats/atmoscoat.rsi #imp
     clothingVisuals:
       outerClothing:
       - state: ATMOS-equipped-OUTERCLOTHING
@@ -442,6 +442,11 @@
     sprite: _Impstation/Clothing/OuterClothing/WinterCoats/coathosarmored.rsi #imp
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      storagebase: !type:Container
+        ents: [ ]
 ##########################################################
 
 - type: entity
@@ -839,6 +844,11 @@
     sprite: _Impstation/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi #imp
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      storagebase: !type:Container
+        ents: [ ]
 ################################################################
 
 - type: entity

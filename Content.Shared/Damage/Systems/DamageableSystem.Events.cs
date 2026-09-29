@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.Damage.Components; //imp edit
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -160,6 +161,10 @@ public sealed partial class DamageableSystem
 
     private void OnIrradiated(Entity<DamageableComponent> ent, ref OnIrradiatedEvent args)
     {
+        // Imp edit, ignore this method if the entity has an IrradiatedDamage component and use its method instead
+        if (HasComp<IrradiatedDamageComponent>(ent))
+            return;
+
         var damageValue = FixedPoint2.New(args.TotalRads);
 
         // Radiation should really just be a damage group instead of a list of types.
@@ -219,11 +224,28 @@ public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid?
 public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, bool isVirtual = false) // imp isvirtual
     : EntityEventArgs, IInventoryRelayEvent
 {
-    // Whenever locational damage is a thing, this should just check only that bit of armour.
+    /// <inheritdoc/>
+    /// <remarks>
+    ///     Whenever locational damage is a thing, this should just check only that bit of armor.
+    /// </remarks>
     public SlotFlags TargetSlots => ~SlotFlags.POCKET;
 
+    /// <summary>
+    ///     Contains the original damage, prior to any modifers.
+    /// </summary>
     public readonly DamageSpecifier OriginalDamage = damage;
+
+    /// <summary>
+    ///     Contains the damage after modifiers have been applied.
+    ///     This is the damage that will be inflicted.
+    /// </summary>
     public DamageSpecifier Damage = damage;
+
+    /// <summary>
+    ///     Contains the entity which caused the damage, if any was responsible.
+    /// </summary>
+    public readonly EntityUid? Origin = origin;
+
     public bool IsVirtual = isVirtual; //#IMP For when you want to see what damage could be dealt, without actually dealing it
 }
 

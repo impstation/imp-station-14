@@ -2,7 +2,6 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Content.Shared._White.StoreDiscount; // imp
 
 namespace Content.Shared.Store.Components;
 
@@ -87,10 +86,11 @@ public sealed partial class StoreComponent : Component
     [DataField]
     public EntityUid? StartingMap;
 
-    // WD EDIT START
+    /// <summary>
+    ///     Imp addition, whether the store should automatically pass all conditions for its listings, used for debug stores.
+    /// </summary>
     [DataField]
-    public SalesSpecifier Sales { get; private set; } = new();
-    // WD EDIT END
+    public bool PassAllConditions;
 
     #region audio
     /// <summary>

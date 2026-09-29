@@ -9,11 +9,11 @@
     - state: space_grease
   - type: SmokeOnTrigger
     duration: 3
-    spreadAmount: 40
+    spreadAmount: 50
     smokePrototype: Foam
     solution:
       reagents:
       - ReagentId: SpaceGrease
-        Quantity: 15
+        Quantity: 30
   - type: EmitSoundOnTrigger
     sound: /Audio/Effects/Fluids/splat.ogg

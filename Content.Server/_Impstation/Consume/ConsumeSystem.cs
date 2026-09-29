@@ -1,5 +1,4 @@
 using Content.Server.Atmos.Rotting;
-using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
@@ -10,6 +9,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Gibbing;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
@@ -21,6 +21,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Content.Shared._Impstation.Consume.Components;
 using Content.Shared._Impstation.Consume;
+using Content.Shared.Body;
 using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Impstation.Consume;
@@ -40,6 +41,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
     [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     /// <summary>
     /// How far consumed the consumed must be before they gib
@@ -116,7 +118,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         if (args.Target == null || args.Cancelled || !TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
             return;
 
-        if (!_body.TryGetBodyOrganEntityComps<StomachComponent>(ent.Owner, out var stomachs))
+        if (!_body.TryGetOrgansWithComponent<StomachComponent>(ent.Owner, out var stomachs))
             return;
 
         var highestAvailable = FixedPoint2.Zero;
@@ -124,7 +126,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         foreach (var stomach in stomachs)
         {
             var owner = stomach.Owner;
-            if (!_solutionContainer.ResolveSolution(owner, "stomach", ref stomach.Comp1.Solution, out var stomachSol))
+            if (!_solutionContainer.ResolveSolution(owner, "stomach", ref stomach.Comp.Solution, out var stomachSol))
                 continue;
 
             if (stomachSol.AvailableVolume <= highestAvailable)
@@ -196,8 +198,8 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         consumed.ConsumedValue += ent.Comp.PercentageConsumed;
         Dirty(args.Target.Value, consumed);
 
-        if (consumed.ConsumedValue >= GibThreshold && TryComp<BodyComponent>(args.Target.Value, out var targetBody) && ent.Comp.CanGib)
-            _body.GibBody(args.Target.Value,true,targetBody);
+        if (consumed.ConsumedValue >= GibThreshold && ent.Comp.CanGib)
+            _gibbing.Gib(args.Target.Value);
     }
 
     public void PlayMeatySound(Entity<ConsumeActionComponent> ent)

@@ -1,0 +1,136 @@
+- type: entity
+  parent: BaseAction
+  id: ActionSummonSoap
+  name: Summon Soap
+  description: Gives everyone a random bar of soap!
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 300
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Specific/Janitorial/soap.rsi
+      state: soap-4
+  - type: InstantAction
+    event: !type:RandomGlobalSpawnSpellEvent
+      makeSurvivorAntagonist: false
+      spawns:
+      - id: SoapDeluxe
+        orGroup: Soap
+      - id: SoapNT
+        orGroup: Soap
+      - id: SoapHomemade
+        orGroup: Soap
+      - id: SoapOmega
+        orGroup: Soap
+      - id: SoapSyndie
+        orGroup: Soap
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-soap
+
+- type: entity
+  parent: BaseAction
+  id: ActionSummonWhimsy
+  name: Summon Whimsy
+  description: Gives everyone items of a whimsical nature.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 300
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Impstation/Objects/Consumable/Food/Candy/lolipops.rsi
+      state: big-lollipop
+  - type: InstantAction
+    event: !type:RandomGlobalSpawnSpellEvent
+      makeSurvivorAntagonist: false
+      spawns: # to do: add more
+      - id: PetRockCarrier
+        orGroup: Prize
+      - id: PrizeTicket100
+        orGroup: Prize
+      - id: PlushieThrongler
+        orGroup: Prize
+      - id: ClothingShoeSlippersLizard
+        orGroup: Prize
+      - id: ClothingShoeSlippersDuck
+        orGroup: Prize
+      - id: PrizeBall
+        orGroup: Prize
+      - id: Chainsaw # its whimsical to me
+        prob: 0.001
+        orGroup: Prize
+      - id: WhoopieCushion
+        orGroup: Prize
+      - id: GlowstickBlue
+        orGroup: Prize
+      - id: GlowstickPurple
+        orGroup: Prize
+      - id: GlowstickYellow
+        orGroup: Prize
+      - id: GlowstickRed
+        orGroup: Prize
+      - id: PlushieOdds
+        prob: 0.1
+        orGroup: Prize
+      - id: PlushieGnomeChild
+        orGroup: Prize
+      - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+        orGroup: Prize
+      - id: ToySword
+        orGroup: Prize
+      - id: WeaponWaterPistol
+        orGroup: Prize
+      - id: WeaponWaterBlaster
+        orGroup: Prize
+      - id: ClothingHeadHatCatEars
+        orGroup: Prize
+      - id: ClothingHeadHatDogEars
+        orGroup: Prize
+      - id: WeaponGoldZipperFake
+        orGroup: Prize
+      - id: ToyAmongPequeno
+        orGroup: Prize
+      - id: ClothingHeadPropellerHat
+        orGroup: Prize
+      - id: FoodMealBigLollipop
+        orGroup: Prize
+      - id: BalloonCorgi
+        orGroup: Prize
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-whimsy
+
+- type: entity
+  parent: BaseAction
+  id: ActionSummonGifts
+  name: Summon Gifts
+  description: Gives everyone a present!
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 1000
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Decoration/present.rsi
+      state: present
+  - type: InstantAction
+    event: !type:RandomGlobalSpawnSpellEvent
+      makeSurvivorAntagonist: false
+      spawns:
+      - id: PresentRandomUnsafe
+        prob: 0.05
+        orGroup: Prize
+      - id: PresentRandom
+        orGroup: Prize
+      - id: PresentRandomCoal
+        orGroup: Prize
+      - id: PresentRandomCash
+        orGroup: Prize
+      - id: PresentRandomInsane
+        prob: 0.001
+        orGroup: Prize
+      - id: AnomalyTrapSanta
+        prob: 0.01
+        orGroup: Prize
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-gifts
