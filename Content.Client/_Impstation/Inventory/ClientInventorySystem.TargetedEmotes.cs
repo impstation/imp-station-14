@@ -1,16 +1,16 @@
 using Content.Shared.Chat;
 
-namespace Content.Client.Inventory
+namespace Content.Client._Impstation.Inventory
 {
     public sealed partial class ClientInventorySystem
     {
-        public void UIInventoryEmote(string slot, EntityUid uid) //imp edit start
+        public void UIInventoryEmote(string slot, EntityUid uid)
         {
             if (!TryGetSlotEntity(uid, slot, out var item))
                 return;
 
             RaiseLocalEvent(new EmoteInventorySlotEvent(item.Value));
-        } //imp edit end
+        }
 
     }
 }
