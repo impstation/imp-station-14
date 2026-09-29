@@ -9,7 +9,7 @@ accent-german-words-replace-1 = ja
 accent-german-words-3 = the
 accent-german-words-replace-3 = ze
 
-# imp, edited the ss to ß cause thats how its written
+# imp edited the ss to ß cause thats how its written
 accent-german-words-4 = shit
 accent-german-words-replace-4 = scheiße
 
@@ -153,7 +153,7 @@ accent-german-words-replace-47 = bier
 accent-german-words-48 = hi
 accent-german-words-replace-48 = hallo
 
-#imp changes to hallo from guten tag
+# imp changes to hallo from guten tag
 accent-german-words-49 = hello
 accent-german-words-replace-49 = hallo
 
