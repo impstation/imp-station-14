@@ -55,6 +55,23 @@
           amount: 10
 
 - type: entity
+  id: CigPackDevilShrimp
+  parent: CigPackBase
+  name: Devilish Dan's Dirty Deeds Done Doobily ShrimpSmokes
+  description: The Space FDA definitely doesn't know about these.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/devilishshrimparettes.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/devilishshrimparettes.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigaretteDevilShrimp
+          amount: 10
+
+- type: entity
   id: CigPackMixedRejects
   parent: [CigPackMixedBase, Tier2Contraband]
   name: Dan's soaked smokes rejects

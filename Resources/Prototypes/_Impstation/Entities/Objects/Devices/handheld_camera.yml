@@ -34,3 +34,5 @@
       - state: icon
       - state: icon_unshaded
         shader: unshaded
+    - type: StationAiVision # acts as an ai camera
+      range: 5

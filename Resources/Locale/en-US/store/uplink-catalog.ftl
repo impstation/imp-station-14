@@ -2,9 +2,6 @@
 uplink-pistol-viper-name = Viper
 uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (.35 auto).
 
-uplink-estoc-bundle-name = Estoc DMR bundle
-uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
-
 uplink-revolver-python-name = Python
 uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Uses .45 magnum.
 
@@ -348,7 +345,7 @@ uplink-saw-advanced-desc = A bleeding-edge surgical implement designed to cut th
 
 # Armor
 uplink-chameleon-name = Chameleon Kit
-uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anything on the station, and more!
+uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anyone on the station, and more! Comes with a free Agent ID card!
 
 uplink-clothing-no-slips-shoes-name = No-slip Shoes
 uplink-clothing-no-slips-shoes-desc = Chameleon shoes that protect you from slips.
