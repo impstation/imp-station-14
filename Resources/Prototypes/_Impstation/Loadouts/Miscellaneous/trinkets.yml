@@ -8,7 +8,7 @@
       inverted: true # don't let experienced players select these
 
 - type: loadoutEffectGroup
-  id: Veteran #imp
+  id: Mentor #imp
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -23,13 +23,13 @@
   groupBy: "accessibility"
 
 - type: loadout
-  id: VeteranMark #imp. >/= 50 hours.
+  id: MentorMark #imp. >/= 50 hours.
   effects:
   - !type:GroupLoadoutEffect
-    proto: Veteran
+    proto: Mentor
   storage:
     back:
-    - ClothingNeckVeteranMark
+    - ClothingNeckMentorMark
   groupBy: "accessibility"
 
 - type: loadout
