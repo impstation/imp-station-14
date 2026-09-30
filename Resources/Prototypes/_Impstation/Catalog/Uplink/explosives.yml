@@ -25,3 +25,10 @@
     blacklist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  parent: UplinkExplosiveGrenade
+  id: UplinkFuselessGrenade
+  name: uplink-fuseless-grenade-name
+  description: uplink-fuseless-grenade-desc
+  productEntity: FuselessGrenade
