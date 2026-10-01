@@ -38,11 +38,11 @@ public sealed partial class FireballGeneSystem : BaseGeneEntitySystem
     /// <param name="args"></param>
     public void OnGeneAdded(Entity<FireballGeneComponent> entity, ref GeneAddedEvent args)
     {
-        if (!_entityManager.TryGetComponent<FireballGeneComponent>(entity, out var component))
+        if (args.Gene != entity.Comp.GeneName)
             return;
 
         EntityUid? actionId = null;
-        _actionsSystem.AddAction(entity, ref actionId, component._action);
+        _actionsSystem.AddAction(entity, ref actionId, entity.Comp._action);
 
         if(actionId != null) 
             entity.Comp._actionId = (EntityUid)actionId;

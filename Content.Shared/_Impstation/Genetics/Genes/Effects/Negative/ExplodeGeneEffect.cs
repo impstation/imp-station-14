@@ -13,28 +13,36 @@ public sealed partial class ExplodeGeneEffect : BaseGeneEffect
 {
     private static SharedExplosionSystem? _explosionSystem;
 
-    // What kind of explosion are we blasting?
-    // For future readers, the types can be found in explosion.yml and are as follows:
-    //     Default
-    //     DemolitionCharge
-    //     MicroBomb
-    //     Radioactive
-    //     Cryo
-    //     PowerSink
-    //     HardBomb
-    //     FireBomb
+    /// <summary>
+    /// What kind of explosion are we blasting?
+    /// For future readers, the types can be found in explosion.yml and are as follows:
+    ///     Default
+    ///     DemolitionCharge
+    ///     MicroBomb
+    ///     Radioactive
+    ///     Cryo
+    ///     PowerSink
+    ///     HardBomb
+    ///     FireBomb
+    /// </summary>
     [DataField("explosionType")]
     private string _typeId = "Default";
 
-    // How much power behind the blast?
+    /// <summary>
+    /// How much power behind the blast?
+    /// </summary>
     [DataField("intensity")]
     private float _intensity = 20f;
 
-    // The lower this is the bigger the explosion radius
+    /// <summary>
+    /// The lower this is the bigger the explosion radius
+    /// </summary>
     [DataField("slope")]
     private float _slope = 10f;
 
-    // How much tile damage will we do?
+    /// <summary>
+    /// How much tile damage will we do?
+    /// </summary>
     [DataField("tileIntensity")]
     private float _tileIntensity = 10f;
 

@@ -85,6 +85,11 @@ public abstract partial class BaseGeneComponent : Component
     /// </summary>
     protected EntityUid _host;
 
+    /// <summary>
+    /// The name of our Gene. Gets set in GeneSystem.cs
+    /// </summary>
+    public string GeneName = ""; 
+
     public enum GeneData
     {
 

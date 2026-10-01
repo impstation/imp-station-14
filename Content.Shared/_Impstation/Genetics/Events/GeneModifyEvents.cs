@@ -9,11 +9,11 @@ namespace Content.Shared._Impstation.Genetics.Events;
 /// </summary>
 /// <param name="Performer"></param>
 [ByRefEvent]
-public readonly record struct GeneAddedEvent(EntityUid Performer);
+public readonly record struct GeneAddedEvent(EntityUid Performer, string Gene);
 
 /// <summary>
 /// Raised by the GeneSystem whenever a Gene is removed from an Entity
 /// </summary>
 /// <param name="Performer"></param>
 [ByRefEvent]
-public readonly record struct GeneRemovedEvent(EntityUid Performer);
+public readonly record struct GeneRemovedEvent(EntityUid Performer, string Gene);

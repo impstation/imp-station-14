@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static Robust.Shared.Prototypes.EntityPrototype;
 
 namespace Content.Server._Impstation.Genetics.Systems;
 
@@ -39,7 +40,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// <summary>
     /// The table holding all of the possible Genes
     /// </summary>
-    private Dictionary<string, ComponentRegistry> _registeredGenes = new();
+    private Dictionary<string, ComponentRegistryEntry> _registeredGenes = new();
 
     WeightedRandomPrototype _geneTierTable = default!;
     private Dictionary<string, WeightedRandomEntityPrototype> _geneTable = new();
@@ -54,7 +55,10 @@ public sealed partial class GeneSystem : SharedGeneSystem
     }
 
     /// <summary>
-    /// Load our Gene's from their YML's to the associated Tier
+    /// Load each of our Gene tier groups
+    /// Each group contains the proto names of all of our genes, so each tier will
+    /// be in charge of loading all the individual genes they contain.
+    /// If a gene shares multiple tiers then it will just get skipped.
     /// </summary>
     public void LoadGeneRegistry()
     {
@@ -64,6 +68,19 @@ public sealed partial class GeneSystem : SharedGeneSystem
         {
             var tier = _prototypeManager.Index<WeightedRandomEntityPrototype>(table.Key);
             _geneTable.Add(table.Key, tier);
+
+            foreach(KeyValuePair<string, float> gene in tier.Weights)
+            {
+                if (_registeredGenes.ContainsKey(gene.Key))
+                    continue;
+
+                var geneProto = _prototypeManager.Index(gene.Key);
+
+                if (geneProto == null)
+                    throw new Exception("Gene could not be found. Is the name mispelled?");
+
+                _registeredGenes.Add(gene.Key, geneProto.Components[gene.Key]);
+            }
         }
     }
 
@@ -88,46 +105,26 @@ public sealed partial class GeneSystem : SharedGeneSystem
         if (CheckForGene((entity, geneComp), gene))
             return;
 
-        // Oh boy Ok
-        // What we're doing here is grabbing the Gene Component directly from the Component Factory
-        // This is because this is how we go from a string, to a Component Type
-        // We then add that Component onto the Entity and also store it in the GeneHostComponent
-        // We mostly store it in there for ease of access but as i write this comment i question the point
-        // I guess it can help admins a little
-        var newGene = _componentFactory.GetRegistration(geneEntry.Keys.ElementAt(0));
-
-        var comp = _componentFactory.GetComponent(newGene);
-        _serializationManager.CopyTo(geneEntry.Values.ElementAt(0).Component, ref comp, notNullableOverride: true);
+        // Grab our Gene copy from ComponentFactory and then copy all the relevant data from our
+        // genes entry
+        var comp = _componentFactory.GetComponent(geneEntry);
+        _serializationManager.CopyTo(geneEntry.Component, ref comp, notNullableOverride: true);
         _entityManager.AddComponent(entity, comp);
 
+        // Adds to the GeneticsHostComponent for ease of tracking in game what genes someone has
         geneComp._genes.Add(gene, comp);
 
         var baseGene = (BaseGeneComponent)comp;
+
+        baseGene.GeneName = gene;
 
         // Modify the entities Gene scale
         geneComp._geneScaleValue += baseGene._geneStabilityValue;
 
         // Throw our event for all systems to use
         // They will need this to apply their effects and set themselves up
-        var performed = new GeneAddedEvent(entity);
+        var performed = new GeneAddedEvent(entity, gene);
         RaiseLocalEvent(entity, ref performed);
-    }
-
-    /// <summary>
-    /// Every time an entity takes radiation damage, roll to see if they mutate based on the amount of damage
-    /// and their innate mutation chance
-    /// </summary>
-    /// <param name="entity"></param>
-    /// <param name="args"></param>
-    public void Irradiated(Entity<GeneHostComponent> entity, ref OnIrradiatedEvent args)
-    {
-        if (!_entityManager.TryGetComponent<DamageableComponent>(entity, out var damage))
-            return;
-
-        var mutateOdds = entity.Comp._mutateChance * (damage.Damage.DamageDict["Radiation"].Value / 100);
-
-        if (_random.NextFloat(0, 100) < mutateOdds)
-            AddGeneRandom(entity);
     }
 
     /// <summary>

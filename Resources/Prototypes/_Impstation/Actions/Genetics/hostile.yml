@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseAction
+  id: ActionGeneFireball
+  name: Fireball
+  description: Straight from the throat!
+  components:
+  - type: Action
+    useDelay: 12 #imp edit, original is 15
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: _Impstation/Interface/Actions/Genetics/genefireball.rsi
+      state: baseneutral
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileFireball
