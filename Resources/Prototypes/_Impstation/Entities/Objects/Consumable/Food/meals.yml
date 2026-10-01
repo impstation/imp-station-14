@@ -160,7 +160,7 @@
 
 - type: entity
   name: cha lua
-  parent: Food
+  parent: FoodMealBase
   id: FoodChaLua
   description: Also known as Vietnamese Bologna.
   components:
@@ -196,7 +196,7 @@
 
 - type: entity
   name: cha lua slice
-  parent: Food
+  parent: FoodMealBase
   id: FoodChaLuaSlice
   description: An uncooked slice of cha lua.
   components:
@@ -228,7 +228,7 @@
 
 - type: entity
   name: cha lua slice
-  parent: Food
+  parent: FoodMealBase
   id: FoodCookedChaLuaSlice
   description: A grilled slice of cha lua. Yum!
   components:
