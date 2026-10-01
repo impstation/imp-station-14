@@ -780,3 +780,16 @@
     FoodCarrot: 1
     FoodChiliPepper: 1
   recipeType: Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeChaLua
+  name: cha lua recipe
+  result: FoodChaLua
+  group: Savory
+  time: 10
+  reagents:
+    TableSalt: 10
+    UncookedAnimalProteins: 20
+  solids:
+    FoodGarlic: 1
+  recipeType: Assembler

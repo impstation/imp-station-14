@@ -158,6 +158,144 @@
         - ReagentId: Mayo
           Quantity: 5
 
+- type: entity
+  name: cha lua
+  parent: Food
+  id: FoodChaLua
+  description: Also known as Vietnamese Bologna.
+  components:
+    - type: FlavorProfile
+      flavors: meaty
+    - type: Sprite
+      sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
+      state: cha-lua-whole
+    - type: SolutionContainerManager
+      solutions:
+        food:
+        maxvol: 48
+        reagents:
+        - ReagentId: TableSalt
+          Quantity: 10
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
+        - ReagentId: Allicin
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+    - type: SliceableFood
+      count: 3
+      slice: FoodChaLuaSlice
+    - type: InternalTemperature
+      conductivity: 0.41
+    - type: Construction
+      graph: CookedChaLuaLog
+      node: start
+      defaultTarget: cookedchalualog
+
+- type: entity
+  name: cha lua slice
+  parent: Food
+  id: FoodChaLuaSlice
+  description: An uncooked slice of cha lua.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
+    state: cha-lua-slice
+    color: white
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3.33
+        - ReagentId: Allicin
+          Quantity: 1
+        - ReagentId: Nutriment
+          Quantity: 3.33
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: TableSalt
+          Quantity: 3.33
+  - type: Construction
+    graph: ChaluaSlice
+    node: cooked cha lua slice
+
+- type: entity
+  name: cha lua slice
+  parent: Food
+  id: FoodCookedChaLuaSlice
+  description: A grilled slice of cha lua. Yum!
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
+    state: chalua-cooked
+    color: white
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Protein
+          Quantity: 3.33
+        - ReagentId: Allicin
+          Quantity: 1
+        - ReagentId: Nutriment
+          Quantity: 3.33
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: TableSalt
+          Quantity: 3.33
+  - type: FoodSequenceElement
+    entries:
+      Burger: ChaLuaSlice
+      Taco: ChaLuaSlice
+      Hotdog: ChaLuaSlice
+
+- type: entity
+  name: cooked cha lua
+  parent: FoodMealBase
+  id: FoodCookedChaLua
+  description: Why did you cook it this way?
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
+    layers:
+    - state: cha-lua-whole-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: TableSalt
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 20
+        - ReagentId: Allicin
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: SliceableFood
+    count: 3
+    slice: FoodCookedChaLuaSlice
+  - type: Construction
+    graph: CookedChaLua
+    node: cooked cha lua
+
 
 # pompom foods
 
