@@ -5,7 +5,7 @@ ghost-role-component-default-rules = All normal rules apply unless an administra
 ghost-role-information-nonantagonist-rules = You are a [color=green][bold]Non-antagonist[/bold][/color]. You should generally not seek to harm the station and its crew.
 
                                              You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
-#imp edit
+# imp edit
 ghost-role-information-freeagent-rules = You are a [color=yellow][bold]Free Agent[/bold][/color]. You must still follow escalation, but are not bound to the same restrictions as crew-aligned characters.
                                          You are still required to follow rules against excessive destruction. [color=red]Do not seek to sabotage critical infrastructure without proper escalation.[/color]
 
