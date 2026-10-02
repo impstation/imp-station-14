@@ -116,3 +116,180 @@
   - type: HideLayerClothing # imp
     slots:
     - SnoutCover
+
+# paper masks
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskPaperBase
+  name: paper mask
+  description: A crudely made paper mask.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/red.rsi
+    state: red
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/red.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/red.rsi
+  - type: BreathMask # fair for vox
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Paper
+  - type: HideLayerClothing
+    slots:
+    - SnoutCover
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperBlack
+  name: bat paper mask
+  description: A crudely made paper mask that looks like a bat.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/black.rsi
+    state: black
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/black.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/black.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperBlue
+  name: flower paper mask
+  description: A crudely made paper mask that looks like a flower.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/blue.rsi
+    state: blue
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/blue.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/blue.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperGreen
+  name: zombie paper mask
+  description: A crudely made paper mask that looks like a zombie, from movies.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/green.rsi
+    state: green
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/green.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/green.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperMime
+  name: mime paper mask
+  description: A crudely made paper mask that looks like a mime.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/mime.rsi
+    state: mime
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/mime.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/mime.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperOrange
+  name: pumpkin paper mask
+  description: A crudely made paper mask that looks like a pumpkin.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/orange.rsi
+    state: orange
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/orange.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/orange.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperPurple
+  name: dinosaur paper mask
+  description: A crudely made paper mask that looks like a dinosaur... kind of.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/purple.rsi
+    state: purple
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/purple.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/purple.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperRainbow
+  name: clown paper mask
+  description: A crudely made paper mask that looks like a clown.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/rainbow.rsi
+    state: rainbow
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/rainbow.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/rainbow.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperRed
+  name: dragon paper mask
+  description: A crudely made paper mask that looks like a space dragon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/red.rsi
+    state: red
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/red.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/red.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingMaskPaperBase
+  id: ClothingMaskPaperWhite
+  name: skeleton paper mask
+  description: A crudely made paper mask that looks like a skull.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/white.rsi
+    state: white
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/white.rsi
+  - type: Item
+    sprite: _Impstation/Clothing/Mask/PaperMasks/white.rsi
+  #construction graph comp here also
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPaperYellow # not a mask but i dont want it out of its item set
+  name: makeshift paper crown
+  description: A crudely made paper crown.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/PaperMasks/yellow.rsi
+    state: yellow
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/PaperMasks/yellow.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Paper
+  #construction graph comp here also
