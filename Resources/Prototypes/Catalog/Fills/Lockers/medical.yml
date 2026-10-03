@@ -75,19 +75,12 @@
   id: LockerFillChemistry
   table: !type:AllSelector
     children:
-    - id: BoxSyringe
-    - id: BoxBeaker
-    - id: BoxBeaker
-      prob: 0.3
-    - id: BoxPillCanister
-    - id: BoxBottle
-    - id: BoxVial
-    # - id: PlasmaChemistryVial # imp
     - id: ClothingEyesGlassesChemical
     - id: ChemBag
     - id: Dropper
     - id: HandLabeler
     - id: BarSpoon # Should be replaced by a stirring tool with medical theming, like a glass rod
+    # - id: PlasmaChemistryVial # imp
     - !type:AllSelector # The wonderful world of chemical storage
       children:
       - id: BoxSyringe
@@ -117,8 +110,8 @@
   table: !type:AllSelector
     children:
     - id: ClothingHeadHatParamedicSirenCap #imp
-    - id: ClothingOuterHardsuitVoidParamed
     - id: ClothingEyesHudMedical
+    - id: ClothingOuterHardsuitVoidParamed
     - id: ClothingBeltMedicalEMTFilled
     - id: JetInjector
     - id: HandheldHealthAnalyzer
