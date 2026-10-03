@@ -1,0 +1,139 @@
+# Syndicate dead drop
+- type: entity
+  parent: MarkerBase
+  id: SyndieDeadDropSpawner
+  name: Syndicate High Command # Used for radio announcement
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: BriefcaseSyndieDeadDrop
+      - id: RedspaceLifeline # imp, changed to RedspaceLifeline effect from EffectFlashRedspace
+
+- type: entity
+  parent: [ BaseSubfloorAnchorStorageAnchored, CybersunBriefcase ] # imp, parenting changed from BriefcaseSyndie and BaseSyndicateContraband to CybersunBriefcase
+  id: BriefcaseSyndieDeadDrop
+  # name: syndicate briefcase imp removal, parent has a better name
+  suffix: Dead Drop, Do Not Map
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        rolls: !type:RangeNumberSelector
+          range: 2, 3
+        children: # imp comment, up to 2x4 max and up to 4 TC before weight reduction
+        # Weapons
+        - id: EnergyDaggerLoud
+        - id: WeaponPistolViper
+        - id: WeaponRevolverPython
+        # Grenades
+        - id: SmokeGrenade
+        - id: EmpGrenade
+        - id: C4
+        - id: SingularityGrenade
+        # Clothing
+        # - id: ClothingShoesSkatesSyndicate imp, we don't have
+        - id: ClothingShoesBootsMagSyndie
+        - id: SyndiOperativeIDCard # imp, changed from SyndicateIDCardAgent which is a operative ID card not tied to nukies for obfuscation
+        - id: ClothingMaskGasSyndicate
+        # Tools
+        - id: ChameleonProjector
+        - id: CameraBug
+        - id: SyndicateJawsOfLife
+        - id: RadioJammer
+        - id: AccessBreaker
+        - id: CyberPen
+        - id: EncryptionKeyBinarySyndicate
+        # Chemicals
+        - id: Stimpack
+        - id: CombatMedipen
+        - id: VestineChemistryVial
+        - id: CigPackSyndicate
+        # Fun
+        - id: SyndicatePersonalAI
+        - id: RubberStampSyndicate
+        - id: UplinkLighterBox
+        - id: BalloonOperative
+        # Imp start
+        # Weapons
+        - id: RoseSyndicate
+        - id: ThrowingKnife
+        - id: ClothingHandsKnuckleDustersSyndicate
+          weight: 0.25
+        - id: ClothingHandsGlovesNorthStar
+          weight: 0.125
+        - id: EnergySword
+          weight: 0.125
+        - id: EnergyShield
+          weight: 0.125
+        - id: BaseBallBatHomeRun
+          weight: 0.05
+        - id: HyperEutacticBlade
+          weight: 0.05
+        - id: WeaponSniperMosin
+        - id: WeaponPistolZipper
+        - id: WeaponPistolValu
+        - id: WeaponPistolCobra
+        - id: WeaponPlasmaAdder
+        - id: WeaponEnergyCrossbow
+        - id: WeaponAnaconda
+          weight: 0.125
+        - id: WeaponSniperStarService
+          weight: 0.125
+        - id: WeaponShotgunHushpup
+          weight: 0.05
+        - id: WeaponPlasmaAkurra
+          weight: 0.05
+        - id: WeaponSubMachineGunC20r
+          weight: 0.05
+        - id: WeaponShotgunBulldog
+          weight: 0.05
+        - id: WeaponPlasmaAnanke
+          weight: 0.05
+        - id: WeaponPistolZipperAP
+          weight: 0.05
+        # Gernades
+        - id: WhiteholeGrenade
+        - id: GrenadeShrapnel
+        - id: GrenadeIncendiary
+        - id: ExGrenade
+        - id: SyndieMiniBomb
+          weight: 0.25
+        - id: BeeGrenade
+          weight: 0.25
+        - id: ClusterGrenade
+          weight: 0.125
+        - id: BrosGrenade
+          weight: 0.05
+        # Clothing
+        - id: ClothingHeadHelmetRaid
+          weight: 0.05
+        - id: ClothingOuterArmorRaid
+          weight: 0.025
+        # Tools
+        - id: SoapSyndie
+        - id: SlipocalypseClusterSoap
+        - id: DehydratedSpaceCarp
+        - id: SyndiCrewMonitor
+        - id: Emag
+          weight: 0.25
+        # Chemicals
+        - id: CigPackMixedRejects
+        - id: StimkitFilled
+          weight: 0.25
+        - id: PoisonAutoInjector
+          weight: 0.125
+        # Fun
+        - id: RubberStampHatePaperwork
+        - id: PhoneInstrumentSyndicate
+        - id: MysterySpaceBladeBoxSyndicate
+        - id: GrenadeDummy
+        - id: SyndieTrickyBomb
+        - id: TreatChunkBag
+        - id: LargeTreatChunkBag
+        - id: MascotCindyHead
+        - id: BalloonSyn
+        - id: ClothingHeadHatCatEars
+          weight: 0.05
+        # Imp end
