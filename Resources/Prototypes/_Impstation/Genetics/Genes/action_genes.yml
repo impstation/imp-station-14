@@ -1,0 +1,12 @@
+- type: entity
+  id: FireballGene
+  components:
+  - type: FireballGene
+    group: None
+    stability: 75
+    complexity: 5, 9
+    tier: 6
+    geneAction: ActionGeneFireball
+    negativeEffect:
+      !type:ExplodeGeneEffect
+      slope: 1
