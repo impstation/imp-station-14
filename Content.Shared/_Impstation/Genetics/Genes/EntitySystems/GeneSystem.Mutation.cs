@@ -1,9 +1,9 @@
-using Content.Server._Impstation.Genetics.Components;
+using Content.Shared._Impstation.Genetics.Components;
 using Content.Shared._Impstation.Genetics.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Radiation.Events;
 
-namespace Content.Server._Impstation.Genetics.Systems;
+namespace Content.Shared._Impstation.Genetics.Systems;
 
 public sealed partial class GeneSystem : SharedGeneSystem
 {
@@ -13,7 +13,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// </summary>
     /// <param name="entity"></param>
     /// <param name="args"></param>
-    public void Irradiated(Entity<GeneHostComponent> entity, ref OnIrradiatedEvent args)
+    public void Irradiated(Entity<SharedGeneHostComponent> entity, ref OnIrradiatedEvent args)
     {
         if (!_entityManager.TryGetComponent<DamageableComponent>(entity, out var damage))
             return;

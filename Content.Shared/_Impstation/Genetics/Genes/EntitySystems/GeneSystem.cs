@@ -1,5 +1,3 @@
-using Content.Server._Impstation.Genetics.Components;
-using Content.Server.Database.Migrations.Postgres;
 using Content.Shared._Impstation.Genetics.Components;
 using Content.Shared._Impstation.Genetics.Events;
 using Content.Shared._Impstation.Genetics.Genes;
@@ -18,7 +16,7 @@ using System.Linq;
 using System.Text;
 using static Robust.Shared.Prototypes.EntityPrototype;
 
-namespace Content.Server._Impstation.Genetics.Systems;
+namespace Content.Shared._Impstation.Genetics.Systems;
 
 /// <summary>
 /// The System that handles application, removal, oversight and more of the Genetics system
@@ -51,7 +49,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
         base.Initialize();
         LoadGeneRegistry();
 
-        SubscribeLocalEvent<GeneHostComponent, OnIrradiatedEvent>(Irradiated);
+        SubscribeLocalEvent<SharedGeneHostComponent, OnIrradiatedEvent>(Irradiated);
     }
 
     /// <summary>
@@ -96,7 +94,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// </remark>
     public void AddGene(EntityUid entity, string gene)
     {
-        if (!_entityManager.TryGetComponent<GeneHostComponent>(entity, out var geneComp))
+        if (!_entityManager.TryGetComponent<SharedGeneHostComponent>(entity, out var geneComp))
             return;
 
         if (!_registeredGenes.TryGetValue(gene, out var geneEntry))
@@ -146,7 +144,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// <param name="entity">The gene we're checking</param>
     /// <param name="gene">The name of the gene as stored in our _registeredGenes</param>
     /// <returns></returns>
-    public bool CheckForGene(Entity<GeneHostComponent> entity, string gene)
+    public bool CheckForGene(Entity<SharedGeneHostComponent> entity, string gene)
     {
         return entity.Comp._genes.TryGetValue(gene, out var comp) ? true : false;
     }

@@ -8,7 +8,8 @@ namespace Content.Shared._Impstation.Genetics.Components;
 /// <summary>
 /// Holds all the Data for a mobs Genes
 /// </summary>
-public abstract partial class SharedGeneHostComponent : Component
+[RegisterComponent, Virtual]
+public partial class SharedGeneHostComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<string, IComponent> _genes = new();

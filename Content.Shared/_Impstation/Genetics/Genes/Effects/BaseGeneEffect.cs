@@ -31,4 +31,12 @@ public abstract partial class BaseGeneEffect
     /// <param name="entity">The Entity suffering this effect</param>
     /// <param name="chromosomes">The related Chromosomes the effect used</param>
     public virtual void RemoveGeneEffect(Entity<SharedGeneHostComponent> entity, Dictionary<Chromosome, bool> chromosomes) { }
+
+    /// <summary>
+    /// Communicates with <see cref="GeneSystem"/> in order to handle when an entity has
+    /// multiple of the same Genetic effect
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="effect"></param>
+    public virtual void ProcessMultiEffects(EntityUid ent, string effect) { }
 }

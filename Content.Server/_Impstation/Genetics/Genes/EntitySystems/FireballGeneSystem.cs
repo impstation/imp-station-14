@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Genetics.Components;
+using Content.Shared._Impstation.Genetics.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._Impstation.Genetics.Events;
 using Content.Shared._Impstation.Genetics.Genes;
@@ -9,6 +9,7 @@ using Content.Shared.Actions.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Content.Shared._Impstation.Genetics.Genes.EntitySystems;
 
 namespace Content.Server._Impstation.Genetics.Genes.EntitySystems;
 
@@ -68,7 +69,7 @@ public sealed partial class FireballGeneSystem : BaseGeneEntitySystem
         if (fireComp._actionId != entity.Comp.Owner)
             return;
 
-        if (!_entityManager.TryGetComponent<GeneHostComponent>(args.Performer, out var geneHostComp))
+        if (!_entityManager.TryGetComponent<SharedGeneHostComponent>(args.Performer, out var geneHostComp))
             return;
 
         if(fireComp.NegativeEffect != null && !fireComp.ActiveChromosomes[Chromosome.Synchronizer])

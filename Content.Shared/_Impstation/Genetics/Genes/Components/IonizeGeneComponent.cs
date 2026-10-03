@@ -10,12 +10,6 @@ namespace Content.Shared._Impstation.Genetics.Genes.Components;
 public partial class IonizeGeneComponent : BaseSetGeneComponent
 {
     /// <summary>
-    /// The settings for the light that gets added to the entity
-    /// </summary>
-    [DataField("lightProfile")]
-    public LightProfile Light;
-
-    /// <summary>
     /// If you are immune to radiation from this gene
     /// </summary>
     [DataField("selfImmune")]
@@ -28,30 +22,7 @@ public partial class IonizeGeneComponent : BaseSetGeneComponent
     public int RadStrength = 1;
 
     /// <summary>
-    /// If there was already a point light attached, this stores the old settings
-    /// </summary>
-    public LightProfile Previous;
-
-    /// <summary>
     /// If the entity was already immune to radiation before we got here
     /// </summary>
     public bool PrevImmune = false;
-}
-
-[DataDefinition, NetSerializable, Serializable]
-public partial struct LightProfile
-{
-    [DataField]
-    public float LightEnergy = 1;
-    [DataField]
-    public Color LightColor = Color.White;
-    [DataField]
-    public float Radius = 5;
-
-    public LightProfile(float energy, Color color, float radius)
-    {
-        LightEnergy = energy;
-        LightColor = color;
-        Radius = radius;
-    }
 }

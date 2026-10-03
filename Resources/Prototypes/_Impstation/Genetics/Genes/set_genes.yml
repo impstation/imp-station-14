@@ -6,8 +6,10 @@
     stability: -30
     complexity: 3, 6
     tier: 3
-    lightProfile:
-      lightEnergy: 5
-      lightColor: "#FFFFFF"
-      radius: 5
     RadStrength: 4
+    neutralEffects:
+      - !type:GlowEffect
+        lightProfile:
+          lightEnergy: 5
+          lightColor: "#FFFFFF"
+          radius: 5

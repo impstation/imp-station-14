@@ -50,8 +50,8 @@ public sealed partial class ExplodeGeneEffect : BaseGeneEffect
     /// Explodes the given Entity. If a PowerBooster Chromosome is present on the Gene then
     /// the Intensity and Tile Intensity is doubled while the slope is halved to increase the range
     /// </summary>
-    /// <param name="entity"></param>
-    /// <param name="chromosomes"></param>
+    /// <param name="entity">The entity the Gene is attached to</param>
+    /// <param name="chromosomes">The Chromosomes the Gene possesses</param>
     public override void ApplyGeneEffect(Entity<SharedGeneHostComponent> entity, Dictionary<Chromosome, bool> chromosomes)
     {
         base.ApplyGeneEffect(entity, chromosomes);

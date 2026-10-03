@@ -1,5 +1,4 @@
-using Content.Server._Impstation.Genetics.Components;
-using Content.Server._Impstation.Genetics.Systems;
+using Content.Shared._Impstation.Genetics.Systems;
 using Content.Server.Administration;
 using Content.Shared._Impstation.Genetics.Components;
 using Content.Shared.Administration;
@@ -16,7 +15,7 @@ public sealed class AddGeneCommand : LocalizedEntityCommands
 
     public override string Command => "addgene";
 
-    public override string Description => "cmd-addgene-desc" + ("requiredComponent", nameof(GeneHostComponent));
+    public override string Description => "cmd-addgene-desc" + ("requiredComponent", nameof(SharedGeneHostComponent));
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -44,7 +43,7 @@ public sealed class AddGeneCommand : LocalizedEntityCommands
             return;
         }
 
-        if (!EntityManager.HasComponent<GeneHostComponent>(target))
+        if (!EntityManager.HasComponent<SharedGeneHostComponent>(target))
         {
             shell.WriteLine(Loc.GetString("shell-target-entity-does-not-have-message", ("missing", "Genetics Host Component")));
             return;
