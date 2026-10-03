@@ -27,10 +27,12 @@
     icon:
       sprite: _Impstation/Heretic/abilities_heretic.rsi
       state: mansus_grasp
-  - type: InstantAction
-    event: !type:EventHereticMansusGrasp {}
-  - type: HereticAction
-    requireMagicItem: false
+    raiseOnAction: true # imp
+  - type: InstantAction # imp. convert to retractableItemAction
+    event: !type:OnRetractableItemActionEvent
+  - type: RetractableItemAction # imp. convert to retractableItemAction
+    spawnedPrototype: TouchSpellMansus
+    retractOnCrit: true
 
 - type: entity
   parent: BaseAction
