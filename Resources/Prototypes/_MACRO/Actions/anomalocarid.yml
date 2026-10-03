@@ -4,7 +4,7 @@
   components:
   - type: Action
     icon:
-      sprite: _Impstation/Interface/Actions/anomalocarid.rsi
+      sprite: _MACRO/Interface/Actions/anomalocarid.rsi
       state: vent
     useDelay: 30
   - type: InstantAction
@@ -59,7 +59,7 @@
   components:
   - type: Action
     icon:
-      sprite: _Impstation/Interface/Actions/anomalocarid.rsi
+      sprite: _MACRO/Interface/Actions/anomalocarid.rsi
       state: spit
     itemIconStyle: BigAction
     priority: 2

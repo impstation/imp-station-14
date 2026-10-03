@@ -1246,13 +1246,13 @@
         offset: "0, 0.06"
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_MACRO/Allulalo/allulalo_say.ogg
+      path: /Audio/_MACRO/Voice/Allulalo/allulalo_say.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_MACRO/Allulalo/allulalo_chitter.ogg
+      path: /Audio/_MACRO/Voice/Allulalo/allulalo_chitter.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: /Audio/_MACRO/Allulalo/allulalo_scream.ogg
+      path: /Audio/_MACRO/Voice/Allulalo/allulalo_scream.ogg
 
 - type: entity
   parent: BasePlushie
