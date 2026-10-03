@@ -30,3 +30,5 @@ guide-entry-baking-techniques = Baking Techniques
 guide-entry-xenoarchaeologyreticulated = Reticulated artifacts
 guide-entry-xenoarchaeologynatural = Natural artifacts
 guide-entry-advancednodescanner = Advanced Node Scanner
+
+guide-entry-sm = Supermatter Engine
