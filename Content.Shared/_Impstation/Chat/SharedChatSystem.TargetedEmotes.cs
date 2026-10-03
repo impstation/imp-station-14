@@ -1,12 +1,12 @@
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Shared.Chat;
+namespace Content.Shared._Impstation.Chat;
 
 public abstract partial class SharedChatSystem
 {
 
-    //IMP EDIT START: add targeted emotes
+    //Add targeted emotes
     /// <summary>
     /// Makes the selected entity emote using the given <see cref="EmotePrototype"/> and sends a message to chat.
     /// </summary>
@@ -38,9 +38,7 @@ public abstract partial class SharedChatSystem
 
         return TryTargetedEmoteWithChat(source, target, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote);
     }
-    //IMP EDIT END
 
-    //IMP EDIT START: add targeted emotes
     /// <summary>
     /// Makes the selected entity emote using the given <see cref="EmotePrototype"/> and sends a message to chat.
     /// </summary>
@@ -82,6 +80,5 @@ public abstract partial class SharedChatSystem
 
         return didEmote;
     }
-    //IMP EDIT END
 
 }
