@@ -1,20 +1,21 @@
 - type: vendingMachineInventory
   id: ChemDrobeInventory
   startingInventory:
-    # Essential
-    ClothingEyesGlassesChemical: 1
-    # Optional
-    ClothingHeadsetMedical: 1
-    ClothingBackpackChemistry: 1
-    ClothingBackpackSatchelChemistry: 1
-    ClothingBackpackDuffelChemistry: 1
-    ChemBag: 1
-    ClothingUniformJumpsuitChemistry: 1
-    ClothingUniformJumpskirtChemistry: 1
-    ClothingOuterCoatLabChem: 1
-    ClothingOuterWinterChem: 1
-    ClothingHandsGlovesLatex: 1
-    ClothingShoesColorWhite: 1
+  # Imp 
+    ClothingUniformJumpsuitChemistry: 2 #imp, was 1
+    ClothingUniformJumpskirtChemistry: 2 #imp, was 1
+    ClothingOuterCoatLabChem: 2 #imp, was 1
+    ClothingShoesColorWhite: 2 #imp, was 1
+    ClothingBackpackChemistry: 2 #imp, was 1
+    ClothingBackpackSatchelChemistry: 2 #imp, was 1
+    ClothingBackpackDuffelChemistry: 2 #imp, was 1
+    ChemBag: 2 #imp, was 1
+    HandLabeler: 3
+    ClothingBeltMedical: 2
+    ClothingHandsGlovesLatex: 2 #imp, was 1
+    ClothingHeadsetMedical: 2 #imp, was 1
+    ClothingOuterWinterChem: 2
+    ClothingEyesGlassesChemical: 2 #imp, was 1
     # DV - Personal Protective Equipment - Add various PPE equipment including new clothings
     ClothingUniformJumpsuitChemShirt: 2 # New chemist jumpsuit, formal variant
     ClothingNeckTieChem: 2  # Chemist's tie to go along a new variant of their suit
@@ -22,7 +23,7 @@
     ClothingOuterApronChemist: 2 # Realistic PPE apron for chemistry
     ClothingEyesGlassesChemist: 2 # Safety glasses
     ClothingHandsGlovesChemist: 2 # Heavy duty chemistry gloves
-    # End of modified code
+  # End of modified code
   contrabandInventory:
     ToyFigurineChemist: 1
   emaggedInventory: # imp
