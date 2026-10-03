@@ -46,7 +46,7 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
     state: radiumglow
-  #shader: unshaded
+  shader: unshaded
 
 # Head
 
@@ -116,7 +116,7 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
     state: radiumglowbrain
-  #shader: unshaded
+  shader: unshaded
 
 - type: marking
   id: RadiumGlowCheeks
@@ -126,7 +126,7 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
     state: radiumglowcheeks
-  #shader: unshaded
+  shader: unshaded
 
 # Snout
 

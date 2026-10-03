@@ -224,7 +224,7 @@
     state: armstripes_thick_right_primary
   - sprite: _MACRO/Mobs/Customization/Anomalocarid/arms.rsi
     state: armstripes_thick_right_secondary
-  # shader: unshaded
+  shader: unshaded
 
 - type: marking
   id: AnomalocaridArmTatHeartRight
@@ -300,7 +300,7 @@
     state: armstripes_thin_left_primary
   - sprite: _MACRO/Mobs/Customization/Anomalocarid/arms.rsi
     state: armstripes_thin_left_secondary
-  # shader: unshaded
+  shader: unshaded
 
 - type: marking
   id: AnomalocaridArmStripesThickLeftUnshaded
@@ -316,7 +316,7 @@
     state: armstripes_thick_left_primary
   - sprite: _MACRO/Mobs/Customization/Anomalocarid/arms.rsi
     state: armstripes_thick_left_secondary
-  # shader: unshaded
+  shader: unshaded
 
 - type: marking
   id: AnomalocaridArmTatHeartLeft
@@ -379,7 +379,7 @@
     state: legstripes_primary
   - sprite: _MACRO/Mobs/Customization/Anomalocarid/legs.rsi
     state: legstripes_secondary
-  # shader: unshaded
+  shader: unshaded
 
 - type: marking
   id: AnomalocaridLegFishnets
@@ -865,7 +865,7 @@
     state: antennae16
   - sprite: _MACRO/Mobs/Customization/Anomalocarid/headtop.rsi
     state: antennae16_arc
-  # shader: unshaded
+  shader: unshaded
 
 - type: marking
   id: AnomalocaridAntennae17
@@ -1114,7 +1114,7 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_l_unshaded
-  # shader: unshaded
+  shader: unshaded
 
 - type: marking
   id: AnomalocaridEyeRoboRight
@@ -1145,4 +1145,4 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_r_unshaded
-  # shader: unshaded
+  shader: unshaded
