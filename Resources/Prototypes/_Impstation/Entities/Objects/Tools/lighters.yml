@@ -1,0 +1,29 @@
+- type: entity
+  name: draculighter
+  parent: FlippoLighter
+  id: DracuLighter
+  description: "A vampiric Flippo, perfect for lighting up a drack pack."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/lighters.rsi
+    layers:
+    - state: draculighter_icon_base
+      map: ["base"]
+    - state: icon-top # piggybacking off existing imp lighters
+      map: ["top"]
+      visible: false
+    - state: draculighter_open
+      map: ["open"]
+      visible: false
+    - state: draculighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: ItemToggle
+    predictable: false
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+  - type: CheapLighter
+    soundActivate:
+      path: /Audio/_Impstation/Items/Lighters/toccata_fugue_open.ogg
+    failChance: 0
