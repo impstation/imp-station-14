@@ -461,12 +461,14 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="playSound">Play the announcement sound.</param>
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
+    /// <param name="useDefaultFormatting">Use default announcement formatting i.e "sender announcement: message"</param> // imp change
     public virtual void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
+        Color? colorOverride = null,
+        bool useDefaultFormatting = true//imp
         )
     { }
 
@@ -480,6 +482,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="playSound">Play the announcement sound.</param>
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
+    /// <param name="useDefaultFormatting">Use default announcement formatting i.e "sender announcement: message"</param> //imp change
     public virtual void DispatchFilteredAnnouncement(
         Filter filter,
         string message,
@@ -487,7 +490,8 @@ public abstract partial class SharedChatSystem : EntitySystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool useDefaultFormatting = true)//imp
     { }
 
     /// <summary>
@@ -499,13 +503,15 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="playDefaultSound">Play the announcement sound.</param>
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
+    /// <param name="useDefaultFormatting">Use default announcement formatting i.e "sender announcement: message"</param> //imp
     public virtual void DispatchStationAnnouncement(
         EntityUid source,
         string message,
         string? sender = null,
         //bool playDefaultSound = true, //imp edit, gutted default announcement sounds, announcersystem handles them now.
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool useDefaultFormatting = true)//imp
     { }
 }
 
