@@ -1,9 +1,10 @@
-# Generic borg
+# Science borg
+# imp edit
 - type: borgType
-  id: generic
+  id: science
 
   # Description
-  dummyPrototype: BorgChassisGeneric
+  dummyPrototype: BorgChassisScience
 
   # Functional
   extraModuleCount: 5
@@ -30,7 +31,7 @@
   # Pet
   petSuccessString: petting-success-generic-cyborg
   petFailureString: petting-failure-generic-cyborg
-
+# imp edit
 
 # Engineering borg
 - type: borgType
