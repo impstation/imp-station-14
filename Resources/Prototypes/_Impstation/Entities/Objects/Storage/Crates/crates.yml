@@ -11,3 +11,66 @@
   - type: StorageFill
     contents:
     - id: DefibrillatorCompact
+
+- type: entity
+  parent: CrateBaseWeldable
+  id: CargoBorgCrate
+  name: cargo borg crate
+  description: A crate made for cargo borgs.
+  components:
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/courier.rsi # imp
+    state: icon
+  - type: Sprite
+    noRot: true
+    sprite: _Impstation/Structures/Storage/Crates/courier.rsi # imp
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: 0.0, -0.0625 #imp edit, match CrateGeneric, since the locks on our sprites are in the middle, instead of the bottom right
+      map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, used for GenericVisualizer to allow offsetting this layer
+    - state: open
+      map: [ open_crate ] #open sprites that want to use offsets should use this map, otherwise they should use the open sprite state with EntityStorageVisuals
+      offset: 0, 0.65625 #this is 21 pixels up, adjust open sprites or offsets of children as needed
+    # imp edit end
+  - type: Item
+    size: Large
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,5,3
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: AccessReader
+    access: [["Command"], ["Security"], ["Cargo"], ["Salvage"]]
+  - type: Lock
+  - type: LockVisuals
+  - type: Reflect
+    reflects:
+    - Energy
+    reflectProb: 0.2
+    spread: 90
+  - type: Paintable
+    group: CrateSteel
+  - type: RadiationBlockingContainer
+    resistance: 2.5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 16
+    staminaCost: 45
+  - type: Tag
+    tags:
+    - CargoBorgBox

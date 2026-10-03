@@ -311,3 +311,28 @@
   - type: Tag
     tags:
     - RollingPin
+
+- type: entity
+  id: RCDRecharingCargoBorgCrate
+  parent: RCD
+  name: cargo borg rcd
+  description: What's in the Box?!
+  suffix: AutoRecharge
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/rcd.rsi # imp
+    state: icon
+  - type: Clothing
+    sprite: _Impstation/Objects/Tools/rcd.rsi # imp
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Item
+    size: Small
+  - type: LimitedCharges
+    maxCharges: 4
+  - type: AutoRecharge
+    rechargeDuration: 180
+  - type: RCD
+    availablePrototypes:
+    - RCDCargoBorgCrate
