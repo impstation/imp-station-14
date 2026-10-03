@@ -1,6 +1,6 @@
 using Content.Shared.Chat;
 
-namespace Content.Client._Impstation.Inventory
+namespace Content.Client.Inventory
 {
     public sealed partial class ClientInventorySystem
     {
