@@ -169,5 +169,5 @@ public sealed partial class TransformData
     ///     Entity's humanoid appearance component.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), NonSerialized]
-    public HumanoidAppearanceComponent Appearance;
+    public HumanoidProfileComponent Appearance;
 }

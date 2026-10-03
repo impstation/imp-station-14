@@ -79,9 +79,17 @@
   - type: Sprite
     layers:
     - state: margherita
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - ReptilianFood
   - type: SliceableFood
     slice: FoodPizzaMargheritaSlice
-  - type: SolutionContainerManager # imp
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 60
@@ -90,11 +98,7 @@
           Quantity: 40
         - ReagentId: Vitamin
           Quantity: 12
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pizza
-    - ReptilianFood
+  # imp edit end
 
 - type: entity
   name: slice of margherita pizza
@@ -122,11 +126,13 @@
           Quantity: 1.5
   - type: Item
     heldPrefix: margherita-slice
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
-    - UnguFood
     - Pizza
-    - ReptilianFood
+    - UnguFood
+  # macro edit end
+    - ReptilianFood # imp
 
 - type: entity
   name: meat pizza
@@ -211,20 +217,22 @@
   - type: Sprite
     layers:
     - state: mushroom
-  - type: SliceableFood
-    slice: FoodPizzaMushroomSlice
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Mushroom
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
           Quantity: 40
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pizza
-    - Mushroom
+  # imp edit end
 
 - type: entity
   name: slice of mushroom pizza
@@ -249,12 +257,13 @@
           Quantity: 5
   - type: Item
     heldPrefix: mushroom-slice
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
-    - UnguFood
     - Pizza
-    - Mushroom
-
+    - UnguFood
+  # macro edit end
+    - Mushroom # imp
 # Tastes like crust, tomato, cheese, mushroom.
 
 - type: entity
@@ -274,24 +283,28 @@
   - type: Sprite
     layers:
     - state: vegetable
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - ReptilianFood
   - type: SliceableFood
     slice: FoodPizzaVegetableSlice
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 85 # imp
+        maxVol: 85
         reagents:
         - ReagentId: Nutriment
-          Quantity: 57 # imp
+          Quantity: 57
         - ReagentId: JuiceCarrot
-          Quantity: 10 # imp
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 7 # imp
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pizza
-    - ReptilianFood
+          Quantity: 7
+  # imp edit end
 
 - type: entity
   name: slice of vegetable pizza
@@ -313,22 +326,26 @@
     - state: vegetable-slice
   - type: Item
     heldPrefix: vegetable-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - ReptilianFood
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # imp
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7.125 # imp
+          Quantity: 7.125
         - ReagentId: JuiceCarrot
-          Quantity: 1.25 # imp
+          Quantity: 1.25
         - ReagentId: Vitamin
-          Quantity: 0.875 # imp
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pizza
-    - ReptilianFood
+          Quantity: 0.875
+  # imp edit end
 
 # Tastes like crust, tomato, cheese, carrot.
 
@@ -412,24 +429,28 @@
   - type: Sprite
     layers:
     - state: dank
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - ReptilianFood
   - type: SliceableFood
     slice: FoodPizzaDankSlice
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 65 # imp
+        maxVol: 65
         reagents:
         - ReagentId: Nutriment
-          Quantity: 26 # imp
+          Quantity: 26
         - ReagentId: THC
           Quantity: 30
-        - ReagentId: Vitamin # imp
+        - ReagentId: Vitamin
           Quantity: 3
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pizza
-    - ReptilianFood
+  # imp edit end
 
 - type: entity
   name: slice of dank pizza
@@ -448,22 +469,26 @@
     - state: dank-slice
   - type: Item
     heldPrefix: dank-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - ReptilianFood
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10 # imp
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3.25 # imp
+          Quantity: 3.25
         - ReagentId: THC
-          Quantity: 3.75 # imp
-        - ReagentId: Vitamin # imp
+          Quantity: 3.75
+        - ReagentId: Vitamin
           Quantity: 0.375
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pizza
-    - ReptilianFood
+  # imp edit end
 # Tastes like crust, tomato, cheese, meat, satisfaction.
 
 - type: entity
@@ -861,6 +886,14 @@
   - type: Sprite
     layers:
     - state: worldpeas
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - ReptilianFood
   - type: SliceableFood
     slice: FoodPizzaWorldpeasSlice
   - type: SolutionContainerManager
@@ -874,11 +907,7 @@
           Quantity: 9
         - ReagentId: Pax
           Quantity: 6
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pizza
-    - ReptilianFood
+  # imp edit end
 
 - type: entity
   name: slice of world peazza
@@ -895,6 +924,14 @@
     - state: worldpeas-slice
   - type: Item
     heldPrefix: worldpeas-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - ReptilianFood
   - type: SolutionContainerManager
     solutions:
       food:
@@ -906,8 +943,4 @@
           Quantity: 1.125
         - ReagentId: Pax
           Quantity: 0.75
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pizza
-    - ReptilianFood
+  # imp edit end

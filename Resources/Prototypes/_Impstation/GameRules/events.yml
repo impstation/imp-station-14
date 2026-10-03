@@ -72,7 +72,7 @@
         - NamesBountyHunterTitle
         - NamesBountyHunter
         nameFormat: name-format-bounty-hunter
-      - type: RandomHumanoidAppearance
+      - type: RandomHumanoidProfile
         randomizeName: false
 
 #vrex
@@ -290,7 +290,7 @@
       roleLoadout:
       - RoleSurvivalStandard
       components:
-      - type: RandomHumanoidAppearance
+      - type: RandomHumanoidProfile
       - type: AutoImplant
         implants:
         - ButlerBombImplant

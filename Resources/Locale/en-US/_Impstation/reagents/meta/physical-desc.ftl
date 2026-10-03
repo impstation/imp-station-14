@@ -1,6 +1,5 @@
 reagent-physical-desc-unholy = unholy
 reagent-physical-desc-malign = malign
-reagent-physical-desc-shimmering-blood = nacreous
 reagent-physical-desc-appletini = vaguely appletini-ish
 reagent-physical-desc-alive = alive
 reagent-physical-desc-evil = evil
@@ -21,4 +20,4 @@ reagent-physical-desc-space-grease = dangerously shiny
 reagent-physical-desc-floral = floral
 reagent-physical-desc-ghostly = ghostly
 reagent-physical-desc-something = kind of
-reagent-physical-desc-ants = anty
+

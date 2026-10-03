@@ -80,7 +80,7 @@
   name: unidentified corpse
   description: I think they're dead.
   components:
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidProfile
     randomizeName: false
   - type: Damageable
     damage:

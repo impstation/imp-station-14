@@ -171,20 +171,24 @@
       - nachos
   - type: Sprite
     state: nachos
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10 # imp
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # imp
-        #- ReagentId: Vitamin # imp
+          Quantity: 5
+        #- ReagentId: Vitamin # imp remove
         #  Quantity: 1
         - ReagentId: TableSalt
           Quantity: 1
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 # Tastes like nachos.
 
 - type: entity
@@ -204,20 +208,24 @@
       - cheesy
   - type: Sprite
     state: nachos-cheesy
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # imp
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 9 # imp
-        # - ReagentId: Vitamin # imp
+          Quantity: 9
+        # - ReagentId: Vitamin # imp remove
         #  Quantity: 3
         - ReagentId: TableSalt
-          Quantity: 1 # imp
-  - type: Tag # imp
-    tags:
-    - UnguFood
+          Quantity: 1
+  # imp edit end
 # Tastes like nachos, cheese.
 
 - type: entity
@@ -238,20 +246,24 @@
       - spicy
   - type: Sprite
     state: nachos-cuban
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30 # imp
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 9 # imp
+          Quantity: 9
         - ReagentId: CapsaicinOil
-          Quantity: 10 # imp
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 4 # imp
-  - type: Tag # imp
-    tags:
-    - UnguFood
+          Quantity: 4
+  # imp edit end
 # Tastes like nachos, hot pepper.
 
 - type: entity
@@ -668,11 +680,17 @@
         - cheesy
     - type: Sprite
       state: queso
-    - type: FoodSequenceElement # imp
+    # macro edit start - allow ungu to eat
+    - type: Tag
+      tags:
+      - UnguFood
+    # macro edit end
+    # imp edit start
+    - type: FoodSequenceElement
       entries:
         Burger: QuesoBurger
         Hotdog: QuesoBurger
-    - type: SolutionContainerManager # imp
+    - type: SolutionContainerManager
       solutions:
         food:
           maxVol: 35
@@ -685,9 +703,7 @@
             Quantity: 10
           - ReagentId: Vitamin
             Quantity: 4
-    - type: Tag # imp
-      tags:
-      - UnguFood
+  # imp edit end
 # Its queso! Everyone loves queso... Right?.
 
 - type: entity

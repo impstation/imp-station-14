@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -83,6 +83,10 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<Profile>()
                 .Property(log => log.Markings)
+                .HasConversion(jsonByteArrayConverter);
+
+            modelBuilder.Entity<Profile>()
+                .Property(log => log.OrganMarkings)
                 .HasConversion(jsonByteArrayConverter);
 
             // Begin CD - Character Records

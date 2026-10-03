@@ -1,3 +1,4 @@
+using Content.Server.StationEvents.Events; // macro
 using Content.Server.StationEvents.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -22,6 +23,15 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
+    // macro add start
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<SiliconLawBoundComponent, IonStormEvent>(IonStormTarget);
+    }
+    // macro add end
+
     // funny
     private static readonly ProtoId<DatasetPrototype> Threats = "IonStormThreats";
     private static readonly ProtoId<DatasetPrototype> Objects = "IonStormObjects";
@@ -42,24 +52,19 @@ public sealed class IonStormSystem : EntitySystem
     private static readonly ProtoId<DatasetPrototype> Drinks = "IonStormDrinks";
     private static readonly ProtoId<DatasetPrototype> Foods = "IonStormFoods";
 
-    // imp add start
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SiliconLawBoundComponent, IonStormEvent>(IonStormTarget);
-    }
-    // imp add end
-
     /// <summary>
     /// Randomly alters the laws of an individual silicon.
     /// </summary>
-    public void IonStormTarget(Entity<SiliconLawBoundComponent> ent, ref IonStormEvent args) // imp edit, its an event subscription now
+    public void IonStormTarget(Entity<SiliconLawBoundComponent> ent, ref IonStormEvent args) // macro edit, its an event subscription now
     {
-        var lawBound = ent.Comp; // imp
-        EnsureComp<IonStormTargetComponent>(ent, out var target); // imp
-        // if (!_robustRandom.Prob(target.Chance)) // imp move to ionstormrule
-        //     return;
+        //var lawBound = ent.Comp1; //macro removals, to use IonStormTarget so non silicons can use ion storms
+        //var target = ent.Comp2;
+        //if (!_robustRandom.Prob(target.Chance))
+        //    return;
+        // start macro
+        var lawBound = ent.Comp;
+        EnsureComp<IonStormTargetComponent>(ent, out var target);
+        // end macro
 
         var laws = _siliconLaw.GetLaws(ent, lawBound);
         if (laws.Laws.Count == 0)

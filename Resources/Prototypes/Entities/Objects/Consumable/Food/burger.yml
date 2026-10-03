@@ -11,6 +11,12 @@
     sprite: Objects/Consumable/Food/burger.rsi
     layers:
     - state: bun
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start, i think...
   - type: SolutionContainerManager
     solutions:
       food:
@@ -25,6 +31,7 @@
         amount: 1
       - id: FoodBreadBunBottom
         amount: 1
+  # imp edit end
 
 - type: entity
   parent: FoodBreadSliceBase

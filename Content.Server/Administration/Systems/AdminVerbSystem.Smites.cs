@@ -6,7 +6,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Electrocution;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GhostKick;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Physics.Components;
 using Content.Server.Pointing.Components;
 using Content.Server.Polymorph.Systems;
@@ -61,6 +60,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server.Resist; //imp
+using Content.Server.Nutrition.EntitySystems; // imp edit
 
 namespace Content.Server.Administration.Systems;
 
@@ -340,7 +340,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Consumable/Food/Baked/pie.rsi"), "plain-slice"),
                 Act = () =>
                 {
-                    _creamPieSystem.SetCreamPied(args.Target, creamPied, true);
+                    _creamPieSystem.SetCreamPied((args.Target, creamPied), true);
                 },
                 Impact = LogImpact.Extreme,
                 Message = string.Join(": ", creamPieName, Loc.GetString("admin-smite-creampie-description"))

@@ -14,7 +14,7 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [GoblinRobeOSP]
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidProfile
 
 - type: entity
   parent: MobGoblin
@@ -46,14 +46,14 @@
   - type: Rummager
     rummageLoot: !type:NestedSelector
       tableId: GoblinKnightLoot
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidProfile
     randomizeName: false
-    hair: GoblinHairA
-    hairColor: "#ffdd56"
-    eyeColor: "#0d4883"
-    age: 35
-    sex: Male
-    skinColor: "#608c76"
+#    hair: GoblinHairA
+#    hairColor: "#ffdd56"
+#    eyeColor: "#0d4883"
+#    age: 35
+#    sex: Male
+#    skinColor: "#608c76"
 
 - type: entity
   parent: MobGoblin
@@ -71,7 +71,7 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [GoblinOSPEVA]
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidProfile
 
 - type: entityTable
   id: GoblinKnightLoot

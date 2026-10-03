@@ -313,7 +313,7 @@ public sealed partial class IngestionSystem
         }
 
         var ev = new EdibleEvent(user);
-        RaiseLocalEvent(ingested, ref ev);
+        RaiseLocalEvent(ingested, ref ev, true); // MACRO - Set broadcast to true for EatTimeModifier subscription
 
         solution = ev.Solution;
         time = ev.Time;

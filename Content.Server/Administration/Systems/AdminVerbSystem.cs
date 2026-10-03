@@ -35,9 +35,9 @@ using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Server._Impstation.StrangeMoods; // imp
-using Content.Server._Impstation.StrangeMoods.Eui; // imp
-using Content.Shared._Impstation.StrangeMoods; // imp
+using Content.Server._MACRO.StrangeMoods; // imp
+using Content.Server._MACRO.StrangeMoods.Eui; // imp
+using Content.Shared._MACRO.StrangeMoods; // imp
 using static Content.Shared.Configurable.ConfigurationComponent;
 
 namespace Content.Server.Administration.Systems
@@ -69,7 +69,6 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-        [Dependency] private readonly StrangeMoodsSystem _moods = default!; // imp
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -410,6 +409,8 @@ namespace Content.Server.Administration.Systems
                     Impact = LogImpact.Low
                 });
 
+
+                AddMACROVerbs(args); // MACRO add
                 // Begin Impstation Additions
                 if (TryComp<StrangeMoodsComponent>(args.Target, out var moods))
                 {

@@ -1,0 +1,34 @@
+- type: species
+  id: Thaven
+  name: species-name-thaven
+  roundStart: true
+  randomViable: true
+  prototype: MobThaven
+  defaultSkinTone: "#ffffff"
+  dollPrototype: AppearanceThaven
+  skinColoration: Hues
+  maleFirstNames: NamesThaven
+  femaleFirstNames: NamesThaven
+  naming: First
+  sexes:
+  - Male
+  - Female
+  - Unsexed
+
+# Developer Notes
+#
+# Thaven are a species of space elves with fish influences. Their main gameplay draw is the Strange Moods system.
+# Every thaven receives a random selection of moods, which are roleplay prompts that inform their behavior throughout the round.
+# The interface is reminiscent of borg laws. There is one shared mood that every thaven has and two personal ones.
+# Incapacitated thaven can be emagged to receive a more chaotic mood, and ion storms have a chance to add or remove or emag.
+#
+# The mood list included comes from impstation, any fork wanting to enable the species should look over the moods and datasets
+# to consider making edits to better fit their server culture.
+# Resources\Prototypes\_MACRO\StrangeMoods
+# Resources\Prototypes\_MACRO\Datasets\mood_datasets.yml
+#
+# The strange mood system admin verb can be used on any player regardless of species, and the moods they receive are customizable
+# using a simple interface. No view variables or console commands required.
+#
+# Aside from the moods, thaven are able to breathe all gases, their unarmed attack is a "nerve-pinch" stamina drain,
+# and they speak with no contractions.

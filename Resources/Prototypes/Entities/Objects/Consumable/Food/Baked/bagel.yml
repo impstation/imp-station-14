@@ -44,20 +44,24 @@
       - medicine
   - type: Sprite
     state: bagel-poppy
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Bagel
+    - Bread
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # imp
+        maxVol: 15
         reagents:
         - ReagentId: Bicaridine
-          Quantity: 4 # imp
+          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 6.5 # imp
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Bagel
-    - Bread
+          Quantity: 6.5
+  # imp edit end
 
 - type: entity
   parent: FoodBagelBase

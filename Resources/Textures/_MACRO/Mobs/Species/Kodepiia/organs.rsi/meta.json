@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by crocodilecarousel for impstation",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+        {
+        "name": "brain"
+        },
+        {
+            "name": "heart-on",
+            "delays": [
+                [
+                    0.6,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+        "name": "lung-l"
+        },
+        {
+        "name": "lung-r"
+        },
+        {
+        "name": "opticullis"
+        },
+        {
+        "name": "stomach"
+        },
+        {
+        "name": "tongue"
+        },
+        {
+        "name": "kidney-l"
+        },
+        {
+        "name": "kidney-r"
+        },
+        {
+        "name": "liver"
+        }
+    ]
+  }

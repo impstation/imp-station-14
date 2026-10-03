@@ -77,7 +77,7 @@
       prototypes: [ VisitorParamedic, VisitorParamedicAlt ]
       roleLoadout: [ RoleSurvivalMedical ]
     - type: RandomAntagChance
-      antagRole: MindRoleInitialInfected 
+      antagRole: MindRoleInitialInfected
       fallbackRole: MindRoleGhostRoleNeutral
       chance: .15
 
@@ -103,7 +103,7 @@
   id: CentcommIntern
   parent: EventHumanoidCentcomm
   components:
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidProfile
     randomizeName: true
   - type: GhostRole
     name: Centcomm Intern
@@ -120,7 +120,7 @@
   id: CentcommInternLeader
   parent: EventHumanoidCentcomm
   components:
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidProfile
     randomizeName: true
   - type: GhostRole
     name: CentComm Head Intern
@@ -137,7 +137,7 @@
   id: CentcommInternUnarmed
   parent: EventHumanoidCentcomm
   components:
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidProfile
     randomizeName: true
   - type: GhostRole
     name: Centcomm Intern
@@ -154,7 +154,7 @@
   id: CentcommInternLeaderUnarmed
   parent: EventHumanoidCentcomm
   components:
-  - type: RandomHumanoidAppearance
+  - type: RandomHumanoidProfile
     randomizeName: true
   - type: GhostRole
     name: CentComm Head Intern

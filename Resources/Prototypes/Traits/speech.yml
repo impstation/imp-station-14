@@ -13,15 +13,15 @@
     removes:
     - type: LizardAccent
     - type: MothAccent
-#    - type: ReplacementAccent #imp, moved to DwarfAccent
-#      accent: dwarf
+    #- type: ReplacementAccent  #imp edit, dwarves have their own accent
+    #  accent: scottish
+    - type: GrayAccent # macro
+    - type: GastropoidAccent # macro
+    - type: ThavenAccent # macro
+    - type: AllulaloAccent # macro
+    - type: AnomalocaridAccent # macro
     # Imp accents below
-    - type: GastropoidAccent
-    - type: GrayAccent
     - type: DwarfAccent
-    - type: ThavenAccent
-    - type: AllulaloAccent
-    - type: AnomalocaridAccent
 
 # 1 Cost
 

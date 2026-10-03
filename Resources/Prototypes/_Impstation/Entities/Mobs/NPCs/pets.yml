@@ -43,7 +43,7 @@
   - type: TooShortForUI #pipi is not old enough to play on computer
     blacklist:
       components:
-      - TooShortForUIBlacklist
+      - TooShortForUiBlacklist
     whitelist:
       components:
       - TooShortForUIWhitelist
@@ -274,7 +274,7 @@
   - type: TooShortForUI #dogs can't use computers
     blacklist:
       components:
-      - TooShortForUIBlacklist
+      - TooShortForUiBlacklist
     whitelist:
       components:
       - TooShortForUIWhitelist

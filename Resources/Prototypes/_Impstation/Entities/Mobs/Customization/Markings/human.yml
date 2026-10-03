@@ -9,8 +9,7 @@
 - type: marking
   id: HumanLEyeGlow
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [ Human ]
+  groupWhitelist: [ Human ]
   coloring:
     default:
       type:
@@ -24,8 +23,7 @@
 - type: marking
   id: HumanREyeGlow
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [ Human ]
+  groupWhitelist: [ Human ]
   coloring:
     default:
       type:
@@ -68,8 +66,7 @@
 - type: marking
   id: PrettyFly
   bodyPart: HeadTop
-  markingCategory: Head
-  speciesRestriction: [ Human ]
+  groupWhitelist: [ Human ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Human/headtop.rsi

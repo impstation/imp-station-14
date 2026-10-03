@@ -742,6 +742,7 @@
         density: 10
         mask:
         - ItemMask
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
@@ -749,15 +750,19 @@
         reagents:
         - ReagentId: Butter
           Quantity: 15
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - NFButterStick # Frontier
   - type: SliceableFood
     count: 3
     slice: FoodButterSlice
   - type: Extractable # Frontier
     grindableSolutionName: food
-  - type: Tag # Frontier
-    tags:
-    - NFButterStick
-    - UnguFood # imp
+  # imp edit end
 
 - type: entity
   parent: FoodBakingBase
@@ -780,7 +785,7 @@
   - type: Tag
     tags:
     - Slice
-    - UnguFood # imp
+    - UnguFood # macro edit - allow ungu to eat
 
 - type: entity
   name: stick of cannabis butter
@@ -793,7 +798,7 @@
     state: butter-cannabis # Imp
   - type: SolutionContainerManager
     solutions:
-      food:
+      food: # imp made butter food?
         maxVol: 110
         reagents:
         - ReagentId: Butter
@@ -802,9 +807,11 @@
           Quantity: 90 # imp
   - type: Extractable
     grindableSolutionName: food
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
 
 - type: entity
   name: cheese wheel
@@ -819,12 +826,23 @@
       - cheesy
   - type: Sprite
     state: cheesewheel
-  - type: SliceableFood
-    count: 4
-    slice: FoodCheeseSlice
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
+  - type: SliceableFood # imp add
+    count: 4
+    slice: FoodCheeseSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCheeseSlice
+      amount: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
 
 - type: entity
   parent: FoodBakingBase
@@ -847,7 +865,7 @@
   - type: Tag
     tags:
     - Slice
-    - UnguFood # imp
+    - UnguFood # macro edit - allow ungu to eat
   - type: FoodSequenceElement
     entries:
       Taco: CheeseTaco
@@ -878,6 +896,12 @@
       - creamy
   - type: Sprite
     state: chevrelog
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
   - type: SliceableFood
     count: 3
     slice: FoodChevreSlice
@@ -890,9 +914,7 @@
           Quantity: 3
         - ReagentId: Vitamin
           Quantity: 0.6
-  - type: Tag # imp
-    tags:
-    - UnguFood
+# imp edit end
 
 - type: entity
   parent: FoodBakingBase
@@ -920,11 +942,11 @@
   - type: Tag
     tags:
     - Slice
-    - UnguFood # imp
-  - type: FoodSequenceElement
+    - UnguFood # macro edit - allow ungu to eat
+  - type: FoodSequenceElement # imp? why is this yaml so scary
     entries:
       Burger: ChevreBurger
-      Hotdog: ChevreBurger #imp
+      Hotdog: ChevreBurger
 
 - type: entity
   parent: FoodBakingBase

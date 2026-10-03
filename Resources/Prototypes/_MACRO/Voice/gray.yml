@@ -1,0 +1,50 @@
+﻿- type: speechSounds
+  id: PVC
+  saySound:
+    path: /Audio/_MACRO/Voice/Gray/gray.ogg
+  askSound:
+    path: /Audio/_MACRO/Voice/Gray/gray_ask.ogg
+  exclaimSound:
+    path: /Audio/_MACRO/Voice/Gray/gray_exclaim.ogg
+
+- type: emoteSounds
+  id: UnisexGray
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_MACRO/Voice/Gray/gray_scream.ogg
+    Laugh:
+      path: /Audio/_MACRO/Voice/Gray/gray_laugh.ogg
+    Sneeze:
+      collection: UnisexSneezes
+    Cough:
+      path: /Audio/_MACRO/Voice/Gray/gray_cough.ogg
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_MACRO/Voice/Gray/gray_yawn.ogg
+    Snore:
+      collection: Snores
+    Sigh:
+      path: /Audio/_MACRO/Voice/Gray/gray_sigh.ogg
+    Honk:
+      collection: BikeHorn
+    Crying:
+      path: /Audio/_MACRO/Voice/Gray/gray_cry.ogg
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      path: /Audio/_MACRO/Voice/Gray/gray_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_MACRO/Voice/Gray/gray_deathgasp.ogg

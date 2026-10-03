@@ -97,17 +97,15 @@
         damage:
           types:
             Poison: -3
-    #imp edit start
-    Poison:
-      effects:
+    #Macrocosm edit start
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Snail ]
+          type: [ Gastropoid ]
         damage:
           types:
             Poison: 4
-      #imp edit end
+      #Macrocosm edit end
 
 - type: reagent
   id: Ethylredoxrazine
@@ -739,17 +737,15 @@
           factor: 6
         - !type:ModifyBloodLevel
           amount: 6
-    # imp edit start
-    Poison:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Snail ]
-        damage:
-          types:
-            Poison: 4
-    # imp edit end
+    #Macrocosm edit start
+        - !type:HealthChange
+          conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Gastropoid ]
+          damage:
+            types:
+              Poison: 4
+      #Macrocosm edit end
 
 - type: reagent
   id: Siderlac
@@ -884,15 +880,15 @@
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
         factor: -1
-      # imp edit start
+      #Macrocosm edit start
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Snail ]
+          type: [ Gastropoid ]
         damage:
           types:
             Poison: 4
-      # imp edit end
+      #Macrocosm edit end
 
   # Should heal quite literally everything, use in very small amounts
 - type: reagent
@@ -983,15 +979,15 @@
     Medicine:
       effects:
       - !type:EyeDamage
-      # imp edit start
+      #Macrocosm edit start
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Snail ]
+          type: [ Gastropoid ]
         damage:
           types:
             Poison: 2
-      # imp edit end
+      #Macrocosm edit end
 
 - type: reagent
   id: Cognizine

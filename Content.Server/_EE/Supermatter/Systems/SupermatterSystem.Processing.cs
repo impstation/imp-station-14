@@ -5,7 +5,7 @@ using Content.Server.Singularity.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.CCVar;
 using Content.Shared._EE.Supermatter.Components;
-using Content.Shared._Impstation.StrangeMoods;
+using Content.Shared._MACRO.StrangeMoods; // imp add
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;

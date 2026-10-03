@@ -19,7 +19,8 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.Humanoid; //imp addition
-using Content.Shared.Roles.Components; //imp addition
+using Content.Shared.Roles.Components;
+using Robust.Shared.Enums; //imp addition
 
 namespace Content.Server.Objectives;
 
@@ -233,10 +234,11 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             //todo figure out a way to fix the double-objective-summary thingimajig
 
             //get the character's gender
-            var genderString = "epicene"; //default to they/them'ing people
-            if (TryComp<HumanoidAppearanceComponent>(GetEntity(mind.OriginalOwnedEntity!), out var appearance))
+            // TODO: Plz make an API for this :)
+            var genderString = Gender.Epicene; //default to they/them'ing people
+            if (TryComp<HumanoidProfileComponent>(GetEntity(mind.OriginalOwnedEntity!), out var appearance))
             {
-                genderString = appearance.Gender.ToString().ToLowerInvariant();
+                genderString = appearance.Gender;
             }
 
             var nonTrivialSuccessRate = totalNontrivial > 0 ? (float)completedNonTrivial / totalNontrivial : 0f;
@@ -273,7 +275,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     }
 
                     var index = 0;
-                    agentSummary.Append(Loc.GetString("roundend-spend-summary-spent", ("gender", genderString)) + " ");
+                    agentSummary.Append(Loc.GetString("roundend-spend-summary-spent", ("gender", genderString.ToString().ToLowerInvariant())) + " ");
                     //list totals spent
                     //hardcoding english grammar into this probably isn't great but I don't think fluent can do lists?
                     foreach (var costPair in costs) //technically can just get index 0 of the list because it should always have only 1 entry, but let's be safe

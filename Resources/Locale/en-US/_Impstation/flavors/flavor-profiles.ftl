@@ -3,7 +3,6 @@ flavor-base-drinkdrink = like dogshit
 flavor-base-unholy = unholy
 flavor-base-evil = evil
 flavor-base-artificial = artificial
-flavor-base-shrimp = shrimpy
 flavor-base-something = like something
 flavor-base-weird = weird
 flavor-base-ectoplasm = ghastly
@@ -38,7 +37,6 @@ flavor-complex-radiation = like radiation
 flavour-stardust = like stardust
 flavor-complex-brotherly = brotherly
 flavor-complex-crud = like crud
-flavor-complex-snotty = like snot
 flavor-complex-speed = like speed
 flavor-base-whimsy = whimsical
 flavor-complex-secticket = like rotten eggs
@@ -55,13 +53,6 @@ flavor-complex-goblin = like minging prog
 flavor-complex-gollylad = chivalrous
 
 flavor-complex-orangecoffee = excitingly acidic
-
-flavor-base-kodepiia = of umami
-
-flavor-complex-thavenflesh = like salt and suffering
-flavor-complex-carpflesh = like alkali and ozone
-flavor-complex-shimmeringblood = sweet and slightly creamy
-flavor-complex-feverdream = like you're losing your mind
 
 flavor-complex-soju = like juice
 

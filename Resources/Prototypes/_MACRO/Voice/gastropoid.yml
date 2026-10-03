@@ -1,0 +1,50 @@
+- type: speechSounds
+  id: Gastropoid
+  saySound:
+    path: /Audio/_MACRO/Voice/Gastropoid/snail.ogg
+  askSound:
+    path: /Audio/_MACRO/Voice/Gastropoid/snail_ask.ogg
+  exclaimSound:
+    path: /Audio/_MACRO/Voice/Gastropoid/snail_exclaim.ogg
+
+- type: emoteSounds
+  id: UnisexSnail
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_MACRO/Voice/Gastropoid/snail_scream.ogg
+    Laugh:
+      path: /Audio/_MACRO/Voice/Gastropoid/snail_laugh.ogg
+    Sneeze:
+      collection: UnisexSneezes
+    Cough:
+      path: /Audio/_MACRO/Voice/Gastropoid/snail_cough.ogg
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_MACRO/Voice/Gastropoid/snail_yawn.ogg
+    Snore:
+      collection: Snores
+    Sigh:
+      path: /Audio/_MACRO/Voice/Gastropoid/snail_sigh.ogg
+    Honk:
+      collection: BikeHorn
+    Crying:
+      path: /Audio/_MACRO/Voice/Gastropoid/snail_cry.ogg
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      path: /Audio/_MACRO/Voice/Gastropoid/snail_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_MACRO/Voice/Gastropoid/snail_deathgasp.ogg

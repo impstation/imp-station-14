@@ -3,8 +3,7 @@
 - type: marking
   id: ChestChimeraFemaleMoth
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sexRestriction: [ Female ]
   coloring:
     default:
@@ -18,8 +17,7 @@
 - type: marking
   id: ChestChimeraMaleMoth
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sexRestriction: [ Male, Unsexed ]
   coloring:
     default:
@@ -33,8 +31,7 @@
 - type: marking
   id: ChestTwistingLeftFemaleMoth
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sexRestriction: [ Female ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
@@ -43,8 +40,7 @@
 - type: marking
   id: ChestTwistingLeftMaleMoth
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sexRestriction: [ Male, Unsexed ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
@@ -53,8 +49,7 @@
 - type: marking
   id: ChestTwistingRightFemaleMoth
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sexRestriction: [ Female ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
@@ -63,8 +58,7 @@
 - type: marking
   id: ChestTwistingRightMaleMoth
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sexRestriction: [ Male, Unsexed ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
@@ -73,8 +67,7 @@
 - type: marking
   id: ChestStarMoth
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: star
@@ -82,8 +75,7 @@
 - type: marking
   id: MothBodyClaw
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: claw
@@ -91,18 +83,16 @@
 - type: marking
   id: MothChestGlow
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: glow
-  shader: unshaded
+  #shader: unshaded
 
 - type: marking
   id: TorsoIncisionMoth
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: incision
@@ -112,8 +102,7 @@
 - type: marking
   id: BadmoltMoth
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: badmolt
@@ -121,8 +110,7 @@
 - type: marking
   id: EyebagsMoth
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: eyebags
@@ -130,8 +118,7 @@
 - type: marking
   id: HeadChimeraMoth
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -144,8 +131,7 @@
 - type: marking
   id: HeadTwistingMoth
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: twisting
@@ -153,8 +139,7 @@
 - type: marking
   id: MothBurnLeft
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: burnleft
@@ -162,8 +147,7 @@
 - type: marking
   id: MothBurnRight
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: burnright
@@ -171,8 +155,7 @@
 - type: marking
   id: MothFaceClaw
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: claw
@@ -180,18 +163,16 @@
 - type: marking
   id: MothHeadGlow
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: glow
-  shader: unshaded
+  #shader: unshaded
 
 - type: marking
   id: MothSlashLeft
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: slashleft
@@ -199,17 +180,15 @@
 - type: marking
   id: MothSlashRight
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: slashright
-    
+
 - type: marking
   id: MothHeadTuft
   bodyPart: HeadSide
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: headtuft
@@ -217,8 +196,7 @@
 - type: marking
   id: MothTuftBangs
   bodyPart: HeadSide
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: tuftbangs
@@ -226,8 +204,7 @@
 - type: marking
   id: MothVerticalTuft
   bodyPart: HeadSide
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: verticaltuft
@@ -235,8 +212,7 @@
 - type: marking
   id: MothEmoTuft
   bodyPart: HeadSide
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: emotuft
@@ -244,8 +220,7 @@
 - type: marking
   id: MothTinyTuft
   bodyPart: HeadSide
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: tinytuft
@@ -255,9 +230,7 @@
 - type: marking
   id: MouthpartsFulgoridae
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Moth ]
-  followSkinColor: true
+  groupWhitelist: [ Moth ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -266,9 +239,7 @@
 - type: marking
   id: MouthpartsFulgoridaeUpturned
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Moth ]
-  followSkinColor: true
+  groupWhitelist: [ Moth ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -277,9 +248,7 @@
 - type: marking
   id: MouthpartsHymenoptera
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Moth ]
-  followSkinColor: true
+  groupWhitelist: [ Moth ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -288,9 +257,7 @@
 - type: marking
   id: MouthpartsHymenopteraLarge
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Moth ]
-  followSkinColor: true
+  groupWhitelist: [ Moth ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -299,8 +266,7 @@
 - type: marking
   id: MouthpartsProboscisDownturned
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -313,8 +279,7 @@
 - type: marking
   id: MouthpartsProboscisUpturned
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -327,9 +292,7 @@
 - type: marking
   id: MouthpartsSchistocerca
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Moth ]
-  followSkinColor: true
+  groupWhitelist: [ Moth ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -340,8 +303,7 @@
 - type: marking
   id: HeterochromiaMoth
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -354,8 +316,7 @@
 - type: marking
   id: MothBiggerEyes
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -369,8 +330,7 @@
 - type: marking
   id: ProstheticArmRightMoth
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -383,8 +343,7 @@
 - type: marking
   id: TwistingArmRightMoth
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rarm.rsi
     state: twisting
@@ -394,8 +353,7 @@
 - type: marking
   id: ChimeraArmLeftMoth
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -408,8 +366,7 @@
 - type: marking
   id: ProstheticArmLeftMoth
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -422,8 +379,7 @@
 - type: marking
   id: TwistingArmLeftMoth
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
     state: twisting
@@ -433,8 +389,7 @@
 - type: marking
   id: LegProstheticRightMoth
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -447,8 +402,7 @@
 - type: marking
   id: LegTwistingRightMoth
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rleg.rsi
     state: twisting
@@ -458,8 +412,7 @@
 - type: marking
   id: LegChimeraLeftMoth
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -472,8 +425,7 @@
 - type: marking
   id: LegProstheticLeftMoth
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -486,8 +438,7 @@
 - type: marking
   id: LegTwistingLeftMoth
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
     state: twisting
@@ -501,8 +452,7 @@
 - type: marking
   id: FootChimeraLeftMoth
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -515,8 +465,7 @@
 - type: marking
   id: FootProstheticLeftMoth
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -531,8 +480,7 @@
 - type: marking
   id: FootProstheticRightMoth
   bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -547,8 +495,7 @@
 - type: marking
   id: HandChimeraLeftMoth
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -561,8 +508,7 @@
 - type: marking
   id: HandProstheticLeftMoth
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -575,8 +521,7 @@
 - type: marking
   id: HandTwistingLeftMoth
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
     state: twisting
@@ -586,8 +531,7 @@
 - type: marking
   id: HandProstheticRightMoth
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   coloring:
     default:
       type:
@@ -600,8 +544,7 @@
 - type: marking
   id: HandTwistingRightMoth
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rhand.rsi
     state: twisting
@@ -615,10 +558,8 @@
 - type: marking
   id: PlateBlunt
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
     state: blunt
@@ -626,10 +567,8 @@
 - type: marking
   id: PlateDaisy
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
     state: daisy
@@ -637,10 +576,8 @@
 - type: marking
   id: PlateHeart
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
     state: heart
@@ -648,10 +585,8 @@
 - type: marking
   id: PlateHorn
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
     state: horn
@@ -659,10 +594,8 @@
 - type: marking
   id: PlateSmallSpike
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
     state: smallspike
@@ -672,10 +605,8 @@
 - type: marking
   id: MothBeetleHorn1
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: beetlehorn1
@@ -683,10 +614,8 @@
 - type: marking
   id: MothBeetleHorn2
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: beetlehorn2
@@ -694,18 +623,16 @@
 - type: marking
   id: MothGlowAntenna
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: glowantenna
-  shader: unshaded
+  #shader: unshaded
 
 - type: marking
   id: AntennaCockroach
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: cockroach
@@ -713,8 +640,7 @@
 - type: marking
   id: AntennaFly
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: fly
@@ -722,8 +648,7 @@
 - type: marking
   id: AntennaHeart
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: heart1
@@ -733,8 +658,7 @@
 - type: marking
   id: AntennaShort
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: nub
@@ -744,8 +668,7 @@
 - type: marking
   id: LunaWings
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     luna_neck: TailBehindBackpack
     luna_primary_behind: TailBehind
@@ -770,8 +693,7 @@
 - type: marking
   id: MothBee
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     bee_neck: TailBehindBackpack
     bee_primary_behind: TailBehind
@@ -799,8 +721,7 @@
 - type: marking
   id: MothBeetleTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     beetle_neck: TailBehindBackpack
     beetle_primary_behind: TailBehind
@@ -824,8 +745,7 @@
 - type: marking
   id: MothFirefly
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     firefly_neck: TailBehindBackpack
     firefly_primary_behind: TailBehind
@@ -843,8 +763,7 @@
 - type: marking
   id: MothFireflyOverlay
   bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     firefly_secondary_behind: TailBehind
     firefly_secondary_front: TailBehindBackpack
@@ -859,8 +778,7 @@
 - type: marking
   id: MothGlasswing
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     glasswing_neck: TailBehindBackpack
     glasswing_primary_behind: TailBehind
@@ -892,8 +810,7 @@
 - type: marking
   id: MothRhinoBeetle
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     rhinobeetle_neck: TailBehindBackpack
     rhinobeetle_primary_behind: TailBehind
@@ -918,8 +835,7 @@
 - type: marking
   id: MothSnoth
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     snoth_neck: TailBehindBackpack
     snoth_primary_behind: TailBehind
@@ -940,8 +856,7 @@
 - type: marking
   id: MothTrueButterfly
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     truebutterfly_neck: TailBehindBackpack
     truebutterfly_primary_behind: TailBehind
@@ -973,8 +888,7 @@
 - type: marking
   id: WingsBackstabbed
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     backstabbed_neck: TailBehindBackpack
     backstabbed_primary_behind: TailBehind
@@ -992,8 +906,7 @@
 - type: marking
   id: WingsDragonfly
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     dragonfly_neck: TailBehindBackpack
     dragonfly_primary_behind: TailBehind
@@ -1018,8 +931,7 @@
 - type: marking
   id: WingsFly
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     fly_neck: TailBehindBackpack
     fly_primary_behind: TailBehind
@@ -1044,8 +956,7 @@
 - type: marking
   id: WingsLanternfly
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     lanternfly_neck: TailBehindBackpack
     lanternfly_primary_behind: TailBehind
@@ -1063,8 +974,7 @@
 - type: marking
   id: WingsPyrausta
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Moth ]
+  groupWhitelist: [ Moth ]
   layering:
     pyr_neck: TailBehindBackpack
     pyr_wing_behind: TailBehind

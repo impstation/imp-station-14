@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseAction
+  id: ActionSlime
+  name: Slime Trail
+  description: Leave a trail of mucin.
+  components:
+  - type: Action
+    icon: _MACRO/Interface/Actions/slime.png
+  - type: InstantAction
+    event: !type:SnailSprintActionEvent

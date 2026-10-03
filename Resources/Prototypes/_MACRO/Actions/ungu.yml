@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionDash
+  name: Dash
+  description: Charge forward into a target or just for fun!
+  components:
+  - type: Action
+    useDelay: 25
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}

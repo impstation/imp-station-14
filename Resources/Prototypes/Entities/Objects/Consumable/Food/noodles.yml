@@ -37,7 +37,13 @@
     - egg
   - type: Sprite
     state: boiled
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 30
@@ -46,9 +52,7 @@
           Quantity: 19
         - ReagentId: EggCooked
           Quantity: 6
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 # Tastes like pasta.
 
 - type: entity
@@ -217,18 +221,22 @@
     - butter
   - type: Sprite
     state: butter
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45 # imp
+        maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25 # imp
-        #- ReagentId: Vitamin # imp
+          Quantity: 25
+        #- ReagentId: Vitamin # imp remove
         #  Quantity: 1
-        - ReagentId: Butter # imp
+        - ReagentId: Butter #
           Quantity: 15
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 # Tastes like pasta, butter.

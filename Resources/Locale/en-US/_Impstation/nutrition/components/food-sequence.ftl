@@ -12,7 +12,6 @@ food-sequence-burger-content-rottenmeat = off
 food-sequence-burger-content-snakemeat = hiss
 food-sequence-burger-content-slimeball = slimy
 food-sequence-burger-content-meattomatocutlet = juicy
-food-sequence-burger-content-thaven = concerning
 food-sequence-burger-content-bros = UNGH
 food-sequence-burger-content-cigar = smoking
 food-sequence-burger-content-crayon = colorful

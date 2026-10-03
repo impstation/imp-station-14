@@ -6,7 +6,7 @@ namespace Content.Shared.Clothing.Components;
 
 /// <summary>
 /// This is used for a clothing item that hides an appearance layer.
-/// The entity's HumanoidAppearance component must have the corresponding hideLayerOnEquip value.
+/// The entity's HumanoidProfile component must have the corresponding hideLayerOnEquip value.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HideLayerClothingComponent : Component

@@ -3,7 +3,7 @@
 - type: randomHumanoidSettings
   id: EventHumanoid
   components:
-    - type: RandomHumanoidAppearance
+    - type: RandomHumanoidProfile
       randomizeName: false
     - type: GhostTakeoverAvailable
     - type: IdBind
@@ -608,7 +608,7 @@
 - type: randomHumanoidSettings
   id: SyndicateAgent
   components:
-    - type: RandomHumanoidAppearance
+    - type: RandomHumanoidProfile
       randomizeName: false
     - type: Loadout
       prototypes: [SyndicateOperativeGearExtremelyBasic]
@@ -627,7 +627,7 @@
 - type: randomHumanoidSettings
   id: NukeOp
   components:
-    - type: RandomHumanoidAppearance
+    - type: RandomHumanoidProfile
       randomizeName: false
     - type: NukeOperative
 

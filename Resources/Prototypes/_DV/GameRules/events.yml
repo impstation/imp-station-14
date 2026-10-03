@@ -63,7 +63,7 @@
         - type: MothAccent
         - type: ReplacementAccent
           accent: dwarf
-        - type: SnalienAccent
+        - type: GastropoidAccent # imp edit
         - type: GrayAccent
         - type: DwarfAccent
         - type: NoContractionsAccent
@@ -105,7 +105,7 @@
         - NamesFakeHumanFirst
         - NamesFakeHumanLast
         nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
+      - type: RandomHumanoidProfile
         randomizeName: false
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg

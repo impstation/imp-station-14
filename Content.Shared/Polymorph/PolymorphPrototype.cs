@@ -85,7 +85,7 @@ public sealed partial record PolymorphConfiguration
     /// Whether or not the entity transfers its hair, skin color, hair color, etc.
     /// </summary>
     [DataField(serverOnly: true)]
-    public bool TransferHumanoidAppearance;
+    public bool TransferHumanoidProfile;
 
     /// <summary>
     /// Whether or not the entity transfers its inventory and equipment between forms.

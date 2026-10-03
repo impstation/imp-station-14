@@ -57,4 +57,12 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem
         else
             Log.Error("Unable to set bloodstream DNA, solution entity could not be resolved");
     }
+
+    // IMPSTATION START
+    // TODO: Delete this post solutions refactor when solutions aren't a fucking mess that require me to do this.
+    public Color GetBloodReferenceColor(BloodstreamComponent badPatternButIhateSolutionsWithABurningPassion)
+    {
+        return badPatternButIhateSolutionsWithABurningPassion.BloodReferenceSolution.GetColor(PrototypeManager);
+    }
+    // IMPSTATION END
 }

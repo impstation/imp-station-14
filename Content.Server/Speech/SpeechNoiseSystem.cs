@@ -25,7 +25,9 @@ namespace Content.Server.Speech
 
         public SoundSpecifier? GetSpeechSound(Entity<SpeechComponent> ent, string message)
         {
-            // impstation edits
+            // MACRO Start: SpeechSounds
+            //if (ent.Comp.SpeechSounds == null)
+            //    return null;
             var protoId = ent.Comp.SpeechSounds;
 
             // raise event for voice-changing equipment
@@ -33,12 +35,13 @@ namespace Content.Server.Speech
             RaiseLocalEvent(ent, voiceEv);
             protoId = voiceEv.SpeechSounds ?? protoId;
 
-            if (protoId == null) // imp edit end
+            if (protoId == null)
                 return null;
+            // MACRO End: SpeechSounds
 
             // Play speech sound
             SoundSpecifier? contextSound;
-            var prototype = _protoManager.Index<SpeechSoundsPrototype>(protoId); // imp protoid
+            var prototype = _protoManager.Index<SpeechSoundsPrototype>(protoId); // MACRO: SpeechSounds, change to protoId
 
             // Different sounds for ask/exclaim based on last character
             contextSound = message[^1] switch

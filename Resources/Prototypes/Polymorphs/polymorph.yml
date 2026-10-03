@@ -89,7 +89,7 @@
     entity: MobCluwne
     forced: true
     transferName: true
-    transferHumanoidAppearance: true
+    transferHumanoidProfile: true
     inventory: None
     revertOnCrit: true
     revertOnDeath: true
@@ -105,7 +105,7 @@
   configuration:
     entity: MobHuman
     transferName: true
-    transferHumanoidAppearance: true
+    transferHumanoidProfile: true
     inventory: Transfer
 
 - type: polymorph
@@ -175,7 +175,7 @@
     entity: MobCluwne
     forced: true
     transferName: true
-    transferHumanoidAppearance: true
+    transferHumanoidProfile: true
     inventory: None
     revertOnDeath: true
     revertOnCrit: true

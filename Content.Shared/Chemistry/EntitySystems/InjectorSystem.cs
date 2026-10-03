@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
+using Content.Shared.Chemisry.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Chemistry.Prototypes;
@@ -21,7 +22,6 @@ using Content.Shared.Weapons.Melee.Events;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Content.Shared._DV.Chemistry.Components; //DeltaV
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
@@ -96,6 +96,10 @@ public sealed partial class InjectorSystem : EntitySystem
     {
         if (args.Cancelled || args.Handled || args.Args.Target == null)
             return;
+        // MACRO Start: Block Injection
+        if (TryBlockInjection(args.User, args.Args.Target.Value))
+            return;
+        // MACRO End: Block Injection
 
         args.Handled |= TryUseInjector(injector, args.Args.User, args.Args.Target.Value);
     }

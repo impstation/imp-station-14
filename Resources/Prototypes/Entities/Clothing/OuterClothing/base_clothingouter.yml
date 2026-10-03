@@ -106,19 +106,12 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing]
+  parent: [ ClothingOuterEVASuitBase, GeigerCounterClothing ]
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
-# SlotBlocker blocked until UI change
-#  - type: SlotBlock
-#    slots: [innerclothing, feet]
   - type: PressureProtection
     highPressureMultiplier: 0.3
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    heatingCoefficient: 0.01
-    coolingCoefficient: 0.01
   - type: ClothingSpeedModifier
     walkModifier: 0.6
     sprintModifier: 0.6
@@ -154,7 +147,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
-    - RArmExtension # imp, kode
+    - Tenta # macro
   # imp edit start
   - type: Clothing #for equip/unequip delay
     equipSound: /Audio/Mecha/mechmove03.ogg

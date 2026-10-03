@@ -1,0 +1,218 @@
+# these are waaay better organized impside, but i am only putting ungu shit in for now so someone will have to go and copy the original file once all species are merged :)
+
+- type: loadoutEffectGroup
+  id: Cow
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Ungu
+
+- type: loadout
+  id: EmergencyWheat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalUngu
+
+- type: loadout
+  id: EmergencyWheatClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxHugUngu
+
+- type: loadout
+  id: EmergencyWheatMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxMimeUngu
+
+- type: loadout
+  id: EmergencyWheatExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalEngineeringUngu
+
+- type: loadout
+  id: EmergencyWheatMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalMedicalUngu
+
+- type: loadout
+  id: EmergencyWheatSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalSecurityUngu
+
+- type: loadout
+  id: EmergencyWheatSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalSyndicateUngu
+
+- type: loadout
+  id: LoadoutSpeciesEVAUngu
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  equipment:
+    suitstorage: OxygenTankFilled
+
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleOxygenUngu
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  equipment:
+    pocket1: DoubleEmergencyOxygenTankFilled
+
+# Species
+- type: loadoutEffectGroup
+  id: Carnivorous
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Kodepiia
+
+- type: loadoutEffectGroup
+  id: Aquatic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Decapoid
+# Pre-equipped species gear
+# Full tank for aquatics as part of any Survival loadout
+- type: loadout
+  id: LoadoutSpeciesAquaticFullTank
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  equipment:
+    suitstorage: DecapoidVaporTankFilled
+
+# Breath Tool On Face
+- type: loadout
+  id: LoadoutDecapoidBreathTool
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  equipment:
+    mask: DecapoidBreathingApparatus
+
+# Breath tool in inventory
+- type: loadout
+  id: LoadoutDecapoidBreathToolInventory
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - DecapoidBreathingApparatus
+
+- type: loadout
+  id: LoadoutDecapoidBreathToolInventoryClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - DecapoidBreathingApparatusClown
+
+- type: loadout
+  id: LoadoutDecapoidBreathToolInventoryMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - DecapoidBreathingApparatusMime
+
+# Basic
+- type: loadout
+  id: EmergencyAquatic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalAquatic
+
+# Clown
+- type: loadout
+  id: EmergencyAquaticClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxHugAquatic
+
+# Mime
+- type: loadout
+  id: EmergencyAquaticMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxMimeAquatic
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyAquaticExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalEngineeringAquatic
+
+# Medical
+- type: loadout
+  id: EmergencyAquaticMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalMedicalAquatic
+
+# Security
+- type: loadout
+  id: EmergencyAquaticSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalSecurityAquatic
+
+# Syndicate
+- type: loadout
+  id: EmergencyAquaticSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - BoxSurvivalSyndicateAquatic

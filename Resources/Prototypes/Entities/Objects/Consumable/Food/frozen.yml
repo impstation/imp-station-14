@@ -253,21 +253,24 @@
     - type: Edible
       trash:
       - FoodFrozenSnowconeTrash
+    # marco and imp edit
+    - type: Tag
+      tags:
+      - UnguFood # maco
+      - ReptilianFood # imp
+    #imp edit start
     - type: SolutionContainerManager
       solutions:
         food:
           maxVol: 20 # For sprinkles or something? Idk.
           reagents:
             - ReagentId: Ice
-              Quantity: 10 # imp
-            #- ReagentId: Water # imp
+              Quantity: 10
+            #- ReagentId: Water # imp remove
             #  Quantity: 2
             - ReagentId: Sugar
-              Quantity: 4 # imp
-    - type: Tag # imp
-      tags:
-      - ReptilianFood
-      - UnguFood
+              Quantity: 4
+# imp edit end
 
 - type: entity
   name: flavorless snowcone

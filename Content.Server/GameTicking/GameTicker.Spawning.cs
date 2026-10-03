@@ -203,7 +203,7 @@ namespace Content.Server.GameTicking
                     }
 
                     speciesId = roundStart.Count == 0
-                        ? SharedHumanoidAppearanceSystem.DefaultSpecies
+                        ? HumanoidCharacterProfile.DefaultSpecies
                         : _robustRandom.Pick(roundStart);
                 }
                 else
@@ -212,26 +212,8 @@ namespace Content.Server.GameTicking
                     speciesId = weights.Pick(_robustRandom);
                 }
 
-                // imp edit start
-                var oldTraits = character.TraitPreferences; // preserve traits
-
-                // just replace the character profile with a fully random one so we can keep the weights from the species prototypes
-                if (_randomizeCharactersRandomViableSpecies)
-                    character = HumanoidCharacterProfile.Random(false);
-                else
-                    character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
-
-                // keep old traits when rolling because of the random character trait
-                if (!_randomizeCharacters)
-                {
-                    foreach (var trait in oldTraits)
-                    {
-                        character = character.WithTraitPreference(trait, _prototypeManager);
-                    }
-                }
-                // imp edit end
-                // character = HumanoidCharacterProfile.RandomWithSpecies(speciesId); // imp edit, comment out
-
+                character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+                character.Appearance = HumanoidCharacterAppearance.EnsureValid(character.Appearance, character.Species, character.Sex);
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)

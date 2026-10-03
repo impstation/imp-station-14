@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Anomalocarid, Gray ] #imp, added apid, thaven, anomalocarid, gray TODO: thaven should have their own waste reaction for all gases
+          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Anomalocarid ] #Macrocosm, add Apid, Thaven, Anomalocarid
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -47,7 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Apid, Thaven, Dinosaur, Anomalocarid, Gray, Goblin ] #imp, added types after Moth
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Apid, Thaven, Anomalocarid ] #Macrocosm, add Apid, Thaven
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -111,13 +111,11 @@
         minScale: 1.5
         clear: True
         time: 5
-      # imp edit start
-      - !type:Oxygenate #thaven don't suffocate from any gases
+      - !type:Oxygenate #MACRO, thaven don't suffocate from any gases
         scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Thaven ]
-      # imp edit end
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -221,7 +219,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant, Thaven ] #imp, thaven don't suffocate from any gases
+          type: [ Plant, Thaven ] #macro, thaven don't suffocate from any gases
       - !type:HealthChange
         minScale: 0.5
         conditions:
@@ -266,7 +264,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Vox, Slime, Thaven ] #imp, thaven don't suffocate from any gases
+          type: [ Vox, Slime, Thaven ] #macro, thaven don't suffocate from any gases
       # Converts Nitrogen into Ammonia
       - !type:ModifyLungGas
         conditions:
@@ -356,13 +354,11 @@
         damage:
           types:
             Poison: 0.25
-      # imp edit start
-      - !type:Oxygenate #thaven don't suffocate from any gases
+      - !type:Oxygenate #macro, thaven don't suffocate from any gases
         scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Thaven ]
-      # imp edit end
 
 - type: reagent
   id: Frezon
@@ -430,10 +426,8 @@
         messages: [ "frezon-euphoric" ]
         probability: 0.1
         minScale: 1
-      # imp edit start
-      - !type:Oxygenate #thaven don't suffocate from any gases
+      - !type:Oxygenate #macro, thaven don't suffocate from any gases
         scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Thaven ]
-      # imp edit end

@@ -205,6 +205,7 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+    - AnimalFriend # MACRO
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -1012,10 +1013,10 @@
     guides:
     - Chef
     - FoodRecipes
+  - type: CowToolProficiency #macro edit - this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.7
-  - type: CowToolProficiency #this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
   - type: AlwaysRevolutionaryConvertible
   # imp edit end
 
@@ -1472,6 +1473,7 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+    - AnimalFriend # MACRO
 
 - type: entity
   name: genetic ancestor
@@ -1533,23 +1535,16 @@
     - map: [ "outerClothing" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ "clownedon" ]
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
   - type: Hands
     activeHandId: Hand
     hands:
       Hand:
         location: Left
   - type: ComplexInteraction
-  - type: GenericVisualizer
-    visuals:
-      enum.CreamPiedVisuals.Creamed:
-        clownedon:
-          True: {visible: true}
-          False: {visible: false}
   - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_monkey
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Monkey_burning
@@ -1666,7 +1661,7 @@
 - type: entity
   name: monkey
   id: MobBaseSyndicateMonkey
-  parent: MobBaseAncestor
+  parent: MobBaseAncestor # TODO: fix copy paste from MobMonkey
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   suffix: syndicate base
   components:
@@ -1810,10 +1805,6 @@
     - map: [ "id" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ "clownedon" ]
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
   - type: RandomSprite
     getAllGroups: true
     available:
@@ -3374,6 +3365,11 @@
   - type: MobPrice
     price: 200
   - type: MessyDrinker
+  # TODO: Fix the sprite offset
+  #- type: CreamPied
+  #  sprite:
+  #    sprite: Effects/creampie.rsi
+  #    state: creampie_corgi
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.3

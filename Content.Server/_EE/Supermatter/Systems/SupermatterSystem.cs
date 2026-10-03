@@ -1,4 +1,4 @@
-using Content.Server._Impstation.StrangeMoods;
+using Content.Server._MACRO.StrangeMoods; // imp add
 using Content.Server.Administration.Logs;
 using Content.Server.Announcements.Systems;
 using Content.Server.Atmos.EntitySystems;

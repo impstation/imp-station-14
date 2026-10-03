@@ -1,4 +1,4 @@
-using Content.Shared._Impstation.StrangeMoods;
+using Content.Shared._MACRO.StrangeMoods;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;

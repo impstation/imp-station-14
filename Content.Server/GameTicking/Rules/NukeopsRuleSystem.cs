@@ -29,7 +29,8 @@ using Content.Shared.Station.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid; //imp addition
-using Content.Shared.Mind; //imp addition
+using Content.Shared.Mind;
+using Robust.Shared.Enums; //imp addition
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -125,10 +126,10 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 continue;
 
             //get the operative's gender
-            var genderString = "epicene"; //default to they/them'ing people
-            if (TryComp<HumanoidAppearanceComponent>(GetEntity(mindComp.OriginalOwnedEntity!), out var appearance))
+            var genderString = Gender.Epicene; //default to they/them'ing people
+            if (TryComp<HumanoidProfileComponent>(GetEntity(mindComp.OriginalOwnedEntity!), out var appearance))
             {
-                genderString = appearance.Gender.ToString().ToLowerInvariant();
+                genderString = appearance.Gender;
             }
 
             foreach (var mindRole in mindComp.MindRoleContainer.ContainedEntities)
@@ -170,7 +171,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 }
 
                 var index = 0;
-                var costString = Loc.GetString("roundend-spend-summary-spent", ("gender", genderString)) + " ";
+                var costString = Loc.GetString("roundend-spend-summary-spent", ("gender", genderString.ToString().ToLowerInvariant())) + " ";
                 //list totals spent
                 //hardcoding english grammar into this probably isn't great but I don't think fluent can do lists?
                 foreach (var costPair in costs) //technically can just get index 0 of the list because it should always have only 1 entry, but let's be safe

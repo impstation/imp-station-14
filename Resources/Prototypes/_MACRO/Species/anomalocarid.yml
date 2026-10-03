@@ -1,0 +1,16 @@
+- type: species
+  id: Anomalocarid
+  name: species-name-anomalocarid
+  roundStart: true
+  randomViable: true
+  prototype: MobAnomalocarid
+  defaultSkinTone: "#e5e5e5"
+  dollPrototype: AppearanceAnomalocarid
+  skinColoration: AnomalocaridToned
+  maleFirstNames: NamesAnomalocaridFirst
+  femaleFirstNames: NamesAnomalocaridFirst
+  lastNames: NamesAnomalocaridLast
+  sexes:
+  - Male
+  - Female
+  - Unsexed
