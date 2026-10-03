@@ -71,7 +71,7 @@ public sealed partial class FireballGeneSystem : BaseGeneEntitySystem
         if (!_entityManager.TryGetComponent<GeneHostComponent>(args.Performer, out var geneHostComp))
             return;
 
-        if(fireComp._negativeEffect != null && !fireComp._activeChromosomes[Chromosome.Synchronizer])
-            fireComp._negativeEffect.ApplyGeneEffect((args.Performer, geneHostComp), fireComp._activeChromosomes);
+        if(fireComp.NegativeEffect != null && !fireComp.ActiveChromosomes[Chromosome.Synchronizer])
+            fireComp.NegativeEffect.ApplyGeneEffect((args.Performer, geneHostComp), fireComp.ActiveChromosomes);
     }
 }

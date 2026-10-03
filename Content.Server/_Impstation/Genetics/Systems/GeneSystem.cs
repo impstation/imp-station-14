@@ -34,7 +34,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private int _geneTiers = 5;
+    private int GeneTiers = 5;
     private string _tiersProtoName = "GeneTiers";
 
     /// <summary>
@@ -42,7 +42,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// </summary>
     private Dictionary<string, ComponentRegistryEntry> _registeredGenes = new();
 
-    WeightedRandomPrototype _geneTierTable = default!;
+    WeightedRandomPrototype GeneTierTable = default!;
     private Dictionary<string, WeightedRandomEntityPrototype> _geneTable = new();
 
 
@@ -62,9 +62,9 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// </summary>
     public void LoadGeneRegistry()
     {
-        _geneTierTable = _prototypeManager.Index<WeightedRandomPrototype>(_tiersProtoName);
+        GeneTierTable = _prototypeManager.Index<WeightedRandomPrototype>(_tiersProtoName);
 
-        foreach(KeyValuePair<string, float> table in _geneTierTable.Weights)
+        foreach(KeyValuePair<string, float> table in GeneTierTable.Weights)
         {
             var tier = _prototypeManager.Index<WeightedRandomEntityPrototype>(table.Key);
             _geneTable.Add(table.Key, tier);
@@ -119,7 +119,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
         baseGene.GeneName = gene;
 
         // Modify the entities Gene scale
-        geneComp._geneScaleValue += baseGene._geneStabilityValue;
+        geneComp._geneScaleValue += baseGene.GeneStabilityValue;
 
         // Throw our event for all systems to use
         // They will need this to apply their effects and set themselves up
@@ -133,7 +133,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// <param name="entity"></param>
     public void AddGeneRandom(EntityUid entity)
     {
-        var tier = _geneTierTable.Pick(_random);
+        var tier = GeneTierTable.Pick(_random);
 
         var gene = _geneTable[tier].Pick(_random);
 

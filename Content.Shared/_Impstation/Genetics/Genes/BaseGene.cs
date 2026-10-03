@@ -18,13 +18,13 @@ public abstract partial class BaseGeneComponent : Component
     /// The value added to a Mobs Gene Stability
     /// </summary>
     [DataField("stability")]
-    public int _geneStabilityValue = 0;
+    public int GeneStabilityValue = 0;
 
     /// <summary>
     /// Used for determining how much of a Gene's strain should be hidden at first
     /// </summary>
     [DataField("complexity")]
-    public Vector2i _geneComplexity = (0, 5);
+    public Vector2i GeneComplexity = (0, 5);
 
     /// <summary>
     /// Used for determining how complex a Gene should be
@@ -33,36 +33,48 @@ public abstract partial class BaseGeneComponent : Component
     /// and thus should be the most complex to reflect that
     /// </summary>
     [DataField("tier")]
-    public GeneTier _geneTier = GeneTier.Tier1;
+    public GeneTiers GeneTier = GeneTiers.Tier1;
 
     /// <summary>
     /// The group this specific Gene belongs to.
     /// </summary>
     [DataField("group")]
-    public GeneGroup _geneGroup = GeneGroup.None;
+    public GeneGroups GeneGroup = GeneGroups.None;
 
     /// <summary>
     /// A list of Gene Groups that this Gene cannot be added alongside
     /// </summary>
     [DataField("groupBlacklist")]
-    public List<GeneGroup> _geneGroupBlacklist = new List<GeneGroup>();
+    public List<GeneGroups> GeneGroupBlacklist = new List<GeneGroups>();
+
+    /// <summary>
+    /// The Positive effects that the Gene will add
+    /// </summary>
+    [DataField("positiveEffects")]
+    public HashSet<BaseGeneEffect> PositiveEffects = new HashSet<BaseGeneEffect>();
+
+    /// <summary>
+    /// The Neutral effects that the Gene will add
+    /// </summary>
+    [DataField("neutralEffects")]
+    public HashSet<BaseGeneEffect> NeutralEffects = new HashSet<BaseGeneEffect>();
 
     /// <summary>
     /// The negative effect this Gene will apply on use
     /// </summary>
     [DataField("negativeEffect")]
-    public BaseGeneEffect? _negativeEffect;
+    public BaseGeneEffect? NegativeEffect;
 
     /// <summary>
     /// If this Gene is active and applying its affect
     /// </summary>
-    public static bool _active = false;
+    public static bool Active = false;
 
     /// <summary>
     /// The correct strain of the Gene & the Scrambled strain of the Gene
     /// </summary>
-    public List<GeneData> _geneStrain = new List<GeneData>();
-    public List<GeneData> _geneStrainScrambled = new List<GeneData>();
+    public List<GeneData> GeneStrain = new List<GeneData>();
+    public List<GeneData> GeneStrainScrambled = new List<GeneData>();
 
     /// <summary>
     /// Our active Chromosomes
@@ -70,7 +82,7 @@ public abstract partial class BaseGeneComponent : Component
     /// toggle them on and off
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public Dictionary<Chromosome, bool> _activeChromosomes = new Dictionary<Chromosome, bool>
+    public Dictionary<Chromosome, bool> ActiveChromosomes = new Dictionary<Chromosome, bool>
     {
         { Chromosome.Camouflager, false },
         { Chromosome.Reinforcer, false },
@@ -83,7 +95,7 @@ public abstract partial class BaseGeneComponent : Component
     /// The person this Gene is currently stuck to
     /// Mostly used by Genes that use events or need to constantly access their master
     /// </summary>
-    protected EntityUid _host;
+    protected EntityUid Host;
 
     /// <summary>
     /// The name of our Gene. Gets set in GeneSystem.cs
@@ -95,7 +107,7 @@ public abstract partial class BaseGeneComponent : Component
 
     }
 
-    public enum GeneTier
+    public enum GeneTiers
     {
         Tier1 = 1,
         Tier2 = 2,
@@ -106,7 +118,7 @@ public abstract partial class BaseGeneComponent : Component
         TierAdmin = 7,
     }
 
-    public enum GeneGroup
+    public enum GeneGroups
     {
         None,
         Language,

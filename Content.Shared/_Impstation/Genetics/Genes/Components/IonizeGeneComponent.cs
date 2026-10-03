@@ -38,11 +38,14 @@ public partial class IonizeGeneComponent : BaseSetGeneComponent
     public bool PrevImmune = false;
 }
 
-[DataDefinition]
+[DataDefinition, NetSerializable, Serializable]
 public partial struct LightProfile
 {
+    [DataField]
     public float LightEnergy = 1;
+    [DataField]
     public Color LightColor = Color.White;
+    [DataField]
     public float Radius = 5;
 
     public LightProfile(float energy, Color color, float radius)

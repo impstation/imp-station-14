@@ -23,4 +23,12 @@ public abstract partial class BaseGeneEffect
     /// <param name="entity">The Entity suffering this effect</param>
     /// <param name="chromosomes">The related Chromosomes for the Effect to use</param>
     public virtual void ApplyGeneEffect(Entity<SharedGeneHostComponent> entity, Dictionary<Chromosome, bool> chromosomes) { _entityManager ??= IoCManager.Resolve<IEntityManager>(); }
+
+    /// <summary>
+    /// Handles removing the effect from the Entity
+    /// Good for if we have variables we need to unset, components to remove, etc.
+    /// </summary>
+    /// <param name="entity">The Entity suffering this effect</param>
+    /// <param name="chromosomes">The related Chromosomes the effect used</param>
+    public virtual void RemoveGeneEffect(Entity<SharedGeneHostComponent> entity, Dictionary<Chromosome, bool> chromosomes) { }
 }
