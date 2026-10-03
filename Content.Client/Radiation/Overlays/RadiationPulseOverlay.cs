@@ -8,6 +8,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.CCVar; // imp
+using Robust.Shared.Configuration; // imp
 
 namespace Content.Client.Radiation.Overlays
 {
@@ -18,6 +20,7 @@ namespace Content.Client.Radiation.Overlays
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly IConfigurationManager _configManager = default!; // imp
         private TransformSystem? _transform;
 
         private const float MaxDist = 15.0f;
@@ -36,13 +39,13 @@ namespace Content.Client.Radiation.Overlays
 
         protected override bool BeforeDraw(in OverlayDrawArgs args)
         {
-            RadiationQuery(args.Viewport.Eye);
+            RadiationQuery(args); // imp, changed args.Viewport.Eye to args
             return _pulses.Count > 0;
         }
 
         protected override void Draw(in OverlayDrawArgs args)
         {
-            if (ScreenTexture == null)
+            if (ScreenTexture == null || args.Viewport.Eye == null) // imp, added || args.Viewport.Eye == null
                 return;
 
             var worldHandle = args.WorldHandle;
@@ -53,45 +56,63 @@ namespace Content.Client.Radiation.Overlays
                 if (instance.CurrentMapCoords.MapId != args.MapId)
                     continue;
 
-                // To be clear, this needs to use "inside-viewport" pixels.
-                // In other words, specifically NOT IViewportControl.WorldToScreen (which uses outer coordinates).
-                var tempCoords = viewport.WorldToLocal(instance.CurrentMapCoords.Position);
-                tempCoords.Y = viewport.Size.Y - tempCoords.Y;
-                shd?.SetParameter("renderScale", viewport.RenderScale);
-                shd?.SetParameter("positionInput", tempCoords);
-                shd?.SetParameter("range", instance.Range);
+                // imp start
                 var life = (_gameTiming.RealTime - instance.Start).TotalSeconds / instance.Duration;
-                shd?.SetParameter("life", (float)life);
 
-                // There's probably a very good reason not to do this.
-                // Oh well!
-                shd?.SetParameter("SCREEN_TEXTURE", viewport.RenderTarget.Texture);
+                if (_configManager.GetCVar(ImpCCVars.EnableSimplifiedRadiationPulse))
+                {
+                    // mirroring what is done in the shader without all the noise
+                    var nlife = MathF.Pow(MathF.Sin((float)life * MathF.PI), 0.5f);
+                    var currentRadius = instance.Range * nlife;
 
-                worldHandle.UseShader(shd);
-                worldHandle.DrawRect(Box2.CenteredAround(instance.CurrentMapCoords.Position, new Vector2(instance.Range, instance.Range) * 2f), Color.White);
+                    worldHandle.DrawCircle(instance.CurrentMapCoords.Position, currentRadius, Color.LimeGreen.WithAlpha(nlife * 0.9f));
+                    worldHandle.DrawCircle(instance.CurrentMapCoords.Position, currentRadius, Color.LimeGreen.WithAlpha(nlife), false);
+                }
+                else // imp end
+                {
+                    // To be clear, this needs to use "inside-viewport" pixels.
+                    // In other words, specifically NOT IViewportControl.WorldToScreen (which uses outer coordinates).
+                    var tempCoords = viewport.WorldToLocal(instance.CurrentMapCoords.Position);
+                    tempCoords.Y = viewport.Size.Y - tempCoords.Y;
+                    shd?.SetParameter("renderScale", viewport.RenderScale * viewport.Eye.Scale); // imp, added * viewport.Eye.Scale
+                    shd?.SetParameter("positionInput", tempCoords);
+                    shd?.SetParameter("range", instance.Range);
+                    /* imp, moved out of the if else
+                    var life = (_gameTiming.RealTime - instance.Start).TotalSeconds / instance.Duration;
+                    */
+                    shd?.SetParameter("life", (float)life);
+                    // There's probably a very good reason not to do this.
+                    // Oh well!
+                    shd?.SetParameter("SCREEN_TEXTURE", viewport.RenderTarget.Texture);
+
+                    worldHandle.UseShader(shd);
+                    worldHandle.DrawRect(Box2.CenteredAround(instance.CurrentMapCoords.Position, new Vector2(instance.Range, instance.Range) * 2f), Color.White);
+                }
             }
 
             worldHandle.UseShader(null);
         }
 
         //Queries all pulses on the map and either adds or removes them from the list of rendered pulses based on whether they should be drawn (in range? on the same z-level/map? pulse entity still exists?)
-        private void RadiationQuery(IEye? currentEye)
+        private void RadiationQuery(in OverlayDrawArgs args) // imp, changed IEye? currentEye to in OverlayDrawArgs args
         {
             _transform ??= _entityManager.System<TransformSystem>();
 
-            if (currentEye == null)
+            if (args.Viewport.Eye == null) // imp, changed currentEye to args.Viewport.Eye
             {
                 _pulses.Clear();
                 return;
             }
 
+            /* imp removal
             var currentEyeLoc = currentEye.Position;
+            */
 
             var pulses = _entityManager.EntityQueryEnumerator<RadiationPulseComponent>();
             //Add all pulses that are not added yet but qualify
             while (pulses.MoveNext(out var pulseEntity, out var pulse))
             {
-                if (!_pulses.ContainsKey(pulseEntity) && PulseQualifies(pulseEntity, currentEyeLoc))
+                if (!_pulses.ContainsKey(pulseEntity) && PulseQualifies(pulseEntity, args.WorldAABB, args.MapId)) // imp, changed variables PulseQualifies takes in to match imp changes
                 {
                     _pulses.Add(
                             pulseEntity,
@@ -112,7 +133,7 @@ namespace Content.Client.Radiation.Overlays
             foreach (var pulseEntity in activeShaderIds) //Remove all pulses that are added and no longer qualify
             {
                 if (_entityManager.EntityExists(pulseEntity) &&
-                    PulseQualifies(pulseEntity, currentEyeLoc) &&
+                    PulseQualifies(pulseEntity, args.WorldAABB, args.MapId) && // imp, changed variables PulseQualifies takes in to match imp changes
                     _entityManager.TryGetComponent(pulseEntity, out RadiationPulseComponent? pulse))
                 {
                     var shaderInstance = _pulses[pulseEntity];
@@ -128,12 +149,22 @@ namespace Content.Client.Radiation.Overlays
 
         }
 
-        private bool PulseQualifies(EntityUid pulseEntity, MapCoordinates currentEyeLoc)
+        private bool PulseQualifies(EntityUid pulseEntity, Box2 worldAABB, MapId mapId) // imp, changed from MapCoordinates currentEyeLoc to Box2 worldAABB, MapId mapId
         {
             var transformComponent = _entityManager.GetComponent<TransformComponent>(pulseEntity);
             var transformSystem = _entityManager.System<SharedTransformSystem>();
+            /* imp removal, using SingularityOverlay logic instead
             return transformComponent.MapID == currentEyeLoc.MapId
                 && transformSystem.InRange(transformComponent.Coordinates, transformSystem.ToCoordinates(transformComponent.ParentUid, currentEyeLoc), MaxDist);
+            */
+
+            // imp start
+            if (transformComponent.MapID != mapId)
+                return false;
+
+            var mapPos = transformSystem.GetWorldPosition(transformComponent);
+            return (mapPos - worldAABB.ClosestPoint(mapPos)).LengthSquared() <= MaxDist * MaxDist;
+            // imp end
         }
 
         private sealed record RadiationShaderInstance(MapCoordinates CurrentMapCoords, float Range, TimeSpan Start, float Duration)
