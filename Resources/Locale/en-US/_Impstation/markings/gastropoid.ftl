@@ -39,6 +39,18 @@ marking-GastropoidSplashBody-splash = Splash
 marking-GastropoidGradientBody = Gradient
 marking-GastropoidGradientBody-gradient = Gradient
 
+marking-GastropoidBigTail = Big Tail
+marking-GastropoidBigTail-bigtail = Big Tail
+
+marking-GastropoidLongTail = Long Tail
+marking-GastropoidLongTail-longtail = Long Tail
+
+marking-GastropoidGrub = Grub Legs
+marking-GastropoidGrub-grub = Grub Legs
+
+marking-GastropoidLegs = Legs
+marking-GastropoidLegs-legs = Legs
+
 # Head
 
 marking-GastropoidAltHead = Lobster Face
@@ -85,6 +97,20 @@ marking-GastropoidAntennaColor-antennacolor = Colored Antennae
 
 marking-GastropoidFacePatch = Patch
 marking-GastropoidFacePatch-patch = Patch
+
+marking-GastropoidBigFace = Round Face
+marking-GastropoidBigFace-bigface = Face
+
+marking-GastropoidHat = Hat
+marking-GastropoidHat-hat1 = Hat
+marking-GastropoidHat-hat2 = Ears
+marking-GastropoidHat-hat3 = Hat Underside
+
+marking-GastropoidBunny = Bunny Ears
+marking-GastropoidBunny-bunny = Bunny Ears
+
+marking-GastropoidWhiskers = Whiskers
+marking-GastropoidWhiskers-whiskers = Whiskers
 
 # Snout
 
@@ -320,6 +346,15 @@ marking-ProstheticMulticolor-prostheticmulticolor2 = Plating 2
 marking-SmallFlowers = Flowers
 marking-SmallFlowers-smallflowers1 = Flowers 1
 marking-SmallFlowers-smallflowers2 = Flowers 2
+
+marking-GastropoidCape = Cape
+marking-GastropoidCape-cape1 = Base
+marking-GastropoidCape-cape2 = Feelers
+
+marking-GastropoidVeil = Veil
+marking-GastropoidVeil-veil = Base
+marking-GastropoidVeil-veilears = Ears
+marking-GastropoidVeil-veileyes = Eyes
 
 # RArmExtension
 
