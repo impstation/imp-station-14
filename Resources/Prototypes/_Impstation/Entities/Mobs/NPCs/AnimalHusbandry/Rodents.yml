@@ -1,0 +1,53 @@
+- type: entity
+  name: baby mouse
+  id: MobMouseBaby
+  parent: MobMouse
+  description: Eep!
+  components:
+  - type: ImpInfant
+    nextStage: MobMouse  
+  - type: Sprite
+    drawdepth: SmallMobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mouse
+      sprite: _Impstation/Mobs/Animals/babymouse.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mouse-moving
+    noMovementLayers:
+      movement:
+        state: mouse
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Mobs/Animals/babymouse.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mouse
+      Critical:
+        Base: dead
+      Dead:
+        Base: splat
+
+- type: entity
+  name: baby mouse
+  id: MobMouseBaby1
+  parent: MobMouseBaby
+  description: Eep!
+  components:
+  - type: ImpInfant
+    nextStage: MobMouse1
+
+- type: entity
+  name: baby mouse
+  id: MobMouseBaby2
+  parent: MobMouseBaby
+  description: Eep!
+  components:
+  - type: ImpInfant
+    nextStage: MobMouse2 
