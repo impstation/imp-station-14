@@ -113,9 +113,9 @@ public sealed partial class SupermatterSystem
 
         var co2powerloss = Math.Clamp(sm.GasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
         sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
-        var powerlossMoleScaling = sm.GasStorage.TotalMoles * (1f / 40f);
+        var powerlossMoleScaling = sm.GasStorage.TotalMoles * (1f / 20f);
 
-        // Ranges from 0~1(1 - (0~1 * (1 / 40)))
+        // Ranges from 0~1(1 - (0~1 * (1 / 20)))
         // We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor =
             Math.Clamp(1 - sm.PowerlossDynamicScaling * powerlossMoleScaling, 0f, 1f);
@@ -205,11 +205,12 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void SupermatterZap(EntityUid uid, SupermatterComponent sm)
     {
-        if (sm.Damage < sm.DamagePenaltyPoint || sm.Power < _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold))
+        if (sm.Damage < sm.DamagePenaltyPoint && sm.Power < _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold))
             return;
 
         var zapPower = 0;
         var zapCount = 0;
+        var zapArc = 0;
         var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
 
         if (_random.Prob(0.05f))
@@ -222,16 +223,18 @@ public sealed partial class SupermatterSystem
         {
             zapPower += 1;
             zapCount += 1;
+            zapArc += 1;
         }
 
         if (sm.Power >= _config.GetCVar(EECCVars.SupermatterCriticalPowerPenaltyThreshold))
         {
             zapPower += 1;
             zapCount += 1;
+            zapArc += 1;
         }
 
         if (zapCount >= 1)
-            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance, canExplode: false);
+            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], arcDepth: zapArc, hitCoordsChance: sm.ZapHitCoordinatesChance, canExplode: false);
     }
 
     /// <summary>
@@ -248,11 +251,11 @@ public sealed partial class SupermatterSystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        // Note that this is run every atmos device update which is around 0.57 seconds
-        // Random anomaly chances: ~1/6000 when active
+        // Note that this is run every atmos device update which depends on server settings, for Imp it is around 0.53 seconds, see AtmosphereProcessingState
+        // Random anomaly chances: ~1/7500 when active
         if (_random.Prob(1 / sm.AnomalyNaturalChance))
             anomalies++;
-        // Random anomaly chances: ~1/150 if damage penalty
+        // Random anomaly chances: ~1/350 if damage penalty
         if (sm.Damage > sm.DamagePenaltyPoint && _random.Prob(1 / sm.AnomalyDamagePenaltyChance))
             anomalies++;
         // Random anomaly chances: ~1/500 if power penalty
@@ -561,8 +564,6 @@ public sealed partial class SupermatterSystem
 
             SendSupermatterAnnouncement(uid, sm, message, global);
 
-            global = false;
-
             if (sm.Power >= _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold))
             {
                 message = Loc.GetString("supermatter-threshold-power");
@@ -667,6 +668,7 @@ public sealed partial class SupermatterSystem
         {
             sm.Delamming = true;
             sm.DelamEndTime = _timing.CurTime + TimeSpan.FromSeconds(sm.DelamTimer);
+            sm.PreferredDelamType = ChooseDelamType(uid, sm);
             AnnounceCoreDamage(uid, sm);
         }
 
