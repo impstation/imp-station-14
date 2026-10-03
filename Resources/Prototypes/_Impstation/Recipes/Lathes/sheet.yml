@@ -1,0 +1,6 @@
+- type: latheRecipe
+  id: SheetPaperEfficient # lemme know if we don't need this, I just thought it'd be nice to have the ore processor be more efficient. TODO: delete this comment once answered
+  result: SheetPaper1
+  completetime: 1
+  materials:
+    Wood: 25 # quarter of a plank for 1 sheet of paper (material)
