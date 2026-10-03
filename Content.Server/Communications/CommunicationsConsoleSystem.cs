@@ -155,6 +155,12 @@ namespace Content.Server.Communications
                                 levels.Add(id);
                             }
                         }
+
+                        // Imp start
+                        if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var level)
+                            && !level.Selectable)
+                            levels.Add(alertComp.CurrentLevel);
+                        // Imp end
                     }
 
                     currentLevel = alertComp.CurrentLevel;
