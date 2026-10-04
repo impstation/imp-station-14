@@ -248,6 +248,25 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkBulldogBundle
+  name: uplink-buldog-bundle-name
+  description: uplink-buldog-bundle-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon } #imp
+  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 12
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 #- type: listing #imp comment out, we have the basilisk
 #  id: UplinkEstoc
 #  name: uplink-estoc-name
@@ -285,25 +304,6 @@
 #3    whitelist:
 #      tags:
 #      - NukeOpsUplink
-
-- type: listing
-  id: UplinkBulldogBundle
-  name: uplink-buldog-bundle-name
-  description: uplink-buldog-bundle-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon } #imp
-  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 12
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkGrenadeLauncherBundle

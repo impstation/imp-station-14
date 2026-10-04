@@ -113,14 +113,6 @@
   id: LockerFillChemistry
   table: !type:AllSelector
     children:
-    - id: BoxSyringe
-    - id: BoxBeaker
-    - id: BoxBeaker
-      prob: 0.3
-    - id: BoxPillCanister
-    - id: BoxBottle
-    - id: BoxVial
-    # - id: PlasmaChemistryVial # imp
     - id: ClothingEyesGlassesChemical
     - id: ChemBag
     - id: Dropper
