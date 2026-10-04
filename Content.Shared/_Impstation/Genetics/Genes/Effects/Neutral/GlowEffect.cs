@@ -1,4 +1,5 @@
 using Content.Shared._Impstation.Genetics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,9 @@ namespace Content.Shared._Impstation.Genetics.Genes.Effects.Neutral;
 public sealed partial class GlowEffect : BaseGeneEffect
 {
     private SharedPointLightSystem _lightSystem;
+
+    [DataField("lightShader")]
+    public string ShaderProto = "GeneticsGlowOutline";
 
     /// <summary>
     /// The settings for the light that gets added to the entity
@@ -50,7 +54,6 @@ public sealed partial class GlowEffect : BaseGeneEffect
         _lightSystem.SetEnergy(entity.Owner, Light.LightEnergy);
         _lightSystem.SetColor(entity.Owner, Light.LightColor);
         _lightSystem.SetRadius(entity.Owner, Light.LightEnergy);
-
     }
 }
 

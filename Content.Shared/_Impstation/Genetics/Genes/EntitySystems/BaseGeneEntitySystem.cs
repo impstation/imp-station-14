@@ -19,6 +19,10 @@ public partial class BaseGeneEntitySystem : EntitySystem
 
     }
 
+    /// <summary>
+    /// Goes through the Positive, Neutral & Negative effect Hashes to apply their effects
+    /// </summary>
+    /// <param name="entity">The entity suffering the effects</param>
     public virtual void ApplyEffects(Entity<BaseGeneComponent> entity)
     {
         if (!TryComp<SharedGeneHostComponent>(entity.Owner, out var host))
@@ -32,6 +36,26 @@ public partial class BaseGeneEntitySystem : EntitySystem
         foreach (BaseGeneEffect effect in entity.Comp.PositiveEffects)
         {
             effect.ApplyGeneEffect((entity.Owner, host), entity.Comp.ActiveChromosomes);
+        }
+    }
+
+    /// <summary>
+    /// Goes through the Positive, Neutral & Negative effect Hashes to remove their effects
+    /// </summary>
+    /// <param name="entity">The entity being freed of the effects</param>
+    public virtual void RemoveEffects(Entity<BaseGeneComponent> entity)
+    {
+        if (!TryComp<SharedGeneHostComponent>(entity.Owner, out var host))
+            return;
+
+        foreach (BaseGeneEffect effect in entity.Comp.NeutralEffects)
+        {
+            effect.RemoveGeneEffect((entity.Owner, host), entity.Comp.ActiveChromosomes);
+        }
+
+        foreach (BaseGeneEffect effect in entity.Comp.PositiveEffects)
+        {
+            effect.RemoveGeneEffect((entity.Owner, host), entity.Comp.ActiveChromosomes);
         }
     }
 }

@@ -38,5 +38,5 @@ public abstract partial class BaseGeneEffect
     /// </summary>
     /// <param name="ent"></param>
     /// <param name="effect"></param>
-    public virtual void ProcessMultiEffects(EntityUid ent, string effect) { }
+    public virtual bool ProcessMultiEffects(EntityUid ent, string effect) { return false; }
 }

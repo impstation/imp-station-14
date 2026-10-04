@@ -29,6 +29,8 @@ public sealed partial class GeneSystem : SharedGeneSystem
 
         data.StoredEffects[effectName].Add(effect);
 
+        ProcessEffects((ent, data), effectName);
+
         return true;
     }
 
@@ -52,13 +54,25 @@ public sealed partial class GeneSystem : SharedGeneSystem
 
         data.StoredEffects[effectName].Remove(effect);
 
-        // If there are no registered effects then remove the Hashset
+        // If there are no registered effects then remove the Hashset, otherwise update the
+        // effects that are still attached
         if (data.StoredEffects[effectName].Count <= 0)
             data.StoredEffects.Remove(effectName);
+        else
+            ProcessEffects((ent, data), effectName);
 
         return true;
     }
 
+    /// <summary>
+    /// Runs through all the Genes in a given hash and gets the first to recalculate
+    /// the attached effect.
+    ///
+    /// This only TRIES running through all if the first gene for whatever reason cannot
+    /// calculate. If it can, then the loop ends.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="hash"></param>
     public void ProcessEffects(Entity<GeneEffectDataHostComponent> ent, string hash)
     {
         if (!ent.Comp.StoredEffects.ContainsKey(hash))
@@ -66,7 +80,19 @@ public sealed partial class GeneSystem : SharedGeneSystem
 
         foreach (BaseGeneEffect effect in ent.Comp.StoredEffects[hash])
         {
-
+            if (effect.ProcessMultiEffects(ent.Owner, hash))
+                return;
         }
+    }
+
+    /// <summary>
+    /// Gets a particular hash of effects from an entity
+    /// </summary>
+    /// <param name="ent">The entity getting its effects collected</param>
+    /// <param name="hash">The particular hash being requested</param>
+    /// <returns>The hashset if it can be found, else it will return a new <see cref="HashSet<BasegeneEffect>"></returns>
+    public HashSet<BaseGeneEffect> TryGetGeneHash(Entity<GeneEffectDataHostComponent> ent, string hash)
+    {
+        return ent.Comp.StoredEffects.ContainsKey(hash) ? ent.Comp.StoredEffects[hash] : new HashSet<BaseGeneEffect>();
     }
 }
