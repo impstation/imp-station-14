@@ -140,7 +140,6 @@
   - type: HideLayerClothing
     slots:
     - SnoutCover
-  #construction graph comp here also
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -155,7 +154,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/black.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/black.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskBlack
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -170,7 +171,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/blue.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/blue.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskBlue
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -185,7 +188,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/green.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/green.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskGreen
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -200,7 +205,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/mime.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/mime.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskMime
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -215,7 +222,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/orange.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/orange.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskOrange
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -230,7 +239,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/purple.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/purple.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskPurple
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -245,7 +256,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/rainbow.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/rainbow.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskRainbow
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -260,7 +273,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/red.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/red.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskRed
 
 - type: entity
   parent: ClothingMaskPaperBase
@@ -275,7 +290,9 @@
     sprite: _Impstation/Clothing/Mask/PaperMasks/white.rsi
   - type: Item
     sprite: _Impstation/Clothing/Mask/PaperMasks/white.rsi
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskWhite
 
 - type: entity
   parent: ClothingHeadBase
@@ -292,4 +309,6 @@
     tags:
     - WhitelistChameleon
     - Paper
-  #construction graph comp here also
+  - type: Construction
+    graph: ColoredPaper
+    node: maskYellow

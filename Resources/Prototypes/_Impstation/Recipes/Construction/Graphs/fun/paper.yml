@@ -1,0 +1,249 @@
+﻿- type: constructionGraph
+  id: ColoredPaper
+  start: start
+  graph:
+  - node: start
+    edges:
+
+    - to: paperRed
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonRed
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-red-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: red
+
+    - to: paperBlack
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonBlack
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-black-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: black
+
+    - to: paperBlue
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonBlue
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-blue-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: blue
+
+    - to: paperGreen
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonGreen
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-green-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: green
+
+    - to: paperMime
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonMime
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-mime-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: mime
+
+    - to: paperOrange
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonOrange
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-orange-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: orange
+
+    - to: paperPurple
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonPurple
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-purple-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: purple
+
+    - to: paperWhite
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonWhite
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-white-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: white
+
+    - to: paperYellow
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonYellow
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-yellow-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: yellow
+
+  - node: paperRed
+    entity: PaperDyedRed
+    edges:
+    - to: maskRed
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperBlack
+    entity: PaperDyedBlack
+    edges:
+    - to: maskBlack
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperBlue
+    entity: PaperDyedBlue
+    edges:
+    - to: maskBlue
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperGreen
+    entity: PaperDyedGreen
+    edges:
+    - to: maskGreen
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperMime
+    entity: PaperDyedRed
+    edges:
+    - to: maskMime
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperOrange
+    entity: PaperDyedOrange
+    edges:
+    - to: maskOrange
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperPurple
+    entity: PaperDyedPurple
+    edges:
+    - to: maskPurple
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperWhite
+    entity: PaperDyedWhite
+    edges:
+    - to: maskWhite
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperYellow
+    entity: PaperDyedYellow
+    edges:
+    - to: maskYellow
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: maskRed
+    entity: ClothingMaskPaperRed
+
+  - node: maskBlack
+    entity: ClothingMaskPaperBlack
+
+  - node: maskBlue
+    entity: ClothingMaskPaperBlue
+
+  - node: maskGreen
+    entity: ClothingMaskPaperGreen
+
+  - node: maskMime
+    entity: ClothingMaskPaperMime
+
+  - node: maskOrange
+    entity: ClothingMaskPaperOrange
+
+  - node: maskPurple
+    entity: ClothingMaskPaperPurple
+
+  - node: maskWhie
+    entity: ClothingMaskPaperWhite
+
+  - node: maskYellow
+    entity: ClothingMaskPaperYellow
