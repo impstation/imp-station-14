@@ -182,7 +182,7 @@
         doAfter: 5
 
   - node: paperMime
-    entity: PaperDyedRed
+    entity: PaperDyedWhite
     edges:
     - to: maskMime
       steps:
@@ -242,8 +242,8 @@
   - node: maskPurple
     entity: ClothingMaskPaperPurple
 
-  - node: maskWhie
+  - node: maskWhite
     entity: ClothingMaskPaperWhite
 
   - node: maskYellow
-    entity: ClothingMaskPaperYellow
+    entity: ClothingHeadHatPaperYellow
