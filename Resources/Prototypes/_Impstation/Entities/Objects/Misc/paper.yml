@@ -210,3 +210,26 @@
         - id: PaperDyedPurple
         - id: PaperDyedTan
         - id: PaperDyedBrown
+
+- type: entity
+  parent: Paper
+  id: PaperDyedWhite
+  description: Wait, isn't paper already usually white?
+  suffix: pink
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#ffffff"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#ffffff"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundModulate: "#ffffff"
+  - type: PaperLabelType
+    paperType: PaperDyedWhite
