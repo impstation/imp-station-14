@@ -219,6 +219,78 @@
     graph: Wallpaper
     node: WallpaperSkaCorner
 
+- type: entity
+  id: WallpaperCreepyEyes
+  parent: BaseWallpaper
+  name: eyeball wallpaper
+  description: It's watching you...
+  components:
+  - type: Sprite
+    state: wallpaper_creepyeyes
+  - type: Construction
+    graph: Wallpaper
+    node: WallpaperCreepyEyes
+
+- type: entity
+  id: WallpaperCreepyEyesCorner
+  parent: WallpaperCreepyEyes
+  name: eyeball wallpaper
+  suffix: corner
+  components:
+  - type: Sprite
+    state: wallpaper_creepyeyes_edge
+  - type: Construction
+    graph: Wallpaper
+    node: WallpaperCreepyEyesCorner
+
+- type: entity
+  id: WallpaperGraveyard
+  parent: BaseWallpaper
+  name: graveyard wallpaper
+  description: To die for.
+  components:
+  - type: Sprite
+    state: wallpaper_graveyard
+  - type: Construction
+    graph: Wallpaper
+    node: WallpaperGraveyard
+
+- type: entity
+  id: WallpaperGraveyardCorner
+  parent: WallpaperGraveyard
+  name: graveyard wallpaper
+  description: To die for.
+  components:
+  - type: Sprite
+    state: wallpaper_graveyard_edge
+  - type: Construction
+    graph: Wallpaper
+    node: WallpaperGraveyardCorner
+
+- type: entity
+  id: WallpaperPumpkin
+  parent: BaseWallpaper
+  name: pumpkin wallpaper
+  description: Festive.
+  components:
+  - type: Sprite
+    state: wallpaper_pumpkin
+  - type: Construction
+    graph: Wallpaper
+    node: WallpaperPumpkin
+
+- type: entity
+  id: WallpaperPumpkinCorner
+  parent: WallpaperPumpkin
+  name: pumpkin wallpaper
+  description: Festive.
+  components:
+  - type: Sprite
+    state: wallpaper_pumpkin_edge
+  - type: Construction
+    graph: Wallpaper
+    node: WallpaperPumpkinCorner
+
 # wall deco
 
 - type: entity
@@ -311,6 +383,42 @@
   - type: Construction
     graph: WallDeco
     node: WallpaperBannerSka
+
+- type: entity
+  id: WallpaperBannerGhost
+  parent: BaseBannerEngraveable
+  name: ghost banner
+  description: Wait, did it just move?
+  components:
+  - type: Sprite
+    state: banner_ghost
+  - type: Construction
+    graph: WallDeco
+    node: WallpaperBannerGhost
+
+- type: entity
+  id: WallpaperBannerPumpkin
+  parent: BaseBannerEngraveable
+  name: pumpkin banner
+  description: It looks kinda tasty...
+  components:
+  - type: Sprite
+    state: banner_pumpkin
+  - type: Construction
+    graph: WallDeco
+    node: WallpaperBannerPumpkin
+
+- type: entity
+  id: WallpaperBannerSkeleton
+  parent: BaseBannerEngraveable
+  name: skeleton banner
+  description: Ack ack!
+  components:
+  - type: Sprite
+    state: banner_skeleton
+  - type: Construction
+    graph: WallDeco
+    node: WallpaperBannerSkeleton
 
 - type: entity
   id: WallpaperStarsBig

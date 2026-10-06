@@ -1,0 +1,32 @@
+﻿- type: constructionGraph
+  id: MannequinSkeleton
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: mannequin
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Plastic
+              amount: 10
+            - material: MetalRod
+              amount: 2
+              doAfter: 2
+    - node: mannequin
+      entity: MannequinSkeleton
+      edges:
+        - to: start
+          completed:
+            - !type:EmptyAllContainers
+            - !type:SpawnPrototype
+              prototype: SheetPlastic
+              amount: 10
+            - !type:SpawnPrototype
+              prototype: PartRodMetal
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 3

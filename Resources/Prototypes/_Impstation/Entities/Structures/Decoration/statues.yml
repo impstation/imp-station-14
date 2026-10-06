@@ -23,3 +23,44 @@
     state: reapercolumn
     drawdepth: Mobs
     offset: "0.0,0.5"
+
+# a mannequin is a type of statue
+- type: entity
+  id: MannequinSkeleton
+  parent: Mannequin
+  name: plastic skeleton
+  description: Oh fuck is that a- Oh it's just plastic. Haha.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Decoration/plasticskeleton.rsi
+    state: plasticskeleton
+    noRot: true
+    layers:
+    - map: [ "mannequin" ]
+      sprite: _Impstation/Structures/Decoration/plasticskeleton.rsi
+      state: plasticskeleton
+    - map: [ "jumpsuit" ]
+    - map: [ "outerClothing" ]
+    - map: [ "eyes" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+  - type: Construction
+    graph: MannequinSkeleton
+    node: mannequin
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

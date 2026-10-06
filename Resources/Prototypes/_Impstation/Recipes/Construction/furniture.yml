@@ -212,6 +212,66 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
 
+- type: construction
+  id: WallpaperCreepyEyes
+  graph: Wallpaper
+  startNode: start
+  targetNode: WallpaperCreepyEyes
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: WallpaperCreepyEyesCorner
+  graph: Wallpaper
+  startNode: start
+  targetNode: WallpaperCreepyEyesCorner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: WallpaperGraveyard
+  graph: Wallpaper
+  startNode: start
+  targetNode: WallpaperGraveyard
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: WallpaperGraveyardCorner
+  graph: Wallpaper
+  startNode: start
+  targetNode: WallpaperGraveyardCorner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: WallpaperPumpkin
+  graph: Wallpaper
+  startNode: start
+  targetNode: WallpaperPumpkin
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: WallpaperPumpkinCorner
+  graph: Wallpaper
+  startNode: start
+  targetNode: WallpaperPumpkinCorner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
 # wall deco
 
 - type: construction
@@ -265,6 +325,36 @@
   canBuildInImpassable: true
 
 - type: construction
+  id: WallpaperBannerGhost
+  graph: WallDeco
+  startNode: start
+  targetNode: WallpaperBannerGhost
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: WallpaperBannerPumpkin
+  graph: WallDeco
+  startNode: start
+  targetNode: WallpaperBannerPumpkin
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: WallpaperBannerSkeleton
+  graph: WallDeco
+  startNode: start
+  targetNode: WallpaperBannerSkeleton
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
   id: WallpaperStarsBig
   graph: WallDeco
   startNode: start
@@ -293,3 +383,16 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+
+- type: construction
+  id: MannequinSkeleton
+  graph: MannequinSkeleton
+  startNode: start
+  targetNode: mannequin
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
