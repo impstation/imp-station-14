@@ -368,3 +368,25 @@
       max: 10
     emptyTilesOnly: true
     announcement: station-event-explosive-mine-resurfacing-announcement
+
+- type: entity
+  id: LocalizedRadiationStorm
+  parent: BaseStationEventLongDelay
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 20
+    reoccurrenceDelay: 30
+    duration: 450 # 7.5 minutes
+    minimumPlayers: 20
+  - type: LocalizedContinuousSpawnRule
+    table:
+      id: SmallRadiationPulse
+    radius:
+      min: 10
+      max: 15
+    timeBetweenSpawn:
+      min: 0
+      max: 2
+    nearestNavBeaconAnnouncement: station-event-localized-radiation-storm-announcement
+    nearestNavBeaconEndAnnouncement: station-event-localized-radiation-storm-complete-announcement

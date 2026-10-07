@@ -1,5 +1,6 @@
 using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared.Atmos;
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
 using Content.Shared.Radio;
@@ -67,12 +68,21 @@ public sealed partial class SupermatterComponent : Component
 
     #region Prototypes
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId[] LightningPrototypes =
     {
         "SupermatterLightning",
         "SupermatterLightningCharged",
         "SupermatterLightningSupercharged"
+    };
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntProtoId[] RadiationPulsePrototypes =
+    {
+        "SupermatterRadiationPulseSmall",
+        "SupermatterRadiationPulseMedium",
+        "SupermatterRadiationPulseLarge",
+        "SupermatterRadiationPulseExtraLarge"
     };
 
     [DataField]
@@ -316,6 +326,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public TimeSpan ZapLast;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan RadiationPulseLast;
+
+    [DataField]
+    public MinMax RadiationPulseCooldown = new(10, 15);
 
     #endregion
 

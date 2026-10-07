@@ -35,6 +35,12 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<bool> EnableBiomagneticPolarizationSymbols =
         CVarDef.Create("accessibility.enable_biomagnetic_polarization_symbols", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// </summary>
+    /// Makes the radiation pulse visual effect into a flatter transparent green circle.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableSimplifiedRadiationPulse =
+        CVarDef.Create("accessibility.enable_simplified_radiation_pulse", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// <summary>
     /// The number of shared moods to give thaven by default.
     /// </summary>
