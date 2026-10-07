@@ -131,3 +131,14 @@
     prototypes:
     - LandMineExplosive
     - LandMineNonExplosive
+
+- type: entity
+  parent: MarkerBase
+  id: ExplosiveMineResurgenceSpawner
+  name: Explosive Mine Resurgence Spawner
+  components:
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: LandmineOrDudRareGibSpawner
+      - id: EffectDesynchronizerExit
