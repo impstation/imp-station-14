@@ -35,6 +35,7 @@ using Content.Shared._Impstation.SalvoHud; // imp edit
 using Content.Shared.Examine; // imp
 using Content.Shared.Heretic; // goob edit
 using Content.Shared.Mobs; // EE edit
+using Content.Shared._EE.Movement.Events;//EE edit
 
 namespace Content.Shared.Inventory;
 
@@ -67,6 +68,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, DownedEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, CheckMagicItemEvent>(RelayInventoryEvent); // goob edit
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerVoiceEvent>(RelayInventoryEvent); // impstation edit
+        SubscribeLocalEvent<InventoryComponent, MakeFootstepSoundEvent>(RelayInventoryEvent);// EE edit
 
         // by-ref events
         SubscribeLocalEvent<InventoryComponent, RefreshFrictionModifiersEvent>(RefRelayInventoryEvent);
