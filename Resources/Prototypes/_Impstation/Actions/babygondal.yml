@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseImplantAction
+  id: ActionGondal
+  name: Sing
+  description: Sing your heart out!
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 100
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _Impstation/Interface/Actions/gondal.rsi
+      state: lilgondal
