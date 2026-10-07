@@ -13,3 +13,4 @@ immovable-rod-penetrated-mob-hollowbarrel = {CAPITALIZE(THE($mob))} died with no
 immovable-rod-penetrated-mob-baguette = {CAPITALIZE(THE($mob))} a été réduit en purée.
 immovable-rod-penetrated-mob-whiteboy = {CAPITALIZE(THE($mob))} got creamed!
 immovable-rod-penetrated-mob-uncle = {CAPITALIZE(THE($mob))} has been helped by uncle.
+immovable-rod-penetrated-mob-chinesefork = {CAPITALIZE(THE($mob))} has been sent to China!
