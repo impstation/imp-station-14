@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Cute ears by normalgirl2171 for impstation.",
+    "copyright": "Cute ears by normalgirl2171 for impstation. Fathead and Fatterhead by CrystalClover for impstation.",
 
     "size": {
         "x": 32,
@@ -10,6 +10,14 @@
     "states": [
         {
             "name": "cute",
+            "directions": 4
+        },
+        {
+            "name": "fathead",
+            "directions": 4
+        },
+        {
+            "name": "fatterhead",
             "directions": 4
         }
     ]
