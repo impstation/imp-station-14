@@ -1,6 +1,21 @@
 ﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
 
 - type: listing
+  id: UplinkGoateeImplanter
+  name: uplink-goatee-implanter-name
+  description: uplink-goatee-implanter-desc
+  productEntity: GoateeImplanter
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:BuyerSpeciesCondition
+    makeHidden: true
+    whitelist:
+    - Thaven
+
+- type: listing
   id: UplinkGayImplanter
   name: uplink-gay-implanter-name
   description: uplink-gay-implanter-desc
