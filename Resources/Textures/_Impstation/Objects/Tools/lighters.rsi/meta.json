@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "sprites by RosySaturniidae and AftrLite, inhands by JustAnOrange and edited by RosySaturniidae",
+    "copyright": "sprites by RosySaturniidae and AftrLite, inhands by JustAnOrange and edited by RosySaturniidae, draculighter sprites by evilscientist3",
     "size": {
         "x": 32,
         "y": 32
@@ -18,6 +18,15 @@
         },
         {
             "name": "flame-green",
+            "delays": [
+                [
+                    0.2,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "draculighter_flame",
             "delays": [
                 [
                     0.2,
@@ -96,6 +105,12 @@
         {
             "name": "syndie-inhand-left-lit",
             "directions": 4
+        },
+        {
+            "name": "draculighter_icon_base"
+        },
+        {
+            "name": "draculighter_open"
         }
     ]
 }
