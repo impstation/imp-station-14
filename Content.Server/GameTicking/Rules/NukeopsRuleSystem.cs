@@ -472,7 +472,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             if (TryComp<RuleGridsComponent>(uid, out var grids) && Transform(ev.DeclaratorEntity).MapID != grids.Map)
                 continue;
 
-            var newStatus = GetWarCondition(nukeops, ev.Status);
+            var newStatus = GetWarCondition(nukeops, ev.Status, ev.DeclaratorEntity.Comp.IgnorePopCheck); // Imp Edit: ignorePopCheck
             ev.Status = newStatus;
             if (newStatus == WarConditionStatus.WarReady)
             {
@@ -480,7 +480,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 var timeRemain = nukeops.WarNukieArriveDelay + Timing.CurTime;
                 ev.DeclaratorEntity.Comp.ShuttleDisabledTime = timeRemain;
 
-                DistributeExtraTc((uid, nukeops));
+                DistributeExtraTc((uid, nukeops), ev.DeclaratorEntity.Comp.GiftedTC); // Imp edit, added GiftedTC
             }
         }
     }
@@ -490,12 +490,12 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     /// <summary>
     ///     Returns conditions for war declaration
     /// </summary>
-    public WarConditionStatus GetWarCondition(NukeopsRuleComponent nukieRule, WarConditionStatus? oldStatus)
+    public WarConditionStatus GetWarCondition(NukeopsRuleComponent nukieRule, WarConditionStatus? oldStatus, bool ignorePopCheck = false) // Imp Edit: ignorePopCheck
     {
         if (!nukieRule.CanEnableWarOps)
             return WarConditionStatus.NoWarUnknown;
 
-        if (EntityQuery<NukeopsRoleComponent>().Count() < nukieRule.WarDeclarationMinOps)
+        if (EntityQuery<NukeopsRoleComponent>().Count() < nukieRule.WarDeclarationMinOps && !ignorePopCheck) // Imp Edit: ignorePopCheck
             return WarConditionStatus.NoWarSmallCrew;
 
         if (nukieRule.LeftOutpost)
@@ -507,7 +507,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         return WarConditionStatus.YesWar;
     }
 
-    private void DistributeExtraTc(Entity<NukeopsRuleComponent> nukieRule)
+    private void DistributeExtraTc(Entity<NukeopsRuleComponent> nukieRule, int bonusTC) // Imp edit, added GiftedTC
     {
         var enumerator = EntityQueryEnumerator<StoreComponent>();
         while (enumerator.MoveNext(out var uid, out var component))
@@ -521,7 +521,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             if (Transform(uid).MapID != Transform(outpost).MapID) // Will receive bonus TC only on their start outpost
                 continue;
 
-            _store.TryAddCurrency(new() { { TelecrystalCurrencyPrototype, nukieRule.Comp.WarTcAmountPerNukie } }, uid, component);
+            _store.TryAddCurrency(new() { { TelecrystalCurrencyPrototype, bonusTC } }, uid, component);
 
             var msg = Loc.GetString("store-currency-war-boost-given", ("target", uid));
             _popupSystem.PopupEntity(msg, uid);
