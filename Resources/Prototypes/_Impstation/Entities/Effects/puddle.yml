@@ -10,3 +10,16 @@
         reagents:
         - ReagentId: Water
           Quantity: 40
+
+- type: entity
+  id: PuddlePlasma
+  parent: PuddleTemporary
+  suffix: Water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 100
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 40
