@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by ATDoop (github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wingrobe",
+            "directions": 4
+        },
+        {
+            "name": "wingrobe_front",
+            "directions": 4
+        },
+        {
+            "name": "wingrobe_behind",
+            "directions": 4
+        }
+    ]
+}
