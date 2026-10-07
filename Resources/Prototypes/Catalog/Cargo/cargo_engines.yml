@@ -51,7 +51,7 @@
 - type: cargoProduct
   id: EngineParticleAccelerator
   icon:
-    sprite: Structures/Power/Generation/PA/control_box.rsi
+    sprite: _Impstation/Structures/Power/Generation/PA/control_box.rsi # imp
     state: completed
   product: CrateEngineeringParticleAccelerator
   cost: 2000

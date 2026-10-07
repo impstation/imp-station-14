@@ -55,7 +55,7 @@
   id: ParticleAccelerator
   name: steal-target-groups-particleaccelerator
   sprite:
-    sprite: Structures/Power/Generation/PA/control_box.rsi
+    sprite: _Impstation/Structures/Power/Generation/PA/control_box.rsi # imp
     state: unwired
 
 - type: stealTargetGroup
