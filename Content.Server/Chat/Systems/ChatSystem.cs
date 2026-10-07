@@ -327,12 +327,18 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
-        )
+        Color? colorOverride = null,
+        bool useDefaultFormatting = true) //imp
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
-        var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
+        var wrappedMessage = "";
+        if (useDefaultFormatting)//imp
+            wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message",
+                ("sender", sender),
+                ("message", FormattedMessage.EscapeText(message)));
+        else
+            wrappedMessage = sender+message;
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (announcementSound != null && playSound) //imp. gutted default announcement sounds, announcersystem handles them now.
         {
@@ -349,11 +355,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool useDefaultFormatting = true)//imp
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
-        var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
+        var wrappedMessage = "";
+        if (useDefaultFormatting)//imp
+            wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message",
+                ("sender", sender),
+                ("message", FormattedMessage.EscapeText(message)));
+        else
+            wrappedMessage = sender+message;
+
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
         if (announcementSound != null && playSound) //imp. gutted default announcement sounds, announcersystem handles them now.
         {
@@ -369,11 +383,18 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         // bool playDefaultSound = true, // imp, gutted default announcement sounds, announcersystem handles them now.
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool useDefaultFormatting = true)//imp
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
-        var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
+        var wrappedMessage = "";
+        if (useDefaultFormatting)//imp
+            wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message",
+                ("sender", sender),
+                ("message", FormattedMessage.EscapeText(message)));
+        else
+            wrappedMessage = sender+message;
         var station = _stationSystem.GetOwningStation(source);
 
         if (station == null)
