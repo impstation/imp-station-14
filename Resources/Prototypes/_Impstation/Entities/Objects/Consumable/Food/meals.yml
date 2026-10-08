@@ -164,6 +164,10 @@
   id: FoodChaLua
   description: Also known as Vietnamese Bologna.
   components:
+    - type: Tag
+      tags: 
+      - Raw
+      - Meat
     - type: FlavorProfile
       flavors: meaty
     - type: Sprite
@@ -203,6 +207,7 @@
   - type: Tag
     tags:
     - Raw
+    - Meat
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
     state: cha-lua-slice
@@ -227,7 +232,7 @@
     node: cooked cha lua slice
 
 - type: entity
-  name: cha lua slice
+  name: cooked cha lua slice
   parent: FoodMealBase
   id: FoodCookedChaLuaSlice
   description: A grilled slice of cha lua. Yum!
@@ -235,9 +240,11 @@
   - type: Tag
     tags:
     - Cooked
+    - Cutlet
+    - Meat
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
-    state: chalua-cooked
+    state: cha-lua-slice-cooked
     color: white
   - type: SolutionContainerManager
     solutions:
