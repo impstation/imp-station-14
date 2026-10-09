@@ -10,3 +10,30 @@
         reagents:
         - ReagentId: Water
           Quantity: 40
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleDriedZombieBlood
+  suffix: Dried Zombie Blood (30u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: DriedZombieBlood
+          Quantity: 30
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleDriedZombieBloodSmall
+  suffix: Dried Zombie Blood (5u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: DriedZombieBlood
+          Quantity: 5
+          

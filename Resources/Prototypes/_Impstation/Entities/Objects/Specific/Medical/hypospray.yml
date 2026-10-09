@@ -159,3 +159,17 @@
     tags:
       - Trash
       - EmergencyMedipen
+
+- type: entity
+  name: used romerol micro-injector
+  description: A rapid and unsafe way to stabilize patients in critical condition by turning them into a zombie. This one's been used.
+  id: RomerolMicroInjectorUsed
+  parent: RomerolMicroInjector
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 1
