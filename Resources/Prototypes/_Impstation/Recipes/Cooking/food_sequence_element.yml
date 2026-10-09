@@ -360,3 +360,12 @@
   sprites:
   - sprite: _Impstation/Objects/Consumable/Food/hotdog.rsi
     state: hotdog_plain
+
+# VIETNAM
+
+- type: foodSequenceElement
+  id: ChaLuaSlice
+  name: food-sequence-burger-content-cha-lua-slice
+  sprites:
+  - sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
+    state: cha-lua-slice-cooked

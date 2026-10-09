@@ -164,19 +164,26 @@
   id: FoodChaLua
   description: Also known as Vietnamese Bologna.
   components:
-    - type: Tag
-      tags: 
-      - Raw
-      - Meat
-    - type: FlavorProfile
-      flavors: meaty
-    - type: Sprite
-      sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
-      state: cha-lua-whole
-    - type: SolutionContainerManager
-      solutions:
-        food:
-        maxvol: 48
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    ignoreReagents:
+    - TableSalt
+    - UncookedAnimalProteins
+    - Allicin
+    - Nutriment
+    - Vitamin
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
+    state: cha-lua-whole
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 48
         reagents:
         - ReagentId: TableSalt
           Quantity: 10
@@ -188,15 +195,20 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
-    - type: SliceableFood
-      count: 3
-      slice: FoodChaLuaSlice
-    - type: InternalTemperature
-      conductivity: 0.41
-    - type: Construction
-      graph: CookedChaLuaLog
-      node: start
-      defaultTarget: cookedchalualog
+  - type: AtmosExposed
+  - type: Temperature
+    currentTemperature: 290
+  - type: TemperatureDamage
+  - type: InternalTemperature
+    thickness: 0.02
+    area: 0.02
+  - type: SliceableFood
+    count: 3
+    slice: FoodChaLuaSlice
+  - type: Construction
+    graph: CookedChaLuaLog
+    node: start
+    defaultTarget: cooked cha lua
 
 - type: entity
   name: cha lua slice
@@ -211,11 +223,10 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
     state: cha-lua-slice
-    color: white
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 12
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3.33
@@ -227,9 +238,6 @@
           Quantity: 1
         - ReagentId: TableSalt
           Quantity: 3.33
-  - type: Construction
-    graph: ChaluaSlice
-    node: cooked cha lua slice
 
 - type: entity
   name: cooked cha lua slice
@@ -245,11 +253,10 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/vietnam.rsi
     state: cha-lua-slice-cooked
-    color: white
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 12
         reagents:
         - ReagentId: Protein
           Quantity: 3.33
@@ -284,7 +291,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 50
         reagents:
         - ReagentId: TableSalt
           Quantity: 10
@@ -299,9 +306,6 @@
   - type: SliceableFood
     count: 3
     slice: FoodCookedChaLuaSlice
-  - type: Construction
-    graph: CookedChaLua
-    node: cooked cha lua
 
 
 # pompom foods

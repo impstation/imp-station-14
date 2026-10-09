@@ -46,3 +46,20 @@
 
   - node: crispy kodepiia flakes
     entity: FoodMeatKodepiiaCooked
+
+# vietnam numba. i dont know. i cant count
+
+- type: constructionGraph
+  id: CookedChaLuaLog
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cooked cha lua
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 335
+  - node: cooked cha lua
+    entity: FoodCookedChaLua
