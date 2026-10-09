@@ -233,3 +233,58 @@
     backgroundModulate: "#ffffff"
   - type: PaperLabelType
     paperType: PaperDyedWhite
+  - type: Construction
+    graph: ColoredPaper
+    node: paperWhite
+
+- type: entity
+  parent: Paper
+  id: PaperDyedRainbow
+  description: This isn't a rainbow, you've been duped by a placeholder.
+  suffix: rainbow
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#e670b5"
+    - state: paper_words
+      map: [ "enum.PaperVisualLayers.Writing" ]
+      color: "#e670b5"
+      visible: false
+    - state: paper_stamp-generic
+      map: [ "enum.PaperVisualLayers.Stamp" ]
+      visible: false
+  - type: PaperVisuals
+    backgroundModulate: "#eb87c0"
+  - type: PaperLabelType
+    paperType: PaperDyedRainbow
+  - type: Construction
+    graph: ColoredPaper
+    node: paperRainbow
+
+- type: entity
+  parent: Paper
+  id: PaperDyedMime
+  description: Hm. This paper seems indistinct from other white papers. Maybe it'll be different some day.
+  suffix: mime
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#ffffff"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#ffffff"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundModulate: "#ffffff"
+  - type: PaperLabelType
+    paperType: PaperDyedMime
+  - type: Construction
+    graph: ColoredPaper
+    node: paperMime

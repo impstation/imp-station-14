@@ -133,6 +133,38 @@
           sprite: Objects/Fun/crayons.rsi
           state: yellow
 
+    - to: paperRainbow
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonRainbow
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-rainbow-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: rainbow
+
+    - to: paperMime
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+      - tag: CrayonMime
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-rainbow-mime
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: mime
+
   - node: paperRed
     entity: PaperDyedRed
     edges:
@@ -172,17 +204,6 @@
       steps:
       - tool: Slicing
         doAfter: 5
-    - to: maskClown
-      steps:
-      - tag: CrayonRed
-        amount: 1
-        doAfter: 1
-        name: construction-graph-tag-red-crayon
-        icon:
-          sprite: Objects/Fun/crayons.rsi
-          state: red
-      - tool: Slicing
-        doAfter: 5
 
   - node: paperPurple
     entity: PaperDyedPurple
@@ -199,22 +220,27 @@
       steps:
       - tool: Slicing
         doAfter: 5
-    - to: maskMime
-      steps:
-      - tag: CrayonBlack
-        amount: 1
-        doAfter: 1
-        name: construction-graph-tag-black-crayon
-        icon:
-          sprite: Objects/Fun/crayons.rsi
-          state: black
-      - tool: Slicing
-        doAfter: 5
 
   - node: paperYellow
     entity: PaperDyedYellow
     edges:
     - to: maskYellow
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperRainbow
+    entity: PaperDyedRainbow
+    edges:
+    - to: maskRainbow
+      steps:
+      - tool: Slicing
+        doAfter: 5
+
+  - node: paperMime
+    entity: PaperDyedMime
+    edges:
+    - to: maskMime
       steps:
       - tool: Slicing
         doAfter: 5
@@ -234,8 +260,11 @@
   - node: maskMime
     entity: ClothingMaskPaperMime
 
-  - node: maskClown
+  - node: maskRainbow
     entity: ClothingMaskPaperRainbow
+
+  - node: maskMime
+    entity: ClothingMaskPaperMime
 
   - node: maskOrange
     entity: ClothingMaskPaperOrange
