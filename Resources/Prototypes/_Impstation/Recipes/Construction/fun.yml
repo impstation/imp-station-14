@@ -85,3 +85,11 @@
   targetNode: maskMime
   category: construction-category-misc
   objectType: Item
+
+- type: construction
+  id: PaperMaskClown
+  graph: ColoredPaper
+  startNode: start
+  targetNode: maskClown
+  category: construction-category-misc
+  objectType: Item

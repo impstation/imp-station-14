@@ -69,22 +69,6 @@
           sprite: Objects/Fun/crayons.rsi
           state: green
 
-    - to: paperMime
-      steps:
-      - tag: Paper
-        name: construction-graph-tag-paper
-        icon:
-          sprite: Objects/Misc/bureaucracy.rsi
-          state: paper
-        doAfter: 5
-      - tag: CrayonMime
-        amount: 1
-        doAfter: 1
-        name: construction-graph-tag-mime-crayon
-        icon:
-          sprite: Objects/Fun/crayons.rsi
-          state: mime
-
     - to: paperOrange
       steps:
       - tag: Paper
@@ -181,19 +165,22 @@
       - tool: Slicing
         doAfter: 5
 
-  - node: paperMime
-    entity: PaperDyedWhite
-    edges:
-    - to: maskMime
-      steps:
-      - tool: Slicing
-        doAfter: 5
-
   - node: paperOrange
     entity: PaperDyedOrange
     edges:
     - to: maskOrange
       steps:
+      - tool: Slicing
+        doAfter: 5
+    - to: maskClown
+      steps:
+      - tag: CrayonRed
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-red-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: red
       - tool: Slicing
         doAfter: 5
 
@@ -210,6 +197,17 @@
     edges:
     - to: maskWhite
       steps:
+      - tool: Slicing
+        doAfter: 5
+    - to: maskMime
+      steps:
+      - tag: CrayonBlack
+        amount: 1
+        doAfter: 1
+        name: construction-graph-tag-black-crayon
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: black
       - tool: Slicing
         doAfter: 5
 
@@ -235,6 +233,9 @@
 
   - node: maskMime
     entity: ClothingMaskPaperMime
+
+  - node: maskClown
+    entity: ClothingMaskPaperRainbow
 
   - node: maskOrange
     entity: ClothingMaskPaperOrange
