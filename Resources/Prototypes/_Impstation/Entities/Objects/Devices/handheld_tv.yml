@@ -43,6 +43,7 @@
     speechVerb: Robotic
   - type: SurveillanceCameraSpeaker
   - type: SurveillanceCameraMonitor
+  - type: StationAiWhitelist 
 
 - type: entity
   id: CameraHandheldBorg #Borg version - extreme range and no power requirement

@@ -1,0 +1,116 @@
+- type: entity
+  id: BriefcaseWeaponAdderFilled
+  parent: ImpBriefcaseWeaponSmall
+  name: secure adder case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPlasmaAdder
+        - id: EchionCanister
+
+- type: entity
+  id: BriefcaseWeaponTaipanFilled
+  parent: ImpBriefcaseWeaponSmall
+  name: secure taipan case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponEnergyCrossbow
+        - id: EchionCanister
+
+- type: entity
+  id: BriefcaseWeaponPythonFilled
+  parent: ImpBriefcaseWeaponSmall
+  name: secure python case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRevolverPythonAP
+        - id: SpeedLoaderMagnumAP
+
+- type: entity
+  id: BriefcaseWeaponBasiliskFilled
+  parent: ImpBriefcaseWeaponMedium
+  name: secure basilisk-11 case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: WeaponRifleNemesis
+
+- type: entity
+  id: BriefcaseWeaponAkurraFilled
+  parent: ImpBriefcaseWeaponMedium
+  name: secure akurra case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPlasmaAkurra
+        - id: EchionCanister
+          amount: 2
+
+- type: entity
+  id: BriefcaseWeaponStarServiceFilled
+  parent: ImpBriefcaseWeaponMedium
+  name: secure star service case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSniperStarService
+        - id: SpeedLoaderLightRifle
+          amount: 3
+
+- type: entity
+  id: BriefcaseWeaponXiuhcoatlFilled
+  parent: ImpBriefcaseWeaponLarge
+  name: secure fg13 xiuhcoatl case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponFlamerXiuhcoatl
+
+- type: entity
+  id: BriefcaseWeaponOuroborosFilled
+  parent: ImpBriefcaseWeaponLarge
+  name: secure ouroboros case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSpecialOuroboros
+
+- type: entity
+  id: BriefcaseWeaponOurobrosFilled
+  parent: ImpBriefcaseWeaponLarge
+  name: secure ourobros case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSpecialOuroBros
+
+- type: entity
+  id: BriefcaseWeaponL6Filled
+  parent: ImpBriefcaseWeaponLarge
+  name: secure l6 nidhogg case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponLightMachineGunL6
+        - id: MagazineLightRifleBox

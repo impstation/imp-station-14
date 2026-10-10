@@ -12,67 +12,67 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: jumpsuit
       head:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: head
       eyes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: eyes
       ears:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: ears
       mask:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: mask
       neck:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: neck
       outerClothing:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: outerClothing
       gloves:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: hands
       shoes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: feet
       belt:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: belt
       back:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: back
       suitstorage:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: suitstorage
       id:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: id
   #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
   - type: EntityTableContainerFill
@@ -197,9 +197,9 @@
     sprite: _Impstation/Mobs/Species/Visitors/Ants/ants_held.rsi #imp edit, waiting on proper macro merge to migrate files
     inhandVisuals:
       left:
-      - state: inhand-left
+      - state: inhand_left
       right:
-      - state: inhand-right
+      - state: inhand_right
   - type: FlavorProfile
     flavors:
     - ants
@@ -223,12 +223,12 @@
     leftHandDisplacement:
       sizeMaps:
         32:
-          sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
           state: inhand_left
     rightHandDisplacement:
       sizeMaps:
         32:
-          sprite: _Impstation/Mobs/Species/Visitor/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
           state: inhand_right
   # imp edit start
   - type: StrongAsFuckAnt
@@ -257,7 +257,7 @@
 #  components:
 #  - type: VisualOrgan
 #    data:
-#      sprite: _Impstation/Mobs/Species/Visitor/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+#      sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
 #  - type: VisualOrganMarkings
 #    markingData:
 #      group: Ant
@@ -273,7 +273,7 @@
   # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
   #- type: VisualOrgan
   #  data:
-  #    sprite: _Impstation/Mobs/Species/Visitor/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  #    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
   #- type: VisualOrganMarkings
   #  markingData:
   #    group: Ant
