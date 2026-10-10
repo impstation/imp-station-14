@@ -204,6 +204,8 @@
     interactFailureString: petting-failure-decapoid-silicon
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Eye #allows borgs to see the ai eye
+    visMask: 5
 
 - type: entity #behold my abombination, mortal
   parent: BaseMobDecapoidSilicon
@@ -350,6 +352,8 @@
     - External
     - Salvage
     - Cargo
+  - type: StationAiVision #acts as an ai camera
+    range: 2
 
 - type: entity
   parent: [BaseMobDecapoidSilicon, ShowSecurityIcons, ShowMedicalIcons]
@@ -466,6 +470,8 @@
     - Detective
     - Armory
     - Chemistry
+  - type: StationAiVision #acts as an ai camera
+    range: 2
 
 - type: entity
   parent: [ MobSiliconBase, BasePowerCell ]
@@ -577,3 +583,5 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 2000
+  - type: StationAiVision #acts as an ai camera
+    range: 1

@@ -442,6 +442,11 @@
     sprite: _Impstation/Clothing/OuterClothing/WinterCoats/coathosarmored.rsi #imp
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      storagebase: !type:Container
+        ents: [ ]
 ##########################################################
 
 - type: entity
@@ -839,6 +844,11 @@
     sprite: _Impstation/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi #imp
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      storagebase: !type:Container
+        ents: [ ]
 ################################################################
 
 - type: entity

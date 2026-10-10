@@ -16,6 +16,10 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/nemesis.rsi
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
   - type: Gun
     fireRate: 5
     burstFireRate: 10
