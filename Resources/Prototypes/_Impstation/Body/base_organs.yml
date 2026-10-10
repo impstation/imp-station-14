@@ -8,15 +8,14 @@
     category: HandLeft
   - type: Sprite
     state: l_hand
-  # IMP EDIT, TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  layer: enum.HumanoidVisualLayers.LHand
-  #  data:
-  #    state: l_hand
-  #- type: VisualOrganMarkings
-  #  markingData:
-  #    layers:
-  #    - LHand
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LHand
+    data:
+      state: l_hand
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LHand
 
 - type: entity
   parent: OrganBase
@@ -28,12 +27,11 @@
     category: HandRight
   - type: Sprite
     state: r_hand
-  # IMP EDIT, TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  layer: enum.HumanoidVisualLayers.RHand
-  #  data:
-  #    state: r_hand
-  #- type: VisualOrganMarkings
-  #  markingData:
-  #    layers:
-  #    - RHand
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RHand
+    data:
+      state: r_hand
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RHand

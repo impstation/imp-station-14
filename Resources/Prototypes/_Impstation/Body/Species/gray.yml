@@ -1,4 +1,62 @@
 ﻿# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+
+- type: markingsGroup
+  id: Gray
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+      nudityDefault: [ GrayUnderwearStriped ]
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceGray
@@ -59,33 +117,29 @@
           32:
             sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: feet
-  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganGrayTorso
-        - id: OrganGrayHead
-        - id: OrganGrayArmLeft
-        - id: OrganGrayArmRight
-        - id: OrganGrayHandRight
-        - id: OrganGrayHandLeft
-        - id: OrganGrayLegLeft
-        - id: OrganGrayLegRight
-        - id: OrganGrayFootLeft
-        - id: OrganGrayFootRight
-        - id: OrganGrayBrain
-        - id: OrganGrayEyes
-        - id: OrganGrayTongue
-        - id: OrganGrayAppendix
-        - id: OrganGrayEars
-        - id: OrganGrayLungs
-        - id: OrganGrayHeart
-        - id: OrganGrayStomach
-        - id: OrganGrayLiver
-        - id: OrganGrayKidneys
-  - type: HumanoidAppearance
-  # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganGrayTorso
+      Head: OrganGrayHead
+      ArmLeft: OrganGrayArmLeft
+      ArmRight: OrganGrayArmRight
+      HandRight: OrganGrayHandRight
+      HandLeft: OrganGrayHandLeft
+      LegLeft: OrganGrayLegLeft
+      LegRight: OrganGrayLegRight
+      FootLeft: OrganGrayFootLeft
+      FootRight: OrganGrayFootRight
+      Brain: OrganGrayBrain
+      Eyes: OrganGrayEyes
+      Tongue: OrganGrayTongue
+      Appendix: OrganGrayAppendix
+      Ears: OrganGrayEars
+      Lungs: OrganGrayLungs
+      Heart: OrganGrayHeart
+      Stomach: OrganGrayStomach
+      Liver: OrganGrayLiver
+      Kidneys: OrganGrayKidneys
+  - type: HumanoidProfile
     species: Gray
 
 - type: entity
@@ -168,7 +222,7 @@
 
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganGray
   abstract: true
   suffix: Gray
@@ -195,27 +249,23 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Gray/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  data:
-  #    sprite: _Impstation/Mobs/Species/Gray/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  #- type: VisualOrganMarkings
-  #  markingData:
-  #    group: Gray
-  # IMP EDIT END
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Gray/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Gray
 
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganGrayVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Gray/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Gray
-# IMP EDIT END
+- type: entity
+  id: OrganGrayVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Gray/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Gray
 
 - type: entity
   parent: [ OrganBaseTorso, OrganGrayExternal ]
@@ -224,13 +274,11 @@
 - type: entity
   parent: [ OrganBaseHead, OrganGrayExternal ]
   id: OrganGrayHead
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #components:
-  #- type: VisualOrganMarkings
-  #  hideableLayers:
-  #  - enum.HumanoidVisualLayers.Hair
-  #  - enum.HumanoidVisualLayers.Snout
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  # components:
+  # - type: VisualOrganMarkings
+  #   hideableLayers:
+  #   - enum.HumanoidVisualLayers.Hair
+  #   - enum.HumanoidVisualLayers.Snout
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganGrayExternal ]
@@ -271,7 +319,7 @@
   description: "Jazee thinking pib talking."
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganGrayInternal ] #imp edit, OrganGrayVisual parent removed until visual nubody
+  parent: [ OrganGrayVisual, OrganBaseEyes, OrganGrayInternal ]
   id: OrganGrayEyes
   name: shuui
   description: "Soulful."

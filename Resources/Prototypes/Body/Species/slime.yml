@@ -1,3 +1,61 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Slime
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+      #weight: 1
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4 # imp 2 -> 4
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2 # imp 1 -> 2
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2 # imp 1 -> 2
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 2 # imp 1 -> 2
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 2 # imp 1 -> 2
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2 # imp 1 -> 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2 # imp 1 -> 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2 # imp 1 -> 2
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2 # imp 1 -> 2
+      required: false
+    # imp add start
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ SlimeEyesDefault ]
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    # end imp
+  appearances:
+    enum.HumanoidVisualLayers.Hair:
+      layerAlpha: 0.72
+      matchSkin: true
+    enum.HumanoidVisualLayers.FacialHair:
+      layerAlpha: 0.72
+      matchSkin: true
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceSlimePerson
@@ -10,23 +68,21 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganSlimePersonTorso
-        - id: OrganSlimePersonHead
-        - id: OrganSlimePersonArmLeft
-        - id: OrganSlimePersonArmRight
-        - id: OrganSlimePersonHandRight
-        - id: OrganSlimePersonHandLeft
-        - id: OrganSlimePersonLegLeft
-        - id: OrganSlimePersonLegRight
-        - id: OrganSlimePersonFootLeft
-        - id: OrganSlimePersonFootRight
-        - id: OrganSlimePersonCore
-        - id: OrganSlimePersonLungs
-  - type: HumanoidAppearance
+  - type: InitialBody
+    organs:
+      Torso: OrganSlimePersonTorso
+      Head: OrganSlimePersonHead
+      ArmLeft: OrganSlimePersonArmLeft
+      ArmRight: OrganSlimePersonArmRight
+      HandRight: OrganSlimePersonHandRight
+      HandLeft: OrganSlimePersonHandLeft
+      LegLeft: OrganSlimePersonLegLeft
+      LegRight: OrganSlimePersonLegRight
+      FootLeft: OrganSlimePersonFootLeft
+      FootRight: OrganSlimePersonFootRight
+      Brain: OrganSlimePersonCore
+      Lungs: OrganSlimePersonLungs
+  - type: HumanoidProfile
     species: SlimePerson
 
 - type: entity
@@ -165,10 +221,16 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Slime/parts.rsi
+    sprite: _Impstation/Mobs/Species/Slime/parts.rsi # imp edit
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Slime/parts.rsi # imp edit
+  - type: VisualOrganMarkings
+    markingData:
+      group: Slime
 
 - type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSlimePersonExternal ] #imp edit, sexed organ part of partial merge of fix for sexed organs
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSlimePersonExternal ]
   id: OrganSlimePersonTorso
 
 - type: entity

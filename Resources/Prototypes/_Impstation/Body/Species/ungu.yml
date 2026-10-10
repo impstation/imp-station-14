@@ -1,4 +1,55 @@
 # TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+
+- type: markingsGroup
+  id: Ungu
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceUngu
@@ -75,42 +126,30 @@
         32:
           sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
           state: inhand_right
-  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganUnguTorso
-        - id: OrganUnguHead
-        - id: OrganUnguArmLeft
-        - id: OrganUnguArmRight
-        - id: OrganUnguHandRight
-        - id: OrganUnguHandLeft
-        - id: OrganUnguLegLeft
-        - id: OrganUnguLegRight
-        - id: OrganUnguFootLeft
-        - id: OrganUnguFootRight
-        - id: OrganUnguBrain
-        - id: OrganUnguEyes
-        - id: OrganUnguTongue
-        - id: OrganUnguAppendix
-        - id: OrganUnguEars
-        - id: OrganUnguLungs
-        - id: OrganUnguHeart
-        - id: OrganUnguStomach
-        - id: OrganUnguLiver
-        - id: OrganUnguKidneys
-  - type: HumanoidAppearance
-  # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganUnguTorso
+      Head: OrganUnguHead
+      ArmLeft: OrganUnguArmLeft
+      ArmRight: OrganUnguArmRight
+      HandLeft: OrganUnguHandLeft
+      HandRight: OrganUnguHandRight
+      LegLeft: OrganUnguLegLeft
+      LegRight: OrganUnguLegRight
+      FootLeft: OrganUnguFootLeft
+      FootRight: OrganUnguFootRight
+      Brain: OrganUnguBrain
+      Eyes: OrganUnguEyes
+      Tongue: OrganUnguTongue
+      Appendix: OrganUnguAppendix
+      Ears: OrganUnguEars
+      Lungs: OrganUnguLungs
+      Heart: OrganUnguHeart
+      Stomach: OrganUnguStomach
+      Liver: OrganUnguLiver
+      Kidneys: OrganUnguKidneys
+  - type: HumanoidProfile
     species: Ungu
-    hideLayersOnEquip: #imp edit, to be reworked by visual nubody
-    - Hair
-    - HeadTop
-    - HeadSide
-    - Snout
-    - SnoutCover
-    - LFoot
-    - RFoot
 
 - type: entity
   parent:
@@ -237,7 +276,7 @@
   #    state: creampie_ungu
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganUngu
   suffix: ungu
   abstract: true
@@ -253,21 +292,19 @@
     - id: Food
     - id: Drink
 
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganUnguVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Ungu/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Ungu
-# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+- type: entity
+  id: OrganUnguVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Ungu/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Ungu
 
 - type: entity
-  parent: [ OrganUngu ] #imp edit, OrganUnguVisual parent removed until visual nubody
+  parent: [ OrganUngu, OrganUnguVisual ]
   id: OrganUnguExternal
   abstract: true
   components:
@@ -333,7 +370,7 @@
   id: OrganUnguBrain
 
 - type: entity
-  parent: [ OrganUnguInternal, OrganBaseEyes ] #imp edit, OrganUnguExternal parent removed, should be OrganUnguVisual once visual nubody is merged
+  parent: [ OrganUnguInternal, OrganUnguExternal, OrganBaseEyes ]
   id: OrganUnguEyes
 
 - type: entity

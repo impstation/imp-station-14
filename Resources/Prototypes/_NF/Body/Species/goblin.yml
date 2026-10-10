@@ -1,4 +1,50 @@
 ﻿# imp edit, many differences from NF due to adapting to Nubody and cleaning up redundant components inherited from parents
+
+- type: markingsGroup
+  id: Goblin
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ GoblinEarsBasic ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 2
+      required: false
+    #      default: [ GoblinNoseBasic ]
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 8 # Aurora 2<8
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 8 # Aurora 2<8
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 8 # Aurora 2<8
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 8 # Aurora 2<8
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 8 # Aurora 2<8
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 8 # Aurora 2<8
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 8 # Aurora 2<8
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 8 # Aurora 2<8
+      required: false
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceGoblin
@@ -129,41 +175,39 @@
           32:
             sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
             state: suitstorage
-  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganGoblinTorso
-        - id: OrganGoblinHead
-        - id: OrganGoblinArmLeft
-        - id: OrganGoblinArmRight
-        - id: OrganGoblinHandRight
-        - id: OrganGoblinHandLeft
-        - id: OrganGoblinLegLeft
-        - id: OrganGoblinLegRight
-        - id: OrganGoblinFootLeft
-        - id: OrganGoblinFootRight
-        - id: OrganGoblinBrain
-        - id: OrganGoblinEyes
-        - id: OrganGoblinTongue
-        - id: OrganGoblinAppendix
-        - id: OrganGoblinEars
-        - id: OrganGoblinLungs
-        - id: OrganGoblinHeart
-        - id: OrganGoblinStomach
-        - id: OrganGoblinLiver
-        - id: OrganGoblinKidneys
-  - type: HumanoidAppearance
-  # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganGoblinTorso
+      Head: OrganGoblinHead
+      ArmLeft: OrganGoblinArmLeft
+      ArmRight: OrganGoblinArmRight
+      HandRight: OrganGoblinHandRight
+      HandLeft: OrganGoblinHandLeft
+      LegLeft: OrganGoblinLegLeft
+      LegRight: OrganGoblinLegRight
+      FootLeft: OrganGoblinFootLeft
+      FootRight: OrganGoblinFootRight
+      Brain: OrganGoblinBrain
+      Eyes: OrganGoblinEyes
+      Tongue: OrganGoblinTongue
+      Appendix: OrganGoblinAppendix
+      Ears: OrganGoblinEars
+      Lungs: OrganGoblinLungs
+      Heart: OrganGoblinHeart
+      Stomach: OrganGoblinStomach
+      Liver: OrganGoblinLiver
+      Kidneys: OrganGoblinKidneys
+  - type: Sprite
+    scale: 0.86, 0.75 # Increased from "0.8, 0.7" to "0.86, 0.75" to somewhat compensate for fixture change, odd numbers because I wanted to keep the proportions
+  - type: HumanoidProfile
     species: Goblin
 
 - type: entity
   parent:
   - AppearanceGoblin
   - BaseSpeciesMobOrganic
-  id: MobGoblin
   name: Urist McGoblin
+  id: MobGoblin
   components:
   - type: VentCrawler
   - type: Fixtures
@@ -255,10 +299,10 @@
 
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganGoblin
   abstract: true
-  suffix: Goblin
+  suffix: goblin
 
 - type: entity
   id: OrganGoblinMetabolizer
@@ -276,33 +320,23 @@
     sprite: _NF/Mobs/Species/Goblin/organs.rsi
 
 - type: entity
-  parent: OrganGoblin
+  id: OrganGoblinVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Goblin
+
+- type: entity
+  parent: [ OrganGoblin, OrganGoblinVisual ]
   id: OrganGoblinExternal
   abstract: true
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Goblin/parts.rsi #imp edit, goblins resprited
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  data:
-  #    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
-  #- type: VisualOrganMarkings
-  #  markingData:
-  #    group: Goblin
-  # IMP EDIT END
-
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganGoblinVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Goblin
-# IMP EDIT END
 
 - type: entity
   parent: [ OrganBaseTorso, OrganGoblinExternal ]
@@ -350,7 +384,7 @@
   description: "The source of your woes."
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganGoblinInternal ] #imp edit, OrganGoblinVisual parent removed until visual nubody
+  parent: [OrganGoblinVisual, OrganBaseEyes, OrganGoblinInternal ]
   id: OrganGoblinEyes
 
 - type: entity

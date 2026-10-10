@@ -1,4 +1,52 @@
 # TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+
+- type: markingsGroup
+  id: Decapoid
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ DecapoidEyesDefault ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: true
+      default: [ DecapoidGillsDefault ]
+    enum.HumanoidVisualLayers.Head:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: true
+      default: [ DecapoidPauldronLeft ]
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Special:
+      limit: 0
+      required: false
+
 - type: entity
   abstract: true
   id: DecapoidSpeciesLayers
@@ -6,7 +54,6 @@
   - type: Sprite
     layers: # Need to redefine the whole order to draw the legs and claw correctly
     # Back Legs
-    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
     - map: [ "enum.HumanoidVisualLayers.RFoot" ] # this is the back feet
     - map: [ "enum.HumanoidVisualLayers.RLeg" ] # this is the back legs
 
@@ -33,7 +80,6 @@
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "back" ]
 
     # Front Legs
@@ -102,33 +148,29 @@
           32:
             sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: neck
-  #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganDecapoidTorso
-        - id: OrganDecapoidHead
-        - id: OrganDecapoidArmLeft
-        - id: OrganDecapoidArmRight
-        - id: OrganDecapoidHandRight
-        - id: OrganDecapoidHandLeft # This one is the claw!
-        - id: OrganDecapoidLegFront
-        - id: OrganDecapoidLegBack
-        - id: OrganDecapoidFootFront
-        - id: OrganDecapoidFootBack
-        - id: OrganDecapoidBrain
-        - id: OrganDecapoidEyes
-        - id: OrganDecapoidTongue
-        - id: OrganDecapoidAppendix
-        - id: OrganDecapoidEars
-        - id: OrganDecapoidLungs
-        - id: OrganDecapoidHeart
-        - id: OrganDecapoidStomach
-        - id: OrganDecapoidLiver
-        - id: OrganDecapoidKidneys
-  - type: HumanoidAppearance
-  # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganDecapoidTorso
+      Head: OrganDecapoidHead
+      ArmLeft: OrganDecapoidArmLeft
+      ArmRight: OrganDecapoidArmRight
+      HandRight: OrganDecapoidHandRight
+      HandLeft: OrganDecapoidHandLeft # This one is the claw!
+      LegLeft: OrganDecapoidLegFront
+      LegRight: OrganDecapoidLegBack
+      FootLeft: OrganDecapoidFootFront
+      FootRight: OrganDecapoidFootBack
+      Brain: OrganDecapoidBrain
+      Eyes: OrganDecapoidEyes
+      Tongue: OrganDecapoidTongue
+      Appendix: OrganDecapoidAppendix
+      Ears: OrganDecapoidEars
+      Lungs: OrganDecapoidLungs
+      Heart: OrganDecapoidHeart
+      Stomach: OrganDecapoidStomach
+      Liver: OrganDecapoidLiver
+      Kidneys: OrganDecapoidKidneys
+  - type: HumanoidProfile
     species: Decapoid
 
 - type: entity
@@ -172,12 +214,10 @@
         Blunt: 5
     clumsySound:
       path: /Audio/_Impstation/Effects/Clumsy/crab_snap.ogg # the game gets really touchy about having that initial forward slash. #imp edit, waiting on proper macro merge to migrate files
-    #imp edit start, gun whitelist not on macro
     gunWhitelist:
       tags:
       - Crusher
     gunFailedMessage: gun-clumsy-decapoid # The gun slips out of your claws!
-    #imp edit end
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -237,7 +277,7 @@
 
 - type: entity # For testing purposes.
   save: false
-  id: MobDecapoidInternals
+  id: BaseMobDecapoidInternals
   parent: MobDecapoid
   suffix: SpawnsWithInternals
   components:
@@ -246,7 +286,7 @@
     - StartingGearDecapoidVaporizer
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganDecapoid
   abstract: true
   suffix: decapoid
@@ -258,19 +298,16 @@
   - type: Metabolizer
     metabolizerTypes: [ Decapoid ]
 
-#IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganDecapoidVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Decapoid
-#IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
-
+- type: entity
+  id: OrganDecapoidVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Decapoid
 
 - type: entity
   parent: OrganDecapoid
@@ -279,14 +316,12 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  data:
-  #    sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  #- type: VisualOrganMarkings
-  #  markingData:
-  #    group: Decapoid
-  #IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Decapoid
 
 - type: entity
   parent: [ OrganBaseTorso, OrganDecapoidExternal ]
@@ -295,13 +330,11 @@
 - type: entity
   parent: [ OrganBaseHead, OrganDecapoidExternal ]
   id: OrganDecapoidHead
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #components:
-  #- type: VisualOrganMarkings
-  #  hideableLayers:
-  #  - enum.HumanoidVisualLayers.Hair
-  #  - enum.HumanoidVisualLayers.Snout
-  #IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  # components:
+  # - type: VisualOrganMarkings
+  #   hideableLayers:
+  #   - enum.HumanoidVisualLayers.Hair
+  #   - enum.HumanoidVisualLayers.Snout
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganDecapoidExternal ]
@@ -329,12 +362,10 @@
   components:
   - type: Sprite
     state: front_leg
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  layer: enum.HumanoidVisualLayers.LLeg
-  #  data:
-  #    state: front_leg
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LLeg
+    data:
+      state: front_leg
 
 - type: entity
   parent: [ OrganBaseLegRight, OrganDecapoidExternal ]
@@ -342,12 +373,10 @@
   components:
   - type: Sprite
     state: back_leg
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  layer: enum.HumanoidVisualLayers.RLeg
-  #  data:
-  #    state: back_leg
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RLeg
+    data:
+      state: back_leg
 
 - type: entity
   parent: [ OrganBaseFootLeft, OrganDecapoidExternal ]
@@ -355,12 +384,10 @@
   components:
   - type: Sprite
     state: front_feet
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  layer: enum.HumanoidVisualLayers.LFoot
-  #  data:
-  #    state: front_feet
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LFoot
+    data:
+      state: front_feet
 
 - type: entity
   parent: [ OrganBaseFootRight, OrganDecapoidExternal ]
@@ -368,19 +395,17 @@
   components:
   - type: Sprite
     state: back_feet
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  layer: enum.HumanoidVisualLayers.RFoot
-  #  data:
-  #    state: back_feet
-  #IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RFoot
+    data:
+      state: back_feet
 
 - type: entity
   parent: [ OrganBaseBrain, OrganHumanInternal ]
   id: OrganDecapoidBrain
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganHumanInternal ] #imp edit, OrganGastropoidVisual parent removed until visual nubody
+  parent: [ OrganDecapoidVisual, OrganBaseEyes, OrganHumanInternal ]
   id: OrganDecapoidEyes
 
 - type: entity

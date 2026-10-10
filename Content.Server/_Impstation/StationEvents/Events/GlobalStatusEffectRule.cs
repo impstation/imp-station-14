@@ -37,7 +37,7 @@ public sealed class GlobalStatusEffectRule : StationEventSystem<GlobalStatusEffe
     {
         base.Started(uid, component, gameRule, args);
 
-        var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
+        var query = EntityQueryEnumerator<MindContainerComponent, HumanoidProfileComponent>();
         while (query.MoveNext(out var ent, out var mindComp, out _))
         {
             if (!mindComp.HasMind)

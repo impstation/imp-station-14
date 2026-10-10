@@ -1,4 +1,63 @@
 # TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+
+- type: markingsGroup
+  parent: Undergarments
+  id: Thaven
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 5
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: true
+      default: [ ThavenEars1 ]
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 5
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.Special:
+      limit: 0
+      required: false
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceThaven
@@ -29,36 +88,27 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: hands
-  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganThavenTorso
-        - id: OrganThavenHead
-        - id: OrganThavenArmLeft
-        - id: OrganThavenArmRight
-        - id: OrganThavenHandRight
-        - id: OrganThavenHandLeft
-        - id: OrganThavenLegLeft
-        - id: OrganThavenLegRight
-        - id: OrganThavenFootLeft
-        - id: OrganThavenFootRight
-        - id: OrganThavenBrain
-        - id: OrganThavenEyes
-        - id: OrganThavenLungs
-        - id: OrganThavenHeart
-        - id: OrganThavenStomach
-        - id: OrganThavenLiver
-        - id: OrganThavenKidneys
-          # THESE GUYS GOT NO TONGUE OR EARS OR APPENDICES WTF
-  - type: HumanoidAppearance
-  # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganThavenTorso
+      Head: OrganThavenHead
+      ArmLeft: OrganThavenArmLeft
+      ArmRight: OrganThavenArmRight
+      HandRight: OrganThavenHandRight
+      HandLeft: OrganThavenHandLeft
+      LegLeft: OrganThavenLegLeft
+      LegRight: OrganThavenLegRight
+      FootLeft: OrganThavenFootLeft
+      FootRight: OrganThavenFootRight
+      Brain: OrganThavenBrain
+      Eyes: OrganThavenEyes
+      Lungs: OrganThavenLungs
+      Heart: OrganThavenHeart
+      Stomach: OrganThavenStomach
+      Liver: OrganThavenLiver
+      Kidneys: OrganThavenKidneys
+  - type: HumanoidProfile
     species: Thaven
-    hideLayersOnEquip: #imp edit, to be reworked by visual nubody
-    - Hair
-    - Snout
-    - HeadSide
 
 - type: entity
   parent:
@@ -128,7 +178,7 @@
   # imp edit end
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganThaven
   abstract: true
   suffix: thaven
@@ -141,7 +191,7 @@
     metabolizerTypes: [ Thaven ]
 
 - type: entity
-  parent: OrganThaven
+  parent: [ OrganThaven, OrganBaseOrganic ]
   id: OrganThavenInternal
   abstract: true
   components:
@@ -164,20 +214,25 @@
         Quantity: 10
 
 - type: entity
-  parent: OrganThaven
+  parent: OrganBase
+  id: OrganThavenVisual
+  abstract: true
+  suffix: thaven
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Thaven/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Thaven
+
+- type: entity
+  parent: [ OrganThaven, OrganThavenVisual ]
   id: OrganThavenExternal
   abstract: true
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  data:
-  #    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  #- type: VisualOrganMarkings
-  #  markingData:
-  #    group: Thaven
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
 
 - type: entity
   parent: [ OrganBaseTorso, OrganThavenExternal ]
@@ -189,13 +244,11 @@
   components:
   - type: Sprite
     state: head #imp edit, don't have m/f heads
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrganMarkings
-  #  hideableLayers:
-  #  - enum.HumanoidVisualLayers.Hair
-  #  - enum.HumanoidVisualLayers.HeadSide
-  #  - enum.HumanoidVisualLayers.Snout
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  # - type: VisualOrganMarkings
+  #   hideableLayers:
+  #   - enum.HumanoidVisualLayers.Hair
+  #   - enum.HumanoidVisualLayers.HeadSide
+  #   - enum.HumanoidVisualLayers.Snout
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganThavenExternal ]
@@ -243,7 +296,7 @@
         Quantity: 12
 
 - type: entity
-  parent: [ OrganThavenInternal, OrganBaseEyes ] #imp edit, OrganThavenExternal parent removed until visual nubody (which SHOULD be OrganThavenVisual actually)
+  parent: [ OrganThavenInternal, OrganThavenVisual, OrganBaseEyes ] # yes this should be visual and not external. macro has the wrong one
   id: OrganThavenEyes
   name: eyes
   description: "The dark sclera have a faint, iridescent coating."

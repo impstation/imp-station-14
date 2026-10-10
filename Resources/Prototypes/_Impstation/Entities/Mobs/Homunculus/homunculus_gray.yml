@@ -32,21 +32,19 @@
           32:
             sprite: _Impstation/Mobs/Homunculi/Gray/displacement.rsi/
             state: suitstorage
-  - type: EntityTableContainerFill #VISUAL NUBODY TODO: REWORK THESE
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganGrayBrain
-        - id: OrganGrayEyes
-        - id: OrganGrayTongue
-        - id: OrganGrayAppendix
-        - id: OrganGrayEars
-        - id: OrganGrayLungs
-        - id: OrganGrayHeart
-        - id: OrganGrayStomach
-        - id: OrganGrayLiver
-        - id: OrganGrayKidneys
-  - type: HumanoidAppearance
+  - type: InitialBody
+    organs:
+      Brain: OrganGrayBrain
+      Eyes: OrganGrayEyes
+      Tongue: OrganGrayTongue
+      Appendix: OrganGrayAppendix
+      Ears: OrganGrayEars
+      Lungs: OrganGrayLungs
+      Heart: OrganGrayHeart
+      Stomach: OrganGrayStomach
+      Liver: OrganGrayLiver
+      Kidneys: OrganGrayKidneys
+  - type: HumanoidProfile
     species: HomunculusGray
 
 - type: entity

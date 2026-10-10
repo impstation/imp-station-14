@@ -4,7 +4,8 @@
   components:
   - type: Sprite
     layers:
-    #'Behind' sprites
+
+    # imp/floof: 'Behind' sprites
     - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
 
@@ -33,6 +34,9 @@
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
 
+    # Stuff that goes over the body but below equipment
+    - map: ["enum.HumanoidVisualLayers.Overlay"]
+
     # More equipment
     - map: [ "gloves" ]
     - map: [ "shoes" ]
@@ -45,6 +49,7 @@
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "neck" ]
+    - map: [ "suitstorage" ]
 
     # Stuff that goes in front of equipment
     - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
@@ -52,7 +57,12 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    #MACRO start
+    # Kodepiiae 'arms' are drawn in front of everything but tails
+    - map: [ "enum.HumanoidVisualLayers.Tenta" ]
+    #MACRO end
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
 
     # Stuff that goes in front of stuff that goes in front of equipment
     - map: [ "mask" ]
@@ -88,13 +98,23 @@
   save: false
   components:
   - type: Body
+  - type: VisualBody
   - type: Hands
   - type: ComplexInteraction
   - type: ContainerContainer
   - type: Appearance
+  - type: HideableHumanoidLayers
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: InitialBody
+    relationships:
+      Torso: [Head, ArmLeft, ArmRight, LegLeft, LegRight, Appendix, Lungs, Heart, Stomach, Liver, Kidneys]
+      Head: [Brain, Eyes, Tongue, Ears]
+      ArmLeft: [HandLeft]
+      ArmRight: [HandRight]
+      LegLeft: [FootLeft]
+      LegRight: [FootRight]

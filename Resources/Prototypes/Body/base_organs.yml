@@ -1,3 +1,19 @@
+- type: markingsGroup
+  id: None
+  onlyGroupWhitelisted: true
+
+- type: markingsGroup
+  id: Undergarments
+  limits:
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+      nudityDefault: [ UndergarmentTopTanktop ]
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+      nudityDefault: [ UndergarmentBottomBoxers ]
+
 - type: entity
   id: OrganBase
   name: organ
@@ -42,7 +58,28 @@
   - type: Organ
     category: Torso
   - type: Sprite
-    state: torso #imp edit, removed '_m" sprite as part of upstream fix for sexed organs
+    state: torso
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Chest
+    data:
+      state: torso
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - Chest
+      - Tail
+      - Overlay
+      - TailOverlay
+      - UndergarmentTop
+      - UndergarmentBottom
+      - Special
+      # IMP START - some of these visual layers may not be needed. pending marking cleanup
+      - TailBehind
+      - TailBehindBackpack
+      - TailOversuit
+      - TailUnderlay
+      - Tenta
+      # IMP END
 
 - type: entity
   parent: OrganBase
@@ -53,7 +90,7 @@
   - type: Organ
     category: Head
   - type: Sprite
-    state: head #imp edit, removed '_m" sprite as part of upstream fix for sexed organs
+    state: head
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -61,6 +98,22 @@
     staminaCost: 5
     soundHit:
       collection: GenericHit
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Head
+    data:
+      state: head
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    markingData:
+      layers:
+      - Head
+      - Hair
+      - FacialHair
+      - Snout
+      - SnoutCover
+      - HeadSide
+      - HeadTop
 
 - type: entity
   parent: OrganBase
@@ -72,6 +125,14 @@
     category: ArmLeft
   - type: Sprite
     state: l_arm
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LArm
+    data:
+      state: l_arm
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LArm
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -90,6 +151,14 @@
     category: ArmRight
   - type: Sprite
     state: r_arm
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RArm
+    data:
+      state: r_arm
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RArm
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -112,6 +181,14 @@
       location: Left
   - type: Sprite
     state: l_hand
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LHand
+    data:
+      state: l_hand
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LHand
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -133,6 +210,14 @@
       location: Right
   - type: Sprite
     state: r_hand
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RHand
+    data:
+      state: r_hand
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RHand
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -150,6 +235,14 @@
     category: LegLeft
   - type: Sprite
     state: l_leg
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LLeg
+    data:
+      state: l_leg
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LLeg
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -168,6 +261,14 @@
     category: LegRight
   - type: Sprite
     state: r_leg
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RLeg
+    data:
+      state: r_leg
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RLeg
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -186,6 +287,14 @@
     category: FootLeft
   - type: Sprite
     state: l_foot
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LFoot
+    data:
+      state: l_foot
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LFoot
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -203,6 +312,14 @@
     category: FootRight
   - type: Sprite
     state: r_foot
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RFoot
+    data:
+      state: r_foot
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RFoot
   - type: DamageOtherOnHit # imp
     damage:
       types:
@@ -265,6 +382,15 @@
     layers:
     - state: eyeball-l
     - state: eyeball-r
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: Mobs/Customization/eyes.rsi
+      state: eyes
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - Eyes
   - type: Tag # goob edit
     tags:
     - Raw
@@ -475,15 +601,18 @@
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
 
-#IMP EDIT START: these were manually pulled from https://github.com/space-wizards/space-station-14/pull/42554
-#since this PR relies partially on visual nubody which is not part of the initial nubody, the relevant parts are being
-#pulled now and will be properly replaced after the implementation of visual nubody
 - type: entity
   id: OrganBaseHeadSexed
   abstract: true
   components:
   - type: Sprite
     state: head_m
+  - type: VisualOrgan
+    data:
+      state: head_m
+    sexStateOverrides:
+      Male: head_m
+      Female: head_f
 
 - type: entity
   id: OrganBaseTorsoSexed
@@ -491,5 +620,9 @@
   components:
   - type: Sprite
     state: torso_m
-#IMP EDIT END
-
+  - type: VisualOrgan
+    data:
+      state: torso_m
+    sexStateOverrides:
+      Male: torso_m
+      Female: torso_f

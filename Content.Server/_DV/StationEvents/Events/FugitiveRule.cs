@@ -114,7 +114,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         report.PushNewline();
         report.PushNewline();
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
         {
             report.AddMarkupOrThrow(Loc.GetString("fugitive-report-inhuman", ("name", uid)));
             report.PushNewline();
@@ -127,7 +127,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         report.PushNewline();
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-age", ("age", humanoid.Age)));
         report.PushNewline();
-        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex.ToString())));
+        report.AddMarkupOrThrow(Loc.GetString("fugitive-report-sex", ("sex", humanoid.Sex)));
         report.PushNewline();
 
         if (TryComp<PhysicsComponent>(uid, out var physics))

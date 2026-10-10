@@ -53,7 +53,7 @@ public sealed class MindlessCloneSystem : EntitySystem
     // everything else
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -64,6 +64,7 @@ public sealed class MindlessCloneSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
 
     public override void Initialize()
     {
@@ -105,7 +106,7 @@ public sealed class MindlessCloneSystem : EntitySystem
 
     private void OnMapInit(Entity<MindlessCloneComponent> ent, ref MapInitEvent args)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(ent, out var humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
+        if (!HasComp<HumanoidProfileComponent>(ent))
             return;
 
         var cloneCoords = _transformSystem.GetMapCoordinates(ent.Owner);
@@ -275,14 +276,14 @@ public sealed class MindlessCloneSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets the nearest entity on the same map with HumanoidAppearanceComponent and a mind.
+    /// Gets the nearest entity on the same map with HumanoidProfileComponent and a mind.
     /// </summary>
     private bool TryGetNearestHumanoid(MapCoordinates coordinates, [NotNullWhen(true)] out EntityUid? target)
     {
         target = null;
         var minDistance = float.PositiveInfinity;
 
-        var enumerator = EntityQueryEnumerator<HumanoidAppearanceComponent, TransformComponent>();
+        var enumerator = EntityQueryEnumerator<HumanoidProfileComponent, TransformComponent>();
         while (enumerator.MoveNext(out var uid, out _, out var xform))
         {
             if (coordinates.MapId != xform.MapID)
@@ -308,7 +309,7 @@ public sealed class MindlessCloneSystem : EntitySystem
     /// </summary>
     public bool TryCloneNoOverwrite(EntityUid original, EntityUid clone, ProtoId<CloningSettingsPrototype> settingsId)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(original, out var originalAppearance))
+        if (!TryComp<HumanoidProfileComponent>(original, out var originalAppearance))
             return false;
 
         HumanoidCharacterProfile profile;
@@ -327,11 +328,11 @@ public sealed class MindlessCloneSystem : EntitySystem
         }
 
         if (!_prototypeManager.TryIndex(settingsId, out var settings)
-            || !TryComp<HumanoidAppearanceComponent>(original, out var humanoid)
+            || !TryComp<HumanoidProfileComponent>(original, out var humanoid)
             || !_prototypeManager.TryIndex(humanoid.Species, out _))
             return false;
 
-        _humanoid.CloneAppearance(original, clone);
+        _visualBody.CopyAppearanceFrom(original, clone);
 
         var componentsToCopy = settings.Components;
 

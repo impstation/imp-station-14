@@ -1,11 +1,66 @@
 # TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+
+- type: markingsGroup
+  id: Allulalo
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: True
+      default: [ AllulaloEyesDefault ]
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ AllulaloTailDefault ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: true
+      default: [ AllulaloWingsDefaultLeft ]
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: true
+      default: [ AllulaloWingsDefaultRight ]
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceAllulalo
-  categories: [ HideSpawnMenu ] #imp
   name: allulalo appearance
   components:
   - type: Inventory
+    speciesId: allulalo
     displacements:
       jumpsuit:
         sizeMaps:
@@ -78,33 +133,29 @@
         32:
           sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
           state: hand_l
-  #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganAllulaloTorso
-        - id: OrganAllulaloHead # Hand is here!!!
-        - id: OrganAllulaloArmLeft
-        - id: OrganAllulaloArmRight
-        - id: OrganAllulaloHandLeft # For visuals only! They can't grip SHIT!
-        - id: OrganAllulaloHandRight # For visuals only!
-        - id: OrganAllulaloLegLeft
-        - id: OrganAllulaloLegRight
-        - id: OrganAllulaloFootLeft
-        - id: OrganAllulaloFootRight
-        - id: OrganAllulaloBrain
-        - id: OrganAllulaloEyes
-        - id: OrganAllulaloTongue
-        - id: OrganAllulaloAppendix
-        - id: OrganAllulaloEars
-        - id: OrganAllulaloLungs
-        - id: OrganAllulaloHeart
-        - id: OrganAllulaloStomach
-        - id: OrganAllulaloLiver
-        - id: OrganAllulaloKidneys
-  - type: HumanoidAppearance
-  # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganAllulaloTorso
+      Head: OrganAllulaloHead # Hand is here!!!
+      ArmLeft: OrganAllulaloArmLeft
+      ArmRight: OrganAllulaloArmRight
+      HandLeft: OrganAllulaloHandLeft # For visuals only! They can't grip SHIT!
+      HandRight: OrganAllulaloHandRight # For visuals only!
+      LegLeft: OrganAllulaloLegLeft
+      LegRight: OrganAllulaloLegRight
+      FootLeft: OrganAllulaloFootLeft
+      FootRight: OrganAllulaloFootRight
+      Brain: OrganAllulaloBrain
+      Eyes: OrganAllulaloEyes
+      Tongue: OrganAllulaloTongue
+      Appendix: OrganAllulaloAppendix
+      Ears: OrganAllulaloEars
+      Lungs: OrganAllulaloLungs
+      Heart: OrganAllulaloHeart
+      Stomach: OrganAllulaloStomach
+      Liver: OrganAllulaloLiver
+      Kidneys: OrganAllulaloKidneys
+  - type: HumanoidProfile
     species: Allulalo
 
 - type: entity
@@ -208,7 +259,7 @@
   # imp edit end
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganAllulalo
   abstract: true
   suffix: Allulalo
@@ -221,21 +272,19 @@
     metabolizerTypes: [ Allulalo ]
     updateIntervalMultiplier: 1.5 # This should make them metabolize things twice as fast. I think. This new system is scary.
 
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganAllulaloVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Allulalo
-# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+- type: entity
+  id: OrganAllulaloVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Allulalo
 
 - type: entity
-  parent: [ OrganAllulalo ] #imp edit, OrganAllulaloVisual parent removed until visual nubody
+  parent: [ OrganAllulalo, OrganAllulaloVisual ]
   id: OrganAllulaloExternal
   abstract: true
   components:
@@ -300,20 +349,18 @@
   id: OrganAllulaloBrain
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganAllulaloInternal ]  #imp edit, OrganAllulaloExternal parent removed until visual nubody (which SHOULD be OrganAllulaloVisual actually)
+  parent: [ OrganBaseEyes, OrganAllulaloInternal, OrganAllulaloVisual ] # yes this should be visual and not external. macro has the wrong one
   id: OrganAllulaloEyes
   components:
   - type: Sprite #this shouldn't need to be here..?
     layers:
     - state: eyeball-l
     - state: eyeball-r
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  layer: enum.HumanoidVisualLayers.Eyes
-  #  data:
-  #    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-  #    state: eyes
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+      state: eyes
 
 - type: entity
   parent: [ OrganBaseTongue, OrganAllulaloInternal ]

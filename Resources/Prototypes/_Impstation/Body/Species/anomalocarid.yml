@@ -1,71 +1,66 @@
 # TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
-- type: entity #imp edit, made into its own entity like decapoids to make the Appearance entity work properly
-  abstract: true
-  id: AnomalocaridSpeciesLayers
-  components:
-  - type: Sprite
-    layers:
-    # most of the below is from BaseSpeciesLayers. comments indicate where changes have been made to this order
-    #'Behind' sprites
-    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
-    # Torso
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    # Head
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    # Limbs
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    # Underwear & clothing
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: [ "jumpsuit" ]
-    # Extremities
-    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.LHand" ]
-    - map: [ "enum.HumanoidVisualLayers.RHand" ]
-    # More equipment
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    # - map [ "ears" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "id" ]
-    - map: [ "outerClothing" ]
-    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
-    - map: [ "enum.HumanoidVisualLayers.Tail" ] #layered above the back, maybe has very very minor balance implications (hiding guns behind your wings) but i think it's fine.
-    - map: [ "ears" ] #above tail for over-ear headsets specifically. this means they layer over backpacks and outerclothing too, unsure about that right now.
-    - map: [ "neck" ]
-    - map: [ "suitstorage" ]
-    # Stuff that goes in front of equipment
-    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    # - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    # - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
-    # Stuff that goes in front of stuff that goes in front of equipment
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
-    # Extra stuff
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi
-      state: body-overlay-2
-      visible: false
 
+- type: markingsGroup
+  id: Anomalocarid
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ AnomalocaridEyeshine ]
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: true
+      default: [ AnomalocaridGrabbersDefault ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ AnomalocaridWingsDefault ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
 
 - type: entity
-  parent: [ AnomalocaridSpeciesLayers, BaseSpeciesAppearance ] #imp edit, added AnomalocaridSpeciesLayers parent
+  parent: BaseSpeciesAppearance
   id: AppearanceAnomalocarid
   categories: [ HideSpawnMenu ]
   name: anomalocarid appearance
@@ -104,37 +99,29 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: back
-  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganAnomalocaridTorso
-        - id: OrganAnomalocaridHead
-        - id: OrganAnomalocaridArmLeft
-        - id: OrganAnomalocaridArmRight
-        - id: OrganAnomalocaridHandRight
-        - id: OrganAnomalocaridHandLeft
-        - id: OrganAnomalocaridLegLeft
-        - id: OrganAnomalocaridLegRight
-        - id: OrganAnomalocaridFootLeft
-        - id: OrganAnomalocaridFootRight
-        - id: OrganAnomalocaridBrain
-        - id: OrganAnomalocaridEyes
-        - id: OrganAnomalocaridTongue
-        - id: OrganAnomalocaridAppendix
-        - id: OrganAnomalocaridLungs
-        - id: OrganAnomalocaridHeart
-        - id: OrganAnomalocaridStomach
-        - id: OrganAnomalocaridLiver
-        - id: OrganAnomalocaridKidneys
-  - type: HumanoidAppearance
-  # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganAnomalocaridTorso
+      Head: OrganAnomalocaridHead
+      ArmLeft: OrganAnomalocaridArmLeft
+      ArmRight: OrganAnomalocaridArmRight
+      HandRight: OrganAnomalocaridHandRight
+      HandLeft: OrganAnomalocaridHandLeft
+      LegLeft: OrganAnomalocaridLegLeft
+      LegRight: OrganAnomalocaridLegRight
+      FootLeft: OrganAnomalocaridFootLeft
+      FootRight: OrganAnomalocaridFootRight
+      Brain: OrganAnomalocaridBrain
+      Eyes: OrganAnomalocaridEyes
+      Tongue: OrganAnomalocaridTongue
+      Appendix: OrganAnomalocaridAppendix
+      Lungs: OrganAnomalocaridLungs
+      Heart: OrganAnomalocaridHeart
+      Stomach: OrganAnomalocaridStomach
+      Liver: OrganAnomalocaridLiver
+      Kidneys: OrganAnomalocaridKidneys
+  - type: HumanoidProfile
     species: Anomalocarid
-    hideLayersOnEquip: #imp edit, to be reworked by visual nubody
-    - Eyes
-    - HeadTop
-    - HeadSide
 
 - type: entity
   parent:
@@ -238,11 +225,67 @@
     - CanPilot
     - FootstepSound
     - AnomalyHost
-  # imp edit start
-  - type: LightningTarget # lightning is more likely to strike the tallest thing in a location. so.
-    priority: 4
-    lightningExplode: false
-  # imp edit end
+
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    # most of the below is from BaseSpeciesLayers. comments indicate where changes have been made to this order
+    # Torso
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    # Head
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    # Limbs
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # Underwear & clothing
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: [ "jumpsuit" ]
+    # Extremities
+      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    # Stuff that goes over the body but below equipment
+      - map: ["enum.HumanoidVisualLayers.Overlay"]
+    # More equipment
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      # - map [ "ears" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "outerClothing" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ] #layered above the back, maybe has very very minor balance implications (hiding guns behind your wings) but i think it's fine.
+      - map: [ "enum.HumanoidVisualLayers.TailOverlay" ] #see above.
+      - map: [ "ears" ] #above tail for over-ear headsets specifically. this means they layer over backpacks and outerclothing too, unsure about that right now.
+      - map: [ "neck" ]
+      - map: [ "suitstorage" ]
+    # Stuff that goes in front of equipment
+      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      # - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      # - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    # Stuff that goes in front of stuff that goes in front of equipment
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+    # Extra stuff
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
 #imp edit, this will be used once a later PR is merged that changes how cream pie visuals work
 #  - type: CreamPied
 #    sprite:
@@ -272,9 +315,12 @@
 #        - MobMask
 #        layer:
 #        - MobLayer
+  - type: LightningTarget # lightning is more likely to strike the tallest thing in a location. so.
+    priority: 4
+    lightningExplode: false
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganAnomalocarid
   abstract: true
   suffix: Anomalocarid
@@ -294,22 +340,20 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Anomalocarid/organs.rsi #imp edit, waiting on proper macro merge to migrate files
 
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganAnomalocaridVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Anomalocarid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Anomalocarid
-# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+- type: entity
+  id: OrganAnomalocaridVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Anomalocarid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Anomalocarid
 
 - type: entity
   id: OrganAnomalocaridExternal
-  parent: [OrganAnomalocarid] #imp edit, OrganAnomalocaridVisual parent removed until visual nubody
+  parent: [OrganAnomalocarid, OrganAnomalocaridVisual]
   abstract: true
   components:
   - type: Sprite
@@ -322,14 +366,12 @@
 - type: entity
   parent: [OrganBaseHead, OrganAnomalocaridExternal]
   id: OrganAnomalocaridHead
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #components:
-  #- type: VisualOrganMarkings
-  #  hideableLayers:
-  #  - enum.HumanoidVisualLayers.Eyes
-  #  - enum.HumanoidVisualLayers.HeadTop
-  #  - enum.HumanoidVisualLayers.HeadSide
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Eyes
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
 
 - type: entity
   parent: [OrganBaseArmLeft, OrganAnomalocaridExternal]
@@ -374,7 +416,7 @@
       - sweet
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganAnomalocaridInternal ] #imp edit, OrganAnomalocaridVisual parent removed until visual nubody
+  parent: [ OrganAnomalocaridVisual, OrganBaseEyes, OrganAnomalocaridInternal ]
   id: OrganAnomalocaridEyes
   name: big wet eyes
   description: "Oh my god there's someone trapped inside!! No wait, that's your reflection."
