@@ -1,42 +1,4 @@
 ﻿Entries:
-- author: kipdotnet
-  changes:
-  - message: Ephedrine and Desoxyephedrine now cause you to heat up and gain thirst
-      from prolonged use.
-    type: Tweak
-  id: 2480
-  time: '2025-12-11T05:37:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3745
-- author: mqole
-  changes:
-  - message: Hospitality Directors now have access to the Service Job Board! Coordinate
-      an event for your crew, and keep morale high.
-    type: Add
-  id: 2481
-  time: '2025-12-11T18:17:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3377
-- author: FlippenPage
-  changes:
-  - message: presents use their old texture again
-    type: Fix
-  id: 2482
-  time: '2025-12-14T10:34:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3836
-- author: FlippenPage
-  changes:
-  - message: Added Santa Anomalite! we're shooting him after december ok?
-    type: Add
-  id: 2483
-  time: '2025-12-14T10:39:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3835
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The  T-25's flare shot has been reduced in brightness and the ammo counts
-      of it, and the disabler shot, have been adjusted.
-    type: Tweak
-  id: 2484
-  time: '2025-12-14T10:42:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3837
 - author: mqole
   changes:
   - message: Cigar cases can no longer store items bigger than cigars.
@@ -4050,3 +4012,38 @@
   id: 2979
   time: '2026-09-28T09:19:05.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4460
+- author: SeeroftheNight
+  changes:
+  - message: Document templates from the document printer have been fixed and improved.
+    type: Fix
+  id: 2980
+  time: '2026-10-01T09:57:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4672
+- author: Toasterblast
+  changes:
+  - message: one of the ointments in burn medkits has been turned into ez-graft. yay!
+    type: Tweak
+  id: 2981
+  time: '2026-10-01T09:58:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4673
+- author: mqole
+  changes:
+  - message: Medical lockers no longer contain double the intended amount of containers.
+    type: Fix
+  id: 2982
+  time: '2026-10-03T08:11:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4676
+- author: MhhMonday
+  changes:
+  - message: Various vials villed again
+    type: Fix
+  id: 2983
+  time: '2026-10-07T02:23:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4679
+- author: msTheowo
+  changes:
+  - message: Don't call them nukie plushies bro!
+    type: Tweak
+  id: 2984
+  time: '2026-10-11T11:06:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4686
