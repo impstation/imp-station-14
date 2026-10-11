@@ -209,6 +209,9 @@
     backgroundModulate: "#1796c8"
   - type: PaperLabelType #Imp change
     paperType: PaperDyedOcean
+  - type: Construction # Imp change
+    graph: ColoredPaper
+    node: paperBlue
 
 - type: entity
   parent: Paper
