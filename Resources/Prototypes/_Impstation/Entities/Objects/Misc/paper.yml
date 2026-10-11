@@ -288,3 +288,29 @@
   - type: Construction
     graph: ColoredPaper
     node: paperMime
+
+- type: entity
+  parent: Paper
+  id: PaperDyedBlack
+  description: 'A piece of black paper.'
+  suffix: black
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#0D0D0D"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#0D0D0D"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundModulate: "#0D0D0D"
+  - type: PaperLabelType
+    paperType: PaperDyedBlack
+  - type: Construction
+    graph: ColoredPaper
+    node: paperBlack
