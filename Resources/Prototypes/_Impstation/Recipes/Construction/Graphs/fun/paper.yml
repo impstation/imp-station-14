@@ -182,7 +182,7 @@
         doAfter: 5
 
   - node: paperBlue
-    entity: PaperDyedBlue
+    entity: PaperDyedOcean
     edges:
     - to: maskBlue
       steps:
