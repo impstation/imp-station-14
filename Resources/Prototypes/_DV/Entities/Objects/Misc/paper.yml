@@ -59,9 +59,6 @@
     backgroundModulate: "#eb87c0"
   - type: PaperLabelType #Imp change
     paperType: PaperDyedPink
-  - type: Construction # Imp change
-    graph: ColoredPaper
-    node: paperPink
 
 - type: entity
   parent: Paper
