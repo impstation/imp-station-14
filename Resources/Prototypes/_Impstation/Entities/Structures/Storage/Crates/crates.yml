@@ -129,3 +129,36 @@
   - type: SupermatterImmune
   - type: RadiationBlockingContainer
     resistance: 5
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateCoffinSteel
+  name: steel coffin
+  description: A sturdy coffin made of steel. Sturdy, heavy, cloistering. You deserve this.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/coffin_steel.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: open
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/coffin_steel.rsi
+    state: base
+  - type: Appearance
+  - type: Weldable
+    time: 5
+  - type: EntityStorageVisuals
+    stateDoorOpen: open
+    stateDoorClosed: closed
+  - type: Construction
+    graph: CrateCoffinSteel
+    node: cratecoffin
+    containers:
+    - entity_storage

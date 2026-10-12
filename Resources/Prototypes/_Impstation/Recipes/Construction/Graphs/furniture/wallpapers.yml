@@ -269,6 +269,13 @@
       - material: Plastic
         amount: 3
         doAfter: 3
+    - to: WallpaperBannerSpiders
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: Plastic
+        amount: 3
+        doAfter: 3
     - to: WallpaperStarsBig
       completed:
       - !type:SnapToGrid { }
@@ -321,6 +328,8 @@
     entity: WallpaperBannerPumpkin
   - node: WallpaperBannerSkeleton
     entity: WallpaperBannerSkeleton
+  - node: WallpaperBannerSpiders
+    entity: WallpaperBannerSpiders
   - node: WallpaperStarsBig
     entity: WallpaperStarsBig
   - node: WallpaperStarsSmall

@@ -30,3 +30,24 @@
           steps:
             - tool: Screwing
               doAfter: 3
+        - to: mannequinglow
+          completed:
+            - !type:EmptyAllContainers
+          steps:
+            - tag: Glowstick
+              doAfter: 3
+    - node: mannequinglow
+      entity: MannequinSkeletonGlowing
+      edges:
+      - to: start
+        completed:
+          - !type:EmptyAllContainers
+          - !type:SpawnPrototype
+            prototype: SheetPlastic
+            amount: 10
+          - !type:SpawnPrototype
+            prototype: PartRodMetal
+            amount: 2
+        steps:
+          - tool: Screwing
+            doAfter: 3

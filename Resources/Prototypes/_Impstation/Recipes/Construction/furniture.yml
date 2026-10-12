@@ -355,6 +355,16 @@
   canBuildInImpassable: true
 
 - type: construction
+  id: WallpaperBannerSpiders
+  graph: WallDeco
+  startNode: start
+  targetNode: WallpaperBannerSpiders
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
   id: WallpaperStarsBig
   graph: WallDeco
   startNode: start

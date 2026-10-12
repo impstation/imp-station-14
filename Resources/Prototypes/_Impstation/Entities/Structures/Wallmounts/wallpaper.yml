@@ -421,6 +421,18 @@
     node: WallpaperBannerSkeleton
 
 - type: entity
+  id: WallpaperBannerSpiders
+  parent: BaseBannerEngraveable
+  name: spider banner
+  description: Some creepy crawlies. Or some friendly fuzzies. Choose your own adventure.
+  components:
+  - type: Sprite
+    state: banner_spiders
+  - type: Construction
+    graph: WallDeco
+    node: WallpaperBannerSpiders
+
+- type: entity
   id: WallpaperStarsBig
   parent: BaseBanner
   name: glow in the dark big stars

@@ -64,3 +64,28 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  id: MannequinSkeletonGlowing
+  parent: MannequinSkeleton
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Decoration/plasticskeleton.rsi
+    state: overlay
+    shader: unshaded
+    noRot: true
+    layers:
+    - map: [ "mannequin" ]
+      sprite: _Impstation/Structures/Decoration/plasticskeleton.rsi
+      state: overlay
+      shader: unshaded
+    - map: [ "jumpsuit" ]
+    - map: [ "outerClothing" ]
+    - map: [ "eyes" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+  - type: Construction
+    graph: MannequinSkeleton
+    node: mannequinglow
