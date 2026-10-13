@@ -1,0 +1,27 @@
+- type: entityTable
+  id: RandomStructureInstrumentTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - id: PianoInstrument
+      - id: UprightPianoInstrument
+      - id: VibraphoneInstrument
+      - id: MarimbaInstrument
+      - id: ChurchOrganInstrument
+      - id: TubaInstrument
+      - id: HarpInstrument
+      - id: TimpaniInstrument
+      - id: TaikoInstrument
+      - id: ContrabassInstrument
+      - id: MinimoogInstrument
+      - id: TomDrumsInstrument
+      - id: ThereminInstrument
+      - id: DrumKitInstrument
+      - id: HammondOrganInstrument
+      - id: DulcimerInstrument
+    - !type:GroupSelector
+      weight: 1
+      children:
+      - id: DawInstrument

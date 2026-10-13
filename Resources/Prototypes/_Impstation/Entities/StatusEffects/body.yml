@@ -7,3 +7,8 @@
   - type: HemophiliaStatusEffect
     bleedReductionMultiplier: 1
     bleedAmountMultiplier: 1.33 #matches StatusEffectHemorrhage for consistency
+
+# used to make sure recyclers dont instantly kill someone with damage
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectRecyclerImmune

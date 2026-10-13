@@ -52,6 +52,16 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement), playSound: false, colorOverride: stationEvent.StartAnnouncementColor);
 
         Audio.PlayGlobal(stationEvent.StartAudio, allPlayersInGame, true); */
+
+        if (stationEvent.StartAnnouncement) // ee announce, imp moved to added
+        {
+            _announcer.SendAnnouncement(
+                _announcer.GetAnnouncementId(args.RuleId),
+                Filter.Broadcast(),
+                _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId)),
+                colorOverride: Color.Gold
+            );
+        }
     }
 
     /// <inheritdoc/>
@@ -63,16 +73,6 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
             return;
 
         AdminLogManager.Add(LogType.EventStarted, LogImpact.High, $"Event started: {ToPrettyString(uid)}");
-
-        if (stationEvent.StartAnnouncement) // ee announce
-        {
-            _announcer.SendAnnouncement(
-                _announcer.GetAnnouncementId(args.RuleId),
-                Filter.Broadcast(),
-                _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId)),
-                colorOverride: Color.Gold
-            );
-        }
 
         if (stationEvent.Duration != null)
         {

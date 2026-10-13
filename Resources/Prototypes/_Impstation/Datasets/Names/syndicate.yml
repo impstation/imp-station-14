@@ -1,8 +1,20 @@
 ﻿- type: localizedDataset
+  id: NamesSyndicatePrefixJunior
+  values:
+    prefix: names-syndicate-prefix-junior-
+    count: 3
+
+- type: localizedDataset
   id: NamesSyndicateAlternative
   values:
     prefix: names-syndicate-alternative-
     count: 22
+
+- type: localizedDataset
+  id: NamesSyndicateJunior
+  values:
+    prefix: names-syndicate-junior-
+    count: 26
 
 - type: localizedDataset
   id: NamesSyndicateCat

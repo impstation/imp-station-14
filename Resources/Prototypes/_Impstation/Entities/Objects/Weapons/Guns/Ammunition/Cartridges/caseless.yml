@@ -32,7 +32,7 @@
   description: A kinetic sub-caliber cartridge of odd design, but with effective application. .25 caseless ammo has propellant encasing the bullet, making the cartridge appear rectangular.
   components:
   - type: CartridgeAmmo
-    proto: BulletCaselessRifle
+    proto: BulletStandard
 
 - type: entity
   id: CartridgeCaselessRiflePractice
@@ -41,7 +41,7 @@
   description: An oddly-shaped cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training, but still stings like a bitch. Eye protection recommended.
   components:
   - type: CartridgeAmmo
-    proto: BulletCaselessRiflePractice
+    proto: BulletStandardPractice
   - type: Sprite
     layers:
       - state: base

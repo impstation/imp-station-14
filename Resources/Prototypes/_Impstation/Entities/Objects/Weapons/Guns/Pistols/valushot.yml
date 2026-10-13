@@ -22,6 +22,14 @@
     angleDecay: 10
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/pistolp2.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: -5 #.10 Minigun deals 5 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -146,6 +154,14 @@
     angleDecay: 30
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/pistolvaluplus.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 0 #ValuPlus deals 8 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: BallisticAmmoProvider
     whitelist:
       tags:

@@ -41,15 +41,23 @@
   components:
   - type: SubdermalImplant
     permanent: true
+    implantComponents: #they need to be implanted when you spawn the remote for it to function correctly
+    - type: TriggerOnSignal
+    - type: DeviceLinkSink
+      ports:
+      - Trigger
+      preventManualLinking: true
+    - type: AutoLinkReceiver
+      channel: Butler
+      acrossGrids: true
+    - type: GibOnTrigger
+  - type: TriggerOnSignal
   - type: DeviceLinkSink
     ports:
     - Trigger
   - type: AutoLinkReceiver
     channel: Butler
-  - type: TriggerOnSignal
-  - type: ShockOnTrigger
-    targetContainer: true
-    damage: 200 #die.
+    acrossGrids: true
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default

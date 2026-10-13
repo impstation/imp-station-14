@@ -1,7 +1,7 @@
 # Magazines compatible with the Cobra.
 - type: entity
   id: BaseMagazineCaselessPistol
-  name: "magazine (.25 caseless)"
+  name: "Cobra magazine (.25 caseless)"
   description: A 10-round .25 caseless pistol magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
@@ -36,7 +36,7 @@
 
 - type: entity
   id: BaseMagazinePistolCaselessExtended
-  name: extended pistol magazine (.25 caseless)
+  name: extended Cobra magazine (.25 caseless)
   description: A 16-round .25 caseless extended pistol magazine.
   parent: BaseItem
   abstract: true
@@ -70,7 +70,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRifle
-  name: "pistol magazine (.25 caseless)"
+  name: "Cobra magazine (.25 caseless)"
   parent: BaseMagazineCaselessPistol
   description: A 10-round .25 caseless pistol magazine, marked as live-fire ammo.
   components:
@@ -97,7 +97,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRiflePractice
-  name: "pistol magazine (.25 caseless practice)"
+  name: "Cobra magazine (.25 caseless practice)"
   parent: BaseMagazineCaselessPistol
   description: A 10-round .25 caseless pistol magazine, marked as practice ammo.
   components:
@@ -124,7 +124,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRifleEmpty
-  name: "pistol magazine (.25 caseless any)"
+  name: "Cobra magazine (.25 caseless any)"
   description: A 10-round .25 caseless pistol magazine with no apparent markings.
   parent: BaseMagazineCaselessPistol
   components:
@@ -150,7 +150,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRifleExtended
-  name: "extended pistol magazine (.25 caseless)"
+  name: "extended Cobra magazine (.25 caseless)"
   parent: BaseMagazinePistolCaselessExtended
   description: A 16-round .25 caseless extended pistol magazine, marked as live-fire ammo.
   components:
@@ -176,7 +176,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRifleExtendedPractice
-  name: "extended pistol magazine (.25 caseless practice)"
+  name: "extended Cobra magazine (.25 caseless practice)"
   parent: BaseMagazinePistolCaselessExtended
   description: A 16-round .25 caseless pistol magazine, marked as practice ammo.
   components:

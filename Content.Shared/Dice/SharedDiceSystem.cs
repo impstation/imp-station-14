@@ -77,6 +77,11 @@ public abstract class SharedDiceSystem : EntitySystem
         var roll = rand.Next(1, entity.Comp.Sides + 1);
         SetCurrentSide(entity, roll);
 
+        //imp start
+        var ev = new DiceRolledEvent(entity.Comp.Sides, roll, entity);
+        RaiseLocalEvent(ref ev);
+        //imp end
+
         var popupString = Loc.GetString("dice-component-on-roll-land",
             ("die", entity),
             ("currentSide", entity.Comp.CurrentValue));
@@ -84,3 +89,9 @@ public abstract class SharedDiceSystem : EntitySystem
         _audio.PlayPredicted(entity.Comp.Sound, entity, user);
     }
 }
+
+/// <summary>
+/// IMP: Event raised on dice roll
+/// </summary>
+[ByRefEvent]
+public record struct DiceRolledEvent(int Sides, int Roll, Entity<DiceComponent> Dice);

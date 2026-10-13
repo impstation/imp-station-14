@@ -1,0 +1,99 @@
+- type: entity
+  parent: BaseAction
+  id: ActionPianoPlayMidi
+  name: Play MIDI
+  description: Congratulations, you played yourself.
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: Objects/Fun/Instruments/structureinstruments.rsi
+      state: piano
+  - type: InstantAction
+    event: !type:OpenUiActionEvent
+      key: enum.InstrumentUiKey.Key
+
+- type: entity
+  id: MobPianoInstrumentMimic
+  name: piano
+  suffix: Mimic
+  parent: [ MobCombat, SimpleMobBase, PianoInstrument ]
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: MimicHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        3
+      AggroVisionRadius: !type:Single
+        4
+      NavSmash: !type:Bool
+        false
+  - type: NpcFactionMember
+    factions:
+    - AllHostile
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepPiano
+      params:
+        variation: 0.2
+  - type: Tag
+    tags:
+    - FootstepSound
+  - type: MeleeWeapon
+    soundHit: /Audio/_Impstation/Weapons/pianobite.ogg
+    angle: 0
+    animation: WeaponArcSmash
+    damage:
+      types:
+        Blunt: 23
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: Butcherable
+    spawned:
+    - id: PianoInstrument
+      amount: 1
+    - id: Ectoplasm
+      amount: 1
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      140: Dead
+  - type: WaddleAnimation
+  - type: AnimationPlayer
+  - type: HarpySinger
+    midiActionId: ActionPianoPlayMidi
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+  - type: ActivatableUI
+    blockSpectators: false # ghost piano = spooky
+    inHandsOnly: false
+    singleUser: true
+    requireActiveHand: false
+    requiresComplex: false
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: Instrument
+    program: 1
+    allowSpectatorPlaying: true # goast
+  - type: Insulated
+  - type: Climbing
+    canClimb: false
+  - type: NameIdentifier
+    group: null # hide the number - noone can tell that its a mimic
+  - type: PassiveDamage # if you don't kill it in one round, it'll regen for the next.
+    allowedStates:
+    - Alive
+    damageCap: 65
+    damage:
+      types:
+        Heat: -1
+      groups:
+        Brute: -1
+        Airloss: -1
+        Toxin: -1

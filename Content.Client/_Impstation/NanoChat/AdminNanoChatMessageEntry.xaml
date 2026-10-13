@@ -1,0 +1,32 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              Orientation="Vertical"
+              VerticalExpand="True">
+    <Label HorizontalAlignment="Left"
+           Name="SenderLabel"
+           Margin="10,0,10,2"
+           StyleClasses="LabelSubText"/>
+    <Label HorizontalAlignment="Left"
+           Name="CardLabel"
+           Margin="10,0,10,2"
+           StyleClasses="LabelSubText"/>
+    <PanelContainer Name="MessagePanel"
+                    HorizontalExpand="True"
+                    MaxWidth="500">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat
+                ContentMarginLeftOverride="10"
+                ContentMarginRightOverride="10"
+                ContentMarginTopOverride="6"
+                ContentMarginBottomOverride="6"
+                BorderThickness="1"/>
+        </PanelContainer.PanelOverride>
+        <RichTextLabel Name="MessageText"
+                       HorizontalExpand="True"/>
+    </PanelContainer>
+    <Label Name="RecipientsLabel"
+           StyleClasses="LabelSubText"
+           HorizontalExpand="True"
+           HorizontalAlignment="Right"
+           Margin="10,2,10,0"/>
+</BoxContainer>

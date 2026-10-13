@@ -45,3 +45,5 @@ tiles-reaper-square-serrated = serrated reaper tile
 
 tiles-decapoid-floor = imperial tile (narrow)
 tiles-decapoid-floor-fancy = imperial tile (flourish)
+
+tiles-crystals-mass-plating = crystal mass plating

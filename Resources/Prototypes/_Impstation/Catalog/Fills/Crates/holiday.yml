@@ -35,6 +35,7 @@
       entity_storage: !type:AllSelector
         children:
         - id: PlushieImp
+        - id: PlushieImpOld
         - id: PlushieGnomeChild
         - !type:GroupSelector
           children:

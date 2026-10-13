@@ -8,5 +8,8 @@ public sealed partial class AutoLinkReceiverComponent : Component
 {
     [DataField("channel", required: true)]
     public string AutoLinkChannel = default!;
+
+    [DataField]
+    public bool AcrossGrids; // Imp
 }
 

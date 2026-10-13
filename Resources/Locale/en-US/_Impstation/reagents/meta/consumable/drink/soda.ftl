@@ -24,3 +24,12 @@ reagent-desc-shrimpsoda = A revolting melange of millions of CO2 infused microsh
 
 reagent-name-funny-lifting-drink = funny lifting drink
 reagent-desc-funny-lifting-drink = A once secret fizzy recipe is now free to the public! Not sure what's so funny about theft, though...
+
+reagent-name-cream-soda-drink = cream soda
+reagent-desc-cream-soda-drink = A smooth, cool refreshing cream soda.
+
+reagent-name-orange-cream-soda-drink = orange cream soda
+reagent-desc-orange-cream-soda-drink = A zesty twist on an already great drink.
+
+reagent-name-berry-cream-soda-drink = mixed berry cream soda
+reagent-desc-berry-cream-soda-drink = A fruity twist on an already great drink.

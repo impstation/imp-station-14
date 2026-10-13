@@ -7,6 +7,14 @@
   - DionaHivemind
 
 - type: collectiveMind
+  id: MansusLink
+  name: collective-mind-mansuslink
+  keycode: 'l'
+  color: "#39a83d"
+  requiredComponents:
+  - HereticMansusLink
+
+- type: collectiveMind
   id: Changeling
   name: collective-mind-changeling
   keycode: 'h'

@@ -1,0 +1,153 @@
+- type: announcer
+  id: XiaoGui
+  basePath: /Audio/_Impstation/Announcers/XiaoGui
+  baseAudioParams:
+    volume: -7
+  announcements:
+  # Communications
+  - id: commandReport # Station goal, Central Command messages, etc
+    path: comms/command_report.ogg
+    # 各位同志们好纳米星际刚发来了个通报请仔细看一下谢谢
+  - id: nukeDisarm # The nuke has been disarmed
+    path: comms/nuke_disarm.ogg
+    # 核弹倒计时已被取消，谢谢您的配合
+  - id: welcome # The shift has started
+    path: comms/welcome.ogg
+    # 各位同志好欢迎来到纳米星际太空站，请各位积极向上，努力工作，谢谢
+  # Alert levels
+  - id: alertAmber # It's Dino Wars
+    path: alerts/amber.ogg
+    # 我们现在是褐色警报请大家当心恐龙
+  - id: alertBlue # Something is amiss
+    path: alerts/blue.ogg
+    # 我们现在是蓝色警报请大家保持警惕配合治安人员谢谢
+  - id: alertEpsilon # The station has been terminated, good luck survivors!
+    path: alerts/epsilon.ogg
+  # 请注意，此太空站的劳动合同已被终止。请不要反抗。请不要反抗。请不要反抗。
+  - id: alertGamma # There is a massive immediate threat to the station, listen to Central Command
+    path: alerts/gamma.ogg
+    # 我们现在是加尔码警报请大家听从中心部门指挥
+  - id: alertGreen # Everything is fine
+    path: alerts/green.ogg
+    # 我们现在是绿色警报请大家归回岗位谢谢
+  - id: alertPink # Please don't form a union
+    path: alerts/pink.ogg
+    # 我们现在是粉色警报请大家举报任何工会集团运动谢谢
+  - id: alertRed # Generic many things are bad, listen to Security
+    path: alerts/red.ogg
+    # 我们现在是红色警报请大家避开高风险区域听从治安指令
+  - id: alertViolet # Viral infection or misc medical emergencies, listen to Medical
+    path: alerts/violet.ogg
+    # 我们现在是紫色警报请大家做好防疫准备与医护人员配合谢谢
+  - id: alertYellow # The station is being largely damaged, listen to Engineering
+    path: alerts/yellow.ogg
+    # 我们现在是黄色警报请大家准备好呼吸气体帮助工程师们维修太空站
+  # below are unaltered
+  - id: alertDelta # The station is being or about to be massively destroyed, run for your life
+    path: alerts/delta.ogg
+  - id: alertBurgundy # Don't move!
+    path: alerts/burgundy.ogg
+  - id: khaki # oh fuck
+    path: alerts/khaki.ogg
+  - id: alertDenim # It's clown time!
+    path: alerts/denim.ogg
+  - id: alertChartreuse # Wha?
+    path: alerts/chartreuse.ogg
+  - id: alertWhite # There's ghosts! Not to be confused with the one from DV.
+    path: alerts/white.ogg
+  - id: alertPuce # don't eat anything
+    path: alerts/puce.ogg
+
+  # Events
+  ## Wizard's Den
+  ### Events
+  - id: anomalySpawn # An anomaly has spawned in a random place
+    path: events/anomaly.ogg
+    # 同志们好我们检测到了一个异常物找到之后请联系站上的科研部门谢谢
+  - id: bluespaceArtifact # An artifact has spawned in a random place
+    path: events/bluespace_artifact.ogg
+    # 同志们好我们刚刚检测到了一个外星神器找到后请联系科研谢谢
+  - id: bluespaceLocker # Two random lockers now share inventories
+    path: events/bluespace_locker.ogg
+    # 同志们好我们在太空站上检测到了一个蓝洞请小心处理谢谢
+  - id: breakerFlip # A few random APCs have been disabled, ask Engineering to fix them
+    path: events/breaker_flip.ogg
+    # 同志们好我们有些电闸跳了一下如果看到请联系工程师谢谢
+  - id: bureaucraticError # Random jobs have been added, removed, or made infinite
+    path: events/bureaucratic_error.ogg
+    # 中央管理部门人资出错了有些职业分配可能不怎么平衡请在站上自行管理
+  - id: carpRift # A dragon's carp rift is active
+    path: events/carp_rift.ogg
+    # 太空龙裂痕在充能，请尽快把它摧毁
+  - id: clericalError # Random crew are removed from the manifest
+    path: events/clerical_error.ogg
+    # 中央部门出了个文书错误有些船员可能会不在清单上
+  - id: gasLeak # A random gas is coming out of a random vent
+    path: events/gas_leak.ogg
+    # 站上气管检测到了泄漏，请注意安全
+  - id: gasLeakComplete # Gas has stopped coming out of a vent
+    path: events/gas_leak-complete.ogg
+    # 气管泄露已自动修复，还有危险气体的话请联系工程师
+  - id: immovableRodSpawn # The station is moving into an immovable rod, don't die or something, ask Engineering for help repairing it
+    path: events/immovable_rod_spawn.ogg
+    # 雷达上显示了一个不明物品即将撞上太空站，请各位小心
+  - id: meteorSwarm # Meteors are flying at the station, stay away from windows
+    path: events/meteors.ogg
+    # 我们检测到了一个流星，马上就要撞到太空站了，请各位小心
+  - id: powerGridCheck # The station's power is offline for some moments
+    path: events/power_grid_check.ogg
+    # 各位同志们好，我们需要停一下电感谢你的配合
+  - id: powerGridCheckComplete # The station's power is online again
+    path: events/power_grid_check-complete.ogg
+    # 同志们好，我们重开了电闸，抱歉我们造成了不便
+  - id: solarFlare # A solar flare is nearby, may mess with comms and electronics
+    path: events/solar_flare.ogg
+    # 同志们好，附近的恒星耀斑正在影响我们的无线电，请稍等谢谢
+  - id: solarFlareComplete # The solar flare has passed
+    path: events/solar_flare-complete.ogg
+    # 喂，喂喂，大家好，无线电可以用了，谢谢
+  - id: ventClog # A random reagent is coming out of a scrubber
+    path: events/vent_clog.ogg
+    # 同志们好，气体洗涤器的大气压有些故障，请离排风口远点，谢谢
+  - id: corpseEjectedFromVents # vent clog, kind of
+    path: events/vent_clog.ogg
+  - id: mouseMigration # Several mice have appeared in a random place
+    path: events/vent_critters.ogg
+    # 各位同志们好我们刚刚在排风管里检测到了一些动物请离它们远点注意安全谢谢
+  - id: cockroachMigration # Several cockroaches have appeared in a random place
+    path: events/vent_critters.ogg
+  - id: slimesSpawn # Some simple slimes are appearing in vents
+    path: events/vent_critters.ogg
+  - id: spiderSpawn # Some simple spiders are appearing in vents
+    path: events/vent_critters.ogg
+  - id: trashAnimalMigration # Trash-eating critters are appearing in vents
+    path: events/vent_critters.ogg
+  - id: snailMigration # Adorable little snails are appearing in vents
+    path: events/vent_critters.ogg
+  - id: snailMigrationLowPop # Adorable little snails are appearing in vents
+    path: events/vent_critters.ogg
+  - id: brosSpawn # BROS are appearing in vents. UNGH
+    path: events/vent_critters.ogg
+
+  # Shuttle
+  - id: shuttleAlmostLaunching # The shuttle will leave to FTL in 10 seconds
+    path: shuttle/almost_launching.ogg
+  - id: shuttleCalled # The shuttle is on its way
+    path: shuttle/called.ogg
+    # 紧急班机正在前往太空站途中
+  - id: shuttleDock # The shuttle has arrived at the station
+    path: shuttle/dock.ogg
+    # 紧急班机到达了太空站，请各位按秩序登机
+  - id: shuttleGoodLuck # The shuttle could not find its way to the station, good luck crew
+    path: shuttle/good_luck.ogg
+    # 对不起，紧急班机没找到太空站，祝您生存好运
+  - id: shuttleNearby # The shuttle couldn't dock, it's at a specified location
+    path: shuttle/nearby.ogg
+    # 紧急班机没法停在太空站上，它传送到了太空站边上，请小心登机
+  - id: shuttleRecalled # The shuttle is going back to Central Command
+    path: shuttle/recalled.ogg
+    # 紧急班机已被召回
+
+  # Fallback # REQUIRED
+  - id: fallback # Any announcement sent without a valid announcement on this announcer will use this
+    path: fallback.ogg

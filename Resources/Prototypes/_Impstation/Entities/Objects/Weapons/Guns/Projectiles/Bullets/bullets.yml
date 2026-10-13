@@ -1,0 +1,133 @@
+- type: entity
+  id: BulletStandard
+  name: bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+
+- type: entity
+  id: BulletStandardPractice
+  name: bullet (practice)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 2
+  - type: Tag
+    tags:
+      - DamageVariable
+
+- type: entity
+  id: BulletStandardIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (incendiary)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 2
+        Heat: 8
+
+- type: entity
+  id: BulletStandardUranium
+  parent: BaseBulletUranium
+  name: bullet (uranium)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 6
+        Piercing: 4
+
+- type: entity
+  id: BulletStandardAP
+  name: bullet (armor-piercing)
+  parent: BaseBulletAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 3 #7 pierce is 20% of 35, which is the standard .45 magnum damage.
+    ignoreResistances: true
+
+- type: entity
+  id: BulletStandardZipAP
+  name: bullet (armor-piercing)
+  parent: BaseBulletAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 33 #comes to 35 pierce total for the Zipper
+    ignoreResistances: true
+
+- type: entity
+  id: BulletPistolStun
+  name: bullet (stun)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletStun
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
+    layers:
+    - state: stunbullet
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKineticStun
+    damage:
+      types:
+        Shock: 2
+  - type: StaminaDamageOnCollide
+    damage: 15 #7 hits to stun. Really 6.67 but unless you're receiving teamwork it's gonna be 7.
+  - type: Tag
+    tags:
+      - DamageVariable
+
+- type: entity
+  id: BulletMagnumStun
+  name: bullet (stun)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
+    layers:
+    - state: stunbullet
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKineticStun
+    damage:
+      types:
+        Shock: 3
+  - type: StaminaDamageOnCollide
+    damage: 30 #4 hits to stun
+  - type: Tag
+    tags:
+      - DamageVariable
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiMateriel
+  name: bullet (.60 anti-materiel)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 75
+        Structural: 226
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 60

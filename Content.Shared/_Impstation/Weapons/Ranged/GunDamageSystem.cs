@@ -1,9 +1,9 @@
 using Content.Shared.Damage;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared._Impstation.Weapons.Ranged.Components;
+using Robust.Shared.Random;
 
 namespace Content.Shared._Impstation.Weapons.Ranged.Systems;
 
@@ -13,6 +13,7 @@ namespace Content.Shared._Impstation.Weapons.Ranged.Systems;
 public sealed class GunDamageSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -24,6 +25,9 @@ public sealed class GunDamageSystem : EntitySystem
     {
         foreach (var projectile in args.FiredProjectiles)
         {
+            if (!_random.Prob(component.DamageChance))
+                continue;
+
             if (!TryComp<ProjectileComponent>(projectile, out var proj))
                 continue;
 

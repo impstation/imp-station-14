@@ -28,6 +28,10 @@ public abstract partial class SharedInstrumentComponent : Component
     [DataField("respectMidiLimits"), ViewVariables(VVAccess.ReadWrite)]
     public bool RespectMidiLimits { get; set; } = true;
 
+    // imp ghosts :)
+    [DataField("allowSpectatorPlaying"), ViewVariables(VVAccess.ReadWrite)]
+    public bool AllowSpectatorPlaying { get; set; } = false;
+
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Master { get; set; } = null;
 
@@ -61,6 +65,8 @@ public sealed class InstrumentComponentState : ComponentState
     public bool AllowProgramChange;
 
     public bool RespectMidiLimits;
+
+    public bool AllowSpectatorPlaying; //imp
 
     public NetEntity? Master;
 

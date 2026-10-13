@@ -1,0 +1,36 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+               SetSize="900 500"
+               HeaderClass="windowHeaderAlert"
+               TitleClass="windowTitleAlert"
+               Title="{Loc 'nanochat-logs-title'}" >
+    <PanelContainer StyleClasses="BackgroundDark">
+        <SplitContainer Orientation="Horizontal"
+                        VerticalExpand="True">
+            <cc:PlayerListControl Access="Public"
+                                    Name="PlayerSelector"
+                                    HorizontalExpand="True"
+                                    SizeFlagsStretchRatio="2"/>
+            <SplitContainer Orientation="Vertical"
+                            HorizontalExpand="True"
+                            SizeFlagsStretchRatio="3">
+                <ScrollContainer HScrollEnabled="False"
+                                 VerticalExpand="True">
+                    <BoxContainer Orientation="Vertical"
+                                HorizontalExpand="True">
+                        <BoxContainer Orientation="Vertical"
+                                    Access="Public"
+                                    Name="MessageArea"/>
+                    </BoxContainer>
+                </ScrollContainer>
+                <BoxContainer Orientation="Horizontal"
+                              SetHeight="30">
+                    <Button Access="Public"
+                            Name="Refresh"
+                            Text="{Loc 'nanochat-logs-refresh'}"
+                            StyleClasses="OpenBoth"/>
+                </BoxContainer>
+            </SplitContainer>
+        </SplitContainer>
+    </PanelContainer>
+</DefaultWindow>

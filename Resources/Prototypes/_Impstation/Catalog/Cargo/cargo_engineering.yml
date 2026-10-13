@@ -6,3 +6,23 @@
   product: CrateEvaEngineeringKit
   cost: 5000
   category: cargoproduct-category-name-engineering
+
+- type: cargoProduct
+  id: EngineeringRPD
+  icon:
+    sprite: _Funkystation/Objects/Tools/rpd.rsi
+    state: icon
+  product: CrateRPD
+  cost: 800
+  category: cargoproduct-category-name-engineering
+  group: market
+
+- type: cargoProduct
+  id: EngineeringSupermatter
+  icon:
+    sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter_shard.rsi
+    state: supermatter-shard
+  product: CrateEngineeringSupermatterShard
+  cost: 40000
+  category: cargoproduct-category-name-engineering
+  group: market

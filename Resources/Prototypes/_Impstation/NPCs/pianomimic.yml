@@ -1,0 +1,13 @@
+- type: htnCompound
+  id: MimicHostileCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: MeleeCombatCompound
+  - tasks:
+    - !type:HTNPrimitiveTask #This is the 'idle' task without any movement - just stay still unless attacking
+      operator: !type:WaitOperator
+        key: IdleTime
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime

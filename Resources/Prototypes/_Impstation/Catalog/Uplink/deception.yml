@@ -21,3 +21,35 @@
     Telecrystal: 1
   categories:
   - UplinkDeception
+
+- type: listing
+  id: UplinkPhoneSyndicate
+  name: uplink-phone-syndicate-name
+  description: uplink-phone-syndicate-desc
+  productEntity: PhoneInstrumentSyndicate
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 0
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    makeHidden: true
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkMurderSceneBundle
+  name: uplink-murderscenebundle-name
+  description: uplink-murderscenebundle-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Misc/redpaintbucket.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateMurderSceneBundle
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDeception

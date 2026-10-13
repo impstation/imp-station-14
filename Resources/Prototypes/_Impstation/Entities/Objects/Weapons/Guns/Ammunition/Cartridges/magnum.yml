@@ -9,7 +9,7 @@
       - CartridgeMagnum
       - Cartridge
   - type: CartridgeAmmo
-    proto: BulletMagnum
+    proto: BulletStandard
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
@@ -25,7 +25,7 @@
   description: A powerful kinetic pistol cartridge with incredible stopping power. The best designs are timeless.
   components:
   - type: CartridgeAmmo
-    proto: BulletMagnum
+    proto: BulletStandard
 
 - type: entity
   id: CartridgeMagnumPractice
@@ -34,7 +34,7 @@
   description: A powerful pistol cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training but still stings like a bitch. Eye protection required.
   components:
   - type: CartridgeAmmo
-    proto: BulletMagnumPractice
+    proto: BulletStandardPractice
   - type: Sprite
     layers:
       - state: base
@@ -50,7 +50,7 @@
   description: A powerful pistol cartridge tipped with a softer projectile containing a pyrophoric compound, setting targets ablaze.
   components:
   - type: CartridgeAmmo
-    proto: BulletMagnumIncendiary
+    proto: BulletStandardIncendiary
   - type: Sprite
     layers:
       - state: base
@@ -66,7 +66,7 @@
   description: A powerful pistol cartridge with a tungsten carbide penetrator core and a PTFE coating, defeating conventional armor.
   components:
   - type: CartridgeAmmo
-    proto: BulletMagnumAP
+    proto: BulletStandardAP
   - type: Sprite
     layers:
       - state: base
@@ -82,7 +82,7 @@
   description: A powerful pistol cartridge with a heavier depleted uranium projectile, delivering radiation poisoning at the cost of worse penetration.
   components:
   - type: CartridgeAmmo
-    proto: BulletMagnumUranium
+    proto: BulletStandardUranium
   - type: Sprite
     layers:
       - state: base

@@ -1,4 +1,6 @@
-# .45 Magnum deals 35 pierce per shot (CartridgeMagnum)
+# .45 Magnum (CartridgeMagnum) should deal 35 pierce per shot on average (+25).
+# Base Sniper Weapons do not have the GunDamage component by default, due to a wide variety of ammo types in this category and .60AM dealing a fixed damage.
+
 - type: entity
   name: flintlock pistol
   parent: [BaseWeaponSniper, BaseMajorContraband]
@@ -8,6 +10,14 @@
   - type: Gun
     minAngle: 0
     maxAngle: 30 #miss him entirely because the barrel is smoothbore
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 20 #30 Piercing
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: Item
     size: Small
     shape:

@@ -27,6 +27,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Silicons.Borgs.Components; // Impstation
 using Content.Shared.Silicons.StationAi; // Impstation
+using Content.Shared._Impstation.Station.Components; // imp
+using Content.Shared._Impstation.NanoChat; // imp
+using Content.Server.Mind; // Impstation
 
 namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
@@ -40,6 +43,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly MindSystem _mind = default!; // imp add
 
     // Messages in notifications get cut off after this point
     // no point in storing it on the comp
@@ -371,6 +375,14 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var recipientsText = recipients.Count > 0
             ? string.Join(", ", recipients.Select(r => ToPrettyString(r)))
             : $"#{msg.RecipientNumber:D4}";
+
+        // IMP ADD: send info to our logging
+        var station = _station.GetOwningStation(msg.User);
+        if (!LogMessageToStation(card, recipients, message, msg.User, station))
+        {
+            Log.Error($"Failed to log NanoChat message: {ToPrettyString(card):user} sent NanoChat message to {recipientsText}: {content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
+        }
+        // END IMP
 
         _adminLogger.Add(LogType.Chat,
             LogImpact.Low,
@@ -720,5 +732,41 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             listNumber);
         _cartridge.UpdateCartridgeUiState(loader, state);
     }
+
+    #region imp add
+    // all below is imp addition
+
+    /// <summary>
+    ///     Adds this message to the in-game NanoChat log viewer.
+    ///     We do this by saving the message to the station for a later query.
+    /// </summary>
+    private bool LogMessageToStation(Entity<NanoChatCardComponent> card, List<Entity<NanoChatCardComponent>> recipients, NanoChatMessage message, EntityUid sender, EntityUid? station)
+    {
+        if (station is null || !TryComp<StationNanoChatLogsComponent>(station, out var stationLogs))
+            return false;
+
+        if (!_mind.TryGetMind(sender, out _, out var mind) || mind.UserId is not { } user)
+            return false;
+
+        string logRecipients = "";
+        for (var i = 0; i < recipients.Count; i++)
+        {
+            var recipient = recipients[i];
+            if (i > 0)
+                logRecipients += ", ";
+            logRecipients += ToPrettyString(recipient);
+        }
+
+        stationLogs.Logs.Add(new AdminNanoChatLogEntry(
+            user,
+            ToPrettyString(sender),
+            message.Content,
+            message.Timestamp,
+            ToPrettyString(card),
+            logRecipients));
+        return true;
+    }
+
+    #endregion
 }
 

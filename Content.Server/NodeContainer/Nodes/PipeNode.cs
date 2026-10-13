@@ -6,6 +6,8 @@ using Content.Shared.NodeContainer;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 
+using Content.Shared._Funkystation.Atmos;
+
 namespace Content.Server.NodeContainer.Nodes
 {
     /// <summary>
@@ -14,7 +16,7 @@ namespace Content.Server.NodeContainer.Nodes
     /// </summary>
     [DataDefinition]
     [Virtual]
-    public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode
+    public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode, IPipeNode // Funky RPD, added IPipeNode
     {
         /// <summary>
         ///     The directions in which this pipe can connect to other pipes around it.
@@ -236,5 +238,10 @@ namespace Content.Server.NodeContainer.Nodes
                 }
             }
         }
+
+        // Funky RPD Start
+        PipeDirection IPipeNode.Direction => OriginalPipeDirection;
+        AtmosPipeLayer IPipeNode.Layer => CurrentPipeLayer;
+        // Funky RPD End
     }
 }

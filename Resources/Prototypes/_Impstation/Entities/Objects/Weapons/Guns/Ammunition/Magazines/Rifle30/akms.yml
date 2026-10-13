@@ -1,8 +1,8 @@
 # Magazines compatible with the AKMS.
 - type: entity
   id: BaseMagazineLightRifle
-  name: "magazine (.30 rifle)"
-  description: A 23-round .30 rifle magazine.
+  name: "AKMS magazine (.30 tactical)"
+  description: A 23-round .30 tactical  magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -36,9 +36,9 @@
 
 - type: entity
   id: MagazineLightRifle
-  name: "magazine (.30 rifle)"
+  name: "AKMS magazine (.30 tactical)"
   parent: BaseMagazineLightRifle
-  description: A 23-round .30 rifle magazine, marked as live-fire ammo.
+  description: A 23-round .30 tactical magazine, marked as live-fire ammo.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifle
@@ -61,10 +61,10 @@
 
 - type: entity
   id: MagazineLightRifleEmpty
-  name: "magazine (.30 rifle any)"
+  name: "AKMS magazine (.30 tactical any)"
   suffix: empty
   parent: MagazineLightRifle
-  description: A 23-round .30 rifle magazine with no apparent markings.
+  description: A 23-round .30 tactical magazine with no apparent markings.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -83,9 +83,9 @@
 
 - type: entity
   id: MagazineLightRiflePractice
-  name: "magazine (.30 rifle practice)"
+  name: "AKMS magazine (.30 tactical practice)"
   parent: BaseMagazineLightRifle
-  description: A 23-round .30 rifle magazine, marked as practice ammo.
+  description: A 23-round .30 tactical magazine, marked as practice ammo.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRiflePractice
@@ -108,9 +108,9 @@
 
 - type: entity
   id: MagazineLightRifleUranium
-  name: "magazine (.30 rifle uranium)"
+  name: "AKMS magazine (.30 tactical uranium)"
   parent: BaseMagazineLightRifle
-  description: A 23-round .30 rifle magazine, marked as uranium ammo.
+  description: A 23-round .30 tactical magazine, marked as uranium ammo.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleUranium
@@ -133,9 +133,9 @@
 
 - type: entity
   id: MagazineLightRifleIncendiary
-  name: "magazine (.30 rifle incendiary)"
+  name: "AKMS magazine (.30 tactical incendiary)"
   parent: MagazineLightRifle
-  description: A 23-round .30 rifle magazine, marked as incendiary ammo.
+  description: A 23-round .30 tactical magazine, marked as incendiary ammo.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary

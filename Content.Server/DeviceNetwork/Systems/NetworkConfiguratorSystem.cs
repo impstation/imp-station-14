@@ -193,7 +193,8 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 
     private void TryLinkDevice(EntityUid uid, NetworkConfiguratorComponent configurator, EntityUid? target, EntityUid user)
     {
-        if (!HasComp<DeviceLinkSourceComponent>(target) && !HasComp<DeviceLinkSinkComponent>(target))
+        if (!HasComp<DeviceLinkSourceComponent>(target) && // Imp, removed HasComp<DeviceLinkSinkCompnent>(target)
+            (!TryComp<DeviceLinkSinkComponent>(target, out var sinkComp) || sinkComp.PreventManualLinking)) // Imp
             return;
 
         if (configurator.ActiveDeviceLink == target)
@@ -386,7 +387,8 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             Impact = LogImpact.Low
         };
 
-        if (configurator.LinkModeActive && (HasComp<DeviceLinkSinkComponent>(args.Target) || HasComp<DeviceLinkSourceComponent>(args.Target)))
+        if (configurator.LinkModeActive && (HasComp<DeviceLinkSourceComponent>(args.Target) // Imp, removed HasComp<DeviceLinkSinkComponent>(args.Target)
+            || TryComp<DeviceLinkSinkComponent>(args.Target, out var sinkcomp) && !sinkcomp.PreventManualLinking)) // Imp
         {
             var linkStarted = configurator.ActiveDeviceLink.HasValue;
             verb.Text = Loc.GetString(linkStarted ? "network-configurator-link" : "network-configurator-start-link");

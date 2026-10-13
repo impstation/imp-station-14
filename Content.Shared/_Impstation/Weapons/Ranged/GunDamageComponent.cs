@@ -24,6 +24,12 @@ public sealed partial class GunDamageComponent : Component
     public Dictionary<string, DamageSpecifier> DamageSpecific = new();
 
     /// <summary>
+    /// The chance for the damage modifier to be applied.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float DamageChance = 1f;
+
+    /// <summary>
     /// If true, overrides ammo damage with gun damage.
     /// </summary>
     [DataField, AutoNetworkedField]

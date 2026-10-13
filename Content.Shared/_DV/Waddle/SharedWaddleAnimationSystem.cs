@@ -2,6 +2,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Gravity;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
@@ -30,6 +31,7 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
         // Start moving possibilities
         SubscribeLocalEvent<WaddleAnimationComponent, MoveInputEvent>(OnMovementInput);
         SubscribeLocalEvent<WaddleAnimationComponent, StoodEvent>(OnStood);
+        SubscribeLocalEvent<WaddleAnimationComponent, DuringMovementEvent>(OnAllMovement); //Imp - allow NPC waddling
 
         // Stop moving possibilities
         SubscribeLocalEvent((Entity<WaddleAnimationComponent> ent, ref StunnedEvent _) => StopWaddling(ent));
@@ -59,6 +61,18 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
     {
         // Only start waddling if we're actually moving.
         SetWaddling(ent, args.HasDirectionalMovement);
+    }
+
+    //Imp: allow NPC movement to trigger waddling
+    private void OnAllMovement(Entity<WaddleAnimationComponent> ent, ref DuringMovementEvent args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        // This waddle method is for NPC only, waddle using movement inputs mind-bozos
+        if (TryComp<MindContainerComponent>(ent, out var mindContainer) && mindContainer.HasMind)
+            return;
+        SetWaddling(ent, args.NonZeroMovement);
     }
 
     private void OnStood(Entity<WaddleAnimationComponent> ent, ref StoodEvent args)
