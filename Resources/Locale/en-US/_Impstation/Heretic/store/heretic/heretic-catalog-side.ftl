@@ -28,7 +28,7 @@ knowledge-path-side-s3-mirror-flavor =
     "Wherever it's kept, it will be visible in the splintered reflections of the pupils."
 
 knowledge-path-side-s3-key-name = Frangiclave
-knowledge-path-side-s3-desc =
+knowledge-path-side-s3-key-desc =
     Allows you to transmute an ID card and an organ into a Frangiclave.
     When thrown, the Frangiclave will instantly destroy any inanimate object, and then vanish.
 knowledge-path-side-s3-key-flavor =

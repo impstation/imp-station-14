@@ -1,0 +1,52 @@
+- type: entity
+  parent: ConicalFlask
+  id: GeniusMixture # a Genius' Treat
+  name: genius mixture 
+  description: The fluid of a World's Smartest for that you may drink of it's nectar.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+        reagents:
+        - ReagentId: Cognizine
+          Quantity: 4
+        - ReagentId: Whiskey
+          Quantity: 4
+        - ReagentId: Moonshine
+          Quantity: 3
+        - ReagentId: BacchusBlessing
+          Quantity: 5
+        - ReagentId: TheDrink
+          Quantity: 5
+        - ReagentId: TheeHorsepussy
+          Quantity: 5
+        - ReagentId: VentCrud
+          Quantity: 5
+        - ReagentId: Hooch
+          Quantity: 4
+        - ReagentId: Nicotine
+          Quantity: 5
+        - ReagentId: GreyMatter
+          Quantity: 1
+        - ReagentId: Tazinide
+          Quantity: 4
+        - ReagentId: TheGrease
+          Quantity: 1
+        - ReagentId: UAP
+          Quantity: 2
+        - ReagentId: Ketchunaise
+          Quantity: 2
+
+- type: entity 
+  parent: FoodBowlBig
+  id: BowlWhiskey # a detective's treat
+  suffix: whiskey
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Whiskey
+          Quantity: 50
