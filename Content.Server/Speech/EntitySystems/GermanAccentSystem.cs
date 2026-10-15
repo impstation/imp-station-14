@@ -1,6 +1,8 @@
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
+using Content.Shared.GhostKick;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
 
@@ -13,6 +15,14 @@ public sealed class GermanAccentSystem : EntitySystem
 
     private static readonly Regex RegexTh = new(@"(?<=\s|^)th", RegexOptions.IgnoreCase);
     private static readonly Regex RegexThe = new(@"(?<=\s|^)the(?=\s|$)", RegexOptions.IgnoreCase);
+
+    // imp add start
+    private static readonly int[][] ShiftRows = {
+        new int[] { -16, -7, 14 }, // "das"
+        new int[] { -16, 1, 0 }, // "die"
+        new int[] { -16, -3, 13 } // "der" 
+    };
+    // imp add end
 
     public override void Initialize()
     {
@@ -27,33 +37,20 @@ public sealed class GermanAccentSystem : EntitySystem
         // TODO: The ReplacementAccentSystem should have random replacements this built-in.
         foreach (Match match in RegexThe.Matches(msg))
         {
-            if (_random.Prob(0.1f)) //imp edit from 0.3 to 0.1, every article gets 10% chance so it isnt too common
+            if (_random.Prob(0.3f))
             {
-                // just shift T, H and E over to D, A and S to preserve capitalization
-                msg = msg.Substring(0, match.Index) +
-                      (char)(msg[match.Index] - 16) +
-                      (char)(msg[match.Index + 1] - 7) +
-                      (char)(msg[match.Index + 2] + 14) +
-                      msg.Substring(match.Index + 3);
+                // IMP edit start
+                var row = _random.Pick(ShiftRows);
+                var before = msg.Substring(0, match.Index);
+                var after = msg.Substring(match.Index + 3);
+                var replaced = string.Join("",
+                    [((char)(msg[match.Index] + row[0])),
+                    ((char)(msg[match.Index + 1] + row[1])),
+                    ((char)(msg[match.Index + 2] + row[2]))]
+                );
+                msg = before + replaced + after;
+                // IMP edit end
             }
-            //imp start
-            else if (_random.Prob(0.1f)) //whole bit here is imp for other articles, keeping the probability
-            {
-                // shift T and H over to D and I
-                msg = msg.Substring(0, match.Index) +
-                      (char)(msg[match.Index] - 16) +
-                      (char)(msg[match.Index + 1] + 1) +
-                      msg.Substring(match.Index + 2);
-            }
-            else if (_random.Prob(0.1f)) //whole bit here is imp for other articles 2
-            {
-                // shift T, H and E over to D, E and R to preserve capitalization
-                msg = msg.Substring(0, match.Index) +
-                      (char)(msg[match.Index] - 16) +
-                      (char)(msg[match.Index + 1] - 3) +
-                      (char)(msg[match.Index + 2] + 13) +
-                      msg.Substring(match.Index + 3);
-            } //imp end
         }
 
         // now, apply word replacements
@@ -64,7 +61,7 @@ public sealed class GermanAccentSystem : EntitySystem
         foreach (Match match in RegexTh.Matches(msg))
         {
             // just shift the T over to a Z to preserve capitalization
-            msgBuilder[match.Index] = (char) (msgBuilder[match.Index] + 6);
+            msgBuilder[match.Index] = (char)(msgBuilder[match.Index] + 6);
         }
 
         // Random Umlaut Time! (The joke outweighs the emotional damage this inflicts on actual Germans)
