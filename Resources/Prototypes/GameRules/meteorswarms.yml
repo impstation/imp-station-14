@@ -212,7 +212,7 @@
   - type: ImmovableRodRule
     rodPrototypes:
     - id: ImmovableRodKeepTilesStill
-      prob: 0.9175
+      prob: 0.9100
       orGroup: rodProto
     - id: ImmovableRodMop
       prob: 0.0075
@@ -254,6 +254,9 @@
       prob: 0.0075
       orGroup: rodProto
     - id: ImmovableRodUncle # imp
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodSecretChineseFork # imp
       prob: 0.0075
       orGroup: rodProto
 
