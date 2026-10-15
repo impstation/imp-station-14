@@ -1,8 +1,6 @@
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
-using Content.Shared.GhostKick;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
 
@@ -61,7 +59,7 @@ public sealed class GermanAccentSystem : EntitySystem
         foreach (Match match in RegexTh.Matches(msg))
         {
             // just shift the T over to a Z to preserve capitalization
-            msgBuilder[match.Index] = (char)(msgBuilder[match.Index] + 6);
+            msgBuilder[match.Index] = (char) (msgBuilder[match.Index] + 6);
         }
 
         // Random Umlaut Time! (The joke outweighs the emotional damage this inflicts on actual Germans)
