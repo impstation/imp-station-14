@@ -1,10 +1,10 @@
 using Content.Shared.Chat;
 
-namespace Content.Client.Hands.Systems
+namespace Content.Client._Impstation.Hands.Systems
 {
     public sealed partial class HandsSystem
     {
-        public void UIInventoryEmote(string handName) //start imp edit - targeted emotes
+        public void UIInventoryEmote(string handName)
         {
             if (!TryGetPlayerHands(out var hands) ||
                 !TryGetHeldItem(hands.Value.AsNullable(), handName, out var heldEntity))
@@ -13,6 +13,6 @@ namespace Content.Client.Hands.Systems
             }
 
             RaiseLocalEvent(new EmoteInventorySlotEvent(heldEntity.Value));
-        } //end imp edit
+        }
     }
 }
