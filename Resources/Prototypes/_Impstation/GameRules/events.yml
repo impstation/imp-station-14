@@ -357,14 +357,13 @@
   components:
   - type: StationEvent
     weight: 3
+    startAnnouncement: true
     earliestStart: 20
     reoccurrenceDelay: 30
     minimumPlayers: 20
   - type: RandomSpawnRule
-    prototype: LandmineOrDudRareGibSpawner
-    spawnEffect: EffectDesynchronizerExit
+    prototype: ExplosiveMineResurgenceSpawner
     minMaxEntities:
       min: 8
       max: 10
     emptyTilesOnly: true
-    announcement: station-event-explosive-mine-resurfacing-announcement

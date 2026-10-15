@@ -2,6 +2,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Destructible.Thresholds; // Imp
+using Content.Shared.Radio; // Moffstation - Syndicate dead drop
 
 namespace Content.Server.StationEvents.Components;
 
@@ -20,13 +21,6 @@ public sealed partial class RandomSpawnRuleComponent : Component
 
     /// <summary>
     /// Imp.
-    /// Spawn effect to be spawned on the same tile as the entity spawned. Does not follow the entity.
-    /// </summary>
-    [DataField]
-    public EntProtoId? SpawnEffect;
-
-    /// <summary>
-    /// Imp.
     /// Variation in the amount of entities to spawn.
     /// </summary>
     [DataField]
@@ -39,10 +33,18 @@ public sealed partial class RandomSpawnRuleComponent : Component
     [DataField]
     public bool EmptyTilesOnly;
 
+    // Moffstation - Start - Syndicate dead drop
     /// <summary>
-    /// Imp.
-    /// Announcement to be played when a station event with this rule is added.
+    /// The radio message to send when spawning the entity. The entity is used as the sender of the radio message.
     /// </summary>
     [DataField]
-    public LocId? Announcement;
+    public LocId? RadioMessage; // Imp, made into a LocId over Moff RandomSpawnRuleRadioMessage
+    // Moffstation - End
+
+    /// <summary>
+    /// Imp.
+    /// Radio channel to send the message over, moved from Moff RandomSpawnRuleRadioMessage
+    /// </summary>
+    [DataField]
+    public ProtoId<RadioChannelPrototype> Channel = "Common";
 }
