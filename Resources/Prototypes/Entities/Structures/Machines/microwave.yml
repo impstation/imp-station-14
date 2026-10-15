@@ -152,6 +152,9 @@
     walkModifier: 0.7
     sprintModifier: 0.7
   - type: DamageExaminable
+  - type: Tag # imp edit
+    tags:
+    - Microwave
 
 - type: entity
   id: SyndicateMicrowave
