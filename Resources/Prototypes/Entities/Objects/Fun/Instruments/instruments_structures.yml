@@ -158,6 +158,7 @@
   description: Cutting edge music technology, straight from the 90s.
   components:
   - type: Sprite
+    drawdepth: SmallObjects
     layers:
     - state: daw-base
     - state: daw-display
