@@ -1,9 +1,10 @@
+﻿using Content.Client._Harmony.ReadyManifest.UI;
 using Content.Client.Eui;
+using Content.Shared._Harmony.ReadyManifest;
 using Content.Shared.Eui;
-using Content.Shared.ReadyManifest;
 using JetBrains.Annotations;
 
-namespace Content.Client._Impstation.ReadyManifest;
+namespace Content.Client._Harmony.ReadyManifest;
 
 [UsedImplicitly]
 public sealed class ReadyManifestEui : BaseEui
@@ -12,7 +13,7 @@ public sealed class ReadyManifestEui : BaseEui
 
     public ReadyManifestEui()
     {
-        _window = new();
+        _window = new ReadyManifestUi();
 
         _window.OnClose += () =>
         {
@@ -27,21 +28,20 @@ public sealed class ReadyManifestEui : BaseEui
         _window.OpenCentered();
     }
 
-    public override void Closed()
-    {
-        base.Closed();
-
-        _window.Close();
-    }
-
     public override void HandleState(EuiStateBase state)
     {
         base.HandleState(state);
 
         if (state is not ReadyManifestEuiState cast)
-        {
             return;
-        }
+
         _window.RebuildUI(cast.JobCounts);
+    }
+
+    public override void Closed()
+    {
+        base.Closed();
+
+        _window.Close();
     }
 }
