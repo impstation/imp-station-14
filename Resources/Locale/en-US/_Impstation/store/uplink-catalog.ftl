@@ -192,9 +192,3 @@ uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command.
 
 uplink-murderscenebundle-name = Murder Scene Bundle
 uplink-murderscenebundle-desc = Everything you need to create a convincing murder scene, includes six dead crew balloons, convincing fake blood, and bullet casings!
-
-uplink-c20r-name = C-20R Gorgon
-uplink-c20r-desc = Old faithful: The classic C-20R Gorgon Submachine Gun.
-
-uplink-bulldog-name = Hydra
-uplink-bulldog-desc = Lean and mean: Contains the popular Hydra Shotgun.
