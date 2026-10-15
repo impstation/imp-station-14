@@ -1,114 +1,4 @@
 ﻿Entries:
-- author: yesteryuri
-  changes:
-  - message: The no species accent trait no longer blocks off other selectable accents
-    type: Fix
-  id: 2475
-  time: '2025-12-10T18:08:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3762
-- author: coyragon96
-  changes:
-  - message: The ninja's power drain now drains the correct amount of power.
-    type: Fix
-  id: 2476
-  time: '2025-12-11T01:45:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3788
-- author: hivehum
-  changes:
-  - message: Nanotrasen is pleased to announce that trade negotiations regarding its
-      supplier of matter bins and capacitors have completed, and new shipments have
-      arrived at all stations.
-    type: Add
-  id: 2477
-  time: '2025-12-11T04:57:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3777
-- author: ATDoop
-  changes:
-  - message: You can find a weird long toy now.
-    type: Add
-  id: 2478
-  time: '2025-12-11T05:28:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3840
-- author: yesteryuri
-  changes:
-  - message: Doughs and cheese and such have a page in the cooking recipes now
-    type: Add
-  id: 2479
-  time: '2025-12-11T05:36:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3768
-- author: kipdotnet
-  changes:
-  - message: Ephedrine and Desoxyephedrine now cause you to heat up and gain thirst
-      from prolonged use.
-    type: Tweak
-  id: 2480
-  time: '2025-12-11T05:37:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3745
-- author: mqole
-  changes:
-  - message: Hospitality Directors now have access to the Service Job Board! Coordinate
-      an event for your crew, and keep morale high.
-    type: Add
-  id: 2481
-  time: '2025-12-11T18:17:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3377
-- author: FlippenPage
-  changes:
-  - message: presents use their old texture again
-    type: Fix
-  id: 2482
-  time: '2025-12-14T10:34:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3836
-- author: FlippenPage
-  changes:
-  - message: Added Santa Anomalite! we're shooting him after december ok?
-    type: Add
-  id: 2483
-  time: '2025-12-14T10:39:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3835
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The  T-25's flare shot has been reduced in brightness and the ammo counts
-      of it, and the disabler shot, have been adjusted.
-    type: Tweak
-  id: 2484
-  time: '2025-12-14T10:42:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3837
-- author: mqole
-  changes:
-  - message: Cigar cases can no longer store items bigger than cigars.
-    type: Remove
-  id: 2485
-  time: '2025-12-14T11:10:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3852
-- author: msTheowo
-  changes:
-  - message: Thaven clothing offsets have been slightly changed.
-    type: Tweak
-  id: 2486
-  time: '2025-12-18T07:20:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3868
-- author: honeyed-lemons
-  changes:
-  - message: A portable incubator has been added to the "Meat Manipulation" Research
-    type: Add
-  id: 2487
-  time: '2025-12-19T02:04:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3295
-- author: ATDoop
-  changes:
-  - message: Anomalocarids have even more custom clothes sprites!
-    type: Add
-  id: 2488
-  time: '2025-12-19T06:36:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3831
-- author: mqole
-  changes:
-  - message: Decapoids, apids, and monkeys can wield items again.
-    type: Fix
-  id: 2489
-  time: '2025-12-20T03:26:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3855
 - author: VeeNomine
   changes:
   - message: Updated the aroace pride scarf's coloring.
@@ -4046,3 +3936,115 @@
   id: 2974
   time: '2026-09-26T17:58:23.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4666
+- author: HAPPYNEWYEAR1999
+  changes:
+  - message: Loop changes based on feedback. Thank you everyone for participating.
+    type: Tweak
+  id: 2975
+  time: '2026-09-27T07:03:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4662
+- author: Raccoononi
+  changes:
+  - message: 'Two iconic Chinese dishes have been approved for NT''s space station
+      menus: tomato and egg stir fry and mapo tofu.'
+    type: Add
+  id: 2976
+  time: '2026-09-27T08:02:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4603
+- author: Squamatic, marsh-meadows
+  changes:
+  - message: Added coldplates, a tool for chemists to gently chill chemicals without
+      watering them down. Ask science for one today!
+    type: Add
+  id: 2977
+  time: '2026-09-27T18:12:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4592
+- author: Dizzy-Eevee
+  changes:
+  - message: Empty floor lights no longer accept (and consequentially, fix) broken/burned
+      light bulbs
+    type: Fix
+  id: 2978
+  time: '2026-09-27T18:25:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4619
+- author: Kandiyaki
+  changes:
+  - message: Added a new "Targeted" section to the emote wheel - these emotes will
+      target whatever you were mousing over when you opened the emote wheel!
+    type: Add
+  - message: Three new targeted emotes - Wave At, Look At, and Wink At.
+    type: Add
+  id: 2979
+  time: '2026-09-28T09:19:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4460
+- author: SeeroftheNight
+  changes:
+  - message: Document templates from the document printer have been fixed and improved.
+    type: Fix
+  id: 2980
+  time: '2026-10-01T09:57:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4672
+- author: Toasterblast
+  changes:
+  - message: one of the ointments in burn medkits has been turned into ez-graft. yay!
+    type: Tweak
+  id: 2981
+  time: '2026-10-01T09:58:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4673
+- author: mqole
+  changes:
+  - message: Medical lockers no longer contain double the intended amount of containers.
+    type: Fix
+  id: 2982
+  time: '2026-10-03T08:11:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4676
+- author: MhhMonday
+  changes:
+  - message: Various vials villed again
+    type: Fix
+  id: 2983
+  time: '2026-10-07T02:23:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4679
+- author: msTheowo
+  changes:
+  - message: Don't call them nukie plushies bro!
+    type: Tweak
+  id: 2984
+  time: '2026-10-11T11:06:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4686
+- author: dubdubchan
+  changes:
+  - message: Synthesis Specialists will no longer get stranded when the other FTLs
+      away.
+    type: Fix
+  id: 2985
+  time: '2026-10-13T03:59:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4656
+- author: fancyplanks
+  changes:
+  - message: Yet more wall adjustments
+    type: Tweak
+  id: 2986
+  time: '2026-10-13T06:09:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4675
+- author: TwistedMystic
+  changes:
+  - message: Reverted the Medical Rebalance
+    type: Tweak
+  id: 2987
+  time: '2026-10-13T06:24:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4660
+- author: Toasterblast
+  changes:
+  - message: a few spooky thangs
+    type: Add
+  id: 2988
+  time: '2026-10-14T09:25:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4683
+- author: crocodilecarousel
+  changes:
+  - message: Ten festive paper masks
+    type: Add
+  id: 2989
+  time: '2026-10-15T11:04:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4684
