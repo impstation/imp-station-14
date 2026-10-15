@@ -597,6 +597,8 @@ public abstract partial class SharedActionsSystem : EntitySystem
 
         var performed = new ActionPerformedEvent(performer);
         RaiseLocalEvent(action, ref performed);
+        var performedAction = new ActionPerformedEvent(action); // IMP
+        RaiseLocalEvent(performer, ref performedAction); // IMP
     }
     #endregion
 
