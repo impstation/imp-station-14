@@ -1581,13 +1581,25 @@
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
-       !type:String
-       pda-seniorcourier
+      !type:String
+       pda-senior-courier
   - type: PdaBorderColor
-    borderColor: "#e39751"
-    accentVColor: "#DFDFDF"
+    borderColor: "#8d6747"
+    accentVColor: "#3d58a5"
   - type: Icon
-    state: pda-seniorcourier
+    state: pda-senior-courier
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/senior_courier_pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-senior-courier"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id-overlay-senior-courier"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      visible: false
 
 - type: entity
   parent: [ BaseHighlyIllegalContraband, BasePDA ]
