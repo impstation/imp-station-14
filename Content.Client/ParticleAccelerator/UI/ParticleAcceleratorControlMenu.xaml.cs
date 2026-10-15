@@ -282,7 +282,7 @@ public sealed class PASegmentControl : Control
     protected override void EnteredTree()
     {
         base.EnteredTree();
-        _rsi = IoCManager.Resolve<IResourceCache>().GetResource<RSIResource>($"/Textures/Structures/Power/Generation/PA/{BaseState}.rsi").RSI;
+        _rsi = IoCManager.Resolve<IResourceCache>().GetResource<RSIResource>($"_Impstation/Textures/Structures/Power/Generation/PA/{BaseState}.rsi").RSI; // imp edit
         MinSize = _rsi.Size;
         _base.Texture = _rsi["completed"].Frame0;
 
