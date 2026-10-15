@@ -5,20 +5,20 @@ using Content.Server.Cloning;
 using Content.Server.EUI;
 using Content.Server.Humanoid;
 using Content.Shared._Impstation.Heretic.Components;
+using Content.Shared._Impstation.Heretic.EntitySystems;
 using Content.Shared.Cloning;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Gibbing;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -34,7 +34,7 @@ namespace Content.Server._Impstation.Heretic.EntitySystems;
 /// <summary>
 /// Handles moving people in and out of hell during heretic sacrifices, as well as adding sacrifice debuffs
 /// </summary>
-public sealed class HellWorldSystem : EntitySystem
+public sealed class HellWorldSystem : SharedHellWorldSystem
 {
 
     [Dependency] private readonly BlindableSystem _blind = default!;
@@ -45,16 +45,25 @@ public sealed class HellWorldSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
     private readonly ProtoId<CloningSettingsPrototype> _cloneSettings = "HellClone";
+    private readonly List<EntProtoId> _soulParts = new()
+    {
+        "SoulFragmentSight",
+        "SoulFragmentHunger",
+        "SoulFragmentDreams",
+        "SoulFragmentBreath",
+        "SoulFragmentStone",
+        "SoulFragmentLife",
+        "SoulFragmentHeart"
+    };
 
     public override void Initialize()
     {
@@ -96,12 +105,12 @@ public sealed class HellWorldSystem : EntitySystem
     /// </summary>
     private void BeforeSend(Entity<InHellComponent> uid, ref HereticBeforeHellEvent args)
     {
-        //spawn a clone of the victim
-        _cloning.TryCloning(uid, _transform.GetMapCoordinates(uid), uid.Comp.CloneSettings, out var clone);
-
-        //gib clone to get matching organs.
-        if (clone != null)
-            _gibbing.Gib(clone.Value);
+        //spawn victims soul parts for use in rituals
+        foreach (var part in _soulParts)
+        {
+            var partEnt = Spawn(part, _xform.GetMapCoordinates(uid));
+            FlingDroppedEntity(partEnt);
+        }
 
         //set original body to put the mind back in later
         uid.Comp.OriginalBody = uid;
