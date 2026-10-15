@@ -101,6 +101,14 @@ public sealed partial class HandsComponent : Component
     /// </summary>
     [DataField]
     public bool CanBeStripped = true;
+
+
+    /// <summary>
+    /// Imp. If false, hands will not display held items in the examine menu.
+    /// </summary>
+    [DataField]
+    public bool ShowExamine = true;
+
 }
 
 [DataDefinition]
