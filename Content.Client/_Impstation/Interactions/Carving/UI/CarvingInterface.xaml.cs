@@ -83,5 +83,6 @@ public sealed partial class CarvingInterface : FancyWindow
     private void CarveSelect(CarvingPatternEntry pattern)
     {
         CarvedOverlay.Texture = _spriteSystem.Frame0(pattern.Sprite);
+        _selectedCarve = pattern.Sprite;
     }
 }

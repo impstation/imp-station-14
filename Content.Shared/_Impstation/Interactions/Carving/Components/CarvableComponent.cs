@@ -52,3 +52,18 @@ public sealed class CarvedEvent : BoundUserInterfaceMessage
         CarveName = carveName;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class CarveSpriteEvent : EntityEventArgs
+{
+    public NetEntity Entity;
+    public SpriteSpecifier Sprite;
+    public string CarveName;
+
+    public CarveSpriteEvent(NetEntity entity, SpriteSpecifier sprite, string carveName)
+    {
+        Entity = entity;
+        Sprite = sprite;
+        CarveName = carveName;
+    }
+}

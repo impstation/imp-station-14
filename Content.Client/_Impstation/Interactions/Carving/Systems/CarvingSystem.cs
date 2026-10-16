@@ -15,10 +15,7 @@ public sealed partial class CarvingSystem : EntitySystem
     {
         base.Initialize();
 
-        Subs.BuiEvents<CarvableComponent>(CarvingUiKey.Key, subs =>
-        {
-            subs.Event<CarvedEvent>(Personalise);
-        });
+        SubscribeNetworkEvent<CarveSpriteEvent>(Personalise); 
     }
 
     /// <summary>
@@ -26,10 +23,14 @@ public sealed partial class CarvingSystem : EntitySystem
     /// sprite that is set in <see cref="CarvableComponent"/>
     /// </summary>
     /// <param name="args"></param>
-    private void Personalise(Entity<CarvableComponent> ent, ref CarvedEvent args)
+    private void Personalise(CarveSpriteEvent args)
     {
+        var ent = GetEntity(args.Entity);
+        if (!TryComp<CarvableComponent>(ent, out var carve))
+            return;
+
         if (args.Sprite != null)
-            TryAddSprite(ent, args.Sprite);
+            TryAddSprite((ent, carve), args.Sprite);
 
     }
 
@@ -41,11 +42,11 @@ public sealed partial class CarvingSystem : EntitySystem
         if(!TryGetLayer((ent.Owner, comp), CarvedVisuals.Carved, out var layer))
         {
             layer = _spriteSystem.AddLayer((ent.Owner, comp), sprite);
-            _spriteSystem.LayerMapAdd((ent.Owner, comp), CarvedVisuals.Carved, (int)layer);
+            _spriteSystem.LayerMapAdd((ent.Owner, comp), CarvedVisuals.Carved.ToString(), (int)layer);
         }
         else
         {
-            _spriteSystem.LayerSetSprite((ent.Owner, comp), CarvedVisuals.Carved, sprite);
+            _spriteSystem.LayerSetSprite((ent.Owner, comp), CarvedVisuals.Carved.ToString(), sprite);
         }
 
         return true;
@@ -58,7 +59,8 @@ public sealed partial class CarvingSystem : EntitySystem
         if (ent.Comp == null)
             return false;
 
-        layerOut = _spriteSystem.LayerMapGet(ent, layer);
+        if(_spriteSystem.LayerExists(ent, layer.ToString()))
+            layerOut = _spriteSystem.LayerMapGet(ent, layer.ToString());
 
         return layerOut == 0 ? false : true;
     }

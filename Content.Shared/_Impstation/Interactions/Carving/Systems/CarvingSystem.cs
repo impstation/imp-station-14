@@ -16,14 +16,27 @@ public sealed partial class CarvingSystem : EntitySystem
         base.Initialize();
 
         //SubscribeLocalEvent<CarvableComponent, InteractUsingEvent>(TryCarve);
+
+        Subs.BuiEvents<CarvableComponent>(CarvingUiKey.Key, subs =>
+        {
+            subs.Event<CarvedEvent>(Personalise);
+        });
     }
 
-    private void TryCarve(Entity<CarvableComponent> ent, ref InteractUsingEvent args)
+    private void Personalise(Entity<CarvableComponent> ent, ref CarvedEvent args)
     {
-        if (args.Handled)
+        if (args.Sprite == null)
             return;
 
-        args.Handled = TryCarve(ent, args.Used);
+        RaiseNetworkEvent
+            (
+            new CarveSpriteEvent
+                (
+                GetNetEntity(ent.Owner),
+                args.Sprite,
+                args.CarveName
+                )
+            );
     }
 
     private bool TryCarve(Entity<CarvableComponent> ent, EntityUid item)
