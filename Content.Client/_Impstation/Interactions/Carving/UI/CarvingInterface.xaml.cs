@@ -18,6 +18,8 @@ public sealed partial class CarvingInterface : FancyWindow
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+    public Action<CarvedEvent>? Carve;
+
     private readonly SpriteSystem _spriteSystem;
 
     private EntityUid _owner;
@@ -25,6 +27,8 @@ public sealed partial class CarvingInterface : FancyWindow
     private int _buttonPerLine = 4;
     private float _buttonSpacing = 0;
 
+    private SpriteSpecifier? _selectedCarve;
+    private string _customName = "";
 
     public CarvingInterface()
     {
@@ -43,11 +47,12 @@ public sealed partial class CarvingInterface : FancyWindow
         _owner = owner;
 
         Carved.Texture = sprite.Icon.TextureFor(Direction.South);
-    }
 
-    protected override void FrameUpdate(FrameEventArgs args)
-    {
-        base.FrameUpdate(args);
+        CarveButton.OnPressed += _ => Carve?.Invoke(new CarvedEvent
+            (
+            _selectedCarve,
+            _customName
+            ));
     }
 
     public void UpdatePatternListing()
@@ -63,7 +68,6 @@ public sealed partial class CarvingInterface : FancyWindow
         var grid = new GridContainer();
         grid.Columns = _buttonPerLine;
         AddCarveButton(carves.Carves, grid);
-        //CarveList.AddChild(grid);
     }
 
     private void AddCarveButton(HashSet<SpriteSpecifier> carves, GridContainer container)

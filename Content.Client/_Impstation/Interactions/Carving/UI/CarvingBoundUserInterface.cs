@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.Interactions.Carving.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
@@ -20,6 +21,13 @@ public sealed class CarvingBoundUserInterface : BoundUserInterface
         _window = this.CreateWindow<CarvingInterface>();
         _window.Display(Owner);
         _window.UpdatePatternListing();
+
+        _window.Carve += Carve;
+    }
+
+    private void Carve(CarvedEvent ev)
+    {
+        SendMessage(ev);
     }
 }
 

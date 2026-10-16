@@ -21,6 +21,7 @@ public sealed partial class CarvableComponent : Component
 public enum CarvedVisuals
 {
     Carved,
+    Glowing
 }
 
 public enum CarveType
@@ -35,20 +36,19 @@ public enum CarvingUiKey
     Key
 }
 
-public partial struct CarvedEvent
+[Serializable, NetSerializable]
+public sealed class CarvedEvent : BoundUserInterfaceMessage
 {
-    public EntityUid Carved;
-    public SpriteSpecifier Sprite;
+    public SpriteSpecifier? Sprite;
     public CarveType CarveType;
+    public string CarveName;
 
     public CarvedEvent(
-        EntityUid carved,
-        SpriteSpecifier sprite,
-        CarveType carveType
+        SpriteSpecifier? sprite,
+        string carveName
         )
     {
-        Carved = carved;
         Sprite = sprite;
-        CarveType = carveType;
+        CarveName = carveName;
     }
 }
