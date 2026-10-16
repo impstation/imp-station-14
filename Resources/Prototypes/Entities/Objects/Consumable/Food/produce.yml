@@ -2598,7 +2598,7 @@
         - ReagentId: Vitamin
           Quantity: 5
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/pumpkin.rsi
+    sprite: _Impstation/Objects/Specific/Hydroponics/pumpkin.rsi # Impstation - Carving
   - type: Produce
     seedId: pumpkin
   - type: Damageable
@@ -2616,15 +2616,34 @@
         solution: food
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: CarvedPumpkin
-    - id: PumpkinSeeds
+#  - type: Butcherable Impstation - Carving Removal
+#    butcheringType: Knife
+#    spawned:
+#    - id: CarvedPumpkin
+#    - id: PumpkinSeeds
   - type: Tag
     tags:
     - Fruit
     - Vegetable
+# Impstation - Carving
+  - type: ActivatableUI
+    key: enum.CarvingUiKey.Key
+    requiredItems:
+      tags:
+      - Knife
+  - type: UserInterface
+    interfaces:
+      enum.CarvingUiKey.Key:
+        type: CarvingBoundUserInterface
+  - type: Carvable
+    carvedSprites: 
+      - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: scary }
+      - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: happy_small }
+      - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: cat }
+      - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: sinister }
+      - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: hole }
+      - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: neutral }
+# End Impstation - Carving
 
 - type: entity
   name: blue pumpkin
