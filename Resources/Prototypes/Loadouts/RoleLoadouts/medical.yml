@@ -9,12 +9,11 @@
   - MedicalMask
   - ChiefMedicalOfficerJumpsuit
   - ChiefMedicalOfficerOuterClothing # imp reorder
-  - MedicalGloves #imp
   - ChiefMedicalOfficerBelt #imp
   - ChiefMedicalOfficerBackpack #imp MedicalBackpack > ChiefMedicalOfficerBackpack
   - ChiefMedicalOfficerShoes
   - ChiefMedicalOfficerHeadset #imp
-  - MedicalEyewear #imp
+  - Glasses
   - SurvivalCommand # imp SurvivalMedical > SurvivalCommand
   - Trinkets
   - ChiefMedicalOfficerJobTrinkets
@@ -31,9 +30,8 @@
   - MedicalDoctorNeck # imp
   - MedicalDoctorJumpsuit
   - MedicalDoctorOuterClothing # imp reorder
-  - MedicalGloves #imp
   - MedicalShoes #imp reorder
-  - MedicalEyewear #imp
+  - Glasses
   - MedicalBackpack
   - MedicalDoctorPDA
   - SurvivalMedical
@@ -48,7 +46,7 @@
   groups:
   - MedicalInternJumpsuit
   - MedicalBackpack
-  - MedicalEyewear #imp
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - MedicalInternJobTrinkets
@@ -69,7 +67,7 @@
   - ChemistShoes # imp MedicalShoes > ChemistShoes
   - ChemistBackpack # imp reorder
   - ChemistPDA # imp
-  - MedicalEyewear #imp
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - ChemistJobTrinkets
@@ -86,11 +84,10 @@
   - ParamedicNeck # imp
   - ParamedicJumpsuit
   - ParamedicOuterClothing # imp reorder
-  - MedicalGloves #imp
   - ParamedicShoes
   - MedicalBackpack #imp reorder
   - ParamedicPDA # imp
-  - MedicalEyewear #imp
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - ParamedicJobTrinkets
