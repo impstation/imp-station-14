@@ -1,0 +1,71 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: ServerGeneric
+  name: computer server
+  description: Probably does something important. You have no idea what, though.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/generic_server.rsi
+    snapCardinals: true
+    layers:
+    - state: server-nopower
+    - state: server-on
+      shader: unshaded
+      visible: false
+      map: ["server-on"]
+    - state: server-open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        server-on:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.5
+    energy: 3.0
+    color: "#39b8ee"
+  - type: LitOnPowered
+  - type: Appearance
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: WiresVisuals
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Machine
+    board: TelecomServerCircuitboard
+  - type: WiresPanel
+  - type: Transform
+    anchored: true
+  - type: Pullable

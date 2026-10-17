@@ -132,7 +132,8 @@ food-sequence-cotton-burger-content-plushie-ghost = spooky
 food-sequence-cotton-burger-content-plushie-revenant = spookier
 food-sequence-cotton-burger-content-plushie-bee = buzzzy
 food-sequence-cotton-burger-content-plushie-hamptr = hampt
-food-sequence-cotton-burger-content-plushie-nukie = nukie
+# hi imp edit here i changed the one below me from nukie to redshell
+food-sequence-cotton-burger-content-plushie-nukie = redshell
 food-sequence-cotton-burger-content-plushie-rouny = rouny
 food-sequence-cotton-burger-content-plushie-lamp = lamp
 food-sequence-cotton-burger-content-plushie-arachnid = spider

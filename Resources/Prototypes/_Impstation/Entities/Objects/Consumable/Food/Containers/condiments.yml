@@ -61,6 +61,48 @@
     fillBaseName: packet-solid-
 
 - type: entity
+  parent: BaseFoodCondimentPacket
+  id: FoodCondimentPacketHottersauce
+  name: packet of Hotter sauce
+  description:
+    Really makes you feel the heat.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: HotterSauce
+          Quantity: 5
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+    state: packet-dans-personal
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: packet-solid-
+
+- type: entity
+  parent: BaseFoodCondimentPacket
+  id: FoodCondimentPacketInfernosauce
+  name: packet of Inferno sauce
+  description:
+    For the daredevil in you.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: InfernoSauce
+          Quantity: 5
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+    state: packet-dans-personal
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: packet-solid-
+
+- type: entity
   parent: BaseFoodCondimentBottle
   id: BaseFoodCondimentBottleIMP
   abstract: true
