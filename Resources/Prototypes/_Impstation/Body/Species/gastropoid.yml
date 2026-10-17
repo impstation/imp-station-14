@@ -1,4 +1,52 @@
 # TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+
+- type: markingsGroup
+  parent: Undergarments
+  id: Gastropoid
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ GastropoidFaceEyes1 ]
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ GastropoidShellSmall ]
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Special:
+      limit: 0
+      required: false
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceGastropoid
@@ -49,34 +97,27 @@
           32:
             sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: mask
-  #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganGastropoidTorso
-        - id: OrganGastropoidHead
-        - id: OrganGastropoidArmLeft
-        - id: OrganGastropoidArmRight
-        - id: OrganGastropoidHandRight
-        - id: OrganGastropoidHandLeft
-        - id: OrganGastropoidFootLeft
-        - id: OrganGastropoidBrain
-        - id: OrganGastropoidEyes
-        - id: OrganGastropoidTongue
-        - id: OrganGastropoidAppendix
-        - id: OrganGastropoidEars
-        - id: OrganGastropoidLungs
-        - id: OrganGastropoidHeart
-        - id: OrganGastropoidStomach
-        - id: OrganGastropoidLiver
-        - id: OrganGastropoidKidneys
-  - type: HumanoidAppearance
-    # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganGastropoidTorso
+      Head: OrganGastropoidHead
+      ArmLeft: OrganGastropoidArmLeft
+      ArmRight: OrganGastropoidArmRight
+      HandRight: OrganGastropoidHandRight
+      HandLeft: OrganGastropoidHandLeft
+      FootLeft: OrganGastropoidFootLeft
+      Brain: OrganGastropoidBrain
+      Eyes: OrganGastropoidEyes
+      Tongue: OrganGastropoidTongue
+      Appendix: OrganGastropoidAppendix
+      Ears: OrganGastropoidEars
+      Lungs: OrganGastropoidLungs
+      Heart: OrganGastropoidHeart
+      Stomach: OrganGastropoidStomach
+      Liver: OrganGastropoidLiver
+      Kidneys: OrganGastropoidKidneys
+  - type: HumanoidProfile
     species: Gastropoid
-    hideLayersOnEquip: #imp edit, was missing from macro implementation, but also visual nubody reworks this? do gastros even have snouts to really hide? idfk
-    - Hair
-    - Snout
 
 - type: entity
   parent:
@@ -182,7 +223,7 @@
     proto: Gastropoid
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganGastropoid
   abstract: true
   suffix: gastropoid
@@ -202,18 +243,16 @@
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
 
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganGastropoidVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Gastropoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Gastropoid
-# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+- type: entity
+  id: OrganGastropoidVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Gastropoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Gastropoid
 
 - type: entity
   parent: OrganGastropoid
@@ -222,14 +261,12 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Gastropoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  data:
-  #    sprite: _Impstation/Mobs/Species/Gastropoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  #- type: VisualOrganMarkings
-  #  markingData:
-  #    group: Gastropoid
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Gastropoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Gastropoid
 
 - type: entity
   parent: [ OrganBaseTorso, OrganGastropoidExternal ]
@@ -238,13 +275,11 @@
 - type: entity
   parent: [ OrganBaseHead, OrganGastropoidExternal ]
   id: OrganGastropoidHead
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #components:
-  #- type: VisualOrganMarkings
-  #  hideableLayers:
-  #  - enum.HumanoidVisualLayers.Hair
-  #  - enum.HumanoidVisualLayers.Snout
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  # components:
+  # - type: VisualOrganMarkings
+  #   hideableLayers:
+  #   - enum.HumanoidVisualLayers.Hair
+  #   - enum.HumanoidVisualLayers.Snout
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganGastropoidExternal ]
@@ -271,7 +306,7 @@
   id: OrganGastropoidBrain
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganGastropoidInternal ] #imp edit, OrganGastropoidVisual parent removed until visual nubody
+  parent: [ OrganGastropoidVisual, OrganBaseEyes, OrganGastropoidInternal ]
   id: OrganGastropoidEyes
 
 - type: entity

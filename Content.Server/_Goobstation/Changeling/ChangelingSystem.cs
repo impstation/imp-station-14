@@ -15,6 +15,7 @@ using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.Body;
 using Content.Shared.Camera;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -77,7 +78,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visBody = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -435,7 +436,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
     public bool TryStealDNA(EntityUid uid, EntityUid target, GoobChangelingComponent comp, bool countObjective = false)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
+        if (!TryComp<HumanoidProfileComponent>(target, out var appearance)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
         {
@@ -549,7 +550,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         {
             Comp<FingerprintComponent>(newEnt).Fingerprint = data.Fingerprint;
             Comp<DnaComponent>(newEnt).DNA = data.DNA;
-            _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
+            _visBody.CopyAppearanceFrom(data.Appearance.Owner, newEnt);
             _metaData.SetEntityName(newEnt, data.Name);
         }
 

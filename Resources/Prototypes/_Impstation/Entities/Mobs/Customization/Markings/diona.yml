@@ -3,8 +3,7 @@
 - type: marking
   id: DionaFirefly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
     state: firefly
@@ -13,8 +12,7 @@
 - type: marking
   id: DionaLivingNymph
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
     state: livingnymph
@@ -22,8 +20,7 @@
 - type: marking
   id: DionaMossChest
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
     state: moss
@@ -31,8 +28,7 @@
 - type: marking
   id: MycenaChest
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
     state: mycena
@@ -40,8 +36,7 @@
 - type: marking
   id: MycenaChestGlow
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
     state: mycena
@@ -50,8 +45,7 @@
 - type: marking
   id: ShelfChest
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
     state: shelf
@@ -61,8 +55,7 @@
 - type: marking
   id: Amanita
   bodyPart: Head
-  markingCategory: HeadTop
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: amanita1
@@ -72,8 +65,7 @@
 - type: marking
   id: DionaBigFirefly
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: bigfirefly
@@ -82,8 +74,7 @@
 - type: marking
   id: DionaPollenDust
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: pollendust
@@ -91,8 +82,7 @@
 - type: marking
   id: JackHead
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: jack
@@ -101,8 +91,7 @@
 - type: marking
   id: MycenaHead
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: mycena
@@ -110,8 +99,7 @@
 - type: marking
   id: MycenaHeadGlow
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: mycena
@@ -120,8 +108,7 @@
 - type: marking
   id: ShelfHead
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: shelf
@@ -137,8 +124,7 @@
 - type: marking
   id: MycenaArm
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/larm.rsi
     state: mycena
@@ -146,8 +132,7 @@
 - type: marking
   id: MycenaArmGlow
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/larm.rsi
     state: mycena
@@ -180,8 +165,7 @@
 - type: marking
   id: DionaMoonBloom
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/headtop.rsi
     state: moonbloom
@@ -190,8 +174,7 @@
 - type: marking
   id: DionaSunflower
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   coloring:
     default:
       type:
@@ -209,8 +192,7 @@
 - type: marking
   id: DionaSunflowerEyesUnshaded
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Diona ]
+  groupWhitelist: [ Diona ]
   coloring:
     default:
       type:
@@ -221,5 +203,3 @@
   shader: unshaded
 
 # Tail
-
-# RArmExtension

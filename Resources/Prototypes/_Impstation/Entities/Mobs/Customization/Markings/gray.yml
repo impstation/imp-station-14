@@ -3,8 +3,7 @@
 - type: marking
   id: BellyGem
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: bellygem
@@ -12,8 +11,7 @@
 - type: marking
   id: GrayObject
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: object1
@@ -23,8 +21,7 @@
 - type: marking
   id: GrayTattooCar
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: car1
@@ -34,8 +31,7 @@
 - type: marking
   id: GrayTattooPlane
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
     state: plane1
@@ -45,8 +41,7 @@
 - type: marking
   id: RadiumGlow
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/chest.rsi
@@ -58,8 +53,7 @@
 - type: marking
   id: GrayEyebags
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: eyebags
@@ -67,8 +61,7 @@
 - type: marking
   id: GrayHeadgem
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: gem
@@ -76,8 +69,7 @@
 - type: marking
   id: GrayLittleEyebrows
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: littleeyebrows
@@ -85,8 +77,7 @@
 - type: marking
   id: GraySpots
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: spots
@@ -94,8 +85,7 @@
 - type: marking
   id: GraySunkenCheeks
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: sunkencheeks
@@ -103,9 +93,8 @@
 - type: marking
   id: GrayTallEars
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [ Gray ]
-  followSkinColor: true
+  groupWhitelist: [ Gray ]
+  #followSkinColor: true
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
@@ -114,8 +103,7 @@
 - type: marking
   id: GrayWrinkles
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
     state: wrinkles
@@ -123,8 +111,7 @@
 - type: marking
   id: RadiumGlowBrain
   bodyPart: Head
-  markingCategory: HeadTop
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
@@ -134,8 +121,7 @@
 - type: marking
   id: RadiumGlowCheeks
   bodyPart: Head
-  markingCategory: HeadTop
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/head.rsi
@@ -149,8 +135,7 @@
 - type: marking
   id: GrayCoolEyes
   bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   forcedColoring: true
   coloring:
     default:
@@ -164,8 +149,7 @@
 - type: marking
   id: GrayCuteEyes
   bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   forcedColoring: true
   coloring:
     default:
@@ -179,8 +163,7 @@
 - type: marking
   id: GrayFakeLashes
   bodyPart: Eyes
-  markingCategory: HeadTop
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/eyes.rsi
     state: fakelashes
@@ -188,8 +171,7 @@
 - type: marking
   id: GrayWideEyes
   bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   coloring:
     default:
       type:
@@ -212,8 +194,7 @@
 - type: marking
   id: GrayUnderwearClassic
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   forcedColoring: true
   coloring:
     default:
@@ -227,8 +208,7 @@
 - type: marking
   id: GrayUnderwearStriped
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/undergarmentbottom.rsi
     state: striped1
@@ -238,8 +218,7 @@
 - type: marking
   id: GrayUnderwearToga
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [ Gray ]
+  groupWhitelist: [ Gray ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/undergarmentbottom.rsi
     state: toga
@@ -262,11 +241,10 @@
 # okay for whatever reason headside and headtop dont work for grays
 - type: marking
   id: GrayCuteEars
-  bodyPart: Head # temp
-  markingCategory: HeadSide
-  speciesRestriction: [ Gray ]
+  bodyPart: HeadSide # temp
+  groupWhitelist: [ Gray ]
   forcedColoring: true
-  followSkinColor: true
+  #followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/headside.rsi
     state: cute
@@ -275,14 +253,11 @@
 
 - type: marking
   id: GrayClassicAntenna
-  bodyPart: Head # temp
-  markingCategory: HeadTop
-  speciesRestriction: [ Gray ]
-  followSkinColor: true
+  bodyPart: HeadSide # temp
+  groupWhitelist: [ Gray ]
+  #followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gray/headtop.rsi
     state: classic
 
 # Tail
-
-# RArmExtension

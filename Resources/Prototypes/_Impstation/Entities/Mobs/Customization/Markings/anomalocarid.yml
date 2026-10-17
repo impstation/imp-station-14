@@ -3,9 +3,7 @@
 - type: marking
   id: AnomalocaridChestTatAnchor
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -18,9 +16,7 @@
 - type: marking
   id: AnomalocaridChestAlgae
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -34,9 +30,7 @@
 - type: marking
   id: AnomalocaridChestScars
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -50,9 +44,7 @@
 - type: marking
   id: AnomalocaridChestFishnet
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -66,9 +58,7 @@
 - type: marking
   id: AnomalocaridChestTatSkull
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -82,15 +72,13 @@
 - type: marking
   id: AnomalocaridNecklace1
   bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
       type:
         !type:SimpleColoring
           color: "#ff7f50"
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/chest.rsi
     state: necklace1_primary
@@ -102,8 +90,7 @@
 #- type: marking
 #  id: AnomalocaridHeadSeaweed #this is mostly a joke marking
 #  bodyPart: Head
-#  markingCategory: Head
-#  speciesRestriction: [ Anomalocarid ]
+#  groupWhitelist: [ Anomalocarid ]
 #  forcedColoring: true
 #  coloring:
 #    default:
@@ -117,14 +104,12 @@
 - type: marking
   id: AnomalocaridEyeOpabinia
   bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: opabinia_primary
@@ -134,14 +119,12 @@
 - type: marking
   id: AnomalocaridEyeLashes
   bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: eyelashes
@@ -149,14 +132,12 @@
 - type: marking
   id: AnomalocaridHeadCollars
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: spikedcollars_primary
@@ -170,8 +151,7 @@
 - type: marking
   id: AnomalocaridEyeshine
   bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: true
   coloring:
     default:
@@ -187,9 +167,7 @@
 - type: marking
   id: AnomalocaridArmStripesThinRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -204,9 +182,7 @@
 - type: marking
   id: AnomalocaridArmStripesThickRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -221,9 +197,7 @@
 - type: marking
   id: AnomalocaridArmStripesThinRightUnshaded
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -239,9 +213,7 @@
 - type: marking
   id: AnomalocaridArmStripesThickRightUnshaded
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -257,9 +229,7 @@
 - type: marking
   id: AnomalocaridArmTatHeartRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -273,9 +243,7 @@
 - type: marking
   id: AnomalocaridArmScarsRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -291,9 +259,7 @@
 - type: marking
   id: AnomalocaridArmStripesThinLeft
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -308,9 +274,7 @@
 - type: marking
   id: AnomalocaridArmStripesThickLeft
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -325,9 +289,7 @@
 - type: marking
   id: AnomalocaridArmStripesThinLeftUnshaded
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -343,9 +305,7 @@
 - type: marking
   id: AnomalocaridArmStripesThickLeftUnshaded
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -361,9 +321,7 @@
 - type: marking
   id: AnomalocaridArmTatHeartLeft
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -377,9 +335,7 @@
 - type: marking
   id: AnomalocaridArmScarsLeft
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -392,14 +348,12 @@
 
 # RLeg
 
-# LLeg
+# LLeg # TODO: SPLIT THESE SPRITES UP TO 1 LEG EACH
 
 - type: marking
   id: AnomalocaridLegStripes
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -414,9 +368,7 @@
 - type: marking
   id: AnomalocaridLegStripesUnshaded
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -432,9 +384,7 @@
 - type: marking
   id: AnomalocaridLegFishnets
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -450,8 +400,7 @@
 - type: marking
   id: AnomalocaridUnderwearBoxers
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -465,8 +414,7 @@
 - type: marking
   id: AnomalocaridUnderwearBriefs
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -480,8 +428,7 @@
 - type: marking
   id: AnomalocaridUnderwearSatin
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -497,8 +444,7 @@
 - type: marking
   id: AnomalocaridUndershirtBinder
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -512,8 +458,7 @@
 - type: marking
   id: AnomalocaridUndershirtClassic
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -527,8 +472,7 @@
 - type: marking
   id: AnomalocaridUndershirtSports
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -542,8 +486,7 @@
 - type: marking
   id: AnomalocaridUndershirtStrapless
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -557,8 +500,7 @@
 - type: marking
   id: AnomalocaridUndershirtTanktop
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -586,8 +528,7 @@
 - type: marking
   id: AnomalocaridGrabbersDefault
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -601,8 +542,7 @@
 - type: marking
   id: AnomalocaridGrabbersWide
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -616,8 +556,7 @@
 - type: marking
   id: AnomalocaridGrabbersSaw
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -631,8 +570,7 @@
 - type: marking
   id: AnomalocaridGrabbersSmall
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -646,8 +584,7 @@
 - type: marking
   id: AnomalocaridGrabbersHook
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -661,8 +598,7 @@
 - type: marking
   id: AnomalocaridGrabbersStriped
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -678,8 +614,7 @@
 - type: marking
   id: AnomalocaridGrabbersTiny
   bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -695,9 +630,7 @@
 - type: marking
   id: AnomalocaridAntennae1
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -710,9 +643,7 @@
 - type: marking
   id: AnomalocaridAntennae2
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -725,9 +656,7 @@
 - type: marking
   id: AnomalocaridAntennae3
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -742,9 +671,7 @@
 - type: marking
   id: AnomalocaridAntennae4
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -759,9 +686,7 @@
 - type: marking
   id: AnomalocaridAntennae5
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -776,9 +701,7 @@
 - type: marking
   id: AnomalocaridAntennae6
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -793,9 +716,7 @@
 - type: marking
   id: AnomalocaridAntennae7
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -810,9 +731,7 @@
 - type: marking
   id: AnomalocaridAntennae8
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -827,10 +746,8 @@
 - type: marking
   id: AnomalocaridAntennae9
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  randomWeight: 0.1
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
+  #randomWeight: 0.1
   forcedColoring: false
   coloring:
     default:
@@ -843,9 +760,7 @@
 - type: marking
   id: AnomalocaridAntennae10
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -858,9 +773,7 @@
 - type: marking
   id: AnomalocaridAntennae11
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -873,14 +786,12 @@
 - type: marking
   id: AnomalocaridEyeAngryBrows
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: angryeyebrows
@@ -888,9 +799,7 @@
 - type: marking
   id: AnomalocaridAntennae12
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -903,9 +812,7 @@
 - type: marking
   id: AnomalocaridAntennae13
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -919,9 +826,7 @@
 - type: marking
   id: AnomalocaridAntennae14
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -934,9 +839,7 @@
 - type: marking
   id: AnomalocaridAntennae15
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -951,9 +854,7 @@
 - type: marking
   id: AnomalocaridAntennae16
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -962,14 +863,12 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
     state: antennae16
-  
+
 - type: marking
   id: AnomalocaridAntennae16Arc
   bodyPart: HeadTop
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  randomWeight: 0
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
+  #randomWeight: 0
   forcedColoring: false
   coloring:
     default:
@@ -983,9 +882,7 @@
 - type: marking
   id: AnomalocaridAntennae17
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -997,14 +894,12 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
     state: antennae17_secondary
 
-#Tail
+#Tail # TODO: POLISH THESE
 
 - type: marking
   id: AnomalocaridWingsDefault
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -1031,9 +926,7 @@
 - type: marking
   id: AnomalocaridWingsDown
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -1060,9 +953,7 @@
 - type: marking
   id: AnomalocaridWingsGlass
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -1083,9 +974,7 @@
 - type: marking
   id: AnomalocaridWingsFan
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -1112,9 +1001,7 @@
 - type: marking
   id: AnomalocaridWingsHallucigeniaTentacles
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
@@ -1149,36 +1036,30 @@
 #- type: marking
 #  id: AnomalocaridTailDefault
 #  bodyPart: Tail
-#  markingCategory: Tail
-#  speciesRestriction: [ Anomalocarid ]
-#  followSkinColor: false
+#  groupWhitelist: [ Anomalocarid ]
 #  sprites:
 #  - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
 #    state: tail1
 
-# RArmExtension
+# Overlay
 
 - type: marking
   id: AnomalocaridGlassEyeLeft
-  bodyPart: LFoot #dont change this!!! it's there so it layers over the eyes properly!
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
+  bodyPart: Overlay
+  groupWhitelist: [ Anomalocarid ]
   coloring:
     default:
       type:
         !type:SimpleColoring
           color: "#a2ffbf"
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: glasseye_l
 
 - type: marking
   id: AnomalocaridGlassEyeRight
-  bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
+  bodyPart: Overlay
+  groupWhitelist: [ Anomalocarid ]
   coloring:
     default:
       type:
@@ -1190,15 +1071,13 @@
 
 - type: marking
   id: AnomalocaridEyeThird
-  bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
+  bodyPart: Overlay
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: thirdeye_primary
@@ -1207,31 +1086,27 @@
 
 - type: marking
   id: AnomalocaridEyeMantis
-  bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
+  bodyPart: Overlay
+  groupWhitelist: [ Anomalocarid ]
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: mantis
 
 - type: marking
   id: AnomalocaridEyeRoboLeft
-  bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  randomWeight: 0.4
+  bodyPart: Overlay
+  groupWhitelist: [ Anomalocarid ]
+  #randomWeight: 0.4
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_l_primary
@@ -1240,16 +1115,14 @@
 
 - type: marking
   id: AnomalocaridEyeRoboLeftUnshaded
-  bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  randomWeight: 0
+  bodyPart: Overlay
+  groupWhitelist: [ Anomalocarid ]
+  #randomWeight: 0
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_l_unshaded
@@ -1257,16 +1130,14 @@
 
 - type: marking
   id: AnomalocaridEyeRoboRight
-  bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  randomWeight: 0.4
+  bodyPart: Overlay
+  groupWhitelist: [ Anomalocarid ]
+  #randomWeight: 0.4
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_r_primary
@@ -1275,16 +1146,14 @@
 
 - type: marking
   id: AnomalocaridEyeRoboRightUnshaded
-  bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  randomWeight: 0
+  bodyPart: Overlay
+  groupWhitelist: [ Anomalocarid ]
+  #randomWeight: 0
   forcedColoring: false
   coloring:
     default:
       type:
         !type:EyeColoring
-  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_r_unshaded

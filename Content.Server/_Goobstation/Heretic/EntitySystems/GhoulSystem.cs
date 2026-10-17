@@ -1,6 +1,6 @@
+using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
-using Content.Server.Humanoid;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body;
 using Content.Shared.Examine;
@@ -13,15 +13,16 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Temperature.Components;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 {
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
@@ -33,13 +34,36 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
         RemComp<ReproductivePartnerComponent>(ent);
         RemComp<TemperatureComponent>(ent);
 
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+        if (TryComp<HumanoidProfileComponent>(ent, out var humanoid)
+        && _visualBody.TryGatherMarkingsData(ent.Owner, null, out var profiles, out _, out var markings))
         {
             // make them "have no eyes" and grey
             // this is clearly a reference to grey tide
             var greycolor = Color.FromHex("#505050");
-            _humanoid.SetSkinColor(ent, greycolor, true, false, humanoid);
-            _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, greycolor, true, humanoid);
+
+            var ghoulProfiles = profiles.ToDictionary(pair => pair.Key,
+                pair => pair.Value with { EyeColor = greycolor, SkinColor = greycolor });
+            _visualBody.ApplyProfiles(ent, ghoulProfiles);
+
+            // god this is so dogshit i wish markings in visnubody had literally any api. sorry for my crimes here
+            var newMarkings = markings.ToDictionary(
+                kvp => kvp.Key,
+                kvp => kvp.Value.ToDictionary(
+                    it => it.Key,
+                    it => it.Value.ShallowClone()));
+
+            foreach (var markingSet in newMarkings.Values)
+            {
+                foreach (var (layer, layerMarkings) in markingSet)
+                {
+                    for (var i = 0; i < layerMarkings.Count; i++)
+                    {
+                        layerMarkings[i] = layerMarkings[i].WithColor(greycolor);
+                    }
+                }
+            }
+
+            _visualBody.ApplyMarkings(ent, markings);
         }
 
         _rejuvenate.PerformRejuvenate(ent);

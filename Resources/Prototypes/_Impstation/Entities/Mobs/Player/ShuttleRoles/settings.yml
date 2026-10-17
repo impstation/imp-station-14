@@ -77,7 +77,7 @@
       prototypes: [ VisitorParamedic, VisitorParamedicAlt ]
       roleLoadout: [ RoleSurvivalMedical ]
     - type: RandomAntagChance
-      antagRole: MindRoleInitialInfected 
+      antagRole: MindRoleInitialInfected
       fallbackRole: MindRoleGhostRoleNeutral
       chance: .15
 
