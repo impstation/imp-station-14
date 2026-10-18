@@ -34,8 +34,12 @@
           completed:
             - !type:EmptyAllContainers
           steps:
-            - tag: Glowstick
-              doAfter: 3
+          - tag: Glowstick
+            icon:
+              sprite: Objects/Misc/glowstick.rsi
+              state: glowstick_base
+            name: construction-graph-tag-glowstick
+            doAfter: 2
     - node: mannequinglow
       entity: MannequinSkeletonGlowing
       edges:
