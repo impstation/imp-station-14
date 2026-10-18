@@ -154,6 +154,20 @@
   - type: Appearance
   - type: Weldable
     time: 5
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed

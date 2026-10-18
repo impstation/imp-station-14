@@ -7,7 +7,7 @@
     - to: cratecoffin
       steps:
       - material: Steel
-        amount: 20
+        amount: 30
         doAfter: 10
 
   - node: cratecoffin
@@ -20,6 +20,6 @@
       completed:
       - !type:SpawnPrototype
         prototype: SheetSteel1
-        amount: 20
+        amount: 15
       - !type:EmptyAllContainers
       - !type:DeleteEntity
