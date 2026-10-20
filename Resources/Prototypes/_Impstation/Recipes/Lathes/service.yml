@@ -93,3 +93,19 @@
   completetime: 1
   materials:
     Wood: 200
+
+- type: latheRecipe
+  id: TinyMeasuringSpoon
+  result: TinyMeasuringSpoon
+  parent: BaseServiceItemsRecipe
+  applyMaterialDiscount: false
+  materials:
+    Plastic: 25
+
+- type: latheRecipe
+  id: SmallMeasuringSpoon
+  result: SmallMeasuringSpoon
+  parent: BaseServiceItemsRecipe
+  applyMaterialDiscount: false
+  materials:
+    Plastic: 25
