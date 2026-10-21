@@ -102866,18 +102866,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 48.1182,-65.47757
       parent: 2
-  - uid: 13853
-    components:
-    - type: Transform
-      pos: 49.022015,-64.728065
-      parent: 2
-    - type: Physics
-      bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 4642.6702979
-      thrownTime: 4642.2620244
-      thrower: invalid
   - uid: 13854
     components:
     - type: Transform
