@@ -36,7 +36,7 @@ public sealed partial class EmitsSoundOnMoveComponent : Component
     public bool IsSlotValid = true;
 
     /// <summary>
-    ///     If worn, how far the wearer has to walk in order to make a sound.
+    ///     Min time until next footstep makes a sound.
     /// </summary>
     [DataField]
     public TimeSpan SoundCooldown = TimeSpan.FromSeconds(3);

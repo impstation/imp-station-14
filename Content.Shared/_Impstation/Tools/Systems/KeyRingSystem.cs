@@ -44,20 +44,21 @@ public sealed class KeyRingSystem : EntitySystem
     /// <param name="args"></param>
     private void TryStartKeyRingDoAfter(Entity<KeyRingComponent> ent, ref AfterInteractEvent args)
     {
-        if (ent.Comp.UseDelay==TimeSpan.Zero){// wanted this to be on startup but it caused a test fail
+        if (!HasComp<AccessReaderComponent>(args.Target) ||
+            (!HasComp<DoorComponent>(args.Target) && !HasComp<LockComponent>(args.Target)))
+        {
+            return;
+        }
+
+        if (ent.Comp.UseDelay==TimeSpan.Zero)
+        {// wanted this to be on startup but it caused a test fail
             //TODO: Replace with random predicted when we get that.
             var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, ent.GetHashCode());
             var rand = new System.Random(seed);
 
-            ent.Comp.UseDelay = TimeSpan.FromSeconds(rand.NextFloat(ent.Comp.UseTime.Min, ent.Comp.UseTime.Max));
+            ent.Comp.UseDelay = TimeSpan.FromSeconds(ent.Comp.UseTime.Next(rand));
         }
 
-        if (!HasComp<AccessReaderComponent>(args.Target) ||
-            (!HasComp<DoorComponent>(args.Target) && !HasComp<LockComponent>(args.Target)))
-        {
-            args.Handled = true;
-            return;
-        }
         var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.UseDelay, new SimpleToolDoAfterEvent(), ent, target: args.Target, args.Used)
         {
             BreakOnDamage = true,
