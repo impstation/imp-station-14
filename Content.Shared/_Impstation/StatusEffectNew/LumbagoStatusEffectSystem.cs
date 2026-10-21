@@ -42,9 +42,10 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, args.Target.GetHashCode());
         var rand = new System.Random(seed);
         ent.Comp.LumbagFlareUpDelay=_timing.CurTime + // we're setting the timers here so doing it like this is okay
-                                    TimeSpan.FromSeconds(rand.NextInt64(ent.Comp.LumbagoFlareUpDelayMinMax.Min, ent.Comp.LumbagoFlareUpDelayMinMax.Max));
+                                    TimeSpan.FromSeconds(ent.Comp.LumbagoFlareUpDelayMinMax.Next(rand));
         ent.Comp.LumbagoReminderDelay=_timing.CurTime +
-                                      TimeSpan.FromSeconds(ent.Comp.LumbagoReminderDelayMinMax.Min,ent.Comp.LumbagoReminderDelayMinMax.Max);
+                                      TimeSpan.FromSeconds(ent.Comp.LumbagoReminderDelayMinMax.Next(rand));
+        Dirty(ent);
     }
 
     /// <summary>
@@ -86,7 +87,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
                 var duration = TimeSpan.FromSeconds(rand.NextFloat(lumbagoComp.FlareUpDurationMinMax.Min, lumbagoComp.FlareUpDurationMinMax.Max));
                 _movementMod.TryAddMovementSpeedModDuration(statusOwner, _flareUpStatusEffect, duration,lumbagoComp.FlareUpMovementSpeedMod);
                 lumbagoComp.LumbagFlareUpDelay += duration + TimeSpan.FromSeconds(rand.NextInt64(lumbagoComp.LumbagoFlareUpDelayMinMax.Min, lumbagoComp.LumbagoFlareUpDelayMinMax.Max));
-                DirtyEntity(statusOwner);
+                Dirty(statusOwner,lumbagoComp);
             }
 
             //Send a reminder to the player when the timer runs out and there is a flair up occuring.
@@ -95,7 +96,6 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
                 var selected = rand.Next(lumbagoComp.BadPainReminders.Count);
                 if(!lumbagoComp.BadPainReminders.TryGetValue(selected, out var reminder))
                     return;
-
                 _popup.PopupClient(Loc.GetString(reminder), statusOwner, statusOwner, PopupType.SmallCaution);
 
                 lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Min,lumbagoComp.LumbagoReminderDelayMinMax.Max);
