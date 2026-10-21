@@ -72,8 +72,6 @@ public sealed class KeyRingSystem : EntitySystem
 
         _audio.Stop(ent.Comp.KeyringAudioStream);
         ent.Comp.KeyringAudioStream = _audio.PlayPredicted(ent.Comp.AttemptAudio,ent,args.User)?.Entity;
-
-
     }
 
     private void KeyRingDoAfter(Entity<KeyRingComponent> ent, ref SimpleToolDoAfterEvent args)
