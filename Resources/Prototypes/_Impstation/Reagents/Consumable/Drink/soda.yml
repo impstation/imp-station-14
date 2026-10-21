@@ -229,7 +229,10 @@
   physicalDesc: reagent-physical-desc-fizzy-and-creamy
   flavor: creamsoda
   color: "#fdf9e8"
-  metamorphicMaxFillLevels: 5
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/creamsoda_vanilla.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 8
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
@@ -247,7 +250,10 @@
   physicalDesc: reagent-physical-desc-fizzy-and-creamy
   flavor: creamsodaorange
   color: "#eed487"
-  metamorphicMaxFillLevels: 5
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/creamsoda_orange.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 8
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
@@ -265,7 +271,10 @@
   physicalDesc: reagent-physical-desc-fizzy-and-creamy
   flavor: creamsodaberry
   color: "#861227"
-  metamorphicMaxFillLevels: 5
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/creamsoda_berry.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 8
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
