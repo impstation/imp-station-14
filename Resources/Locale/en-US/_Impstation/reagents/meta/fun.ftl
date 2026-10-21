@@ -51,3 +51,7 @@ reagent-desc-lifting-concentrate = A pure concentrate extracted from the native 
 
 reagent-name-gamers = gamer's delight
 reagent-desc-gamers = Pow block fire flower sippin' on this shit for hours.
+
+reagent-name-redpaint = red paint
+reagent-desc-redpaint = A horror movie director's best friend.
+

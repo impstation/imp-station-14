@@ -215,7 +215,7 @@ traitor-vipak-uplink = Your telecrystals and a black market uplink chip were nea
 traitor-vipak-roundend = [color=green]strategic element from ViPak Incorporated Supply[/color]
 
 traitor-stockholmuni-intro = You are a researcher from Stockholm University.
-traitor-stockholmuni-goal = Detoxify the Station as determined by our Machine learning algorythms
+traitor-stockholmuni-goal = Detoxify the Station as determined by our Machine learning algorithms
 traitor-stockholmuni-allies =  We are on a never ending crusade against toxic individuals and those who have been branded as Repobanned.
 traitor-stockholmuni-uplink = Your uplink was provided via PDA Message from Uplinkify.
 traitor-stockholmuni-roundend = [color=#1a4a96]researcher from Stockholm University[/color]

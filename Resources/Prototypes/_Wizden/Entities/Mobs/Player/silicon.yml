@@ -84,6 +84,8 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: GravityAffected
+  - type: Eye # imp, so borgs can see the ai eye
+    visMask: 5
 
 - type: entity
   name: onestar mecha
