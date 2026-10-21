@@ -91,6 +91,9 @@
     graph: DisposalMachine
     node: disposal_unit
   - type: DisposalUnit
+    blacklist: #imp edit start
+      tags:
+      - StationAi #imp edit end
   - type: ThrowInsertContainer
     containerId: disposals
     probability: 0.67
@@ -116,6 +119,7 @@
       - DisposalEject
       sources:
       - DisposalReady
+  - type: StationAiWhitelist # imp
 
 - type: entity
   id: MailingUnit
@@ -154,6 +158,8 @@
     blacklist:
       components:
       - EntityStorage
+      tags: # imp
+      - StationAi
   - type: MailingUnit
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -170,3 +176,4 @@
         type: MailingUnitBoundUserInterface
       enum.ConfigurationUiKey.Key:
         type: ConfigurationBoundUserInterface
+  - type: StationAiWhitelist # imp
