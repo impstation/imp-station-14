@@ -1,14 +1,18 @@
-using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
+using Content.Server.Heretic.EntitySystems; // imp
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Heretic; // imp
+using Content.Shared.Heretic.Prototypes; // imp
 using Content.Shared.Mind;
 using Content.Shared.PDA.Ringer;
+using Content.Shared.Roles.Components; // imp
+using Content.Shared.SelectableComponentAdder;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
@@ -16,10 +20,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Server.Heretic.EntitySystems; // imp
-using Content.Shared.Heretic; // imp
-using Content.Shared.Heretic.Prototypes; // imp
-using Content.Shared.Roles.Components; // imp
+using System.Linq;
 
 namespace Content.Server.Store.Systems;
 
@@ -88,7 +89,7 @@ public sealed partial class StoreSystem
     /// </summary>
     /// <param name="user">The person who if opening the store ui. Listings are filtered based on this.</param>
     /// <param name="store">The store entity itself</param>
-    /// <param name="component">The store component being refreshed.</param>
+    /// <param name="component">The store productComp being refreshed.</param>
     public void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
     {
         if (!Resolve(store, ref component))
@@ -151,7 +152,7 @@ public sealed partial class StoreSystem
             return;
 
         //condition checking because why not
-        if (listing.Conditions != null && !component.PassAllConditions) // imp edit, add "&& !component.PassAllConditions"
+        if (listing.Conditions != null && !component.PassAllConditions) // imp edit, add "&& !productComp.PassAllConditions"
         {
             var args = new ListingConditionArgs(component.AccountOwner ?? GetBuyerMind(buyer), uid, listing, EntityManager);
             var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
@@ -243,6 +244,22 @@ public sealed partial class StoreSystem
                 }
             }
         }
+
+        //give components (imp addition)
+        if (listing is { ProductComponents: not null })
+        {
+            foreach (var productComp in listing.ProductComponents)
+            {
+                if (listing.ApplyToMob || !_mind.TryGetMind(buyer, out var mind, out _))
+                {
+                    EntityManager.AddComponent(buyer, productComp.Value, overwrite: listing.ProductOverwriteComponents);
+                }
+                else
+                {
+                    EntityManager.AddComponent(mind, productComp.Value, overwrite: listing.ProductOverwriteComponents);
+                }
+            }
+        }//end imp addition
 
         if (listing is { ProductUpgradeId: not null, ProductActionEntity: not null })
         {

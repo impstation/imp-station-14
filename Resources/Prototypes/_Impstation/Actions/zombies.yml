@@ -25,9 +25,68 @@
   description: Come back from the dead. Again.
   components:
   - type: Action
-    useDelay: 5
+    useDelay: 180
     icon:
       sprite: Mobs/Species/Skeleton/parts.rsi
       state: skull_icon
   - type: InstantAction
     event: !type:UnstoppableActionEvent {}
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ZombieSpitGun
+  name: zombie spit gun
+  description: hawk tuah
+  components:
+  - type: Gun
+    clumsyProof: true
+    cameraRecoilScalar: 0 #no recoil
+    fireRate: 6
+    burstFireRate: 12
+    availableModes:
+    - Burst
+    shotsPerBurst: 5
+    burstCooldown: 0
+    selectedMode: Burst #imp
+    soundGunshot:
+      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        maxVol: 100 #10 shots
+  - type: SolutionRegeneration
+    solution: chamber
+    generated:
+      reagents:
+      - ReagentId: PolytrinicAcid
+        Quantity: 10
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletZombieSpitShot
+    fireCost: 10
+
+- type: entity
+  id: BulletZombieSpitShot
+  parent: BulletWaterShot
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnSpawn
+    sound: /Audio/Weapons/Xeno/alien_spitacid.ogg
+    positional: true
+
+- type: entity
+  id: ActionZombieSpit
+  name: Spit Acid
+  description: Spit a stream of acid at your foes.
+  components:
+  - type: Action
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+      state: xeno_toxic
+    itemIconStyle: BigAction
+    priority: 2
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:ActionGunShootEvent

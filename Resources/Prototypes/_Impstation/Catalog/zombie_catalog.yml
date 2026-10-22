@@ -29,3 +29,21 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: InitialInfectedSpitListing
+  name: init-infect-spit-name
+  description: init-infect-spit-desc
+  productComponents:
+  - type: ActionGun
+    action: ActionZombieSpit
+    gunProto: ZombieSpitGun
+  applyToMob: true
+  productOverwriteComponents: true #this will override anomalocarid acid spit. shrimp coughing so wetly and grossly on you
+  cost:
+    MutationPoints: 1
+  categories:
+  - SpecialInfectedStore
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

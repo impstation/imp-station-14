@@ -1,13 +1,10 @@
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Systems;
-using Content.Shared.Destructible;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
-using Content.Shared.PAI;
 using Content.Shared.Store.Components;
 using Content.Shared.Zombies;
-using YamlDotNet.Core.Tokens;
 
 namespace Content.Server.Zombies;
 
@@ -40,13 +37,14 @@ public sealed partial class InitialInfectedSystem : SharedInitialInfectedSystem
     {
         //why is there not a thing in the listing prototype that's just "add this component"
         //am i going to code that? no
+        //(next day) actually yes i am fuck you
         var jump = EnsureComp<JumpAbilityComponent>(ent);
         _actions.RemoveAction(jump.ActionEntity); //gotta do this because adding jumpability adds a SECOND jump action but we need it for the FIRST one to WORK
     }
 
     private void OnMutateUnstoppable(Entity<InitialInfectedComponent> ent, ref MutateUnstoppableEvent args)
     {
-        ent.Comp.RemainingRevives = 1;
+        ent.Comp.RemainingRevives = 5;
     }
 
     private void OnUseRevive(Entity<InitialInfectedComponent> ent, ref UnstoppableActionEvent args)
