@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: TheGrimbeeper
   changes:
-  - message: Changelings no longer out themselves by buying flash immunity.
-    type: Fix
-  id: 2493
-  time: '2025-12-21T02:49:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3847
-- author: TheGrimbeeper
-  changes:
   - message: Natural artifact spawn on unlinked pad wasn't getting biased.
     type: Fix
   - message: tweaks to direct inject & shuffle effects.
@@ -4044,3 +4037,14 @@
   id: 2992
   time: '2026-10-21T03:01:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4680
+- author: crocodilecarousel
+  changes:
+  - message: 3 new wallpapers
+    type: Add
+  - message: 4 new banners
+    type: Add
+  - message: plastic skeleton
+    type: Add
+  id: 2993
+  time: '2026-10-22T06:11:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4678
