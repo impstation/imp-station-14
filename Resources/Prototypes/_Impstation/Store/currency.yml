@@ -19,3 +19,8 @@
   cash:
     1: UtilityToken1
   canWithdraw: true
+
+- type: currency
+  id: MutationPoints
+  displayname: store-currency-display-mutationpoint
+  canWithdraw: false

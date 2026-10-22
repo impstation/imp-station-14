@@ -9,4 +9,7 @@ public sealed partial class InitialInfectedComponent : Component
 {
     [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon = "InitialInfectedFaction";
+
+    [DataField]
+    public int RemainingRevives = 0;
 }

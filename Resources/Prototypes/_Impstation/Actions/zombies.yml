@@ -1,0 +1,33 @@
+- type: entity
+  parent: ActionIntrinsicStore
+  id: ActionOpenMutationShop
+  name: Mutate Infection
+  description: Mutate your infection to become deadlier.
+
+- type: entity
+  parent: BaseAction
+  id: ActionInitInfectedLunge
+  name: Lunge
+  description: Close the distance between you and your prey.
+  components:
+  - type: Action
+    useDelay: 5
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionInitInfectedUnstoppable
+  name: Unstoppable
+  description: Come back from the dead. Again.
+  components:
+  - type: Action
+    useDelay: 5
+    icon:
+      sprite: Mobs/Species/Skeleton/parts.rsi
+      state: skull_icon
+  - type: InstantAction
+    event: !type:UnstoppableActionEvent {}

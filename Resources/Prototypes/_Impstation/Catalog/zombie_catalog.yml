@@ -1,0 +1,31 @@
+- type: listing
+  id: InitialInfectedLungeListing
+  name: init-infect-lunge-name
+  description: init-infect-lunge-desc
+  productAction: ActionInitInfectedLunge
+  productEvent: !type:MutateLungeEvent
+  applyToMob: true
+  raiseProductEventOnUser: true
+  cost:
+    MutationPoints: 1
+  categories:
+  - SpecialInfectedStore
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: InitialInfectedUnstoppableListing
+  name: init-infect-unstoppable-name
+  description: init-infect-unstoppable-desc
+  productAction: ActionInitInfectedUnstoppable
+  productEvent: !type:MutateUnstoppableEvent
+  applyToMob: true
+  raiseProductEventOnUser: true
+  cost:
+    MutationPoints: 1
+  categories:
+  - SpecialInfectedStore
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
