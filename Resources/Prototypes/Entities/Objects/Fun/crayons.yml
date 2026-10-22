@@ -76,7 +76,7 @@
     tags:
     - Write
     - Crayon
-    - CrayonWhite
+    - CrayonMime # imp
     - Recyclable
     - Trash
 
@@ -94,6 +94,13 @@
     selectableColor: true
   - type: LimitedCharges
     maxCharges: 200 #imp
+  - type: Tag # imp
+    tags:
+    - Write
+    - Crayon
+    - CrayonRainbow
+    - Recyclable
+    - Trash
 
 - type: entity
   parent: CrayonRainbow
