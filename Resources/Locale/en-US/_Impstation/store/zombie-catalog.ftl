@@ -1,5 +1,4 @@
 store-special-infected = Mutations
-store-currency-display-mutationpoint = MP
 
 init-infect-lunge-name = Lunge
 init-infect-lunge-desc = Gain an action to lunge towards things. Great for closing distance.

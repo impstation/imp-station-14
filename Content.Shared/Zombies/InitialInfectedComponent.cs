@@ -12,5 +12,4 @@ public sealed partial class InitialInfectedComponent : Component
 
     [DataField] //imp addition - special infected revivals
     public int RemainingRevives = 0;
-
 }
