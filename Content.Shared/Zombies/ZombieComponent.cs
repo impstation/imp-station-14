@@ -175,4 +175,17 @@ public sealed partial class ZombieComponent : Component
     /// </summary>
     [DataField("newBloodReagents")]
     public Solution NewBloodReagents = new([new("ZombieBlood", 1)]);
+
+    /// <summary>
+    /// The action to add to zombies to open their AAC menu. Imp edit.
+    /// </summary>
+    [DataField]
+    public string SpeakAction = "ActionOpenZombieAAC";
+
+    /// <summary>
+    /// The entity to spawn in nullspace and copy components off of.
+    /// This is fucking evil.
+    /// </summary>
+    [DataField]
+    public string DummyEnt = "ZombieDummyEntity";
 }
