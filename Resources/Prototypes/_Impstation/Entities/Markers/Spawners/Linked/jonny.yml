@@ -1,0 +1,46 @@
+﻿- type: entity
+  id: LinkedMobCockroachJonnySpawner
+  suffix: Weight 1
+  name: linked Jonny Cockroach spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Impstation/Mobs/Pets/jonny.rsi
+      state: cockroach_icon
+  - type: LinkedSpawner
+    prototype: SpawnMobDogCockroachJonny
+    #Jonny can spawn in as a number of different prototypes and LinkedSpawner only supports a single prototype, so spawning its spawner seems like the simplest solution
+
+- type: entity
+  parent: LinkedMobCockroachJonnySpawner
+  id: LinkedMobCockroachJonnySpawner2
+  suffix: Weight 2
+  components:
+  - type: LinkedSpawner
+    weight: 2
+
+- type: entity
+  parent: LinkedMobCockroachJonnySpawner
+  id: LinkedMobCockroachJonnySpawner3
+  suffix: Weight 3
+  components:
+  - type: LinkedSpawner
+    weight: 3
+
+- type: entity
+  parent: LinkedMobCockroachJonnySpawner
+  id: LinkedMobCockroachJonnySpawner4
+  suffix: Weight 4
+  components:
+  - type: LinkedSpawner
+    weight: 4
+
+- type: entity
+  parent: LinkedMobCockroachJonnySpawner
+  id: LinkedMobCockroachJonnySpawner5
+  suffix: Weight 5
+  components:
+  - type: LinkedSpawner
+    weight: 5

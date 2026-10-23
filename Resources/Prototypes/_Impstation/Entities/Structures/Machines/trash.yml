@@ -1,0 +1,22 @@
+- type: entity
+  id: CrateTrashCartCrusher
+  parent: CrateTrashCart
+  name: trash cart
+  suffix: Crusher
+  components:
+  - type: ArtifactCrusher
+    crushingDamage:
+      types:
+        Blunt: 10
+  - type: EntityStorage
+    capacity: 1
+    whitelist:
+      tags:
+      - CanPilot # People
+      - VimPilot # Pets
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      output_container: !type:Container
+      paper_label: !type:ContainerSlot
