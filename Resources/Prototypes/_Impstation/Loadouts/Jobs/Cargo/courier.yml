@@ -1,8 +1,26 @@
+#Senior Times
+- type: loadoutEffectGroup
+  id: SeniorCourier
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCourier
+      time: 30h
+
 # Head
 - type: loadout
   id: CourierHat
   equipment:
     head: ClothingHeadHatCouriersoft
+
+- type: loadout
+  id: PostmasterCap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCourier
+  equipment:
+    head: ClothingHeadPostMasterCap
 
 # Jumpsuit
 - type: loadout
@@ -25,6 +43,22 @@
   equipment:
     jumpsuit: ClothingUniformPorterSkirt
 
+- type: loadout
+  id: PostmasterJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCourier
+  equipment:
+    jumpsuit: ClothingUniformPostmasterSuit
+
+- type: loadout
+  id: PostmasterJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCourier
+  equipment:
+    jumpsuit: ClothingUniformPostmasterSkirt
+
 # OuterClothing
 - type: loadout
   id: CourierWintercoat
@@ -42,3 +76,19 @@
   id: CourierPDA
   equipment:
     id: CourierPDA
+
+# Back
+- type: loadout
+  id: CourierBackpack
+  equipment:
+    back: ClothingBackpackCourier
+
+- type: loadout
+  id: CourierDuffle
+  equipment:
+    back: ClothingBackpackDuffleCourier
+
+- type: loadout
+  id: CourierSatchel
+  equipment:
+    back: ClothingBackpackSatchelCourier
