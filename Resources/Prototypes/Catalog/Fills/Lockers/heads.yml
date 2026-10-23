@@ -214,26 +214,20 @@
   id: LockerFillChiefMedicalOfficerNoHardsuit
   table: !type:AllSelector
     children:
-  #imp edit start
-    - id: ClothingBackpackDuffelSurgeryFilled
     - id: ClothingEyesHudMedical
-    #- id: ClothingBeltMedicalFilled
-    - id: ClothingHandsGlovesNitrile
-    - id: ClothingMaskSterile
+    - id: ClothingBeltMedicalFilled
     - id: HandheldCrewMonitor
     - id: Hypospray
-    - id: MedkitFilled
     - id: MedTekCartridge
     - id: PersonalAILearnerMedical #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
-    - id: ClothingEyesHudMedChem #impspecial
+    - id: ClothingEyesHudMedChem #imp edit
     # Standard command gear
     - id: RubberStampCMO
     - id: ClothingHeadsetAltMedical
     - id: DoorRemoteMedical
     - id: BoxEncryptionKeyMedical
     - id: BoxCMOCircuitboards
-  #imp edit end
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
