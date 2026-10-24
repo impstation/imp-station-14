@@ -1,8 +1,6 @@
 using Content.Server.GameTicking;
-//using Content.Shared.CCVar;
 using Content.Shared.Eye;
 using Robust.Server.GameObjects;
-//using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared._Impstation.SiliconVision; //imp
 
@@ -35,7 +33,7 @@ namespace Content.Server._Impstation.SiliconVision
 
         private void OnSiliconGhostStartup(EntityUid uid, SiliconGhostComponent component, ComponentStartup args)
         {
-            // Allow this entity to be seen by other ghosts.
+            // Allow this entity to be seen by silicons.
             var visibility = EnsureComp<VisibilityComponent>(uid);
 
             if (_gameTicker.RunLevel != GameRunLevel.PostRound)
@@ -54,7 +52,7 @@ namespace Content.Server._Impstation.SiliconVision
             if (Terminating(uid))
                 return;
 
-            // Entity can't be seen by ghosts anymore.
+            // Entity can't be seen by silicons anymore.
             if (TryComp(uid, out VisibilityComponent? visibility))
             {
                 _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Silicon, false);
@@ -62,7 +60,7 @@ namespace Content.Server._Impstation.SiliconVision
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
-            // Entity can't see ghosts anymore.
+            // Entity can't see silicon ghosts anymore.
             _eye.RefreshVisibilityMask(uid);
         }
     }
