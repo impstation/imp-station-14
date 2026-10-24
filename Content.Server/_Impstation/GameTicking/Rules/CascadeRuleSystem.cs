@@ -167,6 +167,6 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
             return;
         if (_alertLevelSystem.GetLevel(station.Value) == "delta") // Don't delta if already delta
             return;
-        _alertLevelSystem.SetLevel(station.Value, "delta", true, true, true);
+        _alertLevelSystem.SetLevel(station.Value, "delta", true, true, true, true);
     }
 }
