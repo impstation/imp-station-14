@@ -1,4 +1,4 @@
-﻿using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules;
 using Content.Shared.NukeOps;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -60,6 +60,20 @@ public sealed partial class WarDeclaratorComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan ShuttleDisabledTime;
+
+    /// <summary>
+    /// How much TC declaring war will give
+    /// IMP
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public int GiftedTC = 40;
+
+    /// <summary>
+    /// Do we ignore the check for if we can declare war at this pop?
+    /// IMP
+    /// </summary>
+    [DataField]
+    public bool IgnorePopCheck = false;
 
     [DataField]
     public WarConditionStatus? CurrentStatus;
