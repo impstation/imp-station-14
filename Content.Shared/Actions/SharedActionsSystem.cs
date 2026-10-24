@@ -597,6 +597,9 @@ public abstract partial class SharedActionsSystem : EntitySystem
 
         var performed = new ActionPerformedEvent(performer);
         RaiseLocalEvent(action, ref performed);
+
+        if (action.Comp.RemoveActionAfterUse) // imp
+            RemoveAction(performer, (action, action)); // imp
     }
     #endregion
 

@@ -312,6 +312,9 @@
   components:
   - type: GameRule
     minPlayers: 15
+    delay: # imp add
+      min: 240 # imp, 4 minutes
+      max: 420 # imp, 7 minutes
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -323,7 +326,7 @@
         text: head-rev-role-greeting
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
+      # startingGear: HeadRevGear imp, given by action now
       components:
       - type: Revolutionary
       - type: HeadRevolutionary

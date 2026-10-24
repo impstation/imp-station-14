@@ -6,6 +6,7 @@ using Content.Shared.Stunnable;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Content.Shared.Antag;
+using Content.Shared.Actions; // imp
 
 namespace Content.Shared.Revolutionary;
 
@@ -13,6 +14,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedStunSystem _sharedStun = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!; // imp
 
     public override void Initialize()
     {
@@ -99,5 +101,8 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         {
             Dirty(uid, comp);
         }
+
+        if (someComp is HeadRevolutionaryComponent headrev) // imp
+            _actions.AddAction(someUid, headrev.GivenAction); // imp
     }
 }
