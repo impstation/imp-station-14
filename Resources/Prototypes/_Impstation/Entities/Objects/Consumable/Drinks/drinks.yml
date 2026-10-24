@@ -815,3 +815,51 @@
   - type: Icon
     sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/oldfashioned.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkCreamSoda
+  suffix: cream soda
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CreamSoda
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/creamsoda_vanilla.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkCreamSodaOrange
+  suffix: orange cream soda
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CreamSodaOrange
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/creamsoda_orange.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkCreamSodaBerry
+  suffix: mixed berry cream soda
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CreamSodaBerry
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/creamsoda_berry.rsi
+    state: icon

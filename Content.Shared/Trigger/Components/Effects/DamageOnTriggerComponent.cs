@@ -10,6 +10,14 @@ namespace Content.Shared.Trigger.Components.Effects;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DamageOnTriggerComponent : BaseXOnTriggerComponent
 {
+
+    /// <summary>
+    /// Imp add - Damage entity containing this entity instead (for example for wearable clothing).
+    /// Has priority over TargetUser.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool TargetContainer;
+
     /// <summary>
     /// Should the damage ignore resistances?
     /// </summary>
