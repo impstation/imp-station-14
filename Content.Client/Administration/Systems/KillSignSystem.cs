@@ -52,12 +52,13 @@ public sealed class KillSignSystem : EntitySystem
         if (ent.Comp.Sprite == null)
             return;
 
-        var adj = _sprite.GetLocalBounds((ent, sprite)).Height / 2 + ((1.0f / 32) * 6.0f);
+        // Imp: we're using KillSignComponent.Offset instead, no need for this
+        // var adj = _sprite.GetLocalBounds((ent, sprite)).Height / 2 + ((1.0f / 32) * 6.0f);
 
         var layer = _sprite.AddLayer((ent, sprite), ent.Comp.Sprite);
         _sprite.LayerMapSet((ent, sprite), KillSignKey.Key, layer);
         _sprite.LayerSetScale((ent, sprite), layer, ent.Comp.Scale);
-        _sprite.LayerSetOffset((ent, sprite), layer, ent.Comp.DoOffset ? new Vector2(0.0f, adj) : new Vector2(0.0f, 0.0f));
+        _sprite.LayerSetOffset((ent, sprite), layer, new Vector2(0.0f, ent.Comp.Offset)); // Imp: Unhardcoded offset
 
         if (ent.Comp.ForceUnshaded)
             sprite.LayerSetShader(layer, "unshaded");
