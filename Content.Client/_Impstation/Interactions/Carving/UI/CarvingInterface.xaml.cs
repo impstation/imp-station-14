@@ -36,6 +36,8 @@ public sealed partial class CarvingInterface : FancyWindow
         IoCManager.InjectDependencies(this);
 
         _spriteSystem = _entityManager.System<SpriteSystem>();
+
+        Name.OnTextChanged += _ => OnNameEdit();
     }
 
     public void Display(EntityUid owner)
@@ -78,6 +80,13 @@ public sealed partial class CarvingInterface : FancyWindow
             CarveList.AddChild(control);
             control.OnSelect += CarveSelect;
         }
+    }
+
+    private void OnNameEdit()
+    {
+        _customName = Name.Text;
+
+        NameFiller.Visible = _customName.Length <= 0 ? true : false;
     }
 
     private void CarveSelect(CarvingPatternEntry pattern)

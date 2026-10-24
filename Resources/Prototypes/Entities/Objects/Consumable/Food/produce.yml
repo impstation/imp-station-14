@@ -2643,6 +2643,9 @@
       - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: sinister }
       - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: hole }
       - { sprite: _Impstation/Objects/Specific/Carves/Overlays/pumpkin.rsi, state: neutral }
+    effects: 
+    - !type:Hollow
+      inheritLight: true
 # End Impstation - Carving
 
 - type: entity

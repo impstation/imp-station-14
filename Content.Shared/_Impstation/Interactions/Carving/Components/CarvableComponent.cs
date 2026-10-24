@@ -1,3 +1,6 @@
+using Content.Shared._Impstation.Interactions.Carving.DoAfters;
+using Content.Shared.DoAfter;
+using Content.Shared.EntityEffects;
 using Content.Shared.Tools;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -14,6 +17,22 @@ public sealed partial class CarvableComponent : Component
     [DataField("carvedSprites"), ViewVariables(VVAccess.ReadWrite)]
     public HashSet<SpriteSpecifier> Carves = new HashSet<SpriteSpecifier>();
 
+    [DataField("carveDelay")]
+    public TimeSpan CarveDelay = TimeSpan.FromSeconds(10);
+
+    [DataField("renameDelay")]
+    public TimeSpan RenameDelay = TimeSpan.FromSeconds(2);
+
+    [DataField("engraveDelay")]
+    public TimeSpan EngraveDelay = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// List of effects that should be applied.
+    /// </summary>
+    [DataField("effects")]
+    public List<EntityEffect> Effects = default!;
+
+    public DoAfterId? DoAfter;
     public bool Carved;
 }
 

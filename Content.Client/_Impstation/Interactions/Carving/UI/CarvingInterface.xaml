@@ -45,16 +45,17 @@
                 <PanelContainer.PanelOverride>
                     <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
                 </PanelContainer.PanelOverride>
-                <TextEdit
+                <LineEdit
                     Name="Name"
                     VerticalAlignment="Top"
                     MinSize="256 32"
                     VerticalExpand="True">
                     <Label
+                        Name="NameFiller"
                         Text="{Loc carving-window-name}"
                         Margin="5 5 5 5"
                         StyleClasses="LabelKeyText"/>
-                </TextEdit>
+                </LineEdit>
             </PanelContainer>
             <TextureRect
               Name ="Carved"

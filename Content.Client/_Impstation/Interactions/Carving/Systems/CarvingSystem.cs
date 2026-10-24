@@ -1,4 +1,5 @@
 using Content.Shared._Impstation.Interactions.Carving.Components;
+using Content.Shared._Impstation.Interactions.Carving.Events;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 using System;
@@ -15,7 +16,9 @@ public sealed partial class CarvingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<CarveSpriteEvent>(Personalise); 
+        SubscribeNetworkEvent<CarveSpriteEvent>(Personalise);
+        SubscribeNetworkEvent<CustomisePersonalisationEvent>(Customise);
+        SubscribeNetworkEvent<AddPersonalisationState>(AddState);
     }
 
     /// <summary>
@@ -34,33 +37,52 @@ public sealed partial class CarvingSystem : EntitySystem
 
     }
 
-    private bool TryAddSprite(Entity<CarvableComponent> ent, SpriteSpecifier sprite)
+    private bool TryAddSprite(Entity<CarvableComponent> ent, SpriteSpecifier sprite, CarvedVisuals layerMap = CarvedVisuals.Carved)
     {
         if (!TryComp<SpriteComponent>(ent.Owner, out var comp))
             return false;
 
-        if(!TryGetLayer((ent.Owner, comp), CarvedVisuals.Carved, out var layer))
+        if(!TryGetLayer((ent.Owner, comp), layerMap, out var layer))
         {
             layer = _spriteSystem.AddLayer((ent.Owner, comp), sprite);
-            _spriteSystem.LayerMapAdd((ent.Owner, comp), CarvedVisuals.Carved.ToString(), (int)layer);
+            _spriteSystem.LayerMapAdd((ent.Owner, comp), layerMap, (int)layer);
         }
         else
         {
-            _spriteSystem.LayerSetSprite((ent.Owner, comp), CarvedVisuals.Carved.ToString(), sprite);
+            _spriteSystem.LayerSetSprite((ent.Owner, comp), layerMap, sprite);
         }
 
         return true;
     }
 
-    private bool TryGetLayer(Entity<SpriteComponent?> ent, CarvedVisuals layer, out int? layerOut)
+    private bool EnsureLayer(Entity<SpriteComponent?> ent, Enum layer, SpriteSpecifier sprite, out int? layerOut)
+    {
+        layerOut = 0;
+
+        if (ent.Comp == null ||
+            !TryComp<SpriteComponent>(ent.Owner, out var comp))
+            return false;
+
+        if (_spriteSystem.LayerExists(ent, layer))
+            layerOut = _spriteSystem.LayerMapGet(ent, layer);
+        else
+        {
+            layerOut = _spriteSystem.AddLayer((ent.Owner, comp), sprite);
+            _spriteSystem.LayerMapAdd((ent.Owner, comp), layer, (int)layerOut);
+        }
+
+        return layerOut == 0 ? false : true;
+    }
+
+    private bool TryGetLayer(Entity<SpriteComponent?> ent, Enum layer, out int? layerOut)
     {
         layerOut = 0;
 
         if (ent.Comp == null)
             return false;
 
-        if(_spriteSystem.LayerExists(ent, layer.ToString()))
-            layerOut = _spriteSystem.LayerMapGet(ent, layer.ToString());
+        if(_spriteSystem.LayerExists(ent, layer))
+            layerOut = _spriteSystem.LayerMapGet(ent, layer);
 
         return layerOut == 0 ? false : true;
     }
