@@ -6,27 +6,29 @@ using Content.Shared.Input;
 using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
-using Robust.Client.Input;
 using Robust.Client.Player;
-using Robust.Client.State;
-using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Client.Input; // imp add
+using Robust.Client.State; // imp add
+using Robust.Client.UserInterface; // imp add
 
 namespace Content.Client.UserInterface.Systems.Emotes;
 
 [UsedImplicitly]
-public sealed partial class EmotesUIController : UIController, IOnStateChanged<GameplayState>
+public sealed partial class EmotesUIController : UIController, IOnStateChanged<GameplayState> // imp edit, added partial
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    // imp edit start
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    // imp edit end
 
     private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
     private SimpleRadialMenu? _menu;
@@ -47,8 +49,10 @@ public sealed partial class EmotesUIController : UIController, IOnStateChanged<G
     public void OnStateEntered(GameplayState state)
     {
         CommandBinds.Builder
+        // imp edit start
                 .Bind(ContentKeyFunctions.OpenEmotesMenu, new PointerInputCmdHandler(HandleEmote, outsidePrediction: true))
                 .Register<EmotesUIController>();
+        // imp edit end
     }
 
     public void OnStateExited(GameplayState state)
@@ -56,10 +60,10 @@ public sealed partial class EmotesUIController : UIController, IOnStateChanged<G
         CommandBinds.Unregister<EmotesUIController>();
     }
 
-    private void ToggleEmotesMenu(bool centered, EntityUid? emoteTarget = null)
+    private void ToggleEmotesMenu(bool centered, EntityUid? emoteTarget = null) // imp edit
     {
-        var currentState = _stateManager.CurrentState;
-        if (currentState is not GameplayStateBase screen) return;
+        var currentState = _stateManager.CurrentState; // imp add
+        if (currentState is not GameplayStateBase screen) return; // imp add
 
         if (_menu == null)
         {

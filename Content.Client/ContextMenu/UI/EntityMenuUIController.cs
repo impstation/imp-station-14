@@ -1,7 +1,8 @@
+using System.Linq;
+using System.Numerics;
 using Content.Client.CombatMode;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
-using Content.Client.UserInterface.Systems.Emotes;//imp edit
 using Content.Client.Verbs;
 using Content.Client.Verbs.UI;
 using Content.Shared.CCVar;
@@ -21,6 +22,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
+using Content.Client.UserInterface.Systems.Emotes;//imp edit
 using System.Linq;//imp edit
 using System.Numerics;//imp edit
 
