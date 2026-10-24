@@ -10,6 +10,8 @@
   id: BaseSpeciesMob
   save: false
   components:
+  - type: GeneHost # Impstation - Genetics
+  - type: GeneEffectDataHost # Impstation - Genetics
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     targetLayers:
