@@ -1,0 +1,26 @@
+- type: entity
+  id: OrganVegetarianAnimalStomach
+  parent: OrganAnimalStomach
+  name: vegetarian stomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Fruit
+      - Vegetable
+
+- type: entity
+  id: BaseMobVegetarian
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganAnimalLungs
+        - id: OrganAnimalHeart
+        - id: OrganVegetarianAnimalStomach
+        - id: OrganAnimalLiver
+        - id: OrganAnimalKidneys
