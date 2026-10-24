@@ -15,3 +15,5 @@ metabolizer-type-anomalocarid = Anomalocarid
 metabolizer-type-dinosaur = Dinosaur
 
 metabolizer-type-gray = Gray
+
+metabolizer-type-pleebnar = Pleebnar
