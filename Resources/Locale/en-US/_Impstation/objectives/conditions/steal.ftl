@@ -5,5 +5,7 @@ objective-condition-thief-evil-skull-description = From what I hear, the chaplai
 objective-condition-thief-suppy-description = He's really heavy and I might need radiation protection to get to him, but Suppy would be a great addition to my collection!
 objective-condition-steal-antiquedisabler-description = Sealed in its packaging or not we don't care; the Head of Personnel is sure to be upset if their cheap toy is missing!
 objective-condition-steal-medchemhud-description = The CMO has a shiny new toy... I want it!
+objective-condition-steal-smsliver-title = Cut off a sliver from the supermatter crystal.
+objective-condition-steal-smsliver-description = Use any cutting tool that comes in handy. A scalpel is more recommended. Also, don't die of radiation poisoning.
 
 objective-condition-thief-multiply-structure-description = I need to get {$count} parts of the {$itemName} and take them with me.
