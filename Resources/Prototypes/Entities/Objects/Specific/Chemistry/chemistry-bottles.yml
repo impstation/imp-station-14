@@ -55,7 +55,12 @@
         type: TransferAmountBoundUserInterface
   - type: Item
     size: Small #imp
-    sprite: _Impstation/Objects/Specific/Chemistry/beaker.rsi # imp
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi # imp
+    layers:
+    - state: bottle-1
+    - state: bottle-1-1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
     shape: #imp
     - 0,0,0,0
   - type: Spillable
@@ -139,14 +144,14 @@
   id: ChemistryEmptyBottle04
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/bottle.rsi # imp
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi # imp
     layers:
-    - state: bottle-4
-    - state: bottle-4-1
+    - state: bottle-2 # imp
+    - state: bottle-2-1 # imp
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: SolutionContainerVisuals
-    fillBaseName: bottle-4-
+    fillBaseName: bottle-2- # imp
 
 - type: entity
   parent: BaseChemistryEmptyBottle
