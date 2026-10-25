@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Cloning;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared._Impstation.AnimalHusbandry.Events;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Mind;
@@ -129,6 +130,9 @@ public sealed partial class AnimalInfantSystem : EntitySystem
 
         _adminLog.Add(LogType.Action,
             $"{ToPrettyString(infant)} advanced to next growth stage: {ToPrettyString(newStage)}");
+
+        var growthEvent = new InfantGrowthEvent(infant, newStage);
+        RaiseLocalEvent(newStage, ref growthEvent);
 
         // Pompeii Ash Baby.png
         QueueDel(infant);

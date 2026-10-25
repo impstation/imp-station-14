@@ -38,6 +38,11 @@ public sealed partial class GestatingComponent : Component
     /// </summary>
     [DataField]
     public bool DeleteSelfOnSpawn = false;
+
+    /// <summary>
+    ///     The mob that impregnated this one.
+    /// </summary>
+    public EntityUid OtherParent;
 }
 
 /// <summary>

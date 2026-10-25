@@ -10,8 +10,10 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Nutrition.Components;
 using System.Linq;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared._Impstation.AnimalHusbandry.Events;
 using Content.Shared._Impstation.EntityTable.Conditions;
 using Content.Shared._Impstation.CCVar;
+using Content.Shared.Mindshield.FakeMindShield;
 using Robust.Shared.Configuration;
 using Content.Shared.Tag;
 
@@ -94,6 +96,12 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         if (!CanYouBreed(approacher) || !CanYouBreed(approached))
             return false;
 
+        var attemptBreedEvent = new AnimalBreedAttemptEvent(approacher);
+        RaiseLocalEvent(approacher, ref attemptBreedEvent);
+
+        if (attemptBreedEvent.Cancelled)
+            return false;
+
         if (!_prototype.TryIndex(partnerComp.BreedSettings, out var partnerSettings))
             return false;
 
@@ -111,6 +119,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         var gestating = EnsureComp<GestatingComponent>(approached.Owner);
         gestating.GestationTime = partnerComp.PregnancyLength;
         gestating.EntityToSpawn = spawns.First();
+        gestating.OtherParent = approacher;
         partnerComp.PreviousPartner = approacher;
 
         if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
@@ -122,6 +131,9 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 
         _thirst.ModifyThirst(approacher, -approacher.Comp.HungerPerBirth);
         _thirst.ModifyThirst(approached, -partnerComp.HungerPerBirth);
+
+        var completeBreedEvent = new AnimalBreedCompletionEvent(approacher);
+        RaiseLocalEvent(approacher, ref completeBreedEvent);
 
         _adminLog.Add(LogType.Action, $"{ToPrettyString(approached)} (carrier) and {ToPrettyString(approacher)} (partner) successfully bred.");
         return true;

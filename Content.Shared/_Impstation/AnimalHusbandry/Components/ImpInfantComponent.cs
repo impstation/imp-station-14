@@ -40,9 +40,10 @@ public sealed partial class ImpInfantComponent : Component
     public TimeSpan CurrentGrowthTime = TimeSpan.Zero;
 
     /// <summary>
-    /// The parent this child should follow
+    /// The Parents of this child.
+    /// This is split by Birther | Impregnator.
     /// </summary>
-    public EntityUid Parent;
+    public KeyValuePair<EntityUid, EntityUid> Parents = new KeyValuePair<EntityUid, EntityUid>();
 }
 
 public enum InfantType

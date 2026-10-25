@@ -1,5 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared._Impstation.AnimalHusbandry.Events;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Components;
@@ -177,11 +178,14 @@ public sealed partial class AnimalGestationSystem : EntitySystem
         var offspring = _animalHusbandry.SpawnOnTop(entity, entity.Comp.EntityToSpawn);
 
         if (TryComp<ImpInfantComponent>(offspring, out var infantComp))
-            infantComp.Parent = entity;
+            infantComp.Parents = new KeyValuePair<EntityUid, EntityUid>(entity, entity.Comp.OtherParent);
 
         _adminLog.Add(LogType.Action,
             $"{ToPrettyString(entity)} gave birth to {ToPrettyString(offspring)}!"
             + $" DELETED: {entity.Comp.DeleteSelfOnSpawn}");
+
+        var bornEvent = new InfantBornEvent(offspring);
+        RaiseLocalEvent(offspring, ref bornEvent);
 
         if (entity.Comp.DeleteSelfOnSpawn)
             QueueDel(entity);
