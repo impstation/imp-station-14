@@ -1,42 +1,45 @@
 - type: vendingMachineInventory
   id: MediDrobeInventory
   startingInventory:
-    # Essential Medical Clothing
-    ClothingEyesHudMedical: 2
-    ClothingEyesEyepatchHudMedical: 2
-    ClothingEyesGlassesHudMedical: 2 # imp
-    # Optional Clothing
-    ClothingHeadHatBeretMedic: 2
-    ClothingHeadNurseHat: 4 #imp 2 > 4
-    ClothingHeadHatParamedicsoft: 1
-    ClothingHeadHatSurgcapGreen: 2
-    ClothingHeadHatSurgcapBlue: 2
-    ClothingHeadHatSurgcapPurple: 2
-    ClothingMaskSterile: 2
-    ClothingHeadsetMedical: 2
-    ClothingBackpackMedical: 2
-    ClothingBackpackDuffelMedical: 2
-    ClothingBackpackSatchelMedical: 2
-    ClothingUniformJumpsuitMedicalDoctor: 2
-    ClothingUniformJumpskirtMedicalDoctor: 2
-    UniformScrubsColorGreen: 2
-    UniformScrubsColorBlue: 2
-    UniformScrubsColorPurple: 2
-    ClothingUniformJumpsuitParamedic: 1
-    ClothingUniformJumpskirtParamedic: 1
-    ClothingOuterCoatLab: 2
-    ClothingOuterWinterMed: 2
-    ClothingOuterCoatParamedicWB: 1
-    ClothingOuterWinterPara: 1
-    ClothingHandsGlovesLatex: 2
-    ClothingHandsGlovesNitrile: 2
-    ClothingShoesColorBlue: 2
-    ClothingShoesColorWhite: 2
-    ClothingNeckCloakBlanketShock: 3 # imp
-    ClothingUniformJumpskirtNurse: 4 # imp
-    ClothingOuterApronNurse: 4 # imp
-    ClothingOuterCoatBomberMedical: 2 # imp
-    ClothingNeckScarfStripedLightBlue: 2 # imp
+  #imp edit start
+    ## Essential Medical Clothing
+    #ClothingEyesHudMedical: 2
+    #ClothingEyesEyepatchHudMedical: 2
+    ## Optional Clothing
+    #ClothingHeadHatParamedicsoft: 1
+    #ClothingMaskSterile: 2
+    #ClothingUniformJumpsuitParamedic: 1
+    #ClothingUniformJumpskirtParamedic: 1
+    #ClothingOuterCoatParamedicWB: 1
+    #ClothingOuterWinterPara: 1
+    ClothingBackpackDuffelMedical: 4 #was 2
+    ClothingBackpackMedical: 4 #was 2
+    ClothingBackpackSatchelMedical: 4 #was 2
+    ClothingUniformJumpsuitMedicalDoctor: 4 #was 2
+    ClothingUniformJumpskirtMedicalDoctor: 4 #was 2
+    ClothingBeltMedical: 4
+    ClothingHeadHatBeretMedic: 4 #was 2
+    ClothingHeadNurseHat: 4 #was 2
+    ClothingOuterCoatLab: 4 #was 2
+    ClothingShoesColorWhite: 4 #was 2
+    ClothingHandsGlovesLatex: 4 #was 2
+    ClothingHandsGlovesNitrile: 2 
+    ClothingHeadsetMedical: 4 #was 2
+    ClothingEyesGlassesHudMedical: 2 # imp special
+    ClothingOuterWinterMed: 2    
+    ClothingOuterHospitalGown: 5
+    UniformScrubsColorGreen: 4 #was 2
+    UniformScrubsColorBlue: 4 #was 2
+    UniformScrubsColorPurple: 4 #was 2
+    ClothingHeadHatSurgcapGreen: 4 #was 2
+    ClothingHeadHatSurgcapBlue: 4 #was 2
+    ClothingHeadHatSurgcapPurple: 4 #was 2
+    ClothingNeckCloakBlanketShock: 3 # imp special
+    ClothingUniformJumpskirtNurse: 4 # imp special
+    ClothingOuterApronNurse: 4 # imp special
+    ClothingOuterCoatBomberMedical: 2 # imp special
+    ClothingNeckScarfStripedLightBlue: 2 # imp special
+  #imp edit end
     ClothingShoesBootsWinterMed: 2
   contrabandInventory:
     ClothingHeadHatSurgcapCybersun: 1 # DeltaV

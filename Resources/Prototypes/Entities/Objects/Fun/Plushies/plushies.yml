@@ -223,8 +223,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieNuke
-  name: nukie plushie
-  description: A stuffed toy that resembles a syndicate nuclear operative. The tag claims operatives to be purely fictitious.
+  name: redshell plushie # imp edit, nukie -> redshell
+  description: A stuffed toy that resembles a syndicate operative. The tag claims nuclear operatives to be purely fictitious. # imp edit, syndicate operatives are real but nukies arent
   components:
   - type: Sprite
     sprite: Objects/Fun/Plushies/nukie.rsi
