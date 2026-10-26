@@ -107,6 +107,7 @@
       mask: /Textures/Effects/LightMasks/cone.png #imp
       autoRot: true #imp
       castShadows: true #imp
+    - type: StationAiWhitelist #imp
 
 - type: entity
   parent: BaseWallmountMetallic

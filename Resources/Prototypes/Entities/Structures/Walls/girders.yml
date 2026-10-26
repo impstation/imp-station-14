@@ -58,6 +58,9 @@
   - type: IconSmooth
     key: walls
     base: girder
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/girder.rsi
+    state: full
     # Impstation Edit End
 
 - type: entity
@@ -101,6 +104,11 @@
                 collection: MetalBreak
     - type: StaticPrice
       price: 130
+    # Impstation Edit Start
+    - type: Icon
+      sprite: _Impstation/Structures/Walls/girder_reinforced.rsi
+      state: full
+    # Impstation Edit End
 
 - type: entity
   id: ClockworkGirder
