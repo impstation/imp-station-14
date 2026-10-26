@@ -2,6 +2,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Telephone;
+using Content.Shared._DV.AACTablet; // imp
 using Content.Shared.Access.Systems;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
@@ -566,7 +567,21 @@ public sealed class HolopadSystem : SharedHolopadSystem
         }
 
         if (!TryComp<HolopadUserComponent>(user, out var holopadUser))
-            holopadUser = AddComp<HolopadUserComponent>(user.Value);
+        {
+            // imp start. make sure holopad projections for AAC use the USER and not the tablet itself.
+            if (HasComp<AACTabletComponent>(user))
+            {
+                var xform = Transform(user.Value);
+
+                holopadUser = EnsureComp<HolopadUserComponent>(xform.ParentUid);
+                user = xform.ParentUid;
+            }
+            else
+            {
+                holopadUser = EnsureComp<HolopadUserComponent>(user.Value);
+            }
+            // imp end
+        }
 
         if (user != entity.Comp.User?.Owner)
         {

@@ -72,7 +72,8 @@
   equipment:
     pocket2: WeaponDisabler
     # suitstorage: WeaponRifleLecterXL8 # imp remove
-    inhand: WeaponRifleM90GrenadeLauncher #imp
+  inhand:
+    - WeaponRifleM90GrenadeLauncher #imp
   storage:
     back:
     - HoloprojectorField
@@ -350,6 +351,7 @@
   id: ERTSecurityGearArmedRifle
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity #imp
     shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudSecurity
