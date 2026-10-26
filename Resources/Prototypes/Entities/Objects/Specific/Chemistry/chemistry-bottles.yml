@@ -56,11 +56,6 @@
   - type: Item
     size: Small #imp
     sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi # imp
-    layers:
-    - state: bottle-1
-    - state: bottle-1-1
-      map: [ "enum.SolutionContainerLayers.Fill" ]
-      visible: false
     shape: #imp
     - 0,0,0,0
   - type: Spillable
