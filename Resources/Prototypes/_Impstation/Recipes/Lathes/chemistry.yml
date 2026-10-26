@@ -19,3 +19,36 @@
   materials:
     Glass: 200
     Plastic: 100
+
+- type: latheRecipe
+  parent: HotplateMachineCircuitboard
+  id: ColdplateMachineCircuitboard
+  result: ColdplateMachineCircuitboard
+
+- type: latheRecipe
+  id: ChemistryEmptyBottle04
+  result: ChemistryEmptyBottle04
+  completetime: 2
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: ChemistryEmptyBottleHeart
+  result: ChemistryEmptyBottleHeart
+  completetime: 2
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: ChemistryEmptyBottleStar
+  result: ChemistryEmptyBottleStar
+  completetime: 2
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: ChemistryEmptyBottleSkull
+  result: ChemistryEmptyBottleSkull
+  completetime: 2
+  materials:
+    Glass: 100
