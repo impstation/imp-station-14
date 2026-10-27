@@ -2,6 +2,7 @@
 using Content.Shared.Administration.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
+using Content.Shared._Impstation.Administration; //imp
 
 namespace Content.Client.Administration.Systems;
 
@@ -72,6 +73,8 @@ public sealed class KillSignSystem : EntitySystem
             return;
 
         _sprite.RemoveLayer((ent, sprite), layer);
+
+        RemComp<SwordDamoclesComponent>(ent); //imp edit, the sword of damocles smite(s) work(s) off of killsign, so if it's changed or removed, remove SwordDamocles.
     }
 
     private enum KillSignKey
