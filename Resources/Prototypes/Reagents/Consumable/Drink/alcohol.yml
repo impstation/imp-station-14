@@ -225,7 +225,6 @@
       - !type:AdjustReagent
         reagent: Methanol
         amount: -2
-        - !type:MetabolizerTypeCondition
 
 - type: reagent
   id: Gin
