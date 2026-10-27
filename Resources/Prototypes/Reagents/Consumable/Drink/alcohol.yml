@@ -223,8 +223,10 @@
         boozePower: 2
       #IMP - ethanol is used as a treatment for methanol poisoning!
       - !type:AdjustReagent
+        probability: 0.25
         reagent: Methanol
-        amount: -2
+        amount: -1
+      #END OF IMP CHANGES
 
 - type: reagent
   id: Gin
@@ -1506,7 +1508,8 @@
       #IMP
       - !type:AdjustReagent
         reagent: Methanol
-        amount: 0.1
+        amount: 0.25
+      #END OF IMP CHANGES
 
 - type: reagent
   id: Neurotoxin

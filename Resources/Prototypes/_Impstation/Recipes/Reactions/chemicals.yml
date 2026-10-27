@@ -91,3 +91,13 @@
       catalyst: true
   products:
     Medium: 1
+
+-type: reaction
+  id: Methanol
+  impact: Medium
+  minTemp: 600
+  reactants:
+    Pulp:
+      amount: 10
+  products:
+    Methanol: 1

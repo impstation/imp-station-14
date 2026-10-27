@@ -229,7 +229,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Methanol
-        amount: 0.06
+        amount: 0.1
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -243,6 +243,18 @@
     amount: 0.25
   - !type:PlantAdjustWater
     amount: 0.7
+
+-type: reagent
+  id: BloodAllulaloBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    BloodAllulalo:
+      amount: 5
+  products:
+    Methanol:
+      amount: 5
 
 - type: reagent
   id: ReaperBlood
