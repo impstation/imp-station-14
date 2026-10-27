@@ -221,7 +221,7 @@
           inverted: true
       - !type:Drunk
         boozePower: 2
-        #IMP - ethanol is used as a treatment for methanol poisoning!
+      #IMP - ethanol is used as a treatment for methanol poisoning!
       - !type:AdjustReagent
         reagent: Methanol
         amount: -2
