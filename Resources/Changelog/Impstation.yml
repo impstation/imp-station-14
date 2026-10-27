@@ -1,101 +1,4 @@
 ﻿Entries:
-- author: lobsterpaw
-  changes:
-  - message: The revolutionary encryption key box is now cleverly disguised.
-    type: Tweak
-  id: 2491
-  time: '2025-12-21T02:08:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3874
-- author: honeyed-lemons
-  changes:
-  - message: Puddles are back to being bigger (but not as deep!)
-    type: Tweak
-  - message: Advanced Mops are more Advanced
-    type: Tweak
-  id: 2492
-  time: '2025-12-21T02:12:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3846
-- author: TheGrimbeeper
-  changes:
-  - message: Changelings no longer out themselves by buying flash immunity.
-    type: Fix
-  id: 2493
-  time: '2025-12-21T02:49:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3847
-- author: TheGrimbeeper
-  changes:
-  - message: Natural artifact spawn on unlinked pad wasn't getting biased.
-    type: Fix
-  - message: tweaks to direct inject & shuffle effects.
-    type: Tweak
-  - message: Whoops, artifacts weren't spawning mindless clones... fixed now
-    type: Fix
-  id: 2494
-  time: '2025-12-21T02:54:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3818
-- author: Simul-Ad-Astra
-  changes:
-  - message: Hotsauce is actually hot now
-    type: Tweak
-  - message: 4 new hotsauces straight from the labs of Discount Dan's!
-    type: Add
-  id: 2495
-  time: '2025-12-21T07:05:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3755
-- author: Veenomine, TheGrimbeeper, ultramario1998
-  changes:
-  - message: she is trapped
-    type: Tweak
-  id: 2496
-  time: '2025-12-22T01:57:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3875
-- author: FlapWrap
-  changes:
-  - message: Artist's rendition of Her containment
-    type: Add
-  id: 2497
-  time: '2025-12-26T00:25:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3882
-- author: entings
-  changes:
-  - message: Boar will no longer demolish any machines in their path.
-    type: Tweak
-  - message: Boar will no longer become enamored with specific pieces of station infrastructure
-      to their own detriment.
-    type: Fix
-  id: 2498
-  time: '2025-12-26T09:17:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3803
-- author: msTheowo
-  changes:
-  - message: Soap can now be used to clean decals, including floor grime.
-    type: Add
-  id: 2499
-  time: '2025-12-26T09:21:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3667
-- author: Kandiyaki
-  changes:
-  - message: attempted to fix Serpent's Focus again. it works on localhost! will it
-      work on the server? WHO KNOWS
-    type: Fix
-  id: 2500
-  time: '2025-12-28T11:08:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3822
-- author: 12rabbits
-  changes:
-  - message: The cash rewards for certain Salvage bounties have been dramatically
-      reduced.
-    type: Tweak
-  id: 2501
-  time: '2025-12-28T12:06:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3786
-- author: youtubevideo3
-  changes:
-  - message: The Phantom Racer has been put to rest.
-    type: Remove
-  id: 2502
-  time: '2025-12-28T12:56:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3857
 - author: Squamatic
   changes:
   - message: Nitrous oxide gas leaks are now possible. Enjoy your nap!
@@ -4046,3 +3949,99 @@
   id: 2990
   time: '2026-10-15T18:49:08.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4667
+- author: Toasterblast
+  changes:
+  - message: barratry more like scareatry
+    type: Tweak
+  id: 2991
+  time: '2026-10-21T02:32:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4694
+- author: mothrii, meatsmall
+  changes:
+  - message: Elkridge, Haven, and Reach are ready for Halloween
+    type: Tweak
+  id: 2992
+  time: '2026-10-21T03:01:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4680
+- author: crocodilecarousel
+  changes:
+  - message: 3 new wallpapers
+    type: Add
+  - message: 4 new banners
+    type: Add
+  - message: plastic skeleton
+    type: Add
+  id: 2993
+  time: '2026-10-22T06:11:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4678
+- author: sev7ves
+  changes:
+  - message: Can now edit the notifier from the lobby,
+    type: Tweak
+  - message: Can now edit the notifier without being attached to an entity.
+    type: Fix
+  id: 2994
+  time: '2026-10-22T22:15:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4458
+- author: portfiend
+  changes:
+  - message: All three types of cream soda (regular, berry, orange) have new glass
+      cup sprites.
+    type: Add
+  id: 2995
+  time: '2026-10-23T19:53:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4696
+- author: starlighthowls
+  changes:
+  - message: Various fixes and changes to dolphin/monarch/whale.
+    type: Tweak
+  id: 2996
+  time: '2026-10-23T20:28:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4553
+- author: starlighthowls
+  changes:
+  - message: Added six new antag items, check PR for details.
+    type: Add
+  - message: Killer and Kisser tomatoes will now gradually die again.
+    type: Tweak
+  id: 2997
+  time: '2026-10-23T21:11:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4467
+- author: Yentaly
+  changes:
+  - message: Enworsenfied (Engoodenfied) the german accent.
+    type: Tweak
+  id: 2998
+  time: '2026-10-24T05:28:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4540
+- author: FlippenPage
+  changes:
+  - message: AAC tablet can now transmit messages through Holopads. Now you can Show
+      It to the world!
+    type: Fix
+  id: 2999
+  time: '2026-10-26T02:33:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4623
+- author: youtubevideo3
+  changes:
+  - message: Most of the Detective's clothing has been resprited.
+    type: Tweak
+  id: 3000
+  time: '2026-10-26T06:51:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4637
+- author: 2121, marsh-meadows
+  changes:
+  - message: Added pink and yellow striped scarves!
+    type: Add
+  - message: Resprited blue, brown, green, and purple striped scarves.
+    type: Tweak
+  id: 3001
+  time: '2026-10-26T17:38:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4700
+- author: crocodilecarousel
+  changes:
+  - message: more glass bottles
+    type: Add
+  id: 3002
+  time: '2026-10-26T17:58:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4701

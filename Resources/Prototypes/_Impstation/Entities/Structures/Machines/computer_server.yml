@@ -69,3 +69,7 @@
   - type: Transform
     anchored: true
   - type: Pullable
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
