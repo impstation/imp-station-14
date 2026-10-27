@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Content.Client.DisplacementMap;
 using Content.Client.Examine;
 using Content.Client.Strip;

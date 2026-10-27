@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Numerics;
 using Content.Client.Examine;
 using Content.Client.Hands.Systems;
 using Content.Client.Strip;
@@ -8,7 +6,6 @@ using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.Verbs.UI;
 using Content.Shared.Cuffs;
-using Content.Shared.Cuffs.Components;
 using Content.Shared.Ensnaring.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;

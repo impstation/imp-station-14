@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Numerics;
 using Content.Client.CombatMode;
 using Content.Client.Examine;
 using Content.Client.Gameplay;

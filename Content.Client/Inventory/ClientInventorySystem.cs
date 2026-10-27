@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Client.Clothing;
 using Content.Client.Examine;
 using Content.Client.Verbs.UI;
@@ -12,7 +11,7 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Client.Inventory
 {
