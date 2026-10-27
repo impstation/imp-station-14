@@ -1,0 +1,25 @@
+﻿- type: gas
+  id: Electrovae
+  name: gases-electrovae
+  specificHeat: 150
+  heatCapacityRatio: 1.28
+  molarMass: 488
+  gasOverlaySprite: /Textures/_Impstation/Effects/atmospherics.rsi
+  gasOverlayState: electrovae
+  gasMolesVisible: 0.1
+  color: 0022ff
+  reagent: Electrovae
+  pricePerMole: 0.05
+
+- type: gas
+  id: ChargedElectrovae
+  name: gases-charged-electrovae
+  specificHeat: 150
+  heatCapacityRatio: 1.3
+  molarMass: 488
+  gasOverlaySprite: /Textures/_Impstation/Effects/atmospherics.rsi
+  gasOverlayState: electrovae_charged
+  gasMolesVisible: 1.0
+  color: ddff00
+  reagent: ChargedElectrovae
+  pricePerMole: 1.2

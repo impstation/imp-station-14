@@ -295,6 +295,11 @@
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [1, 2, 3]
+    - id: XenoArtifactEffectCreationGasElectrovae # imp addition
+      weight: 10.0
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [3, 4, 5]
     - id: XenoArtifactEffectCreationGasFrezon
       weight: 10.0 # imp edit
       conditions:

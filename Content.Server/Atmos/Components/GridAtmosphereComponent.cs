@@ -51,6 +51,14 @@ namespace Content.Server.Atmos.Components
         [ViewVariables]
         public int HotspotTilesCount => HotspotTiles.Count;
 
+        // imp start
+        [ViewVariables]
+        public readonly HashSet<TileAtmosphere> ChargedElectrovaeTiles = new(1000);
+
+        [ViewVariables]
+        public int ChargedElectrovaeTilesCount => ChargedElectrovaeTiles.Count;
+        // imp end
+
         [ViewVariables]
         public readonly HashSet<TileAtmosphere> SuperconductivityTiles = new(1000);
 

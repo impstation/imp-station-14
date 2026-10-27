@@ -198,6 +198,18 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
             output.Append(IndentedNewline);
             output.Append(Loc.GetString("gases-frezon"));
         }
+        // imp start
+        if (flags.HasFlag(GasFlags.Electrovae))
+        {
+            output.Append(IndentedNewline);
+            output.Append(Loc.GetString("gases-electrovae"));
+        }
+        if (flags.HasFlag(GasFlags.ChargedElectrovae))
+        {
+            output.Append(IndentedNewline);
+            output.Append(Loc.GetString("gases-charged-electrovae"));
+        }
+        // imp end
         return output;
     }
 }

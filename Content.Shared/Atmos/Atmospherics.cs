@@ -177,6 +177,8 @@ namespace Content.Shared.Atmos
             [Gas.Plasma] = Loc.GetString("gas-plasma-abbreviation"),
             [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
             [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
+            [Gas.Electrovae] = Loc.GetString("gas-electrovae-abbreviation"), // imp
+            [Gas.ChargedElectrovae] = Loc.GetString("gas-charged-electrovae-abbreviation"), // imp
         };
 
         #region Excited Groups
@@ -206,7 +208,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 9;
+        public const int TotalNumberOfGases = 11; // imp, changed 9 to 11
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -241,6 +243,62 @@ namespace Content.Shared.Atmos
         public const float TritiumBurnOxyFactor = 100f;
         public const float TritiumBurnTritFactor = 10f;
         public const float TritiumBurnFuelRatio = 2f;
+
+        // imp start
+        /// <summary>
+        /// Exponential decay constant for ChargedElectrovae -> Electrovae conversion.
+        /// See: https://en.wikipedia.org/wiki/Exponential_decay
+        /// This value must be between 0 and 1 (0 = no decay, 1 = instant decay).
+        /// </summary>
+        public const float ChargedElectrovaeDecayConstant = 0.025f;
+        public const float ElectrovaeProductionNitrogenRatio = 0.06f; // rename this
+
+        /// <summary>
+        /// CO2 proportion at which the inhibition factor reaches 50%. Higher values = less sensitive.
+        /// </summary>
+        public const float ElectrovaeProductionInhibitorSensitivity = 0.05f;
+
+        /// <summary>
+        /// Ratio of water vapor consumed per reaction set.
+        /// </summary>
+        public const float ElectrovaeProductionH2ORatio = 2f;
+
+        /// <summary>
+        /// Ratio of nitrous oxide consumed per reaction set.
+        /// </summary>
+        public const float ElectrovaeProductionN2ORatio = 11f;
+        public const float ElectrovaeProductionMinTemperature = 373.15f;
+        public const float ElectrovaeProductionMaxTemperature = 1370f;
+        public const float ElectrovaeProductionTemperatureExponent = 1.5f;
+
+        /// <summary>
+        /// Fraction of electrovae converted per unit efficiency per reaction cycle.
+        /// </summary>
+        public const float ElectrovaeChargeChargingRateMultiplier = 0.1f;
+        public const float ElectrovaeChargeMinTemperature = 1508f;
+        public const float ElectrovaeChargeMaxTemperature = 1984f;
+        public const float ElectrovaeChargeTemperatureExponent = 1.2f;
+
+        public const float ChargedElectrovaeMinimumMoles = 0.01f;
+
+        /// <summary>
+        /// Divisor used to convert charged electrovae moles into a 0-1 intensity value.
+        /// 2 moles or more will clamp intensity to 1.0.
+        /// </summary>
+        public const float ChargedElectrovaeIntensityDivisor = 2f;
+
+        /// <summary>
+        /// Intensity thresholds for charged electrovae tile overlay states.
+        /// </summary>
+        public const float ChargedElectrovaeHighIntensityThreshold = 0.75f; // 1.5+ moles
+        public const float ChargedElectrovaeMediumIntensityThreshold = 0.5f; // 1.0+ moles
+        public const float ChargedElectrovaeLowIntensityThreshold = 0.25f;   // 0.5+ moles
+
+        /// <summary>
+        /// Multiplier used to convert intensity to the probability of a lightning strike per tick.
+        /// </summary>
+        public const float ChargedElectrovaeLightningChanceMultiplier = 0.01f;
+        // imp end
 
         public const float FrezonCoolLowerTemperature = 23.15f;
 
@@ -370,6 +428,8 @@ namespace Content.Shared.Atmos
         WaterVapor = 5,
         Ammonia = 6,
         NitrousOxide = 7,
-        Frezon = 8
+        Frezon = 8,
+        Electrovae = 9, // imp
+        ChargedElectrovae = 10 // imp
     }
 }

@@ -16,6 +16,13 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Threading;
+// imp start
+using Content.Server.Electrocution;
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Power.Components;
+// imp end
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -40,6 +47,8 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] public readonly PuddleSystem Puddle = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly ElectrocutionSystem _electrocution = default!; // imp
+    [Dependency] private readonly BatterySystem _battery = default!; // imp
 
     private const float ExposedUpdateDelay = 1f;
     private float _exposedTimer = 0f;
@@ -48,6 +57,9 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     private EntityQuery<MapAtmosphereComponent> _mapAtmosQuery;
     private EntityQuery<AirtightComponent> _airtightQuery;
     private EntityQuery<FirelockComponent> _firelockQuery;
+    private EntityQuery<ApcPowerReceiverComponent> _powerReceiverQuery; // imp
+    private EntityQuery<MobStateComponent> _mobQuery; // imp
+    private EntityQuery<BatteryComponent> _batteryQuery; // imp
     private HashSet<EntityUid> _entSet = new();
 
     private string[] _burntDecals = [];
@@ -63,11 +75,15 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
         InitializeCVars();
         InitializeGridAtmosphere();
         InitializeMap();
+        InitializeChargedElectrovae(); // imp
 
         _atmosQuery = GetEntityQuery<GridAtmosphereComponent>();
         _mapAtmosQuery = GetEntityQuery<MapAtmosphereComponent>();
         _airtightQuery = GetEntityQuery<AirtightComponent>();
         _firelockQuery = GetEntityQuery<FirelockComponent>();
+        _powerReceiverQuery = GetEntityQuery<ApcPowerReceiverComponent>(); // imp
+        _mobQuery = GetEntityQuery<MobStateComponent>(); // imp
+        _batteryQuery = GetEntityQuery<BatteryComponent>(); // imp
 
         SubscribeLocalEvent<TileChangedEvent>(OnTileChanged);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);

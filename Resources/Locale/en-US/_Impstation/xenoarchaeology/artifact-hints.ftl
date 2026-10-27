@@ -1,4 +1,5 @@
-﻿xenoarch-trigger-tip-resurrection = Resurrection
+xenoarch-trigger-tip-resurrection = Resurrection
+xenoarch-trigger-tip-electrovae = Electrovae
 xenoarch-trigger-hint-expression = Expressiveness
 xenoarch-trigger-hint-stun = Slapstick comedy
 xenoarch-trigger-hint-medical = Therapeutic chemicals

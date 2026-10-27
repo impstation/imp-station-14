@@ -71,6 +71,8 @@ public enum GasFlags : short
     Ammonia = 64,
     NitrousOxide = 128,
     Frezon = 256,
+    Electrovae = 512, // imp
+    ChargedElectrovae = 1024, // imp
 }
 
 public enum AnalyzerHarvestType : byte
