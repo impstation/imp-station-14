@@ -241,7 +241,20 @@
 #    - !type:TargetAccessibleCon
 #      curve: !type:BoolCurve
 
-
+# Imp edit Start
+- type: utilityQuery
+  id: NearbyBreedables
+  query:
+    - !type:ComponentQuery
+      components:
+        - type: ImpReproductive
+  considerations:
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+# Imp edit End
 # Presets
 - type: utilityCurvePreset
   id: TargetDistance
