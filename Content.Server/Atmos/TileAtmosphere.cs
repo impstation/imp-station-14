@@ -1,6 +1,7 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Shared._Impstation.Atmos; // imp
 
 namespace Content.Server.Atmos;
 
@@ -104,6 +105,13 @@ public sealed class TileAtmosphere : IGasMixtureHolder
     /// </summary>
     [ViewVariables]
     public Hotspot Hotspot;
+
+    /// <summary>
+    /// Imp.
+    /// Current <see cref="ChargedElectrovaeEffect"/> information for this tile.
+    /// </summary>
+    [ViewVariables]
+    public ChargedElectrovaeEffect ChargedEffect;
 
     /// <summary>
     /// Points to the direction of the recipient tile for pressure equalization logic
