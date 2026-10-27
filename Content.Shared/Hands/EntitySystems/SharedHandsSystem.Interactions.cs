@@ -207,6 +207,9 @@ public abstract partial class SharedHandsSystem : EntitySystem
     //TODO: Actually shows all items/clothing/etc.
     private void HandleExamined(EntityUid examinedUid, HandsComponent handsComp, ExaminedEvent args)
     {
+        if (!handsComp.ShowExamine) // imp. allow for examine text to be disabled
+            return;
+
         var heldItemNames = EnumerateHeld((examinedUid, handsComp))
             .Where(entity => !HasComp<VirtualItemComponent>(entity))
             //.Select(item => FormattedMessage.EscapeText(Identity.Name(item, EntityManager))) // imp remove

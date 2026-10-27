@@ -11,7 +11,6 @@
   - type: Puller
     needsHands: false
     applySpeedModifier: false
-  - type: ZombieImmune
   - type: Replicator
   - type: NameIdentifier
     group: Replicator
@@ -89,6 +88,9 @@
     thresholds:
       0: Alive
       100: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
   - type: Destructible
     thresholds:
     - trigger:
@@ -262,11 +264,12 @@
   - type: Hands
     showInHands: false
     canBeStripped: false
+    showExamine: false
     activeHandId: hand1
     hands:
       hand1:
         location: Middle
-    sortedHands:
+    sortedHands: 
     - hand1
 
 # Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have the ability to enter combat mode.
@@ -319,13 +322,14 @@
   - type: Hands
     showInHands: false
     canBeStripped: false
+    showExamine: false
     activeHandId: hand1
     hands:
       hand1:
         location: Right
       hand2:
         location: Left
-    sortedHands:
+    sortedHands: 
     - hand1
     - hand2
 
@@ -380,13 +384,14 @@
   - type: Hands
     showInHands: false
     canBeStripped: false
+    showExamine: false
     activeHandId: hand1
     hands:
       hand1:
         location: Right
       hand2:
         location: Left
-    sortedHands:
+    sortedHands: 
     - hand1
     - hand2
 
@@ -450,12 +455,13 @@
   - type: Hands
     showInHands: false
     canBeStripped: false
+    showExamine: false
     activeHandId: hand1
     hands:
       hand1:
         location: Right
       hand2:
         location: Left
-    sortedHands:
+    sortedHands: 
     - hand1
     - hand2
