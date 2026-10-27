@@ -244,7 +244,7 @@
   - !type:PlantAdjustWater
     amount: 0.7
 
--type: reagent
+- type: reaction
   id: BloodAllulaloBreakdown
   source: true
   requiredMixerCategories:
@@ -253,8 +253,7 @@
     BloodAllulalo:
       amount: 5
   products:
-    Methanol:
-      amount: 5
+    Methanol: 5
 
 - type: reagent
   id: ReaperBlood
