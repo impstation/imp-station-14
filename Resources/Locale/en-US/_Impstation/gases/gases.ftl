@@ -1,2 +1,2 @@
-gas-electrovae = Electrovae
-gas-charged-electrovae = Charged Electrovae
+gases-electrovae = Electrovae
+gases-charged-electrovae = Charged Electrovae

@@ -1,6 +1,6 @@
 ﻿- type: gas
   id: Electrovae
-  name: gas-electrovae
+  name: gases-electrovae
   specificHeat: 250
   heatCapacityRatio: 1.28
   molarMass: 520
@@ -13,7 +13,7 @@
 
 - type: gas
   id: ChargedElectrovae
-  name: gas-charged-electrovae
+  name: gases-charged-electrovae
   specificHeat: 150
   heatCapacityRatio: 1.3
   molarMass: 520
