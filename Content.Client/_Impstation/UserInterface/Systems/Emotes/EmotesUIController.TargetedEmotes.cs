@@ -2,7 +2,7 @@ using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Input.Binding;
 
-namespace Content.Client._Impstation.UserInterface.Systems.Emotes;
+namespace Content.Client.UserInterface.Systems.Emotes; // Has to be upstream namespaced due to being sealed partial
 
 public sealed partial class EmotesUIController
 {

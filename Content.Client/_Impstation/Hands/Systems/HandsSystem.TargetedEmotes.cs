@@ -1,6 +1,6 @@
 using Content.Shared.Chat;
 
-namespace Content.Client._Impstation.Hands.Systems
+namespace Content.Client.Hands.Systems // Has to be upstream namespaced due to being sealed partial
 {
     public sealed partial class HandsSystem
     {

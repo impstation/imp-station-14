@@ -1,7 +1,7 @@
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Shared._Impstation.Chat;
+namespace Content.Shared.Chat; // I would love to imp scope this, but SharedChatSystem is namespaced in Content.Shared.Chat.
 
 public abstract partial class SharedChatSystem
 {
