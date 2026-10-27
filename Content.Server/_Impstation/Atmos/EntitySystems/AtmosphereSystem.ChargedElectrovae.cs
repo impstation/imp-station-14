@@ -164,7 +164,6 @@ public sealed partial class AtmosphereSystem
                 }
             }
         }
-
     }
 
     /// <summary>

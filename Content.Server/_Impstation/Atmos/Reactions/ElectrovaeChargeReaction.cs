@@ -19,18 +19,11 @@ public sealed partial class ElectrovaeChargeReaction : IGasReactionEffect
         if (holder is not TileAtmosphere tileAtmos)
             return ReactionResult.NoReaction;
 
-        // Minimum efficiency (0-1) below which the reaction does not proceed.
-        const float minimumEfficiency = 0.01f;
-        // Fraction of electrovae converted per unit efficiency per reaction cycle.
-        const float chargeRateMultiplier = 0.1f;
-
         var initialE = mixture.GetMoles(Gas.Electrovae);
         var efficiency = CalculateHeatBasedEfficiency(mixture.Temperature);
-        if (efficiency < minimumEfficiency)
-            return ReactionResult.NoReaction;
 
         // Scale the reaction by efficiency and available electrovae
-        var chargeAmount = Math.Min(initialE * efficiency * chargeRateMultiplier, initialE);
+        var chargeAmount = Math.Min(initialE * efficiency * Atmospherics.ElectrovaeChargeChargingRateMultiplier, initialE);
 
         mixture.AdjustMoles(Gas.Electrovae, -chargeAmount);
         mixture.AdjustMoles(Gas.ChargedElectrovae, chargeAmount);
@@ -52,17 +45,10 @@ public sealed partial class ElectrovaeChargeReaction : IGasReactionEffect
     private static float CalculateHeatBasedEfficiency(float temperature)
     {
         // Efficient above 1508K, peaks around 1984K+
-        const float minTemp = 1508f; // Minimum temperature for reaction to occur
-        const float maxTemp = 1984f; // Maximum temperature for reaction to occur
-        const float temperatureExponent = 1.2f; // Exponent for temperature scaling
-
-        if (temperature < minTemp)
-            return 0f;
-
-        if (temperature >= maxTemp)
+        if (temperature >= Atmospherics.ElectrovaeChargeMaxTemperature)
             return 1f;
 
-        var normalized = (temperature - minTemp) / (maxTemp - minTemp);
-        return MathF.Pow(normalized, temperatureExponent);
+        var normalized = (temperature - Atmospherics.ElectrovaeChargeMinTemperature) / (Atmospherics.ElectrovaeChargeMaxTemperature - Atmospherics.ElectrovaeChargeMinTemperature);
+        return MathF.Pow(normalized, Atmospherics.ElectrovaeProductionTemperatureExponent);
     }
 }
