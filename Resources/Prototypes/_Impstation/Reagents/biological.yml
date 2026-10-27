@@ -222,36 +222,14 @@
   flavor: allulalo
   color: "#c1c7d3"
   evaporationSpeed: 0.3 #same as water
-  metabolisms: #not even redefining from base alcohol anymore this is a brand new reagent
+  metabolisms: #methanol is now real
     Drink:
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:Drunk
-        boozePower: 0.2
-        - !type:MetabolizerTypeCondition
-          type: [ Allulalo ]
-          inverted: true
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.5 #pretty weak
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Allulalo ]
-          inverted: true
-      - !type:GenericStatusEffect
-        key: TemporaryBlindness
-        component: TemporaryBlindness
-        conditions:
-        -  !type:ReagentCondition
-          reagent: BloodAllulalo
-          min: 20 #frankly an unreasonable amount of allulalo blood to be drinking
-        -  !type:MetabolizerTypeCondition
-          type: [ Allulalo ]
-          inverted: true
-
-
+      - !type:AdjustReagent
+        reagent: Methanol
+        amount: 0.06
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

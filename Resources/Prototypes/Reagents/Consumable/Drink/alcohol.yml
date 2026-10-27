@@ -223,8 +223,8 @@
         boozePower: 2
         #IMP - ethanol is used as a treatment for methanol poisoning!
       - !type:AdjustReagent
-        reagent: BloodAllulalo
-        amount: -3
+        reagent: Methanol
+        amount: -2
         - !type:MetabolizerTypeCondition
 
 - type: reagent
@@ -1504,6 +1504,10 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.25
+      #IMP
+      - !type:AdjustReagent
+        reagent: Methanol
+        amount: 0.1
 
 - type: reagent
   id: Neurotoxin
