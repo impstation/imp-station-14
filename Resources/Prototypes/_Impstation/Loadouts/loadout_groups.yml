@@ -573,6 +573,7 @@
   minLimit: 0
   loadouts:
   - ScarfPurple
+  - ScarfYellow
 
 - type: loadoutGroup
   id: JanitorShoes
@@ -648,6 +649,7 @@
   name: loadout-group-musician-neck
   minLimit: 0
   loadouts:
+  - ScarfPink
   - ScarfPurple
   - FeatherBoa
 
@@ -766,6 +768,7 @@
   minLimit: 0
   loadouts:
   - ScarfBrown
+  - ScarfYellow
 
 - type: loadoutGroup
   id: CargoTechnicianBelt
@@ -782,6 +785,8 @@
 #  - MinerCloak # upstream removed it :(
   - SaMantle
   - ScarfBrown
+  - ScarfPurple
+  - ScarfYellow
   - RainCape
   - DrillerCape
 
@@ -853,6 +858,7 @@
   loadouts:
   - ScarfBrown
   - ScarfBlue
+  - ScarfYellow
 
 - type: loadoutGroup
   id: CourierOuterClothing
@@ -910,6 +916,7 @@
   minLimit: 0
   loadouts:
   - ScarfOrange
+  - ScarfYellow
 
 - type: loadoutGroup
   id: AtmosphericTechnicianNeck
@@ -917,6 +924,7 @@
   minLimit: 0
   loadouts:
   - ScarfLightBlue
+  - ScarfYellow
 
 - type: loadoutGroup
   id: AtmosphericTechnicianHead
@@ -1051,7 +1059,7 @@
   loadouts:
   - JackBoots
   - LeatherShoes
-  - SecurityWinterBoots
+  - LacedShoes
   - SecurityClownShoes
 
 - type: loadoutGroup
