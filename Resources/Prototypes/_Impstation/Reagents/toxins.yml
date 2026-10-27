@@ -92,26 +92,28 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   metabolisms:
     Poison:
-    - !type:Drunk
-      boozePower: 1 #weaker than ethanol
-      - !type:MetabolizerTypeCondition
-        type: [ Allulalo ]
-        inverted: true
-    - !type:HealthChange
-      damage:
-        types:
-          Poison: 0.5 #significantly more poisonous than ethanol
-      conditions:
-      - !type:MetabolizerTypeCondition
-        type: [ Allulalo ]
-        inverted: true
-    - !type:GenericStatusEffect
-      key: TemporaryBlindness
-      component: TemporaryBlindness
-      conditions:
-      -  !type:ReagentCondition
-        reagent: Methanol
-        min: 10
-      -  !type:MetabolizerTypeCondition
-        type: [ Allulalo ]
-        inverted: true
+      effects:
+      - !type:Drunk
+        boozePower: 1 #weaker than ethanol
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Allulalo ]
+          inverted: true
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5 #significantly more poisonous than ethanol
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Allulalo ]
+          inverted: true
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        conditions:
+        -  !type:ReagentCondition
+          reagent: Methanol
+          min: 10
+        -  !type:MetabolizerTypeCondition
+          type: [ Allulalo ]
+          inverted: true
