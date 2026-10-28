@@ -229,7 +229,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Methanol
-        amount: 0.1
+        amount: 0.2
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

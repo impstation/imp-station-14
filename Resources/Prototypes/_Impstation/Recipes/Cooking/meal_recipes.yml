@@ -114,6 +114,23 @@
   recipeType: Assembler
 
 - type: microwaveMealRecipe
+  id: RecipeBlindingStew
+  name: one day blinding stew recipe
+  result: FoodBlindingStew
+  time: 10
+  group: Soup
+  reagents:
+    Methanol: 15
+  solids:
+    FoodBowlBig: 1
+    FoodMeatCutlet: 3
+    FoodTomato: 1
+    FoodPotato: 1
+    FoodEggplant: 1
+    FoodLingzhi: 1
+  recipeType: Oven
+
+- type: microwaveMealRecipe
   id: RecipeChocolateHeart
   name: homemade chocolate heart recipe
   result: FoodHomemadeChocolateHeart
@@ -781,7 +798,7 @@
     Water: 10
   recipeType:
   - Oven
-  
+
 - type: microwaveMealRecipe
   id: RecipeSteakTartare
   name: steak tartare recipe

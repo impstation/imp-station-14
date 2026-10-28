@@ -847,3 +847,14 @@
       amount: 1
   products:
     CafeLatteVanilla: 6
+
+- type: reaction
+  id: SlabSpecial
+  requiredMixerCategories:
+  reactants:
+    Moonshine:
+      amount: 5
+    WeldingFuel:
+      amount: 1
+  products:
+    SlabSpecial: 6

@@ -92,7 +92,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   metabolisms:
     Poison:
-      metabolismRate: 0.05 #same as ethanol
+      metabolismRate: 0.1
       effects:
       - !type:Drunk
         boozePower: 1 #weaker than ethanol
@@ -110,7 +110,7 @@
           inverted: true
       - !type:EyeDamage
         amount: 1
-        probability: 0.04
+        probability: 0.035
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Allulalo, Vox ]
