@@ -95,7 +95,7 @@
       metabolismRate: 0.1
       effects:
       - !type:Drunk
-        boozePower: 1 #weaker than ethanol
+        boozePower: 2
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Allulalo ]

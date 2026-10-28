@@ -223,7 +223,7 @@
   color: "#c1c7d3"
   evaporationSpeed: 0.3 #same as water
   metabolisms: #methanol is now real
-    Drink:
+    Poison:
       effects:
       - !type:SatiateThirst
         factor: 2
