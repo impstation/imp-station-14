@@ -64,9 +64,10 @@
     - tomato
     - blind
   - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
-    - state: stew
+    - state: blindingstew
   - type: SolutionContainerManager
     solutions:
       food:
@@ -80,8 +81,6 @@
           Quantity: 7
         - ReagentId: Methanol
           Quantity: 15
-        - ReagentId: JuiceCarrot
-          Quantity: 10
   - type: Tag
     tags:
     - Meat
