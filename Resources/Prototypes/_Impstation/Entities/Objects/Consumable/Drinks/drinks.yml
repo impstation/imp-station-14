@@ -818,6 +818,22 @@
 
 - type: entity
   parent: DrinkGlass
+  id: DrinkSlabGlass
+  suffix: slab special
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SlabSpecial
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/slabspecial.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
   id: DrinkCreamSoda
   suffix: cream soda
   components:

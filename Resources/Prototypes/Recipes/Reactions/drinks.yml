@@ -871,13 +871,21 @@
 
 - type: reaction
   id: Moonshine
+  #IMP CHANGES BEGIN:
   reactants:
-    Tequila:
-      amount: 1
+  #  Tequila:
+  #    amount: 1
+  #  Vodka:
+  #    amount: 1
+  #  Whiskey:
+  #    amount: 1
     Vodka:
       amount: 1
-    Whiskey:
+    Water:
       amount: 1
+    Methanol:
+      amount: 1
+  #IMP CHANGES END. making it more fucked up
   products:
     Moonshine: 3
 

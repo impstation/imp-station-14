@@ -66,7 +66,7 @@
       - !type:ModifyBleed
         amount: -2
       - !type:AdjustReagent
-        reagent: Ethanol
+        reagent: Methanol
         amount: 0.1
       - !type:GenericStatusEffect
         key: Adrenaline # This is half-ish strength epi
@@ -80,3 +80,38 @@
         key: KnockedDown
         time: 0.5
         type: Remove
+
+- type: reagent
+  id: Methanol
+  name: reagent-name-methanol
+  parent: BaseAlcohol
+  group: Toxins
+  desc: reagent-desc-methanol
+  flavor: alcohol
+  color: "#c1c7d3"
+  physicalDesc: reagent-physical-desc-strong-smelling
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:Drunk
+        boozePower: 2
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Allulalo ]
+          inverted: true
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.1 #same as ethanol, with no ReagentCondition
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Allulalo, Vox ]
+          inverted: true
+      - !type:EyeDamage
+        amount: 1
+        probability: 0.035
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Allulalo, Vox ]
+          inverted: true
