@@ -1,29 +1,33 @@
-using Content.Shared.Eui;
-using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ReadyManifest;
+namespace Content.Shared._Impstation.ReadyManifest;
 
+public abstract class SharedReadyManifestSystem : EntitySystem;
 
+/// <summary>
+/// Keeps the data related to a single job for the ready manifest.
+/// </summary>
 [Serializable, NetSerializable]
-public sealed class RequestReadyManifestMessage : EntityEventArgs
+public struct ReadyManifestJobData
 {
-    public NetEntity Id { get; }
+    /// <summary>
+    /// The amount of people ready for this job on the low setting.
+    /// </summary>
+    public int LowReadies;
 
-    public RequestReadyManifestMessage()
-    {
-        //Id = id;
-    }
+    /// <summary>
+    /// The amount of people ready for this job on the medium setting.
+    /// </summary>
+    public int MediumReadies;
+
+    /// <summary>
+    /// The amount of people ready for this job on the high setting.
+    /// </summary>
+    public int HighReadies;
 }
 
+/// <summary>
+/// Sent from the client when it wants to open a ready manifest eui.
+/// </summary>
 [Serializable, NetSerializable]
-public sealed class ReadyManifestEuiState : EuiStateBase
-{
-    public Dictionary<ProtoId<JobPrototype>, int> JobCounts { get; }
-
-    public ReadyManifestEuiState(Dictionary<ProtoId<JobPrototype>, int> jobCounts)
-    {
-        JobCounts = jobCounts;
-    }
-}
+public sealed class RequestReadyManifestMessage : EntityEventArgs;

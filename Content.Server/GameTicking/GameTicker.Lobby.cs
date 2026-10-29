@@ -164,8 +164,11 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(playerUserId, out var playerSession))
                     continue;
                 RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
-                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession)); //imp edit, for preround ready manifest // imp ready manifest
             }
+            // Impstation start - ready manifest
+            var playerToggledReady = new PlayerToggledReadyEvent();
+            RaiseLocalEvent(ref playerToggledReady);
+            // Impstation end - ready manifest
         }
 
         public void ToggleReady(ICommonSession player, bool ready)
@@ -190,7 +193,10 @@ namespace Content.Server.GameTicking
             // imp edit end
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
-            RaiseLocalEvent(new PlayerToggleReadyEvent(player)); //imp edit, for preround ready manifest
+            // Impstation start - ready manifest
+            var playerToggledReady = new PlayerToggledReadyEvent();
+            RaiseLocalEvent(ref playerToggledReady);
+            // Impstation end - ready manifest
             // update server info to reflect new ready count
             UpdateInfoText();
         }
@@ -202,14 +208,8 @@ namespace Content.Server.GameTicking
             => PlayerGameStatuses.TryGetValue(userId, out var status) && status == PlayerGameStatus.JoinedGame;
     }
 
-    //imp addition, for preround ready manifest
-    public sealed class PlayerToggleReadyEvent : EntityEventArgs
-    {
-        public readonly ICommonSession PlayerSession;
-
-        public PlayerToggleReadyEvent(ICommonSession playerSession)
-        {
-            PlayerSession = playerSession;
-        }
-    }
+    // Impstation start - ready manifest
+    [ByRefEvent]
+    public struct PlayerToggledReadyEvent;
+    // Impstation end - ready manifest
 }
