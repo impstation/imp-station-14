@@ -353,3 +353,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/porter_skirt.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/porter_skirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformPostmasterSkirt
+  name: postmaster's jumpskirt
+  description: A stylish, yet practical jumpskirt marking a veteran courier. The buttons can be used to stamp wax seals in an emergency.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/postmaster_skirt.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/postmaster_skirt.rsi

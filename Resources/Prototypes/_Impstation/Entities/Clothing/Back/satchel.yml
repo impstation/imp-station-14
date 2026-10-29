@@ -24,3 +24,12 @@
     - 4,0,7,3
     - 9,0,10,0
     - 9,1,11,3
+
+- type: entity
+  parent: [ClothingBackpackSatchel]
+  id: ClothingBackpackSatchelCourier
+  name: courier satchel
+  description: A satchel for couriers. The rectangular shape, in theory, allows it to hold paper & paper-like items securely.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Back/Satchels/couriersatchel.rsi
