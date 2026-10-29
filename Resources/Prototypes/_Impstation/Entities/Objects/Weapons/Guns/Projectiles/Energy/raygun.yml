@@ -8,7 +8,8 @@
       types:
         Heat: 10
         Radiation: 20
-        Stamina: 15
+  - type: HitscanStaminaDamage
+    staminaDamage: 15
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi

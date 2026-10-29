@@ -4,8 +4,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Starlight.CollectiveMind;
 
-[Prototype("collectiveMind")]
-[Serializable, NetSerializable]
+[Prototype]
 public sealed partial class CollectiveMindPrototype : IPrototype
 {
     [IdDataField, ViewVariables]

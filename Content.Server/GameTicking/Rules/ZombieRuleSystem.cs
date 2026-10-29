@@ -25,7 +25,7 @@ namespace Content.Server.GameTicking.Rules;
 public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    // [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;

@@ -100,6 +100,10 @@
           - !type:PlaySoundBehavior
             sound:
               collection: GlassBreak
+  - type: MobThresholds # Impstation - Upmerge 2026 Chunk IV
+    thresholds:
+      0: Alive
+      25: Dead
 
 - type: entity
   id: MobLuminousPerson

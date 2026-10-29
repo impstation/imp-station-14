@@ -41,6 +41,8 @@ public sealed class StrangeMoodTests
             e: ThreeValueSet
 
         """;
+    private const string DatasetPrototypeId = "ThreeValueSet";
+    private const string StrangeMoodPrototypeId = "DuplicateTest";
 
     [Test]
     [Repeat(10)]
@@ -54,8 +56,8 @@ public sealed class StrangeMoodTests
         var moodSystem = entMan.System<StrangeMoodsSystem>();
         var protoMan = server.ResolveDependency<IPrototypeManager>();
 
-        var dataset = protoMan.Index<DatasetPrototype>("ThreeValueSet");
-        var moodProto = protoMan.Index<StrangeMoodPrototype>("DuplicateTest");
+        var dataset = protoMan.Index<DatasetPrototype>(DatasetPrototypeId);
+        var moodProto = protoMan.Index<StrangeMoodPrototype>(StrangeMoodPrototypeId);
 
         var datasetSet = dataset.Values.ToHashSet();
         var mood = moodSystem.RollMood(moodProto);
@@ -77,8 +79,8 @@ public sealed class StrangeMoodTests
         var moodSystem = entMan.System<StrangeMoodsSystem>();
         var protoMan = server.ResolveDependency<IPrototypeManager>();
 
-        var dataset = protoMan.Index<DatasetPrototype>("ThreeValueSet");
-        var moodProto = protoMan.Index<StrangeMoodPrototype>("DuplicateOverlapTest");
+        var dataset = protoMan.Index<DatasetPrototype>(DatasetPrototypeId);
+        var moodProto = protoMan.Index<StrangeMoodPrototype>(StrangeMoodPrototypeId);
 
         var datasetSet = dataset.Values.ToHashSet();
         var mood = moodSystem.RollMood(moodProto);

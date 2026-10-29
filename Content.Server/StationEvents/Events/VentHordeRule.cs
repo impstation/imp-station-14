@@ -8,6 +8,8 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Player; // imp add
+using Content.Server.Announcements.Systems; // imp add
 
 namespace Content.Server.StationEvents.Events;
 
@@ -28,6 +30,7 @@ public sealed class VentHordeRule : StationEventSystem<VentHordeRuleComponent>
     [Dependency] private readonly VentHordeSystem _horde = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // imp add
     protected override void Added(EntityUid uid, VentHordeRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // Choose location and make sure it's not null
@@ -41,18 +44,25 @@ public sealed class VentHordeRule : StationEventSystem<VentHordeRuleComponent>
         }
 
         // Get the event component so we can format the announcement
-        if (TryComp<StationEventComponent>(uid, out var stationEventComp) && stationEventComp.StartAnnouncement != null)
+        if (TryComp<StationEventComponent>(uid, out var stationEventComp)) // imp edit fuck this entire bool
         {
             // Get the nearest beacon
             var mapLocation = _transform.ToMapCoordinates(Transform(vent).Coordinates);
-            var nearestBeacon = _navMap.GetNearestBeaconString(mapLocation, onlyName: true);
+            string nearestBeacon = _navMap.GetNearestBeaconString(mapLocation, onlyName: true);
 
+            // *****start imp, removed upstream to use EE announce******
             // Format the announcement with the location, if the string doesn't have them it'll still work fine
             // time is not said on purpose to keep the players on their toes.
             // also because we cannot tell the end time inside of Added().
-            stationEventComp.StartAnnouncement =
-                Loc.GetString(stationEventComp.StartAnnouncement,
-                    ("location", nearestBeacon));
+            //stationEventComp.StartAnnouncement =
+            //    Loc.GetString(stationEventComp.StartAnnouncement,
+            //        ("location", nearestBeacon));
+            _announcer.SendAnnouncement(_announcer.GetAnnouncementId(args.RuleId),
+            Filter.Broadcast(),
+            _announcer.GetEventLocaleString(_announcer.GetAnnouncementId("vent-creatures-horde")),
+            colorOverride: Color.Gold,
+            localeArgs: ("location", nearestBeacon));
+            // *****end imp*****
         }
 
         base.Added(uid, component, gameRule, args);

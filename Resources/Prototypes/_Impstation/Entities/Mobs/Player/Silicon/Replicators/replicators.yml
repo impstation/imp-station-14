@@ -125,7 +125,7 @@
     animation: WeaponArcSlash
     damage:
       types:
-        Slashing: 7
+        Slash: 7
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime
     baseSprintSpeed: 4
@@ -138,11 +138,11 @@
     allowedStates:
     - Alive
     damage:
-      groups:
-        Brute: -0.5
-        Burn: -0.5
       types:
-        Shock: -0.5
+        Blunt: -0.16
+        Piercing: -0.16
+        Slash: -0.16
+        Heat: -0.5
         Structural: -0.5
   - type: ThermalVision
     lightRadius: 7
@@ -438,10 +438,11 @@
     allowedStates:
     - Alive
     damage:
-      groups:
-        Brute: -0.75
-        Burn: -0.75
       types:
+        Blunt: -0.25
+        Piercing: -0.25
+        Slash: -0.25
+        Heat: -0.75
         Shock: -0.5
         Structural: -0.5
   - type: NpcFactionMember

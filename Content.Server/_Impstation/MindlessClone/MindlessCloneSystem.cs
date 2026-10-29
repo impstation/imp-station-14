@@ -53,7 +53,6 @@ public sealed class MindlessCloneSystem : EntitySystem
     // everything else
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;

@@ -19,7 +19,6 @@ public sealed partial class KodepiiaScramblerSystem : SharedKodepiiaScramblerSys
     [Dependency] private ActionsSystem _actionsSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
-    [Dependency] private SharedVisualBodySystem _visualBody = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private DoAfterSystem _doAfter = default!;
 

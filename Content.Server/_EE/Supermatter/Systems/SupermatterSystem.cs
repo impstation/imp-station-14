@@ -62,13 +62,11 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
-    [Dependency] private readonly IonStormSystem _ionStorm = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly ParacusiaSystem _paracusia = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StrangeMoodsSystem _moods = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;

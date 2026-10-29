@@ -9,6 +9,6 @@ public sealed partial class GoobStealDNAConditionComponent : Component
     public float DNAStolen = 0f;
 }
 
-public class GoobChangelingObjectiveSystem
+public sealed class GoobChangelingObjectiveSystem // Impstation - Upmerge 2026 Chunk IV (added sealed)
 {
 }

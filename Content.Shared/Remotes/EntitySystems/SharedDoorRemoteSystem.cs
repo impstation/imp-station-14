@@ -59,7 +59,7 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
                 SharedInteractionSystem.MaxRaycastRange,
                 null)
             && !entity.Comp.IgnoreViewCast)) //imp edit end)
-
+        )
         {
             return;
         }

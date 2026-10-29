@@ -43,11 +43,18 @@
         amount: 1
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -1
-            Toxin: -1
-            Airloss: -1
-            Brute: -1
+          types:
+            Blunt: -0.33
+            Piercing: -0.33
+            Slash: -0.33
+            Poison: -0.5
+            Radiation: -0.5
+            Heat: -0.25
+            Cold: -0.25
+            Caustic: -0.25
+            Shock: -0.25
+            Asphyxiation: -0.5
+            Bloodloss: -0.5
       - !type:ModifyBleed
         amount: -1
 
@@ -115,8 +122,10 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -3
+          types:
+            Blunt: -1
+            Piercing: -1
+            Slash: -1
       - !type:HealthChange
         damage:
           types:

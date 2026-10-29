@@ -540,9 +540,14 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -6 #2 of each
-        Burn: -8 #2 of each
+      types:
+        Piercing: -2
+        Blunt: -2
+        Slash: -2
+        Heat: -2
+        Cold: -2
+        Shock: -2
+        Caustic: -2
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:

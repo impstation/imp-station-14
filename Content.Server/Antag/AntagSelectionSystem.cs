@@ -538,17 +538,17 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // handle copycat notifiers for mimics:
         var prereqEv = new AntagPrereqSetupEvent(session, ent, def);
         RaiseLocalEvent(ent, ref prereqEv, true);
-        if (!HasComp<NotifierCopycatComponent>(antag))
-            EnsureComp<NotifierComponent>(antag);
+        if (!HasComp<NotifierCopycatComponent>(player))
+            EnsureComp<NotifierComponent>(player);
 
         // handle faction modification for NPC zombies to not aggro on II:
         foreach (var addFaction in def.FactionsAdd)
         {
-            _faction.AddFaction(antag, addFaction);
+            _faction.AddFaction(player, addFaction);
         }
         foreach (var removeFaction in def.FactionsRemove)
         {
-            _faction.RemoveFaction(antag, removeFaction);
+            _faction.RemoveFaction(player, removeFaction);
         }
         // imp end
 

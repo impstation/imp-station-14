@@ -106,7 +106,7 @@ public sealed class HellWorldSystem : EntitySystem
         uid.Comp.OriginalBody = uid;
         uid.Comp.ExitHellTime = _timing.CurTime + uid.Comp.HellDuration;
         //make sure the victim has a mind
-        if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
+        if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind || mindContainer.Mind == null)  // Impstation - Upmerge 2026 Chunk IV
         {
             return;
         }

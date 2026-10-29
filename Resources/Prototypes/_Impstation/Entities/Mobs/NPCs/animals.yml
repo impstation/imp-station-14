@@ -501,9 +501,8 @@
     popupOthersEnd: kodepiia-consume-end-self
     consumeActionId: ActionKodepiiaConsume
     damage:
-      groups:
-        Genetic: 5
       types:
+        Cellular: 5
         Piercing: 10
     whitelist:
       components:
@@ -597,8 +596,7 @@
       types:
         Blunt: 5
         Piercing: 4
-      groups:
-        Burn: 3
+        Heat: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
 

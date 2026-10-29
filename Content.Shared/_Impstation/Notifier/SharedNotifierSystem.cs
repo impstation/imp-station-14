@@ -20,7 +20,6 @@ public abstract partial class SharedNotifierSystem : EntitySystem
 {
     [Dependency] protected readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] protected readonly ILogManager _log = default!;
     [Dependency] protected readonly IEntityManager _entManager = default!;

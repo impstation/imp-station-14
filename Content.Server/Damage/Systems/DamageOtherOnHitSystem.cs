@@ -23,7 +23,7 @@ namespace Content.Server.Damage.Systems;
 public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly GunSystem _guns = default!;
+    // [Dependency] private readonly GunSystem _guns = default!; // Impstation - Upmerge 2026 Chunk IV (unused)
     [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
