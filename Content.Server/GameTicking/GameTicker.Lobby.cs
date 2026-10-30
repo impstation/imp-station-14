@@ -184,13 +184,6 @@ namespace Content.Server.GameTicking
                 return;
             }
 
-            // imp edit start, no need to update if the player is already (un)readied
-            var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
-            if (_playerGameStatuses[player.UserId] == status)
-            {
-                return;
-            }
-            // imp edit end
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
             // Impstation start - ready manifest

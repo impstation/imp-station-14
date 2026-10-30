@@ -126,14 +126,14 @@ namespace Content.Server.GameTicking
 
                 case SessionStatus.Disconnected:
                 {
-                    // Impstaction start - ready manifest
+                    // Impstation start - ready manifest
                     if (_playerGameStatuses.TryGetValue(session.UserId, out var playerGameStatus) &&
                         playerGameStatus == PlayerGameStatus.ReadyToPlay)
                         _playerGameStatuses[session.UserId] = PlayerGameStatus.NotReadyToPlay;
 
                     var playerDisconnected = new PlayerDisconnectedEvent();
                     RaiseLocalEvent(ref playerDisconnected);
-                    // Impstaction end - ready manifest
+                    // Impstation end - ready manifest
 
                     _chatManager.SendAdminAnnouncement(Loc.GetString("player-leave-message", ("name", args.Session.Name)));
                     if (mindId != null)

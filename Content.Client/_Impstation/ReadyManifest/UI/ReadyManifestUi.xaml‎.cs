@@ -12,7 +12,7 @@ namespace Content.Client._Impstation.ReadyManifest.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ReadyManifestUi : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public ReadyManifestUi()
     {
