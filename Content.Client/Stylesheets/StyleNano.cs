@@ -15,7 +15,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Graphics;
-using Content.Client._Impstation.ReadyManifest.UI; // Harmony
+using Content.Client._Impstation.ReadyManifest.UI; // Impstation Change
 using static Robust.Client.UserInterface.StylesheetHelpers;
 
 namespace Content.Client.Stylesheets
