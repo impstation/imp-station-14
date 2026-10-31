@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Impstation.Mime;
@@ -7,7 +7,6 @@ namespace Content.Shared._Impstation.Mime;
 /// A prototype that defines a set of items and visuals in a specific starter set for mimes
 /// This should probably be made generic since this is copied from chaplain's (and thief)'s versions of this
 /// </summary>
-[Prototype("mimeGearMenuSet")]
 public sealed partial class MimeGearMenuSetPrototype : IPrototype
 {
     /// <summary>

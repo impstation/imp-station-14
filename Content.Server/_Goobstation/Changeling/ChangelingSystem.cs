@@ -720,7 +720,17 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         if (!args.DamageIncreased)
             return;
 
-        target.Damage.ClampMax(200); // we never die. UNLESS??
+        // imp edit start
+
+        // get the DamageSpecifier from DamageableSystem
+        var damage = _damage.GetPositiveDamage((ent, target));
+        // clamp the it to 200 like previously
+        damage.ClampMax(200);
+        // and set the component's damagespecifier again
+        _damage.SetDamage((ent, target), damage);
+
+        //target.Damage.ClampMax(200); // we never die. UNLESS??
+        //imp edit end
     }
 
     private void OnComponentRemove(Entity<GoobChangelingComponent> ent, ref ComponentRemove args)

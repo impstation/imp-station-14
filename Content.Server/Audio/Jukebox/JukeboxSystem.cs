@@ -5,14 +5,11 @@ using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using JukeboxComponent = Content.Shared.Audio.Jukebox.JukeboxComponent;
 using Robust.Shared.Random; // Frontier
 
 namespace Content.Server.Audio.Jukebox;
-
 
 public sealed class JukeboxSystem : SharedJukeboxSystem
 {
@@ -37,14 +34,6 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, ComponentStartup>(OnComponentStartup); // Frontier
     }
 
-    private void OnComponentInit(EntityUid uid, JukeboxComponent component, ComponentInit args)
-    {
-        if (HasComp<ApcPowerReceiverComponent>(uid))
-        {
-            TryUpdateVisualState(uid, component);
-        }
-    }
-
     // Frontier: Shuffle & Repeat
     private void OnComponentStartup(Entity<JukeboxComponent> entity, ref ComponentStartup ev)
     {
@@ -56,48 +45,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         var state = new JukeboxInterfaceState(ent.Comp.PlaybackMode);
         _userInterface.SetUiState(ent.Owner, JukeboxUiKey.Key, state);
     }
-    // End Frontier: Shuffle & Repeat
 
-    private void OnJukeboxPlay(EntityUid uid, JukeboxComponent component, ref JukeboxPlayingMessage args)
-    {
-        if (Exists(component.AudioStream))
-        {
-            Audio.SetState(component.AudioStream, AudioState.Playing);
-        }
-        else
-        {
-            component.AudioStream = Audio.Stop(component.AudioStream);
-
-            // Frontier: Shuffling feature.
-            if (component.PlaybackMode == JukeboxPlaybackMode.Shuffle
-                && !component.FirstPlay
-                && _protoManager.TryGetRandom<JukeboxPrototype>(_random, out var newProto)
-                && newProto is JukeboxPrototype newJukeboxProto)
-            {
-                component.SelectedSongId = newJukeboxProto;
-            }
-            // End Frontier
-
-            if (string.IsNullOrEmpty(component.SelectedSongId) ||
-                !_protoManager.Resolve(component.SelectedSongId, out var jukeboxProto))
-            {
-                return;
-            }
-
-            component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, AudioParams.Default.WithMaxDistance(10f))?.Entity;
-
-            component.FirstPlay = false; // Frontier: shuffle state
-
-            Dirty(uid, component);
-        }
-    }
-
-    private void OnJukeboxPause(Entity<JukeboxComponent> ent, ref JukeboxPauseMessage args)
-    {
-        Audio.SetState(ent.Comp.AudioStream, AudioState.Paused);
-    }
-
-    // Frontier: Shuffle & Repeat
     private void OnJukeboxSetPlayback(Entity<JukeboxComponent> ent, ref JukeboxSetPlaybackModeMessage playbackModeMessage)
     {
         if (ent.Comp.PlaybackMode != playbackModeMessage.PlaybackMode)
@@ -117,58 +65,52 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     }
     // End Frontier: Shuffle & Repeat
 
-    private void OnJukeboxSetTime(EntityUid uid, JukeboxComponent component, JukeboxSetTimeMessage args)
+
+    private void OnComponentInit(Entity<JukeboxComponent> ent, ref ComponentInit args)
+    {
+        if (HasComp<ApcPowerReceiverComponent>(ent))
+        {
+            TryUpdateVisualState(ent.AsNullable());
+        }
+    }
+
+    private void OnJukeboxPlay(Entity<JukeboxComponent> ent, ref JukeboxPlayingMessage args)
+    {
+        TryPlay(ent.AsNullable());
+    }
+
+    private void OnJukeboxPause(Entity<JukeboxComponent> ent, ref JukeboxPauseMessage args)
+    {
+        Pause(ent.AsNullable());
+    }
+
+    private void OnJukeboxSetTime(Entity<JukeboxComponent> ent, ref JukeboxSetTimeMessage args)
     {
         if (TryComp(args.Actor, out ActorComponent? actorComp))
         {
             var offset = actorComp.PlayerSession.Channel.Ping * 1.5f / 1000f;
-            Audio.SetPlaybackPosition(component.AudioStream, args.SongTime + offset);
+            SetTime(ent.AsNullable(), args.SongTime + offset);
         }
     }
 
     private void OnPowerChanged(Entity<JukeboxComponent> entity, ref PowerChangedEvent args)
     {
-        TryUpdateVisualState(entity);
+        TryUpdateVisualState(entity.AsNullable());
 
         if (!this.IsPowered(entity.Owner, EntityManager))
         {
-            Stop(entity);
+            Stop(entity.AsNullable());
         }
     }
 
     private void OnJukeboxStop(Entity<JukeboxComponent> entity, ref JukeboxStopMessage args)
     {
-        Stop(entity);
+        Stop(entity.AsNullable());
     }
-
-    // Frontier: Modified Stop() function for the Shuffling & Replay features.
-    private void Stop(Entity<JukeboxComponent> entity)
-    {
-        //Audio.SetState(entity.Comp.AudioStream, AudioState.Stopped); // No longer needed since we're removing the AudioStream.
-        entity.Comp.AudioStream = Audio.Stop(entity.Comp.AudioStream);
-        entity.Comp.FirstPlay = true;
-        Dirty(entity);
-    }
-    // End Frontier
 
     private void OnJukeboxSelected(EntityUid uid, JukeboxComponent component, JukeboxSelectedMessage args)
     {
-        // Frontier: allow selecting songs while they're playing
-        bool wasPlaying = Audio.IsPlaying(component.AudioStream);
-        component.SelectedSongId = args.SongId;
-        DirectSetVisualState(uid, JukeboxVisualState.Select);
-        component.Selecting = true;
-        component.SelectAccumulator = 0;
-        component.AudioStream = Audio.Stop(component.AudioStream);
-        component.FirstPlay = true; // Prevent shuffling
-        if (wasPlaying)
-        {
-            var msg = new JukeboxPlayingMessage();
-            OnJukeboxPlay(uid, component, ref msg);
-        }
-        // End Frontier
-
-        Dirty(uid, component);
+        SetSelectedTrack((uid, component), args.SongId);
     }
 
     public override void Update(float frameTime)
@@ -186,7 +128,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
                     comp.SelectAccumulator = 0f;
                     comp.Selecting = false;
 
-                    TryUpdateVisualState(uid, comp);
+                    TryUpdateVisualState((uid, comp));
                 }
             }
 
@@ -194,16 +136,15 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             if (comp.PlaybackMode != JukeboxPlaybackMode.Single && comp.AudioStream != null &&
                 GetAudioState(comp.AudioStream) == AudioState.Stopped)
             {
-                var msg = new JukeboxPlayingMessage();
-                OnJukeboxPlay(uid, comp, ref msg);
+                TryPlay(uid);
             }
             // End Frontier
         }
     }
 
-    private void OnComponentShutdown(EntityUid uid, JukeboxComponent component, ComponentShutdown args)
+    private void OnComponentShutdown(Entity<JukeboxComponent> ent, ref ComponentShutdown args)
     {
-        component.AudioStream = Audio.Stop(component.AudioStream);
+        ent.Comp.AudioStream = Audio.Stop(ent.Comp.AudioStream);
     }
 
     private void DirectSetVisualState(EntityUid uid, JukeboxVisualState state)
@@ -211,18 +152,129 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         _appearanceSystem.SetData(uid, JukeboxVisuals.VisualState, state);
     }
 
-    private void TryUpdateVisualState(EntityUid uid, JukeboxComponent? jukeboxComponent = null)
+    private void TryUpdateVisualState(Entity<JukeboxComponent?> ent)
     {
-        if (!Resolve(uid, ref jukeboxComponent))
+        if (!Resolve(ent, ref ent.Comp))
             return;
 
         var finalState = JukeboxVisualState.On;
 
-        if (!this.IsPowered(uid, EntityManager))
+        if (!this.IsPowered(ent, EntityManager))
         {
             finalState = JukeboxVisualState.Off;
         }
 
-        _appearanceSystem.SetData(uid, JukeboxVisuals.VisualState, finalState);
+        _appearanceSystem.SetData(ent, JukeboxVisuals.VisualState, finalState);
+    }
+
+    /// <summary>
+    /// Set the selected track of the jukebox to the specified prototype.
+    /// </summary>
+    public void SetSelectedTrack(Entity<JukeboxComponent?> ent, ProtoId<JukeboxPrototype> track)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        // Frontier: allow selecting songs while they're playing
+        var wasPlaying = Audio.IsPlaying(ent.Comp.AudioStream);
+
+        // if (!Audio.IsPlaying(ent.Comp.AudioStream))
+        // {
+        // ok look i know these indentations look gross but PLEEEASE keep them
+            ent.Comp.SelectedSongId = track;
+            DirectSetVisualState(ent, JukeboxVisualState.Select);
+            ent.Comp.Selecting = true;
+        ent.Comp.SelectAccumulator = 0;
+            ent.Comp.AudioStream = Audio.Stop(ent.Comp.AudioStream);
+        ent.Comp.FirstPlay = true; // Prevent shuffling
+
+        if (wasPlaying)
+        {
+            TryPlay(ent);
+        }
+
+        Dirty(ent);
+        // }
+        // End Frontier
+    }
+
+    /// <summary>
+    /// Attempts to play the jukebox's current selected track.
+    /// </summary>
+    /// <returns>false if no track is selected or the track prototype cannot be found, otherwise true.</returns>
+    public bool TryPlay(Entity<JukeboxComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return false;
+
+        if (Exists(ent.Comp.AudioStream))
+        {
+            Audio.SetState(ent.Comp.AudioStream, AudioState.Playing);
+        }
+        else
+        {
+            // Frontier: Shuffling feature.
+            if (ent.Comp.PlaybackMode == JukeboxPlaybackMode.Shuffle
+                && !ent.Comp.FirstPlay
+                && _protoManager.TryGetRandom<JukeboxPrototype>(_random, out var newProto)
+                && newProto is JukeboxPrototype newJukeboxProto)
+            {
+                ent.Comp.SelectedSongId = newJukeboxProto;
+            }
+            // End Frontier
+
+            if (string.IsNullOrEmpty(ent.Comp.SelectedSongId) ||
+                !_protoManager.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
+            {
+                return false;
+            }
+
+            ent.Comp.FirstPlay = false; // Frontier: shuffle state
+
+            ent.Comp.AudioStream = Audio.PlayPvs(jukeboxProto.Path, ent, AudioParams.Default.WithMaxDistance(10f))?.Entity;
+            Dirty(ent);
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// Stops any track that may currently be playing.
+    /// </summary>
+    public void Stop(Entity<JukeboxComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return;
+
+        // FRONTIER START
+        //Audio.SetState(entity.Comp.AudioStream, AudioState.Stopped); // No longer needed since we're removing the AudioStream.
+        entity.Comp.AudioStream = Audio.Stop(entity.Comp.AudioStream);
+        entity.Comp.FirstPlay = true;
+        // FRONTIER END
+        Dirty(entity);
+    }
+
+    /// <summary>
+    /// Pauses any track that may currently be playing.
+    /// </summary>
+    public void Pause(Entity<JukeboxComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return;
+
+        Audio.SetState(entity.Comp.AudioStream, AudioState.Paused);
+    }
+
+    /// <summary>
+    /// Sets the playback position within the current audio track.
+    /// </summary>
+    /// <remarks>
+    /// If setting based on user input, you may need to compensate for the player's ping.
+    /// </remarks>
+    public void SetTime(Entity<JukeboxComponent?> entity, float songTime)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return;
+
+        Audio.SetPlaybackPosition(entity.Comp.AudioStream, songTime);
     }
 }

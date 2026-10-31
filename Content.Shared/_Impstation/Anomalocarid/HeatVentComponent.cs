@@ -5,6 +5,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Shared._Impstation.Anomalocarid;
 
@@ -92,7 +93,7 @@ public sealed partial class HeatVentComponent : Component
     [DataField]
     public DamageSpecifier HeatDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
         {
             {"Heat", 3},
             {"Blunt", 1.5},

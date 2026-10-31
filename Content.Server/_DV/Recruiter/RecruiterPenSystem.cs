@@ -8,6 +8,7 @@ using Content.Shared.DV.Recruiter;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Content.Shared.Hands.EntitySystems;
+using Content.Server.Body.Systems; // imp add
 
 namespace Content.Server.DV.Recruiter;
 
@@ -20,11 +21,13 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
     [Dependency] private readonly SolutionTransferSystem _transfer = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!; // imp add
 
     protected override void DrawBlood(EntityUid uid, Entity<SolutionComponent> dest, EntityUid user)
     {
+        var bloodstream = CompOrNull<BloodstreamComponent>(user); // imp add, get blood color from BloodstreamSystem
         // how did you even use this mr plushie...
-        if (CompOrNull<BloodstreamComponent>(user)?.BloodSolution is not { } blood)
+        if (bloodstream?.BloodSolution is not { } blood) // imp edit
             return;
 
         var desired = dest.Comp.Solution.AvailableVolume;
@@ -43,7 +46,7 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
 
         if (TryComp<SignatureWriterComponent>(uid, out var signatureComp))
         {
-            var bloodColor = blood.Comp.Solution.GetColor(_proto);
+            var bloodColor = _blood.GetBloodReferenceColor(bloodstream); // imp edit, get blood color from BloodstreamSystem
             signatureComp.Color = bloodColor;
         }
 

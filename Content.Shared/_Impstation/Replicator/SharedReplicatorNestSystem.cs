@@ -41,8 +41,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
@@ -51,13 +49,10 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedEntityStorageSystem _entStorage = default!;
 
     public override void Initialize()
     {

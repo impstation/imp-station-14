@@ -1,5 +1,4 @@
 using Robust.Shared.GameObjects.Components.Localization;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Hands;
 using Content.Shared.Stacks;
 using Content.Shared.IdentityManagement;
@@ -15,8 +14,6 @@ namespace Content.Shared._Impstation.Examine;
 /// </summary>
 public sealed class PluralNameSystem : EntitySystem
 {
-
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -1,4 +1,4 @@
-﻿using Content.Shared._Impstation.Xenoarchaeology.Artifact.XAE.Components;
+using Content.Shared._Impstation.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Body;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
@@ -16,7 +16,6 @@ namespace Content.Shared._Impstation.Xenoarchaeology.Artifact.XAE.Systems;
 public sealed class XAEScrambleDNASystem : BaseXAESystem<XAEScrambleDNAComponent>
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;

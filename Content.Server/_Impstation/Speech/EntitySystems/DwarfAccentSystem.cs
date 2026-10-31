@@ -26,7 +26,7 @@ public sealed class DwarfAccentComponentSystem : EntitySystem
     {
         var message = args.Message;
 
-        message = _replacement.ApplyReplacements(message, "dwarf");
+        message = _replacement.ApplyReplacements(message, "scottish");
 
         message = RegexAhAmContractionLower.Replace(message, "ah be");
         message = RegexAhAmContractionUpperLeft.Replace(message, "AH BE");

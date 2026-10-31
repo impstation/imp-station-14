@@ -232,9 +232,8 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
             // Imp A successful defib requires post-zap damage to be below the target's dead threshold.
             // This preserves species-specific revive limits (e.g. human/ungu use different crit thresholds).
             if (TryComp<MobThresholdsComponent>(target, out var targetThresholds) &&
-                TryComp<DamageableComponent>(target, out var targetDamageable) &&
                 _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var deadThreshold, targetThresholds) &&
-                targetDamageable.TotalDamage < deadThreshold)
+                _damageable.GetTotalDamage(target) < deadThreshold)
             {
                 // imp edit start, rdnr
                 if (TryComp<RandomUnrevivableComponent>(target, out var rdnr))
@@ -272,7 +271,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                     // imp allowskipcrit start
                     if (ent.Comp.AllowSkipCrit &&
                         _mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var critThreshold, targetThresholds) &&
-                        targetDamageable.TotalDamage < critThreshold)
+                        _damageable.GetTotalDamage(target) < critThreshold)
                         _mobState.ChangeMobState(target, MobState.Alive, targetMobState, user);
                     else
                         _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);

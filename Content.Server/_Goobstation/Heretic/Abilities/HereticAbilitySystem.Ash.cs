@@ -18,6 +18,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BlazingDashSystem _blazingDash = default!;
+
     public SoundSpecifier JauntExitSound = new SoundPathSpecifier("/Audio/Magic/fireball.ogg");
     public const float RebirthRange = 3f;
 
@@ -121,12 +122,16 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                 {
                     // heals everything by 10 for each burning target
                     _stam.TryTakeStamina(ent, -10);
-                    var dmgdict = dmgc.Damage.DamageDict;
+
+                    _dmg.HealEvenly((ent, dmgc), 10f); // imp edit, use DamageableSystem to heal evenly
+
+                    // imp old code left commented, nuke it if you want
+                    /*var dmgdict = dmgc.Damage.DamageDict;
                     foreach (var key in dmgdict.Keys)
                         dmgdict[key] = -10f;
 
                     var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _dmg.TryChangeDamage((ent, dmgc), dmgspec, true, false);
+                    _dmg.TryChangeDamage((ent, dmgc), dmgspec, true, false);*/
                 }
 
                 if (!flam.OnFire)
