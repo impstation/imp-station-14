@@ -21,7 +21,7 @@ using System.Linq;//imp edit
 namespace Content.Client.Hands.Systems
 {
     [UsedImplicitly]
-    public sealed partial class HandsSystem : SharedHandsSystem
+    public sealed partial class HandsSystem : SharedHandsSystem // imp edit, adds partial
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
