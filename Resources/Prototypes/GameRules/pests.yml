@@ -133,9 +133,9 @@
   id: RandomCritterHorde # My deepest apologies, Mr. Secoff. You just wasted your time :)
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+#    startAnnouncement: station-event-vent-creatures-start-horde-announcement
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     weight: 6 # Slightly more common than other hordes
     duration: 5

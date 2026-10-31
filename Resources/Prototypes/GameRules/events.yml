@@ -490,9 +490,9 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+  #  startAnnouncement: station-event-vent-creatures-start-horde-announcement #imp
+  #  startAudio:
+  #    path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -511,9 +511,9 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    #startAnnouncement: station-event-vent-creatures-start-horde-announcement #imp
+    #startAudio:
+    #  path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -532,9 +532,9 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    #startAnnouncement: station-event-vent-creatures-start-horde-announcement #imp
+    #startAudio:
+    #  path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -551,9 +551,9 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    #startAnnouncement: station-event-vent-creatures-start-horde-announcement #imp
+    #startAudio:
+    #  path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 20
     weight: 1.5
