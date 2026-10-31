@@ -1,8 +1,6 @@
-﻿using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Containers;
 
 namespace Content.Shared._Impstation.Actions;
 
@@ -12,9 +10,7 @@ namespace Content.Shared._Impstation.Actions;
 public sealed class InstantSpawnInHandActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
 
     public override void Initialize()
