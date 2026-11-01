@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Akurra has Sized Up
-    type: Fix
-  id: 2504
-  time: '2025-12-28T13:03:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3886
 - author: Smugman
   changes:
   - message: Sap can now be juiced from logs. You no longer need to douse your pancakes
@@ -4045,3 +4038,11 @@
   id: 3003
   time: '2026-10-27T08:25:13.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4657
+- author: kipdotnet
+  changes:
+  - message: Trawler now has detective equipment and a waste pump that doesnt unanchor
+      itself.
+    type: Fix
+  id: 3004
+  time: '2026-11-01T09:17:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4711
