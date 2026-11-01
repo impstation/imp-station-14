@@ -11,6 +11,7 @@
     Milk: 5
   solids:
     FoodCheeseSlice: 1
+  recipeType: Oven #Imp
 
 - type: microwaveMealRecipe
   id: RecipeMealEggplantParm
@@ -22,6 +23,7 @@
     FoodEggplant: 2
     FoodCheeseSlice: 2
     FoodTomato: 1
+  recipeType: Oven #Imp
 
 - type: microwaveMealRecipe
   id: RecipeMealCornedbeef
@@ -34,6 +36,7 @@
     FoodMeat: 1
     FoodPotato: 1
     FoodCarrot: 1
+  recipeType: Oven #Imp
 
 - type: microwaveMealRecipe
   id: RecipeMealSpesslaw
@@ -44,6 +47,7 @@
   solids:
     FoodNoodlesBoiled: 1
     FoodMeatMeatball: 4
+  recipeType: Microwave #Imp
 
 - type: microwaveMealRecipe
   id: RecipeMealPigBlanket
@@ -55,6 +59,7 @@
     FoodDoughSlice: 2
     FoodMeatCutlet: 2
     FoodButterSlice: 1
+  recipeType: Oven #Imp
 
 - type: microwaveMealRecipe
   id: RecipeMealBearsteak
@@ -66,3 +71,4 @@
     FoodMeatBearCooked: 1
   reagents:
     ManlyDorf: 5
+  recipeType: Oven # Imp
