@@ -43,7 +43,7 @@ public sealed partial class EmotesUIController : UIController, IOnStateChanged<G
             [EmoteCategory.Vocal] = ("emote-menu-category-vocal",
                 new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/vocal.png"))), // imp resprite
             [EmoteCategory.Targeted] = ("emote-menu-category-targeted",
-                new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Misc/pointing.rsi/crosshair.png"))), // imp add for targeted emotes
+                new SpriteSpecifier.Rsi(new ResPath("/Textures/_Impstation/Interface/Misc/pointing.rsi"), "crosshair")), // imp add for targeted emotes
         };
 
     public void OnStateEntered(GameplayState state)
