@@ -33,6 +33,14 @@ construction-graph-tag-eyepatch = eyepatch
 construction-graph-tag-floatingfloracrown = floating flora crown
 construction-graph-tag-chemical-analysis-goggles = chemical analysis goggles
 
+# crayon
+construction-graph-tag-blue-crayon = blue crayon
+construction-graph-tag-green-crayon = green crayon
+construction-graph-tag-orange-crayon = orange crayon
+construction-graph-tag-white-crayon = white crayon
+construction-graph-tag-rainbow-crayon = rainbow crayon
+construction-graph-tag-rainbow-mime = mime crayon
+
 # other
 construction-graph-tag-borg-leg = borg leg
 construction-graph-tag-bowl = bowl
