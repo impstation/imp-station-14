@@ -269,7 +269,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         var lookup = _lookup.GetEntitiesInRange(ent, ent.Comp.CapEffectRange);
         var entityStorage = GetEntityQuery<EntityStorageComponent>();
         var items = GetEntityQuery<ItemComponent>();
-        var humanoid = GetEntityQuery<HumanoidAppearanceComponent>();
+        var humanoid = GetEntityQuery<HumanoidProfileComponent>();
         var lights = GetEntityQuery<PoweredLightComponent>();
         var physics = GetEntityQuery<PhysicsComponent>();
 

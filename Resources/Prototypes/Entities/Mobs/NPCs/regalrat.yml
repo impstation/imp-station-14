@@ -102,6 +102,8 @@
       - FootstepSound
       - Meat #imp
   - type: NoSlip
+  - type: Insulated
+    coefficient: 0.5 # rat king touches more wires, see?
   - type: Rummager
     rummageLoot: !type:NestedSelector # imp
       tableId: RatKingLoot
@@ -323,6 +325,8 @@
       - Meat #imp
       - RecyclerGibbable # imp
   - type: NoSlip
+  - type: Insulated
+    coefficient: 0.2 # they don't make da roolz, but they sneaky
   - type: MobPrice
     price: 500 # rat wealth
   - type: MobsterAccent

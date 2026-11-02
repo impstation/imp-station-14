@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.MindlessClone;
 /// <summary>
-/// When applied to an entity with HumanoidAppearance, copies the appearance data of the nearest entity with HumanoidAppearance when spawned.
+/// When applied to an entity with HumanoidProfile, copies the appearance data of the nearest entity with HumanoidProfile when spawned.
 /// </summary>
 [RegisterComponent]
 public sealed partial class MindlessCloneComponent : Component

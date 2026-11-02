@@ -131,6 +131,7 @@
   - type: Store
     balance:
       Telecrystal: 99999
+    expectedFaction: #nulls out the expected faction
     passAllConditions: true # imp
   - type: Sprite # imp add
     sprite: _Impstation/Objects/Devices/uplink_commander.rsi

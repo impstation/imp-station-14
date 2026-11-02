@@ -1,20 +1,64 @@
 - type: entity
   id: UnknownShuttlePartyUFO
-  parent: BaseUnknownShuttleRule
+  parent: BaseUnknownShuttleAnnouncedRule
   components:
   - type: StationEvent
-    startAnnouncement: true #!!
+    startAnnouncement: true
     weight: 8 #slightly less common
   - type: LoadMapRule
     preloadedGrid: PartyUFO
 
 - type: entity
   id: UnknownShuttleFood4you
-  parent: BaseUnknownShuttleRule
+  parent: BaseUnknownShuttleAnnouncedRule
   components:
   - type: StationEvent
-    startAnnouncement: true #!!
+    startAnnouncement: true
     maxOccurrences: 1
     weight: 10
   - type: LoadMapRule
     preloadedGrid: Food4you
+
+# orphaned edited WizDen shuttles
+
+- type: entity
+  id: UnknownShuttleCryptid
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/cryptid.yml
+
+- type: entity
+  id: UnknownShuttleEternal
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/eternal.yml
+
+- type: entity
+  id: UnknownShuttleFlatline
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/flatline.yml
+
+- type: entity
+  id: UnknownShuttleLambordeere
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    weight: 5
+    startAnnouncement: true
+    minimumPlayers: 15
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/lambordeere.yml
+
+- type: entity
+  id: UnknownShuttleMeatZone
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    maxOccurrences: 1
+    startAnnouncement: true
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/meatzone.yml

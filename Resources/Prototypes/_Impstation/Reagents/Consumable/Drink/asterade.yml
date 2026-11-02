@@ -8,7 +8,7 @@
     params:
       volume: 6
   metabolisms:
-    Drink:
+    Digestion:
       effects:
         - !type:SatiateThirst
           factor: 6

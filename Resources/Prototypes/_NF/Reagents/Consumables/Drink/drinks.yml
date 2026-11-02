@@ -7,7 +7,7 @@
   flavor: basic
   color: "#a45c08"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -33,7 +33,7 @@
   flavor: cucumber
   color: "#b1ceb0"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
         - !type:SatiateThirst
           factor: 6
@@ -53,7 +53,7 @@
   flavor: fast
   color: "#3061e3"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1
@@ -79,7 +79,7 @@
   flavor: blast
   color: "#8c934c"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1
@@ -109,7 +109,7 @@
   flavor: torpedo
   color: "#d4db9a"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.8
@@ -132,7 +132,7 @@
   flavor: bees
   color: "#f1d25f"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.5
@@ -169,7 +169,7 @@
   flavor: honey
   color: "#E79A3F"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.6
@@ -186,7 +186,7 @@
   flavor: wassail
   color: "#AD2D00"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:PopupMessage # a nice warm soothing drink
         type: Local

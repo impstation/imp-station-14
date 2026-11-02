@@ -7,8 +7,7 @@
 - type: marking
   id: GoblinNoseBasic
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/snout.rsi
     state: goblin_nose_default
@@ -16,8 +15,7 @@
 - type: marking
   id: GoblinNoseLong
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/snout.rsi
     state: goblin_nose_long
@@ -25,8 +23,7 @@
 - type: marking
   id: GoblinNoseCrooked
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/snout.rsi
     state: goblin_nose_crooked
@@ -34,8 +31,7 @@
 - type: marking
   id: GoblinTusksBasic
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/snout.rsi
     state: goblin_tusks_none
@@ -43,8 +39,7 @@
 - type: marking
   id: GoblinTusksSmall
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/snout.rsi
     state: goblin_tusks_small
@@ -52,8 +47,7 @@
 - type: marking
   id: GoblinTusksBig
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/snout.rsi
     state: goblin_tusks_big
@@ -87,8 +81,7 @@
 - type: marking
   id: GoblinHairA
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/hair.rsi
     state: goblin_hair_a
@@ -96,8 +89,7 @@
 - type: marking
   id: GoblinHairBald
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/hair.rsi
     state: goblin_hair_bald
@@ -105,8 +97,7 @@
 - type: marking
   id: GoblinHairHalfshaved
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/hair.rsi
     state: goblin_hair_halfshaved
@@ -114,8 +105,7 @@
 - type: marking
   id: GoblinHairPixie
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/hair.rsi
     state: goblin_hair_pixie
@@ -123,8 +113,7 @@
 - type: marking
   id: GoblinHairPompadour
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/hair.rsi
     state: goblin_hair_pompadour
@@ -136,8 +125,7 @@
 - type: marking
   id: GoblinEarsBasic
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/headtop.rsi
     state: goblin_ears_default
@@ -145,8 +133,7 @@
 - type: marking
   id: GoblinEarsBasicAlt
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/headtop.rsi
     state: goblin_ears_default_alt
@@ -154,8 +141,7 @@
 - type: marking
   id: GoblinEarsLong01
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/headtop.rsi
     state: goblin_ears_long_01
@@ -163,8 +149,7 @@
 - type: marking
   id: GoblinEarsLong02
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/headtop.rsi
     state: goblin_ears_long_02
@@ -174,26 +159,21 @@
 - type: marking
   id: GoblinTailBasic
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/tail.rsi
     state: goblin_tail_none
 - type: marking
   id: GoblinTailShort
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/tail.rsi
     state: goblin_tail_short
 - type: marking
   id: GoblinTailLong
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Goblin ]
+  groupWhitelist: [ Goblin ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Goblin/tail.rsi
     state: goblin_tail_long
-
-# RArmExtension

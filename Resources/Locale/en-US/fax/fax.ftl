@@ -27,5 +27,12 @@ fax-machine-chat-notify = Received new fax message from "{$fax}" fax
 
 fax-machine-printed-paper-name = printed paper
 
+fax-machine-sender-info =
+    ─────────────────────────────────────
+    Fax sent
+    from: {$sender_name} [address: {$sender_addr}]
+    to: {$recipient_name} [address: {$recipient_addr}]
+    at: {$time}
+
 # imp edit
 fax-machine-on-examine-success = This fax machine's name is {$id}

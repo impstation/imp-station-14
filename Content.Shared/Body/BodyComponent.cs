@@ -3,6 +3,11 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Body;
 
+/// <summary>
+/// Component on the entity that "has" a body, and that oversees entities with the <see cref="OrganComponent"/> inside it.
+/// </summary>
+/// <seealso cref="BodySystem" />
+/// <seealso cref="SharedVisualBodySystem" />
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState] //imp edit, AutoGenerateComponentState added since ThermalVisibility uses AutoNetworkedField
 [Access(typeof(BodySystem))]
 public sealed partial class BodyComponent : Component

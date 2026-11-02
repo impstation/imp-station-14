@@ -33,25 +33,17 @@
 
 - type: entity
   parent: [ BaseFlatpack, BaseSyndicateContraband ]
-  id: SyndicateMicrowaveFlatpack
-  name: donk co. microwave flatpack
-  description: A flatpack used for constructing a donk co. microwave. Smaller than conventional flatpacks.
-  components:
-  - type: Flatpack
-    entity: SyndicateMicrowave
-  - type: Item
-    size: Normal
-
-- type: entity
-  parent: [ BaseFlatpack, BaseSyndicateContraband ]
   id: SyndicateElectricRangeFlatpack
   name: donk co. oven flatpack
-  description: A flatpack used for constructing a donk co. Oven. Smaller than conventional flatpacks.
+  description: A flatpack used for constructing an oven too hot of in the cold food.
   components:
   - type: Flatpack
     entity: SyndicateKitchenElectricRange
   - type: Item
     size: Normal
+  - type: GuideHelp
+    guides:
+    - FoodRecipes
 
 - type: entity
   parent: BaseFlatpack

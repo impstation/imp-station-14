@@ -50,11 +50,6 @@
   parent: [ OrganPleebnarInternal, OrganAnimalLiver ]
   id: OrganPleebnarLiver
   name: grubi
-  components:
-  - type: Metabolizer
-    groups:
-    - id: Alcohol
-      rateModifier: 0.1
 
 - type: entity
   parent: [ OrganPleebnarInternal, OrganAnimalHeart ]
@@ -71,7 +66,7 @@
     - state: kidney-r
 
 - type: entity
-  parent: [ OrganPleebnarInternal, OrganBaseEyes ]
+  parent: [ OrganPleebnarInternal, OrganAnimalEyes ]
   id: OrganPleebnarEyes
   name: shuui
   description: "Soulful."
@@ -81,7 +76,7 @@
   abstract: true
   components:
   - type: Body
-  - type: EntityTableContainerFill #TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
     containers:
       body_organs: !type:AllSelector
         children:

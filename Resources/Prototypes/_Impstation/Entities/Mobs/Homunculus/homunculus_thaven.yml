@@ -31,45 +31,43 @@
           32:
             sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
             state: suitstorage
-  - type: EntityTableContainerFill #VISUAL NUBODY TODO: REWORK THESE
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganThavenBrain
-        - id: OrganThavenEyes
-        - id: OrganThavenLungs
-        - id: OrganThavenHeart
-        - id: OrganThavenStomach
-        - id: OrganThavenLiver
-        - id: OrganThavenKidneys
-  - type: HumanoidAppearance
+  - type: InitialBody
+    organs:
+      Brain: OrganThavenBrain
+      Eyes: OrganThavenEyes
+      Lungs: OrganThavenLungs
+      Heart: OrganThavenHeart
+      Stomach: OrganThavenStomach
+      Liver: OrganThavenLiver
+      Kidneys: OrganThavenKidneys
+  - type: HumanoidProfile
     species: HomunculusThaven
-    markingsDisplacement:
-      Head:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
-            state: headmarking
-      Eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
-            state: headmarking
-      Snout:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
-            state: headmarking
-      HeadSide:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
-            state: headmarking
-      HeadTop:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
-            state: headmarking
+    # markingsDisplacement: # waiting for upstream's marking displacements
+    #   Head:
+    #     sizeMaps:
+    #       32:
+    #         sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+    #         state: headmarking
+    #   Eyes:
+    #     sizeMaps:
+    #       32:
+    #         sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+    #         state: headmarking
+    #   Snout:
+    #     sizeMaps:
+    #       32:
+    #         sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+    #         state: headmarking
+    #   HeadSide:
+    #     sizeMaps:
+    #       32:
+    #         sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+    #         state: headmarking
+    #   HeadTop:
+    #     sizeMaps:
+    #       32:
+    #         sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+    #         state: headmarking
 
 - type: entity
   id: HomunculusThaven
