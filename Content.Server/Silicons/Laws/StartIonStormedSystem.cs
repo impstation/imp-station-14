@@ -10,7 +10,7 @@ namespace Content.Server.Silicons.Laws;
 /// </summary>
 public sealed class StartIonStormedSystem : EntitySystem
 {
-    [Dependency] private readonly IonStormSystem _ionStorm = default!;
+    // [Dependency] private readonly IonStormSystem _ionStorm = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
 

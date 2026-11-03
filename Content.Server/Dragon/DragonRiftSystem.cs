@@ -22,12 +22,12 @@ namespace Content.Server.Dragon;
 /// </summary>
 public sealed class DragonRiftSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
+    // [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DragonSystem _dragon = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    // [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     public override void Initialize()

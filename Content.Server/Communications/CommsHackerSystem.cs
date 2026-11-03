@@ -16,7 +16,7 @@ namespace Content.Server.Communications;
 
 public sealed class CommsHackerSystem : SharedCommsHackerSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
+    // [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;

@@ -19,7 +19,6 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
 {
     [Dependency] private readonly ForensicsSystem _forensics = default!;
     [Dependency] private readonly SolutionTransferSystem _transfer = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!; // imp add
 

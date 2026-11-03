@@ -58,7 +58,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared._Goobstation.Changeling;
-using Content.Shared.Body;
 using Content.Shared.Zombies;
 
 namespace Content.Server._Goobstation.Changeling;
@@ -70,7 +69,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
@@ -103,7 +101,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
