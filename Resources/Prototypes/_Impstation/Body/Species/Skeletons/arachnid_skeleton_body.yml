@@ -97,7 +97,7 @@
       effects:
       - !type:SpawnEntityInInventory
         slot: head
-        entity: WaterDropletHat #SKELE TODO: give them a skeleton version of the doplet because its funny
+        entity: BoneWaterDropletHat
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:

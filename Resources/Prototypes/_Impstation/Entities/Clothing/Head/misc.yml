@@ -1,0 +1,26 @@
+- type: entity
+  parent: WaterDropletHat
+  id: BoneWaterDropletHat
+  name: bone droplet
+  description: Talk about hard water!
+  components: #TODO: after solutions refactor make this full of milk
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Misc/bonedroplet.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Clothing/Head/Misc/bonedroplet.rsi
+    size: Tiny
+    storedRotation: -90
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+      - !type:SpillBehavior
+        solution: drink
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
