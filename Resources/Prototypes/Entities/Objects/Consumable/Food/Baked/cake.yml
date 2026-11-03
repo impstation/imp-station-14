@@ -1459,8 +1459,8 @@
       path: /Audio/Animals/cat_hiss.ogg
     hidden: true
     damage:
-      groups:
-        Brute: 1
+      types:
+        Blunt: 1
   - type: Physics # imp fix
     bodyType: KinematicController
 

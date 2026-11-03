@@ -1,4 +1,4 @@
-﻿using Content.Shared.EntityTable;
+using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.Conditions;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.GameTicking.Rules;
@@ -11,12 +11,14 @@ public sealed partial class XenoArchDepthCondition : EntityTableCondition
     [DataField]
     public List<int> Depths = new();
 
+    public string Key => "Depth";
+
     protected override bool EvaluateImplementation(EntityTableSelector root,
         IEntityManager entMan,
         IPrototypeManager proto,
         EntityTableContext ctx)
     {
-        if (!ctx.TryGetData<int>("Depth", out var depth))
+        if (!ctx.TryGetData<int>(Key, out var depth))
             return false;
 
         if (depth > 5)

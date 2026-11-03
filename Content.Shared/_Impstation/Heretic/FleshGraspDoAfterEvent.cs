@@ -6,7 +6,7 @@ namespace Content.Shared.Heretic;
 [Serializable, NetSerializable]
 public sealed partial class FleshGraspDoAfterEvent : SimpleDoAfterEvent
 {
-    [NonSerialized] public EntityUid Target;
+    [NonSerialized] public new EntityUid Target; // imp added "new" keyword
 
     public FleshGraspDoAfterEvent(EntityUid target)
     {

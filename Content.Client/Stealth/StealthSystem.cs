@@ -25,14 +25,18 @@ public sealed class StealthSystem : SharedStealthSystem
     private ShaderInstance _shader = default!;
     // imp edit start
     private ShaderInstance _altShader = default!;
+
+    private readonly string _shaderProto = "Stealth";
+
+    private readonly string _altShaderProto = "AccessibleFullStealth";
     // imp edit end
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _shader = _protoMan.Index<ShaderPrototype>("Stealth").InstanceUnique(); // imp
-        _altShader = _protoMan.Index<ShaderPrototype>("AccessibleFullStealth").InstanceUnique(); // imp
+        _shader = _protoMan.Index<ShaderPrototype>(_shaderProto).InstanceUnique(); // imp
+        _altShader = _protoMan.Index<ShaderPrototype>(_altShaderProto).InstanceUnique(); // imp
 
         SubscribeLocalEvent<StealthComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StealthComponent, ComponentStartup>(OnStartup);

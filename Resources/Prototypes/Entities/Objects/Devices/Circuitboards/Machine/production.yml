@@ -20,7 +20,7 @@
   - type: MachineBoard
     prototype: AutolatheHyperConvection
     stackRequirements:
-      MatterBin: 3 # imp Manipulator>MatterBin
+      MatterBin: 4 # imp Manipulator>MatterBin
       Glass: 1
     tagRequirements:
       Igniter:

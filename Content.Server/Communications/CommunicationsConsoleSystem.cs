@@ -29,7 +29,7 @@ namespace Content.Server.Communications
     {
         [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
         [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
+        // [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
         [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;

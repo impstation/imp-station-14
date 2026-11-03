@@ -15,7 +15,7 @@ namespace Content.Server.Nuke
     public sealed class NukeCodePaperSystem : EntitySystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
+        // [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly PaperSystem _paper = default!;
         [Dependency] private readonly FaxSystem _faxSystem = default!;
