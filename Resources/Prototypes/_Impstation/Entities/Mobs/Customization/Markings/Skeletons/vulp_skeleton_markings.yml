@@ -1,0 +1,14 @@
+# Tail
+
+- type: marking
+  id: VulpkaninSkeletonTail
+  bodyPart: Tail
+  groupWhitelist: [ VulpkaninSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/VulpkaninSkeleton/tail.rsi
+    state: tail_bone

@@ -1,0 +1,209 @@
+- type: markingsGroup
+  id: AnomalocaridSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ AnomalocaridSkeletonAntennae ]
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ AnomalocaridSkeletonWings ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceAnomalocaridSkeletonPerson
+  name: anomalocaridskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    speciesId: anomalocarid
+    templateId: anomalocarid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: shoes
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+  - type: InitialBody
+    organs:
+      Torso: OrganAnomalocaridSkeletonPersonTorso
+      Head: OrganAnomalocaridSkeletonPersonHead
+      ArmLeft: OrganAnomalocaridSkeletonPersonArmLeft
+      ArmRight: OrganAnomalocaridSkeletonPersonArmRight
+      HandRight: OrganAnomalocaridSkeletonPersonHandRight
+      HandLeft: OrganAnomalocaridSkeletonPersonHandLeft
+      LegLeft: OrganAnomalocaridSkeletonPersonLegLeft
+      LegRight: OrganAnomalocaridSkeletonPersonLegRight
+      FootLeft: OrganAnomalocaridSkeletonPersonFootLeft
+      FootRight: OrganAnomalocaridSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonAnomalocarid
+
+- type: entity
+  parent:
+  - AppearanceAnomalocaridSkeletonPerson
+  - MobSkeletonPerson
+  id: MobAnomalocaridSkeletonPerson
+  name: Urist McVertebrbrbrae
+  components:
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/anomalocarid_brute_damage.rsi
+        color: "#555555AA"
+      Burn:
+        sprite: _Impstation/Mobs/Effects/anomalocarid_burn_damage.rsi
+  - type: MeleeWeapon
+    attackRate: 0.6 #slower swing because they hit harder
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 8
+  - type: Speech #need this for the offset
+    speechBubbleOffset: 0.35
+    speechVerb: Skeleton
+#imp edit, this will be used once a later PR is merged that changes how cream pie visuals work
+#  - type: CreamPied
+#    sprite:
+#      sprite: Effects/creampie.rsi
+#      state: creampie_anomalocarid
+#    offset: 0, 0.375
+  - type: LightningTarget # same as normal anomalocarids
+    priority: 4
+    lightningExplode: false
+  - type: Tag
+    tags:
+    - AnomalocaridClaw #this exists so they can dig through rocks
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - AnomalyHost
+
+- type: entity
+  parent: OrganSkeletonPerson
+  id: OrganAnomalocaridSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/AnomalocaridSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/AnomalocaridSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: AnomalocaridSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonHead #SKELE TODO: skull icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganAnomalocaridSkeletonPersonExternal ]
+  id: OrganAnomalocaridSkeletonPersonFootRight

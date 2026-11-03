@@ -1,0 +1,33 @@
+# Eyes
+
+- type: marking
+  id: SlimeSkeletonEyes
+  bodyPart: HeadTop
+  groupWhitelist: [ SlimeSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ff65ad"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/SlimeSkeleton/eyes.rsi
+    state: eyes
+  shader: unshaded
+
+
+# Chest
+
+- type: marking
+  id: SlimeSkeletonHeart
+  bodyPart: Chest
+  groupWhitelist: [ SlimeSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ff65ad"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/SlimeSkeleton/chest.rsi
+    state: slimeheart

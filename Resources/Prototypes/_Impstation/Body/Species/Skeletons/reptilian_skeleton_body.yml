@@ -1,0 +1,127 @@
+- type: markingsGroup
+  id: ReptilianSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ ReptilianSkeletonTail ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceReptilianSkeletonPerson
+  name: Reptilianskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganReptilianSkeletonPersonTorso
+      Head: OrganReptilianSkeletonPersonHead
+      ArmLeft: OrganSkeletonPersonArmLeft
+      ArmRight: OrganSkeletonPersonArmRight
+      HandRight: OrganSkeletonPersonHandRight
+      HandLeft: OrganSkeletonPersonHandLeft
+      LegLeft: OrganSkeletonPersonLegLeft
+      LegRight: OrganSkeletonPersonLegRight
+      FootLeft: OrganReptilianSkeletonPersonFootLeft
+      FootRight: OrganReptilianSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonReptilian
+
+- type: entity
+  parent:
+  - AppearanceReptilianSkeletonPerson
+  - MobSkeletonPerson
+  id: MobReptilianSkeletonPerson
+  name: Urist McFossil
+  components:
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: Puller
+    needsHands: false
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+
+- type: entity
+  parent: OrganSkeletonPerson
+  id: OrganReptilianSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/ReptilianSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/ReptilianSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: ReptilianSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganReptilianSkeletonPersonExternal ]
+  id: OrganReptilianSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganReptilianSkeletonPersonExternal ]
+  id: OrganReptilianSkeletonPersonHead #SKELE TODO: skull icon
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganReptilianSkeletonPersonExternal ]
+  id: OrganReptilianSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganReptilianSkeletonPersonExternal ]
+  id: OrganReptilianSkeletonPersonFootRight

@@ -1,0 +1,158 @@
+- type: markingsGroup
+  id: ArachnidSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ ArachnidSkeletonAppendages ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceArachnidSkeletonPerson
+  name: arachnidskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganArachnidSkeletonPersonTorso
+      Head: OrganArachnidSkeletonPersonHead
+      ArmLeft: OrganArachnidSkeletonPersonArmLeft
+      ArmRight: OrganArachnidSkeletonPersonArmRight
+      HandRight: OrganArachnidSkeletonPersonHandRight
+      HandLeft: OrganArachnidSkeletonPersonHandLeft
+      LegLeft: OrganArachnidSkeletonPersonLegLeft
+      LegRight: OrganArachnidSkeletonPersonLegRight
+      FootLeft: OrganArachnidSkeletonPersonFootLeft
+      FootRight: OrganArachnidSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonArachnid
+
+- type: entity
+  parent:
+  - AppearanceArachnidSkeletonPerson
+  - MobSkeletonPerson
+  id: MobArachnidSkeletonPerson
+  name: Urist McCarapace
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+  - type: Reactive #doplet reaction HIGHLY critical to maintain
+    reactions:
+    - reagents: [Water]
+      methods: [Touch]
+      effects:
+      - !type:SpawnEntityInInventory
+        slot: head
+        entity: WaterDropletHat #SKELE TODO: give them a skeleton version of the doplet because its funny
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPie
+
+- type: entity
+  parent: OrganSkeletonPerson
+  id: OrganArachnidSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/ArachnidSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/ArachnidSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: ArachnidSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonHead #SKELE TODO: skull icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganArachnidSkeletonPersonExternal ]
+  id: OrganArachnidSkeletonPersonFootRight

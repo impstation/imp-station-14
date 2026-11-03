@@ -1,0 +1,47 @@
+# HeadTop
+
+- type: marking
+  id: MothSkeletonAntennae
+  bodyPart: HeadTop
+  groupWhitelist: [ MothSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/MothSkeleton/headtop.rsi
+    state: bonetennae
+
+- type: marking
+  id: MothSkeletonHood
+  bodyPart: HeadTop
+  groupWhitelist: [ MothSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/MothSkeleton/headtop.rsi
+    state: fluffhood
+
+# Tail
+
+- type: marking
+  id: MothSkeletonWings
+  bodyPart: Tail
+  groupWhitelist: [ MothSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  layering:
+    wingrobe_behind: TailBehind
+    wingrobe_front: Tail
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/MothSkeleton/tail.rsi
+    state: wingrobe_front
+  - sprite: _Impstation/Mobs/Customization/Skeletons/MothSkeleton/tail.rsi
+    state: wingrobe_behind

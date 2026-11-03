@@ -3,3 +3,4 @@ namepreset-firstlast = {$first} {$last}
 namepreset-firstdashfirst = {$first1}-{$first2}
 namepreset-thefirstoflast = The {$first} of {$last}
 namepreset-firstmiddlelast = {$first} {$middle}{$last}
+namepreset-firstdashlast = {$first}-{$last}

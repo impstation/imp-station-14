@@ -1,0 +1,19 @@
+# Tail
+
+- type: marking
+  id: ThavenSkeletonTail
+  bodyPart: Tail
+  groupWhitelist: [ ThavenSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  layering:
+    fishbone-tail_behind: TailBehind
+    fishbone-tail_front: Tail
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/ThavenSkeleton/tail.rsi
+    state: fishbone-tail_front
+  - sprite: _Impstation/Mobs/Customization/Skeletons/ThavenSkeleton/tail.rsi
+    state: fishbone-tail_behind

@@ -1,0 +1,256 @@
+- type: markingsGroup
+  id: AllulaloSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ AllulaloSkeletonTail ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceAllulaloSkeletonPerson
+  name: allulaloskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    speciesId: Allulalo
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: glasses
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: suitstorage
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: hand_l
+  - type: InitialBody
+    organs:
+      Torso: OrganAllulaloSkeletonPersonTorso
+      Head: OrganAllulaloSkeletonPersonHead
+      ArmLeft: OrganAllulaloSkeletonPersonArmLeft
+      ArmRight: OrganAllulaloSkeletonPersonArmRight
+      HandRight: OrganAllulaloSkeletonPersonHandRight
+      HandLeft: OrganAllulaloSkeletonPersonHandLeft
+      LegLeft: OrganAllulaloSkeletonPersonLegLeft
+      LegRight: OrganAllulaloSkeletonPersonLegRight
+      FootLeft: OrganAllulaloSkeletonPersonFootLeft
+      FootRight: OrganAllulaloSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonAllulalo
+
+- type: entity
+  parent:
+  - AppearanceAllulaloSkeletonPerson
+  - MobSkeletonPerson
+  id: MobAllulaloSkeletonPerson
+  name: Urist McWishbones
+  components:
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/Allulalo_brute_damage.rsi
+        color: "#555555AA"
+      Burn:
+        sprite: _Impstation/Mobs/Effects/Allulalo_burn_damage.rsi
+  - type: MeleeWeapon #none of the poison because skeletons dont have liquids in them probaby
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcAllulaloBite
+    damage:
+      types:
+        Piercing: 4
+  - type: MovementSpeedModifier # still fast
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+  - type: Fixtures #density change missing from macro version, to be upstreamed
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.32
+        density: 75 #this is half the normal and makes them very light
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: UnableToWield
+  - type: Tag
+    tags:
+    - VimPilot #fuck it, theyre small enough
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+    - FootstepSound
+
+- type: entity
+  parent: OrganSkeletonPerson
+  id: OrganAllulaloSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/AllulaloSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/AllulaloSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: AllulaloSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonHead
+  components: #SKELE TODO: skull icon
+  - type: HandOrgan #not even death will give you a second hand
+    handID: left
+    data:
+      location: Left
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeftInactive, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRightInactive, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganAllulaloSkeletonPersonExternal ]
+  id: OrganAllulaloSkeletonPersonFootRight
