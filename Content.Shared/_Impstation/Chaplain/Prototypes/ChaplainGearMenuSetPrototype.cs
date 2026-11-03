@@ -6,6 +6,7 @@ namespace Content.Shared._Impstation.Chaplain;
 /// <summary>
 /// A prototype that defines a set of items and visuals in a specific starter set for the antagonist thief
 /// </summary>
+[Prototype]
 public sealed partial class ChaplainGearMenuSetPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;

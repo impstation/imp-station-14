@@ -7,6 +7,7 @@ namespace Content.Shared._Impstation.Mime;
 /// A prototype that defines a set of items and visuals in a specific starter set for mimes
 /// This should probably be made generic since this is copied from chaplain's (and thief)'s versions of this
 /// </summary>
+[Prototype]
 public sealed partial class MimeGearMenuSetPrototype : IPrototype
 {
     /// <summary>

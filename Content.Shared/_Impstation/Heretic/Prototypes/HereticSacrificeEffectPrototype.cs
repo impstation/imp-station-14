@@ -1,6 +1,7 @@
 using Robust.Shared.Prototypes;
 namespace Content.Shared.Heretic.Prototypes;
 
+[Prototype]
 public sealed partial class HereticSacrificeEffectPrototype : IPrototype
 {
     [IdDataField]
