@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Starlight.CollectiveMind;
 
@@ -11,7 +12,7 @@ public sealed partial class CollectiveMindComponent : Component
     /// value.
     /// </summary>
     [DataField]
-    public Dictionary<CollectiveMindPrototype, CollectiveMindMemberData> Minds = new();
+    public Dictionary<ProtoId<CollectiveMindPrototype>, CollectiveMindMemberData> Minds = new();
 }
 
 /// <summary>

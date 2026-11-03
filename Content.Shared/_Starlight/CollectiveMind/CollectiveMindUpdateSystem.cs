@@ -10,7 +10,7 @@ public sealed class CollectiveMindUpdateSystem : EntitySystem
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    private static readonly Dictionary<CollectiveMindPrototype, int> GlobalMindIdTracker = new();
+    private static readonly Dictionary<ProtoId<CollectiveMindPrototype>, int> GlobalMindIdTracker = new();
 
     public override void Initialize()
     {
@@ -109,7 +109,7 @@ public sealed class CollectiveMindUpdateSystem : EntitySystem
         return list;
     }
 
-    private static CollectiveMindMemberData CreateNewCollectiveMindMemberData(CollectiveMindPrototype prototype)
+    private static CollectiveMindMemberData CreateNewCollectiveMindMemberData(ProtoId<CollectiveMindPrototype> prototype)
     {
         // Initialize the tracker value for this prototype.
         GlobalMindIdTracker.TryAdd(prototype, CollectiveMindMemberData.StartingId);
