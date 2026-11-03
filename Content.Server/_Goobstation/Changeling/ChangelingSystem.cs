@@ -113,6 +113,8 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public EntProtoId TentaclePrototype = "FishingRodLing"; // imp
 
+    private readonly string _reagentToVomit = "Blood"; // Impstation - Upmerge 2026 Chunk IV
+
     public override void Initialize()
     {
         base.Initialize();
@@ -211,7 +213,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
                 var vomitAmount = 15f;
                 _blood.TryModifyBloodLevel(uid, -vomitAmount);
-                solution.AddReagent("Blood", vomitAmount);
+                solution.AddReagent(_reagentToVomit, vomitAmount); // Impstation - Upmerge 2026 Chunk IV
 
                 _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, solution, out _);
 

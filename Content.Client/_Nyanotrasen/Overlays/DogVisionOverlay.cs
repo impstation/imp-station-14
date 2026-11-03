@@ -17,11 +17,12 @@ public sealed partial class DogVisionOverlay : Overlay
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _dogVisionShader;
+    private readonly string _shaderProto = "DogVision"; // Impstation - Upmerge 2026 Chunk IV
 
     public DogVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _dogVisionShader = _prototypeManager.Index<ShaderPrototype>("DogVision").Instance().Duplicate();
+        _dogVisionShader = _prototypeManager.Index<ShaderPrototype>(_shaderProto).Instance().Duplicate(); // Impstation - Upmerge 2026 Chunk IV
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
