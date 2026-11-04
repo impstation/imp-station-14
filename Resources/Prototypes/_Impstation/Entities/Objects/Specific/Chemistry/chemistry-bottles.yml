@@ -1,0 +1,78 @@
+# buddy do you think the Specific directory is a joke?
+# the legend itself
+- type: entity
+  id: MethadoneChemistryBottle
+  name: methadone bottle
+  parent: BaseChemistryBottleFilled
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 100
+          reagents:
+            - ReagentId: Methadone
+              Quantity: 100
+
+- type: entity
+  parent: MiniSyringe
+  id: MiniSyringeAdmeme
+  suffix: admeme
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 100
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 100
+    solution: injector
+    updateInterval: 2
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    solution: injector
+
+# these dont follow the ChemistryEmptyBottle(number) naming scheme to avoid future upstream conflicts
+- type: entity
+  parent: BaseChemistryEmptyBottle
+  id: ChemistryEmptyBottleHeart
+  name: heart bottle
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    layers:
+    - state: bottle-3
+    - state: bottle-3-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: bottle-3-
+
+- type: entity
+  parent: BaseChemistryEmptyBottle
+  id: ChemistryEmptyBottleStar
+  name: star bottle
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    layers:
+    - state: bottle-4
+    - state: bottle-4-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: SolutionContainerVisuals
+    fillBaseName: bottle-4-
+
+- type: entity
+  parent: BaseChemistryEmptyBottle
+  id: ChemistryEmptyBottleSkull
+  name: sinister bottle
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    layers:
+    - state: bottle-5
+    - state: bottle-5-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: SolutionContainerVisuals
+    fillBaseName: bottle-5-
