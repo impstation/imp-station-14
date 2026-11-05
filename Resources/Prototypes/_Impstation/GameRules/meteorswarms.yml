@@ -46,6 +46,14 @@
     rodPrototypes:
     - id: ImmovableRodUncle
 
+- type: entity
+  id: ImmovableSecretChineseForkSpawn
+  parent: ImmovableRodSpawn
+  components:
+  - type: ImmovableRodRule
+    rodPrototypes:
+    - id: ImmovableRodSecretChineseFork
+
 - type: weightedRandomEntity
   id: XenoMeteorSpawnAsteroidWallTable
   weights:
