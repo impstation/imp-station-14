@@ -182,7 +182,7 @@ public sealed class LightningSystem : SharedLightningSystem
 
             if (arcDepth - targetLightningResistance > 0)
             {
-                ShootRandomLightnings(targets[count].Owner, range, 1, lightningPrototype, arcDepth - targetLightningResistance, triggerLightningEvents, hitCoordsChance);
+                ShootRandomLightnings(targets[count].Owner, range, 1, lightningPrototype, arcDepth - targetLightningResistance, triggerLightningEvents, hitCoordsChance, canExplode);
             }
             // imp edit end
             shootedCount++;
