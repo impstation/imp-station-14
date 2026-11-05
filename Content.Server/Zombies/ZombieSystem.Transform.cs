@@ -11,37 +11,37 @@ using Content.Server.Mind;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
-using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
+using Content.Server.StationEvents.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
+using Content.Shared.Prying.Components;
+using Content.Shared.Roles;
+using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
-using Content.Shared.Prying.Components;
-using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.Ghost.Roles.Components;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.Roles;
-using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Zombies;
 
@@ -142,6 +142,8 @@ public sealed partial class ZombieSystem
         RemComp<LegsParalyzedComponent>(target);
         RemComp<ComplexInteractionComponent>(target);
         RemComp<SentienceTargetComponent>(target);
+        //imp edit - remove impaired mobility comps so impaired zombies arent snail slow
+        RemComp<ImpairedMobilityComponent>(target);
 
         //funny voice
         var accentType = "zombie";

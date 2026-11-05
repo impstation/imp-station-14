@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Shared.Heretic.Prototypes; // imp
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array; // imp
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
 namespace Content.Shared.Store;
 
@@ -33,6 +33,8 @@ public partial class ListingData : IEquatable<ListingData>
         other.Priority,
         other.ProductEntity,
         other.ProductAction,
+        other.ProductComponents, //imp add
+        other.ProductOverwriteComponents, //imp add
         other.ProductUpgradeId,
         other.ProductActionEntity,
         other.ProductEvent,
@@ -62,6 +64,8 @@ public partial class ListingData : IEquatable<ListingData>
         int priority,
         EntProtoId? productEntity,
         EntProtoId? productAction,
+        ComponentRegistry? productComponents, //imp edit
+        bool productOverwriteComponents, //imp edit
         ProtoId<ListingPrototype>? productUpgradeId,
         EntityUid? productActionEntity,
         object? productEvent,
@@ -87,6 +91,8 @@ public partial class ListingData : IEquatable<ListingData>
         Priority = priority;
         ProductEntity = productEntity;
         ProductAction = productAction;
+        ProductComponents = productComponents; //imp
+        ProductOverwriteComponents = productOverwriteComponents; //imp
         ProductUpgradeId = productUpgradeId;
         ProductActionEntity = productActionEntity;
         ProductEvent = productEvent;
@@ -182,6 +188,18 @@ public partial class ListingData : IEquatable<ListingData>
     /// </summary>
     [DataField]
     public EntProtoId? ProductAction;
+
+    /// <summary>
+    /// The components applied to the user when the listing is purchased. Imp Addition.
+    /// </summary>
+    [DataField, NonSerialized]
+    public ComponentRegistry? ProductComponents;
+
+    /// <summary>
+    /// Whether applied components overwrite old ones. Imp Addition.
+    /// </summary>
+    [DataField]
+    public bool ProductOverwriteComponents = false;
 
     /// <summary>
     /// The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
@@ -357,6 +375,8 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.Priority,
             listingData.ProductEntity,
             listingData.ProductAction,
+            listingData.ProductComponents, //imp
+            listingData.ProductOverwriteComponents, //imp
             listingData.ProductUpgradeId,
             listingData.ProductActionEntity,
             listingData.ProductEvent,
