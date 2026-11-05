@@ -31,6 +31,7 @@ namespace Content.Server._Impstation.SiliconVision
             _eye.RefreshVisibilityMask(uid);
         }
 
+        // Handles the addition of the component to an entity
         private void OnSiliconGhostStartup(EntityUid uid, SiliconGhostComponent component, ComponentStartup args)
         {
             // Allow this entity to be seen by silicons.
@@ -46,6 +47,7 @@ namespace Content.Server._Impstation.SiliconVision
             _eye.RefreshVisibilityMask(uid);
         }
 
+        // Handles the removal of the component from an entity
         private void OnSiliconGhostShutdown(EntityUid uid, SiliconGhostComponent component, ComponentShutdown args)
         {
             // Perf: If the entity is deleting itself, no reason to change these back.
