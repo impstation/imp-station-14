@@ -39,6 +39,28 @@
   parent: [ OrganBaseKidneys, OrganAnimalInternal, OrganAnimalMetabolizer ]
   id: OrganAnimalKidneys
 
+# imp. we needed a version of eye organs without visual organ marking data attached. i dont know. i dont know. 
+# please fix this if you know a better way. 
+- type: entity
+  parent: [ OrganBase, OrganAnimalInternal ]
+  id: OrganAnimalEyes
+  name: eyes
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Eyes
+  - type: Sprite
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Eyes
+
 - type: entity
   id: BaseMobAnimal
   abstract: true

@@ -8,7 +8,7 @@
   color: saddlebrown
   recognizable: true
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 0.5
@@ -28,7 +28,7 @@
   flavor: bitter
   color: "#df0000"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
@@ -116,7 +116,7 @@
   flavor: vanilla
   color: "#fdf9e8"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:

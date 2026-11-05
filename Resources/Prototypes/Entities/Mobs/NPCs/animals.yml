@@ -1606,6 +1606,8 @@
       - !type:WashCreamPie
   - type: Crawler
   - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus # marks them as crew
   # imp edit start
   - type: Blindable
   - type: Carriable #DeltaV
@@ -1762,8 +1764,6 @@
     interactSuccessString: petting-success-monkey
     interactFailureString: petting-failure-monkey
     interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/lizard_happy.ogg
     interactFailureSound:
       path: /Audio/Items/wirecutter.ogg
   - type: MobThresholds
@@ -2333,8 +2333,6 @@
     interactSuccessString: petting-success-reptile
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/lizard_happy.ogg
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -4451,8 +4449,9 @@
     - VimPilot
     - CanPilot
     - DoorBumpOpener
-  - type: StatusIcon # marks them as crew
+  - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus # marks them as crew
   - type: NpcFactionMember
     factions:
     - NanoTrasen

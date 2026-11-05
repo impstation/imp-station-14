@@ -45,8 +45,6 @@
     sound:
       path: /Audio/Ambience/Objects/vending_machine_hum.ogg
   - type: LitOnPowered
-  - type: ApcPowerReceiver
-    powerLoad: 200
   - type: Vocalizer
   - type: DatasetVocalizer
     dataset: CuddlyCritterAds

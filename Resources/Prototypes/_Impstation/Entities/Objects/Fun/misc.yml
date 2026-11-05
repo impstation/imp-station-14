@@ -1,0 +1,80 @@
+#ANTI PR REVIEW HEX: ⛤⛤⛤ MAINTAINERS GET YE GONE! THIS FILE IS NOT FOR YOU! WITH THESE WORDS I BAR YOU FROM THIS FILE FOREVERMORE!!!! ⛤⛤⛤
+- type: entity
+  id: charple
+  name: "???"
+  description: "???"
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Impstation/Objects/Fun/misc.rsi
+    state: funnysprite
+    drawdepth: Mobs
+  - type: Item
+    size: Small
+  - type: Animateable
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: CollisionWake
+    enabled: false
+  - type: TriggerOnProximity
+    enabled: true
+    triggerSpeed: 0
+    layer: MobLayer
+    shape:
+      !type:PhysShapeCircle
+        radius: 0.4666
+    requiresAnchored: false
+    keyOut: proximity
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Impstation/Misc/stalker-scream.ogg
+    positional: true
+    keysIn:
+    - proximity
+    - examined
+    - activate
+    - click
+  - type: TimerTrigger
+    delay: 1
+    popup: null
+    examinable: false
+    keysIn:
+    - proximity
+    - examined
+    - activate
+    - click
+  - type: AddComponentsOnTrigger
+    keysIn:
+    - proximity
+    - examined
+    - activate
+    - click
+    components:
+    - type: PointLight
+      radius: 3
+      energy: 5
+      color: "#ff0000"
+  - type: TriggerOnExamined
+    keyOut: examined
+  - type: TriggerOnInteractHand
+    keyOut: click
+  - type: TriggerOnActivate
+    keyOut: activate
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+

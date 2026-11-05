@@ -1,0 +1,205 @@
+- type: markingsGroup
+  id: VulpkaninSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ VulpkaninSkeletonTail ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceVulpkaninSkeletonPerson
+  name: Vulpkaninskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    speciesId: vulpkanin
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: back
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerwear
+      gloves:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: head
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: neck
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: eyes
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: belt
+  - type: InitialBody
+    organs:
+      Torso: OrganVulpkaninSkeletonPersonTorso
+      Head: OrganVulpkaninSkeletonPersonHead
+      ArmLeft: OrganVulpkaninSkeletonPersonArmLeft
+      ArmRight: OrganVulpkaninSkeletonPersonArmRight
+      HandRight: OrganVulpkaninSkeletonPersonHandRight
+      HandLeft: OrganVulpkaninSkeletonPersonHandLeft
+      LegLeft: OrganVulpkaninSkeletonPersonLegLeft
+      LegRight: OrganVulpkaninSkeletonPersonLegRight
+      FootLeft: OrganVulpkaninSkeletonPersonFootLeft
+      FootRight: OrganVulpkaninSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonVulpkanin
+
+- type: entity
+  parent:
+  - AppearanceVulpkaninSkeletonPerson
+  - MobSkeletonPerson
+  id: MobVulpkaninSkeletonPerson
+  name: Urist McMilkbone #i guess
+  components:
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Piercing: 2
+        Slash: 3
+  - type: JumpAbility
+    action: ActionVulpkaninGravityJump
+    canCollide: true
+    jumpDistance: 3
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
+
+- type: entity
+  parent: OrganSkeletonPerson
+  id: OrganVulpkaninSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/VulpkaninSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/VulpkaninSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: VulpkaninSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonHead #SKELE TODO: skull icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganVulpkaninSkeletonPersonExternal ]
+  id: OrganVulpkaninSkeletonPersonFootRight

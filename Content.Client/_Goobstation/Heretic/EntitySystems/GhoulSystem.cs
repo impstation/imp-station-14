@@ -28,7 +28,7 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     {
         var ghoulColor = Color.FromHex("#505050");
 
-        if (HasComp<HumanoidAppearanceComponent>(uid))
+        if (HasComp<HumanoidProfileComponent>(uid))
             return;
 
         if (!TryComp<SpriteComponent>(uid, out var sprite))

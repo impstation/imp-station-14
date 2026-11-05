@@ -215,3 +215,31 @@
     maxFillLevels: 5
     fillBaseName: fill-
     solutionName: waterTank
+
+- type: entity
+  name: skeletal decapoid claw
+  suffix: Unremoveable
+  parent: DecapoidClawItem
+  id: SkeletonDecapoidClawItem
+  description: A large claw. Not very good for fine manipulation, but very strong and very sharp. This one looks bone chillingly spooky!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Decapoid/skeletonclaw.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Decapoid/skeletonclaw.rsi
+  - type: MultipleTool #cant just inherit this because it overrides the icon
+    statusShowBehavior: true
+    entries:
+      - behavior: Prying
+        sprite:
+          sprite: _Impstation/Objects/Decapoid/skeletonclaw.rsi
+          state: icon-closed
+        useSound: /Audio/_Impstation/Items/Decapoid/claw_prying.ogg
+        changeSound: /Audio/_Impstation/Items/Decapoid/switch.ogg
+      - behavior: Cutting
+        sprite:
+          sprite: _Impstation/Objects/Decapoid/skeletonclaw.rsi
+          state: icon
+        useSound: /Audio/_Impstation/Items/Decapoid/claw_cutting.ogg
+        changeSound: /Audio/_Impstation/Items/Decapoid/switch.ogg

@@ -34,7 +34,7 @@
   - CaptainBackpack # Imp reorder
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
-  - CaptainJobTrinkets
+  #- CaptainJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp, Assign GroupTankHarness to jobs without outer clothing and GroupTankHarnessWithOuterwear to jobs with
@@ -52,7 +52,7 @@
   - HoPBackpack # imp reorder
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
-  - HoPJobTrinkets
+  #- HoPJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
@@ -82,7 +82,7 @@
   - CommonBackpack # imp reorder
   - Survival
   - Trinkets
-  - PassengerJobTrinkets
+  #- PassengerJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -117,7 +117,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ServiceWorkerJobTrinkets
+  #- ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
 
@@ -135,7 +135,7 @@
   - ChefPDA # imp
   - Survival
   - Trinkets
-  - ChefJobTrinkets
+  #- ChefJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -150,7 +150,7 @@
   - CommonBackpack # imp reorder
   - Survival
   - Trinkets
-  - LibrarianJobTrinkets
+  #- LibrarianJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
@@ -167,7 +167,7 @@
   - LawyerPDA # imp
   - Survival
   - Trinkets
-  - LawyerJobTrinkets
+  #- LawyerJobTrinkets
   - LawyerBriefcase # imp
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
@@ -175,6 +175,7 @@
 
 - type: roleLoadout
   id: JobChaplain
+  canCustomizeName: true
   groups:
   - ChaplainHead
   - ChaplainEyes # imp ????? why arent these glasses or mask
@@ -188,7 +189,7 @@
   - CommonBackpack # imp reorder
   - Survival
   - Trinkets
-  - ChaplainJobTrinkets
+  #- ChaplainJobTrinkets
   - ChaplainBible #imp reorder
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
@@ -227,7 +228,7 @@
   - BotanistPDA # imp
   - Survival
   - Trinkets
-  - BotanistJobTrinkets
+  #- BotanistJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -265,7 +266,7 @@
   - MimeBackpack # imp reorder
   - SurvivalMime
   - Trinkets
-  - MimeJobTrinkets
+  #- MimeJobTrinkets
   - GroupBreathToolDecapoidInventoryMime # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
@@ -283,7 +284,7 @@
   - CommonBackpack # imp reorder
   - Survival
   - Trinkets
-  - MusicianJobTrinkets
+  #- MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
@@ -303,7 +304,7 @@
   - QuartermasterBackpack #imp CargoTechnicianBackpack > QuartermasterBackpack
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
-  - QuartermasterJobTrinkets
+  #- QuartermasterJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
@@ -323,7 +324,7 @@
   - CargoTechnicianID # imp reorder
   - Survival
   - Trinkets
-  - CargoTechnicianJobTrinkets
+  #- CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -341,7 +342,7 @@
   - SalvageSpecialistPDA # imp
   - Survival
   - Trinkets
-  - SalvageSpecialistJobTrinkets
+  #- SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -359,7 +360,7 @@
   - ChiefEngineerBackpack #imp StationEngineerBackpack > ChiefEngineerBackpack
   - SurvivalExtendedCommand #imp SurvivalExtended > SurvivalExtendedCommand
   - Trinkets
-  - ChiefEngineerJobTrinkets
+  #- ChiefEngineerJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
@@ -371,7 +372,7 @@
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
-  - TechnicalAssistantJobTrinkets
+  #- TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
@@ -389,7 +390,7 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
-  - StationEngineerJobTrinkets
+  #- StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -407,7 +408,7 @@
   - AtmosphericTechnicianPDA # imp
   - SurvivalExtended
   - Trinkets
-  - AtmosphericTechnicianJobTrinkets
+  #- AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -427,7 +428,7 @@
   - ResearchDirectorBackpack # imp ScientistBackpack > ResearchDirectorBackpack
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
-  - ResearchDirectorJobTrinkets
+  #- ResearchDirectorJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
@@ -447,7 +448,7 @@
   - ScientistPDA # imp reorder
   - Survival
   - Trinkets
-  - ScientistJobTrinkets
+  #- ScientistJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
@@ -460,7 +461,7 @@
   - ScientistBackpack # imp reorder
   - Survival
   - Trinkets
-  - ResearchAssistantJobTrinkets
+  #- ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
@@ -559,7 +560,7 @@
   - SecurityBackpack
   - SurvivalSecurity
   - Trinkets
-  - SecurityCadetJobTrinkets
+  #- SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp. wtf does upstream hate cadets
@@ -576,7 +577,7 @@
   - CommonBackpack # imp reorder
   - Survival
   - Trinkets
-  - ReporterJobTrinkets
+  #- ReporterJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder
@@ -594,7 +595,7 @@
   - PsychologistBackpack # imp MedicalBackpack > PsychologistBackpack
   - Survival
   - Trinkets
-  - PsychologistJobTrinkets
+  #- PsychologistJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear

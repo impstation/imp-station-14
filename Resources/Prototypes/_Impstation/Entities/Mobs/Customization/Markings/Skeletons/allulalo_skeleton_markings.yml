@@ -1,0 +1,15 @@
+# Tail
+
+- type: marking
+  id: AllulaloSkeletonTail
+  bodyPart: Tail
+  groupWhitelist: [ AllulaloSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/AllulaloSkeleton/tail.rsi
+    state: tail-bone
+

@@ -8,14 +8,14 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-reflective
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1.5
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Human ]
-            inverted: true
+            inverted: true # imp edit...? i checked CD's version and this line is not there
   footstepSound:
     collection: FootstepBlood
     params:

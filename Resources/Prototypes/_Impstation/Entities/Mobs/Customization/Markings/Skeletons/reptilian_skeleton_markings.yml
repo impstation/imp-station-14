@@ -1,0 +1,19 @@
+# Tail
+
+- type: marking
+  id: ReptilianSkeletonTail
+  bodyPart: Tail
+  groupWhitelist: [ ReptilianSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  layering:
+    tail_bones_behind: TailBehind
+    tail_bones_front: Tail
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/ReptilianSkeleton/tail.rsi
+    state: tail_bones_front
+  - sprite: _Impstation/Mobs/Customization/Skeletons/ReptilianSkeleton/tail.rsi
+    state: tail_bones_behind

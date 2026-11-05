@@ -162,6 +162,8 @@
     - id: RCDAmmo
     - id: RPD # Funky RPD
     - id: AirGrenade
+    - id: PlushieLizardJobAtmospherictechnician
+      prob: 0.02
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
@@ -205,6 +207,10 @@
     - id: RCD
     - id: RCDAmmo
     - id: MetalFoamGrenade
+    - id: PlushieLizardJobTechnicalassistant
+      prob: 0.02
+    - id: PlushieLizardJobStationengineer
+      prob: 0.02
 
 - type: entityTable
   id: FillEngineerHardsuit

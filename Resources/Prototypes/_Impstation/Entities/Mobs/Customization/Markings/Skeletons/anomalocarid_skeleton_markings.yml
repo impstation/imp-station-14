@@ -1,0 +1,35 @@
+# HeadTop
+
+- type: marking
+  id: AnomalocaridSkeletonAntennae
+  bodyPart: HeadTop
+  groupWhitelist: [ AnomalocaridSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/AnomalocaridSkeleton/headtop.rsi
+    state: bonetennae
+
+# Tail
+
+- type: marking
+  id: AnomalocaridSkeletonWings
+  bodyPart: Tail
+  groupWhitelist: [ AnomalocaridSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  layering:
+    bonewings_behind: TailBehind
+    bonewings_front: Tail
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/AnomalocaridSkeleton/tail.rsi
+    state: bonewings_front
+  - sprite: _Impstation/Mobs/Customization/Skeletons/AnomalocaridSkeleton/tail.rsi
+    state: bonewings_behind
+

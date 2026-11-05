@@ -21,7 +21,7 @@
   abstract: true
   components:
   - type: Body
-  - type: EntityTableContainerFill #TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
     containers:
       body_organs: !type:AllSelector
         children:

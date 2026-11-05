@@ -12,6 +12,8 @@
     - id: DoorRemoteCargo
     - id: AstroNavCartridge
     - id: ClothingHandsKnuckleDustersQM
+    - id: PlushieLizardJobQuartermaster
+      prob: 0.02
     - id: PrinterDocFlatpack  # Corvax-Printer
     - id: PersonalAILearnerCargo #impspecial
 
@@ -51,6 +53,8 @@
       conditions:
       - !type:PlayerCountCondition
         max: 15
+    - id: PlushieLizardJobCaptain
+      prob: 0.02
     - id: TicketPad #imp special
     - id: PersonalAILearnerCommand #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
@@ -137,6 +141,8 @@
     # - id: WeaponDisabler #imp edit
     - id: AntiqueDisablerBox #imp edit
     - id: ClothingEyesHudCommand
+    - id: PlushieLizardJobHeadofpersonnel
+      prob: 0.02
     - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
@@ -169,6 +175,8 @@
     - id: RPD # Funky RPD
     - id: RubberStampCE
     - id: MetalFoamGrenade
+    - id: PlushieLizardJobChiefengineer
+      prob: 0.02
     - id: PersonalAILearnerEngineering #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
 
@@ -234,6 +242,8 @@
     - id: BoxEncryptionKeyMedical
     - id: BoxCMOCircuitboards
   #imp edit end
+    - id: PlushieLizardJobChiefmedicalofficer
+      prob: 0.02
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -283,6 +293,8 @@
     - id: DoorRemoteResearch
     - id: HandTeleporter
     - id: RubberStampRd
+    - id: PlushieLizardJobResearchdirector
+      prob: 0.02
     - id: PersonalAILearnerScience #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
     - id: SiliconSynchronizer # imp
@@ -346,6 +358,8 @@
     - id: WeaponTaser
     - id: WantedListCartridge
     - id: DrinkHosFlask
+    - id: PlushieLizardJobHeadofsecurity
+      prob: 0.02
     - id: ClothingMaskGasSecurity # imp
     - id: ClothingNeckBronzeheart #imp
     - id: TicketPad #imp special

@@ -1,0 +1,219 @@
+- type: markingsGroup
+  id: DecapoidSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+
+- type: entity
+  parent: [DecapoidSpeciesLayers, BaseSpeciesAppearance]
+  id: AppearanceDecapoidSkeletonPerson
+  name: decapoidskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganDecapoidSkeletonPersonTorso
+      Head: OrganDecapoidSkeletonPersonHead
+      ArmLeft: OrganDecapoidSkeletonPersonArmLeft
+      ArmRight: OrganDecapoidSkeletonPersonArmRight
+      HandRight: OrganDecapoidSkeletonPersonHandRight
+      HandLeft: OrganDecapoidSkeletonPersonHandLeft
+      LegLeft: OrganDecapoidSkeletonPersonLegFront
+      LegRight: OrganDecapoidSkeletonPersonLegBack
+      FootLeft: OrganDecapoidSkeletonPersonFootFront
+      FootRight: OrganDecapoidSkeletonPersonFootBack
+  - type: HumanoidProfile
+    species: SkeletonDecapoid
+
+- type: entity
+  parent:
+  - AppearanceDecapoidSkeletonPerson
+  - MobSkeletonPerson
+  id: MobDecapoidSkeletonPerson
+  name: Urist McShell
+  components:
+  - type: Inventory
+    templateId: decapoid
+    speciesId: decapoid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: gloves
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/decapoid_brute_damage.rsi #imp edit, waiting on proper macro merge to migrate files
+        color: "#555555AA"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepDecapoid
+  - type: Puller #same as base decapoid
+    needsHands: false
+    applySpeedModifier: false
+  - type: Clumsy #ditto
+    clumsyVaulting: false
+    clumsyHypo: false
+    clumsyDefib: false
+    clumsyCatching: false
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+    clumsySound:
+      path: /Audio/_Impstation/Effects/Clumsy/crab_snap.ogg #imp edit, waiting on proper macro merge to migrate files
+    gunWhitelist:
+      tags:
+      - Crusher
+    gunFailedMessage: gun-clumsy-decapoid # The gun slips out of your claws!
+  - type: CanWieldOneHanded #ditto
+  - type: CarrierOneHand #ditto
+
+- type: entity
+  parent: OrganSkeletonPerson
+  id: OrganDecapoidSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/DecapoidSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/DecapoidSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: DecapoidSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonHead #SKELE TODO: skull icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonHandLeft
+  components:
+  - type: EquipmentOrgan
+    equipment:
+    - SkeletonDecapoidClawItem #skeletons get their own special claw
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonLegFront
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/DecapoidSkeleton/parts.rsi
+    state: front_leg
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LLeg
+    data:
+      state: front_leg
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonLegBack
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/DecapoidSkeleton/parts.rsi
+    state: back_leg
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RLeg
+    data:
+      state: back_leg
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonFootFront
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/DecapoidSkeleton/parts.rsi
+    state: front_feet
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LFoot
+    data:
+      state: front_feet
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganDecapoidSkeletonPersonExternal ]
+  id: OrganDecapoidSkeletonPersonFootBack
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/DecapoidSkeleton/parts.rsi
+    state: back_feet
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RFoot
+    data:
+      state: back_feet

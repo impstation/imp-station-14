@@ -1,0 +1,200 @@
+- type: markingsGroup
+  id: DionaSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceDionaSkeletonPerson
+  name: Dionaskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    templateId: diona
+    speciesId: dionaskeleton
+    displacements:
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: eyes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: belt
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_right
+  - type: InitialBody
+    organs:
+      Torso: OrganDionaSkeletonPersonTorso
+      Head: OrganDionaSkeletonPersonHead
+      ArmLeft: OrganDionaSkeletonPersonArmLeft
+      ArmRight: OrganDionaSkeletonPersonArmRight
+      HandRight: OrganDionaSkeletonPersonHandRight
+      HandLeft: OrganDionaSkeletonPersonHandLeft
+      LegLeft: OrganDionaSkeletonPersonLegLeft
+      LegRight: OrganDionaSkeletonPersonLegRight
+      FootLeft: OrganDionaSkeletonPersonFootLeft
+      FootRight: OrganDionaSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonDiona
+
+- type: entity
+  parent:
+  - AppearanceDionaSkeletonPerson
+  - MobSkeletonPerson
+  id: MobDionaSkeletonPerson
+  name: Urist McHollow
+  components:
+  - type: BodyEmotes #made of would
+    soundsId: DionaBodyEmotes
+  - type: IgniteOnHeatDamage #there made of wod
+    fireStacks: 1
+    threshold: 8 #dead wold burns easier
+  - type: Rootable #woud
+  - type: LightningTarget # theyre wolden
+    priority: 4
+    lightningExplode: true #dead trees explode + dioda are made of woop
+  - type: IgnoreKudzu #dina are make of wode
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - DionaHivemind # Their trees so they can talk to other woos
+
+- type: entity
+  parent: OrganSkeletonPerson
+  id: OrganDionaSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/DionaSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: DionaSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonHead #SKELE TODO: skull icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganDionaSkeletonPersonExternal ]
+  id: OrganDionaSkeletonPersonFootRight

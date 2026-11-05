@@ -1,0 +1,150 @@
+- type: markingsGroup
+  id: ThavenSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceThavenSkeletonPerson
+  name: Thavenskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganThavenSkeletonPersonTorso
+      Head: OrganThavenSkeletonPersonHead
+      ArmLeft: OrganThavenSkeletonPersonArmLeft
+      ArmRight: OrganThavenSkeletonPersonArmRight
+      HandRight: OrganThavenSkeletonPersonHandRight
+      HandLeft: OrganThavenSkeletonPersonHandLeft
+      LegLeft: OrganThavenSkeletonPersonLegLeft
+      LegRight: OrganThavenSkeletonPersonLegRight
+      FootLeft: OrganThavenSkeletonPersonFootLeft
+      FootRight: OrganThavenSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonThaven
+
+- type: entity
+  parent:
+  - AppearanceThavenSkeletonPerson
+  - MobSkeletonPerson
+  id: MobThavenSkeletonPerson
+  name: "Urist McThaven't"
+  components:
+  - type: StrangeMoods
+    mood: ThavenMoods #TODO: skeleton moods?
+  - type: IonStormTarget
+  - type: MeleeWeapon #same as base thaven
+    attackRate: 0.55
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 0
+
+- type: entity
+  parent: OrganSkeletonPerson
+  id: OrganThavenSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/ThavenSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/ThavenSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: ThavenSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonHead #SKELE TODO: skull icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganThavenSkeletonPersonExternal ]
+  id: OrganThavenSkeletonPersonFootRight

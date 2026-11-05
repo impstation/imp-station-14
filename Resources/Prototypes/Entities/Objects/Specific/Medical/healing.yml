@@ -381,6 +381,12 @@
   - type: Stack
     stackType: AloeCream
     count: 10
+  - type: Item
+    storedRotation: 90
+    storedOffset: 4, 0
+    storedSprite:
+      state: cream
+      sprite: Objects/Specific/Hydroponics/aloe.rsi
   # imp edit start
   - type: Healing
     damageContainers:

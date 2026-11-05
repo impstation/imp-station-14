@@ -1,5 +1,18 @@
 # Chest
 
+- type: marking
+  id: ApidChestStripesDefault
+  bodyPart: Chest
+  groupWhitelist: [Apid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffe600"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Apid/chest.rsi
+    state: stripes
+
 # Head
 
 # Snout
@@ -9,9 +22,8 @@
 - type: marking
   id: ApidEyesDefault
   bodyPart: Eyes
-  markingCategory: Eyes
   forcedColoring: true
-  speciesRestriction: [ Apid ]
+  groupWhitelist: [Apid]
   coloring:
     default:
       type:
@@ -20,6 +32,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Species/Apid/parts.rsi
     state: eyes
+
 
 # RArm
 
@@ -47,9 +60,8 @@
 - type: marking
   id: ApidAntennaeDefault
   bodyPart: Hair
-  markingCategory: Hair
   forcedColoring: true
-  speciesRestriction: [ Apid ]
+  groupWhitelist: [Apid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Apid/hair.rsi
     state: defaultAntennae
@@ -57,9 +69,8 @@
 - type: marking
   id: ApidAntennaeDroopy
   bodyPart: Hair
-  markingCategory: Hair
   forcedColoring: true
-  speciesRestriction: [ Apid ]
+  groupWhitelist: [Apid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Apid/hair.rsi
     state: antennaeDroopy
@@ -67,9 +78,8 @@
 - type: marking
   id: ApidAntennaeSad
   bodyPart: Hair
-  markingCategory: Hair
   forcedColoring: true
-  speciesRestriction: [ Apid ]
+  groupWhitelist: [Apid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Apid/hair.rsi
     state: antennaeSad
@@ -77,9 +87,8 @@
 - type: marking
   id: ApidAntennaeForward
   bodyPart: Hair
-  markingCategory: Hair
   forcedColoring: true
-  speciesRestriction: [ Apid ]
+  groupWhitelist: [Apid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Apid/hair.rsi
     state: antennaeForward
@@ -91,12 +100,30 @@
 # Tail
 
 - type: marking
-  id: ApidWingsAnimatedDefault
+  id: ApidBeeButtDefault
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Apid ]
+  groupWhitelist: [Apid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffe600"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Apid/tail.rsi
+    state: apidBeeButtDefault
+
+#TailOverlay
+
+- type: marking
+  id: ApidWingsAnimatedDefault
+  bodyPart: TailOverlay
+  groupWhitelist: [Apid]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Apid/tail.rsi
     state: apidWingsDefault
-
-# RArmExtension

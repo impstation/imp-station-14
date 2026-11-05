@@ -7,7 +7,7 @@
   flavor: unholy
   color: "#6C5675"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
@@ -57,7 +57,7 @@
   physicalDesc: reagent-physical-desc-acrid
   metabolisms:
     # Should you be injecting this in a friendly? maybe
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:

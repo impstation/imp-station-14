@@ -1,0 +1,19 @@
+# Tail
+
+- type: marking
+  id: GastropoidSkeletonShell
+  bodyPart: Tail
+  groupWhitelist: [ GastropoidSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  layering:
+    boneshell_behind: TailBehind
+    boneshell_front: Tail
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/GastropoidSkeleton/tail.rsi
+    state: boneshell_front
+  - sprite: _Impstation/Mobs/Customization/Skeletons/GastropoidSkeleton/tail.rsi
+    state: boneshell_behind

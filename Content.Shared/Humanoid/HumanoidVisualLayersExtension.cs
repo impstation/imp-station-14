@@ -64,9 +64,7 @@ namespace Content.Shared.Humanoid
                 case HumanoidVisualLayers.Chest:
                     yield return HumanoidVisualLayers.Chest;
                     yield return HumanoidVisualLayers.Tail;
-                    yield return HumanoidVisualLayers.TailUnderlay; // imp
                     yield return HumanoidVisualLayers.TailBehind; // imp
-                    yield return HumanoidVisualLayers.TailBehindBackpack; // imp
                     yield return HumanoidVisualLayers.TailOversuit; // imp
                     break;
                 default:
