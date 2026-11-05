@@ -1,12 +1,12 @@
-﻿using System.Text;
 using Content.Server.Destructible;
-using Content.Shared.Speech.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
 using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 using Robust.Shared.Random;
+using System.Text;
 
 namespace Content.Server.Speech.EntitySystems;
 
@@ -53,6 +53,12 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             else if (TryComp<DamageableComponent>(uid, out var damageable))
             {
                 damage = damageable.TotalDamage;
+                //imp edit start - if damage is below minimum threshold, don't corrupt
+                if (damage < ent.Comp.StartCorruptionAt)
+                {
+                    return;
+                }
+                //imp edit end
             }
             // Corrupt due to damage (drop, repeat, replace with symbols)
             args.Message = CorruptDamage(args.Message, damage, ent);

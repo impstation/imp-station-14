@@ -1,4 +1,4 @@
-﻿using Content.Shared.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Speech.Components;
@@ -78,4 +78,12 @@ public sealed partial class DamagedSiliconAccentComponent : Component
     /// </summary>
     [DataField]
     public float ProbToCorruptDotFromPower = 0.6f;
+
+    //imp edit - add minimum damage percentage before corruptions start
+    /// <summary>
+    ///     amount of lost health at which to start doing the damage corruptions.
+    ///     default to 0 damage
+    /// </summary>
+    [DataField]
+    public float StartCorruptionAt = 0.0f;
 }
