@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: mqole
-  changes:
-  - message: Dwarves are now 2% slower.
-    type: Tweak
-  id: 2507
-  time: '2025-12-30T22:54:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3892
 - author: TheGrimbeeper
   changes:
   - message: Your mind will no longer believe you can "Eat" from artifacts which are
@@ -4047,3 +4040,11 @@
   id: 3006
   time: '2026-11-05T13:38:34.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4688
+- author: VeeNomine
+  changes:
+  - message: Fixed Luggage so it now properly displays injury and death status upon
+      being examined. No more Garba Gleef moments!
+    type: Fix
+  id: 3007
+  time: '2026-11-05T13:58:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4715
