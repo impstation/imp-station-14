@@ -48,7 +48,7 @@
   - type: ContentEye
     maxZoom: 1.44,1.44
   - type: Eye
-    visMask: 14 # imp edit, allows to see ai eye after it was moved to laver 4
+    visMask: 2
     drawFov: false
   - type: Input
     context: "ghost"
@@ -69,6 +69,7 @@
     radius: 6
     castShadows: false
     enabled: false
+  - type: SiliconVision #imp so ghosts can see the ai eye
 
 # proto for player ghosts specifically
 - type: entity

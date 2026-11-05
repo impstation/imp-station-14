@@ -559,15 +559,17 @@
       - GhostOnlyWarp
   - type: Eye
     pvsScale: 1.5
-    visMask: 5 #imp
+    visMask: 1 #imp
   - type: Visibility
-    layer: 4 #imp, so borgs can see the ai eye
+    layer: 1
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: ai_camera
       shader: unshaded
       map: ["base"]
+  - type: SiliconGhost #imp
+  - type: SiliconVision #imp so borgs can see the ai eye
 
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity
