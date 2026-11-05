@@ -1,11 +1,11 @@
 // Initial file ported from the Starlight project repo, located at https://github.com/ss14Starlight/space-station-14
 
 using System.Linq;
-using Content.Shared.VentCraw.Tube.Components;
+using Content.Shared._Starlight.VentCraw.Tube.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Shared.VentCraw;
+namespace Content.Shared._Starlight.VentCraw;
 
 public sealed class SharedVentTubeSystem : EntitySystem
 {
