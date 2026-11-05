@@ -6,8 +6,8 @@ namespace Content.Shared.Radiation.Components;
 ///     Create circle pulse animation of radiation around object.
 ///     Drawn on client after creation only once per component lifetime.
 /// </summary>
-[RegisterComponent]
-[Access(typeof(RadiationPulseSystem))]
+[RegisterComponent, AutoGenerateComponentPause] // imp, added AutoGenerateComponentPause]
+[Access(typeof(SharedRadiationPulseSystem))] // imp, changed to SharedRadiationPulseSystem from RadiationPulseSystem
 public sealed partial class RadiationPulseComponent : Component
 {
     /// <summary>
@@ -26,4 +26,11 @@ public sealed partial class RadiationPulseComponent : Component
     ///     Can be overridden by <see cref="RadiationSourceComponent"/>.
     /// </summary>
     public float VisualRange = 5f;
+
+    // imp start
+    [ViewVariables(VVAccess.ReadOnly), AutoPausedField]
+    public TimeSpan NextInRangeEvent;
+    [DataField]
+    public TimeSpan InRangeEventInterval = TimeSpan.FromSeconds(1f);
+    // imp end
 }

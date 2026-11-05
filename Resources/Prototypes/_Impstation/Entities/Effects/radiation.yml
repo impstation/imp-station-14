@@ -1,0 +1,53 @@
+- type: entity
+  parent: RadiationPulse
+  id: SmallRadiationPulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadiationSource
+    intensity: 15
+    slope: 4
+
+- type: entity
+  parent: RadiationPulse
+  id: MediumRadiationPulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadiationSource
+    intensity: 10
+    slope: 1.5
+
+- type: entity
+  parent: RadiationPulse
+  id: SupermatterRadiationPulseSmall
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadiationSource
+    intensity: 60
+    slope: 16
+
+- type: entity
+  parent: RadiationPulse
+  id: SupermatterRadiationPulseMedium
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadiationSource
+    intensity: 120
+    slope: 18
+
+- type: entity
+  parent: RadiationPulse
+  id: SupermatterRadiationPulseLarge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadiationSource
+    intensity: 200
+    slope: 20
+
+- type: entity
+  parent: RadiationPulse
+  id: SupermatterRadiationPulseExtraLarge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadiationSource
+    intensity: 300
+    slope: 22
