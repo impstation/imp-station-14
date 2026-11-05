@@ -1,11 +1,13 @@
 using Content.Shared.Whitelist;
 using Content.Shared.Alert;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.GameStates;
 
-namespace Content.Server._Impstation.Drone.Components
+namespace Content.Shared._Impstation.Drone.Components
 {
     [RegisterComponent]
-    [AutoGenerateComponentPause]
+    [NetworkedComponent, AutoGenerateComponentPause, AutoGenerateComponentState]
     public sealed partial class DroneComponent : Component
     {
         public float InteractionBlockRange = 1.5f; /// imp. original value was 2.15, changed because it was annoying. this also does not actually block interactions anymore.
@@ -25,11 +27,13 @@ namespace Content.Server._Impstation.Drone.Components
         public EntityWhitelist? Blacklist;
 
         [DataField]
-        public ProtoId<AlertPrototype> BatteryAlert = "DroneBattery";
+        public ProtoId<AlertPrototype> BatteryAlert = "BorgBattery";
 
         [DataField]
         public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
 
-        public short LastChargePercent;
+        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+        [AutoNetworkedField, AutoPausedField]
+        public TimeSpan NextBatteryUpdate = TimeSpan.Zero;
     }
 }
