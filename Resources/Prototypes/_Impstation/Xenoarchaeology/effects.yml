@@ -1,4 +1,4 @@
-﻿- type: entityTable
+- type: entityTable
   id: XenoArtifactEffectsNaturalOnlyTable #30 total weight
   table: !type:GroupSelector
     children:
@@ -26,6 +26,15 @@
       weight: 10.0
     - id: XenoArtifactGun
       weight: 10.0
+
+- type: entity
+  id: XenoArtifactEffectCreationGasElectrovae
+  parent: BaseXenoArtifactEffect
+  description: Expels gas
+  components:
+  - type: XAECreateGas
+    gases:
+      Electrovae: 300
 
 - type: entity
   id: XenoArtifactInjectCryptobiolin

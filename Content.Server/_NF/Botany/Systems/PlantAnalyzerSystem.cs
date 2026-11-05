@@ -239,6 +239,14 @@ public sealed class PlantAnalyzerSystem : EntitySystem
                 case Gas.Frezon:
                     gasFlags |= GasFlags.Frezon;
                     break;
+                // imp start
+                case Gas.Electrovae:
+                    gasFlags |= GasFlags.Electrovae;
+                    break;
+                case Gas.ChargedElectrovae:
+                    gasFlags |= GasFlags.ChargedElectrovae;
+                    break;
+                // imp end
             }
         }
         return gasFlags;

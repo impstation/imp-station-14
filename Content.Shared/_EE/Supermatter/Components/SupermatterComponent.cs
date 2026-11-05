@@ -527,15 +527,17 @@ public static class SupermatterGasData
 {
     public static readonly Dictionary<Gas, SupermatterGasFact> GasData = new()
     {
-        { Gas.Oxygen,        new(1.5f, 1f,    1f,  1f) },
-        { Gas.Nitrogen,      new(0f,   -1.5f, -1f, 1f) },
-        { Gas.CarbonDioxide, new(0f,   0.1f,  1f,  1f) },
-        { Gas.Plasma,        new(4f,   15f,   1f,  1f) },
-        { Gas.Tritium,       new(30f,  10f,   1f,  1f) },
-        { Gas.WaterVapor,    new(2f,   12f,   1f,  1f) },
-        { Gas.Ammonia,       new(0f,   1f,    1f , 1f) },
-        { Gas.NitrousOxide,  new(0f,   -5f,   -1f, 6f) },
-        { Gas.Frezon,        new(3f,   -10f,  -1f, 1f) }
+        { Gas.Oxygen,               new(1.5f, 1f,    1f,  1f) },
+        { Gas.Nitrogen,             new(0f,   -1.5f, -1f, 1f) },
+        { Gas.CarbonDioxide,        new(0f,   0.1f,  1f,  1f) },
+        { Gas.Plasma,               new(4f,   15f,   1f,  1f) },
+        { Gas.Tritium,              new(30f,  10f,   1f,  1f) },
+        { Gas.WaterVapor,           new(2f,   12f,   1f,  1f) },
+        { Gas.Ammonia,              new(0f,   1f,    1f , 1f) },
+        { Gas.NitrousOxide,         new(0f,   -5f,   -1f, 6f) },
+        { Gas.Frezon,               new(3f,   -10f,  -1f, 1f) },
+        { Gas.Electrovae,           new(2f,   3f,    1f,  1f) },
+        { Gas.ChargedElectrovae,    new(2f,   1f,    5f,  1f) }
     };
 
     public static float CalculateGasMixModifier(GasMixture mix, Func<SupermatterGasFact, float> getModifier)
