@@ -15,11 +15,9 @@ namespace Content.Server._Impstation.Notifier;
 public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectInit
 {
     [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IServerNetManager _netManager = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
@@ -40,8 +38,6 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
     {
         var userId = message.MsgChannel.UserId;
         var notifierSystem = _entityManager.System<NotifierSystem>();
-        if (!notifierSystem.TryGetNotifier(userId, out _))
-            return;
         message.Notifier.EnsureValid(_configManager, _prototypeManager);
         notifierSystem.SetPlayerNotifier(userId, message.Notifier);
         notifierSystem.TrySetServerNotifiers(userId, message.Notifier);
