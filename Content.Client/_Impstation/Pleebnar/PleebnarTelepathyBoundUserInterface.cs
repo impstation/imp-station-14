@@ -5,13 +5,8 @@ namespace Content.Client._Impstation.Pleebnar;
 
 public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
 {
-
-
-
     [ViewVariables]
     private PleebnarTelepathyWindow? _window;
-
-
 
     public PleebnarTelepathyBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -24,8 +19,7 @@ public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
         _window.ReloadVisions();
         _window.AddVisions();
 
-        _window.OnVisionSelect += vision => SendMessage(new PleebnarTelepathyVisionMessage(vision));
-
+        _window.OnVisionSelect += vision => SendPredictedMessage(new PleebnarTelepathyVisionMessage(vision));
     }
 
     //handles actually updating the ui
@@ -36,7 +30,8 @@ public sealed class PleebnarTelepathyBoundUserInterface : BoundUserInterface
             return;
         }
 
-        if (cast.Vision!=null) _window.UpdateState(cast.Vision);
+        if (cast.Vision!=null)
+            _window.UpdateState(cast.Vision);
     }
     //handles closing the ui
     protected override void Dispose(bool disposing)
