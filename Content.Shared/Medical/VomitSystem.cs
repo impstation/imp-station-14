@@ -84,13 +84,14 @@ public sealed class VomitSystem : EntitySystem
         if (!force && _mobState.IsDead(uid))
             return;
 
-        // prevent vomiting if entity has no vomiting. Unless forced.
+        //  Imp edit start - prevent vomiting if entity has no vomiting. Unless forced.
         if (!force && _statusEffects.HasStatusEffect(uid, "NoVomitingStatusEffect"))
         {
             _movementMod.TryUpdateMovementSpeedModDuration(uid, NoVomitingSlowdownStatusEffect, TimeSpan.FromSeconds(5), 0.5f);
             _popup.PopupEntity(Loc.GetString("disease-no-vomit"), uid, uid, PopupType.SmallCaution);
             return;
         }
+        // Imp Edit End
 
         // TODO: Need decals
         var solution = new Solution();
