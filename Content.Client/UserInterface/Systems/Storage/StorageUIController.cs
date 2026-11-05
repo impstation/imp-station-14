@@ -3,7 +3,6 @@ using Content.Client.Hands.Systems;
 using Content.Client.Interaction;
 using Content.Client.Storage;
 using Content.Client.Storage.Systems;
-using Content.Client.UserInterface.Systems.Emotes; //imp edit
 using Content.Client.UserInterface.Systems.Hotbar.Widgets;
 using Content.Client.UserInterface.Systems.Info;
 using Content.Client.UserInterface.Systems.Storage.Controls;
@@ -21,6 +20,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Timing;
+using Content.Client.UserInterface.Systems.Emotes; //imp edit
 using System.Linq; //imp edit
 
 namespace Content.Client.UserInterface.Systems.Storage;
