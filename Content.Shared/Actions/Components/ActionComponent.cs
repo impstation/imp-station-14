@@ -194,6 +194,13 @@ public sealed partial class ActionComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public SoundSpecifier? Sound;
+
+    /// <summary>
+    ///     Imp.
+    ///     Removes the action after one sucessfull use.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RemoveActionAfterUse;
 }
 
 [DataRecord, Serializable, NetSerializable]

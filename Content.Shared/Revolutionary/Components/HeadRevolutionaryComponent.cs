@@ -24,4 +24,11 @@ public sealed partial class HeadRevolutionaryComponent : Component
     public TimeSpan StunTime = TimeSpan.FromSeconds(3);
 
     public override bool SessionSpecific => true;
+
+    /// <summary>
+    /// Imp.
+    /// Action to give the head revolutionary
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public EntProtoId GivenAction = "ActionSpawnRevolutionaryBriefcase";
 }

@@ -1,0 +1,11 @@
+- type: entity
+  parent: CybersunBriefcase
+  id: HeadRevolutionaryBriefcase
+  suffix: Do Not Map
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Flash
+        - id: ClothingEyesGlassesSunglasses
