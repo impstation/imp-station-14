@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: GrenadeBase # imp - unparent for contraband issues
+  parent: [VolatileGrenadeBase, TimerGrenadeBase, ScatteringGrenadeBase] # imp - unparent for contraband issues
   id: ExGrenadeFoam
   name: foam dart grenade
   suffix: Explosive
@@ -25,3 +25,7 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2 # 2 beeps total (at 0 and 2)
+  - type: ScatteringGrenade # imp - what if it also was a dart grenade?
+    fillPrototype: BulletFoam
+    capacity: 30
+    velocity: 30
