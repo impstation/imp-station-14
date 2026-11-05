@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: Your mind will no longer believe you can "Eat" from artifacts which are
-      chemical containers
-    type: Fix
-  - message: You can no longer press buttons so fast on the artifact analysis console
-      that it thinks its scanning up and down at the same time.
-    type: Fix
-  id: 2508
-  time: '2025-12-30T23:07:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3896
 - author: FlippenPage
   changes:
   - message: fixed a bad sprite offset on the Medical Assembler and Food-O-Mat
@@ -4048,3 +4037,13 @@
   id: 3007
   time: '2026-11-05T13:58:27.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4715
+- author: Sev7ves
+  changes:
+  - message: The syndicate explosive foam dart grenades now have foam darts.
+    type: Tweak
+  - message: The syndicate explosive foam dart grenades now have explosives in them
+      again.
+    type: Fix
+  id: 3008
+  time: '2026-11-05T14:01:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4714
