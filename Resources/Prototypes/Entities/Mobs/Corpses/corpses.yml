@@ -1,6 +1,7 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomServiceCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   suffix: Dead, Service
   components:
   - type: Loadout
@@ -19,6 +20,7 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomEngineerCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   suffix: Dead, Engineer
   components:
   - type: Loadout
@@ -30,6 +32,7 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomCargoCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   suffix: Dead, Cargo
   components:
   - type: Loadout
@@ -40,6 +43,7 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomMedicCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   suffix: Dead, Medic
   components:
   - type: Loadout
@@ -52,6 +56,7 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomScienceCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   suffix: Dead, Science
   components:
   - type: Loadout
@@ -62,6 +67,7 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomSecurityCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   suffix: Dead, Security
   components:
   - type: Loadout
@@ -74,6 +80,7 @@
 - type: entity
   parent: SalvageHumanCorpse
   id: MobRandomCommandCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   suffix: Dead, Command
   components:
   - type: Loadout
