@@ -23,3 +23,10 @@
     Steel: 500
     Glass: 500
     Plastic: 500
+
+- type: latheRecipe
+  id: Paper
+  result: Paper
+  completetime: 8
+  materials:
+    Paper: 25 # four sheets of paper per paper
