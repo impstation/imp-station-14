@@ -112,3 +112,20 @@
           prob: 0.75
         - id: CigaretteTazinide
           prob: 0.75
+
+- type: entity
+  id: CigPackDog
+  parent: [CigPackMixedBase, Tier1Contraband]
+  name: Dog Cigarette Packet
+  description: A white carton simply labeled "Dog Cigarettes".
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/dog.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/dog.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigaretteDog
+          amount: 10

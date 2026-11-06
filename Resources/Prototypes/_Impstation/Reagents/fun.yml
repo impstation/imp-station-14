@@ -458,3 +458,24 @@
     collection: FootstepBlood
     params:
       volume: 6
+
+- type: reagent
+  id: DogOil
+  name: reagent-name-dog-oil
+  desc: reagent-desc-dog-oil
+  physicalDesc: reagent-physical-desc-oily
+  flavor: dog
+  color: "#FFBE8F"
+  metabolisms:
+    metabolismRate: 0.25
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+      - !type:Emote
+        emote: Bark
+        showInChat: true
+        force: true
+        probability: 0.01

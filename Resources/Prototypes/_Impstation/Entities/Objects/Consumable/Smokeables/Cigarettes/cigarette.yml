@@ -399,3 +399,34 @@
             Quantity: 4
           - ReagentId: Lead
             Quantity: 1.5
+
+- type: entity
+  id: CigaretteDog
+  parent: BaseCigar
+  name: dog cigarette
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/dogcigarette.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+      - Cigarette
+      - Trash
+      - PetWearable # imp
+      - KodeEdible # imp
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: DogOil
+          Quantity: 10
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: DogOil
+          Quantity: 10
