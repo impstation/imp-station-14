@@ -467,7 +467,6 @@
   flavor: dog
   color: "#FFBE8F"
   metabolisms:
-    metabolismRate: 0.25
     Poison:
       effects:
       - !type:HealthChange

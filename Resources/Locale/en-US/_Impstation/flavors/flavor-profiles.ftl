@@ -11,6 +11,7 @@ flavor-base-fatty = fatty
 flavor-base-gooey = gooey
 flavor-base-ants = like ants
 flavor-base-light = light
+flavor-base-dog = dog
 
 flavor-complex-raktaccino = fantastically bitter
 flavor-complex-moscowmule = like a kick in the teeth
