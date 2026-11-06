@@ -404,6 +404,7 @@
   id: CigaretteDog
   parent: BaseCigar
   name: dog cigarette
+  description: It feels oily.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/dogcigarette.rsi
@@ -430,3 +431,19 @@
           Quantity: 10
         - ReagentId: DogOil
           Quantity: 10
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: DogOil
+        Quantity: 5
+  - type: Item
+    size: Tiny
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/dogcigarette.rsi
+    heldPrefix: unlit
+  - type: StaticPrice
+    price: 1
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/dogcigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit

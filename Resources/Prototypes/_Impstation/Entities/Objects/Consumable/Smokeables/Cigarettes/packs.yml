@@ -115,7 +115,7 @@
 
 - type: entity
   id: CigPackDog
-  parent: [CigPackMixedBase, Tier1Contraband]
+  parent: [CigPackBase, Tier1Contraband]
   name: Dog Cigarette Packet
   description: A white carton simply labeled "Dog Cigarettes".
   components:
