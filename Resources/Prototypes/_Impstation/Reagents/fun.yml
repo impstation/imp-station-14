@@ -473,6 +473,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Dog ]
+          inverted: true
         damage:
           types:
             Poison: 1
@@ -482,6 +486,21 @@
         force: true
         probability: 0.01
       - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Dog ]
+          inverted: true
         effectProto: StatusEffectHatedByDogs
         type: Update
         time: 50
+    Medicine:
+      effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Dog ]
+        damage:
+          Burn: -2
+          Toxin: -2
+          Airloss: -2
+          Brute: -2
