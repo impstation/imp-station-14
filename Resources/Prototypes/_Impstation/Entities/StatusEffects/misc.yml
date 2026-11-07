@@ -1,0 +1,7 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectHatedByDogs
+  name: HatedByDogs
+  components:
+  - type: FactionChangeStatusEffect
+    faction: DogHated

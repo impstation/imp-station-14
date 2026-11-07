@@ -481,3 +481,7 @@
         showInChat: true
         force: true
         probability: 0.01
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectHatedByDogs
+        type: Update
+        time: 50
