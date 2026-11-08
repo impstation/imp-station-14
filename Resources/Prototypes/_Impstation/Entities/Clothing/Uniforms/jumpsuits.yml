@@ -647,3 +647,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/gnomecostume.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/gnomecostume.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformPostmasterSuit
+  name: postmaster's jumpsuit
+  description: A stylish, yet practical jumpsuit marking a veteran courier. The buttons can be used to stamp wax seals in an emergency.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/postmaster_suit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/postmaster_suit.rsi
