@@ -134,7 +134,7 @@
     baseWeightlessModifier: 1
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganMothSkeletonPersonExternal
   abstract: true
   components:
@@ -153,7 +153,18 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganMothSkeletonPersonExternal ]
-  id: OrganMothSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganMothSkeletonPersonHead
+  name: moth skull
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/MothSkeleton/parts.rsi
+  - type: Clothing
+    sprite: _Impstation/Mobs/Species/Skeletons/MothSkeleton/skull_hood.rsi
+    slots:
+    - HEAD
+  - type: Sprite
+    state: skull_icon
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganMothSkeletonPersonExternal ]

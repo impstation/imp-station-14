@@ -62,7 +62,7 @@
   categories: [ HideSpawnMenu ] #imp
   components:
   - type: Inventory
-    speciesId: Allulalo
+    speciesId: allulalo
     displacements:
       jumpsuit:
         sizeMaps:
@@ -197,7 +197,7 @@
     - FootstepSound
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganAllulaloSkeletonPersonExternal
   abstract: true
   components:
@@ -217,7 +217,10 @@
 - type: entity
   parent: [ OrganBaseHead, OrganAllulaloSkeletonPersonExternal ]
   id: OrganAllulaloSkeletonPersonHead
-  components: #SKELE TODO: skull icon
+  name: allulalo skull
+  components:
+  - type: Sprite
+    state: skull_icon
   - type: HandOrgan #not even death will give you a second hand
     handID: left
     data:

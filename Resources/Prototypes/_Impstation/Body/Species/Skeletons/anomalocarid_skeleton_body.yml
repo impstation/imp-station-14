@@ -155,7 +155,7 @@
     - AnomalyHost
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganAnomalocaridSkeletonPersonExternal
   abstract: true
   components:
@@ -174,7 +174,30 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganAnomalocaridSkeletonPersonExternal ]
-  id: OrganAnomalocaridSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganAnomalocaridSkeletonPersonHead
+  name: anomalocarid skull
+  description: Oh yeah baby. We're gonna swing this around like a club and hurt some people.
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/AnomalocaridSkeleton/parts.rsi
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/AnomalocaridSkeleton/skull.rsi
+    state: skull_icon
+  - type: Item
+    sprite: _Impstation/Mobs/Species/Skeletons/AnomalocaridSkeleton/skull.rsi
+    inhandVisuals:
+      left:
+      - state: skull-inhand-l
+      right:
+      - state: skull-inhand-r
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganAnomalocaridSkeletonPersonExternal ]

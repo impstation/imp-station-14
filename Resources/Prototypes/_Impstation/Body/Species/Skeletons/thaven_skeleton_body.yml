@@ -96,7 +96,7 @@
         Blunt: 0
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganThavenSkeletonPersonExternal
   abstract: true
   components:
@@ -115,7 +115,11 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganThavenSkeletonPersonExternal ]
-  id: OrganThavenSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganThavenSkeletonPersonHead
+  name: thaven skull
+  components:
+  - type: Sprite
+    state: skull_icon
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganThavenSkeletonPersonExternal ]

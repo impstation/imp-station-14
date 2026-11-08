@@ -3,7 +3,7 @@
   id: BoneWaterDropletHat
   name: bone droplet
   description: Talk about hard water!
-  components: #TODO: after solutions refactor make this full of milk
+  components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Misc/bonedroplet.rsi
     state: icon
@@ -11,6 +11,16 @@
     sprite: _Impstation/Clothing/Head/Misc/bonedroplet.rsi
     size: Tiny
     storedRotation: -90
+  - type: FlavorProfile
+    flavors:
+      - milk
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 2
+        reagents:
+        - ReagentId: Milk
+          Quantity: 2
   - type: Destructible
     thresholds:
     - trigger:

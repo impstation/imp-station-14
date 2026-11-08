@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by ATDoop (github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "skull_icon",
+            "delays": [
+            [
+                1,
+                1,
+                1
+            ]
+            ]
+        },
+        {
+            "name": "skull-inhand-l",
+            "directions": 4
+        },
+        {
+            "name": "skull-inhand-r",
+            "directions": 4
+        }
+    ]
+}

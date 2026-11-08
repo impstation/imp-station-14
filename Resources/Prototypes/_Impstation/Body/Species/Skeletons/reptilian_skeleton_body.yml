@@ -97,7 +97,7 @@
     soundsId: ReptilianBodyEmotes
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganReptilianSkeletonPersonExternal
   abstract: true
   components:
@@ -116,7 +116,11 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganReptilianSkeletonPersonExternal ]
-  id: OrganReptilianSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganReptilianSkeletonPersonHead
+  name: reptilian skull
+  components:
+  - type: Sprite
+    state: skull_icon
 
 - type: entity
   parent: [ OrganBaseFootLeft, OrganReptilianSkeletonPersonExternal ]

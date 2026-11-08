@@ -202,6 +202,7 @@
   - type: VisualOrganMarkings
     markingData:
       group: Skeleton
+  - type: GibbableOrgan # imp edit, necessary for the bones to fall out. upstream does this at some point too.
 
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSkeletonPersonExternal ]
@@ -210,6 +211,7 @@
 - type: entity
   parent: [ OrganBaseHead, OrganSkeletonPersonExternal ]
   id: OrganSkeletonPersonHead
+  name: skull #imp edit
   components: #imp edit, for inhands
   - type: Item
     sprite: _Impstation/Objects/Specific/Xenoarchaeology/skull_artifact.rsi

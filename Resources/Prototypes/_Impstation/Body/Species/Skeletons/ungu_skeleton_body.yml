@@ -193,7 +193,7 @@
         variation: 0.05
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganUnguSkeletonPersonExternal
   abstract: true
   components:
@@ -212,7 +212,11 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganUnguSkeletonPersonExternal ]
-  id: OrganUnguSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganUnguSkeletonPersonHead
+  name: ungu skull
+  components:
+  - type: Sprite
+    state: skull_icon
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganUnguSkeletonPersonExternal ]

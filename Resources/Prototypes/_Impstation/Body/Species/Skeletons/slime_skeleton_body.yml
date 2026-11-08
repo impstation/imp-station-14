@@ -151,7 +151,7 @@
         probability: 0.25
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganSlimeSkeletonPersonExternal
   abstract: true
   components:
@@ -170,7 +170,12 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganSlimeSkeletonPersonExternal ]
-  id: OrganSlimeSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganSlimeSkeletonPersonHead
+  name: slime goolix
+  description: Ohh! So that's where all that goo comes from!
+  components:
+  - type: Sprite
+    state: skull_icon
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganSlimeSkeletonPersonExternal ]

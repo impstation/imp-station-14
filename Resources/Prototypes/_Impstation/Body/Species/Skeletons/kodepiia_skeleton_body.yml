@@ -143,7 +143,7 @@
       - SiliconLawBound
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganKodepiiaSkeletonPersonExternal
   abstract: true
   components:
@@ -163,6 +163,34 @@
 - type: entity
   parent: [ OrganBaseHead, OrganKodepiiaSkeletonPersonExternal ]
   id: OrganKodepiiaSkeletonPersonHead #SKELE TODO: skull icon
+  name: "cuttlebone?"
+  description: A fine meal for a tortoise.
+  components:
+  - type: Sprite
+    state: skull_icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 5
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Instrument #ocarina
+    program: 79
+  - type: ActivatableUI
+    blockSpectators: true # otherwise they can play client-side music
+    inHandsOnly: true
+    singleUser: true
+    requiresComplex: true
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganKodepiiaSkeletonPersonExternal ]

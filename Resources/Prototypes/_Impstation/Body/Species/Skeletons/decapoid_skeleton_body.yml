@@ -129,7 +129,7 @@
   - type: CarrierOneHand #ditto
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganDecapoidSkeletonPersonExternal
   abstract: true
   components:
@@ -148,7 +148,12 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganDecapoidSkeletonPersonExternal ]
-  id: OrganDecapoidSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganDecapoidSkeletonPersonHead
+  name: decapoid skull
+  description: It's full of woims...
+  components:
+  - type: Sprite
+    state: skull_icon
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganDecapoidSkeletonPersonExternal ]

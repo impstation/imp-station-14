@@ -147,7 +147,7 @@
         Slash: 5 # Reduce?
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganVoxSkeletonPersonExternal
   abstract: true
   components:
@@ -166,7 +166,11 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganVoxSkeletonPersonExternal ]
-  id: OrganVoxSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganVoxSkeletonPersonHead
+  name: vox skull
+  components:
+  - type: Sprite
+    state: skull_icon
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganVoxSkeletonPersonExternal ]

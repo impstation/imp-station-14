@@ -104,7 +104,7 @@
       - !type:WashCreamPie
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganArachnidSkeletonPersonExternal
   abstract: true
   components:
@@ -123,7 +123,11 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganArachnidSkeletonPersonExternal ]
-  id: OrganArachnidSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganArachnidSkeletonPersonHead
+  name: arachnid skull
+  components:
+  - type: Sprite
+    state: skull_icon
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganArachnidSkeletonPersonExternal ]

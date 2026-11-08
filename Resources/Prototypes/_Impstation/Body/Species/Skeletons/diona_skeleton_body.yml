@@ -146,7 +146,7 @@
     - DionaHivemind # Their trees so they can talk to other woos
 
 - type: entity
-  parent: OrganSkeletonPerson
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
   id: OrganDionaSkeletonPersonExternal
   abstract: true
   components:
@@ -165,7 +165,12 @@
 
 - type: entity
   parent: [ OrganBaseHead, OrganDionaSkeletonPersonExternal ]
-  id: OrganDionaSkeletonPersonHead #SKELE TODO: skull icon
+  id: OrganDionaSkeletonPersonHead
+  name: diona exuvia
+  description: It's long gone now.
+  components:
+  - type: Sprite
+    state: exuvia
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganDionaSkeletonPersonExternal ]
