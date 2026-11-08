@@ -17,16 +17,19 @@ marking-ScarTalons-talonscar = Scar (Talonmark)
 # Snout
 
 marking-Fangs = Lizard Fangs
-marking-Fangs-Fangs = Fangs
+marking-Fangs-fangs = Fangs
+marking-Fangs-snout_round = Snout
 
 marking-LizardBeard = Lizard Beard
 marking-LizardBeard-beard = Beard
+marking-LizardBeard-snout_round = Snout
 
 marking-LizardDroopySnout = Lizard Snout (Droopy)
 marking-LizardDroopySnout-droopy = Snout
 
 marking-LizardSnoutpiercings = Piercings
 marking-LizardSnoutpiercings-piercings1 = Piercings
+marking-LizardSnoutpiercings-snout_round = Snout
 
 marking-LizardSnoutTall = Lizard Snout (Tall)
 marking-LizardSnoutTall-tall = Snout

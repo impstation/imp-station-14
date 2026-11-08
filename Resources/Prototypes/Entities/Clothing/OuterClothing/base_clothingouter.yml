@@ -154,7 +154,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
-    - RArmExtension # imp, kode
+    - Tenta # imp, kode
   # imp edit start
   - type: Clothing #for equip/unequip delay
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -207,7 +207,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
-    - RArmExtension #imp
+    - Tenta #imp
 
 - type: entity
   parent: ClothingOuterBase

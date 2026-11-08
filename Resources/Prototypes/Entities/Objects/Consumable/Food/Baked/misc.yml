@@ -993,10 +993,6 @@
           Quantity: 5 # imp
         # - ReagentId: Vitamin # imp
         #  Quantity: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
   - type: Tag # imp
     tags:
     - UnguFood

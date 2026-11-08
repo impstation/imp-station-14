@@ -16,7 +16,7 @@
   tileReactions:
   - !type:FlammableTileReaction {}
   metabolisms:
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -50,7 +50,7 @@
   color: "#e43409"
   recognizable: true
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:AdjustTemperature
         conditions:
@@ -80,7 +80,7 @@
   contrabandSeverity: Minor
   recognizable: true
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:AdjustTemperature
         conditions:
@@ -114,7 +114,7 @@
   contrabandSeverity: Major
   recognizable: true
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:AdjustTemperature
         conditions:
@@ -151,7 +151,7 @@
   contrabandSeverity: Tier3Contraband
   recognizable: true
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:AdjustTemperature
         amount: 100000

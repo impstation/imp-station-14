@@ -1,0 +1,244 @@
+- type: markingsGroup
+  id: GastropoidSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ GastropoidSkeletonShell ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceGastropoidSkeletonPerson
+  name: Gastropoidskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    speciesId: gastropoid
+    templateId: gastropoid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: eyes
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: mask
+  - type: InitialBody
+    organs:
+      Torso: OrganGastropoidSkeletonPersonTorso
+      Head: OrganGastropoidSkeletonPersonHead
+      ArmLeft: OrganGastropoidSkeletonPersonArmLeft
+      ArmRight: OrganGastropoidSkeletonPersonArmRight
+      HandRight: OrganGastropoidSkeletonPersonHandRight
+      HandLeft: OrganGastropoidSkeletonPersonHandLeft
+      LegLeft: OrganGastropoidSkeletonPersonLegLeft
+      LegRight: OrganGastropoidSkeletonPersonLegRight
+      FootLeft: OrganGastropoidSkeletonPersonFootLeft
+      FootRight: OrganGastropoidSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonGastropoid
+
+- type: entity
+  parent:
+  - AppearanceGastropoidSkeletonPerson
+  - MobSkeletonPerson
+  id: MobGastropoidSkeletonPerson
+  name: Urist McHaunted
+  components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Impstation/Effects/Footsteps/snailstep.ogg #imp edit, waiting on proper macro merge to migrate files
+  - type: MovementSpeedModifier #same as base snail
+    baseSprintSpeed: 2.25
+    baseWalkSpeed: 1.25
+  - type: NoSlip
+  - type: Magboots
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/snail_brute_damage.rsi
+        color: "#555555AA"
+
+- type: entity
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/GastropoidSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/GastropoidSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: GastropoidSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonHead #SKELE TODO: skull icon
+  name: pale gastropoid shell
+  description: It's full of yucky white crap.
+  components:
+  - type: MultiHandedItem
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/GastropoidSkeleton/parts.rsi
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/GastropoidSkeleton/skull.rsi
+    state: skull_icon
+  - type: Item
+    sprite: _Impstation/Mobs/Species/Skeletons/GastropoidSkeleton/skull.rsi
+    size: Ginormous
+    inhandVisuals:
+      left:
+      - state: skull-inhand-l
+      right:
+      - state: skull-inhand-r
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
+    staminaCost: 25
+    soundHit:
+      path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcThrust #you swing it over your head like a boulder
+    wideAnimationRotation: 180
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      path: /Audio/_Impstation/Items/Coconut/bonk.ogg
+  - type: Instrument #tuba
+    program: 58
+  - type: ActivatableUI
+    blockSpectators: true # otherwise they can play client-side music
+    inHandsOnly: true
+    singleUser: true
+    requiresComplex: true
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganGastropoidSkeletonPersonExternal ]
+  id: OrganGastropoidSkeletonPersonFootRight

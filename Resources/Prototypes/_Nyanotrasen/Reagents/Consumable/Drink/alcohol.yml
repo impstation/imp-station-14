@@ -10,7 +10,7 @@
     sprite: _Nyanotrasen/Objects/Consumable/Drinks/silverjack.rsi
     state: icon
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -30,7 +30,7 @@
     sprite: _Nyanotrasen/Objects/Consumable/Drinks/sapopicante.rsi
     state: icon
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2

@@ -12,6 +12,7 @@ namespace Content.Shared.Humanoid
     {
         Special, // for the cat ears
         Tail,
+        TailOverlay, // markings that go ontop of tails
         Hair,
         FacialHair,
         UndergarmentTop,
@@ -23,9 +24,7 @@ namespace Content.Shared.Humanoid
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
         TailBehind, // FLOOF - add tails that dont have to go through a brutal cookiecutter to work
-        TailBehindBackpack, // imp - to layer behind backpacks, treat this like an oversuit
         TailOversuit, // FLOOF - add tails that dont have to go through a brutal cookiecutter to work
-        TailUnderlay, // imp - temporary until i have a better way to do two part tails
         Eyes,
         RArm,
         LArm,
@@ -35,6 +34,8 @@ namespace Content.Shared.Humanoid
         LLeg,
         RFoot,
         LFoot,
+        Tenta, // kodepiiae: macro early merge because i dont want to redo markings
+        Overlay,
         Handcuffs,
         StencilMask,
         Ensnare,

@@ -8,16 +8,13 @@
   color: white
   recognizable: true
   metabolisms:
-    Food:
+    Digestion:
+      metabolites:
+        Sugar: 0.4
+        Nutriment: 0.1
       effects:
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.4
       - !type:SatiateThirst
         factor: -0.2
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1
 
 - type: reagent
   id: MitarashiSyrup
@@ -29,13 +26,10 @@
   color: '#c67115'
   recognizable: true
   metabolisms:
-    Food:
+    Digestion:
+      metabolites:
+        Sugar: 0.4
+        Nutriment: 0.1
       effects:
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.4
       - !type:SatiateThirst
         factor: -0.2
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1

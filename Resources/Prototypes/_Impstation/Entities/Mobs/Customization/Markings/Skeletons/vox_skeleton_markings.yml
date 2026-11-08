@@ -1,0 +1,14 @@
+# Tail
+
+- type: marking
+  id: VoxSkeletonTail
+  bodyPart: Tail
+  groupWhitelist: [ VoxSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/VoxSkeleton/tail.rsi
+    state: tail_bone

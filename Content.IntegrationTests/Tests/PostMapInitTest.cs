@@ -119,7 +119,8 @@ namespace Content.IntegrationTests.Tests
             //"Relic",
             "dm01-entryway",
             //"Exo",
-            //"Snowball",
+	        //"Snowball",
+            //"Serpentcrest",
 
             // IMP PROTOTYPES:
             "AmberImp",

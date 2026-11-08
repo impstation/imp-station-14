@@ -1,0 +1,19 @@
+# Tail
+
+- type: marking
+  id: ArachnidSkeletonAppendages
+  bodyPart: Tail
+  groupWhitelist: [ ArachnidSkeleton ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+       !type:SkinColoring
+  layering:
+    appendages_bone_behind: TailBehind
+    appendages_bone_front: Tail
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Skeletons/ArachnidSkeleton/tail.rsi
+    state: appendages_bone_front
+  - sprite: _Impstation/Mobs/Customization/Skeletons/ArachnidSkeleton/tail.rsi
+    state: appendages_bone_behind

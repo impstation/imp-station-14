@@ -1,0 +1,199 @@
+- type: markingsGroup
+  id: MothSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 2
+      required: true
+      default: [ MothSkeletonHood, MothSkeletonAntennae ]
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ MothSkeletonWings ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceMothSkeletonPerson
+  name: Mothskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    speciesId: moth
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: jumpsuit-female
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: back
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: jumpsuit-male
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: back
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: shoes
+  - type: InitialBody
+    organs:
+      Torso: OrganMothSkeletonPersonTorso
+      Head: OrganMothSkeletonPersonHead
+      ArmLeft: OrganMothSkeletonPersonArmLeft
+      ArmRight: OrganMothSkeletonPersonArmRight
+      HandRight: OrganMothSkeletonPersonHandRight
+      HandLeft: OrganMothSkeletonPersonHandLeft
+      LegLeft: OrganMothSkeletonPersonLegLeft
+      LegRight: OrganMothSkeletonPersonLegRight
+      FootLeft: OrganMothSkeletonPersonFootLeft
+      FootRight: OrganMothSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonMoth
+
+- type: entity
+  parent:
+  - AppearanceMothSkeletonPerson
+  - MobSkeletonPerson
+  id: MobMothSkeletonPerson
+  name: Urist McGrim
+  components:
+  - type: MovementSpeedModifier #same as moth
+    baseWeightlessAcceleration: 1.5
+    baseWeightlessFriction: 1
+    baseWeightlessModifier: 1
+
+- type: entity
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/MothSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/MothSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: MothSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonHead
+  name: moth skull
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/MothSkeleton/parts.rsi
+  - type: Clothing
+    sprite: _Impstation/Mobs/Species/Skeletons/MothSkeleton/skull_hood.rsi
+    slots:
+    - HEAD
+  - type: Sprite
+    state: skull_icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganMothSkeletonPersonExternal ]
+  id: OrganMothSkeletonPersonFootRight

@@ -1,0 +1,205 @@
+- type: markingsGroup
+  id: VoxSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ VoxSkeletonTail ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceVoxSkeletonPerson
+  name: Voxskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    speciesId: vox
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: eyes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hand
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: head
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: neck
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: ears
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: shoes
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_r
+  - type: InitialBody
+    organs:
+      Torso: OrganVoxSkeletonPersonTorso
+      Head: OrganVoxSkeletonPersonHead
+      ArmLeft: OrganVoxSkeletonPersonArmLeft
+      ArmRight: OrganVoxSkeletonPersonArmRight
+      HandRight: OrganVoxSkeletonPersonHandRight
+      HandLeft: OrganVoxSkeletonPersonHandLeft
+      LegLeft: OrganVoxSkeletonPersonLegLeft
+      LegRight: OrganVoxSkeletonPersonLegRight
+      FootLeft: OrganVoxSkeletonPersonFootLeft
+      FootRight: OrganVoxSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonVox
+
+- type: entity
+  parent:
+  - AppearanceVoxSkeletonPerson
+  - MobSkeletonPerson
+  id: MobVoxSkeletonPerson
+  name: Urist McCarrion
+  components:
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5 # Reduce?
+
+- type: entity
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/VoxSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/VoxSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: VoxSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonHead
+  name: vox skull
+  components:
+  - type: Sprite
+    state: skull_icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganVoxSkeletonPersonExternal ]
+  id: OrganVoxSkeletonPersonFootRight

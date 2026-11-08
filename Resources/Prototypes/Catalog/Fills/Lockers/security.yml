@@ -56,6 +56,8 @@
       amount: 2
     - id: NetworkConfigurator
     - id: Binoculars
+    - id: PlushieLizardJobWarden
+      prob: 0.02
     # imp edit start
     - id: ClothingHeadsetWarden
     - id: TicketPad
@@ -108,6 +110,10 @@
       prob: 0.6
     - id: BookSpaceLaw
       prob: 0.5
+    - id: PlushieLizardJobSecuritycadet
+      prob: 0.02
+    - id: PlushieLizardJobSecurityofficer
+      prob: 0.02
     # imp edit start
     - id: TicketPad
     - id: UtilityToken1
@@ -198,6 +204,8 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
+    - id: PlushieLizardJobDetective
+      prob: 0.02
     # imp edit start
     - id: BoxTapeRecorder
     - id: HandheldCriminalRecords

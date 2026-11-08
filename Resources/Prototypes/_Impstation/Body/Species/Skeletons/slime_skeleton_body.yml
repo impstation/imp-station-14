@@ -1,0 +1,210 @@
+- type: markingsGroup
+  id: SlimeSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ SlimeSkeletonEyes ]
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: true
+      default: [ SlimeSkeletonHeart ]
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceSlimeSkeletonPerson
+  name: Slimeskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    speciesId: Slime
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
+            state: jumpsuit-female
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
+            state: back
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
+            state: jumpsuit-male
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
+            state: back
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
+            state: shoes
+  - type: InitialBody
+    organs:
+      Torso: OrganSlimeSkeletonPersonTorso
+      Head: OrganSlimeSkeletonPersonHead
+      ArmLeft: OrganSlimeSkeletonPersonArmLeft
+      ArmRight: OrganSlimeSkeletonPersonArmRight
+      HandRight: OrganSlimeSkeletonPersonHandRight
+      HandLeft: OrganSlimeSkeletonPersonHandLeft
+      LegLeft: OrganSlimeSkeletonPersonLegLeft
+      LegRight: OrganSlimeSkeletonPersonLegRight
+      FootLeft: OrganSlimeSkeletonPersonFootLeft
+      FootRight: OrganSlimeSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonSlime
+
+- type: entity
+  parent:
+  - AppearanceSlimeSkeletonPerson
+  - MobSkeletonPerson
+  id: MobSlimeSkeletonPerson
+  name: Urist McYucky
+  components:
+  - type: Reactive #same as base slime
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ] #imp, injection
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.2 #imp, YEEEEOWCH! (.05 heat upstream)
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+
+- type: entity
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/SlimeSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/SlimeSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: SlimeSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonHead
+  name: slime goolix
+  description: Ohh! So that's where all that goo comes from!
+  components:
+  - type: Sprite
+    state: skull_icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganSlimeSkeletonPersonExternal ]
+  id: OrganSlimeSkeletonPersonFootRight

@@ -1,0 +1,197 @@
+- type: species
+  id: SkeletonAllulalo
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp, 14/15 skeleton variants so this sort of adds up to .33
+  prototype: MobSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: AllulaloLastNames
+  dollPrototype: AppearanceAllulaloSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonAnomalocarid
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobAnomalocaridSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: NamesAnomalocaridLast
+  dollPrototype: AppearanceAnomalocaridSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonArachnid
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobArachnidSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: NamesArachnidLast
+  dollPrototype: AppearanceArachnidSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonDecapoid
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobDecapoidSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: NamesDecapoidLast
+  dollPrototype: AppearanceDecapoidSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonDiona
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobDionaSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: NamesDionaLast
+  naming: TheFirstofLast #The Boner of Delight
+  dollPrototype: AppearanceDionaSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonKodepiia
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobKodepiiaSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: KodepiiaLast
+  dollPrototype: AppearanceKodepiiaSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonMoth
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobMothSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: MothLast
+  dollPrototype: AppearanceMothSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonReptilian
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobReptilianSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesReptilianMale
+  femaleFirstNames: NamesReptilianFemale
+  lastNames: NamesSkeletonFirst
+  naming: FirstDashLast #special naming scheme for them
+  dollPrototype: AppearanceReptilianSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonSlime
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobSlimeSkeletonPerson
+  defaultSkinTone: "#82dab1"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: FakeHumanLast #lets have some fun
+  dollPrototype: AppearanceSlimeSkeletonPerson
+  skinColoration: Hues
+
+- type: species
+  id: SkeletonGastropoid
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobGastropoidSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: GastropoidLast
+  dollPrototype: AppearanceGastropoidSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonThaven
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobThavenSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonThaven
+  femaleFirstNames: NamesSkeletonThaven
+  naming: First
+  dollPrototype: AppearanceThavenSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonUngu
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobUnguSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonUnguFirst
+  femaleFirstNames: NamesSkeletonUnguFirst
+  lastNames: NamesSkeletonUnguLast
+  dollPrototype: AppearanceUnguSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonVox
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobVoxSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: VoxLast
+  dollPrototype: AppearanceVoxSkeletonPerson
+  skinColoration: TintedHues
+
+- type: species
+  id: SkeletonVulpkanin
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.0235 # imp
+  prototype: MobVulpkaninSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  lastNames: names_vulpkanin_last #why is this the only one formatted like that
+  dollPrototype: AppearanceVulpkaninSkeletonPerson
+  skinColoration: TintedHues

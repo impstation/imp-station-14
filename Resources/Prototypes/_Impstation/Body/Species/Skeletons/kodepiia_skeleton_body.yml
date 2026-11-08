@@ -1,0 +1,225 @@
+- type: markingsGroup
+  id: KodepiiaSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceKodepiiaSkeletonPerson
+  name: Kodepiiaskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    displacements:
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: eyes
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_right
+  - type: InitialBody
+    organs:
+      Torso: OrganKodepiiaSkeletonPersonTorso
+      Head: OrganKodepiiaSkeletonPersonHead
+      ArmLeft: OrganKodepiiaSkeletonPersonArmLeft
+      ArmRight: OrganKodepiiaSkeletonPersonArmRight
+      HandRight: OrganKodepiiaSkeletonPersonHandRight
+      HandLeft: OrganKodepiiaSkeletonPersonHandLeft
+      LegLeft: OrganKodepiiaSkeletonPersonLegLeft
+      LegRight: OrganKodepiiaSkeletonPersonLegRight
+      FootLeft: OrganKodepiiaSkeletonPersonFootLeft
+      FootRight: OrganKodepiiaSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonKodepiia
+
+- type: entity
+  parent:
+  - AppearanceKodepiiaSkeletonPerson
+  - MobSkeletonPerson
+  id: MobKodepiiaSkeletonPerson
+  name: Urist McCuttlebone
+  components:
+  - type: ConsumeAction
+    popupSelfStart: kodepiia-consume-start-self
+    popupSelfEnd: kodepiia-consume-end-self
+    popupOthersStart: kodepiia-consume-start-others
+    popupOthersEnd: kodepiia-consume-end-self
+    consumeActionId: ActionKodepiiaConsume
+    damage:
+      types:
+        Piercing: 15 #no cellular because they cant actually eat anything
+    whitelist:
+      components:
+      - Respirator
+      - Bloodstream
+    blacklist:
+      components:
+      - SiliconLawBound
+
+- type: entity
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/KodepiiaSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: KodepiiaSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonHead #SKELE TODO: skull icon
+  name: "cuttlebone?"
+  description: A fine meal for a tortoise.
+  components:
+  - type: Sprite
+    state: skull_icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 5
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Instrument #ocarina
+    program: 79
+  - type: ActivatableUI
+    blockSpectators: true # otherwise they can play client-side music
+    inHandsOnly: true
+    singleUser: true
+    requiresComplex: true
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganKodepiiaSkeletonPersonExternal ]
+  id: OrganKodepiiaSkeletonPersonFootRight

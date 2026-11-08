@@ -12,7 +12,7 @@
   - !type:PlantAdjustHealth
     amount: -1
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       # Effects for goblins
       - !type:ModifyStatusEffect

@@ -57,10 +57,10 @@
   # end imp edits #
 
 - type: entity
-  name: syndicate jaws of life
-  parent: [JawsOfLife, Tier2Contraband]
+  name: syndicate jaws of death
+  parent: [JawsOfLife, Tier2Contraband] # imp contraband
   id: SyndicateJawsOfLife
-  description: Useful for entering the station or its departments.
+  description: Useful for breaking into secure areas and other nefarious activities.
   components:
   - type: Sprite
     sprite: Objects/Tools/jaws_of_life.rsi
