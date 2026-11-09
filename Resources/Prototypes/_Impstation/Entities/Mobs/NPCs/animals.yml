@@ -361,7 +361,7 @@
 # commented out kodepiia stuff is for when i can be fucked to figure out how to make randomsprite work on inhands -mq
 - type: entity
   name: young kodepiia
-  parent: [ MobCombat, SimpleMobBase ]
+  parent: [ BaseMobKodeDescendant, MobCombat, SimpleMobBase ]
   id: MobYoungKodepiia
   description: Not quite a not-quite-person.
   components:
@@ -485,9 +485,6 @@
     baseResistTime: 2
   - type: TypingIndicator
     proto: kodepiia
-  - type: Body
-    prototype: Kodepiia
-    requiredLegs: 2 #if you change this number i will put you in a fucking saw trap -mq
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
