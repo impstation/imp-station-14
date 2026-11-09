@@ -535,7 +535,8 @@ namespace Content.Client.Lobby.UI
             {
                 // Begin Misfit - Add trait hiding
                 if (Profile?.Species is { } selectedSpecies &&
-                    (trait.ExcludedSpecies.Contains(selectedSpecies)))
+                    (trait.ExcludedSpecies.Contains(selectedSpecies)) ||
+                    (!trait.AllowedSpecies.Contains(selectedSpecies) && trait.AllowedSpecies.Count > 0))
                 {
                     Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     continue;

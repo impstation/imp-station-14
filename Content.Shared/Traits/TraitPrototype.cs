@@ -87,6 +87,12 @@ public sealed partial class TraitPrototype : IPrototype
     public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = [];
 
     /// <summary>
+    /// Imp - Hides traits from non-listed species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> AllowedSpecies = [];
+
+    /// <summary>
     /// Imp - Traits with the same subcategory cannot be taken in tandem for free points (e.g. blindness and colorblindness)
     /// </summary>
     [DataField]
