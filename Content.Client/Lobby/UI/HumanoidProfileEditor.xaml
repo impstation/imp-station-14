@@ -1,11 +1,8 @@
-<!-- Aurora's Song - Adds the Starfall namespace used by the trait control below. -->
 <BoxContainer xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
          xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
          xmlns:ui="clr-namespace:Content.Client.Lobby.UI"
-         xmlns:profile="clr-namespace:Content.Client.Lobby.UI.ProfileEditorControls"
-         xmlns:starfall="clr-namespace:Content.Client._Starfall.UserInterface.Lobby.Traits"
          HorizontalExpand="True">
         <!-- Left side -->
         <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
@@ -150,8 +147,9 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Traits -->
-                    <!-- Aurora's Song - Starfall trait menu -->
-                    <starfall:StarfallTraitsEditor Name="TraitsEditor" />
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Name="TraitsList" Orientation="Vertical" />
+                    </ScrollContainer>
                 </BoxContainer>
                 <BoxContainer Name="MarkingsTab" Orientation="Vertical" Margin="10">
                     <!-- Markings -->

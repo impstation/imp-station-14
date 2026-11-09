@@ -1,17 +1,14 @@
-// Begin CD - Character Records
-using Content.Client._CD.Records.UI;
+using System.IO;
+using System.Linq;
+using System.Numerics;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
 using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
-using Content.Client.Sprite;
 using Content.Client.Stylesheets;
+using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
-using Content.Shared._CD.Records;
-// End CD - Character Records
-using Content.Shared._Impstation.Traits; // imp
-using Content.Client._Starfall.UserInterface.Lobby.Traits;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -36,10 +33,12 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.IO;
-using System.Linq;
-using System.Numerics;
 using Direction = Robust.Shared.Maths.Direction;
+// Begin CD - Character Records
+using Content.Client._CD.Records.UI;
+using Content.Shared._CD.Records;
+// End CD - Character Records
+using Content.Shared._Impstation.Traits; // imp
 
 namespace Content.Client.Lobby.UI
 {
@@ -513,16 +512,20 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void RefreshTraits()
         {
-            TraitsEditor.RefreshRequested ??= RefreshTraits; // Aurora's Song
-            TraitsEditor.Clear(); // Aurora's Song
+            TraitsList.RemoveAllChildren();
 
-            var traits = TraitsEditor.FilterSearch(_prototypeManager.EnumeratePrototypes<TraitPrototype>()) // Aurora's Song
-                .ToList();
-            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab")); // Aurora's Song - 3>2
+            // imp edit -- sort trait points by their cost, then their name
+            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderByDescending(t => t.Cost).ThenBy(t => Loc.GetString(t.Name)).ToList();
+            // imp edit end
+            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
             if (traits.Count < 1)
             {
-                TraitsEditor.ShowNoTraits(); // Aurora's Song
+                TraitsList.AddChild(new Label
+                {
+                    Text = Loc.GetString("humanoid-profile-editor-no-traits"),
+                    FontColorOverride = Color.Gray,
+                });
                 return;
             }
 
@@ -560,20 +563,44 @@ namespace Content.Client.Lobby.UI
                 TraitCategoryPrototype? category = null;
 
                 if (categoryId != TraitCategoryPrototype.Default)
+                {
                     category = _prototypeManager.Index<TraitCategoryPrototype>(categoryId);
+                    // Label
+                    TraitsList.AddChild(new Label
+                    {
+                        Text = Loc.GetString(category.Name),
+                        Margin = new Thickness(0, 10, 0, 0),
+                        StyleClasses = { StyleClass.LabelHeading },
+                    });
+                }
 
-                var traitGrid = TraitsEditor.AddCategory(category); // Aurora's Song
-                List<StarfallTraitCard?> selectors = new(); // Aurora's Song
+                List<TraitPreferenceSelector?> selectors = new();
+                List<ProtoId<TraitSubcategoryPrototype>> usedSubcategories = []; // imp addition
                 var selectionCount = 0;
 
                 foreach (var traitProto in categoryTraits)
                 {
                     var trait = _prototypeManager.Index<TraitPrototype>(traitProto);
-                    var selector = new StarfallTraitCard(trait); // Aurora's Song
+                    var selector = new TraitPreferenceSelector(trait);
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
                     if (selector.Preference)
+                    // begin Imp edits - ignore any traits that conflict with subcategories of already selected traits
+                    {
                         selectionCount += trait.Cost;
+                        foreach (var subcategory in trait.Subcategories)
+                        {
+                            if (!usedSubcategories.Contains(subcategory))
+                            {
+                                usedSubcategories.Add(subcategory);
+                            }
+                            else
+                            {
+                                Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                            }
+                        }
+                    }
+                    // end imp edits
 
                     selector.PreferenceChanged += preference =>
                     {
@@ -595,10 +622,35 @@ namespace Content.Client.Lobby.UI
                 // Selection counter
                 if (category is { MaxTraitPoints: >= 0 })
                 {
-                    TraitsEditor.AddPointCounter(selectionCount, category.MaxTraitPoints.Value); // Aurora's Song
+                    if (category.MaxTraitPoints != null) //imp - extremely stupid null check because rider isn't happy about the potential of subtracting from a nullable int
+                    {
+                        int maxPoints = (int)category.MaxTraitPoints; //imp - cast to a non-nullable int
+                        TraitsList.AddChild(new Label
+                        {
+                            Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", maxPoints - selectionCount)), // imp edit -- count points backwards
+                            FontColorOverride = Color.Gray
+                        });
+                    }
                 }
 
-                TraitsEditor.AddTraitGrid(traitGrid); // Aurora's Song
+                // imp addition start:
+                // instead of appending everything to traitslist, we make a new boxcontainer and put the selectors in there.
+                var traitColumn1 = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Vertical,
+                    Margin = new Thickness(10, 0, 10, 0)
+                };
+                var traitColumn2 = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Vertical
+                };
+
+                var traitBoxContainer = new BoxContainer { };
+                traitBoxContainer.AddChild(traitColumn1);
+                traitBoxContainer.AddChild(traitColumn2);
+
+                var i = 0;
+                // imp end
 
                 foreach (var selector in selectors)
                 {
@@ -606,12 +658,32 @@ namespace Content.Client.Lobby.UI
                         continue;
 
                     if (category is { MaxTraitPoints: >= 0 } &&
-                        !selector.Preference && // Aurora's Song
                         selector.Cost + selectionCount > category.MaxTraitPoints)
-                        selector.SetUnavailable(true); // Aurora's Song
+                    {
+                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                    }
 
-                    traitGrid.AddChild(selector); // Aurora's Song
+                    // begin Imp additions -- disallow players from selecting multiple traits in the same subcategory
+                    if (!selector.Preference && selector.Subcategories.Overlaps(usedSubcategories))
+                    {
+                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                    }
+                    // end Imp additions
+
+                    // imp start: ui layout
+                    if (i == 0)
+                    {
+                        traitColumn1.AddChild(selector);
+                        i += 1;
+                    }
+                    else
+                    {
+                        traitColumn2.AddChild(selector);
+                        i -= 1;
+                    }
                 }
+                TraitsList.AddChild(traitBoxContainer);
+                // imp end
             }
         }
 
