@@ -37,6 +37,21 @@ uplink-gloves-knuckleduster-desc = A pair of plastitanium knuckle dusters that l
 uplink-hushpup-name = Hypnalis
 uplink-hushpup-desc = A powerful silenced shotgun with a low magazine capacity. Comes with a spare box of buckshot. Uses .50 shotgun ammo.
 
+# Imp edit rename
+uplink-c20r-name = C-20R Gorgon
+uplink-c20r-desc = Old faithful: The classic Gorgon Submachine Gun.
+
+# Imp edit rename
+uplink-bulldog-name = Hydra
+uplink-bulldog-desc = Lean and mean: Contains the popular Hydra Shotgun.
+
+uplink-estoc-name = Estoc DMR
+uplink-estoc-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat.
+
+# imp remove hyphen
+uplink-grenade-launcher-name = China Lake
+uplink-grenade-launcher-desc = An old China Lake grenade launcher bundled with 5 rounds of anti-personnel ammo.
+
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
 uplink-explosive-grenade-desc = A simplistic grenade with a 3.5 second long fuse that is geared towards injuring personnel. Causes minimal hull damage.
@@ -136,7 +151,7 @@ uplink-holster-desc = A deep shoulder holster capable of holding many types of b
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
 
-# imp name tweak
+# imp name and desc tweak
 uplink-emag-name = Cryptographic Sequencer
 uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of station devices. Recharges automatically. The iconic emag.
 
@@ -267,8 +282,8 @@ uplink-c20r-bundle-name = C-20R Gorgon Bundle
 uplink-c20r-bundle-desc = Old faithful: The classic C-20R Gorgon submachine gun, bundled with 3 magazines.
 
 # imp name tweak
-uplink-buldog-bundle-name = Hydra Bundle
-uplink-buldog-bundle-desc = Lean and mean: Contains the popular Hydra Shotgun and 4 .50 buckshot drums.
+uplink-bulldog-bundle-name = Hydra Bundle
+uplink-bulldog-bundle-desc = Lean and mean: Contains the popular Hydra Shotgun and 4 .50 buckshot drums.
 
 # imp hyphen remove
 uplink-grenade-launcher-bundle-name = China Lake Bundle
@@ -347,6 +362,8 @@ uplink-saw-advanced-name = Advanced Circular Saw
 uplink-saw-advanced-desc = A bleeding-edge surgical implement designed to cut through flesh and bone alike.
 
 # Armor
+
+# imp desc tweak
 uplink-chameleon-name = Chameleon Kit
 uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anything on the station, and more!
 
