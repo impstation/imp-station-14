@@ -1,43 +1,4 @@
 ﻿Entries:
-- author: ComedyIdiot
-  changes:
-  - message: Gastropoids can now glow in peace
-    type: Fix
-  id: 2506
-  time: '2025-12-30T01:39:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3895
-- author: mqole
-  changes:
-  - message: Dwarves are now 2% slower.
-    type: Tweak
-  id: 2507
-  time: '2025-12-30T22:54:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3892
-- author: TheGrimbeeper
-  changes:
-  - message: Your mind will no longer believe you can "Eat" from artifacts which are
-      chemical containers
-    type: Fix
-  - message: You can no longer press buttons so fast on the artifact analysis console
-      that it thinks its scanning up and down at the same time.
-    type: Fix
-  id: 2508
-  time: '2025-12-30T23:07:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3896
-- author: FlippenPage
-  changes:
-  - message: fixed a bad sprite offset on the Medical Assembler and Food-O-Mat
-    type: Fix
-  id: 2509
-  time: '2026-01-01T03:11:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3839
-- author: ATDoop
-  changes:
-  - message: Anomalocarids have unique organs now! Gib one today!
-    type: Add
-  id: 2510
-  time: '2026-01-01T03:49:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3851
 - author: DOSRG
   changes:
   - message: Cargo can now purchase a royal dress up experience!
@@ -4046,3 +4007,53 @@
   id: 3005
   time: '2026-11-01T09:19:19.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4710
+- author: ThatKidConnor, msTheowo
+  changes:
+  - message: Added Postmaster uniform for seasoned mail crusaders & Courier Bags for
+      all couriers avalible in their loadout!
+    type: Add
+  id: 3006
+  time: '2026-11-05T13:38:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4688
+- author: VeeNomine
+  changes:
+  - message: Fixed Luggage so it now properly displays injury and death status upon
+      being examined. No more Garba Gleef moments!
+    type: Fix
+  id: 3007
+  time: '2026-11-05T13:58:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4715
+- author: Sev7ves
+  changes:
+  - message: The syndicate explosive foam dart grenades now have foam darts.
+    type: Tweak
+  - message: The syndicate explosive foam dart grenades now have explosives in them
+      again.
+    type: Fix
+  id: 3008
+  time: '2026-11-05T14:01:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4714
+- author: DrWhoFan13
+  changes:
+  - message: Added recipes for the cheese omelette, eggplant parmigiana, corned beef
+      and cabbage, spesslaw, pig in a blanket and filet migrawr
+    type: Add
+  id: 3009
+  time: '2026-11-05T14:17:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4712
+- author: tokiWren
+  changes:
+  - message: Added methanol, a new toxin that damages your vision.
+    type: Add
+  - message: Added the Slab Special, a delicious drink that you definitely will not
+      regret drinking a lot of.
+    type: Add
+  - message: Feed her a kind of stew that makes you go blind for a day
+    type: Add
+  - message: Made methylated blood actually methylated.
+    type: Tweak
+  - message: Tiders rejoice! Maints moonshine is real and more fucked up than ever.
+    type: Tweak
+  id: 3010
+  time: '2026-11-09T20:27:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4705
