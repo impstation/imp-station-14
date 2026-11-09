@@ -1,38 +1,38 @@
-using System.Linq;
-using Content.Server.EUI;
+﻿using Content.Server.EUI;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Events;
+using Content.Server.Preferences.Managers;
+using Content.Shared._Impstation.ReadyManifest;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
-using Content.Shared.Roles;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.ReadyManifest;
-using Content.Server.GameTicking;
-using Content.Server.Preferences.Managers;
-using Content.Server.GameTicking.Events;
 
-namespace Content.Server.ReadyManifest;
+namespace Content.Server._Impstation.ReadyManifest;
 
-public sealed class ReadyManifestSystem : EntitySystem
+public sealed class ReadyManifestSystem : SharedReadyManifestSystem
 {
-    [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
+    [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     private readonly Dictionary<ICommonSession, ReadyManifestEui> _openEuis = new();
-    private Dictionary<ProtoId<JobPrototype>, int> _jobCounts = new();
+    private Dictionary<ProtoId<JobPrototype>, ReadyManifestJobData> _jobCounts = new();
 
     public override void Initialize()
     {
-        SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
-        SubscribeLocalEvent<PlayerToggleReadyEvent>(OnPlayerToggleReady);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        SubscribeLocalEvent<PlayerToggledReadyEvent>(OnPlayerToggledReady);
+        SubscribeLocalEvent<PlayerDisconnectedEvent>(OnPlayerDisconnected);
+        SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
     }
 
-    private void OnRoundStarting(RoundStartingEvent ev)
+    private void OnRoundStarting(RoundStartingEvent args)
     {
         foreach (var (_, eui) in _openEuis)
         {
@@ -42,124 +42,46 @@ public sealed class ReadyManifestSystem : EntitySystem
         _openEuis.Clear();
     }
 
+    private void OnRoundRestart(RoundRestartCleanupEvent args)
+    {
+        _jobCounts.Clear();
+    }
+
+    private void OnPlayerToggledReady(ref PlayerToggledReadyEvent args)
+    {
+        // Rebuild the entire ready manifest because I can't directly update the values since it would be too likely to
+        // desync, and when I thought about ways to rebuild only the updated jobs, it seemed more
+        // expensive than just rebuilding the entire ready manifest.
+        RebuildReadyManifest();
+        UpdateAllEuis();
+    }
+
+    private void OnPlayerDisconnected(ref PlayerDisconnectedEvent args)
+    {
+        RebuildReadyManifest();
+        UpdateAllEuis();
+    }
+
     private void OnRequestReadyManifest(RequestReadyManifestMessage message, EntitySessionEventArgs args)
     {
-        if (args.SenderSession is not { } sessionCast
-            || !_configManager.GetCVar(CCVars.CrewManifestWithoutEntity))
-        {
+        if (!_cfg.GetCVar(CCVars.CrewManifestWithoutEntity))
             return;
-        }
-        BuildReadyManifest();
-        OpenEui(sessionCast, args.SenderSession.AttachedEntity);
+
+        OpenEui(args.SenderSession);
     }
 
-    private void OnPlayerToggleReady(PlayerToggleReadyEvent ev)
+    public void OpenEui(ICommonSession session)
     {
-        var userId = ev.PlayerSession.Data.UserId;
-
-        if (!_prefsManager.TryGetCachedPreferences(userId, out var preferences))
-        {
-            return;
-        }
-
-        HumanoidCharacterProfile profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
-        var profileJobs = FilterPlayerJobs(profile);
-
-        if (_gameTicker.PlayerGameStatuses[userId] == PlayerGameStatus.ReadyToPlay)
-        {
-            foreach (var job in profileJobs)
-            {
-                if (_jobCounts.ContainsKey(job))
-                {
-                    _jobCounts[job]++;
-                }
-                else
-                {
-                    _jobCounts.Add(job, 1);
-                }
-            }
-        }
-        else
-        {
-            foreach (var job in profileJobs)
-            {
-                if (_jobCounts.ContainsKey(job))
-                {
-                    _jobCounts[job]--;
-                }
-            }
-        }
-
-        UpdateEuis();
-    }
-
-    private void BuildReadyManifest()
-    {
-        var jobCounts = new Dictionary<ProtoId<JobPrototype>, int>();
-
-        foreach (var (userId, status) in _gameTicker.PlayerGameStatuses)
-        {
-            if (status == PlayerGameStatus.ReadyToPlay)
-            {
-                HumanoidCharacterProfile profile;
-                if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
-                {
-                    profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
-                    var profileJobs = FilterPlayerJobs(profile);
-                    foreach (var jobId in profileJobs)
-                    {
-                        if (jobCounts.ContainsKey(jobId))
-                        {
-                            jobCounts[jobId]++;
-                        }
-                        else
-                        {
-                            jobCounts.Add(jobId, 1);
-                        }
-                    }
-                }
-            }
-        }
-        _jobCounts = jobCounts;
-    }
-
-
-    private List<ProtoId<JobPrototype>> FilterPlayerJobs(HumanoidCharacterProfile profile)
-    {
-        var jobs = profile.JobPriorities.Keys.Select(k => new ProtoId<JobPrototype>(k)).ToList();
-        List<ProtoId<JobPrototype>> priorityJobs = new();
-        foreach (var job in jobs)
-        {
-            var priority = profile.JobPriorities[job];
-            if (priority == JobPriority.High || (_prototypeManager.Index(job).Weight >= 10 && priority > JobPriority.Never))
-            {
-                priorityJobs.Add(job);
-            }
-        }
-        return priorityJobs;
-    }
-
-    public Dictionary<ProtoId<JobPrototype>, int> GetReadyManifest()
-    {
-        return _jobCounts;
-    }
-
-    public void OpenEui(ICommonSession session, EntityUid? owner = null)
-    {
-
-
         if (_openEuis.ContainsKey(session))
-        {
             return;
-        }
 
-        var eui = new ReadyManifestEui(owner, this);
+        var eui = new ReadyManifestEui(this);
         _openEuis.Add(session, eui);
         _euiManager.OpenEui(eui, session);
         eui.StateDirty();
     }
 
-    private void UpdateEuis()
+    public void UpdateAllEuis()
     {
         foreach (var (_, eui) in _openEuis)
         {
@@ -167,22 +89,51 @@ public sealed class ReadyManifestSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    ///     Closes an EUI for a given player.
-    /// </summary>
-    /// <param name="session">The player's session.</param>
-    /// <param name="owner">The owner of this EUI, if there was one.</param>
-    public void CloseEui(ICommonSession session, EntityUid? owner = null)
+    public void CloseEui(ICommonSession session)
     {
-        if (!_openEuis.TryGetValue(session, out var eui))
-        {
+        if (!_openEuis.Remove(session, out var eui))
             return;
-        }
 
-        if (eui.Owner == owner)
+        eui.Close();
+    }
+
+    public Dictionary<ProtoId<JobPrototype>, ReadyManifestJobData> GetReadyManifest()
+    {
+        return _jobCounts;
+    }
+
+    private void RebuildReadyManifest()
+    {
+        _jobCounts.Clear();
+
+        foreach (var (userId, status) in _gameTicker.PlayerGameStatuses)
         {
-            _openEuis.Remove(session);
-            eui.Close();
+            if (status != PlayerGameStatus.ReadyToPlay)
+                continue;
+
+            if (!_prefsManager.TryGetCachedPreferences(userId, out var preferences))
+                continue;
+
+            var profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
+            foreach (var (jobId, priority) in profile.JobPriorities)
+            {
+                var jobPriorityAmounts = _jobCounts.GetValueOrDefault(jobId);
+
+                switch (priority)
+                {
+                    case JobPriority.High:
+                        jobPriorityAmounts.HighReadies += 1;
+                        break;
+                    case JobPriority.Medium:
+                        jobPriorityAmounts.MediumReadies += 1;
+                        break;
+                    case JobPriority.Low:
+                        jobPriorityAmounts.LowReadies += 1;
+                        break;
+                }
+
+                _jobCounts[jobId] = jobPriorityAmounts;
+            }
         }
     }
 }
