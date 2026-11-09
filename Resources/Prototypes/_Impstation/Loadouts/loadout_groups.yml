@@ -833,6 +833,7 @@
   minLimit: 0
   loadouts:
   - CourierHat
+  - PostmasterCap
 
 - type: loadoutGroup
   id: CourierJumpsuit
@@ -842,14 +843,16 @@
   - CourierJumpskirt
   - PorterJumpshorts
   - PorterJumpskirt
+  - PostmasterJumpsuit
+  - PostmasterJumpskirt
 
 - type: loadoutGroup
   id: CourierBackpack
   name: loadout-group-courier-backpack
   loadouts:
-  - CargoTechnicianBackpack
-  - CargoTechnicianSatchel
-  - CargoTechnicianDuffel
+  - CourierBackpack
+  - CourierDuffle
+  - CourierSatchel
 
 - type: loadoutGroup
   id: CourierNeck
