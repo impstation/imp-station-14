@@ -22,3 +22,62 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: LockerFillHospitalityDirector
+
+# No laser table
+- type: entityTable
+  id: LockerFillCaptainNoLaserNoID
+  table: !type:AllSelector
+    children:
+    - id: CigarGoldCase
+      prob: 0.25
+    - id: ClothingBeltSheathFilled
+    - id: ClothingHeadsetAltCommand
+    - id: ClothingOuterArmorCaptainCarapace
+    - id: BoxCaptainCircuitboards
+    - id: DoorRemoteCustom
+    - id: MedalCase
+    - id: PinpointerNuclear
+    - id: PlushieNuke
+      prob: 0.1
+    - id: RubberStampCaptain
+    - id: SpaceCash1000
+    - id: WeaponDisabler
+    - id: ClothingEyesGlassesCommand
+    - id: HeadSkeleton # A skull to accompany your skeleton crew
+      conditions:
+      - !type:PlayerCountCondition
+        max: 15
+    - id: TicketPad
+    - id: PersonalAILearnerCommand
+    - id: PrinterDocFlatpack  # Corvax-Printer
+
+# No laser table + Laser table
+- type: entityTable
+  id: LockerFillCaptainLaserNoID
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: LockerFillCaptainNoLaserNoID
+    - id: WeaponAntiqueLaser
+
+# Has ID but no laser locker, used when the antique laser is placed in the special display crate
+- type: entity
+  id: LockerCaptainFilledNoLaserHasID
+  suffix: Filled, ID
+  parent: LockerCaptain
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillCaptainNoLaser
+
+# Has ID but no Laser + Laser locker
+- type: entity
+  id: LockerCaptainFilledHasID
+  suffix: Filled, ID, AntiqueLaser
+  parent: LockerCaptain
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillCaptainLaser
