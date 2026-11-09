@@ -279,6 +279,11 @@ namespace Content.Shared.Atmos
         public const float ElectrovaeChargeMaxTemperature = 1984f;
         public const float ElectrovaeChargeTemperatureExponent = 1.2f;
 
+        /// <summary>
+        /// Energy consumed per mole charged, in joules
+        /// </summary>
+        public const float ElectrovaeChargeEnergyPerMole = 5000f;
+
         public const float ChargedElectrovaeMinimumMoles = 0.01f;
 
         /// <summary>
@@ -286,6 +291,9 @@ namespace Content.Shared.Atmos
         /// 2 moles or more will clamp intensity to 1.0.
         /// </summary>
         public const float ChargedElectrovaeIntensityDivisor = 2f;
+
+        public const float ChargedElectrovaeMinimumIntensityToCharge = 0.1f;
+        public const float ChargedElectrovaeChargeRatePerIntensity = 400f; // Watts
 
         /// <summary>
         /// Intensity thresholds for charged electrovae tile overlay states.
@@ -298,6 +306,10 @@ namespace Content.Shared.Atmos
         /// Multiplier used to convert intensity to the probability of a lightning strike per tick.
         /// </summary>
         public const float ChargedElectrovaeLightningChanceMultiplier = 0.01f;
+        public const int ChargedElectrovaeLightningBaseDamage = 5;
+        public const int ChargedElectrovaeLightningDamagePerIntensity = 5;
+        public const float ChargedElectrovaeLightningBaseStunSeconds = 1f;
+        public const float ChargedElectrovaeLightningStunSecondsPerIntensity = 2f;
         // imp end
 
         public const float FrezonCoolLowerTemperature = 23.15f;
