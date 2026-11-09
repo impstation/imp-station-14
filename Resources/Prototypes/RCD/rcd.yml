@@ -78,7 +78,7 @@
 - type: rcd
   id: WallSolid
   category: WallsAndFlooring
-  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/solid_wall.png # Impstation
   mode: ConstructObject
   prototype: WallSolid
   cost: 4
@@ -103,7 +103,7 @@
 - type: rcd
   id: Window
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/window.png
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/window.png # Impstation
   mode: ConstructObject
   prototype: Window
   cost: 3
@@ -132,7 +132,7 @@
 - type: rcd
   id: ReinforcedWindow
   category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/window_reinforced.png
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/window_reinforced.png # Impstation
   mode: ConstructObject
   prototype: ReinforcedWindow
   cost: 4

@@ -30,3 +30,6 @@ reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell mat
 
 reagent-name-bloodallulalo = methylated blood
 reagent-desc-bloodallulalo = An ancient alkylate form of blood. Known to rapidly evaporate if spilled.
+
+reagent-name-dried-zombie-blood = dried zombie blood
+reagent-desc-dried-zombie-blood = Would not advise eating. Useless for creating an inoculation against the infection.

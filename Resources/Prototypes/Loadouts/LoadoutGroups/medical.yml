@@ -39,6 +39,36 @@
   - EmergencyDiscountMedical # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
+#imp start
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - MedicalGlassesHud
+  - Glasses
+  - GlassesCheapSunglasses
+  - EyePatch
+  - GlassesColorfulPink
+  - GlassesColorfulRed
+  - GlassesColorfulBlue
+  - GlassesColorfulGreen
+  - GlassesColorfulPurple
+  - GlassesColorfulYellow
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
+  id: MedicalGloves
+  name: loadout-group-medical-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves #imp, removed upstream
+#imp end
+
 # Chief Medical Officer
 
 - type: loadoutGroup
@@ -48,7 +78,7 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
-  - CMOClip # imp
+  - CMOClip #imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -58,11 +88,11 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
-  - CMOCasualSuit # imp
-  - CMOCasualSkirt # imp
-  - CMOFormalSuit # imp
-  - CMOFormalDress # imp
-  - CMOScrubs # imp
+  - CMOCasualSuit #imp
+  - CMOCasualSkirt #imp
+  - CMOFormalSuit #imp
+  - CMOFormalDress #imp
+  - CMOScrubs #imp
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
