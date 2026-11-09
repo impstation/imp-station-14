@@ -10,7 +10,6 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._CD.Records;
 // End CD - Character Records
-using Content.Shared._Impstation.Traits; // imp
 using Content.Client._Starfall.UserInterface.Lobby.Traits; //imp
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
