@@ -566,6 +566,10 @@ namespace Content.Client.Lobby.UI
 
                 var traitGrid = TraitsEditor.AddCategory(category); // Aurora's Song
                 List<StarfallTraitCard?> selectors = new(); // Aurora's Song
+
+                List<ProtoId<TraitPrototype>> locked = new(); //imp - all traits that are disallowed by currently chosen traits
+                List<ProtoId<TraitPrototype>> unlocked = new(); //imp - all traits that are only accessible because of currently chosen traits
+
                 var selectionCount = 0;
 
                 foreach (var traitProto in categoryTraits)
@@ -575,7 +579,38 @@ namespace Content.Client.Lobby.UI
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
                     if (selector.Preference)
+                    {
                         selectionCount += trait.Cost;
+                        //imp edit start - add trait black/whitelisting
+                        foreach(var possibleUnlock in traits)
+                        {
+                            if (possibleUnlock.Requires.Contains(trait))
+                            {
+                                unlocked.Add(possibleUnlock);
+                            }
+                        }
+
+                        //block clicking on traits that don't have their prereqs
+                        if (trait.Requires.Count > 0 && !unlocked.Contains(trait))
+                        {
+                            Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                        }
+
+                        //add all disallowed traits to the blacklist
+                        foreach (var disallowedByTrait in trait.Disallows)
+                        {
+                            if (!locked.Contains(disallowedByTrait))
+                            {
+                                locked.Add(disallowedByTrait);
+                            }
+                            else
+                            {
+                                Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                            }
+                        }
+
+
+                    }//end imp edit
 
                     selector.PreferenceChanged += preference =>
                     {
@@ -604,14 +639,27 @@ namespace Content.Client.Lobby.UI
 
                 foreach (var selector in selectors)
                 {
-                    if (selector == null)
+                    if (selector == null || selector.Trait == null)
                         continue;
 
                     if (category is { MaxTraitPoints: >= 0 } &&
                         !selector.Preference && // Aurora's Song
                         selector.Cost + selectionCount > category.MaxTraitPoints)
+                    {
                         selector.SetUnavailable(true); // Aurora's Song
+                    }
+                    //begin imp edit - disallow traits that have requirements that are not fulfilled by currently selected traits
+                    if (selector.Requires.Count > 0 && selector.Trait != null && !unlocked.Contains(selector.Trait))
+                    {
+                        selector.SetUnavailable(true);
+                    }
 
+                    //disallow players from selecting blocked traits (overrides unlocked)
+                    if (!selector.Preference && selector.Trait != null && locked.Contains(selector.Trait))
+                    {
+                        selector.SetUnavailable(true);
+                    }
+                    //end imp edit
                     traitGrid.AddChild(selector); // Aurora's Song
                 }
             }

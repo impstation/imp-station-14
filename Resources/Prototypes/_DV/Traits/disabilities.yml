@@ -6,20 +6,22 @@
   components:
     - type: UltraVision
   # imp addition starts
-  subcategories:
-    - Visual
+  disallows:
+    - Monochromacy
+    - DogVision
   cost: -1
   # imp addition ends
 
 - type: trait
-  id: DogVision
+  id: DogVision # YOU TOOK DOG VISION
   name: trait-deuteranopia-name
   description: trait-deuteranopia-desc
   category: Traits # imp
   components:
     - type: DogVision
   # imp addition starts
-  subcategories:
-    - Visual
+  disallows:
+    - Monochromacy
+    - UltraVision
   cost: -1
   # imp addition ends

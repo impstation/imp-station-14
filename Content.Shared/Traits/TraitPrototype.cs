@@ -92,9 +92,21 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public HashSet<ProtoId<SpeciesPrototype>> AllowedSpecies = [];
 
-    /// <summary>
+    /*/// <summary>
     /// Imp - Traits with the same subcategory cannot be taken in tandem for free points (e.g. blindness and colorblindness)
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<TraitSubcategoryPrototype>> Subcategories = [];
+    public HashSet<ProtoId<TraitSubcategoryPrototype>> Subcategories = [];*/
+
+    /// <summary>
+    /// Imp - traits that you cannot select while this trait is selected
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<TraitPrototype>> Disallows = [];
+
+    /// <summary>
+    /// Imp - you can only select this trait if you have one of the required traits
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<TraitPrototype>> Requires = [];
 }
