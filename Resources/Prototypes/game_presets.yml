@@ -10,7 +10,7 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
+    - SpaceTrafficControlPossibleHostileEventScheduler # imp, SpaceTrafficControlFriendlyEventScheduler to SpaceTrafficControlPossibleHostileEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -75,7 +75,7 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
+    - SpaceTrafficControlPossibleHostileEventScheduler # imp, SpaceTrafficControlFriendlyEventScheduler to SpaceTrafficControlPossibleHostileEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
