@@ -44,13 +44,14 @@
   id: AppearanceSkeletonPerson
   name: skeletonperson appearance
   components:
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+#IMP EDIT: WHY DO SKELETONS EVEN HAVE THIS!!! THEY DONT HAVE BOOBS!!!
+#  - type: Inventory
+#    femaleDisplacements:
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Human/displacement.rsi
+#            state: jumpsuit-female
   - type: InitialBody
     organs:
       Torso: OrganSkeletonPersonTorso

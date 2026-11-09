@@ -299,3 +299,32 @@
     - type: ConditionalSpawner
       prototypes:
         - MobTurtle
+
+- type: entity
+  parent: MarkerBase
+  id: ClosetSkeletonSpawner
+  name: Closet Skeleton Spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Mobs/Species/Skeleton/parts.rsi
+        state: full
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobSkeletonCloset
+      - id: MobAnomalocaridSkeletonCloset
+      - id: MobArachnidSkeletonCloset
+      - id: MobDecapoidSkeletonCloset
+      - id: MobDionaSkeletonCloset
+      - id: MobGastropoidSkeletonCloset
+      - id: MobKodepiiaSkeletonCloset
+      - id: MobMothSkeletonCloset
+      - id: MobReptilianSkeletonCloset
+      - id: MobSlimeSkeletonCloset
+      - id: MobThavenSkeletonCloset
+      - id: MobUnguSkeletonCloset
+      - id: MobVoxSkeletonCloset
+      - id: MobVulpkaninSkeletonCloset
+

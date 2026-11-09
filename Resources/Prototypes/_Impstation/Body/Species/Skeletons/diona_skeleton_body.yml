@@ -127,6 +127,18 @@
   id: MobDionaSkeletonPerson
   name: Urist McHollow
   components:
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical
+    damageModifierSet: SkeletonDiona #special modifier set because theyre wooden
+  - type: Flammable #wood
+    fireSpread: true
+    canResistFire: true
+    damage:
+      types:
+        Heat: 1.5
+  - type: FireVisuals #wwoden
+    sprite: Mobs/Effects/onfire.rsi
+    alternateState: Standing
   - type: BodyEmotes #made of would
     soundsId: DionaBodyEmotes
   - type: IgniteOnHeatDamage #there made of wod

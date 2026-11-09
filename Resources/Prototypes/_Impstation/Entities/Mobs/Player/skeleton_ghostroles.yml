@@ -1,0 +1,284 @@
+- type: entity
+  parent: [BaseItem, Tier3Contraband]
+  id: ClosetSkeletonEgg
+  name: skeleton egg
+  description: Trouble brewing.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/egg.rsi
+    state: white
+  - type: TriggerOnLand
+  - type: SpawnOnTrigger
+    proto: ClosetSkeletonSpawner
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Effects/desecration-02.ogg"
+    positional: true
+  - type: DeleteOnTrigger
+
+- type: entity
+  parent: MobAllulaloSkeletonPerson
+  id: MobAllulaloSkeletonCloset
+  name: closet skeleton
+  suffix: Allulalo
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobAnomalocaridSkeletonPerson
+  id: MobAnomalocaridSkeletonCloset
+  name: closet skeleton
+  suffix: Anomalocarid
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobArachnidSkeletonPerson
+  id: MobArachnidSkeletonCloset
+  name: closet skeleton
+  suffix: Arachnid
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobDecapoidSkeletonPerson
+  id: MobDecapoidSkeletonCloset
+  name: closet skeleton
+  suffix: Decapoid
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+
+- type: entity
+  parent: MobDionaSkeletonPerson
+  id: MobDionaSkeletonCloset
+  name: closet skeleton
+  suffix: Diona
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobGastropoidSkeletonPerson
+  id: MobGastropoidSkeletonCloset
+  name: closet skeleton
+  suffix: Gastropoid
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobKodepiiaSkeletonPerson
+  id: MobKodepiiaSkeletonCloset
+  name: closet skeleton
+  suffix: Kodepiia
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobMothSkeletonPerson
+  id: MobMothSkeletonCloset
+  name: closet skeleton
+  suffix: Moth
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobReptilianSkeletonPerson
+  id: MobReptilianSkeletonCloset
+  name: closet skeleton
+  suffix: Reptilian
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobSlimeSkeletonPerson
+  id: MobSlimeSkeletonCloset
+  name: closet skeleton
+  suffix: Slime
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobThavenSkeletonPerson
+  id: MobThavenSkeletonCloset
+  name: closet skeleton
+  suffix: Thaven
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobUnguSkeletonPerson
+  id: MobUnguSkeletonCloset
+  name: closet skeleton
+  suffix: Ungu
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobVoxSkeletonPerson
+  id: MobVoxSkeletonCloset
+  name: closet skeleton
+  suffix: Vox
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MobVulpkaninSkeletonPerson
+  id: MobVulpkaninSkeletonCloset
+  name: closet skeleton
+  suffix: Vulpkanin
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance

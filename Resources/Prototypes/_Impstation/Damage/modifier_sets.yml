@@ -36,3 +36,20 @@
     Blunt: 1.15
     Slash: 1.15
     Piercing: 1.15
+
+- type: damageModifierSet
+  id: SkeletonDiona
+  coefficients:
+    Blunt: 1.1
+    Slash: 0.8
+    Piercing: 0.6
+    Heat: 1.75 #Dead wod
+    Cold: 0.0
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Cellular: 0.0
+    Holy: 0.5
+  flatReductions:
+    Blunt: 5

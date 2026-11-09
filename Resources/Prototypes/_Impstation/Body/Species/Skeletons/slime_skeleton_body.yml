@@ -62,50 +62,6 @@
   name: Slimeskeletonperson appearance
   categories: [ HideSpawnMenu ] #imp
   components:
-  - type: Inventory
-    speciesId: Slime
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
-            state: jumpsuit-female
-      back:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
-            state: back
-      gloves:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
-            state: hand
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
-            state: shoes
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
-            state: jumpsuit-male
-      back:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
-            state: back
-      gloves:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
-            state: hand
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Slime/displacement.rsi #imp
-            state: shoes
   - type: InitialBody
     organs:
       Torso: OrganSlimeSkeletonPersonTorso

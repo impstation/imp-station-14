@@ -223,6 +223,22 @@
     minimumPlayers: 15 #imp
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
+    table: !type:GroupSelector # imp: Skeleton variants
+      children:
+      - id: MobAllulaloSkeletonCloset
+      - id: MobAnomalocaridSkeletonCloset
+      - id: MobArachnidSkeletonCloset
+      - id: MobDecapoidSkeletonCloset
+      - id: MobDionaSkeletonCloset
+      - id: MobGastropoidSkeletonCloset
+      - id: MobKodepiiaSkeletonCloset
+      - id: MobMothSkeletonCloset
+      - id: MobReptilianSkeletonCloset
+      - id: MobSlimeSkeletonCloset
+      - id: MobThavenSkeletonCloset
+      - id: MobUnguSkeletonCloset
+      - id: MobVoxSkeletonCloset
+      - id: MobVulpkaninSkeletonCloset
 
 - type: entity
   parent: BaseGameRule
