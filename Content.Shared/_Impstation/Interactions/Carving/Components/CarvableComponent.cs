@@ -1,0 +1,88 @@
+using Content.Shared._Impstation.Interactions.Carving.DoAfters;
+using Content.Shared.DoAfter;
+using Content.Shared.EntityEffects;
+using Content.Shared.Tools;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
+
+namespace Content.Shared._Impstation.Interactions.Carving.Components;
+
+[RegisterComponent]
+public sealed partial class CarvableComponent : Component
+{
+    [DataField("tool"), ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<ToolQualityPrototype> Tool = "Cutting";
+
+    [DataField("carvedSprites"), ViewVariables(VVAccess.ReadWrite)]
+    public HashSet<SpriteSpecifier> Carves = new HashSet<SpriteSpecifier>();
+
+    [DataField("carveDelay")]
+    public TimeSpan CarveDelay = TimeSpan.FromSeconds(10);
+
+    [DataField("renameDelay")]
+    public TimeSpan RenameDelay = TimeSpan.FromSeconds(2);
+
+    [DataField("engraveDelay")]
+    public TimeSpan EngraveDelay = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// List of effects that should be applied.
+    /// </summary>
+    [DataField("effects")]
+    public List<EntityEffect> Effects = default!;
+
+    public DoAfterId? DoAfter;
+    public bool Carved;
+}
+
+[Serializable, NetSerializable]
+public enum CarvedVisuals
+{
+    Carved,
+    Glowing
+}
+
+public enum CarveType
+{
+    Full,   // Full Sprite Change
+    Partial // Overlays a new Sprite on top of the base
+}
+
+[Serializable, NetSerializable]
+public enum CarvingUiKey
+{
+    Key
+}
+
+[Serializable, NetSerializable]
+public sealed class CarvedEvent : BoundUserInterfaceMessage
+{
+    public SpriteSpecifier? Sprite;
+    public CarveType CarveType;
+    public string CarveName;
+
+    public CarvedEvent(
+        SpriteSpecifier? sprite,
+        string carveName
+        )
+    {
+        Sprite = sprite;
+        CarveName = carveName;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class CarveSpriteEvent : EntityEventArgs
+{
+    public NetEntity Entity;
+    public SpriteSpecifier Sprite;
+    public string CarveName;
+
+    public CarveSpriteEvent(NetEntity entity, SpriteSpecifier sprite, string carveName)
+    {
+        Entity = entity;
+        Sprite = sprite;
+        CarveName = carveName;
+    }
+}
