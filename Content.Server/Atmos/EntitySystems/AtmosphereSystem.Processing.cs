@@ -472,7 +472,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             // Clean up entities that left the gas after processing all tiles
-            CleanupChargedElectrovaeEntities((ent.Owner, atmosphere));
+            CleanupChargedElectrovaeEntities(ent);
 
             return true;
         }

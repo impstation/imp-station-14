@@ -13,9 +13,6 @@ namespace Content.Server.Atmos.EntitySystems;
 
 public sealed partial class AtmosphereSystem
 {
-    // Note: Dependencies and queries are declared in the main AtmosphereSystem.cs file
-    // This partial class just adds the charged electrovae processing logic
-
     private void InitializeChargedElectrovae()
     {
         SubscribeLocalEvent<BatteryComponent, ComponentShutdown>(OnBatteryShutdown);
@@ -39,7 +36,7 @@ public sealed partial class AtmosphereSystem
     private void OnRefreshChargeRate(Entity<ChargedElectrovaeAffectedComponent> ent, ref RefreshChargeRateEvent args)
     {
         // Check if entity is in charged electrovae gas
-        var mixture = GetTileMixture((ent.Owner, null));
+        var mixture = GetTileMixture(ent.Owner);
         if (mixture == null)
             return;
 
@@ -49,13 +46,11 @@ public sealed partial class AtmosphereSystem
 
         // Calculate intensity and charge rate
         var intensity = Math.Min(chargedMoles / Atmospherics.ChargedElectrovaeIntensityDivisor, 1f);
-        const float minimumIntensityToCharge = 0.1f;
-        const float chargeRatePerIntensity = 400f; // Watts
 
-        if (intensity >= minimumIntensityToCharge)
+        if (intensity >= Atmospherics.ChargedElectrovaeMinimumIntensityToCharge)
         {
             // Add charge rate based on intensity
-            args.NewChargeRate += intensity * chargeRatePerIntensity;
+            args.NewChargeRate += intensity * Atmospherics.ChargedElectrovaeChargeRatePerIntensity;
         }
     }
 
@@ -70,9 +65,9 @@ public sealed partial class AtmosphereSystem
             RestoreBatteryCapacity((ent, battery, ent.Comp));
 
         // Restore power requirements if this entity had them bypassed
-        if (ent.Comp.OriginalNeedsPower != null && _powerReceiverQuery.TryComp(ent, out var receiver))
+        if (ent.Comp.OriginalNeedsPower is { } needsPower && _powerReceiverQuery.TryComp(ent, out var receiver))
         {
-            receiver.NeedsPower = ent.Comp.OriginalNeedsPower.Value;
+            _powerReceiver.SetNeedsPower(ent, needsPower, receiver);
             ent.Comp.OriginalNeedsPower = null;
         }
     }
@@ -106,6 +101,7 @@ public sealed partial class AtmosphereSystem
         var mixture = tile.Air;
         if (mixture == null)
         {
+            RestorePowerRequirements(tile);
             tile.ChargedEffect = default;
             atmosphere.ChargedElectrovaeTiles.Remove(tile);
             return;
@@ -194,6 +190,12 @@ public sealed partial class AtmosphereSystem
         var query = EntityQueryEnumerator<ChargedElectrovaeAffectedComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var transform))
         {
+            if (transform.GridUid == null)
+            {
+                RemComp<ChargedElectrovaeAffectedComponent>(uid);
+                continue;
+            }
+
             if (transform.GridUid != grid.Owner)
                 continue;
 
@@ -218,9 +220,7 @@ public sealed partial class AtmosphereSystem
     /// </summary>
     private void ProcessBattery(Entity<BatteryComponent, ChargedElectrovaeAffectedComponent> ent, float intensity, float chargedMoles)
     {
-        const float minimumIntensityToCharge = 0.1f;
-
-        if (intensity > minimumIntensityToCharge)
+        if (intensity > Atmospherics.ChargedElectrovaeMinimumIntensityToCharge)
         {
             ExpandBatteryCapacity(ent, chargedMoles);
         }
@@ -255,7 +255,7 @@ public sealed partial class AtmosphereSystem
         var expansionMultiplier = 1f + (1f - MathF.Exp(-chargedMoles / expansionDecayConstant));
 
         var newMaxCharge = ent.Comp2.OriginalBatteryMaxCharge.Value * expansionMultiplier;
-        _battery.SetMaxCharge((ent.Owner, ent.Comp1), newMaxCharge);
+        _battery.SetMaxCharge((ent, ent.Comp1), newMaxCharge);
     }
 
     /// <summary>
@@ -265,9 +265,9 @@ public sealed partial class AtmosphereSystem
     private void RestoreBatteryCapacity(
         Entity<BatteryComponent, ChargedElectrovaeAffectedComponent> ent)
     {
-        if (ent.Comp2.OriginalBatteryMaxCharge != null)
+        if (ent.Comp2.OriginalBatteryMaxCharge is { } originalMaxCharge)
         {
-            _battery.SetMaxCharge((ent.Owner, ent.Comp1), ent.Comp2.OriginalBatteryMaxCharge.Value);
+            _battery.SetMaxCharge((ent, ent.Comp1), originalMaxCharge);
             ent.Comp2.OriginalBatteryMaxCharge = null;
         }
     }
@@ -276,7 +276,7 @@ public sealed partial class AtmosphereSystem
     /// Applies power to a machine from charged electrovae gas.
     /// This bypasses normal APC power requirements.
     /// </summary>
-    private static void ApplyChargedElectrovaePower(
+    private void ApplyChargedElectrovaePower(
         Entity<ChargedElectrovaeAffectedComponent> ent,
         ApcPowerReceiverComponent receiver,
         float intensity)
@@ -286,9 +286,9 @@ public sealed partial class AtmosphereSystem
         if (intensity < minimumIntensityToPower)
         {
             // Restore original NeedsPower if we previously bypassed it
-            if (ent.Comp.OriginalNeedsPower != null)
+            if (ent.Comp.OriginalNeedsPower is { } needsPower)
             {
-                receiver.NeedsPower = ent.Comp.OriginalNeedsPower.Value;
+                _powerReceiver.SetNeedsPower(ent, needsPower, receiver);
                 ent.Comp.OriginalNeedsPower = null;
             }
             return;
@@ -296,7 +296,7 @@ public sealed partial class AtmosphereSystem
 
         // Store original value before bypassing
         ent.Comp.OriginalNeedsPower ??= receiver.NeedsPower;
-        receiver.NeedsPower = false;
+        _powerReceiver.SetNeedsPower(ent, false, receiver);
     }
 
     /// <summary>
@@ -305,15 +305,8 @@ public sealed partial class AtmosphereSystem
     private void ApplyLightningStrike(EntityUid target, float intensity)
     {
         // Scale damage and stun time based on intensity
-        // At low intensity: 5 damage, 1 second stun
-        // At high intensity: 10 damage, 3 seconds stun
-        const int baseDamage = 5;
-        const int damagePerIntensity = 5;
-        const float baseStunSeconds = 1f;
-        const float stunSecondsPerIntensity = 2f;
-
-        var damage = (int)(baseDamage + intensity * damagePerIntensity);
-        var stunTime = TimeSpan.FromSeconds(baseStunSeconds + intensity * stunSecondsPerIntensity);
+        var damage = (int)(Atmospherics.ChargedElectrovaeLightningBaseDamage + intensity * Atmospherics.ChargedElectrovaeLightningDamagePerIntensity);
+        var stunTime = TimeSpan.FromSeconds(Atmospherics.ChargedElectrovaeLightningBaseStunSeconds + intensity * Atmospherics.ChargedElectrovaeLightningStunSecondsPerIntensity);
 
         _adminLog.Add(LogType.Electrocution,
             LogImpact.Medium,

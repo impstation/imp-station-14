@@ -7,13 +7,13 @@ using JetBrains.Annotations;
 namespace Content.Server._Impstation.Atmos.Reactions;
 
 /// <summary>
-///     Produces electrovae from water vapor and nitrous oxide;
-///     Chemical Equation: 11N₂O + 2H₂O → H₄N₂₂O₁₁ + O₂
-///     (H₄N₂₂O₁₁ = Electrovae), and yes, O₂ is created;
-///     So avoid having electrovae at high temperature if you don't want it rapidly changing to charged electrovae and discharging.
-///     This reaction is temperature-dependent, with higher temperatures increasing efficiency.
-///     Nitrogen acts as both a catalyst (enabling the reaction) and a limiter (preventing runaway production), is not consumed.
-///     Carbon dioxide acts as an inhibitor, reducing or preventing the reaction when present.
+/// Produces electrovae from water vapor and nitrous oxide;
+/// Chemical Equation: 11N₂O + 2H₂O → H₄N₂₂O₁₁ + O₂
+/// (H₄N₂₂O₁₁ = Electrovae), and yes, O₂ is created;
+/// So avoid having electrovae at high temperature if you don't want it rapidly changing to charged electrovae and discharging.
+/// This reaction is temperature-dependent, with higher temperatures increasing efficiency.
+/// Nitrogen acts as both a catalyst (enabling the reaction) and a limiter (preventing runaway production), is not consumed.
+/// Carbon dioxide acts as an inhibitor, reducing or preventing the reaction when present.
 /// </summary>
 [UsedImplicitly]
 public sealed partial class ElectrovaeProductionReaction : IGasReactionEffect

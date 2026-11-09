@@ -47,8 +47,9 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] public readonly PuddleSystem Puddle = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocution = default!; // imp
     [Dependency] private readonly BatterySystem _battery = default!; // imp
+    [Dependency] private readonly ElectrocutionSystem _electrocution = default!; // imp
+    [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!; // imp
 
     private const float ExposedUpdateDelay = 1f;
     private float _exposedTimer = 0f;
@@ -57,9 +58,9 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     private EntityQuery<MapAtmosphereComponent> _mapAtmosQuery;
     private EntityQuery<AirtightComponent> _airtightQuery;
     private EntityQuery<FirelockComponent> _firelockQuery;
-    private EntityQuery<ApcPowerReceiverComponent> _powerReceiverQuery; // imp
-    private EntityQuery<MobStateComponent> _mobQuery; // imp
     private EntityQuery<BatteryComponent> _batteryQuery; // imp
+    private EntityQuery<MobStateComponent> _mobQuery; // imp
+    private EntityQuery<ApcPowerReceiverComponent> _powerReceiverQuery; // imp
     private HashSet<EntityUid> _entSet = new();
 
     private string[] _burntDecals = [];
@@ -81,9 +82,9 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
         _mapAtmosQuery = GetEntityQuery<MapAtmosphereComponent>();
         _airtightQuery = GetEntityQuery<AirtightComponent>();
         _firelockQuery = GetEntityQuery<FirelockComponent>();
-        _powerReceiverQuery = GetEntityQuery<ApcPowerReceiverComponent>(); // imp
-        _mobQuery = GetEntityQuery<MobStateComponent>(); // imp
         _batteryQuery = GetEntityQuery<BatteryComponent>(); // imp
+        _mobQuery = GetEntityQuery<MobStateComponent>(); // imp
+        _powerReceiverQuery = GetEntityQuery<ApcPowerReceiverComponent>(); // imp
 
         SubscribeLocalEvent<TileChangedEvent>(OnTileChanged);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
