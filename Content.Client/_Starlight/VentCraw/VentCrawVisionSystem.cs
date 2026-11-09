@@ -1,5 +1,5 @@
 using Content.Client.SubFloor;
-using Content.Shared.VentCraw;
+using Content.Shared._Starlight.VentCraw;
 using Robust.Client.Player;
 using Robust.Shared.Timing;
 
