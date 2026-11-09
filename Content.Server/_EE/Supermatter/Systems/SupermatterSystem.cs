@@ -13,8 +13,6 @@ using Content.Server.Ghost;
 using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
-using Content.Server.Station.Systems;
-using Content.Server.Silicons.Laws;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
@@ -62,13 +60,11 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
-    [Dependency] private readonly IonStormSystem _ionStorm = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly ParacusiaSystem _paracusia = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StrangeMoodsSystem _moods = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -81,6 +77,30 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    private float _singulooseMolesModifier;
+    private bool _doSingulooseDelam;
+    private float _tesloosePowerModifier;
+    private bool _doTeslooseDelam;
+    private float _powerPenaltyThreshold;
+    private float _severePowerPenaltyThreshold;
+    private float _criticalPowerPenaltyThreshold;
+    private float _ammoniaConsumptionPressure;
+    private float _ammoniaPressureScaling;
+    private float _ammoniaGasMixScaling;
+    private float _ammoniaPowerGain;
+    private bool _doForceDelam;
+    private DelamType _forcedDelamType;
+    private float _heatPenaltyThreshold;
+    private float _matterPowerConversion;
+    private float _moleHeatPenalty;
+    private float _molePenaltyThreshold;
+    private float _oxygenReleaseModifier;
+    private float _plasmaReleaseModifier;
+    private float _radsBase;
+    private float _radsModifier;
+    private float _reactionPowerModifier;
+    private float _thermalReleaseModifier;
+    private float _yellTimer;
 
     public override void Initialize()
     {
@@ -97,6 +117,31 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
         SubscribeLocalEvent<SupermatterComponent, DestabilizingCrystalDoAfterEvent>(OnDestabalizeSupermatter);
         SubscribeLocalEvent<SupermatterComponent, GravPulseEvent>(OnGravPulse);
+
+        Subs.CVar(_config, EECCVars.SupermatterSingulooseMolesModifier, value => _singulooseMolesModifier = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterDoSingulooseDelam, value => _doSingulooseDelam = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterTesloosePowerModifier, value => _tesloosePowerModifier = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterDoTeslooseDelam, value => _doTeslooseDelam = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterPowerPenaltyThreshold, value => _powerPenaltyThreshold = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterSeverePowerPenaltyThreshold, value => _severePowerPenaltyThreshold = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterCriticalPowerPenaltyThreshold, value => _criticalPowerPenaltyThreshold = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterAmmoniaConsumptionPressure, value => _ammoniaConsumptionPressure = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterAmmoniaPressureScaling, value => _ammoniaPressureScaling = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterAmmoniaGasMixScaling, value => _ammoniaGasMixScaling = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterAmmoniaPowerGain, value => _ammoniaPowerGain = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterDoForceDelam, value => _doForceDelam = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterForcedDelamType, value => _forcedDelamType = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterHeatPenaltyThreshold, value => _heatPenaltyThreshold = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterMatterPowerConversion, value => _matterPowerConversion = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterMoleHeatPenalty, value => _moleHeatPenalty = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterMolePenaltyThreshold, value => _molePenaltyThreshold = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterOxygenReleaseModifier, value => _oxygenReleaseModifier = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterPlasmaReleaseModifier, value => _plasmaReleaseModifier = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterRadsBase, value => _radsBase = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterRadsModifier, value => _radsModifier = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterReactionPowerModifier, value => _reactionPowerModifier = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterThermalReleaseModifier, value => _thermalReleaseModifier = value, true);
+        Subs.CVar(_config, EECCVars.SupermatterYellTimer, value => _yellTimer = value, true);
     }
 
     public override void Update(float frameTime)
@@ -111,7 +156,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
         // Set the yell timer
-        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(EECCVars.SupermatterYellTimer));
+        sm.YellTimer = TimeSpan.FromSeconds(_yellTimer);
 
         // Set the sound
         _ambient.SetAmbience(uid, true);
@@ -129,11 +174,12 @@ public sealed partial class SupermatterSystem : EntitySystem
     public void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
     {
         ProcessAtmos(uid, sm, args.dt);
-        sm.PreferredDelamType = ChooseDelamType(uid, sm);
         HandleDamage(uid, sm);
 
         if (sm.Damage >= sm.DamageDelaminationPoint || sm.Delamming)
             HandleDelamination(uid, sm);
+        else
+            sm.PreferredDelamType = ChooseDelamType(uid, sm);
 
         HandleLight(uid, sm);
         HandleVision(uid, sm);
@@ -384,8 +430,8 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         EntityManager.QueueDeleteEntity(target);
 
-        if (TryComp<SupermatterFoodComponent>(target, out var food))
-            sm.Power += food.Energy;
+        if (TryComp<SinguloFoodComponent>(target, out var food))
+            sm.MatterPower += (float)Math.Pow(food.Energy, 3) / 2f; // #mymagicnumbers
         else if (projectile != null)
             sm.Power += (float)projectile.Damage.GetTotal();
         else
@@ -427,7 +473,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (sm.Damage >= sm.DamageWarningThreshold)
             return SupermatterStatusType.Warning;
 
-        if (mix.Temperature > Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold) * 0.8)
+        if (mix.Temperature > Atmospherics.T0C + _heatPenaltyThreshold * 0.8)
             return SupermatterStatusType.Caution;
 
         if (sm.Power > 5)
