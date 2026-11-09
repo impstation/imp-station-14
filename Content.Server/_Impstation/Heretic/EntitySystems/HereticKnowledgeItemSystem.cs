@@ -58,7 +58,7 @@ public sealed partial class HereticKnowledgeItemSystem : EntitySystem
 
     private void OnExamined(Entity<HereticKnowledgeItemComponent> ent, ref ExaminedEvent args)
     {
-        if(TryComp<HereticComponent>(args.Examiner, out _))
+        if (TryComp<HereticComponent>(args.Examiner, out _))
         {
             if (ent.Comp.Spent)
             {

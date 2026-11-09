@@ -1,0 +1,29 @@
+﻿- type: entity
+  parent: BaseItem
+  id: ClothingHeadHatTurtleShell
+  name: turtle shell
+  description: Ermmmmm actually it's a tortoise shell.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/turtle_shell.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/turtle_shell.rsi
+    slots:
+      - HEAD
+  - type: Item
+    size: Small
+    shape:
+      - 0,0,1,1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.99
+  - type: Flippable
+    mirrorEntity: FoodBowlTurtleBig
+  - type: StaticPrice
+    price: 25
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - DroneUsable

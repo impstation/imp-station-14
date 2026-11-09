@@ -127,3 +127,11 @@
     duration: 0.5
   - type: TimedDespawn
     lifetime: 0.5
+
+- type: entity
+  parent: ExGrenade
+  id: FuselessGrenade
+  suffix: Fuseless
+  components:
+  - type: TimerTrigger
+    delay: 0.2

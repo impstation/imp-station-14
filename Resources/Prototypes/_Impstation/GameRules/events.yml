@@ -350,3 +350,21 @@
         - Syndicate
       mindRoles:
       - MindRoleSyndicateInstigator
+
+- type: entity
+  id: ExplosiveMineResurfacing
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 3
+    earliestStart: 20
+    reoccurrenceDelay: 30
+    minimumPlayers: 20
+  - type: RandomSpawnRule
+    prototype: LandmineOrDudRareGibSpawner
+    spawnEffect: EffectDesynchronizerExit
+    minMaxEntities:
+      min: 8
+      max: 10
+    emptyTilesOnly: true
+    announcement: station-event-explosive-mine-resurfacing-announcement

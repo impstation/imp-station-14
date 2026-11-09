@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Heretic.Components;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Server._Impstation.Heretic.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
@@ -62,7 +62,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
 
@@ -74,7 +73,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
+            if (TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath
             || HasComp<MinionComponent>(look))
                 continue;
 
