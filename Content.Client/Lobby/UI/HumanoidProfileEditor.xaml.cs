@@ -11,6 +11,7 @@ using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._CD.Records;
 // End CD - Character Records
 using Content.Shared._Impstation.Traits; // imp
+using Content.Client._Starfall.UserInterface.Lobby.Traits; //imp
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -517,7 +518,7 @@ namespace Content.Client.Lobby.UI
 
             var traits = TraitsEditor.FilterSearch(_prototypeManager.EnumeratePrototypes<TraitPrototype>()) // Aurora's Song
                 .ToList();
-            TabContainer.SetTabTitle(2, Loc.GetString("humanoid-profile-editor-traits-tab")); // Aurora's Song - 3>2
+            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab")); // Aurora's Song - 3>2
 
             if (traits.Count < 1)
             {
@@ -534,9 +535,7 @@ namespace Content.Client.Lobby.UI
             {
                 // Begin Misfit - Add trait hiding
                 if (Profile?.Species is { } selectedSpecies &&
-                    (trait.SpeciesBlacklist.Contains(selectedSpecies) ||
-                     trait.SpeciesWhitelist.Length > 0 &&
-                     !trait.SpeciesWhitelist.Contains(selectedSpecies)))
+                    (trait.ExcludedSpecies.Contains(selectedSpecies)))
                 {
                     Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     continue;
