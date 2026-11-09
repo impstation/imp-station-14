@@ -22,6 +22,7 @@
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="_Impstation\Genetics\Systems\" />
     <Folder Include="_Impstation\Notifier\Components\" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
