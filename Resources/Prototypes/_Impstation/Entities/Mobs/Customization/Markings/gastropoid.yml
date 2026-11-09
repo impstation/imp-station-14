@@ -118,6 +118,42 @@
   - sprite: _Impstation/Mobs/Customization/Gastropoid/chest.rsi
     state: gradient
 
+- type: marking
+  id: GastropoidBigTail
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/chest.rsi
+    state: bigtail
+
+- type: marking
+  id: GastropoidLongTail
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/chest.rsi
+    state: longtail
+
+- type: marking
+  id: GastropoidLegs
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/chest.rsi
+    state: legs
+
+- type: marking
+  id: GastropoidGrub
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/chest.rsi
+    state: grub
+
 # Head
 
 - type: marking
@@ -229,6 +265,46 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
     state: patch
+
+- type: marking
+  id: GastropoidBigFace
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: bigface
+
+- type: marking
+  id: GastropoidHat
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: hat1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: hat2
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: hat3
+
+- type: marking
+  id: GastropoidBunny
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: bunny
+
+- type: marking
+  id: GastropoidWhiskers
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/head.rsi
+    state: whiskers
 
 # Snout
 
@@ -998,5 +1074,31 @@
     state: smallflowers1
   - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
     state: smallflowers2
+
+- type: marking
+  id: GastropoidCape
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Gastropoid ]
+  layering:
+    cape2: TailOversuit
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: cape1
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: cape2
+
+- type: marking
+  id: GastropoidVeil
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Gastropoid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: veil
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: veilears
+  - sprite: _Impstation/Mobs/Customization/Gastropoid/tail.rsi
+    state: veileyes
 
 # RArmExtension
