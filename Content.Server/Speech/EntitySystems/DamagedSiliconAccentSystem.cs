@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using Content.Server.Destructible;
 using Content.Shared.Speech.Components;
 using Content.Shared.Damage.Components;
@@ -112,6 +112,13 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
     private string CorruptDamage(string message, FixedPoint2 totalDamage, Entity<DamagedSiliconAccentComponent> ent)
     {
         var outMsg = new StringBuilder();
+
+        //imp edit start - if damage is below minimum threshold, don't corrupt
+        if (totalDamage < ent.Comp.StartCorruptionAt)
+        {
+            return message;
+        }
+        //imp edit end
 
         // If this is not specified, use the Destructible threshold for destruction or breakage
         var damageAtMaxCorruption = ent.Comp.DamageAtMaxCorruption;
