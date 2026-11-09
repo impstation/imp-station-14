@@ -180,3 +180,16 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+- type: construction
+  id: BarricadeCovering
+  name: construction-recipe-barricade-covering
+  graph: BarricadeCovering
+  startNode: start
+  targetNode: barricadecover
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:WindowOrDoorInTile
