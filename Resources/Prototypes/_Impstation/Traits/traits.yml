@@ -5,8 +5,8 @@
   category: Traits
   components:
     - type: RandomUnrevivable
-  subcategories:
-    - Unrevivability
+  disallows:
+    - Unrevivable
   cost: -2
 
 - type: trait
@@ -21,8 +21,8 @@
           tags:
             - SGD
       failMessage: sgdrequired-cant-speak
-  subcategories:
-    - Speech
+  disallows:
+    - Muted
   cost: -1
 
 - type: trait
@@ -119,8 +119,8 @@
     minimumWait: 300
     maximumWait: 600 # triggers once every 5-10 minutes
     learnChance: 0.1
-  subcategories:
-    - Echolalia
+  disallows:
+    - Muted
   cost: -1
 
 - type: trait

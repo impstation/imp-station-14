@@ -1,7 +1,6 @@
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
-using Content.Shared._Impstation.Traits; // Imp - Subcategories
 using Content.Shared.Humanoid.Prototypes; // DeltaV - Trait species hiding
 using Content.Shared.Tag; // imp traits
 
@@ -87,8 +86,20 @@ public sealed partial class TraitPrototype : IPrototype
     public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = [];
 
     /// <summary>
-    /// Imp - Traits with the same subcategory cannot be taken in tandem for free points (e.g. blindness and colorblindness)
+    /// Imp - Hides traits from non-listed species
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<TraitSubcategoryPrototype>> Subcategories = [];
+    public HashSet<ProtoId<SpeciesPrototype>> AllowedSpecies = [];
+
+    /// <summary>
+    /// Imp - traits that you cannot select while this trait is selected
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<TraitPrototype>> Disallows = [];
+
+    /// <summary>
+    /// Imp - you can only select this trait if you have one of the required traits
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<TraitPrototype>> Requires = [];
 }
