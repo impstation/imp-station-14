@@ -11,7 +11,7 @@
     usesApcPower: true
   - type: TelecomExempt
   - type: EncryptionKeyHolder
-    keySlots: 3
+    keySlots: 4 # imp edit, up from 3
     keysExtractionMethod: Prying
   - type: RadioMicrophone
     powerRequired: true
@@ -218,6 +218,7 @@
       - IntercomElectronics
       key_slots:
       - EncryptionKeyCommon
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomCommand
@@ -232,6 +233,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyCommand
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomEngineering
@@ -245,6 +247,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyEngineering
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomMedical
@@ -258,6 +261,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyMedical
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomScience
@@ -271,6 +275,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyScience
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomSecurity
@@ -285,6 +290,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeySecurity
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomService
@@ -298,6 +304,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyService
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomSupply
@@ -311,6 +318,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyCargo
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomAll
@@ -324,6 +332,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyStationMaster
+      - EncryptionKeyAi #imp
 
 - type: entity
   id: DeskIntercomFreelance

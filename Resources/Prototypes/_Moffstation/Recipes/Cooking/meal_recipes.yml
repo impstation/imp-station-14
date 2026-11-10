@@ -1,0 +1,74 @@
+- type: microwaveMealRecipe
+  id: RecipeMealOmelette
+  name: cheese omelette recipe
+  result: FoodMealOmelette
+  time: 10
+  group: Savory
+  reagents:
+    TableSalt: 2
+    Blackpepper: 2
+    Egg: 12
+    Milk: 5
+  solids:
+    FoodCheeseSlice: 1
+  recipeType: Oven #Imp
+
+- type: microwaveMealRecipe
+  id: RecipeMealEggplantParm
+  name: eggplant parmigiana recipe
+  result: FoodMealEggplantParm
+  time: 15
+  group: Savory
+  solids:
+    FoodEggplant: 2
+    FoodCheeseSlice: 2
+    FoodTomato: 1
+  recipeType: Oven #Imp
+
+- type: microwaveMealRecipe
+  id: RecipeMealCornedbeef
+  name: corned beef and cabbage recipe
+  result: FoodMealCornedbeef
+  time: 15
+  group: Savory
+  solids:
+    FoodCabbage: 2
+    FoodMeat: 1
+    FoodPotato: 1
+    FoodCarrot: 1
+  recipeType: Oven #Imp
+
+- type: microwaveMealRecipe
+  id: RecipeMealSpesslaw
+  name: Spesslaw recipe
+  result: FoodNoodlesSpesslaw
+  time: 10
+  group: Savory
+  solids:
+    FoodNoodlesBoiled: 1
+    FoodMeatMeatball: 4
+  recipeType: Microwave #Imp
+
+- type: microwaveMealRecipe
+  id: RecipeMealPigBlanket
+  name: pig blanket recipe
+  result: FoodMealPigblanket
+  time: 10
+  group: Savory
+  solids:
+    FoodDoughSlice: 2
+    FoodMeatCutlet: 2
+    FoodButterSlice: 1
+  recipeType: Oven #Imp
+
+- type: microwaveMealRecipe
+  id: RecipeMealBearsteak
+  name: filet migrawr recipe
+  result: FoodMealBearsteak
+  time: 30
+  group: Savory
+  solids:
+    FoodMeatBearCooked: 1
+  reagents:
+    ManlyDorf: 5
+  recipeType: Oven # Imp
