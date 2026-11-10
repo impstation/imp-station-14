@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/23/2026 21:02:49
-  entityCount: 10890
+  time: 11/08/2026 17:43:10
+  entityCount: 10960
 maps:
 - 1
 grids:
@@ -3266,7 +3266,8 @@ entities:
             1: 68
           -4,-4:
             1: 4369
-            0: 60608
+            0: 11456
+            4: 49152
           -5,-4:
             1: 65533
           -4,-3:
@@ -3334,10 +3335,10 @@ entities:
             1: 1
             0: 65228
           2,5:
-            4: 112
+            5: 112
             3: 28672
           2,6:
-            5: 112
+            6: 112
             0: 61440
           2,7:
             0: 56607
@@ -3379,7 +3380,7 @@ entities:
           -3,6:
             1: 17
             0: 61440
-            6: 192
+            7: 192
           -3,7:
             0: 48015
           -3,8:
@@ -3388,16 +3389,16 @@ entities:
             3: 4112
             1: 17476
           -2,6:
-            6: 16
+            7: 16
             0: 28672
             1: 68
           -2,7:
             0: 4375
-            7: 26208
+            8: 26208
           -2,8:
             0: 64273
-            8: 1024
-            7: 102
+            9: 1024
+            8: 102
           -1,8:
             1: 227
             0: 61440
@@ -3451,17 +3452,17 @@ entities:
             0: 65023
           1,10:
             0: 29503
-            9: 34816
+            10: 34816
           1,11:
             0: 36627
-            9: 8
+            10: 8
           1,12:
             0: 65326
           2,9:
             0: 47615
           2,10:
             0: 35979
-            9: 13056
+            10: 13056
           2,11:
             0: 61152
           2,12:
@@ -3978,6 +3979,11 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles: {}
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
         - volume: 2500
           temperature: 293.15
           moles:
@@ -8786,6 +8792,18 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -27.491844,6.2650847
+      parent: 2
+- proto: BongBongy
+  entities:
+  - uid: 10903
+    components:
+    - type: Transform
+      pos: -17.52667,-6.4713717
+      parent: 2
+  - uid: 10904
+    components:
+    - type: Transform
+      pos: -17.52667,-6.4713717
       parent: 2
 - proto: BongWhiteCell
   entities:
@@ -25869,6 +25887,13 @@ entities:
     - type: Transform
       pos: -23.13302,22.709715
       parent: 2
+- proto: ChemistryBottleLeporazine
+  entities:
+  - uid: 10959
+    components:
+    - type: Transform
+      pos: -20.690752,4.587141
+      parent: 2
 - proto: ChemistryHotplate
   entities:
   - uid: 3468
@@ -25918,6 +25943,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 11.544753,46.560062
       parent: 2
+- proto: CigPackMixedRejects
+  entities:
+  - uid: 10881
+    components:
+    - type: Transform
+      parent: 8383
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 8383
 - proto: CircuitImprinter
   entities:
   - uid: 4801
@@ -29338,6 +29373,13 @@ entities:
     - type: Transform
       pos: 37.610184,11.542569
       parent: 2
+- proto: ClothingHeadHatPaperYellow
+  entities:
+  - uid: 10922
+    components:
+    - type: Transform
+      pos: 1.5143179,65.89747
+      parent: 2
 - proto: ClothingHeadHatPartyWaterCup
   entities:
   - uid: 9480
@@ -29351,6 +29393,13 @@ entities:
     components:
     - type: Transform
       pos: 19.316256,18.717518
+      parent: 2
+- proto: ClothingHeadHatSyndieballsoft
+  entities:
+  - uid: 10907
+    components:
+    - type: Transform
+      pos: -25.50597,19.835821
       parent: 2
 - proto: ClothingHeadHatSyndieMAA
   entities:
@@ -29427,20 +29476,50 @@ entities:
     - type: Transform
       pos: -6.49053,30.668844
       parent: 2
+- proto: ClothingMaskPaperBlue
+  entities:
+  - uid: 10920
+    components:
+    - type: Transform
+      pos: -14.747805,-6.4147644
+      parent: 2
+- proto: ClothingMaskPaperGreen
+  entities:
+  - uid: 10931
+    components:
+    - type: Transform
+      pos: -24.241629,19.374838
+      parent: 2
+- proto: ClothingMaskPaperMime
+  entities:
+  - uid: 10771
+    components:
+    - type: Transform
+      parent: 8383
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 8383
+- proto: ClothingMaskPaperRed
+  entities:
+  - uid: 10919
+    components:
+    - type: Transform
+      pos: -0.64153934,-11.855052
+      parent: 2
+- proto: ClothingMaskPaperWhite
+  entities:
+  - uid: 10927
+    components:
+    - type: Transform
+      pos: 21.455956,33.540226
+      parent: 2
 - proto: ClothingNeckChaplainDragon
   entities:
   - uid: 6891
     components:
     - type: Transform
       pos: 13.496898,33.676407
-      parent: 2
-- proto: ClothingNeckScarfStripedSyndieGreen
-  entities:
-  - uid: 10771
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -25.333616,19.730215
       parent: 2
 - proto: ClothingNeckScarfStripedSyndieRed
   entities:
@@ -29480,19 +29559,19 @@ entities:
       parent: 2
 - proto: ClothingOuterWinterColorBlack
   entities:
-  - uid: 10591
+  - uid: 10960
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.340487,4.532827
+      rot: -1.5707963267948966 rad
+      pos: -19.635866,4.4757366
       parent: 2
 - proto: ClothingOuterWinterColorGray
   entities:
-  - uid: 10592
+  - uid: 10591
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.633512,4.7281394
+      rot: -1.5707963267948966 rad
+      pos: -18.659124,4.495268
       parent: 2
 - proto: ClothingShoesBootsLaceup
   entities:
@@ -30355,6 +30434,13 @@ entities:
     components:
     - type: Transform
       pos: -24.5,22.5
+      parent: 2
+- proto: CryoxadoneBeakerSmall
+  entities:
+  - uid: 10958
+    components:
+    - type: Transform
+      pos: -20.300055,4.671049
       parent: 2
 - proto: CurtainsBlueOpen
   entities:
@@ -34112,6 +34198,14 @@ entities:
     components:
     - type: Transform
       pos: 5.5,6.5
+      parent: 2
+- proto: DracuLighter
+  entities:
+  - uid: 10905
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.502895,32.427692
       parent: 2
 - proto: DresserCaptainFilled
   entities:
@@ -51138,9 +51232,9 @@ entities:
     - type: Transform
       pos: 35.5,13.5
       parent: 2
-- proto: HolopadCargoBay
+- proto: HolopadCargoBayLongRange
   entities:
-  - uid: 9261
+  - uid: 8294
     components:
     - type: Transform
       pos: -22.5,40.5
@@ -51159,9 +51253,9 @@ entities:
     - type: Transform
       pos: -24.5,26.5
       parent: 2
-- proto: HolopadCommandBridge
+- proto: HolopadCommandBridgeLongRange
   entities:
-  - uid: 8294
+  - uid: 9261
     components:
     - type: Transform
       pos: 0.5,63.5
@@ -51439,6 +51533,16 @@ entities:
     - type: Transform
       pos: 1.5,45.5
       parent: 2
+- proto: HonkCoFlippo
+  entities:
+  - uid: 10735
+    components:
+    - type: Transform
+      parent: 8407
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 8407
 - proto: HoSGunSpawner
   entities:
   - uid: 8118
@@ -51877,11 +51981,6 @@ entities:
     - type: Transform
       pos: 0.5,-0.5
       parent: 2
-  - uid: 10881
-    components:
-    - type: Transform
-      pos: -17.5,-6.5
-      parent: 2
   - uid: 10882
     components:
     - type: Transform
@@ -52014,6 +52113,25 @@ entities:
     - type: Transform
       pos: -13.5,-12.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 10735
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerCourierFilled
   entities:
   - uid: 8862
@@ -52132,6 +52250,26 @@ entities:
     - type: Transform
       pos: -12.5,-12.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 10771
+          - 10881
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerParamedicFilled
   entities:
   - uid: 3495
@@ -52703,15 +52841,15 @@ entities:
     - type: Transform
       pos: 3.5,12.5
       parent: 2
-  - uid: 10735
-    components:
-    - type: Transform
-      pos: -18.5,20.5
-      parent: 2
   - uid: 10736
     components:
     - type: Transform
       pos: 22.5,35.5
+      parent: 2
+  - uid: 10894
+    components:
+    - type: Transform
+      pos: -20.5,21.5
       parent: 2
 - proto: Multitool
   entities:
@@ -52865,12 +53003,12 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-- proto: OrganMothHeart
+- proto: OrganGrayHead
   entities:
-  - uid: 7009
+  - uid: 10902
     components:
     - type: Transform
-      pos: -3.5385625,27.411852
+      pos: 12.589103,55.280552
       parent: 2
 - proto: OxygenCanister
   entities:
@@ -53362,12 +53500,24 @@ entities:
     - type: Transform
       pos: -11.501215,25.440088
       parent: 2
+- proto: PlushieBros
+  entities:
+  - uid: 10892
+    components:
+    - type: Transform
+      pos: -3.500676,27.533392
+      parent: 2
 - proto: PlushieGray
   entities:
   - uid: 7609
     components:
     - type: Transform
       pos: 30.49642,30.549845
+      parent: 2
+  - uid: 10899
+    components:
+    - type: Transform
+      pos: -0.5194118,49.690125
       parent: 2
 - proto: PlushieHolocarp
   entities:
@@ -53492,6 +53642,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 9.715508,6.389668
       parent: 2
+- proto: PlushieSorb
+  entities:
+  - uid: 10906
+    components:
+    - type: Transform
+      pos: -3.3212388,27.311232
+      parent: 2
 - proto: PlushieTeddyBearRecolorableRandom
   entities:
   - uid: 3402
@@ -53517,6 +53674,55 @@ entities:
     components:
     - type: Transform
       pos: 24.5,41.5
+      parent: 2
+- proto: PortableGeneratorJrPacman
+  entities:
+  - uid: 10592
+    components:
+    - type: Transform
+      pos: -8.5,-4.5
+      parent: 2
+  - uid: 10891
+    components:
+    - type: Transform
+      pos: -7.5,5.5
+      parent: 2
+  - uid: 10893
+    components:
+    - type: Transform
+      pos: -18.5,20.5
+      parent: 2
+  - uid: 10895
+    components:
+    - type: Transform
+      pos: 6.5,-8.5
+      parent: 2
+  - uid: 10896
+    components:
+    - type: Transform
+      pos: 21.5,2.5
+      parent: 2
+  - uid: 10897
+    components:
+    - type: Transform
+      pos: 21.5,35.5
+      parent: 2
+  - uid: 10898
+    components:
+    - type: Transform
+      pos: -9.5,47.5
+      parent: 2
+  - uid: 10901
+    components:
+    - type: Transform
+      pos: 28.5,40.5
+      parent: 2
+- proto: PortableGeneratorJrPacmanMachineCircuitboard
+  entities:
+  - uid: 10900
+    components:
+    - type: Transform
+      pos: 7.6277304,48.67028
       parent: 2
 - proto: PortableGeneratorPacman
   entities:
@@ -63947,6 +64153,33 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: WallpaperBannerPumpkin
+  entities:
+  - uid: 10921
+    components:
+    - type: Transform
+      pos: -5.5,44.5
+      parent: 2
+  - uid: 10923
+    components:
+    - type: Transform
+      pos: -6.5,44.5
+      parent: 2
+  - uid: 10924
+    components:
+    - type: Transform
+      pos: -7.5,44.5
+      parent: 2
+  - uid: 10925
+    components:
+    - type: Transform
+      pos: -8.5,44.5
+      parent: 2
+  - uid: 10926
+    components:
+    - type: Transform
+      pos: -3.5,44.5
+      parent: 2
 - proto: WallpaperBannerRainbow
   entities:
   - uid: 7913
@@ -63958,6 +64191,146 @@ entities:
     components:
     - type: Transform
       pos: 42.5,15.5
+      parent: 2
+- proto: WallpaperBannerSkeleton
+  entities:
+  - uid: 10928
+    components:
+    - type: Transform
+      pos: 19.5,34.5
+      parent: 2
+  - uid: 10929
+    components:
+    - type: Transform
+      pos: 20.5,34.5
+      parent: 2
+  - uid: 10930
+    components:
+    - type: Transform
+      pos: 21.5,34.5
+      parent: 2
+- proto: WallpaperBlack
+  entities:
+  - uid: 10948
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,47.5
+      parent: 2
+  - uid: 10949
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 19.5,46.5
+      parent: 2
+  - uid: 10950
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,46.5
+      parent: 2
+  - uid: 10951
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,46.5
+      parent: 2
+  - uid: 10952
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 16.5,46.5
+      parent: 2
+  - uid: 10953
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,47.5
+      parent: 2
+- proto: WallpaperBlackCorner
+  entities:
+  - uid: 10947
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,46.5
+      parent: 2
+  - uid: 10954
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,46.5
+      parent: 2
+- proto: WallpaperCreepyEyes
+  entities:
+  - uid: 7009
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,10.5
+      parent: 2
+  - uid: 10908
+    components:
+    - type: Transform
+      pos: 26.5,11.5
+      parent: 2
+  - uid: 10909
+    components:
+    - type: Transform
+      pos: 27.5,11.5
+      parent: 2
+  - uid: 10910
+    components:
+    - type: Transform
+      pos: 25.5,11.5
+      parent: 2
+  - uid: 10912
+    components:
+    - type: Transform
+      pos: 28.5,11.5
+      parent: 2
+  - uid: 10913
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 29.5,10.5
+      parent: 2
+  - uid: 10916
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,9.5
+      parent: 2
+  - uid: 10917
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 27.5,9.5
+      parent: 2
+  - uid: 10918
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,9.5
+      parent: 2
+- proto: WallpaperCreepyEyesCorner
+  entities:
+  - uid: 10911
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,11.5
+      parent: 2
+  - uid: 10914
+    components:
+    - type: Transform
+      pos: 29.5,11.5
+      parent: 2
+  - uid: 10915
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 29.5,9.5
       parent: 2
 - proto: WallpaperFish
   entities:
@@ -64279,6 +64652,103 @@ entities:
       rot: 3.141592653589793 rad
       pos: 38.5,12.5
       parent: 2
+- proto: WallpaperRainbow
+  entities:
+  - uid: 10935
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,-14.5
+      parent: 2
+- proto: WallpaperRainbowCorner
+  entities:
+  - uid: 10934
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,-15.5
+      parent: 2
+  - uid: 10936
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -14.5,-13.5
+      parent: 2
+- proto: WallpaperRed
+  entities:
+  - uid: 10937
+    components:
+    - type: Transform
+      pos: -1.5,41.5
+      parent: 2
+  - uid: 10938
+    components:
+    - type: Transform
+      pos: 0.5,41.5
+      parent: 2
+  - uid: 10939
+    components:
+    - type: Transform
+      pos: 1.5,42.5
+      parent: 2
+  - uid: 10940
+    components:
+    - type: Transform
+      pos: 2.5,42.5
+      parent: 2
+  - uid: 10941
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,41.5
+      parent: 2
+  - uid: 10942
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,39.5
+      parent: 2
+  - uid: 10943
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,39.5
+      parent: 2
+- proto: WallpaperRedCorner
+  entities:
+  - uid: 10944
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,41.5
+      parent: 2
+  - uid: 10945
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,42.5
+      parent: 2
+  - uid: 10946
+    components:
+    - type: Transform
+      pos: 3.5,42.5
+      parent: 2
+- proto: WallpaperSka
+  entities:
+  - uid: 10932
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-14.5
+      parent: 2
+- proto: WallpaperSkaCorner
+  entities:
+  - uid: 10933
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,-15.5
+      parent: 2
 - proto: WallpaperStarsBig
   entities:
   - uid: 4200
@@ -64353,6 +64823,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 40.5,12.5
       parent: 2
+  - uid: 10957
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,47.5
+      parent: 2
 - proto: WallpaperStarsSmall
   entities:
   - uid: 4179
@@ -64404,6 +64880,18 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 43.5,12.5
+      parent: 2
+  - uid: 10955
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 16.5,46.5
+      parent: 2
+  - uid: 10956
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,46.5
       parent: 2
 - proto: WallReinforced
   entities:
