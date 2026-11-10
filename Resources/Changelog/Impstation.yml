@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: ATDoop
-  changes:
-  - message: Anomalocarids have unique organs now! Gib one today!
-    type: Add
-  id: 2510
-  time: '2026-01-01T03:49:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3851
-- author: DOSRG
-  changes:
-  - message: Cargo can now purchase a royal dress up experience!
-    type: Add
-  id: 2511
-  time: '2026-01-01T05:33:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3893
 - author: DinnerCalzone
   changes:
   - message: Map population ranges have been tweaked. Maps in the high-pop bracket
@@ -4048,3 +4034,27 @@
   id: 3009
   time: '2026-11-05T14:17:04.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4712
+- author: tokiWren
+  changes:
+  - message: Added methanol, a new toxin that damages your vision.
+    type: Add
+  - message: Added the Slab Special, a delicious drink that you definitely will not
+      regret drinking a lot of.
+    type: Add
+  - message: Feed her a kind of stew that makes you go blind for a day
+    type: Add
+  - message: Made methylated blood actually methylated.
+    type: Tweak
+  - message: Tiders rejoice! Maints moonshine is real and more fucked up than ever.
+    type: Tweak
+  id: 3010
+  time: '2026-11-09T20:27:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4705
+- author: marsh-meadows
+  changes:
+  - message: Chemist lockers have had their proper contents restored. No more beaker
+      shortage!
+    type: Fix
+  id: 3011
+  time: '2026-11-09T23:23:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4724
