@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 11/11/2026 03:58:19
+  time: 11/11/2026 04:30:42
   entityCount: 6585
 maps:
 - 1
@@ -6019,7 +6019,7 @@ entities:
       pos: -34.5,-13.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -98181.31
+      secondsUntilStateChange: -98205.37
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6974,6 +6974,8 @@ entities:
     - type: Transform
       pos: -56.5,-10.5
       parent: 3
+    - type: Apc
+      maxLoad: 40000
     - type: Fixtures
       fixtures: {}
   - uid: 4343
