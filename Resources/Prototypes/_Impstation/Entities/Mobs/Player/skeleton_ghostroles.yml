@@ -113,6 +113,26 @@
     prototypes: [LimitedPassengerGear]
   - type: RandomHumanoidAppearance
 
+
+- type: entity
+  parent: MobDwarfSkeletonPerson
+  id: MobDwarfSkeletonCloset
+  name: closet skeleton
+  suffix: Dwarf
+  components:
+  - type: GhostRole
+    name: ghost-role-information-closet-skeleton-name
+    description: ghost-role-information-closet-skeleton-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [LimitedPassengerGear]
+  - type: RandomHumanoidAppearance
+
 - type: entity
   parent: MobGastropoidSkeletonPerson
   id: MobGastropoidSkeletonCloset

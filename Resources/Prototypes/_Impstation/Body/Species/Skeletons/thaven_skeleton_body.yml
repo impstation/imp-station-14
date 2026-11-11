@@ -60,6 +60,30 @@
   name: Thavenskeletonperson appearance
   categories: [ HideSpawnMenu ] #imp
   components:
+  - type: Inventory
+    speciesId: thaven
+    templateId: thaven
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerclothing_hardsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
   - type: InitialBody
     organs:
       Torso: OrganThavenSkeletonPersonTorso

@@ -69,6 +69,23 @@
   dollPrototype: AppearanceDionaSkeletonPerson
   skinColoration: TintedHues
 
+
+- type: species
+  id: SkeletonDwarf
+  name: species-name-skeleton
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.01 # lower than the other skeletons because its kind of goofy
+  prototype: MobDwarfSkeletonPerson
+  defaultSkinTone: "#fff9e2"
+  maleFirstNames: NamesSkeletonFirst
+  femaleFirstNames: NamesSkeletonFirst
+  middleNames: NamesDwarfMiddle
+  lastNames: NamesDwarfLast
+  naming: FirstMiddleLast
+  dollPrototype: AppearanceDwarfSkeletonPerson
+  skinColoration: TintedHues
+
 - type: species
   id: SkeletonKodepiia
   name: species-name-skeleton

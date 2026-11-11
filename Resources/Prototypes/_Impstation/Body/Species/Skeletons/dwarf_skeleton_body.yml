@@ -1,0 +1,220 @@
+- type: markingsGroup
+  id: DwarfSkeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 3
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceDwarfSkeletonPerson
+  name: Dwarfskeletonperson appearance
+  categories: [ HideSpawnMenu ] #imp
+  components:
+  - type: Inventory
+    displacements:
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: eyes
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: face
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: ears
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_right
+  - type: InitialBody
+    organs:
+      Torso: OrganDwarfSkeletonPersonTorso
+      Head: OrganDwarfSkeletonPersonHead
+      ArmLeft: OrganDwarfSkeletonPersonArmLeft
+      ArmRight: OrganDwarfSkeletonPersonArmRight
+      HandRight: OrganDwarfSkeletonPersonHandRight
+      HandLeft: OrganDwarfSkeletonPersonHandLeft
+      LegLeft: OrganDwarfSkeletonPersonLegLeft
+      LegRight: OrganDwarfSkeletonPersonLegRight
+      FootLeft: OrganDwarfSkeletonPersonFootLeft
+      FootRight: OrganDwarfSkeletonPersonFootRight
+  - type: HumanoidProfile
+    species: SkeletonDwarf
+
+- type: entity
+  parent:
+  - AppearanceDwarfSkeletonPerson
+  - MobSkeletonPerson
+  id: MobDwarfSkeletonPerson
+  name: Urist McSculpture
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 150 #even heavier than normal dwarfs
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier # slightly slower than base dwarfs
+    baseWalkSpeed: 2.3 # down from 2.5
+    baseSprintSpeed: 4.3 # down from 4.5
+
+- type: entity
+  parent: [ OrganSkeletonPerson, OrganSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Skeletons/DwarfSkeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: DwarfSkeleton
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonHead
+  name: spooky dwarf figurine
+  components:
+  - type: Sprite
+    state: skull_icon
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganDwarfSkeletonPersonExternal ]
+  id: OrganDwarfSkeletonPersonFootRight
