@@ -354,8 +354,9 @@
         - !type:NestedSelector
           tableId: RandomFoamGunTable
           rolls: 4
-        - id: GrenadeFoamDart
-          amount: 4
+        - !type:NestedSelector #Starfall - 1% chance for a shrapnel grenade.
+          tableId: RandomFoamGrenadeTable
+          rolls: 4
 
 - type: entity
   parent: CrateGenericSteel

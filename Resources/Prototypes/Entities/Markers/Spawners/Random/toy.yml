@@ -370,6 +370,8 @@
       children:
       - id: FoamCrossbow
       - id: WeaponRifleFoam
+      - id: WeaponShotgunFoamFarceShells #Starfall - Comes loaded with shotgun shells
+        weight: 0.1 #Starfall - i dont know the probability math but 60 crates gave me one of these. might be shit luck but i think it works out? 120 guns came total.
     - id: BoxDonkSoftBox
 
 - type: entityTable

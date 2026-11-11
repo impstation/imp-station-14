@@ -1,0 +1,8 @@
+- type: entityTable # price 100
+  id: RandomFoamGrenadeTable
+  table: !type:GroupSelector
+    children:
+    - id: GrenadeFoamDart
+      weight: 0.99 #99/100 will be these
+    - id: GrenadeFoamFarceDart
+      weight: 0.01 #1/100 will be these
