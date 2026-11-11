@@ -1,0 +1,56 @@
+- type: gameMap
+  id: Dash
+  mapName: 'Dash'
+  mapPath: /Maps/_QB/dash.yml
+  minPlayers: 0
+  maxPlayers: 15
+  stations:
+    Dash:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_crimson.yml
+        - type: StationNameSetup
+          mapNameTemplate: '{0} "Dash" Investigator {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'QB'
+        - type: StationJobs
+          availableJobs: # Total of 28 jobs roundstart, max of 34 inc. latejoins and trainees.
+            # command - 2
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            # service - 8
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            # engineering - 2-3
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 1, 1 ]
+            TechnicalAssistant: [ 1, 1 ]
+            # medical - 3-5
+            Chemist: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
+            MedicalIntern: [ 2, 2 ]
+            # science - 2-3
+            Scientist: [ 2, 2 ]
+            ResearchAssistant: [ 1, 1 ]
+            # security - 4-5
+            SecurityCadet: [ 1, 1 ]
+            SecurityOfficer: [ 2, 2 ]
+            Warden: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            # cargo - 4
+            CargoTechnician: [ 2, 2 ]
+            Courier: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 1 ]
+            # civilian
+            Passenger: [ -1, -1 ]
+            # silicon - 3
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]
