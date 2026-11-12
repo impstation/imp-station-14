@@ -82,6 +82,9 @@
     backgroundModulate: "#ba453f"
   - type: PaperLabelType #Imp change
     paperType: PaperDyedRed
+  - type: Construction # Imp change
+    graph: ColoredPaper
+    node: paperRed
 
 - type: entity
   parent: Paper
@@ -105,6 +108,9 @@
     backgroundModulate: "#ec912e"
   - type: PaperLabelType #Imp change
     paperType: PaperDyedOrange
+  - type: Construction # Imp change
+    graph: ColoredPaper
+    node: paperOrange
 
 - type: entity
   parent: Paper
@@ -128,6 +134,9 @@
     backgroundModulate: "#fee36c"
   - type: PaperLabelType #Imp change
     paperType: PaperDyedYellow
+  - type: Construction # Imp change
+    graph: ColoredPaper
+    node: paperYellow
 
 - type: entity
   parent: Paper
@@ -174,6 +183,9 @@
     backgroundModulate: "#0da04d"
   - type: PaperLabelType #Imp change
     paperType: PaperDyedGreen
+  - type: Construction # Imp change
+    graph: ColoredPaper
+    node: paperGreen
 
 - type: entity
   parent: Paper
@@ -197,6 +209,9 @@
     backgroundModulate: "#1796c8"
   - type: PaperLabelType #Imp change
     paperType: PaperDyedOcean
+  - type: Construction # Imp change
+    graph: ColoredPaper
+    node: paperBlue
 
 - type: entity
   parent: Paper
@@ -243,6 +258,9 @@
     backgroundModulate: "#938bda"
   - type: PaperLabelType #Imp change
     paperType: PaperDyedPurple
+  - type: Construction # Imp change
+    graph: ColoredPaper
+    node: paperPurple
 
 - type: entity
   parent: Paper

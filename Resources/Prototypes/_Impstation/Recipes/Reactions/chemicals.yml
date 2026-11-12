@@ -12,6 +12,31 @@
       Barbadine: 5
 
 - type: reaction
+  id: ChargedElectrovaeEmpExplosion
+  impact: High
+  reactants:
+    ChargedElectrovae:
+      amount: 5
+    Oxygen:
+      amount: 1
+  effects:
+  - !type:Emp
+    rangeModifier: 0.2
+    energyConsumption: 10000
+    duration: 12
+
+- type: reaction
+  id: ChargedElectrovaeRelease
+  reactants:
+    ChargedElectrovae:
+      amount: 5
+    Water:
+      amount: 1
+  effects:
+  - !type:CreateGas
+    gas: ChargedElectrovae
+
+- type: reaction
   id: Estradiol
   impact: Medium
   reactants:
@@ -93,26 +118,11 @@
     Medium: 1
 
 - type: reaction
-  id: ChargedElectrovaeEmpExplosion
-  impact: High
+  id: Methanol
+  impact: Medium
+  minTemp: 750
   reactants:
-    ChargedElectrovae:
+    Pulp:
       amount: 5
-    Oxygen:
-      amount: 1
-  effects:
-  - !type:Emp
-    rangeModifier: 0.2
-    energyConsumption: 10000
-    duration: 12
-
-- type: reaction
-  id: ChargedElectrovaeRelease
-  reactants:
-    ChargedElectrovae:
-      amount: 5
-    Water:
-      amount: 1
-  effects:
-  - !type:CreateGas
-    gas: ChargedElectrovae
+  products:
+    Methanol: 1

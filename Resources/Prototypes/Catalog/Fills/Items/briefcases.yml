@@ -11,7 +11,7 @@
 
 - type: entity
   id: BriefcaseSyndieSniperBundleFilled
-  parent: BriefcaseBrown
+  parent: CybersunBriefcase # imp, parent changed from BriefcaseBrown to CybersunBriefcase
   suffix: Syndicate, Sniper Bundle
   components:
   - type: EntityTableContainerFill
@@ -52,7 +52,7 @@
 
 - type: entity
   id: BriefcaseThiefBribingBundleFilled
-  parent: BriefcaseSyndie
+  parent: CybersunBriefcase # imp, parent changed from BriefcaseSyndie to CybersunBriefcase
   suffix: Thief, Spesos
   components:
   - type: EntityTableContainerFill
@@ -66,7 +66,7 @@
 
 - type: entity
   id: BriefcaseWeaponHushpupFilled
-  parent: BriefcaseWeaponSmall
+  parent: ImpBriefcaseWeaponMedium #Impstation
   name: secure hushpup case
   components:
   - type: EntityTableContainerFill
@@ -78,7 +78,7 @@
 
 - type: entity
   id: BriefcaseWeaponC20Filled
-  parent: BriefcaseWeaponSmall
+  parent: ImpBriefcaseWeaponMedium #Impstation
   name: secure C-20r case
   components:
   - type: EntityTableContainerFill
@@ -88,8 +88,8 @@
 
 - type: entity
   id: BriefcaseWeaponBulldogFilled
-  parent: BriefcaseWeaponLong # Impstation - OUR BULLDOG IS SO LONG
-  name: secure bulldog case
+  parent: ImpBriefcaseWeaponMedium #Impstation
+  name: secure hydra case #Impstation
   components:
   - type: EntityTableContainerFill
     containers:
@@ -108,7 +108,7 @@
 
 - type: entity
   id: BriefcaseWeaponChinaLakeFilled
-  parent: BriefcaseWeapon
+  parent: ImpBriefcaseWeaponLarge #Impstation
   name: secure china lake case
   components:
   - type: EntityTableContainerFill
