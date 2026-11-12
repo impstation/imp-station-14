@@ -1,0 +1,28 @@
+- type: gasReaction
+  id: ElectrovaeDischarge
+  priority: 2
+  minimumRequirements:
+    ChargedElectrovae: 0.01
+    Oxygen: 0.01
+  effects:
+  - !type:ChargedElectrovaeDischargeReaction {}
+
+- type: gasReaction
+  id: ElectrovaeCharge
+  priority: 3
+  minimumTemperature: 1508 # Requires high heat to charge
+  minimumRequirements:
+    Electrovae: 0.01
+  effects:
+  - !type:ElectrovaeChargeReaction {}
+
+- type: gasReaction
+  id: ElectrovaeProduction
+  priority: 4
+  minimumTemperature: 373.15
+  minimumRequirements:
+    Nitrogen: 0.01
+    WaterVapor: 0.01
+    NitrousOxide: 0.01
+  effects:
+  - !type:ElectrovaeProductionReaction {}

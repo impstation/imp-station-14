@@ -1,4 +1,4 @@
-﻿using Content.Server.StationEvents.Events;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Atmos;
 using Robust.Shared.Map;
 
@@ -15,6 +15,7 @@ public sealed partial class GasLeakRuleComponent : Component
         Gas.Frezon,
         Gas.WaterVapor, // the fog
         Gas.NitrousOxide, //imp addition
+        Gas.ChargedElectrovae, // imp
     };
 
     /// <summary>
