@@ -131,6 +131,27 @@
       sprite: _Impstation/Structures/Machines/computers.rsi
 
 - type: entity
+  parent: [BaseStructureComputerTabletop, ComputerAtmosMonitoring]
+  id: ComputerTabletopAtmosMonitoring
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      state: tank
+    - map: ["computerLayerKeys"]
+      state: atmos_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+
+- type: entity
   parent: [BaseStructureComputerTabletop, BaseComputerAiAccess]
   id: BaseComputerTabletop
   components:
