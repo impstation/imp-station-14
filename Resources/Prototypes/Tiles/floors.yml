@@ -13,6 +13,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+  #itemDrop: FloorTileItemSteel # imp remove (?)
   heatCapacity: 10000
 
 - type: tile
@@ -228,7 +229,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemPlastic # Imp Edit, no plastic floor item upstream
+  itemDrop: FloorTileItemPlastic # Imp Edit, no plastic floor item upstream. was FloorTileItemSteel
   heatCapacity: 10000
 
 - type: tile
