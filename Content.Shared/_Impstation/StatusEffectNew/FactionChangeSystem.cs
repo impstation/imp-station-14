@@ -6,7 +6,9 @@ using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.StatusEffectNew;
-
+/// <summary>
+/// System to handle adding and removing a faction along with the status effect.
+/// </summary>
 public sealed class FactionChangeSystem : EntitySystem
 {
     [Dependency] private readonly NpcFactionSystem _faction = default!;
@@ -19,6 +21,9 @@ public sealed class FactionChangeSystem : EntitySystem
         SubscribeLocalEvent<FactionChangeStatusEffectComponent, StatusEffectRemovedEvent>(RemoveStatusFaction);
     }
 
+    /// <summary>
+    /// Remove the entity from the faction, unless they were already in it.
+    /// </summary>
     private void RemoveStatusFaction(Entity<FactionChangeStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
         if (ent.Comp.AlreadyIn)
@@ -33,6 +38,9 @@ public sealed class FactionChangeSystem : EntitySystem
         Dirty(ent);
     }
 
+    /// <summary>
+    /// Remove the entity from the faction, unless they were already in it.
+    /// </summary>
     private void AddStatusFaction(Entity<FactionChangeStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
         if (!TryComp<NpcFactionMemberComponent>(args.Target, out var npcFactionMember))
