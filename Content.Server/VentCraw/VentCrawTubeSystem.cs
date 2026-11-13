@@ -24,8 +24,6 @@ namespace Content.Server.VentCraw
 {
     public sealed class VentCrawTubeSystem : EntitySystem
     {
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         [Dependency] private readonly SharedVentCrawableSystem _ventCrawableSystemSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly VentCrawTubeSystem _ventCrawTubeSystem = default!;

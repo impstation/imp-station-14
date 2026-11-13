@@ -12,7 +12,7 @@ namespace Content.Shared._Floof.Traits;
 
 public sealed partial class TraitStatModifierSystem : EntitySystem
 {
-    [Dependency] private readonly ContestsSystem _contests = default!;
+    // [Dependency] private readonly ContestsSystem _contests = default!; // imp edit, commented due to unused
     [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 

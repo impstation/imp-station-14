@@ -1,6 +1,7 @@
 using Content.Server.VoiceMask;
 using Content.Shared.Chat;
 using Content.Shared.Inventory;
+using Content.Shared.VoiceMask;
 using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests._Impstation;

@@ -9,7 +9,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared._Impstation.Actions; // imp
 using Content.Shared.IdentityManagement; // imp
-using Content.Shared.Mind; // imp
 using Content.Shared.Mind.Components; // imp
 using Content.Shared.Mobs; // imp
 
@@ -25,7 +24,6 @@ public sealed class RetractableItemActionSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!; // imp
 
     public override void Initialize()
     {

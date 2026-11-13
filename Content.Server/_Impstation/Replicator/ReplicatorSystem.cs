@@ -118,7 +118,7 @@ public sealed class ReplicatorSystem : EntitySystem
             if (!_inventory.TryGetSlotEntity(uid, "pocket1", out var pocket1) || !TryComp<PinpointerComponent>(pocket1, out var pinpointer))
                 continue;
             // set the target to the nest
-            _pinpointer.SetTarget(pocket1.Value, myNest, pinpointer);
+            _pinpointer.SetTarget((pocket1.Value, pinpointer), myNest); // Impstation - Upmerge 2026 Chunk IV
 
             comp.MyNest = myNest;
         }

@@ -21,8 +21,6 @@ public sealed class RandomAntagChanceSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
-
 
     public override void Initialize()
     {

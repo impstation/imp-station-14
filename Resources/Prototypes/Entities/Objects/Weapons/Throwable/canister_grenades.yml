@@ -139,4 +139,10 @@
         triggerlight:
           Primed: { visible: true }
           Unprimed: { visible: false }
-
+  - type: RemoveComponentsOnTrigger # should prevent it from being re-triggered
+    keysIn:
+    - timer
+    triggerOnce: true
+    components:
+    - type: TriggerOnUse
+    - type: TimerTrigger

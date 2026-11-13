@@ -29,7 +29,7 @@ namespace Content.Server.PowerSink
         private readonly TimeSpan _explosionDelayTime = TimeSpan.FromSeconds(1.465);
 
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ChatSystem _chat = default!;
+        // [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _station = default!;

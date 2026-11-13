@@ -24,13 +24,10 @@ namespace Content.Server.GameTicking.Rules;
 public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
 {
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly HellWorldSystem _hell = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
 

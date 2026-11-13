@@ -12,6 +12,7 @@ using Robust.Shared.Enums;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.Roles.Jobs;
+using System.Threading.Tasks;
 
 namespace Content.Server._Wizden.Chat.Systems;
 
@@ -22,7 +23,6 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedMindSystem _sharedMind = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly JobSystem _jobs = default!;
 
     private bool _lastMessageWebhookEnabled = false;
@@ -203,7 +203,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     ///     Sends messages in batches via webhook.
     /// </summary>
     /// <param name="messages">The list of messages to be sent.</param>
-    private void SendMessagesInBatches(List<string> messages)
+    private async Task SendMessagesInBatches(List<string> messages)
     {
         var concatenatedMessages = new StringBuilder();
         var messagesToSend = new List<string>();
@@ -221,7 +221,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
         if (concatenatedMessages.Length > 0)
             messagesToSend.Add(concatenatedMessages.ToString());
 
-        _webhookManager.SendMessagesAsync(_webhookIdentifierLastMessage, messagesToSend, _maxMessageSize, _maxMessagesPerBatch, _messageDelayMs, _rateLimitDelayMs);
+        await _webhookManager.SendMessagesAsync(_webhookIdentifierLastMessage, messagesToSend, _maxMessageSize, _maxMessagesPerBatch, _messageDelayMs, _rateLimitDelayMs);
     }
 
     private void OnErase(ref EraseEvent args)

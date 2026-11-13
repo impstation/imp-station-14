@@ -67,7 +67,6 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    damageCap: 20
     damage:
       types:
         Heat: -0.2
@@ -101,6 +100,10 @@
           - !type:PlaySoundBehavior
             sound:
               collection: GlassBreak
+  - type: MobThresholds # Impstation - Upmerge 2026 Chunk IV
+    thresholds:
+      0: Alive
+      25: Dead
 
 - type: entity
   id: MobLuminousPerson
@@ -186,3 +189,24 @@
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     soundEmpty:
       path: /Audio/Items/Lighters/lighter_off.ogg
+
+- type: entity
+  id: MobLuminousPersonSalvage
+  parent: MobLuminousPerson
+  suffix: "Salvage Ruleset"
+  components:
+  - type: SalvageMobRestrictions #So they don't linger after a wreck despawns
+
+- type: entity
+  id: MobLuminousObjectSalvage
+  parent: MobLuminousObject
+  suffix: "Salvage Ruleset"
+  components:
+  - type: SalvageMobRestrictions #So they don't linger after a wreck despawns
+
+- type: entity
+  id: MobLuminousEntitySalvage
+  parent: MobLuminousEntity
+  suffix: "Salvage Ruleset"
+  components:
+  - type: SalvageMobRestrictions #So they don't linger after a wreck despawns

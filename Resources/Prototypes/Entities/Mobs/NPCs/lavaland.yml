@@ -70,6 +70,8 @@
     successChance: 0.3
     interactSuccessString: petting-success-slimes
     interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/lizard_happy.ogg
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null

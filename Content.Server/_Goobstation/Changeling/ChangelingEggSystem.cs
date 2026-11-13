@@ -1,5 +1,4 @@
 using Content.Shared._Goobstation.Changeling;
-using Content.Shared.Body;
 using Content.Shared.Gibbing;
 using Content.Shared.Mind;
 using Robust.Shared.Timing;
@@ -8,7 +7,6 @@ namespace Content.Server._Goobstation.Changeling;
 
 public sealed partial class GoobChangelingEggSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;

@@ -58,7 +58,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared._Goobstation.Changeling;
-using Content.Shared.Body;
 using Content.Shared.Zombies;
 
 namespace Content.Server._Goobstation.Changeling;
@@ -70,7 +69,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
@@ -103,7 +101,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
@@ -115,6 +112,8 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
     public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public EntProtoId TentaclePrototype = "FishingRodLing"; // imp
+
+    private readonly string _reagentToVomit = "Blood"; // Impstation - Upmerge 2026 Chunk IV
 
     public override void Initialize()
     {
@@ -214,7 +213,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
                 var vomitAmount = 15f;
                 _blood.TryModifyBloodLevel(uid, -vomitAmount);
-                solution.AddReagent("Blood", vomitAmount);
+                solution.AddReagent(_reagentToVomit, vomitAmount); // Impstation - Upmerge 2026 Chunk IV
 
                 _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, solution, out _);
 
@@ -720,7 +719,17 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         if (!args.DamageIncreased)
             return;
 
-        target.Damage.ClampMax(200); // we never die. UNLESS??
+        // imp edit start
+
+        // get the DamageSpecifier from DamageableSystem
+        var damage = _damage.GetPositiveDamage((ent, target));
+        // clamp the it to 200 like previously
+        damage.ClampMax(200);
+        // and set the component's damagespecifier again
+        _damage.SetDamage((ent, target), damage);
+
+        //target.Damage.ClampMax(200); // we never die. UNLESS??
+        //imp edit end
     }
 
     private void OnComponentRemove(Entity<GoobChangelingComponent> ent, ref ComponentRemove args)
