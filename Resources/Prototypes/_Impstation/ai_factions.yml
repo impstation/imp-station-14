@@ -58,6 +58,7 @@
   hostile:
   - Courier
   - DogHated #i know these seems redundant but there's a bug with faction clothing
+  - DogOilTemp # Also seems redundant, but avoids conflicts with other temp factions.
 
 - type: npcFaction
   id: Courier
@@ -94,3 +95,6 @@
   - AllHostile
   - Dog
   - DuctSpider
+
+- type: npcFaction
+  id: DogOilTemp

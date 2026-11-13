@@ -55,3 +55,5 @@ reagent-desc-gamers = Pow block fire flower sippin' on this shit for hours.
 reagent-name-redpaint = red paint
 reagent-desc-redpaint = A horror movie director's best friend.
 
+reagent-name-dog-oil = Dog Oil
+reagent-desc-dog-oil = An oil of unknown origin, made by dogs or from dogs?

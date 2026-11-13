@@ -399,3 +399,51 @@
             Quantity: 4
           - ReagentId: Lead
             Quantity: 1.5
+
+- type: entity
+  id: CigaretteDog
+  parent: BaseCigar
+  name: dog cigarette
+  description: It feels oily.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/dogcigarette.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+      - Cigarette
+      - Trash
+      - PetWearable # imp
+      - KodeEdible # imp
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: DogOil
+          Quantity: 10
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: DogOil
+          Quantity: 10
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: DogOil
+        Quantity: 5
+  - type: Item
+    size: Tiny
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/dogcigarette.rsi
+    heldPrefix: unlit
+  - type: StaticPrice
+    price: 1
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/dogcigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
