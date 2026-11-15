@@ -12,7 +12,7 @@
   friction: 0.4
   evaporationSpeed: 15.0
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 1
@@ -20,7 +20,6 @@
     collection: FootstepBlood
     params:
       volume: 6
-
 
 - type: reagent
   parent: Blood
@@ -34,11 +33,11 @@
   physicalDesc: reagent-physical-desc-viscous
   metabolisms:
     # like a shitter omnizine, and a shittier ichor
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1.5
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ModifyBloodLevel
         amount: 1
@@ -112,7 +111,7 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-alive
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -137,13 +136,13 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-shimmering-blood
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 1
       - !type:SatiateThirst
         factor: 1
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
@@ -169,7 +168,7 @@
   desc: reagent-desc-gray-blood
   physicalDesc: reagent-physical-desc-glowing
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:AdjustReagent
         reagent: UncookedAnimalProteins
@@ -177,7 +176,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Gray ]
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -223,7 +222,7 @@
   color: "#c1c7d3"
   evaporationSpeed: 0.3 #same as water
   metabolisms: #have to redefine from basealcohol otherwise its slippery which is a hell of a can of worms for a species
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2

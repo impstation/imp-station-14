@@ -10,7 +10,7 @@
     sprite: _Nyanotrasen/Objects/Consumable/Drinks/atomicpunch.rsi
     state: icon
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 3

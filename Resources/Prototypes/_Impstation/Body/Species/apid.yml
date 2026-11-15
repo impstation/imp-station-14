@@ -1,4 +1,58 @@
 # TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+
+- type: markingsGroup
+  parent: Undergarments
+  id: Apid
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ ApidEyesDefault ]
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: true
+      default: [ ApidAntennaeDefault ]
+    enum.HumanoidVisualLayers.Tail: #wangs
+      limit: 1
+      required: true
+      default: [ ApidBeeButtDefault ]
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: true
+      default: [ ApidWingsAnimatedDefault ]
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+      default: [ ApidChestStripesDefault ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceApid
@@ -90,33 +144,29 @@
           32:
             sprite: _Impstation/Mobs/Species/Apid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
             state: ears
-  #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganApidTorso
-        - id: OrganApidHead
-        - id: OrganApidArmLeft
-        - id: OrganApidArmRight
-        - id: OrganApidHandRight
-        - id: OrganApidHandLeft
-        - id: OrganApidLegLeft
-        - id: OrganApidLegRight
-        - id: OrganApidFootLeft
-        - id: OrganApidFootRight
-        - id: OrganMothBrain
-        - id: OrganApidEyes
-        - id: OrganMothTongue
-        - id: OrganMothAppendix
-        - id: OrganMothEars
-        - id: OrganApidLungs
-        - id: OrganMothHeart
-        - id: OrganHumanStomach
-        - id: OrganMothLiver
-        - id: OrganMothKidneys
-  - type: HumanoidAppearance
-  #IMP EDIT END: TO BE REWORKED BY VISUAL NUBODY
+  - type: InitialBody
+    organs:
+      Torso: OrganApidTorso
+      Head: OrganApidHead
+      ArmLeft: OrganApidArmLeft
+      ArmRight: OrganApidArmRight
+      HandRight: OrganApidHandRight
+      HandLeft: OrganApidHandLeft
+      LegLeft: OrganApidLegLeft
+      LegRight: OrganApidLegRight
+      FootLeft: OrganApidFootLeft
+      FootRight: OrganApidFootRight
+      Brain: OrganMothBrain
+      Eyes: OrganApidEyes
+      Tongue: OrganMothTongue
+      Appendix: OrganMothAppendix
+      Ears: OrganMothEars
+      Lungs: OrganApidLungs
+      Heart: OrganMothHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganMothLiver
+      Kidneys: OrganMothKidneys
+  - type: HumanoidProfile
     species: Apid
 
 - type: entity
@@ -221,7 +271,7 @@
   - type: CanWieldOneHanded
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganApid
   abstract: true
   suffix: Apid
@@ -241,21 +291,19 @@
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
 
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganApidVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Apid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Apid
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+- type: entity
+  id: OrganApidVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Apid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Apid
 
 - type: entity
-  parent: [ OrganApid ] #imp edit, OrganApidVisual parent removed until visual nubody
+  parent: [ OrganApid, OrganApidVisual ]
   id: OrganApidExternal
   abstract: true
   components:
@@ -263,7 +311,7 @@
     sprite: _Impstation/Mobs/Species/Apid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganApidInternal ] #imp edit, OrganApidVisual parent removed until visual nubody
+  parent: [ OrganApidVisual, OrganBaseEyes, OrganApidInternal ]
   id: OrganApidEyes
 
 - type: entity
@@ -273,12 +321,10 @@
 - type: entity
   parent: [ OrganBaseHead, OrganApidExternal ]
   id: OrganApidHead
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #components:
-  #- type: VisualOrganMarkings
-  #  hideableLayers:
-  #  - enum.HumanoidVisualLayers.HeadTop
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.HeadTop
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganApidExternal ]

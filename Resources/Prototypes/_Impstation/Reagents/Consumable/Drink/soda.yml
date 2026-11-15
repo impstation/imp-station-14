@@ -52,7 +52,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -73,7 +73,7 @@
   flavor: shrimp
   color: "#e66986"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:HealthChange
         probability: 0.5
@@ -124,7 +124,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -145,7 +145,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -169,7 +169,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -181,10 +181,8 @@
         showInChat: true
         force: true
         probability: 0.35
-    Poison:
-      effects:
-        - !type:AdjustTemperature
-          amount: -200 # thermal energy, not temp
+      - !type:AdjustTemperature
+        amount: -200 # thermal energy, not temp
   fizziness: 0.3
 
 - type: reagent
@@ -202,7 +200,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -214,8 +212,6 @@
         showInChat: true
         force: true
         probability: 0.005 #its not the point of the drink, but it's funny once in a blue moon.
-    Narcotic:
-      effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectFloating
         type: Update
@@ -236,7 +232,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -257,7 +253,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -278,7 +274,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2

@@ -8,6 +8,8 @@ using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.NPC.Systems;
 using Content.Shared.PDA.Ringer;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -34,6 +36,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
     // goobstation - heretics
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
@@ -279,9 +282,23 @@ public sealed partial class StoreSystem
         }
 
         //log dat shit.
+        var logImpact = LogImpact.Low;
+        var logExtraInfo = "";
+        if (component.ExpectedFaction?.Count > 0 && !_npcFaction.IsMemberOfAny(buyer, component.ExpectedFaction))
+        {
+            logImpact = LogImpact.High;
+            logExtraInfo = ", but was not from an expected faction";
+
+            if (HasComp<MindShieldComponent>(buyer))
+            {
+                logImpact = LogImpact.Extreme;
+                logExtraInfo += " while also possessing a mindshield";
+            }
+        }
+
         _admin.Add(LogType.StorePurchase,
-            LogImpact.Low,
-            $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, _proto)}\" from {ToPrettyString(uid)}");
+            logImpact,
+            $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, _proto)}\" from {ToPrettyString(uid)}{logExtraInfo}.");
 
         //imp edit - add a record of this purchase to the mind that bought this item
         if (_mind.TryGetMind(buyer, out _, out var mindComp))

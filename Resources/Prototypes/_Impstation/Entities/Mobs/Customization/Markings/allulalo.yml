@@ -3,8 +3,7 @@
 - type: marking
   id: AllulaloUnderbelly
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/chest.rsi
     state: allulaloChestUnderbelly
@@ -12,8 +11,7 @@
 - type: marking
   id: AllulaloChestHeartMonitor
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/chest.rsi
     state: allulaloChestHeartMonitor
@@ -24,38 +22,18 @@
 - type: marking
   id: AllulaloHeadUnderbelly
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
     state: allulaloHeadUnderbelly
 
 - type: marking
-  id: AllulaloHeadNeckFluff
-  bodyPart: Tail #layering sucks
-  markingCategory: Head
-  speciesRestriction: [ Allulalo ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
-    state: allulaloHeadNeckFluff
-
-- type: marking
   id: AllulaloHeadSpikes
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
     state: allulaloHeadSpikes
-
-#- type: marking #I think this one might be too much
-#  id: AllulaloHeadNeckPlumageOutrageous
-#  bodyPart: Tail #layering sucks
-#  markingCategory: Head
-#  speciesRestriction: [ Allulalo ]
-#  sprites:
-#  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
-#    state: allulaloHeadNeckPlumageOutrageous
 
 # Snout
 
@@ -64,13 +42,24 @@
 - type: marking
   id: AllulaloEyesDefault
   bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   coloring:
     default:
       type:
-        !type:SimpleColoring
-        color: "#78bfc2"
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/eyes.rsi
+    state: allulaloEyesDefault
+  forcedColoring: true
+
+- type: marking
+  id: AllulaloEyesHeterochromia
+  bodyPart: Eyes
+  groupWhitelist: [ Allulalo ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/eyes.rsi
     state: allulaloEyesDefaultLeft
@@ -80,13 +69,11 @@
 - type: marking
   id: AllulaloEyesUnshaded
   bodyPart: Eyes
-  markingCategory: Eyes
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   coloring:
     default:
       type:
-        !type:SimpleColoring
-        color: "#78bfc2"
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/eyes.rsi
     state: allulaloEyesUnshadedLeft
@@ -97,65 +84,86 @@
 # RArm
 
 - type: marking
-  id: AllulaloWingsDefault
+  id: AllulaloWingsDefaultRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Allulalo/rarm.rsi
     state: allulaloArmDefaultRight
-  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
-    state: allulaloArmDefaultLeft
 
 - type: marking
-  id: AllulaloWingsSplit
+  id: AllulaloWingsSplitRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Allulalo/rarm.rsi
     state: allulaloArmSplit1
-  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Allulalo/rarm.rsi
     state: allulaloArmSplit2
 
 - type: marking
-  id: AllulaloWingsOwl
+  id: AllulaloWingsOwlRight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Allulalo/rarm.rsi
     state: allulaloArmOwl1
-  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Allulalo/rarm.rsi
     state: allulaloArmOwl2
-  - sprite: _Impstation/Mobs/Customization/Allulalo/arms.rsi
+  - sprite: _Impstation/Mobs/Customization/Allulalo/rarm.rsi
     state: allulaloArmOwl3
 
 # LArm
 
+- type: marking
+  id: AllulaloWingsDefaultLeft
+  bodyPart: LArm
+  groupWhitelist: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/larm.rsi
+    state: allulaloArmDefaultLeft
+
+- type: marking
+  id: AllulaloWingsSplitLeft
+  bodyPart: LArm
+  groupWhitelist: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/larm.rsi
+    state: allulaloArmSplit1
+  - sprite: _Impstation/Mobs/Customization/Allulalo/larm.rsi
+    state: allulaloArmSplit2
+
+- type: marking
+  id: AllulaloWingsOwlLeft
+  bodyPart: LArm
+  groupWhitelist: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/larm.rsi
+    state: allulaloArmOwl1
+  - sprite: _Impstation/Mobs/Customization/Allulalo/larm.rsi
+    state: allulaloArmOwl2
+  - sprite: _Impstation/Mobs/Customization/Allulalo/larm.rsi
+    state: allulaloArmOwl3
+
 # RLeg
+
+- type: marking
+  id: AllulaloLegUnderbellyDefaultRight
+  bodyPart: RLeg
+  groupWhitelist: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
+    state: allulaloLegUnderbellyDefaultRight
 
 # LLeg
 
 - type: marking
-  id: AllulaloLegUnderbellyDefault
+  id: AllulaloLegUnderbellyDefaultLeft
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
-  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
-    state: allulaloLegUnderbellyDefaultRight
   - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
     state: allulaloLegUnderbellyDefaultLeft
-
-- type: marking
-  id: AllulaloLegPlumage
-  bodyPart: LFoot #dont look at me
-  markingCategory: Legs
-  speciesRestriction: [ Allulalo ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
-    state: allulaloLegPlumage
 
 # UndergarmentBottom
 
@@ -163,13 +171,45 @@
 
 # LFoot
 
+- type: marking
+  id: AllulaloLegPlumageLeft
+  bodyPart: LFoot #dont look at me
+  groupWhitelist: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
+    state: allulaloLegPlumage
+
 # RFoot
+
+- type: marking
+  id: AllulaloLegPlumageRight
+  bodyPart: RFoot
+  groupWhitelist: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/legs.rsi
+    state: allulaloLegPlumage
 
 # LHand
 
 # RHand
 
 # FacialHair
+
+- type: marking
+  id: AllulaloHeadNeckFluff
+  bodyPart: FacialHair
+  groupWhitelist: [ Allulalo ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
+    state: allulaloHeadNeckFluff
+
+#- type: marking #I think this one might be too much
+#  id: AllulaloHeadNeckPlumageOutrageous
+#  bodyPart: Tail #layering sucks
+#  groupWhitelist: [ Allulalo ]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/Allulalo/head.rsi
+#    state: allulaloHeadNeckPlumageOutrageous
 
 # Hair
 
@@ -180,8 +220,7 @@
 - type: marking
   id: AllulaloHeadTopHorn
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopHorn
@@ -189,8 +228,7 @@
 - type: marking
   id: AllulaloHeadTopFeathers
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopFeathers
@@ -198,8 +236,7 @@
 - type: marking
   id: AllulaloHeadTopCurvedHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopCurvedHorns
@@ -207,8 +244,7 @@
 - type: marking
   id: AllulaloHeadTopSweptHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopSweptHorns
@@ -216,8 +252,7 @@
 - type: marking
   id: AllulaloHeadTopStubHorns
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopStubHorns
@@ -225,8 +260,7 @@
 - type: marking
   id: AllulaloHeadTopPlumage1
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopPlumage1
@@ -234,8 +268,7 @@
 - type: marking
   id: AllulaloHeadTopPlumage2
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/headtop.rsi
     state: allulaloHeadTopPlumage2
@@ -245,8 +278,7 @@
 - type: marking
   id: AllulaloTailDefault
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailDefault
@@ -258,8 +290,7 @@
 - type: marking
   id: AllulaloTailThick
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailLarge
@@ -269,8 +300,7 @@
 - type: marking
   id: AllulaloTailThickSpikes
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailLarge
@@ -282,8 +312,7 @@
 - type: marking
   id: AllulaloTailTuft
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Allulalo ]
+  groupWhitelist: [ Allulalo ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailTuft
@@ -291,5 +320,3 @@
     state: allulaloTailTuft2
   - sprite: _Impstation/Mobs/Customization/Allulalo/tail.rsi
     state: allulaloTailTuft3
-
-# RArmExtension

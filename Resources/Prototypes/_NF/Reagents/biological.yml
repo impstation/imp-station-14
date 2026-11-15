@@ -13,7 +13,7 @@
     params:
       volume: 6
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       # Effects for non-goblins
       - !type:SatiateThirst

@@ -162,6 +162,11 @@
     tags:
     - Spellbook
   - type: MagicMirror
+    organs:
+    - Head
+    layers:
+    - Hair
+    - FacialHair
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     inHandsOnly: true

@@ -95,7 +95,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         foreach (var look in lookup)
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) //player races only
+            || !args.EntityManager.HasComponent<HumanoidProfileComponent>(look) //player races only
             || args.EntityManager.HasComponent<NoSacrificeComponent>(look) //no reusing corpses
             || args.EntityManager.HasComponent<GhoulComponent>(look)) //shouldn't happen because they gib on death but. sanity check
                 continue;

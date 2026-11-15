@@ -148,7 +148,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         else if (HasComp<MobStateComponent>(tripper))
         {
             // you get additional bonus points if it was a humanoid:
-            if (HasComp<HumanoidAppearanceComponent>(tripper))
+            if (HasComp<HumanoidProfileComponent>(tripper))
             {
                 // bonus points for humanoid (default 2) times current level
                 ent.Comp.TotalPoints += ent.Comp.BonusPointsHumanoid * ent.Comp.CurrentLevel;

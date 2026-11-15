@@ -129,9 +129,7 @@
   - type: Metabolizer
     solutionOnBody: false
     metabolizerTypes: [ Reptilian ]
-    groups:
-    - id: Medicine
-    - id: Poison
+    stages: [ Digestion, Bloodstream ]
   - type: Speech
     speechSounds: Dino
     speechVerb: Reptilian
@@ -240,7 +238,7 @@
   - type: Devourer
     foodPreferenceWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     stomachStorageWhitelist:
       components:
       - MobState
@@ -916,7 +914,7 @@
   - type: Devourer
     foodPreferenceWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     stomachStorageWhitelist:
       components:
       - MobState

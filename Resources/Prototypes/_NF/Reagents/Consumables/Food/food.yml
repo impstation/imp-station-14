@@ -9,7 +9,7 @@
   recognizable: true
   viscosity: 0.8
   metabolisms:
-    Food:
+    Digestion:
       effects:
       # Minimally filling
       - !type:AdjustReagent

@@ -8,7 +8,7 @@
   color: "#911d06"
   contrabandSeverity: Tier2Contraband
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:MakeSyndient
         conditions:
@@ -25,7 +25,7 @@
   color: "#bdfff3"
   recognizable: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1 #this should metabolise in the same amount of time as a drink in a 5:1 mix
       effects:
       - !type:AdjustReagent
@@ -46,7 +46,7 @@
   physicalDesc: reagent-physical-desc-enigmatic
   metabolisms:
     # Bad omnizine that also gives you cancer
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ModifyBloodLevel
         amount: 2
@@ -70,7 +70,7 @@
   flavor: holy
   color: "#B4D1F0"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
@@ -120,7 +120,7 @@
   color: "#FA4141"
   contrabandSeverity: Tier2Contraband
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:FactionChange
         faction: Syndicate
@@ -153,7 +153,7 @@
   color: "#FF3232"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
@@ -172,7 +172,7 @@
   flavor: medicine
   color: "#8C803B"
   metabolisms:
-    Medicine:
+    Bloodstream:
       metabolismRate: 0.1
       effects:
       - !type:HealthChange

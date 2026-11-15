@@ -1,6 +1,9 @@
+using Content.Server.Body.Systems;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent; // imp
 using Content.Shared.Damage.Components; // imp
 using Content.Shared.DoAfter;
@@ -16,6 +19,9 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private BloodstreamSystem _blood = default!;
+
     private void SubscribeFlesh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgery>(OnFleshSurgery);
@@ -103,11 +109,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (urist == null)
             return;
 
-        var colors = GrabHumanoidColors(ent); // begin imp
-
-        if (colors != null) // match the colors of the ascended entity to those of the ascendee
+        // This is some hardcoded jank and this should absolutely be raising an event for the color data instead of whatever it's currently doing.
+        if (GrabHumanoidColors(ent) is { } colors) // begin imp
         {
-            (var skinColor, var eyeColor, var bloodColor) = colors.Value;
             if (TryComp<RandomSpriteComponent>(urist, out var randomSprite)) // we have to do this using RandomSpriteComponent, otherwise I'd be making a whole species prototype just for this.
             {
                 foreach (var entry in randomSprite.Selected)
@@ -116,13 +120,13 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     switch (entry.Key)
                     {
                         case "fleshMap":
-                            state.Color = skinColor;
+                            state.Color = colors.SkinColor;
                             break;
                         case "eyesMap":
-                            state.Color = eyeColor;
+                            state.Color = colors.EyeColor;
                             break;
                         case "bloodMap":
-                            state.Color = bloodColor;
+                            state.Color = colors.BloodColor;
                             break;
                     }
                     randomSprite.Selected[entry.Key] = state;
@@ -136,22 +140,34 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         args.Handled = true;
     }
 
-    private (Color, Color, Color)? GrabHumanoidColors(EntityUid entity) // imp
+    private (Color SkinColor, Color EyeColor, Color BloodColor)? GrabHumanoidColors(EntityUid entity) // imp
     {
-        Color skinColor;
-        Color eyeColor;
-        Color bloodColor;
-        if (TryComp<HumanoidAppearanceComponent>(entity, out var humanoid) && TryComp<BloodstreamComponent>(entity, out var bloodstream) // get the humanoidappearance and bloodstream
-        && bloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype is { } reagentProto // TODO: FIX THIS
-        && _prot.TryIndex(reagentProto, out ReagentPrototype? blood) && blood != null) // get the blood reagent
-        {
-            skinColor = humanoid.SkinColor;
-            eyeColor = humanoid.EyeColor;
-            bloodColor = blood.SubstanceColor;
+        if (!TryComp<BloodstreamComponent>(entity, out var bloodstream) || !_visualBody.TryGatherMarkingsData(entity, null, out var profiles, out _, out _))
+            return null; // if (for some reason - like perhaps admin intervention) a non-humanoid or someone with no bloodstream ascends, we don't want to try to modify the colors.
 
-            return (skinColor, eyeColor, bloodColor);
+        var bloodColor = _blood.GetBloodReferenceColor(bloodstream);
+        if (profiles.Count == 0)
+            return (Color.White, Color.White, bloodColor);
+
+        var skinColor = Color.Black;
+        var eyeColor = Color.Black;
+        foreach (var (_, profile) in profiles) // TODO: Make an engine PR to reduce the boilerplate of this shit by a morbillion.
+        {
+            skinColor.R += profile.SkinColor.R;
+            skinColor.G += profile.SkinColor.G;
+            skinColor.B += profile.SkinColor.B;
+            eyeColor.R += profile.EyeColor.R;
+            eyeColor.G += profile.EyeColor.G;
+            eyeColor.B += profile.EyeColor.B;
         }
 
-        else return null; // if (for some reason - like perhaps admin intervention) a non-humanoid or someone with no bloodstream ascends, we don't want to try to modify the colors.
+        skinColor.R /= profiles.Count;
+        skinColor.G /= profiles.Count;
+        skinColor.B /= profiles.Count;
+        eyeColor.R /= profiles.Count;
+        eyeColor.G /= profiles.Count;
+        eyeColor.B /= profiles.Count;
+
+        return (skinColor, eyeColor, bloodColor);
     }
 }

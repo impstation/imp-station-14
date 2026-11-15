@@ -87,6 +87,12 @@
         weight: 0.05
     - id: ClothingMaskSterile
   #imp edit end
+    - id: PlushieLizardJobMedicaldoctor
+      prob: 0.02
+    - id: PlushieLizardJobMedicalintern
+      prob: 0.02
+    - id: PlushieLizardJobPsychologist
+      prob: 0.02
 
 - type: entity
   parent: LockerMedical
@@ -117,7 +123,7 @@
     - id: ChemBag
     - id: Dropper
     - id: HandLabeler
-      prob: 0.5 # imp 
+      prob: 0.5 # imp
   # Imp start
     #- id: BarSpoon # Should be replaced by a stirring tool with medical theming, like a glass rod
     #- !type:AllSelector # The wonderful world of chemical storage
@@ -133,6 +139,8 @@
     #    - id: SprayBottle
     #    - id: Bucket
     #    - id: DrinkCartonMilk
+    - id: PlushieLizardJobChemist
+      prob: 0.02
   # Imp end
 
 - type: entity
@@ -163,7 +171,7 @@
     - id: ClothingMaskSterile
     - id: HandheldGPSBasic
     - id: MedkitFilled
-      prob: 0.3 
+      prob: 0.3
     #- id: ClothingBeltMedicalEMTFilled
     #- id: JetInjector
     #- id: HandheldHealthAnalyzer
@@ -173,6 +181,8 @@
     #  - id: RollerBedSpawnFolded
     #  - id: CheapRollerBedSpawnFolded
     #  - id: EmergencyRollerBedSpawnFolded
+    - id: PlushieLizardJobParamedic
+      prob: 0.02
   # imp edit end
 - type: entity
   parent: LockerParamedic

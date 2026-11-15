@@ -3,12 +3,12 @@
   abstract: true
   components:
   - type: Body
-  - type: EntityTableContainerFill #TO BE REWORKED BY VISUAL NUBODY. i dont knowwwww
+  - type: EntityTableContainerFill
     containers:
       body_organs: !type:AllSelector
         children:
         - id: OrganKodepiiaBrain
-        - id: OrganKodepiiaEyes
+        - id: OrganYoungKodeEyes
         - id: OrganKodepiiaTongue
         - id: OrganKodepiiaAppendix
         - id: OrganKodepiiaEars
@@ -17,3 +17,14 @@
         - id: OrganKodepiiaStomach
         - id: OrganKodepiiaLiver
         - id: OrganKodepiiaKidneys
+
+# copies kode eyes without visual organ stuff so it doesnt cause fucking Error
+- type: entity
+  parent: [ OrganKodepiiaInternal, OrganAnimalEyes ]
+  id: OrganYoungKodeEyes
+  name: opticullis
+  description: "The scavenger's kaleidoscope."
+  components:
+  - type: Sprite
+    layers:
+      - state: opticullis

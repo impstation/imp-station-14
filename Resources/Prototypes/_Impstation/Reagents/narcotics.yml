@@ -9,7 +9,7 @@
   allowedJobs:
   - Zookeeper
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:Emote
         emote: Yawn
@@ -50,7 +50,7 @@
   color: "#1b8b3d"
   contrabandSeverity: Minor
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:AdjustReagent #TODO: this should probably just be a really long status effect instead of recursively adding ForeverWeed to the system
         conditions:
@@ -89,7 +89,7 @@
   flavor: bitter
   color: "#E9EDF5"
   metabolisms: # since there's no heroin, i've just made it a worse version of tricordrazine. feel free to fix this.
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:

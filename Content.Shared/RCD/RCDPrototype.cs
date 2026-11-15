@@ -45,6 +45,12 @@ public sealed partial class RCDPrototype : IPrototype
     public string? Prototype { get; private set; }
 
     /// <summary>
+    /// If true, allows placing the entity once per direction (North, West, South and East)
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool AllowMultiDirection { get; private set; }
+
+    /// <summary>
     /// Funky
     /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
     /// </summary>

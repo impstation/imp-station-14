@@ -1,0 +1,37 @@
+- type: entityTable
+  id: UnknownShuttlesFriendlyTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+#    - id: UnknownShuttleTravelingCuisine imp -removed for now. Maybe forever...
+#    - id: UnknownShuttleDisasterEvacPod imp - emergency commented out to prevent crashing
+    - id: UnknownShuttleHonki
+    - id: UnknownShuttleNTQuark
+    - id: UnknownShuttleCryptid
+    - id: UnknownShuttleEternal
+    - id: UnknownShuttleFlatline
+#    - id: UnknownShuttleJoe imp -removed for now? Maybe forever...
+    - id: UnknownShuttleMeatZone
+    - id: UnknownShuttleFood4you # imp
+    # imp comment block start
+    # this entire entityTable was removed by WizDen, but we're keeping it because we were using it more.
+    # the following entries were deleted by WizDen and did not already have imp replacements.
+    # - id: UnknownShuttleCargoLost
+    # - id: UnknownShuttleTravelingCuisine
+    # - id: UnknownShuttleDisasterEvacPod
+    # - id: UnknownShuttleCruiser
+    # - id: UnknownShuttleGym
+    # - id: UnknownShuttleNTIncorporation
+    # - id: UnknownShuttleJoe
+    # - id: UnknownShuttleMicroshuttle
+    # - id: UnknownShuttleSpacebus
+    # imp comment block end
+
+- type: entityTable
+  id: UnknownShuttlesFreelanceTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - !type:NestedSelector # DV
+      tableId: UnknownShuttlesFreelanceTableDV
+    - id: UnknownShuttleSyndieEvacPod
+    - id: UnknownShuttlePartyUFO #imp
+    - id: UnknownShuttleLambordeere #imp moved because no longer crew aligned

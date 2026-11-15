@@ -147,7 +147,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         if (HasComp<RevolutionaryComponent>(ev.Target) ||
             HasComp<MindShieldComponent>(ev.Target) ||
-            !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
+            !HasComp<HumanoidProfileComponent>(ev.Target) &&
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target))
@@ -361,7 +361,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         float converted = 0;
         float crew = 0;
-        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent>(); //determining players roughly how zombies does, humanoids with a player controlling them
+        var players = AllEntityQuery<HumanoidProfileComponent, ActorComponent>(); //determining players roughly how zombies does, humanoids with a player controlling them
         var revs = GetEntityQuery<RevolutionaryComponent>();
         while (players.MoveNext(out var uid, out _, out _))
         {

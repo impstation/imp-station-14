@@ -80,7 +80,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
         {
             if (_roundEndSystem.IsRoundEndRequested())
             {
-                _roundEndSystem.CancelRoundEndCountdown(uid, true);
+                _roundEndSystem.CancelRoundEndCountdown(uid, forceRecall: true);
                 _announcer.SendAnnouncementMessage(
                     _announcer.GetAnnouncementId(ShuttlennouncementId),
                     "emergancy-shuttle-cascade-enroute",

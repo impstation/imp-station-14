@@ -17,7 +17,7 @@ namespace Content.Server._Impstation.Homunculi;
 
 public sealed class HomunculusSystem : EntitySystem
 {
-    [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private readonly HumanoidProfileSystem _profile = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IncubatorSystem _incubator = default!;
@@ -70,7 +70,7 @@ public sealed class HomunculusSystem : EntitySystem
 
         homunculiDnaComponent.DNA = string.Join("", dnaData);
 
-        SetHomunculusAppearance(entities,homunculus);
+        //SetHomunculusAppearance(entities,homunculus);
     }
 
     public bool VerifyAndUseRecipe(HomunculusTypeComponent homunculusComp, Entity<SolutionComponent> solution, List<ReagentQuantity> reagents)
@@ -105,48 +105,50 @@ public sealed class HomunculusSystem : EntitySystem
         return true;
     }
 
-    private void SetHomunculusAppearance(List<Entity<HomunculusTypeComponent>> entities, EntityUid homunculi)
-    {
-        var markingCategories = new List<MarkingCategories>
-        {
-            MarkingCategories.Head,
-            MarkingCategories.Eyes,
-            MarkingCategories.Snout,
-            MarkingCategories.HeadSide,
-            MarkingCategories.HeadTop,
-        };
-        List<Color> skinColors = [];
-        List<Color> eyeColors = [];
+    // profile does not contain colours or markings as of visual nubody :(
+    // private void SetHomunculusAppearance(List<Entity<HomunculusTypeComponent>> entities, EntityUid homunculi)
+    // {
+    //     var markingCategories = new List<HumanoidVisualLayers>
+    //     {
+    //         HumanoidVisualLayers.Head,
+    //         HumanoidVisualLayers.Eyes,
+    //         HumanoidVisualLayers.Snout,
+    //         HumanoidVisualLayers.HeadSide,
+    //         HumanoidVisualLayers.HeadTop,
+    //     };
+    //     List<Color> skinColors = [];
+    //     List<Color> eyeColors = [];
 
-        foreach (var urist in entities)
-        {
-            if (!TryComp<HumanoidAppearanceComponent>(urist, out var appearanceComponent))
-                return;
+    //     foreach (var urist in entities)
+    //     {
+    //         if (!TryComp<HumanoidProfileComponent>(urist, out var profile))
+    //             return;
 
-            skinColors.Add(appearanceComponent.SkinColor);
-            eyeColors.Add(appearanceComponent.EyeColor);
-            if (urist == entities.First())
-            {
-                foreach (var markingPair in appearanceComponent.MarkingSet.Markings)
-                {
-                    if (!markingCategories.Contains(markingPair.Key))
-                        continue;
 
-                    foreach (var marking in markingPair.Value)
-                    {
-                        _appearance.AddMarking(homunculi, marking.MarkingId, marking.MarkingColors);
-                    }
-                }
-            }
-        }
-        if (!TryComp<HumanoidAppearanceComponent>(homunculi, out var homAppearanceComponent))
-            return;
+    //         skinColors.Add(profile.SkinColor);
+    //         eyeColors.Add(profile.EyeColor);
+    //         if (urist == entities.First())
+    //         {
+    //             foreach (var markingPair in profile.MarkingSet.Markings)
+    //             {
+    //                 if (!markingCategories.Contains(markingPair.Key))
+    //                     continue;
 
-        if (skinColors.Count > 0)
-            homAppearanceComponent.SkinColor =  BlendColors(skinColors);
-        if (skinColors.Count > 0)
-            homAppearanceComponent.EyeColor = BlendColors(eyeColors);
-    }
+    //                 foreach (var marking in markingPair.Value)
+    //                 {
+    //                     _profile.AddMarking(homunculi, marking.MarkingId, marking.MarkingColors);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     if (!TryComp<HumanoidAppearanceComponent>(homunculi, out var homAppearanceComponent))
+    //         return;
+
+    //     if (skinColors.Count > 0)
+    //         homAppearanceComponent.SkinColor =  BlendColors(skinColors);
+    //     if (skinColors.Count > 0)
+    //         homAppearanceComponent.EyeColor = BlendColors(eyeColors);
+    // }
 
     private static Color BlendColors(List<Color> colors)
     {
