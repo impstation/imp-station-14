@@ -78,8 +78,10 @@
       - !type:HealthChange
         probability: 0.5
         damage:
-          groups:
-            Brute: -0.4
+          types:
+            Blunt: -0.13
+            Piercing: -0.13
+            Slash: -0.13
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Anomalocarid ]

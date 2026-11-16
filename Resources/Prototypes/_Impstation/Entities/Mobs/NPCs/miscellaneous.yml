@@ -111,8 +111,10 @@
     angle: 0
     animation: WeaponArcDisarm
     damage:
-      groups:
-        Brute: 10
+      types:
+        Blunt: 3.33
+        Piercing: 3.33
+        Slash: 3.33
   - type: Sprite
     sprite: _Impstation/Mobs/Demons/tomatokisser.rsi
     noRot: true

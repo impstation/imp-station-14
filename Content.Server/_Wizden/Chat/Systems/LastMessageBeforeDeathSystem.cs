@@ -44,14 +44,14 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     private Dictionary<NetUserId, PlayerData> _playerData = new Dictionary<NetUserId, PlayerData>();
 
     // Holds player data, player data then has character data within
-    private class PlayerData
+    private sealed class PlayerData // Impstation - Upmerge 2026 Chunk IV (added sealed)
     {
         public Dictionary<MindComponent, CharacterData> Characters = new Dictionary<MindComponent, CharacterData>();
         public ICommonSession? PlayerSession;
     }
 
     // Character data holds actual last message, then is associated with the actual player
-    private class CharacterData
+    private sealed class CharacterData // Impstation - Upmerge 2026 Chunk IV (added sealed)
     {
         public string? LastMessage { get; set; } // Store only the last message
         public EntityUid EntityUid { get; set; }
@@ -134,7 +134,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     /// <summary>
     ///     Processes messages at the end of a round and sends them via webhook.
     /// </summary>
-    public void OnRoundEnd()
+    public async void OnRoundEnd() // Impstation - Upmerge 2026 Chunk IV (added async)
     {
         if (!_lastMessageWebhookEnabled)
             return;
@@ -166,7 +166,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
             }
         }
 
-        SendMessagesInBatches(allMessages);
+        await SendMessagesInBatches(allMessages); // Impstation - Upmerge 2026 Chunk IV (added await)
 
         // Clear all stored data upon round restart
         _playerData.Clear();

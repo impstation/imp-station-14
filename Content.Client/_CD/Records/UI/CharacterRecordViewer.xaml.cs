@@ -57,7 +57,7 @@ public sealed partial class CharacterRecordViewer : FancyWindow
     /// <remarks>
     /// This may differ from <see cref="_selectedListingKey"/> because this contents has not been updated yet to reflect the new selection.
     /// </remarks>
-    private uint? _openRecordKey;
+    // private uint? _openRecordKey; // Impstation - Upmerge 2026 Chunk IV (Unused)
     public event Action<SecurityStatus, string?>? OnSetSecurityStatus;
 
     public uint? SecurityWantedStatusMaxLength;

@@ -15,8 +15,6 @@ public sealed partial class NotifierWindow : FancyWindow
 {
     [Dependency] private readonly IClientNotifierManager _notifierManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     private string? SavedChangesText;
     private string? UnsavedChangesText;

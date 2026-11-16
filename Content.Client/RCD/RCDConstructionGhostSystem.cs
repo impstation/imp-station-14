@@ -31,7 +31,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
     // Funky RPD Start
     private bool _useMirrorPrototype = false;
-    public event EventHandler? FlipConstructionPrototype;
+    //public event EventHandler? FlipConstructionPrototype; // Impstation - Upmerge 2026 Chunk IV (unused)
 
     public override void Initialize()
     {

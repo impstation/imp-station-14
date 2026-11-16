@@ -9,7 +9,7 @@ using JetBrains.Annotations;
 using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Client.State;
-using Robust.Client.UserInterface;
+// using Robust.Client.UserInterface; // imp remove unused
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
@@ -23,8 +23,7 @@ public sealed partial class EmotesUIController : UIController, IOnStateChanged<G
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    // [Dependency] private readonly IInputManager _inputManager = default!; // Impstation - Upmerge 2026 Chunk IV (unused)
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 

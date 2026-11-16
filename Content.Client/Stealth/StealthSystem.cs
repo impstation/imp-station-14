@@ -5,7 +5,6 @@ using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
-using Content.Client.Administration.Managers; // imp
 using Content.Shared.Ghost; // imp
 using Robust.Client.Player; // imp
 
@@ -19,7 +18,6 @@ public sealed class StealthSystem : SharedStealthSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
-    [Dependency] private readonly IClientAdminManager _adminManager = default!; // imp
     [Dependency] private readonly ContainerSystem _containerSystem = default!; // imp
 
     private ShaderInstance _shader = default!;
