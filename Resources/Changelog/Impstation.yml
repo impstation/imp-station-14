@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Map population ranges have been tweaked. Maps in the high-pop bracket
-      will now roll at 65 players. Plasma, Cog, and Whale roll between 45 - 75 players.
-      Whisper rolls between 25 - 60 players.
-    type: Tweak
-  id: 2512
-  time: '2026-01-01T10:15:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3901
 - author: ATDoop
   changes:
   - message: Anomalocarids have a guidebook entry now!
@@ -4058,3 +4049,10 @@
   id: 3011
   time: '2026-11-09T23:23:34.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4724
+- author: DinnerCalzone
+  changes:
+  - message: Hatsune Miku died on the way back to her home planet.
+    type: Remove
+  id: 3012
+  time: '2026-11-16T02:54:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4730
