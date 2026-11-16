@@ -1,0 +1,54 @@
+- type: speechSounds
+  id: Planarian
+  saySound:
+    path: /Audio/_Impstation/Voice/Talk/Visitors/Planarians/planarian_talk.ogg
+  askSound:
+    path: /Audio/_Impstation/Voice/Talk/Visitors/Planarians/planarian_ask.ogg
+  exclaimSound:
+    path: /Audio/_Impstation/Voice/Talk/Visitors/Planarians/planarian_exclaim.ogg
+
+- type: emoteSounds
+  id: UnisexPlanarian
+  params:
+    variation: 0.025
+  sounds:
+    Scream:
+      collection: PlanarianScreams
+    Laugh:
+      path: /Audio/_Impstation/Voice/Visitors/Planarians/planarian_laugh.ogg
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_Impstation/Voice/Visitors/Planarians/planarian_yawn.ogg
+    Snore:
+      collection: Snores
+    Sigh:
+      path: /Audio/_Impstation/Voice/Visitors/Planarians/planarian_sigh.ogg
+    Honk:
+      collection: BikeHorn
+    Crying:
+      path: /Audio/_Impstation/Voice/Visitors/Planarians/planarian_cry.ogg
+    Whistle:
+      collection: Whistles
+    GoblinMutter:
+      path: /Audio/_Impstation/Voice/Visitors/Planarians/planarian_mumble.ogg
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Squeak:
+      path: /Audio/_Impstation/Voice/Visitors/Planarians/planarian_squeak.ogg
+    Gasp:
+      path: /Audio/_Impstation/Voice/Visitors/Planarians/planarian_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_Impstation/Voice/Visitors/Planarians/planarian_deathgasp.ogg

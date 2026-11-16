@@ -36,3 +36,13 @@
     Blunt: 1.15
     Slash: 1.15
     Piercing: 1.15
+
+- type: damageModifierSet
+  id: Planarian
+  coefficients:
+    Blunt: 0.8
+    Slash: 2 #weak to slash but its okay they like being cut in two
+    Piercing: 0.8
+    Cold: 0.8
+    Heat: 1.1
+    Radiation: 0.5 #they can tolerate radiation as a treat

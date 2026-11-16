@@ -1,0 +1,295 @@
+# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+
+- type: markingsGroup
+  parent: Undergarments
+  id: Planarian
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ PlanarianEyesDefault ]
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 1
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearancePlanarian
+  categories: [ HideSpawnMenu ] #imp
+  name: Planarian appearance
+  components:
+  - type: Inventory
+    speciesId: planarian
+    templateId: planarian
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: eyes
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: suitstorage
+      id:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: id
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_right
+  - type: InitialBody
+    organs:
+      Torso: OrganPlanarianTorso
+      Head: OrganPlanarianHead
+      HandRight: OrganPlanarianHandRight
+      HandLeft: OrganPlanarianHandLeft
+      Brain: OrganHumanBrain
+      Eyes: OrganPlanarianEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Planarian
+
+- type: entity
+  parent:
+  - AppearancePlanarian
+  - BaseSpeciesMobOrganic
+  id: MobPlanarian
+  name: Urist McFlat
+  components:
+  - type: Damageable
+    damageModifierSet: Planarian
+  - type: Speech
+    speechSounds: Planarian
+    speechVerb: Planarian
+    allowedEmotes: ['Squeak', 'GoblinMutter']
+  - type: TypingIndicator
+    proto: planarian
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: PlanarianBlood #in the far future planarians grow blood of their own
+        Quantity: 300 #still 300 because its funny to have a lot of blood
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      160: Dead
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi
+        color: "#e0f715"
+  - type: TransferMindOnGib #transfer mind to other half when cut in two
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80 #they split on crit
+      behaviors:
+      - !type:GibBehavior
+  - type: Vocal
+    sounds:
+      Male: UnisexPlanarian
+      Female: UnisexPlanarian
+      Unsexed: UnisexPlanarian
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        # they r smaller #they r smaller (2) #they r smaller (3) #they r smaller (4)
+        density: 100 #imp edit, dwarves need to be heavy like rock
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: NoSlip #theyre worms
+
+- type: entity
+  parent: OrganBase
+  id: OrganPlanarian
+  abstract: true
+  suffix: Planarian
+
+- type: entity
+  id: OrganPlanarianMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Planarian ] #they can eat anything
+
+- type: entity
+  parent: OrganPlanarian
+  id: OrganPlanarianInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  id: OrganPlanarianVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: VisualOrganMarkings
+    markingData:
+      group: Planarian
+
+- type: entity
+  parent: [ OrganPlanarian, OrganPlanarianVisual ]
+  id: OrganPlanarianExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+
+- type: entity
+  parent: [ OrganPlanarianVisual, OrganBaseEyes, OrganPlanarianInternal ]
+  id: OrganPlanarianEyes
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganPlanarianExternal ]
+  id: OrganPlanarianTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganPlanarianExternal ]
+  id: OrganPlanarianHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.HeadTop
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganPlanarianExternal ]
+  id: OrganPlanarianHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganPlanarianExternal ]
+  id: OrganPlanarianHandRight
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganPlanarianInternal, OrganPlanarianMetabolizer ]
+  id: OrganPlanarianLungs

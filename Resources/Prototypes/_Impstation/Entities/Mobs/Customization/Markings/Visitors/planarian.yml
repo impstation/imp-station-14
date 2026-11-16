@@ -1,0 +1,25 @@
+# Eyes
+
+- type: marking
+  id: PlanarianEyesDefault
+  bodyPart: Eyes
+  forcedColoring: true
+  groupWhitelist: [Planarian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
+  sprites:
+  - sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi
+    state: eyes
+
+# Head
+
+- type: marking
+  id: PlanarianStripes
+  bodyPart: Overlay
+  groupWhitelist: [Planarian]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Planarians/overlay.rsi
+    state: planarian_stripes

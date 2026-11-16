@@ -270,3 +270,15 @@
   id: DriedZombieBlood
   name: reagent-name-dried-zombie-blood
   desc: reagent-desc-dried-zombie-blood
+
+- type: reagent
+  parent: Blood
+  id: PlanarianBlood
+  name: reagent-name-planarian-blood
+  group: Biological
+  desc: reagent-desc-planarian-blood
+  viscosity: 0.10
+  flavor: yucky #its yucky
+  color: "#e0f715"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-sticky #its stucky

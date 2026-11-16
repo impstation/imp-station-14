@@ -62,3 +62,11 @@ chat-speech-verb-allulalo-1 = whistles
 chat-speech-verb-allulalo-2 = clicks
 chat-speech-verb-allulalo-3 = chitters
 chat-speech-verb-allulalo-4 = knocks
+
+chat-speech-verb-name-planarian = Planarian
+chat-speech-verb-planarian-1 = wriggles
+chat-speech-verb-planarian-2 = babbles
+chat-speech-verb-planarian-3 = squirms
+chat-speech-verb-planarian-4 = squeaks
+chat-speech-verb-planarian-5 = whimpers
+chat-speech-verb-planarian-6 = eems

@@ -18,7 +18,7 @@
   typingState: anom
   idleState: anomidle
   offset: -0.3, 0.6
-  
+
 - type: typingIndicator
   id: kodepiia
   spritePath: /Textures/_Impstation/Effects/speech.rsi
@@ -49,10 +49,17 @@
   typingState: allulalo
   idleState: allulalo-idle
   offset: -0.45, 0.35
-  
+
 - type: typingIndicator
   id: Ungu
   spritePath: /Textures/_Impstation/Effects/speech.rsi
   typingState: ungu
   idleState: ungu
   offset: 0, 0.1
+
+- type: typingIndicator
+  id: planarian
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: planarian_speechbubble
+  idleState: planarian_speechbubble_idle
+  offset: -0.2, 0.1
