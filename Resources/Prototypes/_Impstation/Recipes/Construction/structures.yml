@@ -180,3 +180,14 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+- type: construction
+  id: LightStringFixture
+  graph: LightStringFixture
+  startNode: start
+  targetNode: emptyStringLight
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
