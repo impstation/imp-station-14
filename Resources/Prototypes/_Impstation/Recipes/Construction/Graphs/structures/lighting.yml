@@ -370,7 +370,7 @@
     # bulbs
     - to: stringLightLED
       steps:
-      - allTags: [LightBulb, LightLED]
+      - allTags: [LightBulb, LightLed]
         name: construction-graph-tag-light-bulb
     - to: stringLightDim
       steps:
