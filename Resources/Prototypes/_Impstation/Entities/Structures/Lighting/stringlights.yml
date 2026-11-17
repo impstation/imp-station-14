@@ -22,7 +22,7 @@
   - type: InteractionOutline
   - type: Construction
     graph: LightStringFixture
-    node: start
+    node: emptyStringLight
 
 # prefilled for mapping
 - type: entity
@@ -49,6 +49,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: stringLightLED
 
 - type: entity
   name: string light
@@ -68,6 +71,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: stringLightDim
 
 - type: entity
   name: string light
@@ -87,6 +93,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
 
 - type: entity
   name: string light
@@ -106,6 +115,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
 
 - type: entity
   name: string light
@@ -125,6 +137,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
 
 - type: entity
   name: string light
@@ -144,6 +159,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
 
 - type: entity
   name: string light
@@ -163,6 +181,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
 
 - type: entity
   name: string light
@@ -182,6 +203,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
 
 - type: entity
   name: string light
@@ -201,6 +225,9 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
 
 - type: entity
   name: string light
@@ -220,3 +247,6 @@
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
