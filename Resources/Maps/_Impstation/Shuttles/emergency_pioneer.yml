@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 11/07/2026 21:48:10
-  entityCount: 2553
-maps:
-- 557
+  time: 11/17/2026 18:59:47
+  entityCount: 2552
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -32,7 +32,7 @@ entities:
       name: NT Evac Raven
     - type: Transform
       pos: -0.546875,-0.53125
-      parent: 557
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -1168,16 +1168,6 @@ entities:
     - type: GridPathfinding
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
-  - uid: 557
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2124
