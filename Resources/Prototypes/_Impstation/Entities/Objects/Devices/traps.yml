@@ -137,3 +137,9 @@
     sprite: _Impstation/Clothing/Head/Misc/reversebeartrapsaw.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Misc/reversebeartrapsaw.rsi
+  - type: TimerTrigger
+    delay: 30
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
