@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 11/18/2026 03:39:23
+  time: 11/18/2026 06:48:48
   entityCount: 18459
 maps:
 - 1
@@ -7633,7 +7633,7 @@ entities:
       pos: -7.5,-22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -78119.47
+      secondsUntilStateChange: -78222.64
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7977,7 +7977,7 @@ entities:
       pos: 12.5,21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -74879.08
+      secondsUntilStateChange: -74982.25
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8556,7 +8556,7 @@ entities:
       pos: -38.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -68363.305
+      secondsUntilStateChange: -68466.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -45056,7 +45056,7 @@ entities:
   - uid: 5540
     components:
     - type: Transform
-      pos: 28.5,-2.5
+      pos: 52.5,-2.5
       parent: 2
 - proto: DefaultStationBeaconEVAStorage
   entities:
@@ -51106,7 +51106,7 @@ entities:
       pos: 1.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29793.701
+      secondsUntilStateChange: -29896.873
       state: Closing
   - uid: 6280
     components:
@@ -51668,7 +51668,7 @@ entities:
       pos: 12.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35322.836
+      secondsUntilStateChange: -35426.008
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 286.3997156
@@ -51945,7 +51945,7 @@ entities:
       pos: -40.5,-22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -78083.06
+      secondsUntilStateChange: -78186.234
       state: Closing
   - uid: 6397
     components:
