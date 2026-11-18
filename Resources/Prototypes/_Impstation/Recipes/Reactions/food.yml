@@ -265,11 +265,11 @@
   - Stir
   reactants:
     Fiber:
-      amount: 10
+      amount: 15
     Water:
-      amount: 10
-    Flour:
       amount: 5
+    Flour:
+      amount: 10
   effects:
   - !type:SpawnEntity
     entity: FoodCakeBatterCotton

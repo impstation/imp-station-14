@@ -73,6 +73,7 @@ public sealed class StationPowerTests
         "LoopImp",
         "OmegaImp",
         "Geode",
+        "Dash",
 
         // DEROTATED:
         //"RelicImp",

@@ -554,3 +554,14 @@
     sprite: _Impstation/Clothing/Head/Hats/gnomehat.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/gnomehat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPostMasterCap
+  name: postmaster's cap
+  description: A brimmed cap of the courier elite. The letter emblem can be melted down for wax seals in an emergency.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/postmaster_cap.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/postmaster_cap.rsi
