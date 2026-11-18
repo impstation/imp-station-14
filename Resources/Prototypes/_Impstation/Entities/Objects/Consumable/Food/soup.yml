@@ -53,6 +53,40 @@
           Quantity: 10
 
 - type: entity
+  name: one day blinding stew
+  parent: FoodBowlBase
+  id: FoodBlindingStew
+  description: Tried and true method to "punish" your daughter.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - tomato
+    - blind
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: blindingstew
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 31
+        - ReagentId: Protein
+          Quantity: 9
+        - ReagentId: Vitamin
+          Quantity: 7
+        - ReagentId: Methanol
+          Quantity: 15
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
+
+- type: entity
   name: Where is Gumbo?
   parent: FoodRiceGumbo
   id: FoodWhereIsGumbo
