@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 11/15/2026 04:19:55
-  entityCount: 18454
+  time: 11/18/2026 03:39:23
+  entityCount: 18459
 maps:
 - 1
 grids:
@@ -495,6 +495,8 @@ entities:
             3202: 28,20
             3203: 30,19
             3204: 31,19
+            3337: 8,-32
+            3338: 8,-34
         - node:
             zIndex: 5
             color: '#FFFFFFFF'
@@ -1045,6 +1047,7 @@ entities:
             2717: -47,24
             3192: 9,24
             3236: -52,4
+            3336: 8,-33
         - node:
             zIndex: 5
             color: '#FFFFFFFF'
@@ -1149,7 +1152,6 @@ entities:
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
-            2386: 8,-35
             2387: 13,-41
             2388: 15,-42
             2396: 19,-43
@@ -7631,7 +7633,7 @@ entities:
       pos: -7.5,-22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -77705.95
+      secondsUntilStateChange: -78119.47
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7975,7 +7977,7 @@ entities:
       pos: 12.5,21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -74465.56
+      secondsUntilStateChange: -74879.08
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8554,7 +8556,7 @@ entities:
       pos: -38.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -67949.79
+      secondsUntilStateChange: -68363.305
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15364,6 +15366,11 @@ entities:
     - type: Transform
       pos: -22.45855,-6.3124175
       parent: 2
+  - uid: 14019
+    components:
+    - type: Transform
+      pos: -20.678183,-3.343556
+      parent: 2
   - uid: 14643
     components:
     - type: Transform
@@ -15377,7 +15384,7 @@ entities:
   - uid: 14654
     components:
     - type: Transform
-      pos: 6.5,-33.5
+      pos: 6.8004026,-33.68595
       parent: 2
   - uid: 14981
     components:
@@ -43328,16 +43335,18 @@ entities:
       parent: 2
 - proto: CrateTrashCartJani
   entities:
-  - uid: 5487
-    components:
-    - type: Transform
-      pos: -22.5,-3.5
-      parent: 2
   - uid: 10889
     components:
     - type: Transform
       pos: 15.5,-40.5
       parent: 2
+  - uid: 14010
+    components:
+    - type: Transform
+      pos: 8.5,-33.5
+      parent: 2
+    - type: Lock
+      locked: False
 - proto: CrayonBox
   entities:
   - uid: 9679
@@ -51097,7 +51106,7 @@ entities:
       pos: 1.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29380.184
+      secondsUntilStateChange: -29793.701
       state: Closing
   - uid: 6280
     components:
@@ -51659,7 +51668,7 @@ entities:
       pos: 12.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34909.316
+      secondsUntilStateChange: -35322.836
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 286.3997156
@@ -51936,7 +51945,7 @@ entities:
       pos: -40.5,-22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -77669.55
+      secondsUntilStateChange: -78083.06
       state: Closing
   - uid: 6397
     components:
@@ -53213,6 +53222,23 @@ entities:
     components:
     - type: Transform
       pos: 41.655518,-26.68508
+      parent: 2
+- proto: FoodPacketShrimpsTrash
+  entities:
+  - uid: 5487
+    components:
+    - type: Transform
+      pos: -21.11404,-4.171681
+      parent: 2
+  - uid: 14011
+    components:
+    - type: Transform
+      pos: -21.73905,-4.671681
+      parent: 2
+  - uid: 14012
+    components:
+    - type: Transform
+      pos: -21.61405,-4.437306
       parent: 2
 - proto: FoodPieBananaCream
   entities:
@@ -83331,24 +83357,19 @@ entities:
     - type: Transform
       pos: 6.243659,6.255819
       parent: 2
-- proto: MopBucket
+- proto: MopBucketFull
   entities:
-  - uid: 9678
+  - uid: 14009
     components:
     - type: Transform
-      pos: -20.532074,-3.4493594
+      pos: 8.5,-31.5
       parent: 2
 - proto: MopItem
   entities:
-  - uid: 9681
+  - uid: 11289
     components:
     - type: Transform
-      pos: -20.529812,-3.4716563
-      parent: 2
-  - uid: 14653
-    components:
-    - type: Transform
-      pos: 6.5,-33.5
+      pos: 8.482738,-31.516644
       parent: 2
   - uid: 15814
     components:
@@ -97019,11 +97040,6 @@ entities:
       parent: 2
 - proto: SinkWide
   entities:
-  - uid: 11289
-    components:
-    - type: Transform
-      pos: -21.5,-3.5
-      parent: 2
   - uid: 11291
     components:
     - type: Transform
@@ -97035,6 +97051,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.5,-32.5
+      parent: 2
+  - uid: 14008
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,-32.5
       parent: 2
   - uid: 16527
     components:
@@ -103696,6 +103718,13 @@ entities:
     - type: Transform
       pos: -30.5,-22.5
       parent: 2
+- proto: VendingMachineDanShrimpAlt
+  entities:
+  - uid: 9678
+    components:
+    - type: Transform
+      pos: -21.5,-3.5
+      parent: 2
 - proto: VendingMachineDetDrobe
   entities:
   - uid: 12144
@@ -103714,6 +103743,11 @@ entities:
       parent: 2
 - proto: VendingMachineDiscount
   entities:
+  - uid: 9681
+    components:
+    - type: Transform
+      pos: -22.5,-3.5
+      parent: 2
   - uid: 12146
     components:
     - type: Transform
