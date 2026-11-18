@@ -65,7 +65,7 @@ health-examinable-carbon-Shock-200 = [color=#FFA100]{ CAPITALIZE(POSS-ADJ($targe
 #health-examinable-carbon-Cold-30 = [color=#9CB4DD]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } second-degree frostbite on { POSS-ADJ($target) } extremities.[/color]
 #health-examinable-carbon-Cold-50 = [color=#8E9AD3]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } major third-degree frostbite on { POSS-ADJ($target) } extremities.[/color]
 health-examinable-carbon-Cold-8 = [color=#C6FDFA]{ CAPITALIZE(POSS-ADJ($target)) } fingertips are cold to the touch.[/color]
-health-examinable-carbon-Cold-15 = [color=#B1D9ED]]{ CAPITALIZE(POSS-ADJ($target)) } fingertips are flushed and cold.[/color]
+health-examinable-carbon-Cold-15 = [color=#B1D9ED]{ CAPITALIZE(POSS-ADJ($target)) } fingertips are flushed and cold.[/color]
 health-examinable-carbon-Cold-30 = [color=#9CB4DD]{ CAPITALIZE(POSS-ADJ($target)) } extremeties are flushed, cold and hard to the touch.[/color]
 health-examinable-carbon-Cold-50 = [color=#8E9AD3]{ CAPITALIZE(POSS-ADJ($target)) } extremeties are dark and cold.[/color]
 health-examinable-carbon-Cold-75 = [color=#7673C4]{ CAPITALIZE(POSS-ADJ($target)) } limbs are dark, cold and necrotic.[/color]

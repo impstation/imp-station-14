@@ -373,3 +373,29 @@
             Quantity: 5
           - ReagentId: Sadness
             Quantity: 5
+
+- type: entity
+  id: CigaretteDevilShrimp
+  suffix: "Devilish"
+  parent: CigaretteShrimp
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 5
+          - ReagentId: Sadness
+            Quantity: 4
+          - ReagentId: Lead
+            Quantity: 1.5
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 5
+          - ReagentId: Sadness
+            Quantity: 4
+          - ReagentId: Lead
+            Quantity: 1.5

@@ -33,6 +33,14 @@ construction-graph-tag-eyepatch = eyepatch
 construction-graph-tag-floatingfloracrown = floating flora crown
 construction-graph-tag-chemical-analysis-goggles = chemical analysis goggles
 
+# crayon
+construction-graph-tag-blue-crayon = blue crayon
+construction-graph-tag-green-crayon = green crayon
+construction-graph-tag-orange-crayon = orange crayon
+construction-graph-tag-white-crayon = white crayon
+construction-graph-tag-rainbow-crayon = rainbow crayon
+construction-graph-tag-rainbow-mime = mime crayon
+
 # other
 construction-graph-tag-borg-leg = borg leg
 construction-graph-tag-bowl = bowl
@@ -51,7 +59,12 @@ construction-graph-tag-floatingflora-o = orange floating flora
 construction-graph-tag-floatingflora-p = pink floating flora
 construction-graph-tag-floatingflora-y = yellow floating flora
 construction-graph-tag-pompom = pompoms
+construction-graph-tag-log = tower-cap log
 
 # unique
 construction-graph-tag-memorial-ash = your vaporized loved one
 construction-graph-tag-light-sun = the sun
+
+# food
+construction-graph-tag-frosting-spacemans = spacemans frosting
+construction-graph-tag-frosting-vanilla = vanilla frosting

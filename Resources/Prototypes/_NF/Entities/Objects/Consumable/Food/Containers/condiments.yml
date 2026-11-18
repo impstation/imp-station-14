@@ -32,6 +32,9 @@
   - type: CondimentSqueezeBottle
   - type: FitsInDispenser
     solution: food
+  - type: Tag # imp
+    tags:
+    - ChefBeltItem
 
 - type: entity
   parent: BaseFoodCondimentSqueezeBottle

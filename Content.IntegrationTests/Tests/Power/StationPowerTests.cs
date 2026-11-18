@@ -70,6 +70,8 @@ public sealed class StationPowerTests
         "Whisper",
         "Monarch",
         "Whalefall",
+        "LoopImp",
+        "OmegaImp",
 
         // DEROTATED:
         //"RelicImp",

@@ -1143,3 +1143,12 @@ accent-gray-words-replace-381 = lobstar
 
 accent-gray-words-382 = redshells
 accent-gray-words-replace-382 = lobstars
+
+accent-gray-words-383 = you're
+accent-gray-words-replace-383 = mozz
+
+accent-gray-words-384 = we're
+accent-gray-words-replace-384 = gleepzz
+
+accent-gray-words-385 = they're
+accent-gray-words-replace-385 = jamgazz

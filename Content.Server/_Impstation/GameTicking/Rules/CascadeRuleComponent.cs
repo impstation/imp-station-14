@@ -33,7 +33,7 @@ public sealed partial class CascadeRuleComponent : Component
     /// Time until the round is ended in seconds
     /// </summary>
     [DataField]
-    public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(180);
+    public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(300);
 
     /// <summary>
     /// Time until the round ends
@@ -51,7 +51,7 @@ public sealed partial class CascadeRuleComponent : Component
     /// Amount of crystal mass to spawn throughout the station
     /// </summary>
     [DataField]
-    public MinMax MinMaxCrystalMassSpawn = new(2, 4);
+    public MinMax MinMaxCrystalMassSpawn = new(3, 4);
 
     [DataField]
     public ProtoId<ContentTileDefinition> CrystalMassPlating = "PlatingCrystalMass";

@@ -16,6 +16,8 @@
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
     size: Huge
+    shape:
+    - 0,0,4,3
   - type: GunRequiresWield
   - type: Gun
     projectileSpeed: 19
