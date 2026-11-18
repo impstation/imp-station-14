@@ -3,7 +3,6 @@ using Content.Client.Hands.Systems;
 using Content.Client.Strip;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
-using Content.Client.UserInterface.Systems.Emotes; //imp edit
 using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.Verbs.UI;
 using Content.Shared.Cuffs;
@@ -21,6 +20,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
+using Content.Client.UserInterface.Systems.Emotes; //imp edit
 using System.Linq; //imp edit
 using System.Numerics; //imp edit
 using static Content.Client.Inventory.ClientInventorySystem;
