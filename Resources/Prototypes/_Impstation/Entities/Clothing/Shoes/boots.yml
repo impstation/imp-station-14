@@ -423,3 +423,14 @@
     sprite: _Impstation/Clothing/Shoes/Boots/leatherboots.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Shoes/Boots/leatherboots.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesGnomeBoots
+  name: gnome boots
+  description: A pair of simple green boots.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/gnomeboots.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/gnomeboots.rsi

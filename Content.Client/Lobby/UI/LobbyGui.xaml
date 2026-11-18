@@ -89,6 +89,8 @@
                         <vote:VoteCallMenuButton Name="CallVoteButton" StyleClasses="ButtonBig" />
                         <Button Name="OptionsButton" Access="Public" StyleClasses="ButtonBig"
                                 Text="{Loc 'ui-lobby-options-button'}" />
+                        <Button Name="NotifierButton" Access="Public" StyleClasses="ButtonBig"
+                                Text="{Loc 'ui-lobby-notifier-button'}" />
                         <Button Name="LeaveButton" Access="Public" StyleClasses="ButtonBig"
                                 Text="{Loc 'ui-lobby-leave-button'}" />
                     </BoxContainer>

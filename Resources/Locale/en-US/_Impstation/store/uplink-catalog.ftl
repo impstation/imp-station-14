@@ -19,8 +19,11 @@ uplink-advanced-mimery-desc = The classical two part series on how to further ho
 uplink-zipper-ap-name = Zipper .22
 uplink-zipper-ap-desc = A regretful purchase from a liquidation sale. Comes loaded with armor-piercing rounds. Uses .22 auto.
 
-uplink-nemesis-br-name = Basilisk-11 bundle
-uplink-nemesis-br-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle, bundled with 3 magazines.
+uplink-basilisk-name = Basilisk-11
+uplink-basilisk-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle.
+
+uplink-basilisk-bundle-name = Basilisk-11 bundle
+uplink-basilisk-bundle-desc = Precise and Deadly: the stylish Basilisk-11 Battle Rifle, bundled with 2 magazines.
 
 uplink-rifle-magazine-nemesis-name = Rifle magazine (.25 caseless)
 uplink-rifle-magazine-nemesis-desc = Rifle magazine with 24 cartridges. Compatible with the Basilisk-11.
@@ -52,8 +55,11 @@ uplink-saw-ammo-desc = A box of 50 cartridges compatible with the L6 Nidhogg lig
 uplink-adder-name = Adder bundle
 uplink-adder-desc = One state-of-the-art Adder plasma pistol, bundled with 2 canisters of its proprietary liquid ammo.
 
-uplink-akurra-name = Akurra bundle
-uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled with 4 canisters of its proprietary liquid ammo.
+uplink-akurra-name = Akurra
+uplink-akurra-desc = Fearsome as it is advanced, the venerable Akurra bundled with 2 canisters of its proprietary liquid ammo.
+
+uplink-akurra-bundle-name = Akurra
+uplink-akurra-bundle-desc = Fearsome as it is advanced, the venerable Akurra bundled with 4 canisters of its proprietary liquid ammo.
 
 uplink-flamethrower-name = FG13 Xiuhcoatl flamethrower
 uplink-flamethrower-desc = Invite Nanotrasen to the cookout with this portable incendiary weapon.
@@ -127,6 +133,9 @@ uplink-beenade-desc = The ultimate in distraction, this foaming grenade contains
 uplink-bros-grenade-name = BROSnade
 uplink-bros-grenade-desc = A colony of angry BROS captured in a glass bottle. UNGH
 
+uplink-fuseless-grenade-name = Fuseless Grenade
+uplink-fuseless-grenade-desc = An otherwise normal explosive grenade modified to go off immediately after activation. Great at parties!
+
 uplink-pin-straight-name = Straight Pride Pin
 uplink-pin-straight-desc = Demonstrate your support for the heterosexual community with this straight pride pin.
 
@@ -180,3 +189,24 @@ uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 c
 
 uplink-phone-syndicate-name = Blood-Red Phone
 uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
+
+uplink-gondal-name = Noisemaker Teleporter
+uplink-gondal-desc = Call in a very loud distraction.
+
+uplink-mousetrap-name = Giant Mousetrap
+uplink-mousetrap-desc = A really big trap, for really big 'mice'.
+
+uplink-bear-trap-name = Cindy head trap
+uplink-bear-trap-desc = You swear you saw this in a movie once... Multitool linking required.
+
+uplink-trash-crusher-name = Trash Compactor Cart
+uplink-trash-crusher-desc = A special janitor cart with crushing pistons hidden inside.
+
+uplink-fake-cash-name = Slippery Spesos
+uplink-fake-cash-desc = Not actually real but good luck holding it long enough to tell.
+
+uplink-bee-suit-name = Bee-keeping Suit
+uplink-bee-suit-desc = Keeps you safe from stingers!
+
+uplink-murderscenebundle-name = Murder Scene Bundle
+uplink-murderscenebundle-desc = Everything you need to create a convincing murder scene, includes six dead crew balloons, convincing fake blood, and bullet casings!
