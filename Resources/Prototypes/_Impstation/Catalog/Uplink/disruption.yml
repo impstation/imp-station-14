@@ -1,6 +1,31 @@
 ﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
 
 - type: listing
+  id: uplinkGiantMouseTrap
+  name: uplink-mousetrap-name
+  description: uplink-mousetrap-desc
+  icon: { sprite: _Impstation/Objects/Devices/mousetrap.rsi, state: mousetrap }
+  productEntity: GiantMousetrap
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: uplinkReverseBeartrap
+  name: uplink-bear-trap-name
+  description: uplink-bear-trap-desc
+  icon: { sprite: _Impstation/Clothing/Head/Misc/reversebeartrap.rsi, state: icon }
+  productEntity: ReverseBeartrap
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkSingularityBeaconNukie
   name: uplink-singularity-beacon-name
   description: uplink-singularity-beacon-desc

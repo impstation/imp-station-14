@@ -126,3 +126,14 @@
     - timer
     sound:
       path: /Audio/_Impstation/Misc/Flesh_Break_2.ogg
+
+- type: entity
+  parent: ReverseBeartrap
+  name: reverse bear trap
+  suffix: Admeme
+  description: Hey, is this allowed?
+  id: ReverseBeartrapSaw
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Misc/reversebeartrapsaw.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Misc/reversebeartrapsaw.rsi
