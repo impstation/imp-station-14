@@ -511,7 +511,7 @@ public enum SupermatterStatusType : sbyte
     Error = -1,
     Inactive = 0,
     Normal = 1,
-    Caution = 2,
+    Caution = 2, // should be a damage threshold based caution warning probably or seperated from the status system
     Warning = 3,
     Danger = 4,
     Emergency = 5,
@@ -574,9 +574,3 @@ public record struct SupermatterDelaminationEvent;
 /// </summary>
 [ByRefEvent]
 public record struct SupermatterAnnouncementEvent;
-
-/// <summary>
-/// Raised when the supermatter's status changes.
-/// </summary>
-[ByRefEvent]
-public record struct SupermatterStatusChangedEvent;

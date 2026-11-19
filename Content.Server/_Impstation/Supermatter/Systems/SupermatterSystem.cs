@@ -31,6 +31,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
+using Content.Server.Destructible;
+using JetBrains.Annotations;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Impstation.Supermatter.Systems;
 
@@ -43,6 +46,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     /// <summary>
     /// This is used for the gravitational disturbances produced by the supermatter.
@@ -68,27 +72,27 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
         SubscribeLocalEvent<SupermatterComponent, GravPulseEvent>(OnGravPulse);
 
-        SubscribeLocalEvent<SupermatterComponent, SupermatterStatusChangedEvent>(OnSupermatterStatusChanged);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDamagedEvent>(OnSupermatterDamaged);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationStartedEvent>(OnSupermatterDelaminationStarted);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDelaminationCancelledEvent>(OnSupermatterDelaminationCancelled);
         SubscribeLocalEvent<SupermatterComponent, SupermatterAnnouncementEvent>(OnSupermatterAnnouncement);
+        SubscribeLocalEvent<SupermatterComponent, DamageThresholdReached>(OnDamageThresholdReached);
     }
 
     protected override void OnSupermatterDelamination(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationEvent args)
     {
         if (sm.PreferredDelamination is null)
         {
-            _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{EntityManager.ToPrettyString(uid):uid} failed to choose a delamination type and was deleted at {Transform(uid).Coordinates:coordinates}");
-            _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} failed to choose a delamination type and was deleted");
+            _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{ToPrettyString(uid):uid} failed to choose a delamination type and was deleted at {Transform(uid).Coordinates:coordinates}");
+            _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} failed to choose a delamination type and was deleted");
 
             // No delamination type was chosen, and no default was specified. Just delete the supermatter.
             PredictedQueueDel(uid);
             return;
         }
 
-        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination} at {Transform(uid).Coordinates:coordinates}");
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination} at {Transform(uid).Coordinates:coordinates}");
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination} at {Transform(uid).Coordinates:coordinates}");
+        _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} delaminated with type {sm.PreferredDelamination} at {Transform(uid).Coordinates:coordinates}");
 
         var xform = Transform(uid);
         var mapId = xform.MapID;
@@ -284,15 +288,15 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
 
     private void LogFirstPower(EntityUid uid, SupermatterComponent sm, EntityUid target)
     {
-        _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by {EntityManager.ToPrettyString(target):target} at {Transform(uid).Coordinates:coordinates}");
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by {EntityManager.ToPrettyString(target):target}");
+        _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{ToPrettyString(uid):uid} was powered for the first time by {ToPrettyString(target):target} at {Transform(uid).Coordinates:coordinates}");
+        _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} was powered for the first time by {ToPrettyString(target):target}");
         sm.HasBeenPowered = true;
     }
 
     private void LogFirstPower(EntityUid uid, SupermatterComponent sm, GasMixture gas)
     {
-        _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by gas mixture at {Transform(uid).Coordinates:coordinates}");
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by gas mixture");
+        _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{ToPrettyString(uid):uid} was powered for the first time by gas mixture at {Transform(uid).Coordinates:coordinates}");
+        _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} was powered for the first time by gas mixture");
         sm.HasBeenPowered = true;
     }
 
@@ -430,7 +434,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
 
     private void OnSupermatterDelaminationCancelled(EntityUid uid, SupermatterComponent sm, SupermatterDelaminationCancelledEvent args)
     {
-        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delamination cancelled");
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{ToPrettyString(uid):uid} delamination cancelled");
 
         sm.IsDelaminationAnnounced = false;
 
@@ -460,8 +464,8 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             DirtyField(uid, sm, nameof(SupermatterComponent.PreferredDelaminationProtoId));
         }
 
-        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelaminationProtoId}");
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelaminationProtoId}");
+        _adminLog.Add(LogType.Unknown, LogImpact.Medium, $"{ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelaminationProtoId}");
+        _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} delamination started with type {sm.PreferredDelaminationProtoId}");
 
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString(sm.PreferredDelamination?.Message ?? "supermatter-delam-generic",
@@ -475,8 +479,14 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         SetNextAnnouncementTime((uid, sm));
     }
 
-    private void OnSupermatterStatusChanged(Entity<SupermatterComponent> ent, ref SupermatterStatusChangedEvent args)
+    private void OnDamageThresholdReached(Entity<SupermatterComponent> ent, ref DamageThresholdReached args)
     {
+        if ((SupermatterStatusType)args.Threshold.Stage == SupermatterStatusType.Warning
+            && ent.Comp.Status == SupermatterStatusType.Danger)
+            ent.Comp.Status = SupermatterStatusType.Normal;
+        else
+            ent.Comp.Status = (SupermatterStatusType)args.Threshold.Stage;
+
         UpdateAppearanceFromState(ent);
         UpdateLinkedPorts(ent);
         UpdateSpeech(ent);
@@ -541,21 +551,6 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             <= 5 => TimeSpan.FromSeconds(1),
             _ => entity.Comp.AnnounceInterval
         };
-    }
-
-    /// <summary>
-    /// Checks the supermatter's status and updates it accordingly, then raises a status changed event if it has changed.
-    /// </summary>
-    private void UpdateSupermatterStatus(Entity<SupermatterComponent> ent)
-    {
-        var currentStatus = CalculateSupermatterStatus(ent.AsNullable());
-
-        if (ent.Comp.Status == currentStatus)
-            return;
-
-        ent.Comp.Status = currentStatus;
-        var ev = new SupermatterStatusChangedEvent();
-        RaiseLocalEvent(ent, ref ev);
     }
 
     /// <summary>

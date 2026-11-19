@@ -1,9 +1,36 @@
+# imp REORGANIZE ALL THIS YAML IT STINKS
+# imp REORGANIZE ALL THIS YAML IT STINKS
+# imp REORGANIZE ALL THIS YAML IT STINKS
 - type: entity
   abstract: true
   id: BaseSupermatter
   placement:
     mode: SnapgridCenter
   components:
+  - type: Damageable
+    damageContainer: Supermatter
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+        stage: 3
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+        stage: 4
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+        stage: 5
+    # - trigger: just moving all penalty behavior into emergancy probably
+    #     !type:DamageTrigger
+    #     damage: 550
+    #     stage: penalty 
+    - trigger:
+        !type:DamageTrigger
+        damage: 900
+        stage: 6
   - type: Sprite
     sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter.rsi
     state: supermatter

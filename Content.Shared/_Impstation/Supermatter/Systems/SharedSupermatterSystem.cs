@@ -54,33 +54,6 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
 
     protected override string SawmillName => "supermatter";
 
-    [PublicAPI]
-    public SupermatterStatusType CalculateSupermatterStatus(Entity<SupermatterComponent?> ent)
-    {
-        if (!SupermatterQuery.Resolve( ent, ref ent.Comp) || ent.Comp.GasStorage is null)
-            return SupermatterStatusType.Error;
-
-        if (ent.Comp.IsDelaminating || ent.Comp.Damage >= ent.Comp.DamageDelaminationThreshold)
-            return SupermatterStatusType.Delaminating;
-
-        if (ent.Comp.Damage >= ent.Comp.DamageEmergencyThreshold)
-            return SupermatterStatusType.Emergency;
-
-        if (ent.Comp.Damage >= ent.Comp.DamageDangerThreshold)
-            return SupermatterStatusType.Danger;
-
-        if (ent.Comp.Damage >= ent.Comp.DamageWarningThreshold)
-            return SupermatterStatusType.Warning;
-
-        if (ent.Comp.GasStorage.Temperature > Atmospherics.T0C + Config.GetCVar(ImpCCVars.SupermatterHeatPenaltyThreshold) * 0.8)
-            return SupermatterStatusType.Caution;
-
-        if (ent.Comp.Power > 5)
-            return SupermatterStatusType.Normal;
-
-        return SupermatterStatusType.Inactive;
-    }
-
     /// <summary>
     /// Returns the integrity rounded to hundreds, e.g. 100.00%
     /// </summary>
