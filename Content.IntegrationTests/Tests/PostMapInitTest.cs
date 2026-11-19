@@ -85,10 +85,11 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
             "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
+            "/Maps/_Impstation/dash.yml", // Contains handheld crew monitor and portable cutter machine
 
             // Shuttles
-            "/Maps/_Impstation/Shuttles/listening_post.yml" // // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
-
+            "/Maps/_Impstation/Shuttles/listening_post.yml", // // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
+            "/Maps/_Harmony/Shuttles/ShuttleEvent/ERPSmall.yml" // Harmony map
         };
 
         /// <summary>
@@ -141,6 +142,7 @@ namespace Content.IntegrationTests.Tests
             "Haven",
             "Jellyfish",
             "Lilboat",
+            "Luna",
             "MarathonImp",
             "OasisImp",
             "PackedImp",
@@ -154,6 +156,9 @@ namespace Content.IntegrationTests.Tests
             "Xeno",
             "Pathway",
             "Whisper",
+            "LoopImp",
+            "OmegaImp",
+            "Geode",
 
             // DEROTATED:
             //"RelicImp",

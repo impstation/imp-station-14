@@ -24,7 +24,7 @@
       storagebase: !type:AllSelector
         children:
         - id: Ointment
-          amount: 2
+        - id: EZGraft #IMP
         - id: Tincture #IMP
         - id: PillCanisterKelotane
         - id: PillCanisterDermaline

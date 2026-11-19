@@ -9,10 +9,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
-using Content.Shared.Nutrition;
 using Content.Shared.Store.Components;
 using Content.Shared.Temperature.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;

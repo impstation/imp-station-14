@@ -42,3 +42,24 @@
     blacklist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkSlipperySpesos
+  name: uplink-fake-cash-name
+  description: uplink-fake-cash-desc
+  productEntity: SlipperySpesos
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDeception
+    
+- type: listing
+  id: UplinkMurderSceneBundle
+  name: uplink-murderscenebundle-name
+  description: uplink-murderscenebundle-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Misc/redpaintbucket.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateMurderSceneBundle
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDeception

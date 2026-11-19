@@ -1,0 +1,36 @@
+- type: constructionGraph
+  id: Cakes
+  start: start
+  graph:
+
+  - node: start
+    entity: FoodCakePlain
+    edges:
+    - to: vanillaCake
+      steps:
+      - tag: VanillaFrosting
+        name: construction-graph-tag-frosting-vanilla
+        doAfter: 1
+    - to: spacemanCake
+      steps:
+      - tag: SpacemanFrosting
+        name: construction-graph-tag-frosting-spacemans
+        doAfter: 1
+
+  - node: vanillaCake
+    entity: FoodCakeVanilla
+
+  - node: spacemanCake
+    entity: FoodCakeSpaceman
+
+  - node: cottonCake
+    entity: FoodCakeCottonUnfrosted
+    edges:
+    - to: cottoncake
+      steps:
+      - material: Cotton
+        amount: 5
+        doAfter: 1
+
+  - node: cottoncake
+    entity: FoodCakeCotton

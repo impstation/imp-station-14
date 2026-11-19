@@ -27,7 +27,7 @@
   cost: 10000
   category: cargoproduct-category-name-livestock
   group: market
-  
+
 - type: cargoProduct
   id: LivestockPompom
   icon:
@@ -37,7 +37,7 @@
   cost: 4400
   category: cargoproduct-category-name-livestock
   group: market
- 
+
 - type: cargoProduct
   id: LivestockDuctSpider
   icon:
@@ -45,5 +45,15 @@
     state: idle
   product: CrateNPCDuctSpider
   cost: 5000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockTurtle
+  icon:
+    sprite: _Impstation/Mobs/Animals/turtle.rsi
+    state: alive
+  product: CrateNPCTurtle
+  cost: 3000
   category: cargoproduct-category-name-livestock
   group: market

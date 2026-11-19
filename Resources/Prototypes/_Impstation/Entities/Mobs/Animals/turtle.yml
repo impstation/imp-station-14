@@ -1,0 +1,74 @@
+﻿- type: entity
+  name: turtle
+  parent: SimpleMobBase
+  id: MobTurtle
+  description: Erm, it's actually a tortoise.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+      sprite: _Impstation/Mobs/Animals/turtle.rsi
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 10
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatLizard # we dont need a third reptile meat so its legally a lizard
+      amount: 1
+    - id: ClothingHeadHatTurtleShell
+      amount: 1
+  - type: InteractionPopup
+    successChance: 0.6
+    interactSuccessString: petting-success-reptile
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Scale
+  - type: Reflect
+    reflectProb: 0.1
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1.2
+  - type: Stamina
+    baseCritThreshold: 300
+  - type: GoobAbsorbable
+    biomassRestored: 0.2
+  - type: Carriable
+  - type: NightVision
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+      - FootstepSound
+  - type: VentCrawler
+    enterDelay: 2
+  - type: AlwaysRevolutionaryConvertible
