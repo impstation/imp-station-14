@@ -294,6 +294,11 @@
   description: flavor-complex-oldfashioned
 
 - type: flavor
+  id: slabspecial
+  flavorType: Complex
+  description: flavor-complex-slabspecial
+
+- type: flavor
   id: creamsoda
   flavorType: Complex
   description: flavor-complex-cream-soda
@@ -578,6 +583,11 @@
   id: magic
   flavorType: Complex
   description: flavor-complex-magic
+
+- type: flavor
+  id: blind
+  flavorType: Complex
+  description: flavor-complex-blind
 
 - type: flavor
   id: treatchunk

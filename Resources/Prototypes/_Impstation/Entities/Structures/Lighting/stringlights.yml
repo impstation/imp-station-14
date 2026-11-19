@@ -1,0 +1,252 @@
+﻿- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightEmpty
+  suffix: Empty
+  parent: PoweredSmallLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: empty
+    drawdepth: OverMobs
+  - type: PointLight
+    enabled: false
+    offset: "0, -0.5"
+    radius: 2
+    energy: 0.5
+    softness: 1.5
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
+
+# prefilled for mapping
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightLED
+  suffix: LED
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightBulb
+  - type: PointLight
+    enabled: true
+    radius: 4
+    energy: 1
+    softness: 1.5
+    color: "#EEEEFF"
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: stringLightLED
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightDim
+  suffix: Dim
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: DimLightBulb
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: stringLightDim
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightCyan
+  suffix: Cyan
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalCyan
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightBlue
+  suffix: Blue
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalBlue
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightYellow
+  suffix: Yellow
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalYellow
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightPink
+  suffix: Pink
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalPink
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightOrange
+  suffix: Orange
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalOrange
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightBlack
+  suffix: Black
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalBlack
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightRed
+  suffix: Red
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalRed
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight
+
+- type: entity
+  name: string light
+  description: "A string of lights that requires power to work. Standard lightbulbs fit in the sockets."
+  id: PoweredStringLightGreen
+  suffix: Green
+  parent: PoweredStringLightEmpty
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/Lighting/stringlight.rsi
+    state: base
+    drawdepth: OverMobs
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalGreen
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+  - type: InteractionOutline
+  - type: Construction
+    graph: LightStringFixture
+    node: emptyStringLight

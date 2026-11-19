@@ -1197,3 +1197,29 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+
+- type: reagent
+  id: SlabSpecial
+  name: reagent-name-slab-special
+  parent: BaseAlcohol
+  desc: reagent-desc-slab-special
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: slabspecial
+  color: "#49824c"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/slabspecial.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+      - !type:EyeDamage
+        amount: 1
+        probability: 0.018
