@@ -184,14 +184,14 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             sm.PowerLoss,
             radiationComp.Intensity,
             tempThreshold * sm.DynamicHeatResistance,
-            sm.HeatModifier,
-            sm.GasHeatModifier,
+            Math.Max(sm.GasWasteModifier, sm.GasWasteModifierMinimum),
+            sm.GasWasteSurgeModifier,
             sm.GasEfficiency * 100);
     }
 
     private static float GetIntegrity(SupermatterComponent sm)
     {
-        var integrity = sm.Damage / sm.DamageDelaminationPoint;
+        var integrity = sm.Damage / sm.DamageDelaminationThreshold;
         integrity = (float)Math.Round(100 - integrity * 100, 2);
         integrity = integrity < 0 ? 0 : integrity;
         return integrity;
@@ -199,7 +199,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
 
     private static float GetHeatHealing(SupermatterComponent sm)
     {
-        var heatHealing = sm.HeatHealing / sm.DamageDelaminationPoint;
+        var heatHealing = sm.HeatHealing / sm.DamageDelaminationThreshold;
         heatHealing = (float)Math.Round(heatHealing * 100, 2);
         heatHealing = heatHealing > 0 ? 0 : heatHealing;
         return heatHealing;

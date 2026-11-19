@@ -8,6 +8,7 @@
   - DelaminationHallucinations
   mobEffects:
   - !type:IonStorm
+    affectAI: true
   - !type:ThavenRefreshMoods
 
 - type: supermatterDelamination

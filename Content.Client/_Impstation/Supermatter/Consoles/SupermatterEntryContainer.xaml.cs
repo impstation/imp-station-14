@@ -35,12 +35,12 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     private readonly Color _colorTurquoise = Color.FromHex("#00fff7");
 
     // Imp, Supermatter Icons
-    private const string Supermatter = "/Textures/_EE/Interface/Supermatter/supermatter.png";
+    private const string Supermatter = "/Textures/_Impstation/Interface/Supermatter/supermatter.png";
     private const string SupermatterShard = "/Textures/_Impstation/Interface/Supermatter/supermatter-shard.png";
 
     // Arrow icons
-    private readonly string _arrowUp = "/Textures/_EE/Interface/Supermatter/arrow_up.png";
-    private readonly string _arrowDown = "/Textures/_EE/Interface/Supermatter/arrow_down.png";
+    private readonly string _arrowUp = "/Textures/_Impstation/Interface/Supermatter/arrow_up.png";
+    private readonly string _arrowDown = "/Textures/_Impstation/Interface/Supermatter/arrow_down.png";
 
     // Supermatter base values
     private readonly float _radiationBase;

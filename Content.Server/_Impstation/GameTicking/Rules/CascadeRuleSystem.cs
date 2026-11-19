@@ -25,6 +25,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     private static readonly string CommandAnnouncementId = "commandReport";
     private static readonly string ShuttlennouncementId = "ShuttleRecalled";
+    private static readonly string CascadeDelamPrototypeId = "CascadeSupermatterDelamination";
 
     public override void Initialize()
     {
@@ -46,7 +47,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
         var query = EntityQueryEnumerator<SupermatterComponent>();
         while (query.MoveNext(out var supermatterUid, out var sm))
         {
-            if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
+            if (sm.PreferredDelaminationProtoId == CascadeDelamPrototypeId && sm.DelaminationTime <= Timing.CurTime)
             {
                 SpawnSupermatterCrystalMass(supermatterUid, comp, tile);
                 EntityManager.QueueDeleteEntity(supermatterUid);

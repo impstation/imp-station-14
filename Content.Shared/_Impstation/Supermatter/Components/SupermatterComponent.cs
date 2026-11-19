@@ -19,10 +19,22 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
+    /// Used for knowing if the supermatter is a shard
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool IsShard;
+
+    /// <summary>
     /// The current status of the singularity, used for alert sounds and the monitoring console
     /// </summary>
     [DataField, AutoNetworkedField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
+
+    /// <summary>
+    /// The current supermatter event thats occuring
+    /// </summary>
+    [DataField]
+    public SupermatterEvent Event = SupermatterEvent.None;
 
     /// <summary>
     /// The supermatter's internal gas storage
@@ -51,6 +63,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public ProtoId<SupermatterDelaminationPrototype> DefaultDelamination = "SupermatterDelaminationExplosion";
+
+    [DataField]
+    public EntProtoId CollisionResultPrototype = "Ash";
+
+    [DataField]
+    public EntProtoId LightningPrototype = "SupermatterLightningSupercharged";
 
     #endregion
 
@@ -198,6 +216,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float RadsModifier = 1.0f;
+
+    /// <summary>
+    /// The multiplier used to scale the bonus waste and heat produced by the SM during a surge.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public float GasWasteSurgeModifier = 1f;
 
     /// <summary>
     /// The waste modifier without the <see cref="GasWasteModifierMinimum"/> applied.
@@ -501,6 +525,14 @@ public enum SupermatterCrystalState : byte
     Glow,
     GlowEmergency,
     GlowDelam
+}
+
+[Serializable, NetSerializable]
+public enum SupermatterEvent : byte
+{
+    None = 0,
+    Surging = 1,
+    Discharging = 2, // TODO: future supermatter event causing singularity delamination conditions
 }
 
 [Serializable, NetSerializable]

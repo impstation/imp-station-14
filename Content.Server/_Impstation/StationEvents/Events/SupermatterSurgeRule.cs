@@ -59,21 +59,21 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         if (sm.Event != SupermatterEvent.Surging)
         {
             sm.Event = SupermatterEvent.Surging;
-            component.NextLightningTime = Timing.CurTime + TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
+            component.NextLightningTime = Timing.CurTime + TimeSpan.FromSeconds(component.LightningCooldown.Next(_random));
         }
 
         // Power & heat modifer changes every tick so isn't always used by the supermatter, but creates a good visual on the console
-        sm.Power = component.PowerMinMax.Next(_random);
-        sm.HeatModifier = _random.NextFloat(component.HeatModifierMinMax.Item1, component.HeatModifierMinMax.Item2);
+        sm.Power = component.Power.Next(_random);
+        sm.GasWasteSurgeModifier = _random.NextFloat(component.HeatModifier.Min, component.HeatModifier.Max);
 
         if (Timing.CurTime < component.NextLightningTime)
             return;
         else
         {
             // Explosive supermatter lightning strikes
-            _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2]);
+            _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototype);
 
-            component.NextLightningTime += TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
+            component.NextLightningTime += TimeSpan.FromSeconds(component.LightningCooldown.Next(_random));
         }
     }
 

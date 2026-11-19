@@ -4,19 +4,19 @@ supermatter-healing =
     Crystalline hyperstructure returning to safe operating parameters. Integrity: {$integrity}%.
 # Imp, added type for shard
 supermatter-warning =
-    Warning! {CAPITALIZE($type)} hyperstructure integrity faltering! Integrity: {$integrity}%.
+    Warning! {$typeUpper} hyperstructure integrity faltering! Integrity: {$integrity}%.
 # Imp, added type for shard
 supermatter-emergency =
-    DANGER! {CAPITALIZE($type)} hyperstructure integrity reaching critical levels! Integrity: {$integrity}%.
+    DANGER! {$typeUpper} hyperstructure integrity reaching critical levels! Integrity: {$integrity}%.
 # Imp, added type for shard
 supermatter-delam-explosion =
     {$typeUpper} DELAMINATION IMMINENT! The {$type} has reached critical integrity failure! Emergency causality destabilization field has been engaged.
 # Imp, added type for shard
 supermatter-delam-overmass =
-    {$typeUpper} DELAMINATION IMMINENT! {CAPITALIZE($type)} hyperstructure integrity has reached critical mass failure! Singularity formation imminent!
+    {$typeUpper} DELAMINATION IMMINENT! {$typeUpper} hyperstructure integrity has reached critical mass failure! Singularity formation imminent!
 # Imp, added type for shard
 supermatter-delam-tesla =
-    {$typeUpper} DELAMINATION IMMINENT! {CAPITALIZE($type)} hyperstructure integrity has reached critical power surge failure! Energy ball formation imminent!
+    {$typeUpper} DELAMINATION IMMINENT! {$typeUpper} hyperstructure integrity has reached critical power surge failure! Energy ball formation imminent!
 # Imp, added type for shard
 supermatter-delam-cascade =
     {$typeUpper} DELAMINATION IMMINENT! Harmonic frequency limits exceeded, causality destabilization field could not be engaged!
@@ -26,8 +26,8 @@ supermatter-delam-player =
     You feel reality distort for a moment...
 supermatter-delam-cascade-player =
     Everything around you begins resonating with a powerful energy. This can't be good.
-supermatter-seconds-before-delam =
-    Estimated time before delamination: {$seconds} seconds.
+supermatter-time-before-delam =
+    Estimated time before delamination: {$time} seconds.
 supermatter-seconds-before-delam-countdown =
     {$seconds} seconds remain before causality stabilization.
 supermatter-seconds-before-delam-imminent =

@@ -116,4 +116,7 @@ public sealed partial class ImpCCVars
     /// </summary>
     public static readonly CVarDef<float> SupermatterThermalReleaseModifier =
         CVarDef.Create("supermatter.thermal_release_modifier", 5f, CVar.SERVER);
+
+    public static readonly CVarDef<float> SupermatterRadsBase =
+        CVarDef.Create("supermatter.rads_base", 4f, CVar.SERVER);
 }
