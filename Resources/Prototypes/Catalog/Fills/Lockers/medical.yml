@@ -58,9 +58,7 @@
   table: !type:AllSelector
     children:
     #imp edit start
-    #- id: ClothingEyesHudMedical
     #- id: ClothingBeltMedicalFilled
-    #- id: JetInjector
     #- id: ChemistryBottleLaughter # Widely recognized as the best medicine :o)
     #  prob: 0.01
     - id: HandheldHealthAnalyzer
@@ -69,6 +67,7 @@
       prob: 0.1
     - id: ClothingHandsGlovesLatex
     - id: ClothingHeadsetMedical
+    - id: ClothingEyesHudMedical
     - !type:GroupSelector
       children:
       - id: ClothingHeadHatSurgcapGreen
@@ -86,6 +85,7 @@
       - id: UniformScrubsColorPurple
         weight: 0.05
     - id: ClothingMaskSterile
+    - id: JetInjector
   #imp edit end
 
 - type: entity
@@ -164,8 +164,8 @@
     - id: HandheldGPSBasic
     - id: MedkitFilled
       prob: 0.3 
+    - id: JetInjector
     #- id: ClothingBeltMedicalEMTFilled
-    #- id: JetInjector
     #- id: HandheldHealthAnalyzer
     #- id: BoxBodyBag
     #- !type:GroupSelector
