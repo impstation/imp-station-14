@@ -28,7 +28,7 @@ using System.Linq;
 using Content.Shared.Station.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
-using Content.Server._Impstation.Shuttles.Events; // imp
+using Content.Shared._Impstation.Shuttles.Events; // imp
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.Mind; //imp addition
 
