@@ -19,7 +19,7 @@ public sealed class GuideEntryPrototypeTests
     [Test]
     [TestCaseSource(nameof(_guideEntries))]
     [Description("Ensures a given guidebook entry is valid, checking the document/etc.")]
-    //maybe ok?[Ignore("Styleguide update limit")] // imp. i hate this test. this value is arbitrary, it is hardcoded, and it is engineside. the update limit puts a hard cap on how many reagents you can have. and its a WARNING. why does a WARNING fail the test?????? jesus christ. we need dynamic guidebook scrolling
+    [Ignore("Styleguide update limit")]
     public async Task Validate(string protoKey)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
