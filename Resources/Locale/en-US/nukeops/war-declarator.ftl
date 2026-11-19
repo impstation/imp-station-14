@@ -4,6 +4,9 @@ war-declarator-ui-war-button = DECLARE WAR!
 war-declarator-ui-try-war-button = Try to declare war
 war-declarator-conditions-small-crew = There are not enough nuclear operatives to declare war!
 war-declarator-conditions-left-outpost = Shuttle left the syndicate outpost
+# imp start
+war-declarator-conditions-assault-pod-purchased = Assault pod has been purchased
+# imp end
 war-declarator-conditions-time-out = War declaration time passed
 war-declarator-conditions-ready = Shuttle can leave the outpost!
 war-declarator-conditions-unknown = Unknown

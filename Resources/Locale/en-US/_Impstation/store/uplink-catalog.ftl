@@ -192,3 +192,6 @@ uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command.
 
 uplink-murderscenebundle-name = Murder Scene Bundle
 uplink-murderscenebundle-desc = Everything you need to create a convincing murder scene, includes six dead crew balloons, convincing fake blood, and bullet casings!
+
+uplink-assault-pod-name = Assault Pod
+uplink-assault-pod-desc = TEMP
