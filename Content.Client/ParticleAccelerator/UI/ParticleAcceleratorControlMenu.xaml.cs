@@ -270,6 +270,7 @@ public sealed class PASegmentControl : Control
 
     public string BaseState { get; set; } = "control_box";
     public bool DefaultVisible { get; set; } = false;
+    public bool ImpOverride { get; set; } = false; // imp
 
     public PASegmentControl()
     {
@@ -282,7 +283,14 @@ public sealed class PASegmentControl : Control
     protected override void EnteredTree()
     {
         base.EnteredTree();
-        _rsi = IoCManager.Resolve<IResourceCache>().GetResource<RSIResource>($"_Impstation/Textures/Structures/Power/Generation/PA/{BaseState}.rsi").RSI; // imp edit
+        _rsi = IoCManager.Resolve<IResourceCache>().GetResource<RSIResource>($"/Textures/Structures/Power/Generation/PA/{BaseState}.rsi").RSI;
+
+        // i should be looked down upon by a jury of my peers and shot for this.
+        if (ImpOverride)
+        {
+            _rsi = IoCManager.Resolve<IResourceCache>().GetResource<RSIResource>($"/Textures/_Impstation/Structures/Power/Generation/PA/{BaseState}.rsi").RSI;
+        }
+
         MinSize = _rsi.Size;
         _base.Texture = _rsi["completed"].Frame0;
 
