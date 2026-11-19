@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server._Impstation.Shuttles.Components;
-using Content.Server._Impstation.Shuttles.Events;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;

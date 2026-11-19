@@ -1,8 +1,9 @@
 using Robust.Shared.Map;
+using Robust.Shared.Serialization;
 
-namespace Content.Server._Impstation.Shuttles.Events;
+namespace Content.Shared._Impstation.Shuttles.Events;
 
-[DataDefinition]
+[Serializable, NetSerializable, DataDefinition]
 public sealed partial class AssaultPodPurchasedEvent : EntityEventArgs;
 
 [ByRefEvent]

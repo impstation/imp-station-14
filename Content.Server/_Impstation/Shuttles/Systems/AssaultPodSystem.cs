@@ -1,5 +1,4 @@
 using Content.Server._Impstation.Shuttles.Components;
-using Content.Server._Impstation.Shuttles.Events;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
@@ -7,6 +6,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
+using Content.Shared._Impstation.Shuttles.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
