@@ -94,9 +94,8 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay && _statusEffects.HasStatusEffect(statusOwner, _flareUpStatusEffect))
             {
                 var selected = rand.Pick(lumbagoComp.BadPainReminders);
-                if(!lumbagoComp.BadPainReminders.TryGetValue(selected, out var reminder))
-                    return;
-                _popup.PopupClient(Loc.GetString(reminder), statusOwner, statusOwner, PopupType.SmallCaution);
+
+                _popup.PopupClient(Loc.GetString(selected), statusOwner, statusOwner, PopupType.SmallCaution);
 
                 lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Next(rand));
                 DirtyEntity(statusOwner);
@@ -106,10 +105,8 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             else if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay)
             {
                 var selected = rand.Pick(lumbagoComp.MildPainReminders);
-                if(!lumbagoComp.MildPainReminders.TryGetValue(selected, out var reminder))
-                    return;
 
-                _popup.PopupClient(Loc.GetString(reminder), statusOwner, statusOwner);
+                _popup.PopupClient(Loc.GetString(selected), statusOwner, statusOwner);
 
                 lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Next(rand));
                 DirtyEntity(statusOwner);
