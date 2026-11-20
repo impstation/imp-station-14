@@ -5,3 +5,8 @@ stat-template-planarian =
     {$StatTypeLowest}: {$StatNumberLowest}
     {$StatTypeMediumHigh}: {$StatNumberMediumHigh}
     {$StatTypeChaos}: {$StatNumberChaos}
+
+    {$StatTextYesNo}: [{$StatResultYesNo}]
+
+
+    Deepest, Darkest, Secret: {$StatTypeSecret}

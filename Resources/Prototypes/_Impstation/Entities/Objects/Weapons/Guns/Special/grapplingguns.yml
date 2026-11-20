@@ -124,14 +124,18 @@
   description: The tape worm is the organ responsible for regulating measurements and lengths within the Planarian body. Also a fun and effective grappling hook!
   components:
   - type: GrapplingGun
-    cycleSound: /Audio/Voice/Slime/slime_squish.ogg
+    cycleSound: /Audio/_Impstation/Weapons/Guns/Tapeworm/tapeworm_reload.ogg
     ropeSprite:
       sprite: _Impstation/Objects/Weapons/Guns/Launchers/tapeworm.rsi
       state: rope
+    reelSound:
+      path: /Audio/_Impstation/Weapons/Guns/Tapeworm/tapeworm_reel.ogg #weblebleblebleblebleble
+      params:
+        loop: true
   - type: Gun
-    soundGunshot: /Audio/Misc/stickystretch.ogg
+    soundGunshot: /Audio/_Impstation/Weapons/Guns/Tapeworm/tapeworm_launch.ogg
     fireRate: 0.5
-    soundEmpty: /Audio/Misc/boing.ogg
+    soundEmpty: /Audio/_Impstation/Weapons/Guns/Tapeworm/tapeworm_empty.ogg
   - type: BasicEntityAmmoProvider
     proto: GrapplingHookTapeworm
     capacity: 1

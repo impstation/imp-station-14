@@ -127,7 +127,7 @@ planarian-stat-type-highest-12 = [bold]Times Blinked[/bold]
 planarian-stat-type-highest-13 = [bold]Grains Of GeoplanidCorp NutriPowder Consumed[/bold]
 planarian-stat-type-highest-14 = [bold]Mysteries Yet To Solve[/bold]
 planarian-stat-type-highest-15 = [bold]Times Wriggled[/bold]
-planarian-stat-type-highest-16 = [bold]Amount Of Bloodworms Dancing On Pin's Head[/bold]
+planarian-stat-type-highest-16 = [bold]Current Bloodworm Count[/bold]
 planarian-stat-type-highest-17 = [bold]Sand Counted[/bold]
 
 planarian-stat-type-chaos-1 = [bold]Swear Words Said[/bold]
@@ -153,6 +153,8 @@ planarian-stat-type-chaos-20 = [bold]Insanity Diamond Structural Integrity Quoti
 planarian-stat-type-chaos-21 = [bold]Planarian Mutual Fund Market Cap[/bold]
 planarian-stat-type-chaos-22 = [bold]Planets Destroyed Through Butterfly Effect[/bold]
 
+# numbas
+
 planarian-stat-number-lowest-1 = 0
 planarian-stat-number-lowest-2 = 1
 planarian-stat-number-lowest-3 = 2
@@ -172,7 +174,7 @@ planarian-stat-number-mediumlow-4 = 17
 planarian-stat-number-mediumlow-5 = 30
 planarian-stat-number-mediumlow-6 = 36
 planarian-stat-number-mediumlow-7 = 66
-planarian-stat-number-mediumlow-8 = 88
+planarian-stat-number-mediumlow-8 = 87
 planarian-stat-number-mediumlow-9 = 55
 planarian-stat-number-mediumlow-10 = 70
 planarian-stat-number-mediumlow-11 = 20
@@ -306,3 +308,64 @@ planarian-stat-number-chaos-37 = 60535
 planarian-stat-number-chaos-38 = 78.3
 planarian-stat-number-chaos-39 = 0.9999
 planarian-stat-number-chaos-40 = 486519847
+
+
+# yes/no
+
+planarian-stat-type-yesno-1 = [bold]Found The Secret Zone[/bold]
+planarian-stat-type-yesno-2 = [bold]Found True Love[/bold]
+planarian-stat-type-yesno-3 = [bold]Found Every Collectible[/bold]
+planarian-stat-type-yesno-4 = [bold]Fog Of War Fully Cleared[/bold]
+planarian-stat-type-yesno-5 = [bold]Sleeps Well At Night[/bold]
+planarian-stat-type-yesno-6 = [bold]Never Got In A Serious Car Accident[/bold]
+planarian-stat-type-yesno-7 = [bold]Kept Every Secret[/bold]
+planarian-stat-type-yesno-8 = [bold]Wisdom Teeth Retained[/bold]
+planarian-stat-type-yesno-9 = [bold]Took A Bite Of The Forbidden Berry[/bold]
+planarian-stat-type-yesno-10 = [bold]Went Skydiving At Least Once[/bold]
+planarian-stat-type-yesno-11 = [bold]Got "The Good Ending"[/bold]
+planarian-stat-type-yesno-12 = [bold]Hopes And Dreams Achieved[/bold]
+planarian-stat-type-yesno-13 = [bold]Passed The Mirror Test[/bold]
+planarian-stat-type-yesno-14 = [bold]Passed The Marshmallow Test[/bold]
+planarian-stat-type-yesno-15 = [bold]Got Driver's License[/bold]
+planarian-stat-type-yesno-16 = [bold]Ignored Scheming Vizier[/bold]
+planarian-stat-type-yesno-17 = [bold]Won The Election[/bold]
+planarian-stat-type-yesno-18 = [bold]Won The Big Game[/bold]
+planarian-stat-type-yesno-19 = [bold]Felt Truly Accepted For Who They Were[/bold]
+planarian-stat-type-yesno-20 = [bold]Repaired The Shattered Sword Of Planaria[/bold]
+
+planarian-stat-result-yesno-1 = [color=#2ff332]✔[/color]
+planarian-stat-result-yesno-2 = [color=#f32f53]✖[/color]
+
+# deepest darkest secret
+
+planarian-stat-type-secret-1 = [italic]Told childhood friend that the beloved Planarian holiday character, The Flinch, was not real.[/italic]
+planarian-stat-type-secret-2 = [italic]Cheated on a really important test in school.[/italic]
+planarian-stat-type-secret-3 = [italic]Killed a guy.[/italic]
+planarian-stat-type-secret-4 = [italic]Broke sibling's toy.[/italic]
+planarian-stat-type-secret-5 = [italic]Didn't actually know all that much about the interest they were known for.[/italic]
+planarian-stat-type-secret-6 = [italic]Couldn't tie a knot.[/italic]
+planarian-stat-type-secret-7 = [italic]Put a pin on the teacher's chair.[/italic]
+planarian-stat-type-secret-8 = [italic]Opened neighbor's mail once.[/italic]
+planarian-stat-type-secret-9 = [italic]Never bought the full version of that software they used all the time.[/italic]
+planarian-stat-type-secret-10 = [italic]Lost the Wriggling Contest, but told their parents they won.[/italic]
+planarian-stat-type-secret-11 = [italic]Stole fries from their romantic partner's plate secretly.[/italic]
+planarian-stat-type-secret-12 = [italic]Never quite remembered which one was left and which one was right.[/italic]
+planarian-stat-type-secret-13 = [italic]No secrets. They were sooo honest![/italic]
+planarian-stat-type-secret-14 = [italic]Loved to tell children lies about how things worked.[/italic]
+planarian-stat-type-secret-15 = [italic]Their weird!!!!!!!!!!![/italic]
+planarian-stat-type-secret-16 = [italic]Said they were going to bed, but stayed online anyway.[/italic]
+planarian-stat-type-secret-17 = [italic]Broke precious vase in friend's home and blamed it on pet amoeba.[/italic]
+planarian-stat-type-secret-18 = [italic]Made up a story about their pet, but they stole it from a funny picture they saw online.[/italic]
+planarian-stat-type-secret-19 = [italic]Took more than one donut from a "take one" donut box in the office break room.[/italic]
+planarian-stat-type-secret-20 = [italic]Dressed like a monster and would stomp around scale models of cities.[/italic]
+planarian-stat-type-secret-21 = [italic]Took a cool rock from a beach where they had a sign saying to take nothing but memories.[/italic]
+planarian-stat-type-secret-22 = [italic]Was too nice![/italic]
+planarian-stat-type-secret-23 = [italic]Traced the cover of a video game box and told their friends they came up with it.[/italic]
+planarian-stat-type-secret-24 = [italic]Never actually understood how to set up the engine and just let the others do it.[/italic]
+planarian-stat-type-secret-25 = [italic]Mixed brutes.[/italic]
+planarian-stat-type-secret-26 = [italic]Said they hated a popular new show but secretly watched it on their own time.[/italic]
+planarian-stat-type-secret-27 = [italic]Accidentally took a flash photo of the movie theater screen.[/italic]
+planarian-stat-type-secret-28 = [italic]Rearranged the stickers on a Rubik's Cube and pretended they solved it.[/italic]
+planarian-stat-type-secret-29 = [italic]Called an anomalocarid a "tall drink of water" and accidentally hurt their feelings.[/italic]
+planarian-stat-type-secret-30 = [italic]Forgot the birthdays of most of their friends.[/italic]
+planarian-stat-type-secret-31 = [italic]Tried to pass off burgers as home cooking, but actually bought them from a nearby fast food establishment.[/italic]

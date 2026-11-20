@@ -69,3 +69,23 @@
   values:
     prefix: planarian-stat-number-chaos-
     count: 40
+
+#PLANARIAN TODO: Yes/No Stats, Darkest Secret, Fondest Memory
+
+- type: localizedDataset
+  id: StatTextYesNo
+  values:
+    prefix: planarian-stat-type-yesno-
+    count: 20
+
+- type: localizedDataset
+  id: StatResultYesNo
+  values:
+    prefix: planarian-stat-result-yesno-
+    count: 2
+
+- type: localizedDataset
+  id: StatTypeSecret
+  values:
+    prefix: planarian-stat-type-secret-
+    count: 31
