@@ -105,7 +105,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             //Send a reminder to the player when the timer runs out.
             else if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay)
             {
-                var selected = rand.Next(lumbagoComp.MildPainReminders.Count);
+                var selected = rand.Pick(lumbagoComp.MildPainReminders);
                 if(!lumbagoComp.MildPainReminders.TryGetValue(selected, out var reminder))
                     return;
 
