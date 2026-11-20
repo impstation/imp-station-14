@@ -127,11 +127,15 @@ namespace Content.Client.Lobby
             SetReady(args.Pressed);
         }
 
-        //imp addition
+        // Impstation start - ready manifest
         private void OnManifestPressed(BaseButton.ButtonEventArgs args)
         {
+            if (_gameTicker.IsGameStarted)
+                return;
+
             _readyManifest.RequestReadyManifest();
         }
+        // Impstation end - ready manifest
 
         public override void FrameUpdate(FrameEventArgs e)
         {
