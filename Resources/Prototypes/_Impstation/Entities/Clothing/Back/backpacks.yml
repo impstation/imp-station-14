@@ -15,3 +15,12 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Back/Backpacks/impishbackpack.rsi
+
+- type: entity
+  parent: [ClothingBackpack]
+  id: ClothingBackpackCourier
+  name: courier backpack
+  description: A backpack for couriers. Composed of advanced materials specifically made to be resilient against papercuts & ink stains.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Back/Backpacks/courierbackpack.rsi

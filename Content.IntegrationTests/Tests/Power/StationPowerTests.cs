@@ -72,6 +72,8 @@ public sealed class StationPowerTests
         "Whalefall",
         "LoopImp",
         "OmegaImp",
+        "Geode",
+        "Dash",
 
         // DEROTATED:
         //"RelicImp",

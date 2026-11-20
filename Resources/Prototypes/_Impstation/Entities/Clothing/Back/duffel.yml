@@ -29,3 +29,12 @@
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: [ClothingBackpackDuffel]
+  id: ClothingBackpackDuffleCourier
+  name: courier duffle bag
+  description: A duffle bag for couriers. Comes with a red lever to serve as status symbol & also to play with if you're bored.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Back/Duffels/courierduffle.rsi
