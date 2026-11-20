@@ -86,7 +86,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             {
                 var duration = TimeSpan.FromSeconds(rand.NextFloat(lumbagoComp.FlareUpDurationMinMax.Min, lumbagoComp.FlareUpDurationMinMax.Max));
                 _movementMod.TryAddMovementSpeedModDuration(statusOwner, _flareUpStatusEffect, duration,lumbagoComp.FlareUpMovementSpeedMod);
-                lumbagoComp.LumbagFlareUpDelay += duration + TimeSpan.FromSeconds(rand.NextInt64(lumbagoComp.LumbagoFlareUpDelayMinMax.Min, lumbagoComp.LumbagoFlareUpDelayMinMax.Max));
+                lumbagoComp.LumbagFlareUpDelay += duration + TimeSpan.FromSeconds(lumbagoComp.LumbagoFlareUpDelayMinMax.Next(rand));
                 Dirty(statusOwner,lumbagoComp);
             }
 
