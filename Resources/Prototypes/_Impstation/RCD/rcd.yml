@@ -130,3 +130,13 @@
   rotation: Fixed
   fx: EffectRCDConstruct1
 
+- type: rcd
+  id: RCDCargoBorgCrate
+  category: Main
+  sprite: /Textures/_Impstation/Interface/Radial/RCD/courier_crate.png # imp
+  mode: ConstructObject
+  prototype: CargoBorgCrate
+  cost: 1
+  delay: 1
+  rotation: Fixed
+  fx: EffectRCDConstruct1
