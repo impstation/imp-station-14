@@ -29,15 +29,9 @@ public sealed partial class SOSCartridgeComponent : Component
     //Name to use if no id is found
     public string DefaultName = "sos-caller-defaultname";
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public string LocalizedDefaultName => Loc.GetString(DefaultName);
-
     [DataField]
     //Notification message
     public string HelpMessage = "sos-message";
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public string LocalizedHelpMessage => Loc.GetString(HelpMessage);
 
     [DataField]
     //Channel to notify

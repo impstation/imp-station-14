@@ -2,9 +2,12 @@ using Content.Server.Radio.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.PDA;
+using Content.Server.Pinpointer;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
+using System.Threading.Channels;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
@@ -14,6 +17,7 @@ public sealed class SOSCartridgeSystem : EntitySystem
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly NavMapSystem _navMap = default!;
 
     public override void Initialize()
     {
@@ -41,16 +45,22 @@ public sealed class SOSCartridgeSystem : EntitySystem
         if (component.CanCall)
         {
             //Get the PDA
-            if (!TryComp<PdaComponent>(args.Loader, out var pda))
+            if (!HasComp<PdaComponent>(args.Loader))
                 return;
 
             //Get the id container
             if (_container.TryGetContainer(args.Loader, SOSCartridgeComponent.PDAIdContainer, out var idContainer))
             {
+                var pdaXform = Transform(uid);
+
                 //If theres nothing in id slot, send message anonymously
                 if (idContainer.ContainedEntities.Count == 0)
                 {
-                    _radio.SendRadioMessage(uid, component.LocalizedDefaultName + " " + component.LocalizedHelpMessage, component.HelpChannel, uid);
+                    _radio.SendRadioMessage(uid, component.DefaultName
+                                                 + " "
+                                                 + Loc.GetString(component.HelpMessage,
+                                                 ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, pdaXform))))),
+                                                 component.HelpChannel, uid);
                 }
                 else
                 {
@@ -60,7 +70,21 @@ public sealed class SOSCartridgeSystem : EntitySystem
                         if (!TryComp<IdCardComponent>(idCard, out var idCardComp))
                             return;
 
-                        _radio.SendRadioMessage(uid, idCardComp.FullName + " " + component.LocalizedHelpMessage, component.HelpChannel, uid);
+                        if (string.IsNullOrEmpty(idCardComp.FullName))
+                        {
+                            _radio.SendRadioMessage(uid, Loc.GetString(component.DefaultName)
+                                                         + " "
+                                                         + Loc.GetString(component.HelpMessage,
+                                                         ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, pdaXform))))),
+                                                         component.HelpChannel, uid);
+                            continue;
+                        }
+
+                        _radio.SendRadioMessage(uid, idCardComp.FullName
+                                                     + " "
+                                                     + Loc.GetString(component.HelpMessage,
+                                                     ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, pdaXform))))),
+                                                     component.HelpChannel, uid);
                     }
                 }
                 // Sound effect that is heard nearby
