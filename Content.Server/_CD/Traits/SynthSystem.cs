@@ -51,6 +51,7 @@ public sealed class SynthSystem : EntitySystem
         EnsureComp<DamagedSiliconAccentComponent>(uid, out var accent);
         accent.EnableChargeCorruption = false; //Disables corruption on low battery. This would always be active since non-silicons don't have a battery
         accent.DamageAtMaxCorruption = 200; //This is makes it usable for anyone not a silicon
+        accent.StartCorruptionAt = 10; //imp edit - a little scratch shouldn't glitch speech 
         Dirty(uid, accent);
     }
 }
