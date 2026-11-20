@@ -5,7 +5,6 @@ using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
-using Content.Client.Administration.Managers; // imp
 using Content.Shared.Ghost; // imp
 using Robust.Client.Player; // imp
 
@@ -19,20 +18,23 @@ public sealed class StealthSystem : SharedStealthSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
-    [Dependency] private readonly IClientAdminManager _adminManager = default!; // imp
     [Dependency] private readonly ContainerSystem _containerSystem = default!; // imp
 
     private ShaderInstance _shader = default!;
     // imp edit start
     private ShaderInstance _altShader = default!;
+
+    private readonly string _shaderProto = "Stealth";
+
+    private readonly string _altShaderProto = "AccessibleFullStealth";
     // imp edit end
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _shader = _protoMan.Index<ShaderPrototype>("Stealth").InstanceUnique(); // imp
-        _altShader = _protoMan.Index<ShaderPrototype>("AccessibleFullStealth").InstanceUnique(); // imp
+        _shader = _protoMan.Index<ShaderPrototype>(_shaderProto).InstanceUnique(); // imp
+        _altShader = _protoMan.Index<ShaderPrototype>(_altShaderProto).InstanceUnique(); // imp
 
         SubscribeLocalEvent<StealthComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StealthComponent, ComponentStartup>(OnStartup);

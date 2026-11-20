@@ -18,14 +18,13 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Server.GameObjects; // Impstation - Upmerge 2026 Chunk IV add
 
 
 namespace Content.Server.VentCraw
 {
     public sealed class VentCrawTubeSystem : EntitySystem
     {
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         [Dependency] private readonly SharedVentCrawableSystem _ventCrawableSystemSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly VentCrawTubeSystem _ventCrawTubeSystem = default!;
@@ -34,6 +33,7 @@ namespace Content.Server.VentCraw
         [Dependency] private readonly SharedMoverController _mover = default!;
         [Dependency] private readonly BlindableSystem _blind = default!;
         [Dependency] private readonly SharedHandsSystem _hands = default!;
+        [Dependency] private readonly EntityManager _entityManager = default!; // Impstation - Upmerge 2026 Chunk IV add
 
         public override void Initialize()
         {
@@ -60,7 +60,7 @@ namespace Content.Server.VentCraw
             if (!TryComp<VentCrawlerComponent>(args.User, out var ventCrawlerComponent) || HasComp<BeingVentCrawComponent>(args.User))
                 return;
 
-            if (TryComp<TransformComponent>(uid, out var transformComponent) && !transformComponent.Anchored)
+            if (_entityManager.TryGetComponent<TransformComponent>(uid, out var transformComponent) && !transformComponent.Anchored)
                 return;
 
             AlternativeVerb verb = new()

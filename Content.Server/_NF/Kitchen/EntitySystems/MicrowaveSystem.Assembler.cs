@@ -13,6 +13,9 @@ namespace Content.Server.Kitchen.EntitySystems;
 
 public sealed partial class MicrowaveSystem : EntitySystem
 {
+    private readonly string _metalTag = "Metal"; // Impstation - Upmerge 2026 Chunk IV
+    private readonly string _plasticTag = "Plastic"; // Impstation - Upmerge 2026 Chunk IV
+
     /// <summary>
     /// Runs a set of minimal pre-reqs to check the timing, needed to enable dummy-proof, one-button interface to Wzhzhzh
     /// </summary>
@@ -105,12 +108,12 @@ public sealed partial class MicrowaveSystem : EntitySystem
                 return;
             }
 
-            if (_tag.HasTag(item, "Metal") && component.CanIrradiate)
+            if (_tag.HasTag(item, _metalTag) && component.CanIrradiate)
             {
                 malfunctioning = true;
             }
 
-            if (_tag.HasTag(item, "Plastic") && (component.CanHeat || component.CanIrradiate))
+            if (_tag.HasTag(item, _plasticTag) && (component.CanHeat || component.CanIrradiate))
             {
                 var junk = Spawn(component.BadRecipeEntityId, Transform(uid).Coordinates);
                 _container.Insert(junk, component.Storage);

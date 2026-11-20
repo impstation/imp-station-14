@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Notifier;
+using System.Threading.Tasks;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -36,6 +36,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server._Impstation.Notifier; //imp
 
 namespace Content.Server.Entry
 {
@@ -210,8 +211,8 @@ namespace Content.Server.Entry
 
             _serverApi.Shutdown();
 
-            // TODO Should this be awaited?
-            _discordLink.Shutdown();
+            // We don't care when or how this finishes, just spin the task off into the void.
+            _ = _discordLink.Shutdown();
             _discordChatLink.Shutdown();
         }
 

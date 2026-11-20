@@ -1,4 +1,4 @@
-using Content.Server.Chat;
+// using Content.Server.Chat; // Impstation - Upmerge 2026 Chunk IV (unused)
 using Content.Server.Announcements.Systems; // imp
 using Robust.Shared.Player; // imp
 
@@ -6,7 +6,7 @@ namespace Content.Server.Chat.Systems;
 
 public sealed class AnnounceOnSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
+    // [Dependency] private readonly ChatSystem _chat = default!; // Impstation - Upmerge 2026 Chunk IV (unused)
     [Dependency] private readonly AnnouncerSystem _announcer = default!; // imp
 
     public override void Initialize()

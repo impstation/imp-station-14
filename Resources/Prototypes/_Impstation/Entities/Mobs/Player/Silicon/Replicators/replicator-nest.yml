@@ -104,6 +104,7 @@
         Heat: -1
         Shock: -1
         Structural: -1
-      groups:
-        Brute: -1
+        Blunt: -0.33
+        Piercing: -0.33
+        Slash: -0.33
   - type: AntiRottingContainer

@@ -267,8 +267,9 @@
             Poison: -1
             Asphyxiation: -1
             Bloodloss: -0.5
-          groups:
-            Brute: -2
+            Blunt: -0.66
+            Piercing: -0.66
+            Slash: -0.66
   fizziness: .7
 
 - type: reagent

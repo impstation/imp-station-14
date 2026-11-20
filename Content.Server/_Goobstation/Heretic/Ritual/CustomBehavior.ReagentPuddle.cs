@@ -4,12 +4,14 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Chemistry.EntitySystems; // Impstation - Upmerge 2026 Chunk IV
 
 namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 {
     private EntityLookupSystem _lookup = default!;
+    private SharedSolutionContainerSystem _solutionContainerSystem = default!; // Impstation - Upmerge 2026 Chunk IV
 
     [DataField] public List<ProtoId<ReagentPrototype>>? Reagents;
 
@@ -25,6 +27,8 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
         }
         string reagStrings = "";
 
+        _solutionContainerSystem = args.EntityManager.System<SharedSolutionContainerSystem>(); // Impstation - Upmerge 2026 Chunk IV
+
         foreach (var reagent in Reagents)
         {
             reagStrings += reagent.Id + ", ";
@@ -39,12 +43,15 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
                 if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle))
                     continue;
 
+                if(!args.EntityManager.TryGetComponent<SolutionContainerManagerComponent>(ent, out var container)) // Impstation - Upmerge 2026 Chunk IV
+                    continue;
+
                 if (puddle.Solution == null)
                     continue;
 
                 var soln = puddle.Solution.Value;
 
-                if (!soln.Comp.Solution.ContainsPrototype(reagent))
+                if(!_solutionContainerSystem.TryGetSolution((ent, container), reagent.Id, out var solution)) // Impstation - Upmerge 2026 Chunk IV
                     continue;
 
                 _uids.Add(ent);

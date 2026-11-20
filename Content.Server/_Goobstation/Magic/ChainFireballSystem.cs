@@ -11,12 +11,10 @@ namespace Content.Server.Magic;
 public sealed partial class ChainFireballSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()

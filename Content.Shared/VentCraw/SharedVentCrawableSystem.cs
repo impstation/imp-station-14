@@ -30,7 +30,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    // [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!; // imp edit, commented due to unused
 
     public override void Initialize()
     {

@@ -102,6 +102,8 @@
   sounds:
     Scream:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    Laugh:
+      path: /Audio/Animals/lizard_happy.ogg
     Honk:
       collection: BikeHorn
     Whistle:
@@ -142,6 +144,8 @@
   sounds:
     Scream:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    Laugh:
+      path: /Audio/Animals/lizard_happy.ogg
     Honk:
       collection: BikeHorn
     Whistle:
@@ -288,6 +292,8 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Sneeze:
+      path: /Audio/Voice/Vox/vox_sneeze.ogg
     Cough:
       path: /Audio/Voice/Vox/vox_cough.ogg
     Sigh:
@@ -325,8 +331,8 @@
       collection: KodepiiaCaws
     Whistle:
       collection: Whistles
-    Sneeze:
-      collection: UnisexSneezes #placeholder
+    #Sneeze:
+    #  collection: UnisexSneezes Impstation - Upmerge 2026 Chunk IV: New sneeze above
     Yawn:
       collection: UnisexYawn #placeholder
     Wuhey:
@@ -345,6 +351,8 @@
       path: /Audio/Voice/Diona/diona_scream.ogg
     Laugh:
       collection: DionaLaugh
+    Sneeze:
+      collection: DionaSneeze
     Chirp:
       path: /Audio/Animals/nymph_chirp.ogg
     Multichirp: # Impstation
@@ -360,8 +368,6 @@
     DefaultDeathgasp:
       collection: DeathGasp
    # imp edit start
-    Sneeze:
-      collection: UnisexSneezes #placeholder
     Cough:
       collection: UnisexCoughs #placeholder
     Yawn:
@@ -641,7 +647,7 @@
     Laugh:
       collection: MaleLaugh
     Sneeze:
-      collection: MaleSneezes
+      collection: VulpkaninSneeze
     Cough:
       collection: MaleCoughs
     Whistle:
@@ -683,7 +689,7 @@
     Laugh:
       collection: FemaleLaugh
     Sneeze:
-      collection: FemaleSneezes
+      collection: VulpkaninSneeze
     Cough:
       collection: FemaleCoughs
     Whistle:
@@ -785,6 +791,22 @@
       params:
         volume: -3
         variation: 0.1
+
+- type: emoteSounds
+  id: MothBodyEmotes
+  sounds:
+    Flap:
+      path: /Audio/Voice/Moth/moth_flap.ogg
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
 
 # mobs
 - type: emoteSounds

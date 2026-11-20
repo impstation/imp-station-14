@@ -6,7 +6,6 @@ using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chat.TypingIndicator; //imp
-using Robust.Shared.Prototypes; //imp
 
 namespace Content.Server.Speech.EntitySystems;
 

@@ -20,8 +20,8 @@ namespace Content.Server.StationEvents.Events;
 public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    // [Dependency] private readonly AudioSystem _audio = default!;
+    // [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 

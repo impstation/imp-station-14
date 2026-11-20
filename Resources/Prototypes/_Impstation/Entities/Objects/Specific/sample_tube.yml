@@ -180,7 +180,6 @@
     - id: ChemSampleTubeCryptobiolin
     - id: ChemSampleTubeDoxarubixadone
     - id: ChemSampleTubeIpecac
-    - id: ChemSampleTubeNecrosol
     - id: ChemSampleTubePolypyryliumOligomers
     - id: ChemSampleTubePsicodine
     - id: ChemSampleTubeUltravasculine
@@ -1514,21 +1513,6 @@
         maxVol: 10
         reagents:
         - ReagentId: Ipecac
-          Quantity: 10
-  - type: Label
-    currentLabel: Medicinal Sample, Handle With Care
-
-- type: entity
-  parent: ChemSampleTube
-  id: ChemSampleTubeNecrosol
-  suffix: Necrosol
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 10
-        reagents:
-        - ReagentId: Necrosol
           Quantity: 10
   - type: Label
     currentLabel: Medicinal Sample, Handle With Care

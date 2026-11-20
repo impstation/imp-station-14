@@ -41,6 +41,9 @@ public sealed partial class RevenantAnimatedSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _thresholds = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 
+    private readonly string _itemDamageProto = "Blunt"; // Impstation - Upmerge 2026 Chunk IV
+    private readonly string _itemFaction = "SimpleHostile"; // Impstation - Upmerge 2026 Chunk IV
+
     public override void Initialize()
     {
         base.Initialize();
@@ -79,7 +82,7 @@ public sealed partial class RevenantAnimatedSystem : EntitySystem
 
         // Add melee damage if an item doesn't already have it
         if (EnsureHelper<MeleeWeaponComponent>(ent, out var melee))
-            melee.Damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Blunt"), 5);
+            melee.Damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>(_itemDamageProto), 5);
 
         EnsureHelper<InputMoverComponent>(ent);
         EnsureHelper<MovementSpeedModifierComponent>(ent, out var moveSpeed);
@@ -100,7 +103,7 @@ public sealed partial class RevenantAnimatedSystem : EntitySystem
 
         EnsureHelper<NpcFactionMemberComponent>(ent, out var factions);
         _factionSystem.ClearFactions((ent, factions));
-        _factionSystem.AddFaction((ent, factions), "SimpleHostile");
+        _factionSystem.AddFaction((ent, factions), _itemFaction);
 
         // For things like handcuffs
         EnsureHelper<DoAfterComponent>(ent);

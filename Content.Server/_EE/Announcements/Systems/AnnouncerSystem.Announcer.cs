@@ -37,9 +37,13 @@ public sealed partial class AnnouncerSystem
         var blacklist = _config.GetCVar(EECCVars.AnnouncerBlacklist).Split(',').Select(a => a.Trim()).ToList();
         var modWeights = list.Weights.Where(a => !blacklist.Contains(a.Key));
 
-        list = new WeightedRandomPrototype();
-        foreach (var (key, value) in modWeights)
+        // imp edit start
+        var weightsCopy = list.Weights.Where(list => !blacklist.Contains(list.Key)).ToDictionary(a => a.Key, a => a.Value);
+
+        list.Weights.Clear();
+        foreach (var (key, value) in weightsCopy)
             list.Weights.Add(key, value);
+        // imp edit end
 
         return _proto.Index<AnnouncerPrototype>(list.Pick());
     }

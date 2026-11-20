@@ -39,6 +39,9 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // imp
 
+    private readonly string _biodegradeSolution = "PolytrinicAcid"; // Impstation - Upmerge 2026 Chunk IV
+    private readonly string _layEggAction = "ActionLayEgg"; // Impstation - Upmerge 2026 Chunk IV
+
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<GoobChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
@@ -607,7 +610,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         }
 
         var soln = new Solution();
-        soln.AddReagent("PolytrinicAcid", 10f);
+        soln.AddReagent(_biodegradeSolution, 10f); // Impstation - Upmerge 2026 Chunk IV
 
         if (_pull.IsPulled(uid))
         {
@@ -706,7 +709,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             slope: 4,
             maxTileIntensity: 2);
 
-        _actions.AddAction((EntityUid)newUid, "ActionLayEgg");
+        _actions.AddAction((EntityUid)newUid, _layEggAction);
 
         PlayMeatySound((EntityUid)newUid, comp);
     }

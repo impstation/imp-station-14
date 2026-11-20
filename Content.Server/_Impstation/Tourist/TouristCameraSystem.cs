@@ -50,7 +50,6 @@ namespace Content.Server._Impstation.Tourist
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly MovementModStatusSystem _movementMod = default!;

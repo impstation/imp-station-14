@@ -39,9 +39,6 @@
       head-reptilian:
       - state: equipped-head-light-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-light-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-light-anomalocarid
         shader: unshaded
@@ -63,10 +60,6 @@
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-dog
-      - state: equipped-head-unshaded-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-anomalocarid
       - state: equipped-head-unshaded-anomalocarid
@@ -83,7 +76,6 @@
     reduction: 0.2
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Engineering Hardsuit
@@ -120,9 +112,6 @@
       head-reptilian:
       - state: equipped-head-light-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-light-dog
-        shader: unshaded
       head-anomalocarid: # imp edit
       - state: equipped-head-light-anomalocarid
         shader: unshaded
@@ -144,10 +133,6 @@
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-dog
-      - state: equipped-head-unshaded-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-anomalocarid
       - state: equipped-head-unshaded-anomalocarid
@@ -159,7 +144,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Spationaut Hardsuit (imp edits to fix rsi)
@@ -187,9 +171,6 @@
       head-reptilian:
       - state: equipped-head-light-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-light-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-light-anomalocarid
         shader: unshaded
@@ -211,10 +192,6 @@
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-dog
-      - state: equipped-head-unshaded-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-anomalocarid
       - state: equipped-head-unshaded-anomalocarid
@@ -226,14 +203,13 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Salvage Hardsuit
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitSalvage
-  name: salvage hardsuit helmet
+  name: mining hardsuit helmet
   description: A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating for wildlife encounters and dual floodlights.
   components:
   - type: Sprite
@@ -248,7 +224,6 @@
     energy: 3
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Goliath Hardsuit
@@ -281,9 +256,6 @@
       head-reptilian:
       - state: equipped-head-light-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-light-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-light-anomalocarid
         shader: unshaded
@@ -301,10 +273,6 @@
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-dog
-      - state: equipped-head-unshaded-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-anomalocarid
       - state: equipped-head-unshaded-anomalocarid
@@ -316,7 +284,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Maxim Hardsuit
@@ -367,7 +334,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Brigmedic Hardsuit
@@ -436,7 +402,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Chief Engineer's Hardsuit
@@ -473,9 +438,6 @@
       head-reptilian:
       - state: equipped-head-light-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-light-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-light-anomalocarid
         shader: unshaded
@@ -497,10 +459,6 @@
       - state: equipped-head-reptilian
       - state: equipped-head-unshaded-reptilian
         shader: unshaded
-      head-dog:
-      - state: equipped-head-dog
-      - state: equipped-head-unshaded-dog
-        shader: unshaded
       head-anomalocarid: #imp edit
       - state: equipped-head-anomalocarid
       - state: equipped-head-unshaded-anomalocarid
@@ -514,7 +472,6 @@
     reduction: 0.2
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Chief Medical Officer's Hardsuit
@@ -535,7 +492,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Research Director's Hardsuit
@@ -556,7 +512,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Head of Security's hardsuit
@@ -633,7 +588,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Blood-red Medic Hardsuit
@@ -700,7 +654,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Syndicate Commander Hardsuit
@@ -733,7 +686,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Cybersun Juggernaut Hardsuit
@@ -761,7 +713,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Wizard Hardsuit
@@ -789,7 +740,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Organic Space Suit
