@@ -95,7 +95,7 @@
 
 - type: entity
   parent: ClothingOuterWizardViolet
-  id: ClothingOuterWizardVioletarmored 
+  id: ClothingOuterWizardVioletarmored
   name: violet wizard robes
   description: A bizarre gem-encrusted violet robe that radiates magical energies.
   suffix: DO NOT MAP
@@ -113,3 +113,28 @@
       coefficients:
         Piercing: 0.3
 
+- type: entity
+  parent: ClothingOuterHardsuitGray
+  id: ClothingOuterHardsuitGrinch
+  name: grinch shell
+  suffix: Admeme
+  description: Oh shit!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/grinch.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/grinch.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitGrinch
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitGray
+  id: ClothingHeadHelmetHardsuitGrinch
+  name: grinch face
+  description: Oh fuck!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/grinch.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/grinch.rsi
