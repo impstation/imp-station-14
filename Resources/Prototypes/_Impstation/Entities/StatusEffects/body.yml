@@ -12,3 +12,19 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectRecyclerImmune
+
+# status effect that prevents an entity from vomiting
+- type: entity
+  parent: MobStatusEffectBase
+  id: NoVomitingStatusEffect
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+        - Vomiter
+
+# status effect for slowing down entities upon attempting to vomit while being unable to.
+- type: entity
+  parent: StatusEffectSlowdown
+  id: NoVomitingSlowdownStatusEffect
+  name: No Vomiting Nausea Slowdown
