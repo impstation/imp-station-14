@@ -78,7 +78,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
                 continue;
 
             //TODO: Replace with random predicted when we get that.
-            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, statusOwner.GetHashCode());
+            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(statusOwner).Id);
             var rand = new System.Random(seed);
 
             //if we have reached the time for the next flare up, trigger it.
