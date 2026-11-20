@@ -111,7 +111,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
 
                 _popup.PopupClient(Loc.GetString(reminder), statusOwner, statusOwner);
 
-                lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Min,lumbagoComp.LumbagoReminderDelayMinMax.Max);
+                lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Next(rand));
                 DirtyEntity(statusOwner);
             }
 
