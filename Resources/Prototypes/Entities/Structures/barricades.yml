@@ -82,6 +82,12 @@
   - type: Construction
     graph: BarricadeCovering
     node: barricadecover
+  - type: WallMount # imp
+    arc: 360
+  - type: Tag # imp
+    tags:
+    - Wooden
+    - DoorBarricade
 
 #Directional Barricade
 - type: entity

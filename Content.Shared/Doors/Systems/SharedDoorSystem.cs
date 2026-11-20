@@ -26,6 +26,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chemistry.EntitySystems; // imp
 using Content.Shared.Fluids; // imp
+using Content.Shared.Maps; // imp
 using Robust.Shared.Containers; // imp
 using Robust.Shared.Random; // imp
 
@@ -54,7 +55,9 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!; // imp
     [Dependency] private readonly SharedPuddleSystem _puddle = default!; // imp
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!; // imp
+    [Dependency] private readonly TurfSystem _turf = default!; // imp
 
+    private static readonly ProtoId<TagPrototype> BarricadeTag = "DoorBarricade"; // imp
     public static readonly ProtoId<TagPrototype> DoorBumpTag = "DoorBumpOpener";
 
     /// <summary>
@@ -378,6 +381,9 @@ public abstract partial class SharedDoorSystem : EntitySystem
                 Deny(uid, door, user, predicted: true);
             return false;
         }
+
+        if (IsBarricaded(uid)) // imp
+            return false;
 
         return true;
     }
@@ -858,4 +864,19 @@ public abstract partial class SharedDoorSystem : EntitySystem
         }
     }
     #endregion
+
+    // imp. adapted from ES airlock system
+    public bool IsBarricaded(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        foreach (var ent in _turf.GetEntitiesInTile(xform.Coordinates))
+        {
+            if (Tags.HasTag(ent, BarricadeTag))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
