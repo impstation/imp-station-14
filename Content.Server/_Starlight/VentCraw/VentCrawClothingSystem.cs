@@ -1,10 +1,10 @@
 // Initial file ported from the Starlight project repo, located at https://github.com/ss14Starlight/space-station-14
 
 using Content.Shared.Clothing;
-using Content.Shared.VentCraw.Components;
-using Content.Shared.VentCraw;
+using Content.Shared._Starlight.VentCraw.Components;
+using Content.Shared._Starlight.VentCraw;
 
-namespace Content.Server.VentCraw;
+namespace Content.Server._Starlight.VentCraw;
 
 public sealed class VentCrawClothingSystem : EntitySystem
 {

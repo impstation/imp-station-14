@@ -4,7 +4,7 @@ using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.VentCraw;
+namespace Content.Shared._Starlight.VentCraw;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class VentCrawlerComponent : Component
