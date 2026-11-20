@@ -1,3 +1,5 @@
+# this is in imp files why does it have imp edit comments oughghghgh
+
 - type: entity
   abstract: true
   parent: AirSensorBase
@@ -15,6 +17,8 @@
       Ammonia: stationAmmonia
       NitrousOxide: stationNO
       Frezon: danger
+      Electrovae: danger
+      ChargedElectrovae: danger
 
 - type: entity
   parent: [AirSensorDecapoidBase, AirSensor]
@@ -51,6 +55,8 @@
     - Ammonia
     - NitrousOxide
     - Frezon
+    - Electrovae
+    - ChargedElectrovae
   # imp edit start
   - type: AtmosPipeLayers
     alternativePrototypes:

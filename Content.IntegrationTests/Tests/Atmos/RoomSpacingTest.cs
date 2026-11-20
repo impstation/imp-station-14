@@ -94,10 +94,14 @@ public sealed class RoomSpacingTest : AtmosTest
         Assert.That(sourceMix, Is.Not.EqualTo(null));
         sourceMix.AdjustMoles(Gas.Frezon, Moles);
 
+        /* imp removal
         await Server.WaitPost(() =>
         {
             SAtmos.RunProcessingFull(ProcessEnt, MapData.Grid.Owner, SAtmos.AtmosTickRate);
         });
+        */
+
+        await Server.WaitRunTicks(500); // imp
 
         var mix1 = SAtmos.GetTileMixture(floor);
         Assert.That(mix1, Is.Not.EqualTo(null));

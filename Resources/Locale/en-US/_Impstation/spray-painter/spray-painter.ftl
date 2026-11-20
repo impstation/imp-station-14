@@ -69,4 +69,6 @@ spray-painter-style-locker-zookeeper = Zookeeper
 
 spray-painter-style-closet-business = Business
 
-
+# Canisters
+spray-painter-style-canisters-electrovae = Electrovae
+spray-painter-style-canisters-charged-electrovae = Charged Electrovae
