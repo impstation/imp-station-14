@@ -29,8 +29,8 @@ public sealed class VentHordeRule : StationEventSystem<VentHordeRuleComponent>
     [Dependency] private readonly EntityTableSystem _table = default!;
     [Dependency] private readonly VentHordeSystem _horde = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
     [Dependency] private readonly AnnouncerSystem _announcer = default!; // imp add
+
     protected override void Added(EntityUid uid, VentHordeRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // Choose location and make sure it's not null
@@ -44,11 +44,11 @@ public sealed class VentHordeRule : StationEventSystem<VentHordeRuleComponent>
         }
 
         // Get the event component so we can format the announcement
-        if (TryComp<StationEventComponent>(uid, out var stationEventComp)) // imp edit fuck this entire bool
+        if (TryComp<StationEventComponent>(uid, out var stationEventComp) /*&& stationEventComp.StartAnnouncement != null*/) // imp edit fuck this entire bool
         {
             // Get the nearest beacon
             var mapLocation = _transform.ToMapCoordinates(Transform(vent).Coordinates);
-            string nearestBeacon = _navMap.GetNearestBeaconString(mapLocation, onlyName: true);
+            var nearestBeacon = _navMap.GetNearestBeaconString(mapLocation, onlyName: true);
 
             // *****start imp, removed upstream to use EE announce******
             // Format the announcement with the location, if the string doesn't have them it'll still work fine

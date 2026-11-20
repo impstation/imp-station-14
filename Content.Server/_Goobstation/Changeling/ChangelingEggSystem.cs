@@ -44,7 +44,7 @@ public sealed partial class GoobChangelingEggSystem : EntitySystem
 
         EnsureComp<GoobChangelingComponent>(newUid);
 
-        EntityManager.AddComponent(newUid, comp.lingStore);
+        AddComp(newUid, comp.lingStore); // imp edit, AddComp replacement
 
         _gibbing.Gib(uid);
     }

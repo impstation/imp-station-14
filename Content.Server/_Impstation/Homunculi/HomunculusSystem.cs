@@ -63,7 +63,7 @@ public sealed class HomunculusSystem : EntitySystem
 
     public void CreateHomunculiFromEntities(List<Entity<HomunculusTypeComponent>> entities,List<string?> dnaData, MapCoordinates mapCoordinates, out EntityUid homunculus)
     {
-        homunculus = EntityManager.Spawn(entities[0].Comp.HomunculusType, mapCoordinates);
+        homunculus = Spawn(entities[0].Comp.HomunculusType, mapCoordinates);
         _transform.AttachToGridOrMap(homunculus);
 
         EnsureComp<DnaComponent>(homunculus, out var homunculiDnaComponent);

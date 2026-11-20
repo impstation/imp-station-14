@@ -503,7 +503,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             return;
 
         var target = args.Target;
-        var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
+        var fakeArmblade = Spawn(FakeArmbladePrototype, Transform(target).Coordinates); // imp edit, Spawn replacement
         if (!_hands.TryPickupAnyHand(target, fakeArmblade))
         {
             QueueDel(fakeArmblade);

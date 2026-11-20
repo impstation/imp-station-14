@@ -314,7 +314,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (!_inventory.TryGetSlotEntity(upgradedNotNull, "pocket1", out var pocket1) || !TryComp<PinpointerComponent>(pocket1, out var pinpointer))
                 continue;
 
-            _pinpointer.SetTarget((pocket1.Value, pinpointer), queen); // Impstation - Upmerge 2026 Chunk IV
+            _pinpointer.SetTarget((pocket1.Value, pinpointer), queen);
             _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), uid, uid, Shared.Popups.PopupType.LargeCaution);
         }
     }

@@ -101,7 +101,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityManager.EntityQueryEnumerator<SupermatterComponent>();
+        var query = EntityQueryEnumerator<SupermatterComponent>(); // Impstation - Upmerge 2026 Chunk IV (EntityQueryEnumerator replacement)
         while (query.MoveNext(out var uid, out var sm))
             AnnounceCoreDamage(uid, sm);
     }
@@ -179,10 +179,12 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Prevent spam or excess power production
         AddComp<SupermatterImmuneComponent>(target);
 
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} has consumed {EntityManager.ToPrettyString(target):target}");
-        _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} and was destroyed at {Transform(uid).Coordinates:coordinates}");
-        EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
-        EntityManager.QueueDeleteEntity(target);
+        // imp start: Impstation - Upmerge 2026 Chunk IV (ToPrettyString and QueueDel replacements)
+        _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} has consumed {ToPrettyString(target):target}");
+        _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{ToPrettyString(target):target} touched {ToPrettyString(uid):uid} and was destroyed at {Transform(uid).Coordinates:coordinates}");
+        Spawn(sm.CollisionResultPrototype, Transform(target).Coordinates);
+        QueueDel(target);
+        // imp end
 
         args.Handled = true;
     }
@@ -252,10 +254,12 @@ public sealed partial class SupermatterSystem : EntitySystem
             AddComp<SupermatterImmuneComponent>(target);
             AddComp<SupermatterImmuneComponent>(item);
 
-            _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} with {EntityManager.ToPrettyString(item):item} and was destroyed at {Transform(uid).Coordinates:coordinates}");
-            EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
-            EntityManager.QueueDeleteEntity(target);
-            EntityManager.QueueDeleteEntity(item);
+            // imp start: Impstation - Upmerge 2026 Chunk IV (ToPrettyString and QueueDel replacements)
+            _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{ToPrettyString(target):target} touched {ToPrettyString(uid):uid} with {ToPrettyString(item):item} and was destroyed at {Transform(uid).Coordinates:coordinates}");
+            Spawn(sm.CollisionResultPrototype, Transform(target).Coordinates);
+            QueueDel(target);
+            QueueDel(item);
+            // imp end
         }
         else
         {
@@ -272,8 +276,8 @@ public sealed partial class SupermatterSystem : EntitySystem
             // Prevent spam or excess power production
             AddComp<SupermatterImmuneComponent>(item);
 
-            _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} with {EntityManager.ToPrettyString(item):item} and destroyed it at {Transform(uid).Coordinates:coordinates}");
-            EntityManager.QueueDeleteEntity(item);
+            _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{ToPrettyString(target):target} touched {ToPrettyString(uid):uid} with {ToPrettyString(item):item} and destroyed it at {Transform(uid).Coordinates:coordinates}"); // Impstation - Upmerge 2026 Chunk IV (ToPrettyString)
+            QueueDel(item); // Impstation - Upmerge 2026 Chunk IV (QueueDel replacement)
         }
 
         args.Handled = true;
@@ -310,7 +314,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         );
 
         _popup.PopupEntity(Loc.GetString("supermatter-destabalize-end"), uid, args.User);
-        EntityManager.QueueDeleteEntity(args.Used);
+        QueueDel(args.Used); // imp edit, QueueDel replacement
 
         sm.DestabilizingCrystal = true;
         args.Repeat = false;
@@ -362,8 +366,8 @@ public sealed partial class SupermatterSystem : EntitySystem
             if (HasComp<MobStateComponent>(target))
             {
                 popup = "supermatter-collide-mob";
-                EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
-                _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} has consumed {EntityManager.ToPrettyString(target):target}");
+                Spawn(sm.CollisionResultPrototype, Transform(target).Coordinates); // imp edit, Spawn replacement
+                _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} has consumed {ToPrettyString(target):target}"); // imp edit, ToPrettyString replace
             }
 
             var targetProto = MetaData(target).EntityPrototype;
@@ -374,13 +378,13 @@ public sealed partial class SupermatterSystem : EntitySystem
             }
 
             sm.MatterPower += targetPhysics.Mass;
-            _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} collided with {EntityManager.ToPrettyString(uid):uid} at {Transform(uid).Coordinates:coordinates}");
+            _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{ToPrettyString(target):target} collided with {ToPrettyString(uid):uid} at {Transform(uid).Coordinates:coordinates}"); // imp edit, ToPrettyString replace
         }
 
         // Prevent spam or excess power production
         AddComp<SupermatterImmuneComponent>(target);
 
-        EntityManager.QueueDeleteEntity(target);
+        QueueDel(target); // imp edit, QueueDel replacement
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
             sm.Power += food.Energy;
@@ -394,15 +398,15 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void LogFirstPower(EntityUid uid, SupermatterComponent sm, EntityUid target)
     {
-        _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by {EntityManager.ToPrettyString(target):target} at {Transform(uid).Coordinates:coordinates}");
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by {EntityManager.ToPrettyString(target):target}");
+        _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{ToPrettyString(uid):uid} was powered for the first time by {ToPrettyString(target):target} at {Transform(uid).Coordinates:coordinates}"); // imp edit, ToPrettyString replacement
+        _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} was powered for the first time by {ToPrettyString(target):target}"); // imp edit, ToPrettyString replacement
         sm.HasBeenPowered = true;
     }
 
     private void LogFirstPower(EntityUid uid, SupermatterComponent sm, GasMixture gas)
     {
-        _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by gas mixture at {Transform(uid).Coordinates:coordinates}");
-        _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by gas mixture");
+        _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{ToPrettyString(uid):uid} was powered for the first time by gas mixture at {Transform(uid).Coordinates:coordinates}");
+        _chatManager.SendAdminAlert($"{ToPrettyString(uid):uid} was powered for the first time by gas mixture"); // imp edit, ToPrettyString replacement
         sm.HasBeenPowered = true;
     }
 

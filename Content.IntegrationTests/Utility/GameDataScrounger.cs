@@ -169,17 +169,15 @@ public static partial class GameDataScrounger
             // Take a directory off the stack.
             var dir = explorationStack.Pop();
 
-            if (ignoreList.Contains(dir))
-                continue; // It's all abstract anyway.
+            var ignoredDir = ignoreList.Contains(Path.GetFullPath(dir)); // imp early pull
 
             explorationStack.AddRange(Directory.EnumerateDirectories(dir));
 
             foreach (var file in Directory.EnumerateFiles(dir, "*.yml"))
             {
-                if (ignoreList.Contains(file))
-                    continue; // It's all abstract anyway.
+                var ignored = ignoredDir || ignoreList.Contains(Path.GetFullPath(file)); // imp early pull
 
-                foreach (var (kind, id) in IndexPrototypesIn(file))
+                foreach (var (kind, id) in IndexPrototypesIn(file, ignored)) // imp early pull
                 {
                     // alternate universe where .net has rust's Entry api.
                     if (!_prototypeIndex.TryGetValue(kind, out var list))
@@ -205,7 +203,7 @@ public static partial class GameDataScrounger
     /// </summary>
     /// <param name="file">The file to index.</param>
     /// <returns>An enumerator of all prototypes in the file, regardless of kind.</returns>
-    private static IEnumerable<(string type, string id)> IndexPrototypesIn(string file)
+    private static IEnumerable<(string type, string id)> IndexPrototypesIn(string file, bool ignored = false) // imp early pull
     {
         var stream = new YamlStream();
 
@@ -223,7 +221,7 @@ public static partial class GameDataScrounger
 
                 var id = entryMapping[IdNode];
                 var type = entryMapping[TypeNode];
-                var @abstract = false;
+                var @abstract = ignored; // imp early pull
                 if (entryMapping.TryGetNode("abstract", out YamlScalarNode? abstractNode))
                 {
                     // TODO: This technically will exclude prototypes that use the abstract field for their own stuff,
@@ -359,7 +357,7 @@ public static partial class GameDataScrounger
                     if (entry is not YamlScalarNode { Value: {} value })
                         throw new Exception($"An entry in {path} is not a valid YAML scalar/string literal. Entry: {entry}");
 
-                    ignores.Add(value);
+                    ignores.Add(Path.GetFullPath($"{resDir}{value}")); // imp early pull
                 }
             }
         }

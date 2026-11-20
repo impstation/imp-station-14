@@ -34,7 +34,7 @@ namespace Content.Shared.Jittering
         private void OnMobStateChanged(EntityUid uid, JitteringComponent component, MobStateChangedEvent args)
         {
             if (args.NewMobState == MobState.Dead)
-                EntityManager.RemoveComponentDeferred<JitteringComponent>(uid);
+                RemCompDeferred<JitteringComponent>(uid); // Impstation - Upmerge 2026 Chunk IV (switch to RemCompDeferred)
         }
 
         /// <summary>

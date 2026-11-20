@@ -8698,8 +8698,6 @@ entities:
       pos: -17.5,-26.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 20
       - 4523
@@ -72308,8 +72306,6 @@ entities:
       pos: -16.5,-28.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 20
       - 4523
@@ -74183,8 +74179,6 @@ entities:
       pos: -16.5,-25.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4523
     - type: AtmosPipeColor

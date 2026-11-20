@@ -112,7 +112,6 @@ namespace Content.IntegrationTests.Tests
         /// Asserts that specific files have been saved as grids and not maps.
         /// </summary>
         [Test, TestCaseSource(nameof(Grids))]
-        [Ignore("OOM fix - reenable after merging upstream test refactors")] // imp
         public async Task GridsLoadableTest(string mapFile)
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -345,7 +344,6 @@ namespace Content.IntegrationTests.Tests
         }
 
         [Test, TestCaseSource(nameof(GameMaps))]
-        [Ignore("OOM fix - reenable after merging upstream test refactors")] // imp
         public async Task GameMapsLoadableTest(string mapProto)
         {
             await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -448,6 +446,8 @@ namespace Content.IntegrationTests.Tests
                         .Select(x => x.Job.Value);
 
                     jobs.ExceptWith(spawnPoints);
+
+                    //Assert.That(jobs, Is.Empty, $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}."); //TODO REENABLE
                 }
 
                 try
@@ -491,7 +491,6 @@ namespace Content.IntegrationTests.Tests
         }
 
         [Test]
-        [Ignore("OOM fix - reenable after merging upstream test refactors")] // imp
         public async Task AllMapsTested()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -544,9 +543,8 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                // imp disable assert to fix test running out of memory
-                // Assert.Multiple(() =>
-                // {
+                Assert.Multiple(() =>
+                {
                     // This bunch of files contains a random mixture of both map and grid files.
                     // TODO MAPPING organize files
                     var opts = MapLoadOptions.Default with
@@ -580,7 +578,7 @@ namespace Content.IntegrationTests.Tests
                     {
                         throw new Exception($"Failed to delete map {mapPath}", ex);
                     }
-                // }); // imp
+                });
             });
 
             await server.WaitRunTicks(1);

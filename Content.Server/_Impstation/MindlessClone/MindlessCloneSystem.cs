@@ -424,7 +424,7 @@ public sealed class MindlessCloneSystem : EntitySystem
         var mapCoordsPointee = _transformSystem.ToMapCoordinates(coordsPointee);
         _rotateToFaceSystem.TryFaceCoordinates(pointer, mapCoordsPointee.Position);
 
-        var arrow = EntityManager.SpawnEntity("PointingArrow", coordsPointee);
+        var arrow = Spawn("PointingArrow", coordsPointee);
 
         if (TryComp<PointingArrowComponent>(arrow, out var pointing))
         {
@@ -437,7 +437,7 @@ public sealed class MindlessCloneSystem : EntitySystem
         var layer = (int)VisibilityFlags.Normal;
         if (TryComp(pointer, out VisibilityComponent? playerVisibility))
         {
-            var arrowVisibility = EntityManager.EnsureComponent<VisibilityComponent>(arrow);
+            var arrowVisibility = EnsureComp<VisibilityComponent>(arrow);
             layer = playerVisibility.Layer;
             _visibilitySystem.SetLayer((arrow, arrowVisibility), (ushort)layer);
         }

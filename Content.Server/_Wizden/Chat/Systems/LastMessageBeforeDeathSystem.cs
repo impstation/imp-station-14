@@ -153,7 +153,8 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
                     var characterData = character.Value;
                     // I am sure if there is a better way to go about checking if an EntityUID is no longer linked to an active entity...
                     // I don't know how tho...
-                    if ((_mobStateSystem.IsDead(characterData.EntityUid) || !EntityManager.TryGetComponent<MetaDataComponent>(characterData.EntityUid, out var metadata)) && character.Key.CharacterName != null) // Check if an entity is dead or doesn't exist
+                    var metaData = MetaData(characterData.EntityUid); // imp edit, access the metadata without the generic TryComp
+                    if ((_mobStateSystem.IsDead(characterData.EntityUid) || metaData != null) && character.Key.CharacterName != null) // Check if an entity is dead or doesn't exist; imp edit: TryComp replacement
                     {
                         var message = FormatMessage(characterData, character.Key.CharacterName);
                         allMessages.Add(message);

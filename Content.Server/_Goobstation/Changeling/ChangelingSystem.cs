@@ -407,7 +407,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             var coords = Transform(uid).Coordinates;
             foreach (var (proto, slot) in armors)
             {
-                EntityUid armor = EntityManager.SpawnEntity(proto, coords);
+                EntityUid armor = Spawn(proto, coords); // imp edit, Spawn replacement
                 if (!_inventory.TryEquip(uid, armor, slot, force: true))
                 {
                     QueueDel(armor);
@@ -569,7 +569,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
                 {
                     var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
                     RemComp<StoreComponent>(newUid.Value);
-                    EntityManager.AddComponent(newUid.Value, storeCompCopy);
+                    AddComp(newUid.Value, storeCompCopy); // imp edit, AddComp replacement
                 }
             }
         }

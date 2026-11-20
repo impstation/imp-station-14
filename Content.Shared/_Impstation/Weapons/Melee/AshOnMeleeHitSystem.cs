@@ -38,7 +38,7 @@ public sealed class AshOnMeleeHitSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.Sound, Transform(ent).Coordinates);
 
         if (ent.Comp.SingleUse)
-            EntityManager.QueueDeleteEntity(ent);
+            QueueDel(ent);
     }
 
     private void OnThrowHit(Entity<AshOnMeleeHitComponent> ent, ref ThrowDoHitEvent args)
@@ -50,7 +50,7 @@ public sealed class AshOnMeleeHitSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.Sound, Transform(ent).Coordinates);
 
         if (ent.Comp.SingleUse)
-            EntityManager.QueueDeleteEntity(ent);
+            QueueDel(ent);
     }
 
     private void Ash(Entity<AshOnMeleeHitComponent> ent, EntityUid target)
@@ -59,7 +59,7 @@ public sealed class AshOnMeleeHitSystem : EntitySystem
 
         _popup.PopupCoordinates(Loc.GetString(ent.Comp.Popup, ("entity", ent.Owner), ("target", target)), coords, PopupType.LargeCaution);
 
-        EntityManager.SpawnEntity(ent.Comp.AshPrototype, coords);
-        EntityManager.QueueDeleteEntity(target);
+        Spawn(ent.Comp.AshPrototype, coords);
+        QueueDel(target);
     }
 }
