@@ -1,0 +1,16 @@
+- type: entity
+  id: SnowPile
+  parent: FloorTileItemBase
+  name: snow pile
+  description: Its a pile of snow.
+  components:
+  - type: Sprite
+    state: snow
+  - type: Item
+    heldPrefix: snow
+  - type: FloorTile
+    outputs:
+    - PlatingSnow
+    - FloorSnowTile
+  - type: Stack
+    stackType: FloorSnowPile

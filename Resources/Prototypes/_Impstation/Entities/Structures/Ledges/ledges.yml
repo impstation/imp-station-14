@@ -3,13 +3,11 @@
   id: BaseLedge
   abstract: true
   name: BaseLedge
-  description: waow
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Ledges/ledgebasic.rsi
   - type: Icon
     sprite: _Impstation/Structures/Ledges/ledgebasic.rsi
-  - type: InteractionOutline
   - type: Ledge
     InteractWhitelist:
       components:
@@ -19,7 +17,6 @@
   parent: BaseLedge
   id: LedgeStraightClimbable
   name: ledge
-  description: uuurghh
   components:
   - type: Fixtures
     fixtures:
@@ -47,3 +44,29 @@
     state: ledgebasic
   - type: Climbable
     delay: 2.0
+
+- type: entity
+  parent: LedgeStraightClimbable
+  id: LedgeStraightClimbableSnow
+  name: snowy ledge
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Ledges/ledgesnow.rsi
+    state: ledgesnow
+  - type: Icon
+    sprite: _Impstation/Structures/Ledges/ledgesnow.rsi
+    state: ledgesnow
+
+- type: entity
+  parent: LedgeStraightClimbableSnow
+  id: LedgeStraightClimbableSnowAtmosBlocker
+  name: snowy ledge
+  suffix: Atmos blocker
+  components:
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Tag
+    tags:
+      - SpreaderIgnore

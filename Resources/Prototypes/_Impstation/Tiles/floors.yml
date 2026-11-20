@@ -511,3 +511,26 @@
     collection: FootstepTile
   itemDrop: FloorTileItemDecapoidFancy
   heatCapacity: 10000
+
+# real snow but not subfloor
+
+- type: tile
+  parent: FloorShoveledAstroSnow
+  id: FloorShoveledSnowTile
+  name: tiles-shoveled-snow
+  baseTurf: [ PlatingSnow, Plating ]
+  itemDrop: SnowPile
+
+- type: tile
+  parent: FloorAstroSnow
+  id: FloorSnowTile
+  name: tiles-snow
+  baseTurf: [ PlatingSnow, Plating ]
+  itemDrop: SnowPile
+
+- type: tile
+  parent: FloorAstroIce
+  id: FloorIceTile
+  name: tiles-ice
+  baseTurf: [ PlatingSnow, Plating ]
+  itemDrop: PuddleWater
