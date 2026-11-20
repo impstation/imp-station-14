@@ -234,6 +234,38 @@ public sealed partial class SupermatterSystem
             _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance, canExplode: false);
     }
 
+    private void SupermatterRadiationPulse(Entity<SupermatterComponent> ent)
+    {
+        if (_timing.CurTime < ent.Comp.NextRadiationPulse)
+            return;
+
+        ent.Comp.NextRadiationPulse = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.RadiationPulseCooldown.Next(_random));
+
+        if (ent.Comp.GasStorage is not { } gasStorage)
+            return;
+
+        if (ent.Comp.Damage < ent.Comp.DamagePenaltyPoint && gasStorage.TotalMoles < _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
+            return;
+
+        var pulseTier = 0;
+        if (_random.Prob(0.5f))
+            pulseTier += 1;
+
+        if (gasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
+            pulseTier += 1;
+
+        if (gasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold) * 2f)
+            pulseTier += 1;
+
+        if (gasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold) * 3f)
+            pulseTier += 1;
+
+        if (pulseTier <= 0)
+            return;
+
+        Spawn(ent.Comp.RadiationPulsePrototypes[pulseTier - 1], Transform(ent).Coordinates);
+    }
+
     /// <summary>
     /// Generate anomalies depending on accumulated power, damage, or naturally.
     /// </summary>
