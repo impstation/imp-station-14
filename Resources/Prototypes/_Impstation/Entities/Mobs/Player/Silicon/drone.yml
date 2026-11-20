@@ -170,8 +170,7 @@
   - type: ZombieImmune
   - type: StationAiVision #imp, acts as an ai camera
     range: 2
-  - type: Eye # imp, so borgs can see the ai eye
-    visMask: 5
+  - type: Eye
   - type: Hands
     showInHands: false
     canBeStripped: false
@@ -193,6 +192,7 @@
     - hand3
     - hand4
     - hand5
+  - type: SiliconVision
 
 # Drone actions
 

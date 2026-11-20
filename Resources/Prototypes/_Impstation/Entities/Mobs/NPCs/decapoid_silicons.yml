@@ -204,8 +204,7 @@
     interactFailureString: petting-failure-decapoid-silicon
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Eye #allows borgs to see the ai eye
-    visMask: 5
+  - type: SiliconVision
 
 - type: entity #behold my abombination, mortal
   parent: BaseMobDecapoidSilicon
