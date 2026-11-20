@@ -93,7 +93,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             //Send a reminder to the player when the timer runs out and there is a flair up occuring.
             if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay && _statusEffects.HasStatusEffect(statusOwner, _flareUpStatusEffect))
             {
-                var selected = rand.Next(lumbagoComp.BadPainReminders.Count);
+                var selected = rand.Pick(lumbagoComp.BadPainReminders);
                 if(!lumbagoComp.BadPainReminders.TryGetValue(selected, out var reminder))
                     return;
                 _popup.PopupClient(Loc.GetString(reminder), statusOwner, statusOwner, PopupType.SmallCaution);
