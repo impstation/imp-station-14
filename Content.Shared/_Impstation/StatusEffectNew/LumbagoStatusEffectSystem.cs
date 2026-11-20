@@ -30,16 +30,15 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LumbagoStatusEffectComponent, StatusEffectAppliedEvent>(StatusEffectApplied);
+        SubscribeLocalEvent<LumbagoStatusEffectComponent, MapInitEvent>(StatusEffectApplied);
         SubscribeLocalEvent<LumbagoStatusEffectComponent, StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent>>(TryModifyMovementSpeed);
     }
 
 
-    private void StatusEffectApplied(Entity<LumbagoStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
+    private void StatusEffectApplied(Entity<LumbagoStatusEffectComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.Affected = args.Target;
         //TODO: Replace with random predicted when we get that.
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(args.Target).Id);
+        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
         var rand = new System.Random(seed);
         ent.Comp.LumbagFlareUpDelay=_timing.CurTime + // we're setting the timers here so doing it like this is okay
                                     TimeSpan.FromSeconds(ent.Comp.LumbagoFlareUpDelayMinMax.Next(rand));
@@ -72,7 +71,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
         var query = EntityQueryEnumerator<LumbagoStatusEffectComponent,StatusEffectComponent>();
         _lumbagoUpdateTimer += _lumbagoUpdateInterval;
 
-        while (query.MoveNext(out _, out var lumbagoComp, out var statusComp))
+        while (query.MoveNext(out var lumbagoEnt, out var lumbagoComp, out var statusComp))
         {
             if (statusComp.AppliedTo is not { } statusOwner)
                 continue;
@@ -87,29 +86,32 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
                 var duration = TimeSpan.FromSeconds(rand.NextFloat(lumbagoComp.FlareUpDurationMinMax.Min, lumbagoComp.FlareUpDurationMinMax.Max));
                 _movementMod.TryAddMovementSpeedModDuration(statusOwner, _flareUpStatusEffect, duration,lumbagoComp.FlareUpMovementSpeedMod);
                 lumbagoComp.LumbagFlareUpDelay += duration + TimeSpan.FromSeconds(lumbagoComp.LumbagoFlareUpDelayMinMax.Next(rand));
-                Dirty(statusOwner,lumbagoComp);
+                Dirty(lumbagoEnt,lumbagoComp);
             }
 
+            if (_timing.CurTime < lumbagoComp.LumbagoReminderDelay)
+                return;
+
             //Send a reminder to the player when the timer runs out and there is a flair up occuring.
-            if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay && _statusEffects.HasStatusEffect(statusOwner, _flareUpStatusEffect))
+            if (_statusEffects.HasStatusEffect(statusOwner, _flareUpStatusEffect))
             {
                 var selected = rand.Pick(lumbagoComp.BadPainReminders);
 
                 _popup.PopupClient(Loc.GetString(selected), statusOwner, statusOwner, PopupType.SmallCaution);
 
                 lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Next(rand));
-                DirtyEntity(statusOwner);
+                Dirty(lumbagoEnt,lumbagoComp);
 
             }
             //Send a reminder to the player when the timer runs out.
-            else if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay)
+            else
             {
                 var selected = rand.Pick(lumbagoComp.MildPainReminders);
 
                 _popup.PopupClient(Loc.GetString(selected), statusOwner, statusOwner);
 
                 lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Next(rand));
-                DirtyEntity(statusOwner);
+                Dirty(lumbagoEnt,lumbagoComp);
             }
 
         }

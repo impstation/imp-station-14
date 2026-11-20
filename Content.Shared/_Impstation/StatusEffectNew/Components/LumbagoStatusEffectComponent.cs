@@ -7,13 +7,13 @@ namespace Content.Shared._Impstation.StatusEffectNew.Components;
 /// A status effect meant to replicate lumbago, aka lower back pain.
 /// Occasionally send popups about back pain, makes pulling slower, and occasionally causes a blanket move speed debuff.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class LumbagoStatusEffectComponent : Component
 {
     /// <summary>
     /// Time to the next reminder.
     /// </summary>
-    [AutoNetworkedField]
+    [AutoNetworkedField, AutoPausedField]
     public TimeSpan LumbagoReminderDelay;
 
     /// <summary>
@@ -25,7 +25,7 @@ public sealed partial class LumbagoStatusEffectComponent : Component
     /// <summary>
     /// Time to the next flare up.
     /// </summary>
-    [AutoNetworkedField]
+    [AutoNetworkedField, AutoPausedField]
     public TimeSpan LumbagFlareUpDelay;
 
     /// <summary>
