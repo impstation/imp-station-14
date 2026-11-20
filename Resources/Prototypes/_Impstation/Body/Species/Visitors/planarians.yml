@@ -147,7 +147,6 @@
       FootLeft: OrganPlanarianFootLeft
       Brain: OrganPlanarianBrainSplitting #brain worm
       Eyes: OrganPlanarianEyes
-      Tongue: WeaponPlanarianTapeworm #tape worm
       Appendix: OrganPlanarianAppendix #book worm (books have appendices)
       Lungs: OrganPlanarianLungsSplitting #lung worm
       Heart: OrganPlanarianHeart #heart worm
@@ -195,7 +194,7 @@
       behaviors:
       - !type:GibBehavior
       - !type:WeightedSpawnEntityBehavior
-        weightedEntityTable: "XenoMeteorSpawnAsteroidWallTable"
+        weightedEntityTable: "RandomPlanarianOrganEntityTable" #some of their organs are silly and shouldnt always drop. surprises are fun!
         spawnOffset: 0.3
         minSpawn: 0
         maxSpawn: 3
@@ -336,6 +335,12 @@
   components:
   - type: Paper
     contentSize: 12000
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Impstation/Interface/Paper/paper_heading_planarian_stats.png"
+    headerMargin: 0.0, 30.0, 0.0, 6.0
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 10.0, 10.0, 20.0, 20.0
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
     requiresComplex: false
@@ -517,18 +522,24 @@
         Blunt: 5
     soundHit:
       path: /Audio/Voice/Diona/diona_salute.ogg
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Voice/Diona/diona_salute.ogg
  # - type: SolutionContainerManager #PLANARIAN TODO: wormwood tea? mugwort? medicine? injectable on hit?
 
 - type: entityTable
   id: RandomPlanarianOrganEntityTable
   table: !type:GroupSelector
     children:
-    - id: BarrelChemFilledBleach
-      weight: 0.25
-    - id: BarrelChemFilledSpaceCleaner
-      weight: 0.5
-    - id: BarrelChemFilledSoapReagent
-    - id: BarrelChemFilledSpaceGlue
-      weight: 0.5
-    - id: BarrelChemFilledLube
-      weight: 0.5
+    - id: OrganPlanarianEarthworm
+      weight: 0.2
+    - id: OrganPlanarianPinworm
+      weight: 0.2
+    - id: OrganPlanarianWormwood
+      weight: 0.4
+    - id: WeaponPlanarianTapeworm
+      weight: 0.3

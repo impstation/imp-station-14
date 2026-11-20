@@ -28,6 +28,7 @@ planarian-stat-type-mediumlow-12 = [bold]Fish Caught[/bold]
 planarian-stat-type-mediumlow-13 = [bold]Age Peaked[/bold]
 planarian-stat-type-mediumlow-14 = [bold]Can Be Thrown This Far (In Meters)[/bold]
 planarian-stat-type-mediumlow-15 = [bold]Times Hugged[/bold]
+planarian-stat-type-mediumlow-16 = [bold]Longest Sausage Eaten (In Centimeters)[/bold]
 
 planarian-stat-type-medium-1 = [bold]Bugs Trodden On[/bold]
 planarian-stat-type-medium-2 = [bold]Songs Memorized By Heart[/bold]
@@ -87,6 +88,7 @@ planarian-stat-type-chaos-9 = [bold]Killers Coming To Get You[/bold]
 planarian-stat-type-chaos-10 = [bold]Money Lost On Space Horse Races[/bold]
 planarian-stat-type-chaos-11 = [bold]Smiles Per Second[/bold]
 planarian-stat-type-chaos-12 = [bold]Amount Of Combatants In War Of Puppies And Kitties[/bold]
+planarian-stat-type-chaos-13 = [bold]Secret Number (Useful In Next Life)[/bold]
 
 planarian-stat-number-lowest-1 = 0
 planarian-stat-number-lowest-2 = 1
