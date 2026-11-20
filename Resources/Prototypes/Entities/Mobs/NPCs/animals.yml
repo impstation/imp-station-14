@@ -3333,7 +3333,7 @@
 
 - type: entity
   abstract: true
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [ DogBody, SimpleMobBase, StripableInventoryBase] # imp - dog oil metabolism
   id: MobCorgiBase
   name: corgi
   description: Finally, a space corgi!
