@@ -222,3 +222,7 @@ ghost-role-information-space-snake-description = You are a snake who just woke u
 ghost-role-information-space-snake-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with all other space snakes.
 
                                             You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-planarian-split-name = Planarian Split
+ghost-role-information-planarian-split-description = The other half of a split planarian. Regenerate into your own person!
+ghost-role-information-planarian-split-rules = You are an individual now. Whether you help your other half (or halves) or make them your enemy is your own choice.

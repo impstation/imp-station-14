@@ -144,16 +144,16 @@
       Head: OrganPlanarianHead
       HandRight: OrganPlanarianHandRight
       HandLeft: OrganPlanarianHandLeft
-      Brain: OrganHumanBrain
+      FootLeft: OrganPlanarianFootLeft
+      Brain: OrganPlanarianBrainSplitting #brain worm
       Eyes: OrganPlanarianEyes
-      Tongue: OrganHumanTongue
-      Appendix: OrganHumanAppendix
-      Ears: OrganHumanEars
-      Lungs: OrganHumanLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
-      Kidneys: OrganHumanKidneys
+      Tongue: WeaponPlanarianTapeworm #tape worm
+      Appendix: OrganPlanarianAppendix #book worm (books have appendices)
+      Lungs: OrganPlanarianLungsSplitting #lung worm
+      Heart: OrganPlanarianHeart #heart worm
+      Stomach: OrganPlanarianStomach #stomach bug
+      Liver: OrganPlanarianLiver #meal worm
+      Kidneys: OrganPlanarianKidneys #turned worm
   - type: HumanoidProfile
     species: Planarian
 
@@ -187,7 +187,6 @@
       Brute:
         sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi
         color: "#e0f715"
-  - type: TransferMindOnGib #transfer mind to other half when cut in two
   - type: Destructible
     thresholds:
     - trigger:
@@ -195,6 +194,20 @@
         damage: 80 #they split on crit
       behaviors:
       - !type:GibBehavior
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: "XenoMeteorSpawnAsteroidWallTable"
+        spawnOffset: 0.3
+        minSpawn: 0
+        maxSpawn: 3
+        spawnAfter: 0
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MobPlanarianBloodworm:
+            min: 0
+            max: 20 #theres a lot of blood inside of things
+          FoodGummyWorm:
+            min: 0
+            max: 1
   - type: Vocal
     sounds:
       Male: UnisexPlanarian
@@ -204,27 +217,35 @@
     soundsId: GeneralBodyEmotes
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
-    normalState: Monkey_burning
-  - type: Tag
-    tags:
-    - VimPilot
-    - DoorBumpOpener
-    - AnomalyHost
-    - CanPilot
+    normalState: Generic_mob_burning
+    alternateState: Monkey_burning
   - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
+    fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.35
         # they r smaller #they r smaller (2) #they r smaller (3) #they r smaller (4)
-        density: 100 #imp edit, dwarves need to be heavy like rock
+        density: 50 #theyre woims
         restitution: 0.0
         mask:
         - MobMask
         layer:
         - MobLayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSnake
+    params:
+      pitch: 2 #theyre smaller
+      volume: -12 #should be quieter to be a little less annoying
   - type: NoSlip #theyre worms
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+    - FootstepSound
+    - Planarian
 
 - type: entity
   parent: OrganBase
@@ -237,7 +258,7 @@
   abstract: true
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Planarian ] #they can eat anything
+    metabolizerTypes: [ Planarian ]
 
 - type: entity
   parent: OrganPlanarian
@@ -245,7 +266,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
 
 - type: entity
   id: OrganPlanarianVisual
@@ -267,20 +288,12 @@
     sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi #imp edit, waiting on proper macro merge to migrate files
 
 - type: entity
-  parent: [ OrganPlanarianVisual, OrganBaseEyes, OrganPlanarianInternal ]
-  id: OrganPlanarianEyes
-
-- type: entity
   parent: [ OrganBaseTorso, OrganPlanarianExternal ]
   id: OrganPlanarianTorso
 
 - type: entity
   parent: [ OrganBaseHead, OrganPlanarianExternal ]
   id: OrganPlanarianHead
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.HeadTop
 
 - type: entity
   parent: [ OrganBaseHandLeft, OrganPlanarianExternal ]
@@ -291,5 +304,231 @@
   id: OrganPlanarianHandRight
 
 - type: entity
+  parent: [ OrganBaseFootLeft, OrganPlanarianExternal ] #they need this for the foot sound to work
+  id: OrganPlanarianFootLeft
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganPlanarianInternal ]
+  id: OrganPlanarianBrain
+  name: brain worm
+  description: Research indicates Planarian brain worms are some of the most complex brains found in the various sentient species in Nanotrasen space, capable of managing an entire body of independent organ worms.
+  suffix: Planarian, Brain
+
+- type: entity
+  parent: [ OrganPlanarianVisual, OrganBaseEyes, OrganPlanarianInternal ]
+  id: OrganPlanarianEyes
+  name: planarian eyes
+  description: Planarian eyes have the ability to move independently of each other, and in some cases can even form lifelong feuds, refusing to ever look in the same spot as the other eye.
+
+- type: entity
+  parent: [ OrganBaseEars, OrganPlanarianInternal ]
+  id: OrganPlanarianEars
+  name: ear worm
+  description: The rhythmic movements of ear worms allow Planarians to always maintain a steady beat. Planarian dancers are renowned for their improvisational abilities, and it's even rumored that Planarians were the first to invent "The Worm".
+  suffix: Planarian, Ears
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganPlanarianInternal]
+  id: OrganPlanarianAppendix
+  name: book worm
+  description: The book worm is the record keeper of the Planarian body, and it diligently tracks vital statistics such as distance travelled, memories made, time spent alive, and total money lost in horse bets.
+  suffix: Planarian, Appendix
+  components:
+  - type: Paper
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperRandomStory
+    template: PlanarianStats #i am crazy
+
+- type: entity
   parent: [ OrganBaseLungs, OrganPlanarianInternal, OrganPlanarianMetabolizer ]
   id: OrganPlanarianLungs
+  name: lung worm
+  description: The lung worm converts oxygen into blood worms, and is the largest organ in the Planarian body.
+  suffix: Planarian, Lungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganPlanarianInternal, OrganAnimalMetabolizer ]
+  id: OrganPlanarianHeart
+  name: heart worm
+  description: The heart worm could be considered the hardest worker in the Planarian body, dutifully delivering individual blood worms to every other organ.
+  suffix: Planarian, Heart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganPlanarianInternal, OrganPlanarianMetabolizer ]
+  id: OrganPlanarianStomach
+  name: stomach bug
+  description: The mutualistic relationship between Planarians and stomach bugs is a topic clouded in much mystery. Scientists generally agree that the stomach bug converts food into nutrients for the Planarian, but what it gets in return has yet to be discovered.
+  suffix: Planarian, Stomach
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganPlanarianInternal, OrganAnimalMetabolizer ]
+  id: OrganPlanarianLiver
+  name: meal worm
+  description: The meal worm filters toxins and ensures the Planarian body's organs always get a nice hearty meal. Maybe it'll be a nice hearty meal for you, too.
+  suffix: Planarian, Liver
+  components:
+  - type: Edible
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 13
+  - type: FlavorProfile #its some kind of omelette taco thing
+    flavors:
+      - meaty
+      - cheesy
+      - tomato
+      - egg
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganPlanarianInternal, OrganPlanarianMetabolizer ]
+  id: OrganPlanarianKidneys
+  name: turned worm
+  suffix: Planarian, Kidneys
+  description: It finally happened.
+
+# SPLITTING ORGANS
+
+- type: entity
+  parent: OrganPlanarianBrain
+  suffix: "Planarian, Splitting"
+  id: OrganPlanarianBrainSplitting
+  components:
+  - type: Nymph
+    transferMind: true
+    entityPrototype: MobPlanarianSplitMain
+
+- type: entity
+  parent: OrganPlanarianLungs
+  suffix: "Planarian, Splitting"
+  id: OrganPlanarianLungsSplitting
+  components:
+  - type: Nymph
+    entityPrototype: MobPlanarianSplit
+
+# RANDOM ORGANS
+
+- type: entity
+  parent: OrganPlanarianInternal
+  id: OrganPlanarianEarthworm
+  name: earth worm
+  description: The earth worm is the Planarian organ that allows it to navigate its surroundings and balance itself. Looks familiar, somehow...
+  components:
+  - type: StationMap #globe helps you navigate
+  - type: UserInterface
+    interfaces:
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.StationMapUiKey.Key
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+    state: earthworm
+  - type: Item
+    size: Small
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
+    inhandVisuals:
+      left:
+      - state: earthworm-inhand-left
+      right:
+      - state: earthworm-inhand-right
+
+- type: entity
+  parent: OrganPlanarianInternal
+  id: OrganPlanarianPinworm
+  name: pin worm
+  description: While conventional wisdom suggests Planarians are invertebrates, the pin worm's bone-like structure raises questions about this assumption.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+    state: pinworm
+  - type: Item
+    size: Small
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
+    inhandVisuals:
+      left:
+      - state: pinworm-inhand-left
+      right:
+      - state: pinworm-inhand-right
+  - type: MeleeWeapon
+    wideAnimationRotation: -100
+    damage:
+      types:
+        Piercing: 5
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+    removalTime: 1.5
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Piercing: 10
+  - type: ThrowingAngle
+    angle: -100
+
+- type: entity
+  parent: OrganPlanarianInternal
+  id: OrganPlanarianWormwood
+  name: worm wood
+  description: Historically poached for its unique chemical properties, this woody growth seems to provide structure to the Planarian's internals, but its rarity among Planarians makes it unclear if this is truly an evolved organ or instead a symbiotic organism.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+    state: wormwood
+  - type: Item
+    size: Small
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
+    inhandVisuals:
+      left:
+      - state: wormwood-inhand-left
+      right:
+      - state: wormwood-inhand-right
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Voice/Diona/diona_salute.ogg
+ # - type: SolutionContainerManager #PLANARIAN TODO: wormwood tea? mugwort? medicine? injectable on hit?
+
+- type: entityTable
+  id: RandomPlanarianOrganEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: BarrelChemFilledBleach
+      weight: 0.25
+    - id: BarrelChemFilledSpaceCleaner
+      weight: 0.5
+    - id: BarrelChemFilledSoapReagent
+    - id: BarrelChemFilledSpaceGlue
+      weight: 0.5
+    - id: BarrelChemFilledLube
+      weight: 0.5

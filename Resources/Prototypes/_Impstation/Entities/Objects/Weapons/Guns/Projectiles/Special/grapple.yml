@@ -71,3 +71,21 @@
       sprite: _Impstation/Objects/Weapons/Guns/Launchers/xenoborg_grappling_gun.rsi
       layers:
         - state: hook
+
+- type: entity
+  parent: GrapplingHook
+  id: GrapplingHookTapeworm
+  name: tapeworm head
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EmbeddableProjectile
+      deleteOnRemove: true
+      sound:
+        path: /Audio/Voice/Slime/slime_squish.ogg
+        params:
+          volume: 4
+    - type: Sprite
+      noRot: false
+      sprite: _Impstation/Objects/Weapons/Guns/Launchers/tapeworm.rsi
+      layers:
+        - state: hook

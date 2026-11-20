@@ -1,0 +1,90 @@
+- type: entity
+  name: bloodworm
+  parent: [ BaseMobBloodwormBody, SimpleMobBase ]
+  id: MobPlanarianBloodworm
+  description: The bloodworm is one of the basic building blocks of the Planarian circulatory system. Diligently delivered by the Heartworm, these little guys provide oxygen for the Planarian body. Unfortunately, they're not fit for life outside the Planarian body, and quickly pass away when separated from their host. This one is about to die.
+  components:
+    - type: VentCrawler
+      enterDelay: 1
+    - type: Item
+      size: Tiny
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Impstation/Mobs/Animals/planarian_worm_mobs.rsi
+      state: bloodworm
+    - type: NpcFactionMember
+      factions:
+        - Passive
+    - type: InputMover
+    - type: MobMover
+    - type: NPCImprintingOnSpawnBehaviour #lets be blood with mama
+      spawnFriendsSearchRadius: 3
+      whitelist:
+        tags:
+        - Planarian
+    - type: HTN
+      rootTask:
+        task: KisserTomatoCompound
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.15
+          density: 10 #blood is really light i carry it all the time
+          mask:
+          - MobMask
+          layer:
+          - MobLayer
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        5: Dead
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 5
+        behaviors:
+        - !type:GibBehavior
+          recursive: false
+        - !type:PlaySoundBehavior
+          sound:
+            collection: desecration
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Dead
+    - type: EmitSoundOnTrigger
+      sound:
+        collection: desecration
+        params:
+          variation: 0.125
+    - type: MeleeWeapon
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcPunch
+      damage:
+        types:
+          Blunt: 1
+    - type: Speech
+      speechSounds: Planarian
+      speechVerb: Planarian
+      allowedEmotes: ['Squeak', 'GoblinMutter']
+    - type: Vocal
+      sounds:
+        Male: UnisexBloodworm
+        Female: UnisexBloodworm
+        Unsexed: UnisexBloodworm
+      wilhelmProbability: 0.001
+    - type: Bloodstream
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Blood #planarians have planarian blood, but the bloodworms in their body have blood blood
+          Quantity: 5
+    - type: NoSlip
+    - type: ZombieImmune
+    - type: Edible
+    - type: NPCRetaliation
+    - type: CanEscapeInventory
+      baseResistTime: 2
+    - type: AlwaysRevolutionaryConvertible #imp

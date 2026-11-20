@@ -116,3 +116,27 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: true
+
+- type: entity
+  parent: [ BaseItem, BaseToyGun ]
+  id: WeaponPlanarianTapeworm
+  name: tape worm
+  description: The tape worm is the organ responsible for regulating measurements and lengths within the Planarian body. Also a fun and effective grappling hook!
+  components:
+  - type: GrapplingGun
+    cycleSound: /Audio/Voice/Slime/slime_squish.ogg
+    ropeSprite:
+      sprite: _Impstation/Objects/Weapons/Guns/Launchers/tapeworm.rsi
+      state: rope
+  - type: Gun
+    soundGunshot: /Audio/Misc/stickystretch.ogg
+    fireRate: 0.5
+    soundEmpty: /Audio/Misc/boing.ogg
+  - type: BasicEntityAmmoProvider
+    proto: GrapplingHookTapeworm
+    capacity: 1
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/tapeworm.rsi
+    state: base
+  - type: UseDelay
+    delay: 1.5

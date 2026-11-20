@@ -1,0 +1,55 @@
+# Eyes
+
+- type: marking
+  id: PlanarianEyesDefault
+  bodyPart: Eyes
+  forcedColoring: true
+  groupWhitelist: [Planarian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
+  sprites:
+  - sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi
+    state: eyes
+
+- type: marking
+  id: PlanarianEyesTiny
+  bodyPart: Eyes
+  forcedColoring: true
+  groupWhitelist: [Planarian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Planarians/eyes.rsi
+    state: alt_eyes
+
+# Head
+
+- type: marking
+  id: PlanarianStripes
+  bodyPart: Overlay
+  groupWhitelist: [Planarian]
+  coloring:
+    default:
+      type:
+        !type:HueShiftedColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Planarians/overlay.rsi
+    state: planarian_stripes
+
+- type: marking
+  id: PlanarianStripeVertical
+  bodyPart: Overlay
+  groupWhitelist: [Planarian]
+  coloring:
+    default:
+      type:
+        !type:HueShiftedColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Planarians/overlay.rsi
+    state: planarian_stripe_vertical

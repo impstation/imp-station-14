@@ -34,5 +34,5 @@ reagent-desc-bloodallulalo = An ancient alkylate form of blood. Known to rapidly
 reagent-name-dried-zombie-blood = dried zombie blood
 reagent-desc-dried-zombie-blood = Would not advise eating. Useless for creating an inoculation against the infection.
 
-reagent-name-planarian = planarian goop
-reagent-desc-planarian = A gross sticky glop that falls out of planarians when you cut them apart. It gets everywhere.
+reagent-name-planarian-blood = planarian goop
+reagent-desc-planarian-blood = A gross sticky glop that falls out of planarians when you cut them apart. It gets everywhere.

@@ -1,0 +1,32 @@
+- type: entity
+  name: planarian split (original mind)
+  parent: MobPlanarian
+  id: MobPlanarianSplitMain
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+    - FootstepSound
+    - MindTransferTarget
+
+- type: entity
+  name: planarian split
+  parent: MobPlanarian
+  id: MobPlanarianSplit
+  components:
+  - type: GhostRole
+    name: ghost-role-information-planarian-split-name
+    description: ghost-role-information-planarian-split-description
+    rules: ghost-role-information-planarian-split-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: RandomHumanoidAppearance
+    randomizeName: false

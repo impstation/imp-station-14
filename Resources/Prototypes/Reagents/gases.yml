@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Anomalocarid, Gray ] #imp, added apid, thaven, anomalocarid, gray TODO: thaven should have their own waste reaction for all gases
+          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Anomalocarid, Gray, Planarian ] #imp, added apid, thaven, anomalocarid, gray, planarian TODO: thaven should have their own waste reaction for all gases
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -29,7 +29,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Vox ]
+          type: [ Vox, Planarian ] #imp edit, add bloodworm
         ignoreResistances: true
         damage:
           types:
@@ -47,7 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Apid, Thaven, Dinosaur, Anomalocarid, Gray, Goblin ] #imp, added types after Moth
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Apid, Thaven, Dinosaur, Anomalocarid, Gray, Goblin, Planarian ] #imp, added types after Moth
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -73,6 +73,15 @@
             type: [ Vox ]
         clear: true
         time: 5
+      #imp edit below
+      - !type:Emote
+        emote: Scream
+        showInChat: true
+        force: true
+        probability: 50
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodworm ]
 
 - type: reagent
   id: Plasma

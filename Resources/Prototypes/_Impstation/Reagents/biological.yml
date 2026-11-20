@@ -277,8 +277,12 @@
   name: reagent-name-planarian-blood
   group: Biological
   desc: reagent-desc-planarian-blood
-  viscosity: 0.10
+  tileReactions:
+  - !type:SpillTileReaction
+  viscosity: 0.7 #its chunky
   flavor: yucky #its yucky
   color: "#e0f715"
   recognizable: true
   physicalDesc: reagent-physical-desc-sticky #its stucky
+  footstepSound:
+    collection: FootstepSlime

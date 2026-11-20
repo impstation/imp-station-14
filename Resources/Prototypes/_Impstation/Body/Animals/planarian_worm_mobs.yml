@@ -1,0 +1,49 @@
+- type: entity
+  id: OrganBloodwormMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Bloodworm ]
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganBloodwormInternal
+  abstract: true
+  components:
+  - type: StaticPrice
+    price: 50
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  parent: [ OrganBloodwormInternal ]
+  id: OrganBloodwormLungs
+  name: bloodworm lungs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Organ #i have to put all these here because i dont want this to fall out when they gib
+    category: Lungs
+  - type: Lung
+  - type: Metabolizer
+    metabolizerTypes: [ Bloodworm ]
+    stages: [ Respiration ]
+
+- type: entity
+  id: BaseMobBloodwormBody
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganAnimalHeart
+        - id: OrganAnimalStomach
+        - id: OrganAnimalLiver
+        - id: OrganAnimalKidneys
+        - id: OrganBloodwormLungs #they dont need that other crap they die instantly anyway
