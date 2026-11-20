@@ -142,6 +142,27 @@
     state: radiumglowcheeks
   shader: unshaded
 
+- type: marking
+  id: GrayFatHead
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [ Gray ]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gray/headside.rsi
+    state: fathead
+
+- type: marking
+  id: GrayFatterHead
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [ Gray ]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Gray/headside.rsi
+    state: fatterhead
 # Snout
 
 # Eyes
