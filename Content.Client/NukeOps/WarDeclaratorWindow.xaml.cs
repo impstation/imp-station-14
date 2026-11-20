@@ -76,6 +76,13 @@ public sealed partial class WarDeclaratorWindow : FancyWindow
                 InfoLabel.Text = Loc.GetString("war-declarator-conditions-left-outpost");
                 StatusLabel.SetOnlyStyleClass(StyleClass.Negative);
                 break;
+            // imp start
+            case WarConditionStatus.NoWarAssaultPodPurchased:
+                StatusLabel.Text = Loc.GetString("war-declarator-boost-impossible");
+                InfoLabel.Text = Loc.GetString("war-declarator-conditions-assault-pod-purchased");
+                StatusLabel.SetOnlyStyleClass(StyleClass.Negative);
+                break;
+            // imp end
             case WarConditionStatus.NoWarTimeout:
                 StatusLabel.Text = Loc.GetString("war-declarator-boost-impossible");
                 InfoLabel.Text = Loc.GetString("war-declarator-conditions-time-out");

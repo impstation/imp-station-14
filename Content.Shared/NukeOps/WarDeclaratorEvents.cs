@@ -15,7 +15,8 @@ public enum WarConditionStatus : byte
     NoWarUnknown,
     NoWarTimeout,
     NoWarSmallCrew,
-    NoWarShuttleDeparted
+    NoWarShuttleDeparted,
+    NoWarAssaultPodPurchased // imp
 }
 
 [Serializable, NetSerializable]
