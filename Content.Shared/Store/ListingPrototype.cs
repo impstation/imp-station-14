@@ -46,6 +46,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.ProductHereticKnowledge, // imp add
         other.FlavorText, // Imp
         other.DisableRefund,
+        other.GlobalListing, // imp
         other.ApplyToMob
     )
     {
@@ -75,6 +76,7 @@ public partial class ListingData : IEquatable<ListingData>
         ProtoId<HereticKnowledgePrototype>? productHereticKnowledge, // imp
         string? flavorText, // imp
         bool disableRefund,
+        bool globalListing, // imp
         bool applyToMob
     )
     {
@@ -100,6 +102,7 @@ public partial class ListingData : IEquatable<ListingData>
         ProductHereticKnowledge = productHereticKnowledge; // imp
         FlavorText = flavorText; // Imp
         DisableRefund = disableRefund;
+        GlobalListing = globalListing; // imp
         ApplyToMob = applyToMob;
     }
 
@@ -246,6 +249,13 @@ public partial class ListingData : IEquatable<ListingData>
     public bool DisableRefund = false;
 
     /// <summary>
+    /// Imp.
+    /// If listing should increase the purchase amount of all of the same listings.
+    /// </summary>
+    [DataField]
+    public bool GlobalListing;
+
+    /// <summary>
     /// Whether or not to apply the store listing to the player mob rather than the player mind.
     /// </summary>
     [DataField]
@@ -265,6 +275,7 @@ public partial class ListingData : IEquatable<ListingData>
             ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
             RestockTime != listing.RestockTime ||
             DisableRefund != listing.DisableRefund ||
+            GlobalListing != listing.GlobalListing || // imp
             ApplyToMob != listing.ApplyToMob)
             return false;
 
@@ -370,6 +381,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.ProductHereticKnowledge, // imp
             listingData.FlavorText, // Imp
             listingData.DisableRefund,
+            listingData.GlobalListing, // imp
             listingData.ApplyToMob
         )
     {
