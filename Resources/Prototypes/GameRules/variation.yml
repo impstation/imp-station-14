@@ -46,8 +46,8 @@
     tilesPerEntityStdDev: 4
     entities:
     - id: RandomSpawner
-    componentBlacklist: # imp
-    - type: Supermatter
+    tagsBlacklist: # imp
+    - EntitySpawnVariationBlocker
 
 - type: entity
   id: BasicDecalDirtVariationPass
@@ -58,6 +58,8 @@
     tilesPerEntityStdDev: 5
     entities:
     - id: DecalSpawnerDirtWide
+    tagsBlacklist: # imp
+    - EntitySpawnVariationBlocker
 
 - type: entity
   id: BasicDecalGraffitiVariationPass
@@ -68,6 +70,8 @@
     tilesPerEntityStdDev: 5
     entities:
     - id: DecalSpawnerGraffiti
+    tagsBlacklist: # imp
+    - EntitySpawnVariationBlocker
 
 - type: entity
   id: BasicDecalBurnsVariationPass
@@ -78,6 +82,8 @@
     tilesPerEntityStdDev: 10
     entities:
     - id: DecalSpawnerBurns
+    tagsBlacklist: # imp
+    - EntitySpawnVariationBlocker
 
 - type: entity
   id: BasicDecalDirtMonospaceVariationPass
@@ -88,6 +94,8 @@
     tilesPerEntityStdDev: 10
     entities:
     - id: DecalSpawnerDirtMonospace
+    tagsBlacklist: # imp
+    - EntitySpawnVariationBlocker
 
 - type: weightedRandomFillSolution
   id: RandomFillTrashPuddle
