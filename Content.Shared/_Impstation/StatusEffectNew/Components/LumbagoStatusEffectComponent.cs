@@ -13,7 +13,7 @@ public sealed partial class LumbagoStatusEffectComponent : Component
     /// <summary>
     /// Time to the next reminder.
     /// </summary>
-    [AutoNetworkedField, AutoPausedField]
+    [AutoNetworkedField, AutoPausedField, ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan LumbagoReminderDelay;
 
     /// <summary>
@@ -25,7 +25,7 @@ public sealed partial class LumbagoStatusEffectComponent : Component
     /// <summary>
     /// Time to the next flare up.
     /// </summary>
-    [AutoNetworkedField, AutoPausedField]
+    [AutoNetworkedField, AutoPausedField, ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan LumbagFlareUpDelay;
 
     /// <summary>
