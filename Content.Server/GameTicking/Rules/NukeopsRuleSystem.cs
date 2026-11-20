@@ -28,6 +28,7 @@ using System.Linq;
 using Content.Shared.Station.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared._Impstation.Shuttles.Events; // imp
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.Mind; //imp addition
 
@@ -64,6 +65,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         SubscribeLocalEvent<ConsoleFTLAttemptEvent>(OnShuttleFTLAttempt);
         SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
+        SubscribeLocalEvent<AssaultPodPurchasedEvent>(OnAssaultPodPurchased); // imp
         SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnShuttleCallAttempt);
 
         SubscribeLocalEvent<NukeopsRuleComponent, AfterAntagEntitySelectedEvent>(OnAfterAntagEntSelected);
@@ -485,6 +487,14 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         }
     }
 
+    // imp start
+    private void OnAssaultPodPurchased(AssaultPodPurchasedEvent args)
+    {
+        foreach (var rule in GameTicker.GetActiveGameRules<NukeopsRuleComponent>())
+            rule.Comp.AssaultPodPurchased = true;
+    }
+    // imp end
+
     #endregion Event Handlers
 
     /// <summary>
@@ -500,6 +510,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         if (nukieRule.LeftOutpost)
             return WarConditionStatus.NoWarShuttleDeparted;
+
+        if (nukieRule.AssaultPodPurchased) // imp
+            return WarConditionStatus.NoWarAssaultPodPurchased;
 
         if (oldStatus == WarConditionStatus.YesWar)
             return WarConditionStatus.WarReady;

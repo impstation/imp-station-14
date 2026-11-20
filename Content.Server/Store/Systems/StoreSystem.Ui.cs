@@ -324,9 +324,21 @@ public sealed partial class StoreSystem
             //finally, add it to the list of purchases
             purchaserComp?.Purchases.Add((productIdentifier, listing.Cost));
         }
-        //imp edit end
 
-        listing.PurchaseAmount++; //track how many times something has been purchased
+        if (listing.GlobalListing)
+        {
+            var query = EntityQueryEnumerator<StoreComponent>();
+            while (query.MoveNext(out var store))
+            {
+                var externalListing = store.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
+                if (externalListing is not { } extListing)
+                    continue;
+
+                extListing.PurchaseAmount++;
+            }
+        }
+        else //imp edit end
+            listing.PurchaseAmount++; //track how many times something has been purchased
         _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid); //cha-ching!
 
         var buyFinished = new StoreBuyFinishedEvent

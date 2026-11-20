@@ -48,6 +48,13 @@ public sealed partial class NukeopsRuleComponent : Component
     public bool LeftOutpost;
 
     /// <summary>
+    /// Imp.
+    /// Whether or not an assault pod had been purchased
+    /// </summary>
+    [DataField]
+    public bool AssaultPodPurchased;
+
+    /// <summary>
     ///     Enables opportunity to get extra TC for war declaration
     /// </summary>
     [DataField]
