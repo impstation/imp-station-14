@@ -69,9 +69,4 @@ public sealed partial class LumbagoStatusEffectComponent : Component
     /// </summary>
     [DataField]
     public List<LocId> BadPainReminders = new();
-
-    /// <summary>
-    /// The target entity of the status effect.
-    /// </summary>
-    public EntityUid Affected;
 }
