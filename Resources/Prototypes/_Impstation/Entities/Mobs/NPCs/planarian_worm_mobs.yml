@@ -24,7 +24,7 @@
         - Planarian
     - type: HTN
       rootTask:
-        task: KisserTomatoCompound
+        task: KisserTomatoCompound #follows but doesnt attack
     - type: Fixtures
       fixtures:
         fix1:
@@ -59,6 +59,7 @@
         collection: desecration
         params:
           variation: 0.125
+          volume: -16 #a lot of these will play at once
     - type: MeleeWeapon
       altDisarm: false
       angle: 0
@@ -80,7 +81,7 @@
       bloodReferenceSolution:
         reagents:
         - ReagentId: Blood #planarians have planarian blood, but the bloodworms in their body have blood blood
-          Quantity: 5
+          Quantity: 1
     - type: NoSlip
     - type: ZombieImmune
     - type: Edible

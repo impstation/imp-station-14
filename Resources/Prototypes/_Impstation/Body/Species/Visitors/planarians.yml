@@ -197,14 +197,20 @@
         weightedEntityTable: "RandomPlanarianOrganEntityTable" #some of their organs are silly and shouldnt always drop. surprises are fun!
         spawnOffset: 0.3
         minSpawn: 0
-        maxSpawn: 3
-        spawnAfter: 0
+        maxSpawn: 1
+        spawnAfter: 0.3
       - !type:SpawnEntitiesBehavior
         spawn:
           MobPlanarianBloodworm:
             min: 0
             max: 20 #theres a lot of blood inside of things
           FoodGummyWorm:
+            min: 0
+            max: 1
+          OrganPlanarianWormwood:
+            min: 0
+            max: 1
+          OrganPlanarianPinworm:
             min: 0
             max: 1
   - type: Vocal
@@ -531,15 +537,8 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
  # - type: SolutionContainerManager #PLANARIAN TODO: wormwood tea? mugwort? medicine? injectable on hit?
 
-- type: entityTable
+- type: weightedRandomEntity
   id: RandomPlanarianOrganEntityTable
-  table: !type:GroupSelector
-    children:
-    - id: OrganPlanarianEarthworm
-      weight: 0.2
-    - id: OrganPlanarianPinworm
-      weight: 0.2
-    - id: OrganPlanarianWormwood
-      weight: 0.4
-    - id: WeaponPlanarianTapeworm
-      weight: 0.3
+  weights:
+    WeaponPlanarianTapeworm: 0.2 #i dont undertand weights
+    OrganPlanarianEarthworm: 0.1
