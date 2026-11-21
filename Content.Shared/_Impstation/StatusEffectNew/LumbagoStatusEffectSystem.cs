@@ -52,7 +52,8 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
     /// </summary>
     private void TryModifyMovementSpeed(Entity<LumbagoStatusEffectComponent> ent, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-       if (!HasComp<ActivePullerComponent>(ent.Comp.Affected))
+
+       if (!TryComp<StatusEffectComponent>(ent, out var comp) && !HasComp<ActivePullerComponent>(comp!.AppliedTo))
             return;
        args.Args.ModifySpeed(ent.Comp.PullWalkSpeedMod, ent.Comp.PullSprintSpeedMod);
     }
