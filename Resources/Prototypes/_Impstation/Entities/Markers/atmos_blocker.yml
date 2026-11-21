@@ -23,3 +23,29 @@
   components:
   - type: AtmosFixMarker
     mode: 10
+
+- type: entity
+  name: Atmos Fix Station TBN Marker
+  id: AtmosFixStationTBN
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Markers/atmos.rsi
+          state: base
+          shader: unshaded
+    - type: AtmosFixMarker
+      mode: 11
+
+- type: entity
+  name: Atmos Fix Toxic Pit Marker
+  id: AtmosFixToxicPit
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Markers/atmos.rsi
+          state: base
+          shader: unshaded
+    - type: AtmosFixMarker
+      mode: 12

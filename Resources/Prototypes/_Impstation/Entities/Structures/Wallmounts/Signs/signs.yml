@@ -112,3 +112,14 @@
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/signs.rsi
     state: anch
+
+- type: entity
+  parent: BaseSign
+  id: SignYesSmoking
+  name: yes smoking sign
+  description: But watch out.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/signs.rsi
+    state: yessmoking
+

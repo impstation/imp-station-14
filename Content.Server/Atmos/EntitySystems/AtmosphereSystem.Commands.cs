@@ -68,7 +68,7 @@ public sealed partial class AtmosphereSystem
     /// <remarks>Please be responsible with this method. Used only by tests and fixgridatmos.</remarks>
     public void RebuildGridAtmosphere(Entity<GridAtmosphereComponent, MapGridComponent> ent)
     {
-        var mixtures = new GasMixture[11]; // imp 9 -> 11 (lol 9/11)
+        var mixtures = new GasMixture[12]; // imp 9 -> 12
         for (var i = 0; i < mixtures.Length; i++)
         {
             mixtures[i] = new GasMixture(Atmospherics.CellVolume) { Temperature = Atmospherics.T20C };
@@ -115,6 +115,16 @@ public sealed partial class AtmosphereSystem
        // 10: Water Vapor (101kpa) for decapoid rooms
        mixtures[10].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellStandard);
 
+       // 11: Wolfie's special mix for map TBN
+       mixtures[11].AdjustMoles(Gas.Oxygen, Atmospherics.OxygenMolesStandard);
+       mixtures[11].AdjustMoles(Gas.Nitrogen, Atmospherics.NitrogenMolesStandard);
+       mixtures[11].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellStandard);
+       mixtures[11].Temperature = Atmospherics.FreezerTemp;
+
+        // 12: Toxic evil hell mix for map TBN
+        mixtures[12].AdjustMoles(Gas.Plasma, Atmospherics.MolesCellStandard);
+        mixtures[12].AdjustMoles(Gas.Ammonia, Atmospherics.MolesCellStandard);
+        mixtures[12].Temperature = Atmospherics.FreezerTemp;
 
         // Force Invalidate & update air on all tiles
         Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> grid =
