@@ -1,4 +1,5 @@
 using Content.Shared._Impstation.StatusEffectNew.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
@@ -21,6 +22,8 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private readonly TimeSpan _lumbagoUpdateInterval= TimeSpan.FromSeconds(1);
     private TimeSpan _lumbagoUpdateTimer = TimeSpan.Zero;
@@ -37,13 +40,10 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
 
     private void StatusEffectApplied(Entity<LumbagoStatusEffectComponent> ent, ref MapInitEvent args)
     {
-        //TODO: Replace with random predicted when we get that.
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
-        var rand = new System.Random(seed);
         ent.Comp.LumbagFlareUpDelay=_timing.CurTime + // we're setting the timers here so doing it like this is okay
-                                    TimeSpan.FromSeconds(ent.Comp.LumbagoFlareUpDelayMinMax.Next(rand));
+                                    TimeSpan.FromSeconds(ent.Comp.LumbagoFlareUpDelayMinMax.Next(_random));
         ent.Comp.LumbagoReminderDelay=_timing.CurTime +
-                                      TimeSpan.FromSeconds(ent.Comp.LumbagoReminderDelayMinMax.Next(rand));
+                                      TimeSpan.FromSeconds(ent.Comp.LumbagoReminderDelayMinMax.Next(_random));
         Dirty(ent);
     }
 
@@ -91,7 +91,13 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
 
             if (_timing.CurTime < lumbagoComp.LumbagoReminderDelay)
                 return;
-
+            // if dead or crit, set timer but do not send message so that we don't get delayed.
+            if (_mobState.IsDead(statusOwner) || _mobState.IsCritical(statusOwner))
+            {
+                lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Next(rand));
+                Dirty(lumbagoEnt,lumbagoComp);
+                return;
+            }
             //Send a reminder to the player when the timer runs out and there is a flair up occuring.
             if (_statusEffects.HasStatusEffect(statusOwner, _flareUpStatusEffect))
             {
