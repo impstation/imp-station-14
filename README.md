@@ -83,6 +83,7 @@ Content under these subdirectories either originate from their respective fork, 
 | `_EstacaoPirata` | Estacao Pirata      | https://github.com/Day-OS/estacao-pirata-14/            | AGPL 3.0 |
 | `_Floof`         | Floof Station       | https://github.com/Floof-Station/Floof-Station          | AGPL 3.0 |
 | `_Funkystation`  | Funky Station       | https://github.com/funky-station/funky-station          | AGPL 3.0 |
+| `_Moff`          | Moff Station | https://github.com/moff-station/moff-station-14/| MIT |
 | `_Goobstation`   | Goob Station        | https://github.com/Goob-Station/Goob-Station/           | AGPL 3.0 |
 | `_NF`            | Frontier Station    | https://github.com/new-frontiers-14/frontier-station-14 | AGPL 3.0 |
 | `_Harmony`       | Harmony             | https://github.com/ss14-harmony/ss14-harmony            | AGPL 3.0 |
