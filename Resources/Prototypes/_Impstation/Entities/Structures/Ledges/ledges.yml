@@ -70,3 +70,48 @@
   - type: Tag
     tags:
       - SpreaderIgnore
+
+- type: entity
+  parent: MarkerBase
+  id: AtmosBlocker
+  name: atmos blocker
+  suffix: Invisible
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Tag
+    tags:
+      - SpreaderIgnore
+
+- type: entity
+  parent: [ MarkerBase, BaseStructure ]
+  id: BaseLedgeInvisible
+  name: ledge
+  suffix: Invisible
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: Ledge
+    InteractWhitelist:
+      components:
+      - MobState
+
+- type: entity
+  parent: BaseLedgeInvisible
+  id: BaseLedgeInvisibleAtmosBlocker
+  name: ledge
+  suffix: Invisible, Atmos blocker
+  components:
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Tag
+    tags:
+      - SpreaderIgnore
