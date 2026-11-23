@@ -17,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.Random;
 using Content.Server._Impstation.Weapons.Ranged; // imp
 using Content.Shared._Impstation.Weapons.Ranged.Events; // imp
 

@@ -8,8 +8,8 @@
       - state: red
       - sprite: _Impstation/Structures/Machines/arcade.rsi # imp edit
         state: icon
-  - type: RandomSpawner
-    prototypes:
-      - BlockGameArcade
-      - SpaceVillainArcadeFilled
-    chance: 1
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: BlockGameArcade
+      - id: SpaceVillainArcadeFilled
