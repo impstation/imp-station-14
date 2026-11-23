@@ -35,16 +35,23 @@
     layers:
     - state: green
     - state: ai
-  - type: RandomSpawner
-    prototypes:
-    - MobCat
-    - MobCatCalico
-    - MobCatCaracal
-    - MobCatKitten
-    rarePrototypes:
-    - MobCatSpace
-    - MobFinfin #imp edit
-    rareChance: 0.05
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      # imp add selector for finfin
+      - !type:GroupSelector
+        weight: 5
+        children:
+        - id: MobCatSpace
+        - id: MobFinfin
+      # imp end
+      - !type:GroupSelector
+        weight: 95
+        children:
+        - id: MobCat
+        - id: MobCatCalico
+        - id: MobCatCaracal
+        - id: MobCatKitten
 
 - type: entity
   parent: MarkerBase

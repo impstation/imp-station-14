@@ -9,7 +9,6 @@
         - sprite: _Impstation/Mobs/Animals/boar.rsi
           state: boar
         - state: timed
-    - type: Timer
     - type: ClusterSpawner
       prototypes:
         - MobBoar
@@ -28,7 +27,6 @@
         - sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
           state: icon
         - state: timed
-    - type: Timer
     - type: ClusterSpawner
       prototypes:
         - MobBros
