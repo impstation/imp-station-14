@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 11/21/2026 15:17:23
-  entityCount: 15521
+  time: 11/23/2026 14:46:13
+  entityCount: 15518
 maps:
 - 1
 grids:
@@ -2616,7 +2616,7 @@ entities:
             1: 51
             0: 132
           12,4:
-            0: 4368
+            0: 21776
           -4,9:
             0: 36863
           -5,9:
@@ -2781,7 +2781,7 @@ entities:
           -1,-9:
             0: 32776
           4,-9:
-            0: 54240
+            0: 57088
           5,-8:
             0: 786
           5,-7:
@@ -2789,7 +2789,7 @@ entities:
           5,-6:
             0: 4097
           5,-9:
-            0: 45840
+            0: 45824
           6,-8:
             0: 61441
           6,-7:
@@ -2797,15 +2797,17 @@ entities:
           6,-6:
             0: 36057
           6,-9:
-            0: 12544
+            0: 12680
           6,-5:
             0: 2252
           7,-8:
-            0: 61440
+            0: 61747
           7,-7:
             0: 28927
           7,-6:
             0: 65535
+          7,-9:
+            0: 6003
           8,-8:
             0: 12832
           8,-7:
@@ -2817,7 +2819,7 @@ entities:
           -8,-4:
             0: 3278
           -8,-3:
-            0: 46
+            0: 50350
           -8,-2:
             0: 3828
           -8,-5:
@@ -2825,7 +2827,7 @@ entities:
           -7,-4:
             0: 33791
           -7,-3:
-            0: 50377
+            0: 50383
           -7,-2:
             0: 1108
           -7,-5:
@@ -3094,7 +3096,7 @@ entities:
           3,-11:
             0: 1
           3,-10:
-            0: 49142
+            0: 14326
           4,-10:
             0: 52974
           4,-11:
@@ -3109,6 +3111,12 @@ entities:
             0: 29440
           6,-11:
             0: 119
+          6,-10:
+            0: 34834
+          7,-11:
+            0: 30240
+          7,-10:
+            0: 9008
           -2,-13:
             0: 8
           -1,-14:
@@ -3189,8 +3197,14 @@ entities:
             0: 4401
           16,-2:
             0: 57536
+          12,6:
+            0: 652
+          12,5:
+            0: 32768
           13,5:
-            0: 2188
+            0: 7324
+          13,6:
+            0: 1299
           14,5:
             0: 4881
         uniqueMixes:
@@ -4613,7 +4627,7 @@ entities:
       pos: 11.5,-39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4618.0527
+      secondsUntilStateChange: -4856.7876
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17073,18 +17087,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 46.5,-30.5
-      parent: 2
-  - uid: 3520
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 39.5,-27.5
-      parent: 2
-  - uid: 3521
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 41.5,-31.5
       parent: 2
   - uid: 6888
     components:
@@ -41746,20 +41748,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 23.5,6.5
       parent: 2
-- proto: CryogenicSleepUnitSpawner
+- proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
-  - uid: 5939
-    components:
-    - type: Transform
-      pos: -36.5,-3.5
-      parent: 2
-  - uid: 5941
+  - uid: 3520
     components:
     - type: Transform
       pos: -36.5,-4.5
       parent: 2
-- proto: CryogenicSleepUnitSpawnerLateJoin
-  entities:
+  - uid: 3521
+    components:
+    - type: Transform
+      pos: -36.5,-3.5
+      parent: 2
   - uid: 5940
     components:
     - type: Transform
@@ -78498,11 +78498,6 @@ entities:
     components:
     - type: Transform
       pos: -20.5,-34.5
-      parent: 2
-  - uid: 6155
-    components:
-    - type: Transform
-      pos: -24.5,-38.5
       parent: 2
   - uid: 6156
     components:
