@@ -222,14 +222,18 @@
   id: LockerFillChiefMedicalOfficerNoHardsuit
   table: !type:AllSelector
     children:
+    - id: ClothingBackpackDuffelSurgeryFilled # imp
     - id: ClothingEyesHudMedical
-    - id: ClothingBeltMedicalFilled
+    #- id: ClothingBeltMedicalFilled # imp
+    - id: ClothingHandsGlovesNitrile # imp
+    - id: ClothingMaskSterile # imp
     - id: HandheldCrewMonitor
     - id: Hypospray
+    - id: MedkitFilled # imp
     - id: MedTekCartridge
     - id: PersonalAILearnerMedical #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
-    - id: ClothingEyesHudMedChem #imp edit
+    - id: ClothingEyesHudMedChem #impspecial
     # Standard command gear
     - id: RubberStampCMO
     - id: ClothingHeadsetAltMedical

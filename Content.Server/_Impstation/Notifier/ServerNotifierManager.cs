@@ -38,8 +38,6 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
     {
         var userId = message.MsgChannel.UserId;
         var notifierSystem = _entityManager.System<NotifierSystem>();
-        if (!notifierSystem.TryGetNotifier(userId, out _))
-            return;
         message.Notifier.EnsureValid(_configManager, _prototypeManager);
         notifierSystem.SetPlayerNotifier(userId, message.Notifier);
         notifierSystem.TrySetServerNotifiers(userId, message.Notifier);

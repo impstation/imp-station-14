@@ -4,17 +4,31 @@
   id: LockerFillMedicine
   table: !type:AllSelector
     children:
-    - !type:NestedSelector
-      tableId: CoreMedicineReagentBottleTable
-      rolls: 2
-    - !type:GroupSelector # Basic topicals
-      rolls: 7
-      children:
-      - id: Brutepack
-      - id: Ointment
-      - id: Bloodpack
-      - id: Gauze
-        weight: 0.5
+ #imp edit start
+    #- !type:NestedSelector
+    #  tableId: CoreMedicineReagentBottleTable
+    #  rolls: 2
+    #- !type:GroupSelector # Basic topicals
+    #  rolls: 7
+    #  children:
+    #  - id: Brutepack
+    #  - id: Ointment
+    #  - id: Bloodpack
+    #  - id: Gauze
+    #    weight: 0.5
+    - id: BoxSyringe
+    - id: ChemistryBottleEpinephrine
+    - id: Brutepack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Ointment
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Bloodpack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Gauze
+  #imp edit end
 
 - type: entity
   parent: LockerMedicine
@@ -44,17 +58,41 @@
   table: !type:AllSelector
     children:
     - id: ClothingEyesHudMedical
-    - id: ClothingBeltMedicalFilled
+    #- id: ClothingBeltMedicalFilled # imp remove
     - id: JetInjector
     - id: HandheldHealthAnalyzer
-    - id: ChemistryBottleLaughter # Widely recognized as the best medicine :o)
-      prob: 0.01
+      prob: 0.6 # imp add, was guaranteed
+    #- id: ChemistryBottleLaughter # Widely recognized as the best medicine :o) # imp remove
+    #  prob: 0.01
     - id: PlushieLizardJobMedicaldoctor
       prob: 0.02
     - id: PlushieLizardJobMedicalintern
       prob: 0.02
     - id: PlushieLizardJobPsychologist
       prob: 0.02
+    #imp edit start
+    - id: ClothingHeadMirror
+      prob: 0.1
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatSurgcapGreen
+        weight: 0.1
+      - id: ClothingHeadHatSurgcapPurple
+        weight: 0.05
+      - id: ClothingHeadHatSurgcapBlue
+        weight: 0.90
+    - !type:GroupSelector
+      children:
+      - id: UniformScrubsColorBlue
+        weight: 0.5
+      - id: UniformScrubsColorGreen
+        weight: 0.1
+      - id: UniformScrubsColorPurple
+        weight: 0.05
+    - id: ClothingMaskSterile
+  #imp edit end
 
 - type: entity
   parent: LockerMedical
@@ -85,21 +123,21 @@
     - id: ChemBag
     - id: Dropper
     - id: HandLabeler
-    - id: BarSpoon # Should be replaced by a stirring tool with medical theming, like a glass rod
-    # - id: PlasmaChemistryVial # imp
+      prob: 0.5 # imp
+    #- id: BarSpoon # Should be replaced by a stirring tool with medical theming, like a glass rod # imp remove
     - !type:AllSelector # The wonderful world of chemical storage
-      children:
-      - id: BoxSyringe
-      - id: BoxBottle
-      - id: BoxVial
-      - id: BoxBeaker
-      - id: BoxPillCanister
-      - !type:GroupSelector # Remind chemists once in a while of alternate storage options
-        prob: 0.2
-        children:
-        - id: SprayBottle
-        - id: Bucket
-        - id: DrinkCartonMilk
+     children:
+     - id: BoxSyringe
+     - id: BoxBottle
+     - id: BoxVial
+     - id: BoxBeaker
+     - id: BoxPillCanister
+    #  - !type:GroupSelector # Remind chemists once in a while of alternate storage options # imp remove
+    #    prob: 0.2
+    #    children:
+    #    - id: SprayBottle
+    #    - id: Bucket
+    #    - id: DrinkCartonMilk
     - id: PlushieLizardJobChemist
       prob: 0.02
 
@@ -117,21 +155,33 @@
   id: LockerFillParamedic
   table: !type:AllSelector
     children:
-    - id: ClothingHeadHatParamedicSirenCap #imp
+    - id: ClothingHeadHatParamedicSirenCap #imp special
     - id: ClothingEyesHudMedical
     - id: ClothingOuterHardsuitVoidParamed
-    - id: ClothingBeltMedicalEMTFilled
+    #- id: ClothingBeltMedicalEMTFilled # imp remove
     - id: JetInjector
-    - id: HandheldHealthAnalyzer
-    - id: BoxBodyBag
-    - !type:GroupSelector
-      children:
-      - id: RollerBedSpawnFolded
-      - id: CheapRollerBedSpawnFolded
-      - id: EmergencyRollerBedSpawnFolded
+    #- id: HandheldHealthAnalyzer # imp remove
+    #- id: BoxBodyBag # imp remove
+    #- !type:GroupSelector # imp remove
+    #  children:
+    #  - id: RollerBedSpawnFolded
+    #  - id: CheapRollerBedSpawnFolded
+    #  - id: EmergencyRollerBedSpawnFolded
     - id: PlushieLizardJobParamedic
       prob: 0.02
-
+    # imp add start
+    - id: ClothingOuterCoatParamedicWB
+    - id: ClothingHeadHatParamedicsoft
+    - id: ClothingOuterWinterPara
+    - id: ClothingUniformJumpsuitParamedic
+    - id: ClothingUniformJumpskirtParamedic
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - id: ClothingMaskSterile
+    - id: HandheldGPSBasic
+    - id: MedkitFilled
+      prob: 0.3
+  # imp edit end
 - type: entity
   parent: LockerParamedic
   id: LockerParamedicFilled

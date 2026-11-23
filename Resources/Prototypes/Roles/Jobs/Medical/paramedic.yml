@@ -23,6 +23,10 @@
   id: ParamedicGear
   equipment:
     ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalEMTFilled #imp
+  storage:
+    back:
+    - EmergencyRollerBedSpawnFolded #imp
 
 - type: chameleonOutfit
   id: ParamedicChameleonOutfit

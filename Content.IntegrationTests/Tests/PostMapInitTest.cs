@@ -62,6 +62,23 @@ namespace Content.IntegrationTests.Tests
             {"/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", ["RubberStampSyndicate"]},
             {"/Maps/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"]},
             {"/Maps/Shuttles/ShuttleEvent/instigator.yml", ["ShuttleGunFriendship"]},
+
+            // IMP
+            //// lowpop toys
+            {"/Maps/_Impstation/reach.yml", ["HandheldCrewMonitor"]},
+            {"/Maps/_Impstation/halloween-reach.yml", ["HandheldCrewMonitor"]},
+            {"/Maps/_Impstation/dash.yml", ["HandheldCrewMonitor", "PortableCutterMachine"]},
+            //// shuttle guns
+            {"/Maps/_Impstation/gate.yml", ["ShuttleGunPerforator"]},
+            {"/Maps/_Impstation/xeno.yml", ["ShuttleGunKinetic"]},
+            {"/Maps/_Impstation/eclipse.yml", ["ShuttleGunKinetic", "ShuttleGunSvalinnMachineGun"]},
+            {"/Maps/_Impstation/monarch.yml", ["ShuttleGunDuster"]},
+            {"/Maps/_Impstation/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"]}, //?
+            //// other
+            {"/Maps/_Impstation/boat.yml", ["ClosetJanitorBomb", "ClothingHeadHatCatEars", "ClothingHeadHatDogEars", "CrayonInfinite"]},
+            {"/Maps/_Impstation/lilboat.yml", ["ClosetJanitorBomb", "ClothingHeadHatCatEars", "ClothingHeadHatDogEars"]},
+            {"/Maps/_Impstation/whalefall.yml", ["ClothingHeadHatDogEars"]},
+            {"/Maps/_Impstation/halloween-elkridge.yml", ["ClothingHeadHatDogEars"]},
         };
 
         /// <summary>
@@ -77,18 +94,11 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/AdminSpawn/**", // admin gaming
             "/Maps/_Impstation/centcomm.yml", // imp edit
 
-            // Stations
-            "/Maps/_Impstation/bagel.yml", // Contains mime's rubber stamp
-            "/Maps/_Impstation/banana.yml", // Contains quartermaster's rubber stamp
-            "/Maps/_Impstation/boat.yml", // Contains janitorial bomb suit closet, cat ears, doggy ears
-            "/Maps/_Impstation/gate.yml", // Contains positronic brain, LSE-1200c "Perforator"
-            "/Maps/_Impstation/lilboat.yml", // Contains janitorial bomb suit closet, cat ears
-            "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
-            "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
-            "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
-            "/Maps/_Impstation/submarine.yml", // Contains handheld crew monitor
-            "/Maps/_Impstation/whalefall.yml", // Contains doggy ears
-            "/Maps/_Impstation/monarch.yml", // Contains EXP-2100g "Duster"
+            // IMP: DoNotMapWhitelistSpecific doesnt seem to be working for some of our maps w multiple items, so they go here
+            "/Maps/_Impstation/boat.yml",
+            "/Maps/_Impstation/lilboat.yml",
+            "/Maps/_Impstation/dash.yml",
+            "/Maps/_Impstation/xeno.yml",
 
             // Shuttles
             "/Maps/_Impstation/Shuttles/listening_post.yml", // // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
