@@ -287,24 +287,19 @@
 #        actions:
 #        - ActionChangelingStore
       # TODO: Make it so the changeling gamerule changeling can inherit from the changeling store preset somehow
-#      - type: Store
-#        name: store-preset-name-changeling
-#        categories:
-#        - ChangelingAbilities
-#        currencyWhitelist:
-#        - ChangelingDNA
-#        balance:
-#          ChangelingDNA: 50
-#      - type: UserInterface
-#        interfaces:
-#          enum.StoreUiKey.Key:
-#            type: StoreBoundUserInterface
-#            requireInputValidation: false
-#      mindRoles:
-#      - MindRoleChangeling
-#  - type: AntagObjectives
-#    objectives:
-#    - ChangelingSurviveObjective
+  #     - type: Store
+  #       name: store-preset-name-changeling
+  #       categories:
+  #       - ChangelingAbilities
+  #       currencyWhitelist:
+  #       - ChangelingDNA
+  #       balance:
+  #         ChangelingDNA: 50
+  #     mindRoles:
+  #     - MindRoleChangeling
+  # - type: AntagObjectives
+  #   objectives:
+  #   - ChangelingSurviveObjective
 
 - type: entity
   id: Revolutionary

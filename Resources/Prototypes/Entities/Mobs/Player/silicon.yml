@@ -37,7 +37,6 @@
   - type: ActionGrant
     actions:
     - ActionJumpToCore
-    - ActionSurvCameraLights
     - ActionAIViewLaws
     - ActionOpenCartridges # Impstation - AI PDA
   - type: UserInterface
@@ -311,6 +310,16 @@
         enum.StationAiVisualLayers.Base:
           False: { state: ai_empty }
           True: { state: ai_error }
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_ai
+  - type: Reactive
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPie
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
     interactFailureString: petting-failure-station-ai
@@ -550,6 +559,16 @@
   description: The AI's viewer.
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
+  - type: Fixtures
+    fixtures:
+      lightTrigger:
+        shape:
+          !type:PhysShapeCircle
+          radius: 8
+        density: 80
+        hard: false
+        layer:
+        - GhostImpassable
   - type: NoFTL
   - type: Tag
     tags:
@@ -570,6 +589,7 @@
     - state: ai_camera
       shader: unshaded
       map: ["base"]
+  - type: CameraActiveOnCollideCollider
 
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity

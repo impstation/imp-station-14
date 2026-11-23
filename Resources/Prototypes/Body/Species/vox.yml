@@ -83,6 +83,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceVox
+  categories: [ HideSpawnMenu ]
   name: vox appearance
   components:
   - type: Inventory
@@ -179,6 +180,10 @@
     allowedEmotes: ['Click', 'Chitter', 'Hiss', 'Coo', 'Caw'] #imp, hiss, coo, caw
   - type: TypingIndicator
     proto: vox
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_vox
   - type: Vocal
     sounds:
       Male: MaleVox #imp
