@@ -1,0 +1,81 @@
+﻿# legally distinct from the wizard bubble because it doesn't do stamina damage
+- type: entity
+  id: BulletBubbleShot
+  name: bubble
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Clickable
+  #- type: Item
+  #  size: Small
+  - type: TimedDespawn
+    lifetime: 60
+  - type: Physics
+    angularDamping: 0.02
+    linearDamping: 0.02
+    bodyType: Dynamic
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 0
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    soundHit:
+      path: /Audio/Effects/pop.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/bubbles.rsi
+    layers:
+    - state: bubble2
+      map: ["enum.VaporVisualLayers.Base"]
+  - type: RandomSprite
+    available:
+      - enum.VaporVisualLayers.Base:
+          bubble: ""
+          bubble2: ""
+          bubble3: ""
+          bubble4: ""
+  - type: Ammo
+    muzzleFlash: null
+  - type: SolutionContainerManager
+    solutions:
+      vapor:
+        maxVol: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.1
+        density: 5
+        mask:
+        - MobMask
+        restitution: 0.3
+        friction: 0.8
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: 0.1
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - MidImpassable
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/pop.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Vapor
+    active: true
+    transferAmountPercentage: 50
+  - type: Appearance
+  - type: VaporVisuals
+  - type: EmbeddableProjectile
+    sound: /Audio/Effects/pop.ogg
+    embedOnThrow: false
+    removalTime: 0.0

@@ -236,8 +236,8 @@
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.06
+        reagent: Methanol
+        amount: 0.2
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -251,6 +251,17 @@
     amount: 0.25
   - !type:PlantAdjustWater
     amount: 0.7
+
+- type: reaction
+  id: BloodAllulaloBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    BloodAllulalo:
+      amount: 5
+  products:
+    Methanol: 5
 
 - type: reagent
   id: ReaperBlood
@@ -273,3 +284,9 @@
   products:
     Ash: 3
     Fresium: 2
+
+- type: reagent
+  parent: ZombieBlood
+  id: DriedZombieBlood
+  name: reagent-name-dried-zombie-blood
+  desc: reagent-desc-dried-zombie-blood

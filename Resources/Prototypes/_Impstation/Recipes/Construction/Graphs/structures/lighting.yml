@@ -337,3 +337,57 @@
       steps:
       - remove: SunTube
         name: construction-graph-tag-light-sun
+
+# string light
+- type: constructionGraph
+  id: LightStringFixture
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: emptyStringLight
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2.0
+  #we are hole now
+  - node: emptyStringLight
+    entity: PoweredStringLightEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: "light_bulb"
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      steps:
+      - tool: Screwing
+        doAfter: 2.0
+    # bulbs
+    - to: stringLightLED
+      steps:
+      - allTags: [LightBulb, LightLed]
+        name: construction-graph-tag-light-bulb
+    - to: stringLightDim
+      steps:
+      - allTags: [LightBulb, LightDim]
+        name: construction-graph-tag-light-bulb
+  # lights to empty
+  - node: stringLightLED
+    entity: PoweredStringLightLED
+    edges:
+    - to: emptyStringLight
+      steps:
+      - remove: LightBulb
+        name: construction-graph-tag-light-bulb
+  - node: stringLightDim
+    entity: PoweredStringLightDim
+    edges:
+    - to: emptyStringLight
+      steps:
+      - remove: LightBulb
+        name: construction-graph-tag-light-bulb
