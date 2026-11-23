@@ -3,7 +3,6 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Prototypes;
 //imp edit start
 using Content.Server.Popups;
-using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Examine;
 //imp edit end

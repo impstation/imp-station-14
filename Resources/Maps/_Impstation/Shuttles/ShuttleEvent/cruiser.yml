@@ -619,8 +619,6 @@ entities:
       pos: 6.5,-1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 572
   - uid: 574
@@ -2432,8 +2430,6 @@ entities:
       pos: 6.5,-2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 572
     - type: AtmosPipeColor
@@ -2526,8 +2522,6 @@ entities:
       pos: 5.5,-3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 572
     - type: AtmosPipeColor
