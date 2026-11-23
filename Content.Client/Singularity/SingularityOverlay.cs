@@ -7,8 +7,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Content.Shared._Impstation.CCVar; // imp
-using Content.Shared.CCVar; // imp
-using Robust.Shared.Configuration;// imp
 
 namespace Content.Client.Singularity
 {

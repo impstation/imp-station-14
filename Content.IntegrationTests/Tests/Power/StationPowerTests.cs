@@ -86,6 +86,11 @@ public sealed class StationPowerTests : GameTest
         Dirty = true,
     };
 
+    public override PoolSettings PoolSettings => new ()
+    {
+        Dirty = true,
+    };
+
     [Explicit]
     [Test, TestCaseSource(nameof(GameMaps))]
     [Ignore("OOM fix - reenable after merging upstream test refactors")] // imp

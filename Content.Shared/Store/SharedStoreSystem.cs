@@ -5,12 +5,12 @@ using Content.Shared.Implants;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
-using Content.Shared.Power.Components;
-using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Store.Components;
 using Content.Shared.Store.Events;
 using Robust.Shared.Prototypes;
+using Content.Shared.Power.Components; // imp
+using Content.Shared.Power.EntitySystems; // imp
 
 namespace Content.Shared.Store;
 
