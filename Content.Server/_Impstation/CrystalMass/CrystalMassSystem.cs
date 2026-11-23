@@ -174,7 +174,7 @@ public sealed class CrystalMassSystem : EntitySystem
                 || HasComp<ItemComponent>(target))
                 _audio.PlayPvs(ent.Comp.DustSound, Transform(target).Coordinates);
 
-            EntityManager.QueueDeleteEntity(target);
+            QueueDel(target);
         }
     }
 
@@ -184,7 +184,7 @@ public sealed class CrystalMassSystem : EntitySystem
             || HasComp<ItemComponent>(args.Tripper))
             _audio.PlayPvs(ent.Comp.DustSound, Transform(args.Tripper).Coordinates);
 
-        EntityManager.QueueDeleteEntity(args.Tripper);
+        QueueDel(args.Tripper);
     }
 
     private void OnStepTriggerAttempt(Entity<CrystalMassComponent> ent, ref StepTriggerAttemptEvent args)

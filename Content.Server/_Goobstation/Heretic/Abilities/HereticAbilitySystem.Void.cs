@@ -108,8 +108,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             if (!TryComp<DamageableComponent>(pookie, out var dmgComp))
                 continue;
 
+            var totalDamage = _dmg.GetPositiveDamage((pookie, dmgComp)).GetTotal();
             // total damage + 20 divided by all damage types.
-            var damage = (dmgComp.TotalDamage + 20f) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
+            var damage = (totalDamage + 20f) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             // apply gaming.
             _dmg.SetAllDamage((pookie, dmgComp), damage);

@@ -56,7 +56,11 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return false;
 
-        var rit = _series.CreateCopy((HereticRitualPrototype)GetRitual(ritualId).Clone(), notNullableOverride: true);
+        // imp edit start
+        var ritualProto = GetRitual(ritualId); // pulled this out, with no .Clone()
+
+        var rit = _series.CreateCopy(ritualProto, notNullableOverride: true);
+        // imp edit end
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
         var missingList = new List<string>();

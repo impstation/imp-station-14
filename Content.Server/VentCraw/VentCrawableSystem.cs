@@ -68,7 +68,7 @@ public sealed class VentCrawableSystem : EntitySystem
                 Dirty(entity , ventCrawComp);
             }
 
-            if (EntityManager.TryGetComponent(entity, out PhysicsComponent? physics))
+            if (TryComp<PhysicsComponent>(entity, out var physics)) // Impstation - Upmerge 2026 Chunk IV (TryComp replacement)
             {
                 _physicsSystem.WakeBody(entity, body: physics);
             }
@@ -76,6 +76,6 @@ public sealed class VentCrawableSystem : EntitySystem
             _blind.UpdateIsBlind(entity);
         }
 
-        EntityManager.DeleteEntity(uid);
+        Del(uid); // Impstation - Upmerge 2026 Chunk IV (Del replacement)
     }
 }

@@ -30,7 +30,6 @@ namespace Content.Server._Impstation.Drone
     public sealed class DroneSystem : SharedDroneSystem
     {
         [Dependency] private readonly AlertsSystem _alerts = default!;
-        [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly GibbingSystem _gibbing = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;

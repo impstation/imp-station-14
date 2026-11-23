@@ -35,14 +35,14 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Pierce: 1
+        Piercing: 1
         Holy: 1
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: DamageOtherOnHit
     damage:
       types:
-        Pierce: 2
+        Piercing: 2
         Holy: 5
     soundHit: /Audio/Weapons/bladeslice.ogg
     staminaCost: 10

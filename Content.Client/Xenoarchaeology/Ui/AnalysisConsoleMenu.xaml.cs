@@ -43,7 +43,6 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
     private int _extractionSum;
 
     private Entity<AdvancedNodeScannerComponent> _advancedNodeScanner; //imp: advanced node scanner
-    private TimeSpan? _unlockEndTime; //imp: advanced node scanner (reticulated only) display remaining unlock session time
 
     public event Action? OnServerSelectionButtonPressed;
     public event Action? OnExtractButtonPressed;
@@ -295,7 +294,6 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         if (arti is { Comp.Natural: true })
         {
-            _unlockEndTime = null;
             ShallowBiasButton.Pressed = false;
             DeepRandomBiasButton.Pressed = false;
             DeepLeftBiasButton.Pressed = false;

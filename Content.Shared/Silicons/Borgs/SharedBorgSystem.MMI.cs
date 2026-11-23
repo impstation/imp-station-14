@@ -138,6 +138,6 @@ public abstract partial class SharedBorgSystem
                 _puddle.TrySpillAt(Transform(ent).Coordinates, solutions.Comp.Solution, out _);
             }
         }
-        EntityManager.PredictedQueueDeleteEntity(brain);
+        PredictedQueueDel(brain); // Impstation - Upmerge 2026 Chunk IV (switch to PredictedQueueDel)
     }
 }

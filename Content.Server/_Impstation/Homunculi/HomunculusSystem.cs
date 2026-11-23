@@ -17,7 +17,7 @@ namespace Content.Server._Impstation.Homunculi;
 
 public sealed class HomunculusSystem : EntitySystem
 {
-    [Dependency] private readonly HumanoidProfileSystem _profile = default!;
+    // [Dependency] private readonly HumanoidProfileSystem _profile = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IncubatorSystem _incubator = default!;
@@ -63,7 +63,7 @@ public sealed class HomunculusSystem : EntitySystem
 
     public void CreateHomunculiFromEntities(List<Entity<HomunculusTypeComponent>> entities,List<string?> dnaData, MapCoordinates mapCoordinates, out EntityUid homunculus)
     {
-        homunculus = EntityManager.Spawn(entities[0].Comp.HomunculusType, mapCoordinates);
+        homunculus = Spawn(entities[0].Comp.HomunculusType, mapCoordinates);
         _transform.AttachToGridOrMap(homunculus);
 
         EnsureComp<DnaComponent>(homunculus, out var homunculiDnaComponent);

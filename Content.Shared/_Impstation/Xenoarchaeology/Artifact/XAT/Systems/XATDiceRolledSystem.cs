@@ -1,6 +1,5 @@
-﻿using Content.Shared._Impstation.Xenoarchaeology.Artifact.XAT.Components;
+using Content.Shared._Impstation.Xenoarchaeology.Artifact.XAT.Components;
 using Content.Shared.Dice;
-using Content.Shared.Mobs;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAT;
 
@@ -12,6 +11,7 @@ namespace Content.Shared._Impstation.Xenoarchaeology.Artifact.XAT.Systems;
 public sealed class XATDiceRolledSystem : BaseXATSystem<XATDiceRolledComponent>
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
 
@@ -29,7 +29,7 @@ public sealed class XATDiceRolledSystem : BaseXATSystem<XATDiceRolledComponent>
     {
 
         // Not going to assume that there will never be an entity with DiceComp but not with TransformComp.
-        if (!TryComp<TransformComponent>(args.Dice.Owner, out var diceTransform))
+        if (!_entityManager.TryGetComponent<TransformComponent>(args.Dice.Owner, out var diceTransform))
             return;
 
         var targetCoords = diceTransform.Coordinates;

@@ -16,7 +16,6 @@ using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Content.Shared.Implants; // imp
 
 namespace Content.Server.VoiceMask;
 

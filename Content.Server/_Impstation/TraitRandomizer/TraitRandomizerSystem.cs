@@ -104,7 +104,7 @@ public sealed partial class TraitRandomizerSystem : EntitySystem
                 continue;
 
             var coords = Transform(ent).Coordinates;
-            var inhandEntity = EntityManager.SpawnEntity(traitId.TraitGear, coords);
+            var inhandEntity = Spawn(traitId.TraitGear, coords);
             _sharedHandsSystem.TryPickup(ent,
                 inhandEntity,
                 checkActionBlocker: false,

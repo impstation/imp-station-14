@@ -93,12 +93,13 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamageCondition
-          max: 40
+#        - !type:TotalDamageCondition
+#          max: 40
         damage:
-          groups:
-            Brute: -0.75
           types:
+            Blunt: -0.25
+            Piercing: -0.25
+            Slash: -0.25
             Poison: -0.3
             Heat: -0.25
             Shock: -0.25

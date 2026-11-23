@@ -30,7 +30,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    // [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!; // imp edit, commented due to unused
 
     public override void Initialize()
     {
@@ -91,7 +91,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
         if (!TryComp<VentCrawHolderComponent>(uid, out var holder))
             return;
 
-        if (!EntityManager.EntityExists(holder.CurrentTube))
+        if (!Exists(holder.CurrentTube)) // Impstation - Upmerge 2026 Chunk IV (switch to Exists)
         {
             var ev = new VentCrawExitEvent();
             RaiseLocalEvent(uid, ref ev);
@@ -228,7 +228,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
 
                 if (nextTube != null)
                 {
-                    if (!EntityManager.EntityExists(holder.CurrentTube))
+                    if (!Exists(holder.CurrentTube)) // Impstation - Upmerge 2026 Chunk IV (switch to Exists)
                     {
                         var ev = new VentCrawExitEvent();
                         RaiseLocalEvent(uid, ref ev);

@@ -19,9 +19,10 @@
       params:
         volume: -3
     damage:
-      groups:
-        Brute: 10
       types:
+        Blunt: 3.33
+        Piercing: 3.33
+        Slash: 3.33
         Structural: 30
   - type: Item
     size: Normal

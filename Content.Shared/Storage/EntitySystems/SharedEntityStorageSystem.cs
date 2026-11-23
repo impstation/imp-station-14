@@ -417,7 +417,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool CanOpen(EntityUid user, EntityUid target, bool silent = false, EntityStorageComponent? component = null)
     {
-        if (!Resolve(target, ref component))
+        if (!Resolve(target, ref component, false)) // imp edit, false so we don't spam errors
             return false;
 
         if (!HasComp<HandsComponent>(user) && !HasComp<ComplexInteractionComponent>(user)) // imp edit - can add ComplexInteractionComponent to entities to allow them to do certain actions without hands

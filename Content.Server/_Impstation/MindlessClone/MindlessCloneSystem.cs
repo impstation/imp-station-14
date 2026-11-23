@@ -53,7 +53,6 @@ public sealed class MindlessCloneSystem : EntitySystem
     // everything else
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -425,7 +424,7 @@ public sealed class MindlessCloneSystem : EntitySystem
         var mapCoordsPointee = _transformSystem.ToMapCoordinates(coordsPointee);
         _rotateToFaceSystem.TryFaceCoordinates(pointer, mapCoordsPointee.Position);
 
-        var arrow = EntityManager.SpawnEntity("PointingArrow", coordsPointee);
+        var arrow = Spawn("PointingArrow", coordsPointee);
 
         if (TryComp<PointingArrowComponent>(arrow, out var pointing))
         {
@@ -438,7 +437,7 @@ public sealed class MindlessCloneSystem : EntitySystem
         var layer = (int)VisibilityFlags.Normal;
         if (TryComp(pointer, out VisibilityComponent? playerVisibility))
         {
-            var arrowVisibility = EntityManager.EnsureComponent<VisibilityComponent>(arrow);
+            var arrowVisibility = EnsureComp<VisibilityComponent>(arrow);
             layer = playerVisibility.Layer;
             _visibilitySystem.SetLayer((arrow, arrowVisibility), (ushort)layer);
         }

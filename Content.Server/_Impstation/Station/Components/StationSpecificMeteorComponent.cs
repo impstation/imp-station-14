@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.Station.Components;
 
-[RegisterComponent, Access(typeof(MeteorSwarmSystem)), AutoGenerateComponentPause]
+[RegisterComponent, Access(typeof(MeteorSwarmSystem))]
 public sealed partial class StationSpecificMeteorComponent : Component
 {
     /// <summary>

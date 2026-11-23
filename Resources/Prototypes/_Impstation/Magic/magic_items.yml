@@ -370,8 +370,8 @@
       path: "/Audio/_Impstation/Magic/woosh.ogg"
     hidden: true
     damage:
-      groups:
-        Brute: 0
+      types:
+        Blunt: 0
   - type: Projectile
     deleteOnCollide: true
     damage:

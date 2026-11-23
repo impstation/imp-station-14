@@ -23,8 +23,10 @@
       types:
         Blunt: 50 # this is to further discourage the luggage from trying to shoot guns.
         Piercing: 5
-      groups:
-        Burn: 3
+        Heat: 3
+        Cold: 3
+        Shock: 3
+        Caustic: 3
   - type: Fixtures
     fixtures:
       fix1:

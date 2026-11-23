@@ -12,6 +12,7 @@ using Robust.Shared.Enums;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.Roles.Jobs;
+using System.Threading.Tasks;
 
 namespace Content.Server._Wizden.Chat.Systems;
 
@@ -22,7 +23,6 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedMindSystem _sharedMind = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly JobSystem _jobs = default!;
 
     private bool _lastMessageWebhookEnabled = false;
@@ -44,14 +44,14 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     private Dictionary<NetUserId, PlayerData> _playerData = new Dictionary<NetUserId, PlayerData>();
 
     // Holds player data, player data then has character data within
-    private class PlayerData
+    private sealed class PlayerData // Impstation - Upmerge 2026 Chunk IV (added sealed)
     {
         public Dictionary<MindComponent, CharacterData> Characters = new Dictionary<MindComponent, CharacterData>();
         public ICommonSession? PlayerSession;
     }
 
     // Character data holds actual last message, then is associated with the actual player
-    private class CharacterData
+    private sealed class CharacterData // Impstation - Upmerge 2026 Chunk IV (added sealed)
     {
         public string? LastMessage { get; set; } // Store only the last message
         public EntityUid EntityUid { get; set; }
@@ -134,7 +134,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     /// <summary>
     ///     Processes messages at the end of a round and sends them via webhook.
     /// </summary>
-    public void OnRoundEnd()
+    public async void OnRoundEnd() // Impstation - Upmerge 2026 Chunk IV (added async)
     {
         if (!_lastMessageWebhookEnabled)
             return;
@@ -153,7 +153,8 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
                     var characterData = character.Value;
                     // I am sure if there is a better way to go about checking if an EntityUID is no longer linked to an active entity...
                     // I don't know how tho...
-                    if ((_mobStateSystem.IsDead(characterData.EntityUid) || !EntityManager.TryGetComponent<MetaDataComponent>(characterData.EntityUid, out var metadata)) && character.Key.CharacterName != null) // Check if an entity is dead or doesn't exist
+                    var metaData = MetaData(characterData.EntityUid); // imp edit, access the metadata without the generic TryComp
+                    if ((_mobStateSystem.IsDead(characterData.EntityUid) || metaData != null) && character.Key.CharacterName != null) // Check if an entity is dead or doesn't exist; imp edit: TryComp replacement
                     {
                         var message = FormatMessage(characterData, character.Key.CharacterName);
                         allMessages.Add(message);
@@ -166,7 +167,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
             }
         }
 
-        SendMessagesInBatches(allMessages);
+        await SendMessagesInBatches(allMessages); // Impstation - Upmerge 2026 Chunk IV (added await)
 
         // Clear all stored data upon round restart
         _playerData.Clear();
@@ -203,7 +204,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
     ///     Sends messages in batches via webhook.
     /// </summary>
     /// <param name="messages">The list of messages to be sent.</param>
-    private void SendMessagesInBatches(List<string> messages)
+    private async Task SendMessagesInBatches(List<string> messages)
     {
         var concatenatedMessages = new StringBuilder();
         var messagesToSend = new List<string>();
@@ -221,7 +222,7 @@ sealed class LastMessageBeforeDeathSystem : EntitySystem
         if (concatenatedMessages.Length > 0)
             messagesToSend.Add(concatenatedMessages.ToString());
 
-        _webhookManager.SendMessagesAsync(_webhookIdentifierLastMessage, messagesToSend, _maxMessageSize, _maxMessagesPerBatch, _messageDelayMs, _rateLimitDelayMs);
+        await _webhookManager.SendMessagesAsync(_webhookIdentifierLastMessage, messagesToSend, _maxMessageSize, _maxMessagesPerBatch, _messageDelayMs, _rateLimitDelayMs);
     }
 
     private void OnErase(ref EraseEvent args)

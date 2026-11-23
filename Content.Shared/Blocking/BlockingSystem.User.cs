@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -71,12 +72,13 @@ public sealed partial class BlockingSystem
             return;
 
         var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
+        var modifier = blocking.IsBlocking ? blocking.ActiveBlockDamageModifier : blocking.PassiveBlockDamageModifer;
         blockFraction = Math.Clamp(blockFraction, 0, 1);
         if (!args.IsVirtual) //#IMP Don't damage shield if we are just seeing what damage COULD be blocked
             _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
 
         var modify = new DamageModifierSet();
-        foreach (var key in dmgComp.Damage.DamageDict.Keys)
+        foreach (var key in modifier.Coefficients.Keys.Concat(modifier.FlatReduction.Keys))
         {
             modify.Coefficients.TryAdd(key, 1 - blockFraction);
         }

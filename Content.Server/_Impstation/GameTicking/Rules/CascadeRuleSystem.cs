@@ -49,7 +49,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
             if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
             {
                 SpawnSupermatterCrystalMass(supermatterUid, comp, tile);
-                EntityManager.QueueDeleteEntity(supermatterUid);
+                QueueDel(supermatterUid);
                 break;
             }
         }
