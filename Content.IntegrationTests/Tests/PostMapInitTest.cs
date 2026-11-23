@@ -89,6 +89,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/submarine.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/whalefall.yml", // Contains doggy ears
             "/Maps/_Impstation/monarch.yml", // Contains EXP-2100g "Duster"
+            "/Maps/_Impstation/dash.yml", // Contains handheld crew monitor and portable cutter machine
 
             // Shuttles
             "/Maps/_Impstation/Shuttles/listening_post.yml", // // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture

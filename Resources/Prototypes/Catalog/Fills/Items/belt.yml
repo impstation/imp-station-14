@@ -104,18 +104,23 @@
     containers:
       storagebase: !type:AllSelector
         children:
+  #imp edit start
         - id: Brutepack
+          amount: 2
         - id: Ointment
+        - id: Bloodpack
         - id: Gauze
-        # Reagents reflect the bottles in CoreMedicineReagentBottleTable
-        - id: ChemistryBottleSaline
-        - id: ChemistryBottleBicaridine
-        - id: ChemistryBottleDexalin
-        - id: ChemistryBottleDylovene
-        - id: ChemistryBottleHyronalin
-        - id: ChemistryBottleKelotane
-        - id: ChemistryBottleEpinephrine # A power item for medical players that feels thematic and worth stealing
-        - id: PillCanisterTricordrazine
+        - id: EmergencyMedipen #You never know what people are going to latejoin into
+        ## Reagents reflect the bottles in CoreMedicineReagentBottleTable
+        #- id: ChemistryBottleSaline
+        #- id: ChemistryBottleBicaridine
+        #- id: ChemistryBottleDexalin
+        #- id: ChemistryBottleDylovene
+        #- id: ChemistryBottleHyronalin
+        #- id: ChemistryBottleKelotane
+        #- id: ChemistryBottleEpinephrine # A power item for medical players that feels thematic and worth stealing
+        #- id: PillCanisterTricordrazine
+  #imp edit end
 
 - type: entity
   parent: ClothingBeltMedicalEMT
@@ -126,16 +131,21 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: Bloodpack
-          amount: 2
+  #imp edit start
+        - id: Brutepack
+        - id: Ointment
+        - id: Bloodpack #imp, was 2
         - id: Gauze
-        # Reagents focused on emergency response rather than outright healing
-        - id: ChemistryBottleInaprovaline
-          amount: 2
-        - id: ChemistryBottleHaloperidol
-        - id: ChemistryBottleEthylredoxrazine
-        - id: ChemistryBottleIpecac
-        - id: ChemistryBottleCharcoal
+        - id: EmergencyMedipen #You never know what people are going to latejoin into
+          amount: 3
+        ## Reagents focused on emergency response rather than outright healing
+        #- id: ChemistryBottleInaprovaline
+        #  amount: 2
+        #- id: ChemistryBottleHaloperidol
+        #- id: ChemistryBottleEthylredoxrazine
+        #- id: ChemistryBottleIpecac
+        #- id: ChemistryBottleCharcoal
+  #imp edit end
 
 - type: entity
   id: ClothingBeltPlantFilled

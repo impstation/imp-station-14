@@ -37,7 +37,7 @@ public sealed partial class NotifierWindow : FancyWindow
             UpdateUi();
 
         //Text input setup
-        var maxLength =  _configManager.GetCVar(ImpCCVars.NotifierFreetextMaxLength);
+        var maxLength = _configManager.GetCVar(ImpCCVars.NotifierFreetextMaxLength);
         var length = Rope.Collapse(NotifierFreetext.TextRope).Length;
         CharacterLimit.Text = Loc.GetString("notifier-window-char-limit", ("length", length), ("maxLength", maxLength));
 
@@ -73,7 +73,7 @@ public sealed partial class NotifierWindow : FancyWindow
     private void UnsavedChanges()
     {
         // Validate freetext length
-        var maxLength =  _configManager.GetCVar(ImpCCVars.NotifierFreetextMaxLength);
+        var maxLength = _configManager.GetCVar(ImpCCVars.NotifierFreetextMaxLength);
         var length = Rope.Collapse(NotifierFreetext.TextRope).Length;
 
         // if invalid warn user and return.
