@@ -5,6 +5,8 @@ using Content.Shared.Implants;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Store.Components;
 using Content.Shared.Store.Events;
@@ -26,6 +28,10 @@ public abstract partial class SharedStoreSystem : EntitySystem
 
     [Dependency] protected readonly EntityQuery<StoreComponent> StoreQuery = default!;
     [Dependency] protected readonly EntityQuery<RemoteStoreComponent> RemoteStoreQuery = default!;
+
+    [Dependency] protected readonly SharedBatterySystem Battery = default!; // imp
+
+    protected static readonly string UnpoweredPopup = "store-currency-not-charged"; // imp add
 
     public override void Initialize()
     {
@@ -79,6 +85,15 @@ public abstract partial class SharedStoreSystem : EntitySystem
         RaiseLocalEvent(target, ev);
         if (ev.Cancelled)
             return;
+
+        // IMP ADD: you cannot refund items that need charging unless they are fully charged!
+        if (TryComp<BatteryComponent>(uid, out var battery) &&
+            Battery.GetCharge(uid) < battery.MaxCharge)
+        {
+            Popup.PopupCursor(Loc.GetString(UnpoweredPopup), args.User);
+            return;
+        }
+        // IMP END
 
         if (!TryAddCurrency((uid, component), (store.Value, store.Value.Comp)))
             return;

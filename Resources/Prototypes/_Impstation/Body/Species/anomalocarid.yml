@@ -226,12 +226,11 @@
     - CanPilot
     - FootstepSound
     - AnomalyHost
-#imp edit, this will be used once a later PR is merged that changes how cream pie visuals work
-#  - type: CreamPied
-#    sprite:
-#      sprite: Effects/creampie.rsi
-#      state: creampie_anomalocarid
-#    offset: 0, 0.375
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_anomalocarid
+    offset: 0, 0.375
   - type: Fixtures
     fixtures:
       fix1:
