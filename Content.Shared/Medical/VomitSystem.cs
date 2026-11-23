@@ -45,9 +45,9 @@ public sealed class VomitSystem : EntitySystem
 
     private const float ChemMultiplier = 0.1f;
 
-    private static readonly EntProtoId NoVomitStatusEffect = "NoVomitingStatusEffect";
+    private static readonly EntProtoId NoVomitStatusEffect = "NoVomitingStatusEffect"; // imp edit
 
-    private static readonly EntProtoId NoVomitingSlowdownStatusEffect = "NoVomitingSlowdownStatusEffect";
+    private static readonly EntProtoId NoVomitingSlowdownStatusEffect = "NoVomitingSlowdownStatusEffect";  // imp edit
 
     private static readonly ProtoId<SoundCollectionPrototype> VomitCollection = "Vomit";
 
