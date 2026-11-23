@@ -35,6 +35,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Tourist
 {
@@ -46,6 +47,7 @@ namespace Content.Server._Impstation.Tourist
         [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
@@ -68,6 +70,26 @@ namespace Content.Server._Impstation.Tourist
             SubscribeLocalEvent<TemporaryBlindnessComponent, TouristCameraFlashAttemptEvent>(OnTemporaryBlindnessTouristFlashAttempt);
         }
 
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            var query = EntityQueryEnumerator<TouristCameraComponent>();
+
+            while (query.MoveNext(out var uid, out var comp))
+            {
+                if (!comp.Flashing)
+                    continue;
+
+                if (_timing.CurTime < comp.TargetTime)
+                {
+                    _appearance.SetData(uid, TouristCameraVisuals.Flashing, false);
+                    comp.Flashing = false;
+                    continue;
+                }
+            }
+        }
+
         private void OnDoAfter(EntityUid uid, TouristCameraComponent comp, TouristCameraDoAfterEvent args)
         {
             if (args.Cancelled || !CameraFlash(uid, comp))
@@ -86,11 +108,7 @@ namespace Content.Server._Impstation.Tourist
             comp.Flashing = true;
             _appearance.SetData(uid, TouristCameraVisuals.Flashing, true);
 
-            uid.SpawnTimer(400, () =>
-            {
-                _appearance.SetData(uid, TouristCameraVisuals.Flashing, false);
-                comp.Flashing = false;
-            });
+            comp.TargetTime = _timing.CurTime + comp.FlashVisualDuration;
 
             return true;
         }

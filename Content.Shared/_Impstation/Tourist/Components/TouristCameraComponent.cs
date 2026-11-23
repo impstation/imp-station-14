@@ -32,6 +32,17 @@ namespace Content.Shared._Impstation.Tourist.Components
 
         public bool Flashing;
 
+        /// <summary>
+        /// Time the camera visuals are active for
+        /// </summary>
+        [DataField]
+        public TimeSpan FlashVisualDuration { get; set; } = TimeSpan.FromMilliseconds(400);
+
+        /// <summary>
+        ///  Time at which to reset flash visuals
+        /// </summary>
+        public TimeSpan TargetTime = TimeSpan.Zero;
+
         [DataField]
         public float Probability = 1f;
 

@@ -21,6 +21,7 @@ using Content.Server.Traits.Assorted;
 using Content.Shared._EE.CCVar;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Audio;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;

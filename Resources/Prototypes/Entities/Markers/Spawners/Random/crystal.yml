@@ -19,8 +19,8 @@
   components:
   - type: Sprite
     layers:
-    - state: red
-    - sprite: _Impstation/Structures/Decoration/crystal.rsi # imp
+    #- state: red
+    - sprite: _Impstation/Structures/crystal.rsi # imp
       state: crystal_grey
   - type: EntityTableSpawner
     table: !type:NestedSelector
