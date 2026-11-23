@@ -34,7 +34,7 @@ public sealed class VomitSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusEffects = default!; // imp edit
 
     public override void Initialize()
     {
