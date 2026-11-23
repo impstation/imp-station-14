@@ -96,7 +96,7 @@ public sealed class StoreTests : GameTest
             var mind = mindSystem.CreateMind(null);
             mindSystem.TransferTo(mind, human, mind: mind);
 
-            FixedPoint2 originalBalance = 20;
+            FixedPoint2 originalBalance = 40; // imp 20 -> 40
             uplinkSystem.AddUplink(human, originalBalance, out var notes, pda, true);
 
             Assert.That(notes != null);

@@ -46,7 +46,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Mobs; // Imp
+using Content.Shared.Mobs;
+using Content.Shared.Radiation.Systems; // Imp
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -80,6 +81,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedRadiationSystem _radiation = default!; // imp
 
     public override void Initialize()
     {

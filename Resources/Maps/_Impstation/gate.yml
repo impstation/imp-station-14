@@ -214026,6 +214026,8 @@ entities:
       allowedEmotes: []
     - type: Emoting
     - type: Examiner
+    - type: Physics
+      bodyType: KinematicController
 - proto: WeaponPocketDisabler
   entities:
   - uid: 13812

@@ -17,6 +17,8 @@ using Content.Server.Heretic.EntitySystems; // imp
 using Content.Shared.Heretic; // imp
 using Content.Shared.Heretic.Prototypes; // imp
 using Content.Shared.Roles.Components; // imp
+using Content.Shared.Mind; // imp
+using Robust.Shared.Prototypes; // imp
 
 namespace Content.Server.Store.Systems;
 
@@ -30,6 +32,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
 
     private void InitializeUi()

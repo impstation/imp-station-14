@@ -86,14 +86,8 @@ public sealed class StationPowerTests : GameTest
         Dirty = true,
     };
 
-    public override PoolSettings PoolSettings => new ()
-    {
-        Dirty = true,
-    };
-
     [Explicit]
     [Test, TestCaseSource(nameof(GameMaps))]
-    [Ignore("OOM fix - reenable after merging upstream test refactors")] // imp
     public async Task TestStationStartingPowerWindow(string mapProtoId)
     {
         var pair = Pair;
@@ -152,7 +146,6 @@ public sealed class StationPowerTests : GameTest
     }
 
     [Test, TestCaseSource(nameof(GameMaps))]
-    [Ignore("OOM fix - reenable after merging upstream test refactors")] // imp
     public async Task TestApcLoad(string mapProtoId)
     {
         var pair = Pair;

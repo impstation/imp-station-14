@@ -308,7 +308,7 @@ public abstract class SharedFlashSystem : EntitySystem
     // EE THROWING, allows for flashing when thrown at someone
     private void OnFlashThrowHitEvent(Entity<FlashComponent> ent, ref ThrowDoHitEvent args)
     {
-        if (!UseFlash(ent, null, true))
+        if (!TryUseFlashItem(ent.AsNullable(), null, true))
             return;
         FlashArea(ent.Owner, null, ent.Comp.Range, ent.Comp.AoeFlashDuration, ent.Comp.SlowTo, false, ent.Comp.Probability);
     }
