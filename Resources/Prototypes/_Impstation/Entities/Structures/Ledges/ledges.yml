@@ -60,8 +60,7 @@
 - type: entity
   parent: LedgeStraightClimbableSnow
   id: LedgeStraightClimbableSnowAtmosBlocker
-  name: snowy ledge
-  suffix: Atmos blocker
+  name: snowy ledge, atmos blocker
   components:
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -74,8 +73,7 @@
 - type: entity
   parent: MarkerBase
   id: AtmosBlocker
-  name: atmos blocker
-  suffix: Invisible
+  name: atmos blocker, invisible
   components:
   - type: Sprite
     layers:
@@ -91,8 +89,7 @@
 - type: entity
   parent: [ MarkerBase, BaseStructure ]
   id: BaseLedgeInvisible
-  name: ledge
-  suffix: Invisible
+  name: ledge, invisible
   components:
   - type: Sprite
     layers:
@@ -105,8 +102,7 @@
 - type: entity
   parent: BaseLedgeInvisible
   id: BaseLedgeInvisibleAtmosBlocker
-  name: ledge
-  suffix: Invisible, Atmos blocker
+  name: ledge, invisible, atmos blocker
   components:
   - type: Airtight
     noAirWhenFullyAirBlocked: false
