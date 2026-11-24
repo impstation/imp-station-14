@@ -80,3 +80,26 @@
         key: KnockedDown
         time: 0.5
         type: Remove
+
+- type: reagent
+  id: MalwareBytes #because they byted you
+  name: reagent-name-malwarebytes
+  desc: reagent-desc-malwarebytes
+  physicalDesc: reagent-physical-desc-digital
+  flavor: digital
+  color: "#69b00b" #lol
+  metabolisms:
+    Digestion:
+      effects:
+        - !type:GenericStatusEffect #planarian todo: leetspeak accent
+          key: RatvarianLanguage
+          component: RatvarianLanguage
+        - !type:SatiateThirst
+          factor: 2
+    Bloodstream:
+      effects:
+        - !type:GenericStatusEffect #planarian todo: leetspeak accent
+          key: RatvarianLanguage
+          component: RatvarianLanguage
+        - !type:SatiateThirst
+          factor: 2

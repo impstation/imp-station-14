@@ -601,5 +601,10 @@
 
 - type: flavor
   id: yucky
-  flavorType: Base
-  description: flavor-base-yucky
+  flavorType: Complex
+  description: flavor-complex-yucky
+
+- type: flavor
+  id: digital
+  flavorType: Complex
+  description: flavor-complex-digital

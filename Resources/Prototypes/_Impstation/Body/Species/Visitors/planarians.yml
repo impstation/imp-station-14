@@ -201,7 +201,7 @@
         spawnAfter: 0.3
       - !type:SpawnEntitiesBehavior
         spawn:
-          MobPlanarianBloodworm:
+          MobPlanarianBloodworm: #PLANARIAN TODO: replace with weighted spawns?
             min: 0
             max: 20 #theres a lot of blood inside of things
           FoodGummyWorm:
@@ -209,6 +209,12 @@
             max: 1
           OrganPlanarianWormwood:
             min: 0
+            max: 1
+          OrganPlanarianEars:
+            min: 0
+            max: 1
+          OrganPlanarianLungs:
+            min: 1
             max: 1
           OrganPlanarianPinworm:
             min: 0
@@ -244,6 +250,9 @@
       pitch: 2 #theyre smaller
       volume: -12 #should be quieter to be a little less annoying
   - type: NoSlip #theyre worms
+  - type: NpcFactionMember
+    factions:
+      - Planarian #planarians are planarians
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -251,6 +260,8 @@
     - CanPilot
     - FootstepSound
     - Planarian
+
+# PLANARIAN ORGANS #
 
 - type: entity
   parent: OrganBase
@@ -272,6 +283,11 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
+  - type: RandomWalk # theyre alive so they wiggle
+    minStepCooldown: 1
+    maxStepCooldown: 3
+    maxSpeed: 10
+    minSpeed: 0.25
 
 - type: entity
   id: OrganPlanarianVisual
@@ -326,11 +342,28 @@
   description: Planarian eyes have the ability to move independently of each other, and in some cases can even form lifelong feuds, refusing to ever look in the same spot as the other eye.
 
 - type: entity
-  parent: [ OrganBaseEars, OrganPlanarianInternal ]
+  parent: [ OrganBaseEars, OrganPlanarianInternal, BaseHandheldInstrument ]
   id: OrganPlanarianEars
   name: ear worm
   description: The rhythmic movements of ear worms allow Planarians to always maintain a steady beat. Planarian dancers are renowned for their improvisational abilities, and it's even rumored that Planarians were the first to invent "The Worm".
   suffix: Planarian, Ears
+  components:
+  - type: Item
+    size: Small
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
+    inhandVisuals:
+      left:
+      - state: ears-inhand-left
+      right:
+      - state: ears-inhand-right
+  - type: RandomWalk
+    minStepCooldown: 1
+    maxStepCooldown: 1 # theyre always on beat
+    maxSpeed: 2
+    minSpeed: 2
+  - type: Instrument
+    bank: 110 # Otamatone, defined in Impstation.sf2
+    program: 6
 
 - type: entity
   parent: [ OrganBaseAppendix, OrganPlanarianInternal]
@@ -417,7 +450,7 @@
   suffix: Planarian, Kidneys
   description: It finally happened.
 
-# SPLITTING ORGANS
+# BASE PLANARIAN SPLITTING ORGANS #
 
 - type: entity
   parent: OrganPlanarianBrain
@@ -426,7 +459,7 @@
   components:
   - type: Nymph
     transferMind: true
-    entityPrototype: MobPlanarianSplitMain
+    entityPrototype: MobPlanarianSplit_1_Brain
 
 - type: entity
   parent: OrganPlanarianLungs
@@ -434,9 +467,9 @@
   id: OrganPlanarianLungsSplitting
   components:
   - type: Nymph
-    entityPrototype: MobPlanarianSplit
+    entityPrototype: MobPlanarianSplit_1
 
-# RANDOM ORGANS
+# RANDOM ORGANS #
 
 - type: entity
   parent: OrganPlanarianInternal
@@ -542,3 +575,522 @@
   weights:
     WeaponPlanarianTapeworm: 0.2 #i dont undertand weights
     OrganPlanarianEarthworm: 0.1
+
+- type: entity
+  parent: MobPlanarian
+  id: MobPlanarianReformed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IsDeadIC
+  - type: RandomHumanoidAppearance
+
+
+#### PLANARIAN SPLITS ####
+
+# PLANARIAN SPLIT ORGANS #
+
+- type: entity
+  parent: [ OrganPlanarianLungs ]
+  categories: [ HideSpawnMenu ]
+  id: OrganPlanarianSplitLungs
+  components:
+  - type: TriggerOnGotRemovedFromContainer #the split organs shouldnt litter the floor
+  - type: DeleteOnTrigger
+
+- type: entity
+  parent: [ OrganPlanarianHeart ]
+  categories: [ HideSpawnMenu ]
+  id: OrganPlanarianSplitHeart
+  components:
+  - type: TriggerOnGotRemovedFromContainer
+  - type: DeleteOnTrigger
+
+- type: entity
+  parent: [ OrganPlanarianStomach ]
+  categories: [ HideSpawnMenu ]
+  id: OrganPlanarianSplitStomach
+  components:
+  - type: TriggerOnGotRemovedFromContainer
+  - type: DeleteOnTrigger
+
+- type: entity
+  parent: [ OrganPlanarianLiver ]
+  categories: [ HideSpawnMenu ]
+  id: OrganPlanarianSplitLiver
+  components:
+  - type: TriggerOnGotRemovedFromContainer
+  - type: DeleteOnTrigger
+
+- type: entity
+  parent: [ OrganPlanarianKidneys ]
+  categories: [ HideSpawnMenu ]
+  id: OrganPlanarianSplitKidneys
+  components:
+  - type: TriggerOnGotRemovedFromContainer
+  - type: DeleteOnTrigger
+
+# PLANARIAN SPLIT APPEARANCES/BODY #
+
+- type: entity
+  id: BasePlanarianSplitBody
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganPlanarianSplitLungs
+        - id: OrganPlanarianSplitHeart
+        - id: OrganPlanarianSplitStomach
+        - id: OrganPlanarianSplitLiver
+        - id: OrganPlanarianSplitKidneys
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearancePlanarianSplitTier1
+  categories: [ HideSpawnMenu ] #imp
+  name: Planarian split appearance
+  components:
+  - type: Inventory
+    templateId: planarian_split_tier1
+    displacements:
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            state: ears
+  - type: InitialBody
+    organs:
+      Brain: OrganPlanarian_Split1_BrainSplitting
+      Lungs: OrganPlanarian_Split1_LungsSplitting
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearancePlanarianSplitTier2
+  categories: [ HideSpawnMenu ] #imp
+  name: Planarian split appearance
+  components:
+  - type: Inventory
+    templateId: planarian_split_tier2
+    displacements: #PLANARIAN TODO: smaller planarian displacements
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            state: ears
+  - type: InitialBody
+    organs:
+      Brain: OrganPlanarian_Split2_BrainSplitting
+      Lungs: OrganPlanarian_Split2_LungsSplitting
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearancePlanarianSplitTier3
+  categories: [ HideSpawnMenu ] #imp
+  name: Planarian split appearance
+  components:
+  - type: Inventory
+    templateId: planarian_split_tier3 #PLANARIAN TODO: smaller planarian displacements
+  - type: InitialBody
+    organs:
+      Brain: OrganPlanarianBrain
+      Lungs: OrganPlanarianLungs
+
+# PLANARIAN SPLIT MOBS #
+
+- type: entity
+  name: planarian split base
+  parent: [BasePlanarianSplitBody, SimpleMobBase, StripableInventoryBase]
+  id: MobPlanarianSplit_Base
+  description: A cut in half planarian. Yuck... its using its guts as legs...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: planarian_split_tier1
+      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/splits.rsi
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    templateId: planarian_split_tier1
+    displacements:
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            state: ears
+  - type: Stripping
+  - type: Puller
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: PlanarianBlood
+        Quantity: 80
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      60: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40 #they split on crit
+      behaviors:
+      - !type:GibBehavior
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Speech
+    speechVerb: Planarian
+    speechSounds: Planarian
+    allowedEmotes: ['GoblinMutter',]
+  - type: Vocal
+    sounds:
+      Male: UnisexPlanarian
+      Female: UnisexPlanarian
+      Unsexed: UnisexPlanarian
+  - type: TransferMindOnGib
+    targetTag: MindTransferTarget
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - Planarian
+    - VimPilot
+  - type: Emoting
+  - type: Reform
+    actionPrototype: PlanarianRegenerateAction
+    reformTime: 5 #planarians reform faster than diona
+    popupText: planarian-regenerate-attempt
+    reformPrototype: MobPlanarianReformed
+  # imp edit start
+  - type: GoobAbsorbable
+    biomassRestored: 0.3
+  # imp edit end
+
+- type: entity
+  name: planarian split base
+  parent: [BasePlanarianSplitBody, SimpleMobBase, StripableInventoryBase]
+  id: MobPlanarianSplitTier3_Base
+  description: A cut in half planarian. Yuck... its using its guts as legs...
+
+- type: entity
+  name: planarian half #PLANARIAN TODO: WHY DONT THEY HAVE A RANDOM APPEARANCE!!!!!!!!!
+  parent: [AppearancePlanarianSplitTier1, MobPlanarianSplit_Base]
+  id: MobPlanarianSplit_1_Brain
+  description: A cut in half planarian. Yuck... its using its guts as legs...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: planarian_split_tier1
+      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/splits.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    templateId: planarian_split_tier1
+    displacements:
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            state: ears
+  - type: Hands
+    hands:
+      hand_right:
+        location: Right
+    sortedHands:
+    - hand_right
+  - type: ComplexInteraction
+  - type: Stripping
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: PlanarianBlood
+        Quantity: 80
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      60: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40 #they split on crit
+      behaviors:
+      - !type:GibBehavior
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: TransferMindOnGib
+    targetTag: MindTransferTarget
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - Planarian
+    - VimPilot
+  - type: Reform
+    actionPrototype: PlanarianRegenerateAction
+    reformTime: 5 #planarians reform faster than diona
+    popupText: planarian-regenerate-attempt
+    reformPrototype: MobPlanarianReformed
+  # imp edit start
+  - type: GoobAbsorbable
+    biomassRestored: 0.3
+  # imp edit end
+
+- type: entity
+  name: planarian half
+  parent: [MobPlanarianSplit_1_Brain]
+  id: MobPlanarianSplit_1
+  description: A cut in half planarian. Yuck... its using its guts as legs...
+  components:
+  - type: GhostRole
+    name: ghost-role-information-planarian-split-name
+    description: ghost-role-information-planarian-split-description
+    rules: ghost-role-information-planarian-split-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: TransferMindOnGib
+    targetTag: MindTransferTarget
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - Planarian
+    - VimPilot
+    - MindTransferTarget
+
+- type: entity
+  name: planarian half half
+  parent: [AppearancePlanarianSplitTier2, MobPlanarianSplit_Base]
+  id: MobPlanarianSplit_2_Brain
+  description: Half of a planarian half. It's all mangled and gut-y... but still pretty cute!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: planarian_split_tier2
+      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/splits.rsi #PLANARIAN TODO: smaller split displacements
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    templateId: planarian_split_tier2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      20: Critical
+      40: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20 #they split on crit
+      behaviors:
+      - !type:GibBehavior
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: PlanarianBlood
+        Quantity: 40
+  - type: TransferMindOnGib
+    targetTag: MindTransferTarget
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - Planarian
+    - VimPilot
+    - MindTransferTarget
+
+- type: entity
+  name: planarian half half
+  parent: [MobPlanarianSplit_2_Brain]
+  id: MobPlanarianSplit_2
+  description: Half of a planarian half. It's all mangled and gut-y... but still pretty cute!
+  components:
+  - type: GhostRole
+    name: ghost-role-information-planarian-split-name
+    description: ghost-role-information-planarian-split-description
+    rules: ghost-role-information-planarian-split-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: TransferMindOnGib
+    targetTag: MindTransferTarget
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - Planarian
+    - VimPilot
+
+- type: entity
+  name: planarian sliver
+  parent: [MobPlanarianSplitTier3_Base, BasePlanarianSplitBody]
+  id: MobPlanarianSplit_3_Brain
+  description: Half of a planarian half's half. It probably can't get smaller than this...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: planarian_split_tier3
+      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/splits.rsi #PLANARIAN TODO: smaller split displacements
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 40
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    templateId: planarian_split_tier3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      15: Critical
+      20: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15 #they split on crit
+      behaviors:
+      - !type:GibBehavior
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MobPlanarianBloodworm:
+            min: 1
+            max: 3
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: PlanarianBlood
+        Quantity: 20
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - Planarian
+    - VimPilot
+    - MindTransferTarget
+
+- type: entity
+  name: planarian sliver
+  parent: [MobPlanarianSplit_3_Brain, MobPlanarianSplitTier3_Base, BasePlanarianSplitBody]
+  id: MobPlanarianSplit_3
+  description: Half of a planarian half. It's all mangled and gut-y... but still pretty cute!
+  components:
+  - type: GhostRole
+    name: ghost-role-information-planarian-split-name
+    description: ghost-role-information-planarian-split-description
+    rules: ghost-role-information-planarian-split-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - Planarian
+    - VimPilot
+
+
+# PLANARIAN SPLIT ORGANS #
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: OrganPlanarianBrain
+  suffix: "Planarian, Splitting"
+  id: OrganPlanarian_Split1_BrainSplitting
+  components:
+  - type: Nymph
+    transferMind: true
+    entityPrototype: MobPlanarianSplit_2_Brain
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: OrganPlanarianLungs
+  suffix: "Planarian, Splitting"
+  id: OrganPlanarian_Split1_LungsSplitting
+  components:
+  - type: Nymph
+    transferMind: false
+    entityPrototype: MobPlanarianSplit_2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: OrganPlanarianBrain
+  suffix: "Planarian, Splitting"
+  id: OrganPlanarian_Split2_BrainSplitting
+  components:
+  - type: Nymph
+    transferMind: true
+    entityPrototype: MobPlanarianSplit_3_Brain
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: OrganPlanarianLungs
+  suffix: "Planarian, Splitting"
+  id: OrganPlanarian_Split2_LungsSplitting
+  components:
+  - type: Nymph
+    transferMind: false
+    entityPrototype: MobPlanarianSplit_3

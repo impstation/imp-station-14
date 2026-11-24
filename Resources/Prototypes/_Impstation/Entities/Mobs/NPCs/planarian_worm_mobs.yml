@@ -10,7 +10,7 @@
       size: Tiny
     - type: Sprite
       drawdepth: Mobs
-      sprite: _Impstation/Mobs/Animals/planarian_worm_mobs.rsi
+      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/bloodworm.rsi
       state: bloodworm
     - type: NpcFactionMember
       factions:
@@ -82,6 +82,10 @@
         reagents:
         - ReagentId: Blood #planarians have planarian blood, but the bloodworms in their body have blood blood
           Quantity: 1
+    - type: InteractionPopup
+      successChance: 0.2
+      interactSuccessString: petting-success-bloodworm
+      interactFailureString: petting-failure-bloodworm
     - type: NoSlip
     - type: ZombieImmune
     - type: Edible
@@ -89,3 +93,118 @@
     - type: CanEscapeInventory
       baseResistTime: 2
     - type: AlwaysRevolutionaryConvertible #imp
+
+- type: entity
+  name: email worm
+  id: MobPlanarianEmailworm
+  parent: MobSpaceBasic
+  description: A purely parasitic Planarian organ, it spreads itself through hazardous emails and other forms of digital communication. Extremely hostile upon removal from its host, though it seems to spare Planarians, perhaps in an attempt to find sympathy in a new host.
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/emailworm.rsi
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: emailworm_alive
+        - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          state: emailworm_alive-unshaded
+          shader: unshaded
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepSnake
+    - type: NpcFactionMember
+      factions:
+        - Planarian
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        25: Critical
+        45: Dead
+    - type: Stamina
+      baseCritThreshold: 150
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: emailworm_alive
+          BaseUnshaded: emailworm_alive-unshaded
+        Critical:
+          Base: emailworm_crit
+          BaseUnshaded: emailworm_crit-unshaded
+        Dead:
+          Base: emailworm_dead
+          BaseUnshaded: emailworm_dead-unshaded
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 90
+        behaviors:
+        - !type:GibBehavior
+          recursive: false
+    - type: Butcherable #PLANARIAN TODO: special drop? emailskin boots?
+      spawned:
+        - id: Envelope
+          amount: 1
+        - id: MailingUnitElectronics
+          amount: 1
+        - id: CableApcStack1
+          amount: 2
+        - id: PotatoAIChip
+          amount: 1
+          prob: 0.3
+    - type: Bloodstream
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: MalwareBytes #PLANARIAN TODO: email blood
+          Quantity: 50
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.40
+          density: 120
+          mask:
+          - MobMask
+          layer:
+          - MobLayer
+    - type: MeleeWeapon
+      hidden: true
+      soundHit:
+        path: /Audio/Effects/bite.ogg
+      angle: 0
+      animation: WeaponArcBite
+      damage:
+        types:
+          Piercing: 6
+          Shock: 4
+      altDisarm: false # imp
+    - type: SolutionContainerManager
+      solutions:
+        melee:
+          reagents:
+          - ReagentId: MalwareBytes #far future todo: would be nice if hallucinations become a thing if these made popup ads appear on your screen
+            Quantity: 90
+    - type: MeleeChemicalInjector
+      solution: melee
+      transferAmount: 6
+    - type: InteractionPopup
+      successChance: 0.2
+      interactSuccessString: petting-success-emailworm
+      interactFailureString: petting-failure-emailworm
+    - type: GhostOnMove
+      mustBeDead: true
+    - type: VentCrawler
+      enterDelay: 2
+    - type: Carriable
+    - type: Speech
+      speechSounds: Planarian
+      speechVerb: Planarian
+    - type: Vocal
+      sounds:
+        Male: UnisexPlanarian
+        Female: UnisexPlanarian
+        Unsexed: UnisexPlanarian
+    - type: TypingIndicator
+      proto: planarian

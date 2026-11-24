@@ -11,7 +11,6 @@ flavor-base-fatty = fatty
 flavor-base-gooey = gooey
 flavor-base-ants = like ants
 flavor-base-light = light
-flavor-base-yucky = yucky
 
 flavor-complex-raktaccino = fantastically bitter
 flavor-complex-moscowmule = like a kick in the teeth
@@ -47,6 +46,8 @@ flavor-complex-outofthisworld = out of this world
 flavor-complex-imp = like green marijuana
 flavor-complex-treatchunk = like treason and cherry
 flavor-complex-hardtack = like you might chip a tooth
+flavor-complex-yucky = yucky
+flavor-complex-digital = digital
 
 flavor-complex-medium = like your vision expanded
 

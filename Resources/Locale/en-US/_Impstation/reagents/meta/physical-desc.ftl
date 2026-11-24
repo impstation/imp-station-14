@@ -22,3 +22,4 @@ reagent-physical-desc-floral = floral
 reagent-physical-desc-ghostly = ghostly
 reagent-physical-desc-something = kind of
 reagent-physical-desc-ants = anty
+reagent-physical-desc-digital = digital

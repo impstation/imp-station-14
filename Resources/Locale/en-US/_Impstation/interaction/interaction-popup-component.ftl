@@ -62,3 +62,10 @@ petting-failure-vrex = You think about brushing {THE($target)}'s bristly ridge, 
 
 petting-success-babyanom = You pet {THE($target)} on its smooth wet head.
 petting-failure-babyanom = You try to pet {THE($target)}, but it nips at your fingers!
+
+## Worms
+
+petting-success-bloodworm = You pet {THE($target)} with a singular finger on its tiny disc shaped head.
+petting-failure-bloodworm = You try to pet {THE($target)}, but it's too small and you miss!
+petting-success-emailworm = You pet {THE($target)} on its electrostatically fuzzy head.
+petting-failure-emailworm = You try to pet {THE($target)}, but it hax at your nooblet fingers!

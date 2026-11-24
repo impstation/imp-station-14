@@ -94,3 +94,27 @@
   - AllHostile
   - Dog
   - DuctSpider
+
+- type: npcFaction
+  id: Planarian
+  hostile: #planarian organs attack everything that isnt a planarian because theyre scared
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Xenoborg
+  - Changeling
+  - Heretic
+  - Dino
+  - DuctSpider
+  - Penguin
+  - Replicator
+  - Dog
