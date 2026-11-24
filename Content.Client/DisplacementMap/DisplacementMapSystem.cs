@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.DisplacementMap;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using static Robust.Client.GameObjects.SpriteComponent; //imp
 
@@ -9,8 +10,11 @@ namespace Content.Client.DisplacementMap;
 
 public sealed class DisplacementMapSystem : EntitySystem
 {
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly ISerializationManager _serialization = null!;
+    [Dependency] private readonly SpriteSystem _sprite = null!;
+
+    //needs to be replaced later: see comment on line 48
+    private static readonly ProtoId<ShaderPrototype> UnshadedID = "unshaded";
 
     private static string? BuildDisplacementLayerKey(object key)
     {
@@ -40,14 +44,16 @@ public sealed class DisplacementMapSystem : EntitySystem
 
         EnsureDisplacementIsNotOnSprite(sprite, key);
 
-        if (data.ShaderOverride != null)
+        if (data.ShaderOverride is not null)
         {
-            //imp edit start - replaced the simple shader replacement w/ a ternary that checks if the layer is unshaded before setting the shader
+            //TODO : this is a kinda janky workaround for the fact that the current rendering pipeline does not have
+            //proper support for multiple shaders on a given layer (or an ubershader to handle stacking all of the effects well)
+            //should be replaced by an engine-level solution, but this is an adequate temporary solution.
+            //what's that phrase about temporary solutions?
             sprite.Comp.LayerSetShader(index,
-                sprite.Comp[index] is Layer layer && layer.ShaderPrototype == "unshaded"
+                (sprite.Comp[index] is SpriteComponent.Layer layer && layer.ShaderPrototype == UnshadedID)
                     ? data.ShaderOverrideUnshaded
                     : data.ShaderOverride);
-            //imp edit end
         }
 
         //allows you not to write it every time in the YML

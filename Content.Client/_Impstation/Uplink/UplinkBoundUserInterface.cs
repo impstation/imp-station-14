@@ -37,7 +37,7 @@ public sealed class UplinkBoundUserInterface(EntityUid owner, Enum uiKey) : Boun
 
         _menu.OnListingButtonPressed += (_, listing) =>
         {
-            SendMessage(new StoreBuyListingMessage(listing.ID));
+            SendMessage(new StoreBuyListingMessage(listing.ID, EntMan.GetNetEntity(Owner)));
         };
 
         _menu.OnCategoryButtonPressed += (_, category) =>

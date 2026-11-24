@@ -86,7 +86,7 @@
   - type: Tag
     tags:
     - CentrifugeCompatible
-  
+
 # tables
 - type: entityTable
   id: RandomChemicalSampleTubeCommon
@@ -150,7 +150,6 @@
     - id: ChemSampleTubeJuiceRose
     - id: ChemSampleTubeJuiceBerry
     - id: ChemSampleTubeLiquidLunch
-    - id: ChemSampleTubeJuicePotato
     - id: ChemSampleTubeSalvagersSoothe
     - id: ChemSampleTubeDoctorsDelight
     - id: ChemSampleTubeUAP
@@ -253,7 +252,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Biological Sample, Handle With Care
-  
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeCopperBlood
@@ -283,7 +282,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Biological Sample, Handle With Care
-  
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeShimmeringBlood
@@ -463,7 +462,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Pressurized Sample, Handle With Care
-    
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeDiphenhydramine
@@ -478,7 +477,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Medicinal Sample, Handle With Care
-        
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeDiphenylmethylamine
@@ -493,7 +492,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Medicinal Sample, Handle With Care
-        
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeTestosterone
@@ -508,7 +507,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Medicinal Sample, Handle With Care
-            
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeEstradiol
@@ -643,7 +642,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Botanical Sample, Handle With Care
-    
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeTHC
@@ -928,7 +927,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Biological Sample, Handle With Care
-    
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeGroundBros
@@ -1108,21 +1107,6 @@
           Quantity: 10
   - type: Label
     currentLabel: Biological Substance, Handle With Care
-
-- type: entity
-  parent: ChemSampleTube
-  id: ChemSampleTubeJuicePotato
-  suffix: JuicePotato
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 10
-        reagents:
-        - ReagentId: JuicePotato
-          Quantity: 10
-  - type: Label
-    currentLabel: Botanical Sample, Handle With Care
 
 - type: entity
   parent: ChemSampleTube
@@ -1320,7 +1304,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Anomalous Materials, Handle With Care
-  
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeRororium
@@ -1410,7 +1394,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Metallurgic Sample, Handle With Care
-    
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeSilver
@@ -1441,7 +1425,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Metallurgic Sample, Handle With Care
-    
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeUranium
@@ -1771,7 +1755,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Hazardous Substance, Handle With Caution
-    
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeMindbreakerToxin
@@ -1786,7 +1770,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Hazardous Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeRazorium
@@ -1801,7 +1785,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Hazardous Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeLipolicide
@@ -1816,7 +1800,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Hazardous Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeUnstableMutagen
@@ -1831,7 +1815,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Radioactive Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeDiethylamine
@@ -1846,7 +1830,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Toxic Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeEctoplasm
@@ -1861,7 +1845,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Supernatural Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeSynthflesh
@@ -1876,7 +1860,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Biological Sample, Handle With Care
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeLaughter
@@ -1891,7 +1875,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Mind Altering Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeBenzene
@@ -1906,7 +1890,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Carcenogenic Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeBleach
@@ -1921,7 +1905,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Carcenogenic Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeSaxoite
@@ -1936,7 +1920,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Groovy Substance, Handle With Care
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeSomething
@@ -1951,7 +1935,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Substance
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeBacchussBlessing
@@ -1966,7 +1950,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Mind Altering Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeNothing
@@ -1980,8 +1964,8 @@
         - ReagentId: Nothing
           Quantity: 10
   - type: Label
-    currentLabel:  
-   
+    currentLabel:
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeDrink
@@ -1996,7 +1980,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Mind Altering Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeGenderfluid
@@ -2011,7 +1995,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Biological Sample, Handle With Care
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeFeverDream
@@ -2026,7 +2010,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Mind Altering Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeGinAndSonic
@@ -2041,7 +2025,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Mind Altering Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeNeurotoxin
@@ -2056,7 +2040,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Toxic Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubePoisonWine
@@ -2071,7 +2055,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Toxic Substance, Handle With Caution
-   
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeTheGrease
@@ -2086,7 +2070,7 @@
           Quantity: 10
   - type: Label
     currentLabel: Mind Altering Substance, Handle With Caution
-  
+
 - type: entity
   parent: ChemSampleTube
   id: ChemSampleTubeTheHorsepussy

@@ -38,7 +38,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             Span<float> tmp = stackalloc float[moles.Length];
-            NumericsHelpers.Multiply(moles, GasSpecificHeats, tmp);
+            NumericsHelpers.Multiply(moles, GasMolarHeatCapacities, tmp);
             // Adjust heat capacity by speedup, because this is primarily what
             // determines how quickly gases heat up/cool.
             return MathF.Max(NumericsHelpers.HorizontalAdd(tmp), Atmospherics.MinimumHeatCapacity);
@@ -569,7 +569,7 @@ namespace Content.Server.Atmos.EntitySystems
 
             //Multiply fractional moles with specific heats and return the sum. This is the specific heat of the mixture.
             //Here temp contains the partial specific heat of each gas in the mixture.
-            NumericsHelpers.Multiply(temp, GasSpecificHeats, temp);
+            NumericsHelpers.Multiply(temp, GasMolarHeatCapacities, temp);
             return NumericsHelpers.HorizontalAdd(temp);
         }
         // END IMP ADD

@@ -75,11 +75,7 @@
       state: body-overlay-2
       visible: false
 
-    - map: [ "clownedon" ] # Dynamically generated
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
-
+    # IMP:
     # we put kode sing here so we dont have to redefine the whole fucking block elsewhere
     # it should be fine because kode are the only thing with the componentry to make this visible
     - map: [ enum.InstrumentVisuals.Layer ]

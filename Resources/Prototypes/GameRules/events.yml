@@ -367,7 +367,7 @@
   components:
   - type: StationEvent
     weight: 1 # rare
-    duration: 1
+    duration: null
     earliestStart: 30
     reoccurrenceDelay: 60
     minimumPlayers: 15 #imp used to be 10, wizden increased this to 30 recently

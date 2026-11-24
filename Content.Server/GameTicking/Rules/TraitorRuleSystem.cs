@@ -18,6 +18,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+using Robust.Shared.Map;
 using Content.Shared.GameTicking; // imp
 using Robust.Server.Player; // imp
 
@@ -171,41 +172,31 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing, string? objectiveIssuer) // Imp Edit: Traitor Flavor
     {
         var pda = _uplink.FindUplinkTarget(traitor);
-        Note[]? code = null;
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
-        var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
+        var uplinked = _uplink.AddUplink(traitor, startingBalance, out var code, pda, giveDiscounts: true, bindToPda: false);
 
-        if (pda is not null && uplinked)
+        if (code != null && uplinked == AddUplinkResult.Pda)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
-            // Codes are only generated if the uplink is a PDA
-            var ev = new GenerateUplinkCodeEvent();
-            RaiseLocalEvent(pda.Value, ref ev);
 
-            if (ev.Code is { } generatedCode)
-            {
-                code = generatedCode;
-
-                // If giveUplink is false the uplink code part is omitted
-                // Imp Edit for Traitor Flavor start
-                briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]",
-                    briefing,
-                    Loc.GetString($"traitor-{objectiveIssuer}-uplink"),
-                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))),
-                    Loc.GetString($"traitor-{objectiveIssuer}-intro"),
-                    Loc.GetString($"traitor-role-allegiances"),
-                    Loc.GetString($"traitor-{objectiveIssuer}-allies"),
-                    Loc.GetString($"traitor-role-notes"),
-                    Loc.GetString($"traitor-{objectiveIssuer}-goal"),
-                    Loc.GetString($"traitor-role-clarity"));
-                // end Imp Edit for Traitor Flavor
-                return (code, briefing);
-            }
-
-            Log.Error($"MakeTraitor {ToPrettyString(traitor)} failed to generate an uplink code on {ToPrettyString(pda)}.");
+            // If giveUplink is false the uplink code part is omitted
+            // Imp Edit for Traitor Flavor start
+            briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]",
+                briefing,
+                Loc.GetString($"traitor-{objectiveIssuer}-uplink"),
+                Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))),
+                Loc.GetString($"traitor-{objectiveIssuer}-intro"),
+                Loc.GetString($"traitor-role-allegiances"),
+                Loc.GetString($"traitor-{objectiveIssuer}-allies"),
+                Loc.GetString($"traitor-role-notes"),
+                Loc.GetString($"traitor-{objectiveIssuer}-goal"),
+                Loc.GetString($"traitor-role-clarity"));
+            // end Imp Edit for Traitor Flavor
+            return (code, briefing);
         }
-        else if (pda is null && uplinked)
+
+        if (uplinked == AddUplinkResult.Implant)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
             // Imp Edit for Traitor Flavor start
@@ -225,6 +216,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         {
             Log.Error($"MakeTraitor failed on {ToPrettyString(traitor)} - No uplink could be added");
         }
+
 
         return (null, briefing);
     }
