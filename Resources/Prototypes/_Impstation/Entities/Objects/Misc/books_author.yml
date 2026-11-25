@@ -260,7 +260,7 @@
   parent: BookBase
   id: BookButlerCode
   name: examining the butler code
-  description: 
+  description:
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi
@@ -318,13 +318,6 @@
   - type: Paper
     content: book-text-grayjanitor
 
-
-  # -Title: Oum Erth! Chapter 1
-  # -Description: A textbook on grayspeak. This chapter covers question words.
-  # -cover_base.png #f7efb0
-  # -decor_wingette_circle.png #29542b
-  # -icon_text.png (Default)
-  # -icon_planet.png (Default)
 - type: entity
   parent: BookBase
   id: BookOumErth1
@@ -348,12 +341,6 @@
     - Book
     - Guidebook
 
-  # -Title: Oum Erth! Chapter 2
-  # -Description: A textbook on grayspeak. This chapter covers pronouns.
-  # -cover_base.png #f7efb0
-  # -decor_wingette_circle.png #272a63
-  # -icon_text.png (Default)
-  # -icon_planet.png (Default)
 - type: entity
   parent: BookBase
   id: BookOumErth2
@@ -377,12 +364,6 @@
     - Book
     - Guidebook
 
-  # -Title: Oum Erth! Chapter 3
-  # -Description: A textbook on grayspeak. This chapter covers department names.
-  # -cover_base.png #f7efb0
-  # -decor_wingette_circle.png #7d1a27
-  # -icon_text.png (Default)
-  # -icon_planet.png (Default)
 - type: entity
   parent: BookBase
   id: BookOumErth3
@@ -406,13 +387,6 @@
     - Book
     - Guidebook
 
-  # -Title: Pisk Erth! Chapter -1
-  # -Description: A defiled textbook. Something about this makes you feel like knowing its contents would have made you really cool in school.
-  # -cover_base.png #ad1025
-  # -decor_wingette_circle.png #000000
-  # -icon_text.png (Default)
-  # -icon_planet.png (Default)
-  # -overlay_dirt.png (Default)
 - type: entity
   parent: BookBase
   id: BookOumErthS
