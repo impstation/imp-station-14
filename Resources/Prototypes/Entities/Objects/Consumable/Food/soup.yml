@@ -897,22 +897,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/meals.rsi
     state: amanita-jelly
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Amatoxin
-          Quantity: 30 # imp - this shit killing you
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Mushroom
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -922,7 +906,10 @@
         Quantity: 15
       - ReagentId: Vodka
         Quantity: 5
-# TORTURE END
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Mushroom
 
 # Soup
 

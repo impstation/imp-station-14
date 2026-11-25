@@ -12,20 +12,6 @@
     sprite: Objects/Consumable/Food/meat.rsi
   - type: Extractable
     grindableSolutionName: food
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 1
-        - ReagentId: Fat
-          Quantity: 5
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -35,7 +21,6 @@
         Quantity: 20
       - ReagentId: Fat
         Quantity: 5
-# TORTURE END
   - type: Item
     shape:
     - 0,0,1,0
@@ -97,19 +82,6 @@
   components:
   - type: Sprite
     state: plain
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatCutlet
@@ -2069,19 +2041,6 @@
     - Meat
   - type: Sprite
     state: cutlet
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: Cutlet
     node: start

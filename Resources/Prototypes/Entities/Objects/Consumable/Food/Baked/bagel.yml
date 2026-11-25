@@ -15,26 +15,15 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/bagel.rsi
     state: bagel
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-  - type: Tag # imp
-    tags:
-    - Bagel
-    - Bread # imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 10
-# TORTURE END
+        Quantity: 1.125 # imp 10>1.125
+  - type: Tag # imp
+    tags:
+    - Bagel
+    - Bread
 
 - type: entity
   parent: FoodBagelBase
@@ -53,31 +42,13 @@
       - medicine
   - type: Sprite
     state: bagel-poppy
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Bicaridine
-          Quantity: 4 # imp
-        - ReagentId: Nutriment
-          Quantity: 6.5 # imp
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Bagel
-    - Bread
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Bicaridine
         Quantity: 5
       - ReagentId: Nutriment
-        Quantity: 10
-# TORTURE END
+        Quantity: 2.125 # imp 10>2.125
 
 - type: entity
   parent: FoodBagelBase
@@ -96,25 +67,11 @@
   - type: Tag
     tags:
     - ClothMade
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
     - ClothFood # imp
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.5 # imp
-        - ReagentId: Fiber
-          Quantity: 3.5 # imp
-
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 5
+        Quantity: 0.125 # imp 5>0.125
       - ReagentId: Fiber
         Quantity: 5
-# TORTURE END
