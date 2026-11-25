@@ -40,16 +40,17 @@
     - FoodSnack
     - ReptilianFood
     - UnguFood
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        reagents:
-        - ReagentId: CocoaPowder
-          Quantity: 0.125
-        - ReagentId: Theobromine
-          Quantity: 0.375
-        - ReagentId: Nutriment
-          Quantity: 1.25
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.625
+      - ReagentId: Theobromine
+        Quantity: 0.375
+      - ReagentId: CocoaPowder
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 0.25
 
 - type: entity
   name: stick of cream cheese
@@ -83,11 +84,11 @@
   components:
   - type: Item
     size: Normal
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 15
-        reagents:
+      reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
         - ReagentId: Fiber
           Quantity: 10
   - type: FlavorProfile
@@ -113,13 +114,13 @@
   components:
   - type: Item
     size: Normal
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 2.5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Fiber
+        Quantity: 2.5
   - type: FlavorProfile
     flavors:
       - cheesy

@@ -305,20 +305,6 @@
   components:
   - type: Sprite
     state: jelly-choc
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Theobromine
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 1
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -330,7 +316,6 @@
         Quantity: 1
       - ReagentId: Theobromine
         Quantity: 1
-# TORTURE END
 # Tastes like jelly-donut, bitterness.
 
 - type: entity
@@ -393,19 +378,8 @@
   id: FoodDonutPoison
   suffix: Poison
   components:
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Amatoxin
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Amatoxin
         Quantity: 10
-# TORTURE END

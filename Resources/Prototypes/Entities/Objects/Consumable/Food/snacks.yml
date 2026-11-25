@@ -199,24 +199,7 @@
     tags:
       - FoodSnack
       - ReptilianFood
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
       - UnguFood # imp
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
-  - type: SliceableFood # imp start
-    count: 8
-    slice: FoodChocolateChip # imp end
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -225,8 +208,12 @@
       - ReagentId: Theobromine
         Quantity: 3
       - ReagentId: CocoaPowder
+        Quantity: 4 # imp 2>4
+      - ReagentId: Sugar # imp
         Quantity: 2
-# TORTURE END
+  - type: SliceableFood # imp
+    count: 8
+    slice: FoodChocolateChip
 
 - type: entity
   parent: FoodSnackBase
