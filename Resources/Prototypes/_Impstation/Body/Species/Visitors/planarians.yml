@@ -329,6 +329,10 @@
   id: OrganPlanarianFootLeft
 
 - type: entity
+  parent: [ OrganBaseFootRight, OrganPlanarianExternal ] #they need this for the foot sound to work
+  id: OrganPlanarianFootRight
+
+- type: entity
   parent: [ OrganBaseBrain, OrganPlanarianInternal ]
   id: OrganPlanarianBrain
   name: brain worm
@@ -640,28 +644,27 @@
     containers:
       body_organs: !type:AllSelector
         children:
+        - id: OrganPlanarianFootLeft
+        - id: OrganPlanarianFootRight
         - id: OrganPlanarianSplitLungs
         - id: OrganPlanarianSplitHeart
         - id: OrganPlanarianSplitStomach
         - id: OrganPlanarianSplitLiver
         - id: OrganPlanarianSplitKidneys
 
-- type: entity
+- type: entity #note: you removed the parents
   parent: BaseSpeciesAppearance
   id: AppearancePlanarianSplitTier1
   categories: [ HideSpawnMenu ] #imp
   name: Planarian split appearance
   components:
-  - type: Inventory
-    templateId: planarian_split_tier1
-    displacements:
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
-            state: ears
   - type: InitialBody
     organs:
+      Torso: OrganPlanarianTorso
+      Head: OrganPlanarianHead
+      HandRight: OrganPlanarianHandRight
+      FootLeft: OrganPlanarianFootLeft
+      FootRight: OrganPlanarianFootLeft
       Brain: OrganPlanarian_Split1_BrainSplitting
       Lungs: OrganPlanarian_Split1_LungsSplitting
 
@@ -671,14 +674,6 @@
   categories: [ HideSpawnMenu ] #imp
   name: Planarian split appearance
   components:
-  - type: Inventory
-    templateId: planarian_split_tier2
-    displacements: #PLANARIAN TODO: smaller planarian displacements
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
-            state: ears
   - type: InitialBody
     organs:
       Brain: OrganPlanarian_Split2_BrainSplitting
@@ -723,14 +718,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Inventory
-    templateId: planarian_split_tier1
-    displacements:
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
-            state: ears
   - type: Stripping
   - type: Puller
   - type: Bloodstream
@@ -787,7 +774,7 @@
 
 - type: entity
   name: planarian split base
-  parent: [BasePlanarianSplitBody, SimpleMobBase, StripableInventoryBase]
+  parent: [AppearancePlanarianSplitTier3, BasePlanarianSplitBody, SimpleMobBase, StripableInventoryBase]
   id: MobPlanarianSplitTier3_Base
   description: A cut in half planarian. Yuck... its using its guts as legs...
 
@@ -815,19 +802,43 @@
         layer:
         - MobLayer
   - type: Inventory
-    templateId: planarian_split_tier1
+    templateId: planarian_split_tier1 #PLANARIAN TODO: EVERYTHING IS BROKEN HELP ME
     displacements:
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier1_belt
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier1_feet
+      hands:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier1_hands
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier1_jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier1_eyes
       ears:
         sizeMaps:
           32:
             sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
             state: ears
-  - type: Hands
-    hands:
-      hand_right:
-        location: Right
-    sortedHands:
-    - hand_right
+      id:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            state: id
   - type: ComplexInteraction
   - type: Stripping
   - type: Bloodstream
@@ -850,8 +861,11 @@
   - type: Grammar
     attributes:
       gender: epicene
-  - type: TransferMindOnGib
-    targetTag: MindTransferTarget
+  - type: Vocal
+    sounds:
+      Male: UnisexPlanarianTier2
+      Female: UnisexPlanarianTier2
+      Unsexed: UnisexPlanarianTier2
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -884,8 +898,6 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  - type: TransferMindOnGib
-    targetTag: MindTransferTarget
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -893,7 +905,6 @@
     - FootstepSound
     - Planarian
     - VimPilot
-    - MindTransferTarget
 
 - type: entity
   name: planarian half half
@@ -920,6 +931,27 @@
         - MobLayer
   - type: Inventory
     templateId: planarian_split_tier2
+    displacements:
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier2_mask
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier2_head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier2_eyes
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            state: ears
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -944,11 +976,9 @@
     reformPrototype: MobPlanarianReformed
   - type: Vocal
     sounds:
-      Male: UnisexBloodworm
-      Female: UnisexBloodworm
-      Unsexed: UnisexBloodworm
-  - type: TransferMindOnGib
-    targetTag: MindTransferTarget
+      Male: UnisexPlanarianTier2
+      Female: UnisexPlanarianTier2
+      Unsexed: UnisexPlanarianTier2
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -956,7 +986,6 @@
     - FootstepSound
     - Planarian
     - VimPilot
-    - MindTransferTarget
 
 - type: entity
   name: planarian half half
@@ -985,9 +1014,9 @@
 
 - type: entity
   name: planarian sliver
-  parent: [MobPlanarianSplitTier3_Base, BasePlanarianSplitBody]
+  parent: [MobPlanarianSplitTier3_Base]
   id: MobPlanarianSplit_3_Brain
-  description: Half of a planarian half's half. It probably can't get smaller than this...
+  description: The smallest a planarian can get before dying for good. You wouldn't hurt this... would you...?
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -1008,6 +1037,17 @@
         - MobLayer
   - type: Inventory
     templateId: planarian_split_tier3
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier3_head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            state: tier3_mask
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -1039,6 +1079,11 @@
     reformTime: 12
     popupText: planarian-regenerate-attempt
     reformPrototype: MobPlanarianReformed
+  - type: Vocal
+    sounds:
+      Male: UnisexPlanarianTier3
+      Female: UnisexPlanarianTier3
+      Unsexed: UnisexPlanarianTier3
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -1046,13 +1091,12 @@
     - FootstepSound
     - Planarian
     - VimPilot
-    - MindTransferTarget
 
 - type: entity
   name: planarian sliver
   parent: [MobPlanarianSplit_3_Brain, MobPlanarianSplitTier3_Base, BasePlanarianSplitBody]
   id: MobPlanarianSplit_3
-  description: Half of a planarian half. It's all mangled and gut-y... but still pretty cute!
+  description: The smallest a planarian can get before dying for good. You wouldn't hurt this... would you...?
   components:
   - type: GhostRole
     name: ghost-role-information-planarian-split-name
