@@ -196,8 +196,6 @@
       map: ["base"]
   - type: Item
     heldPrefix: uranium
-  - type: Extractable
-    grindableSolutionName: reagents
   - type: Solution
     solution:
       reagents:
@@ -259,8 +257,6 @@
     - type: Item
       sprite: Objects/Materials/Sheets/meaterial.rsi
       heldPrefix: meat
-    - type: Extractable
-      grindableSolutionName: reagents
     - type: SolutionContainerManager
     - type: Edible # imp
       requiresSpecialDigestion: true

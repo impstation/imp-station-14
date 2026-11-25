@@ -71,8 +71,6 @@
   - type: Construction
     graph: Glass
     node: SheetGlass
-  - type: Extractable
-    grindableSolutionName: reagents
   - type: Solution
     solution:
       reagents:
@@ -313,8 +311,6 @@
   - type: Construction
     graph: Glass
     node: SheetRPGlass
-  - type: Extractable
-    grindableSolutionName: reagents
   - type: Solution
     solution:
       maxVol: 25
@@ -404,8 +400,6 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Extractable
-    grindableSolutionName: reagents
   - type: Solution
     solution:
       maxVol: 20
@@ -466,8 +460,6 @@
   - type: Construction
     graph: Glass
     node: SheetRUGlass
-  - type: Extractable
-    grindableSolutionName: reagents
   - type: Solution
     solution:
       maxVol: 25
@@ -557,8 +549,6 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Extractable
-    grindableSolutionName: reagents
   - type: Solution
     solution:
       maxVol: 20
