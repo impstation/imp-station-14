@@ -1,7 +1,7 @@
 # Base
 
 - type: entity
-  parent: [FoodInjectableBase, ItemHeftyBase]
+  parent: [SolutionVeryTiny, FoodInjectableBase, ItemHeftyBase]
   id: FoodEggBase
   description: An egg!
   abstract: true
@@ -18,6 +18,8 @@
   - type: Item
     sprite: Objects/Consumable/Food/egg.rsi
     size: Tiny
+  # IMP UPMERGE - Solution Torture
+  # IMP SOLUTION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -25,6 +27,13 @@
         reagents:
         - ReagentId: Egg
           Quantity: 6
+  # UPSTREAM SOLUTION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Egg
+        Quantity: 6 # About 50ml which is the expected size of an egg
+  # TORTURE END
   - type: DrawableSolution
     solution: food
   - type: SolutionSpiker
@@ -38,6 +47,7 @@
       types:
         Blunt: 1
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Destructible
     thresholds:
@@ -82,6 +92,8 @@
     state: eggshells
   - type: Item
     size: Tiny
+  # IMP UPMERGE - Solution Torture
+  # IMP SOLUTION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -89,6 +101,8 @@
         reagents:
         - ReagentId: Egg
           Quantity: 1
+  # UPSTREAM SOLUTION:
+  # TORTURE END
   - type: Tag
     tags:
     - Egg
@@ -130,6 +144,8 @@
     layers:
     - state: icon
       map: [ "enum.DamageStateVisualLayers.Base" ]
+  # IMP UPMERGE - Solution Torture
+  # IMP SOLUTION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -137,6 +153,13 @@
         reagents:
         - ReagentId: EggCooked
           Quantity: 6
+  # UPSTREAM SOLUTION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: EggCooked
+        Quantity: 6
+  # TORTURE END
   - type: Temperature
     # preserve temperature from the boiling step
     currentTemperature: 344

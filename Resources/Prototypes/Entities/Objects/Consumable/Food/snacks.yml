@@ -2,7 +2,7 @@
 # Base
 
 - type: entity
-  parent: FoodBase
+  parent: [SolutionTiny, FoodBaseTrash]
   id: FoodSnackBase
   abstract: true
   components:
@@ -11,6 +11,8 @@
       - FoodSnack
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -18,6 +20,13 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 1 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+# TORTURE END
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: packet
@@ -190,6 +199,8 @@
     tags:
       - FoodSnack
       - ReptilianFood
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
       - UnguFood # imp
   - type: SolutionContainerManager
     solutions:
@@ -205,6 +216,17 @@
   - type: SliceableFood # imp start
     count: 8
     slice: FoodChocolateChip # imp end
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 2
+# TORTURE END
 
 - type: entity
   parent: FoodSnackBase
@@ -423,6 +445,8 @@
     solution: food
   - type: InjectableSolution
     solution: food
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -432,6 +456,15 @@
           Quantity: 10 # imp - equivalent of 4u nutriment roughly
         - ReagentId: Soysauce
           Quantity: 5
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DryRamen
+        Quantity: 20
+      - ReagentId: Soysauce
+        Quantity: 5
+# TORTURE END
   - type: Sprite
     state: ramen
   - type: Edible
@@ -450,6 +483,8 @@
   name: hell ramen
   description: Super spicy flavor!
   components:
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -459,6 +494,15 @@
           Quantity: 10 # imp - equivalent of 4u nutriment roughly
         - ReagentId: CapsaicinOil
           Quantity: 5
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DryRamen
+        Quantity: 20
+      - ReagentId: CapsaicinOil
+        Quantity: 5
+# TORTURE END
 
 - type: entity
   parent: FoodSnackBase
@@ -480,6 +524,8 @@
     sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
     # heldPrefix: chinese1 #imp
     storedOffset: 1,-2
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     inhandVisuals: # imp
       left:
       - state: takeout-inhand-left
@@ -496,6 +542,15 @@
           Quantity: 2
         - ReagentId: TableSalt # imp
           Quantity: 5
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Soysauce
+        Quantity: 2
+# TORTURE END
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
@@ -523,6 +578,8 @@
     sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
     # heldPrefix: chinese2 #imp
     storedOffset: 0,-2
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     inhandVisuals: # imp
       left:
       - state: takeout-inhand-left
@@ -539,6 +596,17 @@
           Quantity: 2
         - ReagentId: Soysauce
           Quantity: 2
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: CapsaicinOil
+        Quantity: 2
+      - ReagentId: Soysauce
+        Quantity: 2
+# TORTURE END
   - type: Edible
     trash:
     - FoodPacketDanDanTrash
@@ -557,6 +625,8 @@
       - fortunecookie
   - type: Sprite
     state: cookie_fortune
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -564,6 +634,14 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      maxVol: 2.5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+# TORTURE END
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: cookie_fortune
@@ -617,6 +695,8 @@
       - ReptilianFood
   - type: Sprite
     state: nutribrick-open
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -624,6 +704,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # imp GO TO THE KITCHEN !!! I HATE YOU
+# UPSTREAM VERSION:
+# TORTURE END
 
 - type: entity
   parent: BaseItem
@@ -649,7 +731,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: FoodSnackBase
+  parent: [SolutionVeryTiny, FoodSnackBase]
   id: FoodSnackMREBrownieOpen
   name: brownie
   suffix: MRE
@@ -663,6 +745,8 @@
   - type: Item
     heldPrefix: mre-brownie-open
     storedOffset: -1,-1
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -674,6 +758,15 @@
           Quantity: 1 # imp
         - ReagentId: CocoaPowder # imp
           Quantity: 1
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 1
+# TORTURE END
 
 - type: entity
   parent: FoodSnackBase
@@ -694,6 +787,8 @@
     tags:
     - FoodSnack
     - ReptilianFood
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     - UnguFood # imp
   - type: SolutionContainerManager
     solutions:
@@ -702,6 +797,13 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 15
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 15
+# TORTURE END
   - type: FlavorProfile
     flavors:
     - sweet
@@ -717,7 +819,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseItem
+  parent: [SolutionFood, SolutionVeryTiny, BaseItem]
   id: FoodPacketTrash
   description: This is rubbish.
   abstract: true
@@ -737,6 +839,8 @@
   - type: SpaceGarbage
   - type: StaticPrice
     price: 0
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -744,6 +848,14 @@
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 10 # imp 5 > 10
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      maxVol: 7.5
+      reagents:
+      - ReagentId: ToxinTrash
+        Quantity: 7.5
+# TORTURE END
   - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile # imp
@@ -1023,6 +1135,8 @@
   components:
   - type: Edible
     requiresSpecialDigestion: true
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1033,6 +1147,13 @@
   - type: PhysicalComposition #imp - the wrapper is not made of steel and plastic
     materialComposition:
       Cardboard: 100
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+# TORTURE END
   - type: Tag
     tags:
     - ClothMade

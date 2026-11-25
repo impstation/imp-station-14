@@ -10,7 +10,6 @@
     role: JobBorg
     time: 5h
   weight: 10
-  canBeAntag: false
   joinNotifyCrew: true
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
@@ -26,7 +25,6 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 40h # imp, was 10h
-  canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-ai # imp edit, lawsync
   jobEntity: PlayerBorgBattery

@@ -23,6 +23,8 @@
   - type: Construction
     graph: smokeableJoint
     node: joint
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -35,6 +37,13 @@
         reagents:
           - ReagentId: THC
             Quantity: 20
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: THC
+        Quantity: 20
+# TORTURE END
   - type: RandomMetadata
     nameSegments: [NamesRollie]
 
@@ -48,6 +57,8 @@
   - type: Construction
     graph: smokeableJointRainbow
     node: jointRainbow
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -80,6 +91,23 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SpaceDrugs
+        Quantity: 10
+      - ReagentId: Lipolicide
+        Quantity: 5
+      - ReagentId: MindbreakerToxin
+        Quantity: 5
+      - ReagentId: Happiness
+        Quantity: 5
+  #   - ReagentId: ColorfulReagent
+  #     Quantity: 1.33
+      - ReagentId: Psicodine
+        Quantity: 3.67
+# TORTURE END
 
 - type: entity
   id: Blunt
@@ -106,6 +134,8 @@
   - type: Construction
     graph: smokeableBlunt
     node: blunt
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -118,6 +148,13 @@
         reagents:
           - ReagentId: THC
             Quantity: 20
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: THC
+        Quantity: 20
+# TORTURE END
   - type: RandomMetadata
     nameSegments: [NamesRollie]
 
@@ -131,6 +168,8 @@
   - type: Construction
     graph: smokeableBluntRainbow
     node: bluntRainbow
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -163,3 +202,20 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SpaceDrugs
+        Quantity: 10
+      - ReagentId: Lipolicide
+        Quantity: 5
+      - ReagentId: MindbreakerToxin
+        Quantity: 5
+      - ReagentId: Happiness
+        Quantity: 5
+  #   - ReagentId: ColorfulReagent
+  #     Quantity: 1.33
+      - ReagentId: Psicodine
+        Quantity: 3.67
+# TORTURE END

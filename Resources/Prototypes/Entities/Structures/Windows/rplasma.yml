@@ -9,8 +9,9 @@
   - type: Icon
     sprite: _Impstation/Structures/Windows/reinforced_plasma_window.rsi # Impstation
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RadiationBlocker
     resistance: 4
   - type: Destructible

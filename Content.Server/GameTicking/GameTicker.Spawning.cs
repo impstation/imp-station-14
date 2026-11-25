@@ -232,7 +232,6 @@ namespace Content.Server.GameTicking
                 // imp edit end
 
                 // character = HumanoidCharacterProfile.RandomWithSpecies(speciesId); // imp edit, comment out
-                character.Appearance = HumanoidCharacterAppearance.EnsureValid(character.Appearance, character.Species, character.Sex);
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)

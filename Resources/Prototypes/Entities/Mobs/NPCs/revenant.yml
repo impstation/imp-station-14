@@ -26,8 +26,9 @@
     showInHands: false
     disableExplosionRecursion: true
   - type: Damageable
-    damageContainer: ManifestedSpirit
     damageModifierSet: ManifestedSpirit
+  - type: Injurable
+    damageContainer: ManifestedSpirit
   - type: NoSlip
   - type: Eye
     drawFov: false

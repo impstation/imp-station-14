@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseSheet
   id: SheetOtherBase
   description: A sheet of material, used often on the station in various applications.
   components:
@@ -8,26 +8,14 @@
     sprite: Objects/Materials/Sheets/other.rsi
   - type: Item
     sprite: Objects/Materials/Sheets/other.rsi
-    size: Normal
-  - type: Tag
-    tags:
-    - Sheet
-    - ConstructionMaterial
-    - DroneUsable #imp
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       paper:
         canReact: false
+# UPSTREAM VERSION:
+# TORTURE END
   - type: NonMobStatusIcon #imp edit. for the salvohud
   - type: PluralName # imp
     oneOf: plural-name-sheet-1
@@ -47,7 +35,6 @@
     - paper
     - paper_2
     - paper_3
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Paper: 100
@@ -58,16 +45,11 @@
       map: ["base"]
   - type: Item
     heldPrefix: paper
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: paper
-  - type: SolutionContainerManager
-    solutions:
-      paper:
-        reagents:
-        - ReagentId: Cellulose
-          Quantity: 3
-
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 5
 
 - type: entity
   parent: SheetPaper
@@ -87,7 +69,6 @@
   description: An enigmatic, highly-reactive material that taps into... Well, it'll make you rich. # imp
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Plasma: 100
@@ -105,16 +86,11 @@
       map: ["base"]
   - type: Item
     heldPrefix: plasma
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: plasma
-  - type: SolutionContainerManager
-    solutions:
-      plasma:
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 10
-        canReact: false
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 10
 
 - type: entity
   parent: SheetPlasma
@@ -150,7 +126,6 @@
     - Sheet
     - ConstructionMaterial
     - DroneUsable #imp
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
@@ -168,18 +143,13 @@
       map: ["base"]
   - type: Item
     heldPrefix: plastic
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: plastic
-  - type: SolutionContainerManager
-    solutions:
-      plastic:
-        reagents:
-        - ReagentId: Oil
-          Quantity: 5
-        - ReagentId: Phosphorus
-          Quantity: 5
-        canReact: false
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 5
+      - ReagentId: Phosphorus
+        Quantity: 5
 
 - type: entity
   parent: SheetPlastic
@@ -204,15 +174,15 @@
     count: 1
 
 - type: entity
-  parent: [SheetOtherBase, EdibleBase]
+  parent: [SheetOtherBase, FoodBase]
   id: SheetUranium
   name: uranium
   description: A sheet of Element 92. Puts the 'new' in 'nuclear'. # imp
   suffix: Full
   components:
-  - type: Material
   - type: Edible
     transferAmount: 10
+    solution: composite
   - type: BadFood
   - type: PhysicalComposition
     materialComposition:
@@ -229,9 +199,10 @@
     layers:
     - state: uranium_3
       map: ["base"]
-  - type: Appearance
   - type: Item
     heldPrefix: uranium
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager
@@ -243,6 +214,15 @@
         - ReagentId: Radium
           Quantity: 2
         canReact: false
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Uranium
+        Quantity: 8
+      - ReagentId: Radium
+        Quantity: 2
+# TORTURE END
   # imp edit start
   - type: RadiationSource
     intensity: 0.01
@@ -296,6 +276,8 @@
     - type: Item
       sprite: Objects/Materials/Sheets/meaterial.rsi
       heldPrefix: meat
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     - type: Extractable
       grindableSolutionName: meatsheet
     - type: SolutionContainerManager
@@ -315,6 +297,15 @@
             Quantity: 3
     - type: Edible # imp
       requiresSpecialDigestion: true
+# UPSTREAM VERSION:
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 7
+        - ReagentId: Fat
+          Quantity: 3
+# TORTURE END
 
 - type: entity
   parent: MaterialSheetMeat

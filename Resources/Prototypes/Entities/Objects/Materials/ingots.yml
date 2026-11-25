@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: MaterialBase
   id: IngotBase
   description: A heavy metal ingot stamped with the Nanotrasen logo.
   components:
@@ -8,16 +8,14 @@
     sprite: Objects/Materials/ingots.rsi
   - type: Item
     sprite: Objects/Materials/ingots.rsi
-    size: Normal
-  - type: StaticPrice
-    price: 0
   - type: Tag
     tags:
     - Ingot
     - ConstructionMaterial
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -37,7 +35,6 @@
   description: Invulnerable to the passage of time. All that glitters... # imp
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Gold: 100
@@ -55,15 +52,21 @@
       map: ["base"]
   - type: Item
     heldPrefix: gold
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: gold
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       gold:
         reagents:
         - ReagentId: Gold
           Quantity: 10
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Gold
+        Quantity: 10
+# TORTURE END
   - type: PluralName # imp
     nameSomeOf: gold bars
 
@@ -85,7 +88,6 @@
   description: Apparently useful for killing monsters. # imp
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Silver: 100
@@ -103,18 +105,23 @@
       map: ["base"]
   - type: Item
     heldPrefix: silver
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: gold
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       gold:
         reagents:
         - ReagentId: Silver
           Quantity: 10
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Silver
+        Quantity: 10
+# TORTURE END
   - type: PluralName # imp
     nameSomeOf: silver bars
-
 
 - type: entity
   parent: IngotSilver

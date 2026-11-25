@@ -2,7 +2,7 @@
 # Base
 
 - type: entity
-  parent: FoodInjectableBase
+  parent: [SolutionNormal, FoodInjectableBase]
   id: FoodCakeBase
   abstract: true
   components:
@@ -11,15 +11,15 @@
       - sweet
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/cake.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55 # flavored cakes have less room for spiking
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 40
-        - ReagentId: Vitamin
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 10
   - type: Item
     size: Normal
   - type: Tag
@@ -40,7 +40,7 @@
       stash: !type:ContainerSlot {}
 
 - type: entity
-  parent: FoodCakeBase
+  parent: [SolutionVeryTiny, FoodCakeBase]
   id: FoodCakeSliceBase
   abstract: true
   description: Just a slice of cake, it is enough for everyone.
@@ -49,6 +49,8 @@
     flavors:
       - sweet
   - type: Edible
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -58,6 +60,17 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 2
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 1.25
+      - ReagentId: Sugar
+        Quantity: 1.25
+# TORTURE END
   - type: Item
     size: Tiny
   - type: Tag
@@ -79,6 +92,7 @@
     - state: alpha-filling
       color: blue
   - type: SliceableFood
+    count: 8
     slice: FoodCakeBlueberrySlice
   - type: Tag
     tags:
@@ -151,7 +165,10 @@
   - type: Sprite
     state: plain
   - type: SliceableFood
+    count: 8
     slice: FoodCakePlainSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -161,6 +178,8 @@
           Quantity: 20
         - ReagentId: Vitamin
           Quantity: 5
+# UPSTREAM VERSION:
+# TORTURE END
   - type: Item
     heldPrefix: plain
   - type: Construction # imp
@@ -180,15 +199,6 @@
   components:
   - type: Sprite
     state: plain-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Vitamin
-          Quantity: 1
   - type: Item
     heldPrefix: plain-slice
   - type: Tag # imp
@@ -207,7 +217,10 @@
   - type: Sprite
     state: carrot
   - type: SliceableFood
+    count: 8
     slice: FoodCakeCarrotSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -221,6 +234,21 @@
           Quantity: 17 # imp
         - ReagentId: Nutriment # imp
           Quantity: 20
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 24
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: JuiceCarrot
+        Quantity: 10
+      - ReagentId: Oculine
+        Quantity: 6
+# TORTURE END
   - type: Tag
     tags:
     - Cake
@@ -246,6 +274,8 @@
   components:
   - type: Sprite
     state: carrot-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -259,6 +289,21 @@
           Quantity: 3.4 # imp
         - ReagentId: Nutriment # imp
           Quantity: 4
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: JuiceCarrot
+        Quantity: 1.25
+      - ReagentId: Oculine
+        Quantity: 0.75
+# TORTURE END
   - type: Tag
     tags:
     - Cake
@@ -288,6 +333,7 @@
   - type: Sprite
     state: brain
   - type: SliceableFood
+    count: 8
     slice: FoodCakeBrainSlice
   - type: Tag
     tags:
@@ -365,6 +411,7 @@
   - type: Sprite
     state: cheese
   - type: SliceableFood
+    count: 8
     slice: FoodCakeCheeseSlice
   - type: Item
     inhandVisuals:
@@ -467,6 +514,7 @@
     - state: alpha-filling
       color: "#ff9900"
   - type: SliceableFood
+    count: 8
     slice: FoodCakeOrangeSlice
   - type: Tag
     tags:
@@ -552,6 +600,7 @@
     - state: alpha-filling
       color: "#00ff00"
   - type: SliceableFood
+    count: 8
     slice: FoodCakeLimeSlice
   - type: Tag
     tags:
@@ -637,6 +686,7 @@
     - state: alpha-filling
       color: "#ffff00"
   - type: SliceableFood
+    count: 8
     slice: FoodCakeLemonSlice
   - type: Tag
     tags:
@@ -723,7 +773,10 @@
       - lemoon
       - berry
   - type: SliceableFood
+    count: 8
     slice: FoodCakeLemoonSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -735,6 +788,21 @@
           Quantity: 17 # imp
         - ReagentId: Milk
           Quantity: 32 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 64
+      - ReagentId: Vitamin
+        Quantity: 20
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Milk
+        Quantity: 10
+      - ReagentId: JuiceBerry
+        Quantity: 6
+# TORTURE END
   - type: Tag
     tags:
     - Cake
@@ -754,6 +822,8 @@
     flavors:
       - lemoon
       - berry
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -765,6 +835,21 @@
           Quantity: 3.4 # imp
         - ReagentId: Milk
           Quantity: 8 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Vitamin
+        Quantity: 2.5
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: Milk
+        Quantity: 1.25
+      - ReagentId: JuiceBerry
+        Quantity: 0.75
+# TORTURE END
   - type: Tag
     tags:
     - Cake
@@ -794,7 +879,10 @@
     - state: alpha
       color: "#ba672e"
   - type: SliceableFood
+    count: 8
     slice: FoodCakeChocolateSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -808,6 +896,21 @@
           Quantity: 5
         - ReagentId: CocoaPowder # imp
           Quantity: 2
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 16
+      - ReagentId: CocoaPowder
+        Quantity: 8
+      - ReagentId: Theobromine
+        Quantity: 8
+# TORTURE END
   - type: Item
     inhandVisuals:
       left:
@@ -826,6 +929,8 @@
     layers:
     - state: alpha-slice
       color: "#ba672e"
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -839,6 +944,21 @@
           Quantity: 1 # imp
         - ReagentId: CocoaPowder # imp
           Quantity: 0.4
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 1.25
+      - ReagentId: Sugar
+        Quantity: 2
+      - ReagentId: CocoaPowder
+        Quantity: 1
+      - ReagentId: Theobromine
+        Quantity: 1
+# TORTURE END
   - type: Item
     inhandVisuals:
       left:
@@ -861,6 +981,7 @@
     - state: alpha-filling
       color: "#ff4300"
   - type: SliceableFood
+    count: 8
     slice: FoodCakeAppleSlice
   - type: Tag
     tags:
@@ -945,6 +1066,7 @@
   - type: Sprite
     state: slime
   - type: SliceableFood
+    count: 8
     slice: FoodCakeSlimeSlice
   - type: Tag
     tags:
@@ -1025,7 +1147,10 @@
   - type: Sprite
     state: pumpkinspice
   - type: SliceableFood
+    count: 8
     slice: FoodCakePumpkinSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1037,6 +1162,17 @@
           Quantity: 10 # imp
         - ReagentId: PumpkinFlesh # imp
           Quantity: 20
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 84
+      - ReagentId: Vitamin
+        Quantity: 16
+      - ReagentId: Sugar
+        Quantity: 10
+# TORTURE END
   - type: Tag
     tags:
     - Cake
@@ -1060,6 +1196,8 @@
   components:
   - type: Sprite
     state: pumpkinspice-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1071,6 +1209,17 @@
           Quantity: 2 # imp
         - ReagentId: PumpkinFlesh # imp
           Quantity: 4
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10.5
+      - ReagentId: Vitamin
+        Quantity: 2
+      - ReagentId: Sugar
+        Quantity: 1.25
+# TORTURE END
   - type: Tag
     tags:
     - Cake
@@ -1097,6 +1246,7 @@
   - type: Sprite
     state: christmas
   - type: SliceableFood
+    count: 8
     slice: FoodCakeChristmasSlice
   - type: Tag
     tags:
@@ -1142,6 +1292,7 @@
   - type: Sprite
     state: birthday
   - type: SliceableFood
+    count: 8
     slice: FoodCakeBirthdaySlice
   - type: Item
     heldPrefix: birthday
@@ -1198,7 +1349,10 @@
   - type: Sprite
     state: vanilla
   - type: SliceableFood
+    count: 8
     slice: FoodCakeVanillaSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager #TODO Sprinkles
     solutions:
       food:
@@ -1210,6 +1364,8 @@
           Quantity: 5
         - ReagentId: Sugar
           Quantity: 15
+# UPSTREAM VERSION:
+# TORTURE END
   - type: Item
     heldPrefix: vanilla
   - type: Construction # imp
@@ -1228,6 +1384,8 @@
   components:
   - type: Sprite
     state: vanilla-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1239,6 +1397,8 @@
           Quantity: 2
         - ReagentId: Sugar
           Quantity: 5
+# UPSTREAM VERSION:
+# TORTURE END
   - type: Item
     inhandVisuals:
       left:
@@ -1263,7 +1423,10 @@
   - type: Sprite
     state: clown
   - type: SliceableFood
+    count: 8
     slice: FoodCakeClownSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager #TODO Sprinkles
     solutions:
       food:
@@ -1275,6 +1438,8 @@
           Quantity: 5
         - ReagentId: Sugar
           Quantity: 15
+# UPSTREAM VERSION:
+# TORTURE END
   - type: Item
     heldPrefix: clown
   - type: Tag # imp
@@ -1290,6 +1455,8 @@
   components:
   - type: Sprite
     state: clown-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1301,6 +1468,8 @@
           Quantity: 1
         - ReagentId: Sugar
           Quantity: 5
+# UPSTREAM VERSION:
+# TORTURE END
   - type: Item
     heldPrefix: clown-slice
   - type: Tag # imp
@@ -1319,18 +1488,19 @@
   - type: Sprite
     state: trumpet
   - type: SliceableFood
+    count: 8
     slice: FoodCakeSpacemanSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: PolypyryliumOligomers
-          Quantity: 15
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 16
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: PolypyryliumOligomers
+        Quantity: 12
   - type: Item
     heldPrefix: trumpet
   - type: Construction # imp
@@ -1349,6 +1519,8 @@
   components:
   - type: Sprite
     state: trumpet-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1360,6 +1532,19 @@
           Quantity: 1
         - ReagentId: PolypyryliumOligomers
           Quantity: 3
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 2
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: PolypyryliumOligomers
+        Quantity: 1.5
+# TORTURE END
   - type: Item
     heldPrefix: trumpet-slice
   - type: Tag # imp
@@ -1372,7 +1557,7 @@
 - type: entity
   name: cak
   id: MobCatCake
-  parent: EdibleBase
+  parent: [SolutionLarge, FoodBase]
   description: It's a cake. It's a cat. It's a cak.
   components:
   - type: FlavorProfile
@@ -1382,6 +1567,8 @@
     solution: food
   - type: RefillableSolution
     solution: food
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1395,6 +1582,21 @@
           Quantity: 15
         - ReagentId: Protein # imp
           Quantity: 5
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 88
+      - ReagentId: Vitamin
+        Quantity: 16
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Protein
+        Quantity: 12
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 24
+# TORTURE END
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -1469,28 +1671,30 @@
 
 - type: entity
   name: suppermatter
-  parent: FoodCakeBase
+  parent: [SolutionLarge, FoodCakeBase]
   id: FoodCakeSuppermatter
   description: Extremely dense and powerful food.
   components:
   - type: Sprite
     state: suppermatter
   - type: SliceableFood
-    slice: FoodCakeSuppermatterSlice
     count: 8
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 125 # SUPER dense cake
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 80
-        - ReagentId: Sugar
-          Quantity: 30
+    slice: FoodCakeSuppermatterSlice
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 120
+      - ReagentId: Vitamin
+        Quantity: 20
+      - ReagentId: Sugar
+        Quantity: 50
+      - ReagentId: Plasma
+        Quantity: 10
   - type: Edible
     transferAmount: 12
   - type: Item
-    size: Normal
+    size: Large
     heldPrefix: suppermatter
   - type: PointLight
     color: "#FFFF00"
@@ -1510,6 +1714,8 @@
   components:
   - type: Sprite
     state: suppermatter-shard
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1519,6 +1725,19 @@
           Quantity: 10
         - ReagentId: Sugar
           Quantity: 3.75 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 15
+      - ReagentId: Vitamin
+        Quantity: 2.5
+      - ReagentId: Sugar
+        Quantity: 6.25
+      - ReagentId: Plasma
+        Quantity: 1.25
+# TORTURE END
   - type: Edible
     transferAmount: 3
   - type: PointLight
@@ -1546,11 +1765,14 @@
   - type: Sprite
     state: cotton
   - type: SliceableFood
+    count: 8
     slice: FoodCakeCottonSlice
   - type: Tag
     tags:
     - Cake
     - ClothMade
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     - ClothFood #imp
   - type: SolutionContainerManager
     solutions:
@@ -1563,6 +1785,19 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 10
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Fiber
+        Quantity: 10
+# TORTURE END
   - type: Item
     heldPrefix: cotton
   - type: Construction # imp
@@ -1583,17 +1818,17 @@
     - ClothMade
     - ClothFood #imp
     - Slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: Fiber
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 1.25
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: Fiber
+        Quantity: 1.25
   - type: Item
     heldPrefix: cotton-slice
 
@@ -1612,6 +1847,8 @@
       - sweet
       - berry
       - motivating
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1623,7 +1860,23 @@
           Quantity: 25 #imp
         - ReagentId: Milk
           Quantity: 10
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 70
+      - ReagentId: Vitamin
+        Quantity: 20
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Milk
+        Quantity: 10
+      - ReagentId: JuiceBerry
+        Quantity: 10
+# TORTURE END
   - type: SliceableFood
+    count: 8
     slice: FoodCakeBerryDelightSlice
   - type: Tag
     tags:
@@ -1653,6 +1906,8 @@
       - sweet
       - berry
       - motivating
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1664,6 +1919,21 @@
           Quantity: 5 #imp
         - ReagentId: Milk
           Quantity: 2
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8.75
+      - ReagentId: Vitamin
+        Quantity: 2.5
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: Milk
+        Quantity: 1.25
+      - ReagentId: JuiceBerry
+        Quantity: 1.25
+# TORTURE END
   - type: Tag
     tags:
     - Cake

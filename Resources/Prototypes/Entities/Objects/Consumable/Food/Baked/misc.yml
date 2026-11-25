@@ -2,12 +2,14 @@
 # Base
 
 - type: entity
-  parent: FoodInjectableBase
+  parent: [SolutionVeryTiny, FoodInjectableBase]
   id: FoodBakedBase
   abstract: true
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -15,6 +17,13 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+# TORTURE END
   - type: Item
     size: Tiny
 
@@ -32,6 +41,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: muffin
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -43,6 +54,8 @@
         #  Quantity: 2
         - ReagentId: Sugar # imp
           Quantity: 10
+# UPSTREAM VERSION:
+# TORTURE END
   - type: FlavorProfile
     flavors:
       - sweet
@@ -65,6 +78,8 @@
     - berry
   - type: Sprite
     state: muffin-berry
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -78,6 +93,17 @@
           Quantity: 4
         #- ReagentId: JuiceBerry
         #  Quantity: 2
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: JuiceBerry
+        Quantity: 1
+# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -94,6 +120,8 @@
     - cherry
   - type: Sprite
     state: muffin-cherry
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -105,6 +133,17 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 9 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: JuiceCherry
+        Quantity: 1
+# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -129,6 +168,8 @@
   components:
   - type: Sprite
     state: muffin-chocolate
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -144,6 +185,17 @@
           Quantity: 10
         - ReagentId: Theobromine # imp
           Quantity: 3
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: CocoaPowder
+        Quantity: 1
+# TORTURE END
 
 - type: entity
   name: banana muffin
@@ -157,6 +209,8 @@
     - banana
   - type: Sprite
     state: muffin-banana
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -168,6 +222,17 @@
           Quantity: 2
         - ReagentId: Sugar # imp
           Quantity: 10
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: JuiceBanana
+        Quantity: 1
+# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -207,6 +272,8 @@
   components:
   - type: Sprite
     state: bun-meat
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -220,6 +287,8 @@
     tags:
     - Meat
     - Bread
+# UPSTREAM VERSION:
+# TORTURE END
 
 # Cookies
 
@@ -255,6 +324,8 @@
   components:
   - type: Sprite
     state: cookie-oatmeal
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -273,6 +344,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+# UPSTREAM VERSION:
+# TORTURE END
 
 - type: entity
   name: raisin cookie
@@ -282,6 +355,8 @@
   components:
   - type: Sprite
     state: cookie-raisin
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -293,6 +368,8 @@
         #  Quantity: 1
         - ReagentId: Sugar # imp
           Quantity: 5
+# UPSTREAM VERSION:
+# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -344,6 +421,8 @@
           lizard: ""
           star: ""
           corgi: ""
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -355,6 +434,8 @@
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
+# UPSTREAM VERSION:
+# TORTURE END
 
 # Waffles/Pancakes
 
@@ -547,6 +628,8 @@
     - state: pancakescc9
       map: ["pancakescc9"]
       visible: false
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -562,6 +645,15 @@
           Quantity: 0.75 # Imp
         - ReagentId: CocoaPowder # imp
           Quantity: 0.25
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Theobromine
+        Quantity: 1
+# TORTURE END
 
 - type: entity
   name: waffles
@@ -573,6 +665,8 @@
     layers:
       - state: tray
       - state: waffles
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -592,6 +686,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+# UPSTREAM VERSION:
+# TORTURE END
 
 - type: entity
   name: soy waffles
@@ -606,6 +702,8 @@
     layers:
       - state: tray
       - state: waffles-soy
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -617,6 +715,8 @@
           Quantity: 6
         # - ReagentId: Vitamin
         #  Quantity: 1
+# UPSTREAM VERSION:
+# TORTURE END
 
 - type: entity
   name: soylent waffles
@@ -628,6 +728,8 @@
     layers:
       - state: tray
       - state: waffles-soylent
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -637,6 +739,8 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 1
+# UPSTREAM VERSION:
+# TORTURE END
 
 - type: entity
   name: roffle waffles
@@ -648,6 +752,8 @@
     layers:
       - state: tray
       - state: waffles-roffle
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -657,6 +763,8 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 2
+# UPSTREAM VERSION:
+# TORTURE END
 
 # Misc
 
@@ -680,6 +788,8 @@
   components:
   - type: Sprite
     state: cannoli
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -692,6 +802,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+# UPSTREAM VERSION:
+# TORTURE END
 
 - type: entity
   name: dumplings
@@ -701,6 +813,8 @@
   components:
   - type: Sprite
     state: dumplings
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -710,6 +824,15 @@
           Quantity: 15 # imp
         - ReagentId: Protein
           Quantity: 6 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Protein
+        Quantity: 2
+# TORTURE END
   - type: FlavorProfile
     flavors:
       - meaty
@@ -732,6 +855,8 @@
       - smokey
   - type: Sprite
     state: chevrechaud
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -749,6 +874,19 @@
     tags:
     - UnguFood
     - Bread
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10.5
+      - ReagentId: Vitamin
+        Quantity: 1.05
+      - ReagentId: TableSalt
+        Quantity: 0.05
+      - ReagentId: Blackpepper
+        Quantity: 0.05
+# TORTURE END
 
 - type: entity
   name: cotton chèvre chaud
@@ -770,6 +908,8 @@
   - type: Tag
     tags:
     - ClothMade
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     - ClothFood # imp
     - Bread # imp
   - type: SolutionContainerManager
@@ -787,9 +927,24 @@
           Quantity: 0.4
         - ReagentId: Blackpepper # imp
           Quantity: 0.4
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.25
+      - ReagentId: Fiber
+        Quantity: 3.25
+      - ReagentId: Vitamin
+        Quantity: 1.05
+      - ReagentId: TableSalt
+        Quantity: 0.05
+      - ReagentId: Blackpepper
+        Quantity: 0.05
+# TORTURE END
 
 - type: entity
-  parent: FoodBakedBase
+  parent: [SolutionNormal, FoodBakedBase]
   id: FoodBakedBrownieBatch
   name: brownies
   description: A pan of brownies.
@@ -804,6 +959,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/brownie.rsi
     state: brownie-batch
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -821,8 +978,19 @@
           Quantity: 30
         - ReagentId: CocoaPowder # imp
           Quantity: 2
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 48
+      - ReagentId: Sugar
+        Quantity: 32
+      - ReagentId: Theobromine
+        Quantity: 8
+# TORTURE END
   - type: SliceableFood
-    count: 6
+    count: 8
     slice: FoodBakedBrownie
 
 - type: entity
@@ -839,6 +1007,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
     state: mre-brownie-open
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -856,12 +1026,23 @@
           Quantity: 5
         - ReagentId: CocoaPowder # imp
           Quantity: 0.33
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Sugar
+        Quantity: 4
+      - ReagentId: Theobromine
+        Quantity: 2
+# TORTURE END
   - type: Tag
     tags:
     - Slice
 
 - type: entity
-  parent: FoodBakedBase
+  parent: [SolutionNormal, FoodBakedBase]
   id: FoodBakedCannabisBrownieBatch
   name: special brownies
   description: A pan of "special" brownies.
@@ -877,6 +1058,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/brownie.rsi
     state: brownie-batch
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -896,8 +1079,21 @@
           Quantity: 20
         - ReagentId: CocoaPowder # imp
           Quantity: 2
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 48
+      - ReagentId: Sugar
+        Quantity: 32
+      - ReagentId: Theobromine
+        Quantity: 8
+      - ReagentId: THC
+        Quantity: 16
+# TORTURE END
   - type: SliceableFood
-    count: 6
+    count: 8
     slice: FoodBakedCannabisBrownie
 
 - type: entity
@@ -914,6 +1110,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
     state: mre-brownie-open
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -933,6 +1131,19 @@
           Quantity: 4
         - ReagentId: CocoaPowder # imp
           Quantity: 0.33
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Sugar
+        Quantity: 4
+      - ReagentId: Theobromine
+        Quantity: 1
+      - ReagentId: THC
+        Quantity: 2
+# TORTURE END
   - type: Tag
     tags:
     - Slice
@@ -949,6 +1160,8 @@
         - oily
     - type: Sprite
       state: onionrings
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     - type: SolutionContainerManager
       solutions:
         food:
@@ -963,9 +1176,20 @@
     - type: Tag # imp
       tags:
       - Vegetable
+# UPSTREAM VERSION:
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Allicin
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 1
+# TORTURE END
 
 - type: entity
-  parent: FoodBakedBase
+  parent: [SolutionSmall, FoodBakedBase]
   id: FoodBakedCroissant
   name: croissant
   description: Buttery, flaky goodness.
@@ -982,6 +1206,8 @@
       - butter
   - type: Sprite
     state: croissant
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -997,6 +1223,15 @@
     tags:
     - UnguFood
     - Bread
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20
+      - ReagentId: Butter
+        Quantity: 2.5
+# TORTURE END
 
 - type: entity
   parent: FoodBakedCroissant
@@ -1021,6 +1256,8 @@
   - type: Tag
     tags:
     - ClothMade
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     - ClothFood # imp
     - Bread # imp
   - type: SolutionContainerManager
@@ -1036,9 +1273,20 @@
           Quantity: 5 # imp
         # - ReagentId: Vitamin
         #  Quantity: 1
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Fiber
+        Quantity: 10
+      - ReagentId: Butter
+        Quantity: 2.5
+# TORTURE END
 
 - type: entity
-  parent: FoodBakedBase
+  parent: [SolutionSmall, FoodBakedBase]
   id: FoodBakedGrilledCheeseSandwich
   name: grilled cheese sandwich
   description: Bread and cheese toasted with butter, perfect for a chilly day in space.
@@ -1054,6 +1302,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: grilled-cheese
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1069,6 +1319,15 @@
     tags:
     - UnguFood
     - Bread
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 37.5
+      - ReagentId: Butter
+        Quantity: 2.5
+# TORTURE END
 
 - type: entity
   parent: FoodBakedGrilledCheeseSandwich
@@ -1089,6 +1348,8 @@
   - type: Tag
     tags:
     - ClothMade
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     - ClothFood # imp
     - Bread # imp
   - type: SolutionContainerManager
@@ -1104,6 +1365,17 @@
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 3
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 25
+      - ReagentId: Fiber
+        Quantity: 12.5
+      - ReagentId: Butter
+        Quantity: 2.5
+# TORTURE END
 
 # Entity Tables
 

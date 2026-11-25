@@ -4,8 +4,18 @@
   id: GasTankBase
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Tanks/generic.rsi #imp
-    state: icon
+    sprite: Objects/Tanks/generic.rsi
+    layers:
+    - state: icon
+    - state: integrity-unshaded-0
+      map: [ "enum.MaxPressureVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+      visible: false
+    - state: mask
+      map: [ "enum.MaxPressureVisualLayers.Base" ]
+      visible: false
+  - type: Appearance
+  - type: MaxPressureVisuals
   - type: Item
     size: Normal
     sprite: _Impstation/Objects/Tanks/generic.rsi # imp
@@ -25,16 +35,20 @@
     interfaces:
       enum.SharedGasTankUiKey.Key:
         type: GasTankBoundUserInterface
+  - type: AtmosDevice
+    requireAnchored: false
+    joinSystem: true
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 21.3
     air:
       # If gas tank volume is changed, adjust MinimumTritiumOxyburnEnergy in Atmospherics.cs by the same proportions
       volume: 5
       temperature: 293.15
     tankLowPressure: 30.0
   - type: Explosive
-    explosionType: MicroBomb
+    explosionType: Minibomb # Mostly a pressure wave explosive so primarily blunt damage
     maxIntensity: 20
+    tileBreakScale: 0.2
   - type: MeleeWeapon
     wideAnimationRotation: 45
     attackRate: 0.8
@@ -105,6 +119,7 @@
       state: storage
       sprite: Objects/Tanks/emergency.rsi
   - type: GasTank
+    overpressure: 1519.875 # Poorly manufactured, they also lose pressure quickly so this makes exploding them easier, at the cost of the explosion being smaller.
     air:
       volume: 0.66
       temperature: 293.15
@@ -266,7 +281,7 @@
   description: Mixed anyone? It can hold 5 L of gas.
   components:
   - type: GasTank
-    outputPressure: 101.3
+    releasePressure: 101.3
 
 - type: entity
   parent: GasTankRoundBase
@@ -279,7 +294,7 @@
   - type: Item
     sprite: _Impstation/Objects/Tanks/anesthetic.rsi #imp
   - type: GasTank
-    outputPressure: 30.4
+    releasePressure: 30.4
   - type: Clothing
     sprite: _Impstation/Objects/Tanks/anesthetic.rsi #imp
 
@@ -295,7 +310,7 @@
   - type: Item
     sprite: Objects/Tanks/plasma.rsi
   - type: GasTank
-    outputPressure: 101.3
+    releasePressure: 101.3
   - type: Clothing
     sprite: Objects/Tanks/plasma.rsi
     slots:

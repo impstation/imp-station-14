@@ -3,7 +3,7 @@
 
 - type: entity
   abstract: true
-  parent: FoodInjectableBase
+  parent: [SolutionNormal, FoodInjectableBase]
   id: FoodPizzaBase
   components:
   - type: FlavorProfile
@@ -12,17 +12,16 @@
       - bread
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 180
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 120
+      - ReagentId: Vitamin
+        Quantity: 12
   - type: SliceableFood
-    count: 8
+    count: 12
   - type: Item
     size: Normal
     shape:
@@ -34,7 +33,7 @@
     - ReptilianFood
 
 - type: entity
-  parent: FoodInjectableBase # Not sliceable
+  parent: [SolutionVeryTiny, FoodInjectableBase] # Not sliceable
   id: FoodPizzaSliceBase
   abstract: true
   components:
@@ -44,6 +43,8 @@
       - bread
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -54,6 +55,15 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 0.8
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+# TORTURE END
   - type: Item
     size: Tiny
   - type: Tag
@@ -276,6 +286,8 @@
     - state: vegetable
   - type: SliceableFood
     slice: FoodPizzaVegetableSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -292,6 +304,8 @@
     - UnguFood
     - Pizza
     - ReptilianFood
+# UPSTREAM VERSION:
+# TORTURE END
 
 - type: entity
   name: slice of vegetable pizza
@@ -313,6 +327,8 @@
     - state: vegetable-slice
   - type: Item
     heldPrefix: vegetable-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -329,6 +345,8 @@
     - UnguFood
     - Pizza
     - ReptilianFood
+# UPSTREAM VERSION:
+# TORTURE END
 
 # Tastes like crust, tomato, cheese, carrot.
 
@@ -347,6 +365,8 @@
     - state: donkpocket
   - type: SliceableFood
     slice: FoodPizzaDonkpocketSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -358,11 +378,21 @@
           Quantity: 3 # imp
         - ReagentId: Omnizine
           Quantity: 6 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 120
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Omnizine
+        Quantity: 9
+# TORTURE END
   - type: Tag
     tags:
     - Meat
     - Pizza
-
 
 - type: entity
   name: slice of donk-pocket pizza
@@ -378,6 +408,8 @@
     - state: donkpocket-slice
   - type: Item
     heldPrefix: donkpocket-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -389,6 +421,17 @@
           Quantity: 0.375 # imp
         - ReagentId: Omnizine
           Quantity: 0.75 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 0.25
+      - ReagentId: Omnizine
+        Quantity: 0.75
+# TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -414,6 +457,8 @@
     - state: dank
   - type: SliceableFood
     slice: FoodPizzaDankSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -430,6 +475,17 @@
     - UnguFood
     - Pizza
     - ReptilianFood
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 102
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: THC
+        Quantity: 30
+# TORTURE END
 
 - type: entity
   name: slice of dank pizza
@@ -448,6 +504,8 @@
     - state: dank-slice
   - type: Item
     heldPrefix: dank-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -464,6 +522,17 @@
     - UnguFood
     - Pizza
     - ReptilianFood
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.5
+      - ReagentId: Vitamin
+        Quantity: 0.25
+      - ReagentId: THC
+        Quantity: 2.5
+# TORTURE END
 # Tastes like crust, tomato, cheese, meat, satisfaction.
 
 - type: entity
@@ -601,19 +670,19 @@
     - state: arnold
   - type: SliceableFood
     slice: FoodPizzaArnoldSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 85
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Iron
-          Quantity: 10
-        - ReagentId: Omnizine
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Protein
+        Quantity: 18
+      - ReagentId: Vitamin
+        Quantity: 12
+      - ReagentId: Iron
+        Quantity: 18
+      - ReagentId: Omnizine
+        Quantity: 30
   - type: Tag
     tags:
     - Meat
@@ -637,19 +706,19 @@
     - state: arnold-slice
   - type: Item
     heldPrefix: arnold-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 0.8
-        - ReagentId: Iron
-          Quantity: 1.6
-        - ReagentId: Omnizine
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Protein
+        Quantity: 1.5
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: Iron
+        Quantity: 1.5
+      - ReagentId: Omnizine
+        Quantity: 2.5
   - type: Tag
     tags:
     - Meat
@@ -677,6 +746,8 @@
   - type: Tag
     tags:
     - Trash
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -689,6 +760,17 @@
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: Mold
+        Quantity: 8
+# TORTURE END
 # Tastes like stale crust, rancid cheese, mushroom.
 
 - type: entity
@@ -716,6 +798,8 @@
   - type: PointLight
     enabled: true
     radius: 2
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -734,6 +818,21 @@
   - type: RadiationSource
     intensity: 0.04
     slope: 3
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 102
+      - ReagentId: Vitamin
+        Quantity: 15
+      - ReagentId: CapsaicinOil
+        Quantity: 20
+      - ReagentId: Radium
+        Quantity: 4
+      - ReagentId: Uranium
+        Quantity: 16
+# TORTURE END
 
 - type: entity
   name: slice of spicy rock pizza
@@ -761,6 +860,8 @@
   - type: PointLight
     enabled: true
     radius: 2
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -779,6 +880,21 @@
   - type: RadiationSource
     intensity: 0.04
     slope: 3
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8.5
+      - ReagentId: Vitamin
+        Quantity: 1.25
+      - ReagentId: CapsaicinOil
+        Quantity: 1.66
+      - ReagentId: Radium
+        Quantity: 0.33
+      - ReagentId: Uranium
+        Quantity: 1.33
+# TORTURE END
 
 # Tastes like crust, tomato, cheese, radiation.
 
@@ -804,6 +920,8 @@
     - ClothMade
     - ClothFood # imp
     - Pizza
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -815,6 +933,17 @@
         #  Quantity: 5
         - ReagentId: Fiber
           Quantity: 50 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20
+      - ReagentId: Fiber
+        Quantity: 90
+      - ReagentId: Vitamin
+        Quantity: 20
+# TORTURE END
 
 - type: entity
   name: slice of cotton pizza
@@ -836,6 +965,8 @@
     - ClothMade
     - Pizza
     - Slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -847,6 +978,17 @@
         #  Quantity: 0.8
         - ReagentId: Fiber
           Quantity: 6.25 # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.66
+      - ReagentId: Fiber
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 2.66
+# TORTURE END
 
 - type: entity
   name: world peazza
@@ -863,6 +1005,8 @@
     - state: worldpeas
   - type: SliceableFood
     slice: FoodPizzaWorldpeasSlice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -879,6 +1023,17 @@
     - UnguFood
     - Pizza
     - ReptilianFood
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 90
+      - ReagentId: Happiness
+        Quantity: 15
+      - ReagentId: Pax
+        Quantity: 15
+# TORTURE END
 
 - type: entity
   name: slice of world peazza
@@ -895,6 +1050,8 @@
     - state: worldpeas-slice
   - type: Item
     heldPrefix: worldpeas-slice
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -911,3 +1068,14 @@
     - UnguFood
     - Pizza
     - ReptilianFood
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Happiness
+        Quantity: 1.25
+      - ReagentId: Pax
+        Quantity: 1.25
+# TORTURE END

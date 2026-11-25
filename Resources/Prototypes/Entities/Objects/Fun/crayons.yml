@@ -2,7 +2,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: [SolutionFood, SolutionVeryTiny, BaseItem] # Crayons are less pourous than most foods, so we just assume they have less capacity.
   id: CrayonInedible
   name: crayon
   description: A colourful crayon. A forbidden flavor.
@@ -42,6 +42,8 @@
     flavors:
     - chewy
     - bitter
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -58,6 +60,15 @@
   - type: SignatureWriter
     font: ComicNeueBold
   # imp edit end
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: MindbreakerToxin
+        Quantity: 10
+# TORTURE END
 
 # special crayons
 

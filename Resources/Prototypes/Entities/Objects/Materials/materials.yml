@@ -1,39 +1,10 @@
 - type: entity
-  abstract: true
-  parent: BaseItem
-  id: MaterialBase
-  description: A raw material.
-  components:
-  - type: Sprite
-    sprite: Objects/Materials/materials.rsi
-  - type: Item
-    sprite: Objects/Materials/materials.rsi
-    size: Normal
-  - type: Tag
-    tags:
-      - RawMaterial
-      - DroneUsable #imp
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: PluralName # imp
-    oneOf: plural-name-piece-1
-
-- type: entity
   parent: MaterialBase
   id: MaterialCardboard
   name: cardboard
   description: A tough corrugated paper that is really neither card nor board. # imp
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Cardboard: 100
@@ -50,7 +21,8 @@
     layers:
     - state: cardboard_3
       map: ["base"]
-  - type: Appearance
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: Extractable
     grindableSolutionName: food #imp
     juiceSolution: # imp
@@ -64,6 +36,13 @@
         reagents:
         - ReagentId: Pulp #imp
           Quantity: 6
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 10
+# TORTURE END
   - type: Item
     sprite: _Impstation/Objects/Materials/materials.rsi #imp edit
     heldPrefix: cardboard
@@ -123,7 +102,7 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [MaterialBase, FoodBase]
   id: MaterialCloth
   name: cloth
   description: A fibrous textile, ancient in origin. # imp
@@ -158,11 +137,6 @@
   - type: PhysicalComposition
     materialComposition:
       Cloth: 100
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 3
   - type: Sprite
     state: cloth_3
     layers:
@@ -171,16 +145,15 @@
   - type: Appearance
   - type: Edible
     requiresSpecialDigestion: true
+    solution: composite
   - type: FlavorProfile
     flavors:
     - fiber
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
   - type: Tag
     tags:
       - ClothMade
@@ -217,7 +190,7 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [MaterialBase, FoodBase]
   id: MaterialDurathread
   name: durathread
   description: A tough textile made from cloth and plastic, useful for armor, uniforms, or nice bedsheets. # imp
@@ -230,7 +203,6 @@
     - durathread
     - durathread_2
     - durathread_3
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Durathread: 100
@@ -239,19 +211,22 @@
     layers:
     - state: durathread_3
       map: ["base"]
-  - type: Appearance
   - type: Construction
     graph: Durathread
     node: MaterialDurathread
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
+    solution: composite
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+      - ReagentId: Oil
+        Quantity: 5
+      - ReagentId: Phosphorus
+        Quantity: 5
   - type: Tag
     tags:
       - ClothMade
@@ -280,7 +255,6 @@
   description: A material made from trees. It's time to carpent. # imp
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Wood: 100
@@ -296,7 +270,6 @@
     layers:
     - state: wood
       map: ["base"]
-  - type: Appearance
   - type: Item
     heldPrefix: wood
   - type: Tag
@@ -306,6 +279,8 @@
     - ConstructionMaterial
     - ClothMade #imp
     - DroneUsable #imp
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: Extractable
     grindableSolutionName: food #imp
     juiceSolution: # imp
@@ -319,6 +294,13 @@
         reagents:
         - ReagentId: Pulp #imp
           Quantity: 10
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 10
+# TORTURE END
   # imp edit start
   - type: Edible
     requiresSpecialDigestion: true
@@ -364,7 +346,6 @@
   description: Pure biological currency. One full cube contains about the same amount of suffering as your entire body. # imp
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Biomass: 1
@@ -377,7 +358,7 @@
     color: "#8A9A5B"
   - type: GuideHelp
     guides:
-    - Cloning
+    - Cloning # Should remove this, we don't have cloning and don't want cloning
   - type: PluralName # imp
     oneOf: plural-name-scrap-1 # will probably never be seen in-game
     someOf: plural-name-cube-1
@@ -466,18 +447,14 @@
     layers:
     - state: diamond
       map: ["base"]
-  - type: Appearance
   - type: Item
     heldPrefix: diamond
-  - type: Extractable
-    grindableSolutionName: diamond
-  - type: SolutionContainerManager
-    solutions:
-      diamond:
-        reagents:
-        - ReagentId: Carbon
-          Quantity: 20
-  - type: Material
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Carbon
+        Quantity: 30
   - type: PhysicalComposition
     materialComposition:
       Diamond: 100
@@ -496,7 +473,7 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [SolutionCompositeSmallStackable, MaterialBase, FoodBase]
   id: MaterialCotton
   name: cotton
   description: A soft, fibrous material that grows on a plant. The basis of the moth palate. # imp
@@ -517,34 +494,27 @@
   - type: Appearance
   - type: Edible
     requiresSpecialDigestion: true
+    solution: composite
   - type: FlavorProfile
     flavors:
     - fiber
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-  - type: Extractable
-    juiceSolution:
+  - type: Solution
+    solution:
       reagents:
       - ReagentId: Fiber
-        Quantity: 3
+        Quantity: 2.5
   - type: Tag
     tags:
       - ClothMade
       - RawMaterial
       - Boll
       - DroneUsable #imp
-  - type: Material
+
   - type: PhysicalComposition
     materialComposition:
       Cotton: 100
   - type: Item
     heldPrefix: cotton
-
 
 - type: entity
   parent: MaterialCotton
@@ -557,7 +527,7 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [SolutionCompositeSmallStackable, MaterialBase, FoodBase]
   id: MaterialPyrotton
   name: pyrotton
   description: An ever-burning cotton variant, ironically made by attempts to fireproof cotton. # imp
@@ -575,25 +545,16 @@
     layers:
     - state: pyrotton_3
       map: ["base"]
-  - type: Appearance
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-        - ReagentId: Phlogiston
-          Quantity: 5
-  - type: Extractable
-    juiceSolution:
+    solution: composite
+  - type: Solution
+    solution:
       reagents:
       - ReagentId: Fiber
-        Quantity: 3
+        Quantity: 2.5
       - ReagentId: Phlogiston
-        Quantity: 3
+        Quantity: 2.5
   - type: Tag
     tags:
       - ClothMade
@@ -612,13 +573,12 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [MaterialBase, FoodBase]
   id: MaterialBananium
   name: bananium
   description: An anomalous material. Has the exact same spatiotemporal properties as a banana. #imp
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Bananium: 150
@@ -638,20 +598,19 @@
     flavors:
       - banana
   - type: Edible
+    solution: composite
     trash:
     - TrashBananiumPeel
   - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 11
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Honk
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 4
+      - ReagentId: Vitamin
+        Quantity: 2
+      - ReagentId: Honk
+        Quantity: 4
   - type: Extractable
     juiceSolution:
       reagents:
@@ -659,7 +618,6 @@
         Quantity: 5
       - ReagentId: Honk
         Quantity: 5
-  - type: Appearance
   - type: Item
     heldPrefix: bananium
 
@@ -674,7 +632,7 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [SolutionCompositeNormalStackable, MaterialBase, FoodBase]
   id: MaterialWebSilk
   name: silk
   description: A webby material produced by bugs, once thought quite luxurious. #imp
@@ -691,10 +649,13 @@
     stackType: WebSilk
   - type: Edible
     requiresSpecialDigestion: true
+    solution: composite
   - type: FlavorProfile
     flavors:
       - cobwebs
     ignoreReagents:
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
       - Protein   #imp
   - type: Extractable
     juiceSolution:
@@ -708,6 +669,14 @@
         reagents:
         - ReagentId: Protein  #imp
           Quantity: 3
+# UPSTREAM VERSION:
+      - Fiber
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+# TORTURE END
   - type: Tag
     tags:
       - ClothMade
@@ -815,7 +784,7 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [MaterialBase, FoodBase]
   id: MaterialBones
   name: bones
   description: Most crew members have at least one of these. # imp
@@ -833,16 +802,16 @@
     layers:
     - state: cotton_3
       map: ["base"]
-  - type: Appearance
   - type: Edible
+    solution: composite
   - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Carbon
+        Quantity: 7
   - type: Item
     heldPrefix: bones
   - type: Tag # imp

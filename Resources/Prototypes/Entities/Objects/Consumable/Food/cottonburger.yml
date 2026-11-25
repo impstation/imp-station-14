@@ -12,15 +12,13 @@
     sprite: Objects/Consumable/Food/cottonburger.rsi
     layers:
     - state: cottonbun
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3.33
-        - ReagentId: Fiber
-          Quantity: 3.33
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Fiber
+        Quantity: 5
   - type: Butcherable
     butcherDelay: 1
     spawned:
@@ -63,6 +61,8 @@
     nameGeneration: food-sequence-cotton-burger-gen
   - type: Appearance
   - type: FoodMetamorphableByAdding
+  # IMP UPMERGE - Solution Torture
+  # IMP SOLUTION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -73,6 +73,16 @@
           Quantity: 1.665
         - ReagentId: Fiber
           Quantity: 1.665
+  # UPSTREAM SOLUTION:
+  - type: Solution
+    solution:
+      maxVol: 7.5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.5
+      - ReagentId: Fiber
+        Quantity: 2.5
+  # TORTURE END
   - type: Tag
     tags:
     - ClothMade
@@ -92,15 +102,14 @@
     sprite: Objects/Consumable/Food/cottonburger.rsi
     layers:
     - state: cottonbun_top
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.665
-        - ReagentId: Fiber
-          Quantity: 1.665
+  - type: Solution
+    solution:
+      maxVol: 7.5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.5
+      - ReagentId: Fiber
+        Quantity: 2.5
   - type: FoodSequenceElement
     entries:
       CottonBurger: CottonBunTopBurger

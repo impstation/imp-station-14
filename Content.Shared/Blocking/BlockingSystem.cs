@@ -9,7 +9,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 //using Content.Shared.Maps; //imp edit
-//using Content.Shared.Mobs.Components; //imp edit
+using Content.Shared.Mobs.Components;
 //using Content.Shared.Physics; //imp edit
 using Content.Shared.Movement.Systems; // imp edit
 using Content.Shared.Popups;
@@ -38,6 +38,11 @@ public sealed partial class BlockingSystem : EntitySystem
     //[Dependency] private readonly TurfSystem _turf = default!; //imp edit
     [Dependency] private readonly IGameTiming _gameTiming = default!; // imp
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // imp
+
+    [Dependency] private readonly EntityQuery<BlockingComponent> _blockQuery = default!;
+    [Dependency] private readonly EntityQuery<HandsComponent> _handQuery = default!;
+    [Dependency] private readonly EntityQuery<MobStateComponent> _mobQuery = default!;
+    [Dependency] private readonly EntityQuery<BlockingUserComponent> _userQuery = default!;
 
     public override void Initialize()
     {
@@ -99,10 +104,7 @@ public sealed partial class BlockingSystem : EntitySystem
         if (args.Handled)
             return;
 
-        var blockQuery = GetEntityQuery<BlockingComponent>();
-        var handQuery = GetEntityQuery<HandsComponent>();
-
-        if (!handQuery.TryGetComponent(args.Performer, out var hands))
+        if (!_handQuery.TryGetComponent(args.Performer, out var hands))
             return;
 
         var shields = _handsSystem.EnumerateHeld((args.Performer, hands)).ToArray();
@@ -112,7 +114,7 @@ public sealed partial class BlockingSystem : EntitySystem
             if (shield == uid)
                 continue;
 
-            if (blockQuery.TryGetComponent(shield, out var otherBlockComp) && otherBlockComp.IsBlocking)
+            if (_blockQuery.TryGetComponent(shield, out var otherBlockComp) && otherBlockComp.IsBlocking)
             {
                 CantBlockError(args.Performer);
                 return;
@@ -156,6 +158,46 @@ public sealed partial class BlockingSystem : EntitySystem
             return;
         }
 
+        /* IMP REMOVE, use our blocking
+        //Don't allow someone to block if someone else is on the same tile
+        var playerTileRef = _turf.GetTileRef(xform.Coordinates);
+        if (playerTileRef != null)
+        {
+            var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
+            foreach (var uid in intersecting)
+            {
+                if (uid != user && _mobQuery.HasComponent(uid))
+                {
+                    TooCloseError(user);
+                    return false;
+                }
+            }
+        }
+
+        //Don't allow someone to block if they're somehow not anchored.
+        _transformSystem.AnchorEntity(user, xform);
+        if (!xform.Anchored)
+        {
+            CantBlockError(user);
+            return false;
+        }
+        _actionsSystem.SetToggled(component.BlockingToggleActionEntity, true);
+        _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
+
+        if (TryComp<PhysicsComponent>(user, out var physicsComponent))
+        {
+            _fixtureSystem.TryCreateFixture(user,
+                component.Shape,
+                BlockingComponent.BlockFixtureID,
+                hard: true,
+                collisionLayer: (int)CollisionGroup.WallLayer,
+                body: physicsComponent);
+        }
+
+        component.IsBlocking = true;
+        Dirty(item, component);
+
+        return true;*/
         _actionsSystem.SetToggled(ent.Comp.BlockingToggleActionEntity, true);
         if (_gameTiming.IsFirstTimePredicted)
         {
@@ -170,6 +212,7 @@ public sealed partial class BlockingSystem : EntitySystem
         _movementSpeed.RefreshMovementSpeedModifiers(user);
 
         return;
+        // imp end
     }
 
     private void CantBlockError(EntityUid user)
@@ -254,17 +297,14 @@ public sealed partial class BlockingSystem : EntitySystem
         if (component.IsBlocking)
             StopBlocking((uid, component), user); // imp - switched to Entity<T>
 
-        var userQuery = GetEntityQuery<BlockingUserComponent>();
-        var handQuery = GetEntityQuery<HandsComponent>();
-
-        if (!handQuery.TryGetComponent(user, out var hands))
+        if (!_handQuery.TryGetComponent(user, out var hands))
             return;
 
         var shields = _handsSystem.EnumerateHeld((user, hands)).ToArray();
 
         foreach (var shield in shields)
         {
-            if (HasComp<BlockingComponent>(shield) && userQuery.TryGetComponent(user, out var blockingUserComponent))
+            if (HasComp<BlockingComponent>(shield) && _userQuery.TryGetComponent(user, out var blockingUserComponent))
             {
                 blockingUserComponent.BlockingItem = shield;
                 return;

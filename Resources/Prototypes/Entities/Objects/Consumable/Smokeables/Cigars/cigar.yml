@@ -31,6 +31,8 @@
     state: burnt-icon
   - type: Smokable
     state: Burnt
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -40,6 +42,8 @@
         reagents:
         - ReagentId: Nicotine
           Quantity: 5
+# UPSTREAM VERSION:
+# TORTURE END
   - type: Tag
     tags:
       - Cigar
@@ -73,6 +77,8 @@
     state: burnt-icon
   - type: Smokable
     state: Burnt
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -82,3 +88,5 @@
         reagents:
         - ReagentId: Nicotine
           Quantity: 5
+# UPSTREAM VERSION:
+# TORTURE END

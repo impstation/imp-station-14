@@ -63,6 +63,9 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 
         foreach (var rule in preset.Rules)
         {
+            if (GameTicker.IsIgnored(rule))
+                continue;
+
             EntityUid ruleEnt;
 
             // if we're pre-round (i.e. will only be added)
@@ -191,30 +194,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         if (selected == null)
             return false;
 
-        foreach (var ruleId in selected.Rules)
-        {
-            if (!_prototypeManager.TryIndex(ruleId, out EntityPrototype? rule)
-                || !rule.TryGetComponent(_ruleCompName, out GameRuleComponent? ruleComp))
-            {
-                Log.Error($"Encountered invalid rule {ruleId} in preset {selected.ID}");
-                return false;
-            }
-
-            if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
-                return false;
-
-            // imp start
-            if (ruleComp.MaxPlayers < players && ruleComp.CancelPresetOnTooManyPlayers)
-                return false;
-        }
-
-        if (_nextRoundAllowed.ContainsKey(selected.ID) && _nextRoundAllowed[selected.ID] > _ticker.RoundId)
-        {
-            Log.Info($"Skipping preset {selected.ID} (Not available until round {_nextRoundAllowed[selected.ID]}");
-            return false;
-        }
-        // imp end
-
-        return true;
+        return players >= GameTicker.GetMinimumPlayerCount(selected)
+            && players <= GameTicker.GetMaximumPlayerCount(selected); // imp add
     }
 }

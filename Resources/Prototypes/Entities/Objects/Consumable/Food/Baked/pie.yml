@@ -3,17 +3,18 @@
 
 - type: entity
   abstract: true
-  parent: FoodInjectableBase
+  parent: [SolutionNormal, FoodInjectableBase]
   id: FoodPieBase
   components:
   - type: Item
-    shape:
-    - 0,0,1,0
+    size: Normal
   - type: FlavorProfile
     flavors:
     - sweet
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pie.rsi
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -23,11 +24,22 @@
           Quantity: 15 # imp
         - ReagentId: Vitamin
           Quantity: 5
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents: #Most of these are this with slight variations, not worth changing until we have the rest of the reagents
+      - ReagentId: Nutriment
+        Quantity: 64
+      - ReagentId: Vitamin
+        Quantity: 8
+      - ReagentId: Sugar
+        Quantity: 8
+# TORTURE END
   - type: Edible #It's actually possible now to have a pie stored in a tin rather than spawning trash when you finish eating it. But right now I'm just cleaning up.
     trash:
     - FoodPlateTin
   - type: SliceableFood
-    count: 4
+    count: 8
   - type: Tag
     tags:
     - Pie
@@ -45,6 +57,8 @@
     - sweet
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pie.rsi
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -54,6 +68,17 @@
           Quantity: 4 # imp
         - ReagentId: Vitamin
           Quantity: 1
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: Sugar
+        Quantity: 1
+# TORTURE END
   - type: Tag
     tags:
     - Pie
@@ -703,6 +728,8 @@
     - mushroom
   - type: Sprite
     state: amanita
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -719,6 +746,19 @@
     - UnguFood
     - Pie
     - Mushroom
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 64
+      - ReagentId: Vitamin
+        Quantity: 8
+      - ReagentId: Sugar
+        Quantity: 8
+      - ReagentId: Amatoxin
+        Quantity: 10
+# TORTURE END
 # Tastes like pie, mushrooms.
 
 - type: entity
@@ -753,6 +793,8 @@
     - juice
   - type: Sprite
     state: grape
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -766,6 +808,8 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 12
+# UPSTREAM VERSION:
+# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -816,6 +860,8 @@
     - chocolate
   - type: Sprite
     state: cocolava
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -831,4 +877,17 @@
           Quantity: 3
         - ReagentId: Milk # imp
           Quantity: 5
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 64
+      - ReagentId: Vitamin
+        Quantity: 8
+      - ReagentId: Sugar
+        Quantity: 8
+      - ReagentId: Theobromine
+        Quantity: 8
+# TORTURE END
 # Tastes like tart, dark chocolate.

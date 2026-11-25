@@ -1,7 +1,7 @@
 - type: entity
-  parent: BaseWallmountMetallic
-  id: BaseDispenser
   abstract: true
+  parent: [SolutionTank, SolutionGinormous, BaseWallmountMetallic]
+  id: BaseDispenser
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/walldispenser.rsi
@@ -64,6 +64,8 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -71,6 +73,13 @@
         reagents:
         - ReagentId: SpaceCleaner
           Quantity: 2500 #imp edit, was 5000
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 960
+# TORTURE END
 
 - type: entity
   parent: BaseDispenser
@@ -87,13 +96,11 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        maxVol: 1000
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 1000
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 960
   - type: ReagentTank
     tankType: Fuel
     fuelBlacklist: #imp

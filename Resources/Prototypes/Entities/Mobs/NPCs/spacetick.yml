@@ -81,12 +81,9 @@
     damage:
       types:
         Piercing: 2
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 5
+    - SolutionVenomTick
   - type: MeleeChemicalInjector
     solution: melee
   - type: ReplacementAccent
@@ -102,6 +99,18 @@
     deactivateSound: null
   - type: GoobAbsorbable # imp edit
     biomassRestored: 0.1
+
+- type: entity
+  parent: Solution
+  id: SolutionVenomTick
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: melee
+    solution:
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 5
 
 - type: entity
   id: MobTickSalvage

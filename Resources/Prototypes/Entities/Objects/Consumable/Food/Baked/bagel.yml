@@ -3,7 +3,7 @@
 
 - type: entity
   abstract: true
-  parent: FoodInjectableBase
+  parent: [SolutionVeryTiny, FoodInjectableBase]
   id: FoodBagelBase
   description: A delicious bagel.
   components:
@@ -15,6 +15,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/bagel.rsi
     state: bagel
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -26,6 +28,13 @@
     tags:
     - Bagel
     - Bread # imp
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+# TORTURE END
 
 - type: entity
   parent: FoodBagelBase
@@ -44,6 +53,8 @@
       - medicine
   - type: Sprite
     state: bagel-poppy
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
   - type: SolutionContainerManager
     solutions:
       food:
@@ -58,6 +69,15 @@
     - UnguFood
     - Bagel
     - Bread
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Bicaridine
+        Quantity: 5
+      - ReagentId: Nutriment
+        Quantity: 10
+# TORTURE END
 
 - type: entity
   parent: FoodBagelBase
@@ -76,6 +96,8 @@
   - type: Tag
     tags:
     - ClothMade
+# IMP UPMERGE - Solution Torture
+# IMP VERSION:
     - ClothFood # imp
   - type: SolutionContainerManager
     solutions:
@@ -87,3 +109,12 @@
         - ReagentId: Fiber
           Quantity: 3.5 # imp
 
+# UPSTREAM VERSION:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Fiber
+        Quantity: 5
+# TORTURE END
