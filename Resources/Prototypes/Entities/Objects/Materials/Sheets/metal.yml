@@ -49,20 +49,9 @@
       map: ["base"]
   - type: Item
     heldPrefix: steel
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: steel
-  - type: SolutionContainerManager
-    solutions:
-      steel:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 9
-        - ReagentId: Carbon
-          Quantity: 1
-# UPSTREAM VERSION:
+    grindableSolutionName: reagents
   - type: Solution
     solution:
       reagents:
@@ -70,7 +59,6 @@
         Quantity: 9
       - ReagentId: Carbon
         Quantity: 1
-# TORTURE END
   # imp edit start
   - type: UserInterface
     interfaces:
@@ -140,19 +128,8 @@
   - type: FloorTile
     outputs:
     - PlatingBrass
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
   - type: Extractable
-    grindableSolutionName: brass
-  - type: SolutionContainerManager
-    solutions:
-      brass:
-        reagents:
-        - ReagentId: Zinc
-          Quantity: 3.3
-        - ReagentId: Copper
-          Quantity: 6.7
-# UPSTREAM VERSION:
+    grindableSolutionName: reagents
   - type: Solution
     solution:
       reagents:
@@ -160,7 +137,6 @@
         Quantity: 3.3
       - ReagentId: Copper
         Quantity: 6.7
-# TORTURE END
   # imp edit start
   - type: UserInterface
     interfaces:

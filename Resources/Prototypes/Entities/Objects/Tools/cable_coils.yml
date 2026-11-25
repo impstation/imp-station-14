@@ -185,20 +185,6 @@
   - type: CablePlacer
     cablePrototypeID: CableApcExtension
     blockingWireType: Apc
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: Extractable
-    grindableSolutionName: lvcable
-  - type: SolutionContainerManager
-    solutions:
-      lvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
-# UPSTREAM VERSION:
-# TORTURE END
   # imp start
   - type: UserInterface
     interfaces:

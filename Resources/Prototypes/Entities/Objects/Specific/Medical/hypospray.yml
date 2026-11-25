@@ -242,18 +242,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: medipen_empty
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Epinephrine
-          Quantity: 12
-        - ReagentId: TranexamicAcid
-          Quantity: 3
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -261,7 +249,6 @@
         Quantity: 15
       - ReagentId: TranexamicAcid
         Quantity: 5
-# TORTURE END
   - type: Tag # goob edit
     tags:
       - Trash
@@ -541,26 +528,14 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: hypovolemic_empty
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 10 # 30 -> 10
-        reagents:
-          - ReagentId: Leporazine
-            Quantity: 4 # 10 -> 4
-          - ReagentId: Barozine
-            Quantity: 6 #end imp edits - 20 -> 6
-# UPSTREAM VERSION:
   - type: Solution
     solution:
+      maxVol: 10 # 30 -> 10
       reagents:
-      - ReagentId: Leporazine
-        Quantity: 10
-      - ReagentId: Barozine
-        Quantity: 10
-# TORTURE END
+        - ReagentId: Leporazine
+          Quantity: 4 # 10 -> 4
+        - ReagentId: Barozine
+          Quantity: 6 #end imp edits - 10 -> 6
   - type: Tag # goob
     tags: []
 

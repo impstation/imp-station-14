@@ -52,21 +52,11 @@
       map: ["base"]
   - type: Item
     heldPrefix: gold
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      gold:
-        reagents:
-        - ReagentId: Gold
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Gold
         Quantity: 10
-# TORTURE END
   - type: PluralName # imp
     nameSomeOf: gold bars
 
@@ -105,21 +95,11 @@
       map: ["base"]
   - type: Item
     heldPrefix: silver
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      gold:
-        reagents:
-        - ReagentId: Silver
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Silver
         Quantity: 10
-# TORTURE END
   - type: PluralName # imp
     nameSomeOf: silver bars
 

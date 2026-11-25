@@ -64,22 +64,11 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        maxVol: 5000
-        reagents:
-        - ReagentId: SpaceCleaner
-          Quantity: 2500 #imp edit, was 5000
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: SpaceCleaner
-        Quantity: 960
-# TORTURE END
+        Quantity: 960 #imp note: pre solRefactor value 2500, original maxVol of 5000.
 
 - type: entity
   parent: BaseDispenser
