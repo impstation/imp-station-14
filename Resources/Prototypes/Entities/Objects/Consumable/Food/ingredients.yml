@@ -324,7 +324,7 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 60
+        Quantity: 9 # imp edit 60>9
 
 - type: entity
   abstract: true
@@ -346,7 +346,7 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 7.5
+        Quantity: 1.125 # imp edit 7.5>1.125
 
 - type: entity
   abstract: true
@@ -409,6 +409,15 @@
   - type: SliceableFood
     count: 8
     slice: FoodDoughCornmealSlice
+  # imp edit start
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 6
+  # imp edit end
 
 - type: entity
   parent: FoodDoughSliceBase
@@ -418,20 +427,16 @@
   components:
   - type: Sprite
     state: cornmealdough-slice
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: Tag
-    tags:
-    - Slice
-  - type: SolutionContainerManager # imp - nutriment dupe
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-# UPSTREAM VERSION:
-# TORTURE END
+  # imp edit start
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.375
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 0.75
+  # imp edit start
+
 - type: entity
   parent: FoodDoughBase
   id: FoodDoughTortilla
@@ -443,6 +448,13 @@
   - type: SliceableFood
     count: 8
     slice: FoodDoughTortillaSlice
+  # imp edit start
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+  # imp edit end
 
 - type: entity
   parent: FoodDoughSliceBase
@@ -455,20 +467,14 @@
   - type: Construction
     graph: Tortilla
     node: start
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: Tag
-    tags:
-    - Slice
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-# UPSTREAM VERSION:
-# TORTURE END
+  # imp edit start
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.375
+  # imp edit end
+
 - type: entity
   parent: [SolutionVeryTiny, FoodDoughBase]
   id: FoodDoughTortillaFlat
@@ -480,11 +486,13 @@
   - type: Construction
     graph: Tortilla
     node: flat
+  # imp edit start
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 7.5
+        Quantity: 0.375
+  # imp edit end
 
 - type: entity
   parent: FoodDoughBase
@@ -511,7 +519,7 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 20
+        Quantity: 1 # imp 20>1
       - ReagentId: Fiber
         Quantity: 40
 
@@ -538,7 +546,7 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 2.5
+        Quantity: 0.125 # imp 2.5 > 0.125
       - ReagentId: Fiber
         Quantity: 5
 
@@ -561,7 +569,7 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 2.5
+        Quantity: 0.125 # imp 2.5 > 0.125
       - ReagentId: Fiber
         Quantity: 5
   - type: Tag
@@ -594,6 +602,13 @@
   components:
   - type: Sprite
     state: dough-pie
+  # imp edit start
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 23.5
+  # imp edit end
 
 - type: entity
   parent: FoodDough
@@ -630,18 +645,6 @@
   - type: SliceableFood
     count: 4
     slice: FoodCroissantRawCotton
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 18
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Fiber
-          Quantity: 10
-  - type: Tag # imp - humans shouldnt be eating moth food
-    tags:
-    - ClothMade
 
 - type: entity
   parent: FoodDough
@@ -670,6 +673,15 @@
       - sweetdough
   - type: Sprite
     state: cakebatter
+  # imp edit start
+  - type: Solution
+    solution:
+      reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 6
+  # imp edit end
 
 - type: entity
   parent: [SolutionSmall, FoodBakingBase]
@@ -750,22 +762,8 @@
   description: Add this to your favorite baked goods for an irie time.
   components:
   - type: Sprite
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/butter.rsi # Imp
     state: butter-cannabis # Imp
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 110
-        reagents:
-        - ReagentId: Butter
-          Quantity: 10
-        - ReagentId: THC
-          Quantity: 90 # imp
-# UPSTREAM VERSION:
-    state: butter
-    color: "#82C36E"
   - type: Solution
     solution:
       reagents:
@@ -773,7 +771,6 @@
         Quantity: 30
       - ReagentId: THC
         Quantity: 15
-# TORTURE END
   - type: Extractable
     grindableSolutionName: food
   - type: Tag # imp
@@ -796,18 +793,14 @@
   - type: SliceableFood
     count: 4
     slice: FoodCheeseSlice
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: Tag # imp
-    tags:
-    - UnguFood
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 60
-# TORTURE END
+        Quantity: 40 # imp 60 > 40
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: [SolutionTiny, FoodBakingBase]
@@ -824,7 +817,7 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 15
+        Quantity: 10 # imp 15>10
   - type: Tag
     tags:
     - Slice
@@ -862,29 +855,16 @@
   - type: SliceableFood
     count: 6
     slice: FoodChevreSlice
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 0.6
-  - type: Tag # imp
-    tags:
-    - UnguFood
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 24
+        Quantity: 7 # imp 24>7
       - ReagentId: Vitamin
-        Quantity: 6
-# TORTURE END
+        Quantity: 3 # imp 6>3
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: [SolutionTiny, FoodBakingBase]
@@ -905,9 +885,9 @@
       maxVol: 10
       reagents:
       - ReagentId: Nutriment
-        Quantity: 4
+        Quantity: 1.17 # imp 4>1.17
       - ReagentId: Vitamin
-        Quantity: 1
+        Quantity: 0.5 # imp 1>0.5
   - type: Tag
     tags:
     - Slice
@@ -934,9 +914,9 @@
     solution:
       reagents:
       - ReagentId: Protein
-        Quantity: 45
+        Quantity: 18 # imp 45>18
       - ReagentId: Nutriment
-        Quantity: 30
+        Quantity: 12 # imp 30>12
   - type: SliceableFood
     count: 5
     slice: FoodTofuSlice
@@ -961,9 +941,9 @@
     solution:
       reagents:
       - ReagentId: Protein
-        Quantity: 9
+        Quantity: 3.6 # imp 9>3.6
       - ReagentId: Nutriment
-        Quantity: 6
+        Quantity: 2.4 # imp 6>2.4
   - type: Tag
     tags:
     - Slice
@@ -1007,22 +987,6 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/cocoa.rsi
     state: produce-beans
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 14
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: CocoaPowder
-          Quantity: 2
-        - ReagentId: Theobromine # imp - poisonous to lizzers
-          Quantity: 1
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -1032,7 +996,8 @@
         Quantity: 3
       - ReagentId: CocoaPowder
         Quantity: 6
-# TORTURE END
+      - ReagentId: Theobromine # imp - poisonous to lizzers
+        Quantity: 1
   - type: Extractable
     juiceSolution:
       reagents:
@@ -1058,22 +1023,11 @@
       - dough
   - type: Sprite
     state: croissant-raw
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5 # imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 15
-# TORTURE END
+        Quantity: 2.25 # imp 15>2.25
 
 - type: entity
   parent: FoodCroissantRaw
@@ -1092,26 +1046,13 @@
     - cotton
   - type: Sprite
     state: croissant-raw-cotton
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 18
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.67
-        - ReagentId: Fiber
-          Quantity: 3.33
-  - type: Tag # imp - humans shouldnt be eating moth food
-    tags:
-    - ClothMade
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 5
+        Quantity: 0.25 # imp 1>0.25
       - ReagentId: Fiber
         Quantity: 10
-# TORTURE END
+  - type: Tag # imp - humans shouldnt be eating moth food
+    tags:
+    - ClothMade
