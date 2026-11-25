@@ -269,12 +269,6 @@
     - ConstructionMaterial
     - ClothMade #imp
     - DroneUsable #imp
-  - type: Extractable
-    grindableSolutionName: solution #imp
-    juiceSolution: # imp
-      reagents:
-      - ReagentId: Cellulose
-        Quantity: 10
   - type: Solution
     solution:
       maxVol: 10 #imp
@@ -285,6 +279,12 @@
   - type: Edible
     requiresSpecialDigestion: true
     delay: 30
+  - type: Extractable
+    grindableSolutionName: solution #imp
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 10
   - type: FlavorProfile
     flavors:
     - paper

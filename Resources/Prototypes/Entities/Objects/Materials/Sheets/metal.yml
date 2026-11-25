@@ -50,8 +50,6 @@
   - type: Item
     heldPrefix: steel
   - type: Appearance
-  - type: Extractable
-    grindableSolutionName: reagents
   - type: Solution
     solution:
       reagents:
@@ -128,8 +126,6 @@
   - type: FloorTile
     outputs:
     - PlatingBrass
-  - type: Extractable
-    grindableSolutionName: reagents
   - type: Solution
     solution:
       reagents:
