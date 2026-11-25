@@ -55,7 +55,7 @@ public sealed class HarpySingerSystem : EntitySystem
             accent.ReplacementPrototype == "mumble" &&
             args.Slot == "mask")
         {
-            CloseMidiUi(args.Equipee);
+            CloseMidiUi(args.EquipTarget); // imp edit, Equipee -> EquipTarget
         }
     }
 

@@ -63,7 +63,7 @@ public sealed partial class MicrowaveSystem : EntitySystem
                 solidsDict.Add(solidID, amountToAdd);
             }
 
-            if (!TryComp<SolutionContainerManagerComponent>(item, out var solMan))
+            if (!TryComp<SolutionManagerComponent>(item, out var solMan)) // Impstation - Upmerge 2026 Chunk VII
                 continue;
 
             foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((item, solMan)))

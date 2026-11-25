@@ -456,7 +456,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             return;
 
         var timeSpan = TimeSpan.FromSeconds(18f);
-        _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
+        _statusEffect.TrySetStatusEffectDuration(target, BlindnessSystem.BlindingStatusEffect, out var statusEffect, timeSpan); // imp edit, new StatusEffect
     }
     private void OnStingCryo(EntityUid uid, GoobChangelingComponent comp, ref StingCryoEvent args)
     {

@@ -835,7 +835,7 @@ public sealed partial class SupermatterSystem
             if (!activeCascadeDelam &&
                 (HasComp<SiliconLawBoundComponent>(mob) ||             // Silicons don't get supermatter hallucinations
                 HasComp<PermanentBlindnessComponent>(mob) ||           // Blind people don't get supermatter hallucinations
-                HasComp<TemporaryBlindnessComponent>(mob)))              // Neither do blinded people
+                HasComp<BlindnessStatusEffectComponent>(mob)))              // Neither do blinded people, imp edit TemporaryBlindnessComponent -> BlindnessStatusEffectComponent
                 continue;
 
             // Everyone else gets hallucinations

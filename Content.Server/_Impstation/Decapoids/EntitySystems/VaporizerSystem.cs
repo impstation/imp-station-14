@@ -66,7 +66,7 @@ public sealed partial class VaporizerSystem : EntitySystem
         return state;
     }
 
-    private void ProcessVaporizerTank(EntityUid uid, VaporizerComponent vaporizer, GasTankComponent gasTank, SolutionContainerManagerComponent solutionManager)
+    private void ProcessVaporizerTank(EntityUid uid, VaporizerComponent vaporizer, GasTankComponent gasTank, SolutionManagerComponent solutionManager)
     {
         if (!_solution.TryGetSolution((uid, solutionManager), vaporizer.LiquidTank, out var solutionEnt, out var solution))
             return;
@@ -98,7 +98,7 @@ public sealed partial class VaporizerSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var enumerator = EntityQueryEnumerator<VaporizerComponent, GasTankComponent, SolutionContainerManagerComponent>();
+        var enumerator = EntityQueryEnumerator<VaporizerComponent, GasTankComponent, SolutionManagerComponent>();
 
         while (enumerator.MoveNext(out var uid, out var vaporizer, out var gasTank, out var solutionManager))
         {

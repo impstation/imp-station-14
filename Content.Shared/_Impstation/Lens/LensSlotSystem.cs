@@ -54,7 +54,7 @@ public sealed class LensSlotSystem : EntitySystem
         if (!TryGetLens(glasses, out var lens))
             return;
 
-        _Blurry.UpdateBlurMagnitude(args.Equipee);
+        _Blurry.UpdateBlurMagnitude(args.EquipTarget);
     }
 
     private void OnGlassesUnequipped(Entity<LensSlotComponent> glasses, ref GotUnequippedEvent args)
@@ -62,7 +62,7 @@ public sealed class LensSlotSystem : EntitySystem
         if (!TryGetLens(glasses, out var lens))
             return;
 
-        _Blurry.UpdateBlurMagnitude(args.Equipee);
+        _Blurry.UpdateBlurMagnitude(args.EquipTarget);
     }
 
     private void OnLensChanged(Entity<LensSlotComponent> glasses, ref LensChangedEvent args)

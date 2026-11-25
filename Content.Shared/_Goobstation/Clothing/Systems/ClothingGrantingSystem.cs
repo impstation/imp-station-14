@@ -40,14 +40,14 @@ public sealed class ClothingGrantingSystem : EntitySystem
         {
             var newComp = (Component) _componentFactory.GetComponent(name);
 
-            if (HasComp(args.Equipee, newComp.GetType()))
+            if (HasComp(args.EquipTarget, newComp.GetType())) // imp edit, Equipee -> EquipTarget
                 continue;
 
-            newComp.Owner = args.Equipee;
+            newComp.Owner = args.EquipTarget; // imp edit, Equipee -> EquipTarget
 
-            var temp = (object) newComp;
+            var temp = (object)newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
-            AddComp(args.Equipee, (Component)temp!); // Impstation - Upmerge 2026 Chunk IV (switch to AddComp)
+            AddComp(args.EquipTarget, (Component)temp!); // Impstation - Upmerge 2026 Chunk IV (switch to AddComp), Equipee -> EquipTarget
 
             component.Active[name] = true; // Goobstation
         }
@@ -66,7 +66,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
 
             var newComp = (Component) _componentFactory.GetComponent(name);
 
-            RemComp(args.Equipee, newComp.GetType());
+            RemComp(args.EquipTarget, newComp.GetType()); // imp edit, Equipee -> EquipTarget
             component.Active[name] = false; // Goobstation
         }
 
@@ -83,8 +83,8 @@ public sealed class ClothingGrantingSystem : EntitySystem
         if (!clothing.Slots.HasFlag(args.SlotFlags))
             return;
 
-        EnsureComp<TagComponent>(args.Equipee);
-        _tagSystem.AddTag(args.Equipee, component.Tag);
+        EnsureComp<TagComponent>(args.EquipTarget); // imp edit, Equipee -> EquipTarget
+        _tagSystem.AddTag(args.EquipTarget, component.Tag); // imp edit, Equipee -> EquipTarget
 
         component.IsActive = true;
     }
@@ -94,7 +94,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
         if (!component.IsActive)
             return;
 
-        _tagSystem.RemoveTag(args.Equipee, component.Tag);
+        _tagSystem.RemoveTag(args.EquipTarget, component.Tag); // imp edit, Equipee -> EquipTarget
 
         component.IsActive = false;
     }

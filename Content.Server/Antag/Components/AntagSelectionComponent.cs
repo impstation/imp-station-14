@@ -69,6 +69,13 @@ public sealed partial class AntagSelectionComponent : Component
     /// </summary>
     [DataField]
     public bool RemoveUponFailedSpawn = true;
+
+    // imp add: svs
+    /// <summary>
+    /// If true, all possible players who have this antag type enabled will be selected. Includes latejoins if LateJoinAdditional is true.
+    /// </summary>
+    [DataField]
+    public bool ForceAllPossible = false;
 }
 
 /// <remarks>
