@@ -246,9 +246,9 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSnake
-    params:
-      pitch: 2 #theyre smaller
-      volume: -12 #should be quieter to be a little less annoying
+      params:
+        pitch: 2 #theyre smaller
+        volume: -12 #should be quieter to be a little less annoying
   - type: NoSlip #theyre worms
   - type: NpcFactionMember
     factions:
@@ -776,7 +776,7 @@
     - VimPilot
   - type: Emoting
   - type: Reform
-    actionPrototype: PlanarianRegenerateAction
+    actionPrototype: PlanarianRegenerateActionTier1
     reformTime: 5 #planarians reform faster than diona
     popupText: planarian-regenerate-attempt
     reformPrototype: MobPlanarianReformed
@@ -860,7 +860,7 @@
     - Planarian
     - VimPilot
   - type: Reform
-    actionPrototype: PlanarianRegenerateAction
+    actionPrototype: PlanarianRegenerateActionTier1
     reformTime: 5 #planarians reform faster than diona
     popupText: planarian-regenerate-attempt
     reformPrototype: MobPlanarianReformed
@@ -937,6 +937,16 @@
       reagents:
       - ReagentId: PlanarianBlood
         Quantity: 40
+  - type: Reform
+    actionPrototype: PlanarianRegenerateActionTier2 #lower tiers take longer to get their regenerate ready
+    reformTime: 8
+    popupText: planarian-regenerate-attempt
+    reformPrototype: MobPlanarianReformed
+  - type: Vocal
+    sounds:
+      Male: UnisexBloodworm
+      Female: UnisexBloodworm
+      Unsexed: UnisexBloodworm
   - type: TransferMindOnGib
     targetTag: MindTransferTarget
   - type: Tag
@@ -1020,6 +1030,15 @@
       reagents:
       - ReagentId: PlanarianBlood
         Quantity: 20
+  - type: Speech
+    speechVerb: Planarian
+    speechSounds: Planarian
+    allowedEmotes: ['GoblinMutter',]
+  - type: Reform
+    actionPrototype: PlanarianRegenerateActionTier3 #lower tiers take longer to get their regenerate ready
+    reformTime: 12
+    popupText: planarian-regenerate-attempt
+    reformPrototype: MobPlanarianReformed
   - type: Tag
     tags:
     - DoorBumpOpener

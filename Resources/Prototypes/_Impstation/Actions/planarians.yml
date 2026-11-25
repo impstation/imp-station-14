@@ -1,11 +1,39 @@
 - type: entity
   parent: BaseAction
-  id: PlanarianRegenerateAction
+  id: PlanarianRegenerateActionTier1
   name: Regenerate
   description: Regenerate back into a whole Planarian.
   components:
   - type: Action
     useDelay: 120 # 2 minutes, planarians regenerate fast
+    icon:
+      sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi
+      state: full
+  - type: InstantAction
+    event: !type:ReformEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: PlanarianRegenerateActionTier2
+  name: Regenerate
+  description: Regenerate back into a whole Planarian.
+  components:
+  - type: Action
+    useDelay: 240 # 4 minutes
+    icon:
+      sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi
+      state: full
+  - type: InstantAction
+    event: !type:ReformEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: PlanarianRegenerateActionTier3
+  name: Regenerate
+  description: Regenerate back into a whole Planarian.
+  components:
+  - type: Action
+    useDelay: 480 # 6 minutes
     icon:
       sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi
       state: full

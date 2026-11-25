@@ -1,1 +1,10 @@
 #PLANARIAN TODO: planarian ghost roles? planarian seperatist?
+- type: entity
+  parent: MobPlanarian
+  id: RandomPlanarian
+  name: random planarian
+  components:
+    - type: Sprite
+      sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi
+      state: full
+    - type: RandomHumanoidAppearance

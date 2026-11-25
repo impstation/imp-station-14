@@ -1,16 +1,16 @@
 - type: species
   id: Planarian
   name: species-name-planarian
-  roundStart: true #PLANARIAN TODO: set to false
+  roundStart: false #PLANARIAN TODO: set to false
   randomViable: true
   randomChance: 0.5 # slightly rare
   prototype: MobPlanarian
   defaultSkinTone: "#c5d178"
   dollPrototype: AppearancePlanarian
   skinColoration: AnomalocaridToned
-  maleFirstNames: NamesAnomalocaridFirst #planarian todo: names
-  femaleFirstNames: NamesAnomalocaridFirst
-  lastNames: NamesAnomalocaridLast
+  maleFirstNames: NamesPlanarian
+  femaleFirstNames: NamesPlanarian
+  naming: First
   sexes:
   - Male
   - Female

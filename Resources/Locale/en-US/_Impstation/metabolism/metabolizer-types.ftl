@@ -16,6 +16,6 @@ metabolizer-type-dinosaur = Dinosaur
 
 metabolizer-type-gray = Gray
 
-metabolizer-type-Planarian = Planarian
+metabolizer-type-planarian = Planarian
 
-metabolizer-type-Bloodworm = Bloodworm
+metabolizer-type-bloodworm = Bloodworm
