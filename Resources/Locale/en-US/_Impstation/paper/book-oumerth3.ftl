@@ -21,7 +21,7 @@ book-text-oumerth3 = [head=1]Oum Erth! - Chapter 3[/head]
 
     –> [bold]Meiku[/bold] - [italic]Salvage[/italic]
 
-    ​[bold]Tilti[/bold] - [italic]Engineering[/italic]
+    ​[bold]Tuktu[/bold] - [italic]Engineering[/italic]
 
     –> [bold]Tekti [/bold]- [italic]Atmos[/italic]
 

@@ -175,7 +175,7 @@ book-text-oumerth1 = [head=1]Oum Erth! - Chapter 1[/head]
    4.) A
    5.) D
 
-   ─────────────────────────────────────
+   ………………………………………………………………………………
 
    ​[italic]There is a sticker attached to the back cover of the textbook.[/italic]
 

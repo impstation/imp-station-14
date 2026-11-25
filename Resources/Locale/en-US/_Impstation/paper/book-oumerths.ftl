@@ -18,27 +18,27 @@ book-text-oumerths = [bolditalic]This textbook appears to be vandalized.[/boldit
 
     ​[head=3]This Chapter's Vocabulary[/head]
 
-    ​[bold]Duu - Ass
+    ​[bold]Duu[/bold] - Ass
 
-    ​[bold]Duudar- Butthead
+    ​[bold]Duudar[/bold] - Butthead
 
-    ​[bold]Douda - Damn
+    ​[bold]Douda[/bold] - Damn
 
-    ​[bold]Pisk - Fuck
+    ​[bold]Pisk[/bold] - Fuck
 
-    ​[bold]Pusk - Fucked
+    ​[bold]Pusk[/bold] - Fucked
 
-    ​[bold]Piskun - Fucking
+    ​[bold]Piskun[/bold] - Fucking
 
-    ​[bold]Jambupisk - Motherfucker
+    ​[bold]Jambupisk[/bold] - Motherfucker
 
-    ​[bold]Oo-moo - Sex
+    ​[bold]Oo-moo[/bold] - Sex
 
-    ​[bold]Knaturels - Boobs
+    ​[bold]Knaturels[/bold] - Boobs
 
-    ​[bold]Pushee - Pussy
+    ​[bold]Pushee[/bold] - Pussy
 
-    ​[bold]Deek - Dick
+    ​[bold]Deek[/bold] - Dick
 
     ………………………………………………………………………………
 
@@ -64,27 +64,27 @@ book-text-oumerths = [bolditalic]This textbook appears to be vandalized.[/boldit
 
     Ect O'Cullagh is having a one to one with his best buddy Jeffery Syndicate, who he dumped that loser John NanoTrasen to be with. Knaturels pib duus thusd lot jorl them!
 
-    ​[bold]Ect: Thusd piskun meidar mochigi so pusk in thusd dar. Thui tek blagh kill every meilmo member.
+    ​[bold]Ect:[/bold] Thusd piskun meidar mochigi so pusk in thusd dar. Thui tek blagh kill every meilmo member.
 
-    ​[bold]Jeffery: That's so real and true bro. I hate it when those inefficient NanoTrasen dogs do not supply the science department with materials but demand fancy toys for their salvagers. How about I give you some fancy toys?
+    ​[bold]Jeffery:[/bold] That's so real and true bro. I hate it when those inefficient NanoTrasen dogs do not supply the science department with materials but demand fancy toys for their salvagers. How about I give you some fancy toys?
 
-    ​[bold]Ect: Like seben?
+    ​[bold]Ect:[/bold] Like seben?
 
-    ​[bold]Jeffery: Well. Let's see what I have in my uplink of goodies. Hm. How about this?
+    ​[bold]Jeffery:[/bold] Well. Let's see what I have in my uplink of goodies. Hm. How about this?
 
     There is a drawing of John NanoTrasen holding something. It has been scribbled on in red ink to make him “Cool”. He has shades, a big cigar, and bling.
 
-    ​[bold]Jeffery: This is the ol Mickey's Dick Smasher.
+    ​[bold]Jeffery:[/bold] This is the ol Mickey's Dick Smasher.
 
-    ​[bold]Ect: Deek smasher?
+    ​[bold]Ect:[/bold] Deek smasher?
 
-    ​[bold]Jeffery: You put his dick in it, and then two rollercoasters…. Well. Use your imagination, Ect.
+    ​[bold]Jeffery:[/bold] You put his dick in it, and then two rollercoasters…. Well. Use your imagination, Ect.
 
-    ​[bold]Ect: Does ei work gimbo pushees?
+    ​[bold]Ect:[/bold] Does ei work gimbo pushees?
 
-    ​[bold]Jeffery: Yes, but watch out.
+    ​[bold]Jeffery:[/bold] Yes, but watch out.
 
-    ​[bold]Ect: Glorp duudar will never beego oo-moo again. Pisk them.
+    ​[bold]Ect:[/bold] Glorp duudar will never beego oo-moo again. Pisk them.
 
     There is a drawing of Ect. He is holding a trophy, but it has been drawn over. He is holding a roller coaster with two coasters seemingly about to crash. He has been given evil angry eyebrows and a cigar as well.
 
@@ -92,43 +92,43 @@ book-text-oumerths = [bolditalic]This textbook appears to be vandalized.[/boldit
 
     This Chapter's Vocabulary
 
-    Pisk - Fuck
+    ​[bold]Duu[/bold] - Ass
 
-    Pusk - Fucked
+    ​[bold]Duudar[/bold] - Butthead
 
-    Piskun - Fucking
+    ​[bold]Douda[/bold] - Damn
 
-    Jambupisk - Motherfucker
+    ​[bold]Pisk[/bold] - Fuck
 
-    Oo-moo - Sex
+    ​[bold]Pusk[/bold] - Fucked
 
-    Duu - Ass
+    ​[bold]Piskun[/bold] - Fucking
 
-    Duudar - Butthead
+    ​[bold]Jambupisk[/bold] - Motherfucker
 
-    Knaturels - Boobs
+    ​[bold]Oo-moo[/bold] - Sex
 
-    Pushee - Pussy
+    ​[bold]Knaturels[/bold] - Boobs
 
-    Deek - Dick
+    ​[bold]Pushee[/bold] - Pussy
 
-    Douda - Damn
+    ​[bold]Deek[/bold] - Dick
 
     ………………………………………………………………………………
 
     ​[head=3]Practice Time![/head]
 
-    ​[bold]1.) Glumpi thusd meidar blagh glorm (     ) themself.
+    ​[bold]1.)[/bold] Glumpi thusd meidar blagh glorm (     ) themself.
 
-    ​[bold]A.) pusk     [bold]B.) piskun    [bold] C.) pisk     [bold]D.) oo-moo
+    ​[bold]A.)[/bold] pusk     [bold]B.)[/bold] piskun    [bold]C.)[/bold] pisk     [bold]D.)[/bold] oo-moo
 
-    ​[bold]2.) (     ) pib knaturels. (     ) pib knaturels. (     ) (     ) knaturels knaturels. (     ) pib knaturels.
+    ​[bold]2.)[/bold] (     ) pib knaturels. (     ) pib knaturels. (     ) (     ) knaturels knaturels. (     ) pib knaturels.
 
-    ​[bold]A.)[/bold] Deek     [bold]B.) [/bold]Dar     [bold]C.) Pushee     [bold]D.) Duu
+    ​[bold]A.)[/bold] Deek     [bold]B.)[/bold] Dar     [bold]C.)[/bold] Pushee     [bold]D.)[/bold] Duu
 
-    ​[bold]3.) [/bold]Took mou mother blagh work call cheego pu mothertrucker. Had oo-moo with mou mom, call cheego pu (     )
+    ​[bold]3.)[/bold] Took mou mother blagh work call cheego pu mothertrucker. Had oo-moo with mou mom, call cheego pu (     )
 
-    ​[bold]A.)[/bold] jambapisk     [bold]B.) [/bold]jumbopisk     [bold]C.) [/bold]jermapisk     [bold] D.) [/bold]jambupisk
+    ​[bold]A.)[/bold] jambapisk     [bold]B.)[/bold] jumbopisk     [bold]C.)[/bold] jermapisk     [bold] D.)[/bold] jambupisk
 
     ​[bold]4.) [/bold]Got some beavers gonna build pu (     )
 
