@@ -15,13 +15,13 @@
     - type: RandomSprite # imp
       available:
       - enum.DamageStateVisualLayers.Base:
-        crystal1: ""
-        crystal2: ""
-        crystal3: ""
-        crystal4: ""
-        crystal5: ""
-        crystal6: ""
-        crystal7: ""
+          crystal1: ""
+          crystal2: ""
+          crystal3: ""
+          crystal4: ""
+          crystal5: ""
+          crystal6: ""
+          crystal7: ""
     - type: Reflect
       reflectProb: 0.5
       reflects:
