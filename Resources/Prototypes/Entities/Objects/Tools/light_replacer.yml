@@ -15,17 +15,15 @@
       amount: 8
     - id: LightBulb
       amount: 5
-  - type: Tag
-    tags:
-      - DroneUsable
   - type: StaticPrice
     price: 100
   - type: ContainerContainer
     containers:
       light_replacer_storage: !type:Container
-  - type: Tag
+  - type: Tag # imp edit
     tags:
     - LightReplacer
+    - DroneUsable
 
 - type: entity
   parent: LightReplacer
