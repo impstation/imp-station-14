@@ -53,29 +53,24 @@
 
 - type: entity
   name: stick of cream cheese
-  parent: FoodBakingBase
+  parent: [SolutionVeryTiny, FoodBakingBase]
   id: FoodCreamCheese
   description: A stick of creamy cream cheese.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/creamcheese.rsi
     state: creamcheese
-  - type: FlavorProfile # Imp
+  - type: FlavorProfile
     flavors:
     - creamy
     - cheesy
-    ignoreReagents:
-    - TableSalt
-    - Milk
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Milk
-          Quantity: 5
-        - ReagentId: TableSalt
-          Quantity: 5
+      reagents:
+      - ReagentId: Milk
+        Quantity: 5
+      - ReagentId: TableSalt
+        Quantity: 5
   - type: Tag
     tags:
     - UnguFood
@@ -156,6 +151,19 @@
     sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
     state: alphacakebatter
     color: "#ba672e"
+  - type: Solution
+    solutions:
+      reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 6
+        - ReagentId: Sugar
+          Quantity: 10
+        - ReagentId: CocoaPowder
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 5
 
 - type: entity
   parent: FoodBakingBase

@@ -676,9 +676,11 @@
     solution:
       reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 19
         - ReagentId: UncookedAnimalProteins
           Quantity: 6
+        - ReagentId: Sugar
+          Quantity: 10
   # imp edit end
 
 - type: entity
