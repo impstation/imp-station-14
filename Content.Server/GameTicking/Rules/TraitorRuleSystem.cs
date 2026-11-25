@@ -40,7 +40,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
 
-    public AntagSelectionPlayerPool? CurrentAntagPool = null;
+    // public AntagSelectionPlayerPool? CurrentAntagPool = null; // imp edit, this is dead?
     public bool ForceAllPossible = false; // imp
 
     public override void Initialize()
@@ -57,7 +57,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     // imp svs add
     private void AdditionalSetup(Entity<TraitorRuleComponent> ent, ref AntagPrereqSetupEvent args)
     {
-        ForceAllPossible = args.Def.ForceAllPossible;
+        /*ForceAllPossible = args.Def.ForceAllPossible;
         if (args.Def.ForceAllPossible)
         {
             CurrentAntagPool = _antag.GetPlayerPool( // Get player pool of potential antags. Used for assigning objective targets
@@ -67,11 +67,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 .ToList(),
                 args.Def
             );
-        }
+        }*/
     }
 
     // imp add. WHERE THE FUCK DO I PUT THIS...
-    public List<ICommonSession> GetPoolSessions()
+    /*public List<ICommonSession> GetPoolSessions()
     {
         var combinedLists = new List<ICommonSession>();
 
@@ -84,7 +84,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
 
         return combinedLists;
-    }
+    }*/
     // imp end
 
     private void AfterEntitySelected(Entity<TraitorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)

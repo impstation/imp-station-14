@@ -25,15 +25,15 @@ public abstract partial class SharedToolSystem
         return Loc.GetString(entity.Comp.Name);
     }
 
-    public bool TryGetSolutionFuelAndCapacity(EntityUid uid, out FixedPoint2 fuel, out FixedPoint2 capacity, SolutionRefuelComponent? welder = null, SolutionContainerManagerComponent? solutionContainer = null)
+    public bool TryGetSolutionFuelAndCapacity(EntityUid uid, out FixedPoint2 fuel, out FixedPoint2 capacity, SolutionRefuelComponent? welder = null, SolutionManagerComponent? solutionManager = null)
     {
         fuel = default;
         capacity = default;
-        if (!Resolve(uid, ref welder, ref solutionContainer))
+        if (!Resolve(uid, ref welder, ref solutionManager))
             return false;
 
         if (!SolutionContainerSystem.TryGetSolution(
-                (uid, solutionContainer),
+                (uid, solutionManager),
                 welder.FuelSolutionName,
                 out _,
                 out var fuelSolution))

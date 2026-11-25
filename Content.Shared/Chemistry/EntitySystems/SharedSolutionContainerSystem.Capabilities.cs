@@ -100,7 +100,7 @@ public abstract partial class SharedSolutionContainerSystem
     }
 
     // imp edit beginning
-    public bool TryGetInjectorSolution(Entity<InjectorComponent?, SolutionContainerManagerComponent?> entity, [NotNullWhen(true)] out Entity<SolutionComponent>? soln, [NotNullWhen(true)] out Solution? solution)
+    public bool TryGetInjectorSolution(Entity<InjectorComponent?, SolutionManagerComponent?> entity, [NotNullWhen(true)] out Entity<SolutionComponent>? soln, [NotNullWhen(true)] out Solution? solution)
     {
         if (!Resolve(entity, ref entity.Comp1, logMissing: false))
         {

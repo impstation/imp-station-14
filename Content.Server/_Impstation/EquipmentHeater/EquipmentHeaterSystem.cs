@@ -21,7 +21,7 @@ public sealed class EquipmentHeaterSystem : EntitySystem
 
     public static void OnGotEquipped(Entity<EquipmentHeaterComponent> ent, ref GotEquippedEvent args)
     {
-        ent.Comp.CurrentlyEquipped = args.Equipee;
+        ent.Comp.CurrentlyEquipped = args.EquipTarget; // imp edit, Equipee -> EquipTarget
     }
 
     public static void OnGotUnequipped(Entity<EquipmentHeaterComponent> ent, ref GotUnequippedEvent args)

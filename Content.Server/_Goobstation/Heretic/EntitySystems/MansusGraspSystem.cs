@@ -69,7 +69,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         {
             case "Ash":
                 var timeSpan = TimeSpan.FromSeconds(5f);
-                _statusEffect.TryAddStatusEffectDuration(target, TemporaryBlindnessSystem.BlindingStatusEffect.Id, timeSpan);
+                _statusEffect.TryAddStatusEffectDuration(target, BlindnessSystem.BlindingStatusEffect.Id, timeSpan); // Impstation - Upmerge 2026 Chunk VII
                 break;
 
             case "Blade":

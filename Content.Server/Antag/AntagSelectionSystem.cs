@@ -793,8 +793,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         // imp start TODO: FIX THIS, IM JUST DUMPING IT HERE FOR NOW BECAUSE IM LAZY
         // handle copycat notifiers for mimics:
-        var prereqEv = new AntagPrereqSetupEvent(player, mind, prototype);
-        RaiseLocalEvent(mind, ref prereqEv, true);
+        //var prereqEv = new AntagPrereqSetupEvent(player, mind, );
+        //RaiseLocalEvent(mind, ref prereqEv, true);
         if (!HasComp<NotifierCopycatComponent>(mind))
             EnsureComp<NotifierComponent>(mind);
 
