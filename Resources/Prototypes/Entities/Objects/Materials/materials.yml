@@ -21,28 +21,18 @@
     layers:
     - state: cardboard_3
       map: ["base"]
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
   - type: Extractable
-    grindableSolutionName: food #imp
+    grindableSolutionName: reagents
     juiceSolution: # imp
       reagents:
       - ReagentId: Cellulose
-        Quantity: 6
-  - type: SolutionContainerManager
-    solutions:
-      food: #imp
-        maxVol: 6 #imp
-        reagents:
-        - ReagentId: Pulp #imp
-          Quantity: 6
-# UPSTREAM VERSION:
+        Quantity: 10 # imp
   - type: Solution
     solution:
+      maxVol: 10 #imp
       reagents:
-      - ReagentId: Cellulose
+      - ReagentId: Pulp #imp
         Quantity: 10
-# TORTURE END
   - type: Item
     sprite: _Impstation/Objects/Materials/materials.rsi #imp edit
     heldPrefix: cardboard
@@ -279,28 +269,18 @@
     - ConstructionMaterial
     - ClothMade #imp
     - DroneUsable #imp
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
   - type: Extractable
-    grindableSolutionName: food #imp
+    grindableSolutionName: solution #imp
     juiceSolution: # imp
       reagents:
       - ReagentId: Cellulose
         Quantity: 10
-  - type: SolutionContainerManager
-    solutions:
-      food: #imp
-        maxVol: 10 #imp
-        reagents:
-        - ReagentId: Pulp #imp
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
+      maxVol: 10 #imp
       reagents:
-      - ReagentId: Cellulose
+      - ReagentId: Pulp #imp
         Quantity: 10
-# TORTURE END
   # imp edit start
   - type: Edible
     requiresSpecialDigestion: true
@@ -654,29 +634,18 @@
     flavors:
       - cobwebs
     ignoreReagents:
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
       - Protein   #imp
   - type: Extractable
     juiceSolution:
       reagents:
       - ReagentId: Protein  #imp
-        Quantity: 3
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 3
-        reagents:
-        - ReagentId: Protein  #imp
-          Quantity: 3
-# UPSTREAM VERSION:
-      - Fiber
+        Quantity: 10
   - type: Solution
     solution:
+      maxVol: 10
       reagents:
-      - ReagentId: Fiber
+      - ReagentId: Protein  #imp
         Quantity: 10
-# TORTURE END
   - type: Tag
     tags:
       - ClothMade

@@ -8,14 +8,9 @@
     sprite: Objects/Materials/Sheets/other.rsi
   - type: Item
     sprite: Objects/Materials/Sheets/other.rsi
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      paper:
-        canReact: false
-# UPSTREAM VERSION:
-# TORTURE END
+  - type: Solution
+    solution:
+      canReact: false
   - type: NonMobStatusIcon #imp edit. for the salvohud
   - type: PluralName # imp
     oneOf: plural-name-sheet-1
@@ -201,20 +196,8 @@
       map: ["base"]
   - type: Item
     heldPrefix: uranium
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
   - type: Extractable
-    grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Uranium
-          Quantity: 8
-        - ReagentId: Radium
-          Quantity: 2
-        canReact: false
-# UPSTREAM VERSION:
+    grindableSolutionName: reagents
   - type: Solution
     solution:
       reagents:
@@ -222,7 +205,7 @@
         Quantity: 8
       - ReagentId: Radium
         Quantity: 2
-# TORTURE END
+      canReact: false
   # imp edit start
   - type: RadiationSource
     intensity: 0.01
@@ -276,36 +259,19 @@
     - type: Item
       sprite: Objects/Materials/Sheets/meaterial.rsi
       heldPrefix: meat
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
     - type: Extractable
-      grindableSolutionName: meatsheet
+      grindableSolutionName: reagents
     - type: SolutionContainerManager
-      solutions:
-        meatsheet:
-          reagents:
-          - ReagentId: UncookedAnimalProteins # imp changed from Protein so it doesn't poison the only species who could eat it??????
-            Quantity: 7
-          - ReagentId: Fat
-            Quantity: 3
-          canReact: false
-        food: # imp
-          reagents:
-          - ReagentId: UncookedAnimalProteins
-            Quantity: 7
-          - ReagentId: Fat
-            Quantity: 3
     - type: Edible # imp
       requiresSpecialDigestion: true
-# UPSTREAM VERSION:
     - type: Solution
       solution:
         reagents:
-        - ReagentId: Protein
+        - ReagentId: UncookedAnimalProteins # imp changed from Protein so it doesn't poison the only species who could eat it??????
           Quantity: 7
         - ReagentId: Fat
           Quantity: 3
-# TORTURE END
+        canReact: false
 
 - type: entity
   parent: MaterialSheetMeat

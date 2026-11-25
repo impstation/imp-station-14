@@ -42,16 +42,6 @@
     flavors:
     - chewy
     - bitter
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: MindbreakerToxin
-          Quantity: 2
   # imp edit start
   - type: FoodSequenceElement
     entries:
@@ -60,15 +50,13 @@
   - type: SignatureWriter
     font: ComicNeueBold
   # imp edit end
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 5
       - ReagentId: MindbreakerToxin
-        Quantity: 10
-# TORTURE END
+        Quantity: 10 # imp note: they changed this from 2 to 10. wtf.
 
 # special crayons
 

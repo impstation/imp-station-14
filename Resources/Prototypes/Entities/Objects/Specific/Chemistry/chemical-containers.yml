@@ -1,5 +1,6 @@
 - type: entity
   parent: [ SolutionLarge, DrinkBaseMaterialStrongPlastic, DrinkBase, DrinkVisualsAll ]
+  # imp note: pre solRefactor maxVol 200, now SolutionLarge (240)
   id: Jug
   name: jug
   description: Used to contain a very large amount of chemicals or solutions. Chugging is extremely ill-advised.
@@ -9,14 +10,6 @@
   - type: Item
     size: Large
     sprite: _Impstation/Objects/Specific/Chemistry/jug.rsi # imp
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 200
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SolutionContainerVisuals
     maxFillLevels: 8 #imp edit
     inHandsMaxFillLevels: 5

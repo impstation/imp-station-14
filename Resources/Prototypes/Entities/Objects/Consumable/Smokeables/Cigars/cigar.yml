@@ -31,19 +31,6 @@
     state: burnt-icon
   - type: Smokable
     state: Burnt
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 20
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nicotine
-          Quantity: 5
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Tag
     tags:
       - Cigar
@@ -77,16 +64,3 @@
     state: burnt-icon
   - type: Smokable
     state: Burnt
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 20
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nicotine
-          Quantity: 5
-# UPSTREAM VERSION:
-# TORTURE END

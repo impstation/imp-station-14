@@ -118,22 +118,11 @@
     - Burnt
     - Trash
     - Ash # imp this is really stupid
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Ash
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Ash
         Quantity: 15
-# TORTURE END
   - type: SolutionSpiker
     sourceSolution: food
     ignoreEmpty: true
@@ -155,24 +144,17 @@
     tags:
       - Trash
       - Ectoplasm
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-          - ReagentId: Ash
-            Quantity: 25
-          - ReagentId: Arcryox
-            Quantity: 25
-# UPSTREAM VERSION:
   - type: Solution
     solution:
+      maxVol: 50 # imp edit, might need to fit all this BULLSHIT
       reagents:
-      - ReagentId: Fresium
-        Quantity: 15
-# TORTURE END
+        - ReagentId: Ash
+          Quantity: 25
+        - ReagentId: Arcryox
+          Quantity: 25
+        # imp remove for now, returning to original values
+        #- ReagentId: Fresium
+          #Quantity: 15
   - type: GuideHelp
     guides:
     - MinorAntagonists

@@ -12,26 +12,16 @@
   - type: Produce
     seedId: cannabis
   - type: Edible # Precursor to the one true edible
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: THC
-          Quantity: 15
   - type: FoodSequenceElement
     entries:
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
       Hotdog: LeavesCannabis #imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: THC
         Quantity: 15
-# TORTURE END
   - type: PluralName # imp
     oneOf: plural-name-some
 
@@ -123,21 +113,15 @@
         Quantity: 2
       - ReagentId: Happiness
         Quantity: 2
+      - ReagentId: Psicodine
+        Quantity: 1
 #       - ReagentId: ColorfulReagent
 #         Quantity: 1
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-      - ReagentId: Psicodine
-        Quantity: 0.6
   - type: FoodSequenceElement #imp edit
     entries:
       Burger: LeavesRainbowCannabisBurger
       Taco: LeavesRainbowCannabis
       Hotdog: LeavesRainbowCannabis #imp
-# UPSTREAM VERSION:
-      - ReagentId: Psicodine
-        Quantity: 1
-# TORTURE END
 
 - type: entity
   name: dried rainbow cannabis leaves
@@ -236,21 +220,11 @@
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
   - type: Produce
     seedId: tobacco
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nicotine
-          Quantity: 2
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nicotine
         Quantity: 5
-# TORTURE END
   # imp edit start
   - type: Edible
   - type: FoodSequenceElement

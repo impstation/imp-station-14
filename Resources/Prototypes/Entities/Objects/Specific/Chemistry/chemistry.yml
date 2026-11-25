@@ -271,6 +271,7 @@
 - type: entity
   name: large beaker
   parent: [SolutionNormal, BaseBeaker]
+  # imp note: pre solRefactor maxVol 100, now SolutionNormal (120)
   description: Used to contain a large amount of chemicals or solutions.
   id: LargeBeaker
   components:
@@ -286,14 +287,6 @@
   - type: Item
     size: Normal
     sprite: _Impstation/Objects/Specific/Chemistry/beaker_large.rsi # imp
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 100
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6

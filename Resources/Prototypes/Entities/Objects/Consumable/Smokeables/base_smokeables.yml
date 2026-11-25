@@ -34,22 +34,8 @@
   - type: Tag
     tags:
     - Trash
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
     - PetWearable # imp
     - KodeEdible # imp
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 20
-        reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-      food: #imp edit TODO: this should probably only have one solution container?
-        maxVol: 20
-        reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
   # imp edit start
   - type: Edible
   - type: FlavorProfile
@@ -60,13 +46,11 @@
       Burger: CigarBurger
       Hotdog: CigarBurger
   # imp edit end
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nicotine
         Quantity: 10
-# TORTURE END
 
 - type: entity
   parent: BaseSmokable

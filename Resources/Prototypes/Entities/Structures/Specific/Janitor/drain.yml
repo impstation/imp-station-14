@@ -1,5 +1,6 @@
 - type: entity
   parent: [SolutionDrain, SolutionGinormous]
+  # imp note: pre solRefactor maxVol 750, now changed to SolutionGinormous (960)
   id: FloorDrain
   name: drain
   description: Drains puddles around it. Useful for dumping mop buckets or keeping certain rooms clean.
@@ -35,14 +36,6 @@
       maxFillLevels: 1
       fillBaseName: fill-
       solutionName: drainBuffer
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-    - type: SolutionContainerManager
-      solutions:
-        drainBuffer:
-          maxVol: 750 # imp edit
-# UPSTREAM VERSION:
-# TORTURE END
     - type: Damageable
       damageModifierSet: StructuralMetallic
     - type: Injurable

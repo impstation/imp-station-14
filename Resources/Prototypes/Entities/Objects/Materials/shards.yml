@@ -142,32 +142,18 @@
     tags:
       - ReinforcedGlassShard
       - Trash
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
   - type: Extractable
-    grindableSolutionName: shardrglass
-  - type: SolutionContainerManager
-    solutions:
-      shardrglass:
-        canReact: false # imp don't make kelotane on shard spawn please
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 5 #I don't care enough to divide all of the reinforced glass materials by 2 because reinforced glass shards are due for removal anyways.
-        - ReagentId: Iron # imp; don't worry 17-months-ago upstream i got you it's really easy (also the other glass shards are out of 10u anyway so who even gives a fuck)
-          Quantity: 4
-        - ReagentId: Carbon # imp ^
-          Quantity: 1
-# UPSTREAM VERSION:
+    grindableSolutionName: reagents
   - type: Solution
     solution:
+      canReact: false
       reagents:
       - ReagentId: Silicon
-        Quantity: 5
-      - ReagentId: Iron
-        Quantity: 2.25
-      - ReagentId: Carbon
-        Quantity: 0.25
-# TORTURE END
+        Quantity: 5 #I don't care enough to divide all of the reinforced glass materials by 2 because reinforced glass shards are due for removal anyways.
+      - ReagentId: Iron # imp; don't worry 17-months-ago upstream i got you it's really easy (also the other glass shards are out of 10u anyway so who even gives a fuck)
+        Quantity: 4
+      - ReagentId: Carbon # imp ^
+        Quantity: 1
   - type: Construction
     graph: ReinforcedShivConstruct
     node: start
