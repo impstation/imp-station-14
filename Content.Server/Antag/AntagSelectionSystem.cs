@@ -791,21 +791,21 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         SendBriefing(player, prototype.Briefing);
 
-        // imp start TODO: MOVE THIS ALL TO EVENT SUBSCRIPTIONS, IM JUST DUMPING IT HERE FOR NOW BECAUSE IM LAZY
+        // imp start TODO: FIX THIS, IM JUST DUMPING IT HERE FOR NOW BECAUSE IM LAZY
         // handle copycat notifiers for mimics:
-        var prereqEv = new AntagPrereqSetupEvent(session, ent, def);
-        RaiseLocalEvent(ent, ref prereqEv, true);
-        if (!HasComp<NotifierCopycatComponent>(player))
-            EnsureComp<NotifierComponent>(player);
+        var prereqEv = new AntagPrereqSetupEvent(player, mind, prototype);
+        RaiseLocalEvent(mind, ref prereqEv, true);
+        if (!HasComp<NotifierCopycatComponent>(mind))
+            EnsureComp<NotifierComponent>(mind);
 
         // handle faction modification for NPC zombies to not aggro on II:
-        foreach (var addFaction in def.FactionsAdd)
+        foreach (var addFaction in prototype.FactionsAdd)
         {
-            _faction.AddFaction(player, addFaction);
+            _faction.AddFaction(mind, addFaction);
         }
-        foreach (var removeFaction in def.FactionsRemove)
+        foreach (var removeFaction in prototype.FactionsRemove)
         {
-            _faction.RemoveFaction(player, removeFaction);
+            _faction.RemoveFaction(mind, removeFaction);
         }
         // imp end
 
@@ -879,7 +879,7 @@ public record struct AntagSelectLocationEvent(Entity<AntagSelectionComponent> Ga
 /// Used for applying additional more complex setup logic.
 /// </summary>
 [ByRefEvent]
-public readonly record struct AntagPrereqSetupEvent(ICommonSession? Session, Entity<AntagSelectionComponent> GameRule, AntagSelectionDefinition Def);
+public readonly record struct AntagPrereqSetupEvent(ICommonSession? Session, Entity<AntagSelectionComponent> GameRule, AntagPrototype Def);
 
 /// <summary>
 /// Event raised on a game ruleR entity after the setup logic for an antag is complete.

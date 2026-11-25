@@ -132,6 +132,27 @@ public sealed partial class AntagSpecifierPrototype : IPrototype, IInheritingPro
     /// </remarks>
     [DataField]
     public EntProtoId? SpawnerPrototype;
+
+    // imp add: svs
+    /// <summary>
+    /// If true, all possible players who have this antag type enabled will be selected. Includes latejoins if LateJoinAdditional is true.
+    /// </summary>
+    [DataField]
+    public bool ForceAllPossible = false;
+
+    /// <summary>
+    /// NPC factions to add to the entity
+    /// #IMP
+    /// </sumamry>
+    [DataField]
+    public List<string> FactionsAdd = new();
+
+    /// <summary>
+    /// NPC factions to remove from the entity
+    /// #IMP
+    /// </sumamry>
+    [DataField]
+    public List<string> FactionsRemove = new();
 }
 
 /// <summary>

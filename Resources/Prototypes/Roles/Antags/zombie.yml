@@ -25,12 +25,14 @@
   components:
   - type: PendingZombie #less time to prepare than normal
     minInitialInfectedGrace: 300
-    maxInitialInfectedGrace: 450
+    maxInitialInfectedGrace: 600 # imp 450 -> 600
   - type: ZombifyOnDeath
   - type: IncurableZombie
   - type: InitialInfected
   mindRoles:
   - MindRoleInitialInfected
+  factionsAdd: # IMP: Initial infected should be ignored by zombies.
+    - InitialInfectedIgnore
 
 # TODO: Make it so creating new zombies uses antag prototypes! This saves a *lot* of boilerplate for conversion antags.
 

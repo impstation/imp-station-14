@@ -433,10 +433,23 @@ public sealed partial class GameTicker
             var minPlayers = gameRule.MinPlayers;
             var name = ToPrettyString(uid);
 
-            if (args.Players.Length >= minPlayers)
+            // IMP EDIT START
+            // There should only be Ended game rules at roundstart if they are from a failed start, during a fallback start attempt
+            if (HasComp<EndedGameRuleComponent>(uid))
+            {
+                Log.Debug($"Ended gamerule ignored from startup check: {name}");
+                continue;
+            }
+            // IMP EDIT END
+
+            var maxPlayers = gameRule.MaxPlayers; // imp lowpop
+
+            if (args.Players.Length >= minPlayers
+                || args.Players.Length <= maxPlayers) // imp lowpop
                 continue;
 
-            if (gameRule.CancelPresetOnTooFewPlayers)
+            if (gameRule.CancelPresetOnTooFewPlayers
+                && args.Players.Length < minPlayers) // imp lowpop
             {
                 _chatManager.SendAdminAnnouncement(Loc.GetString("preset-not-enough-ready-players",
                     ("readyPlayersCount", args.Players.Length),
@@ -446,6 +459,16 @@ public sealed partial class GameTicker
                 //TODO remove this once announcements are logged
                 Log.Info($"Rule '{name}' requires {minPlayers} players, but only {args.Players.Length} are ready.");
             }
+            // imp add start, lowpop
+            else if (args.Players.Length > maxPlayers && gameRule.CancelPresetOnTooManyPlayers)
+            {
+                _chatManager.SendAdminAnnouncement(Loc.GetString("preset-too-many-ready-players",
+                    ("readyPlayersCount", args.Players.Length),
+                    ("maximumPlayers", maxPlayers),
+                    ("presetName", ToPrettyString(uid))));
+                args.Cancel();
+            }
+            // imp end
             else
             {
                 EndGameRule(uid, gameRule);

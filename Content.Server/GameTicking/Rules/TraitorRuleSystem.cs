@@ -70,6 +70,23 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
     }
 
+    // imp add. WHERE THE FUCK DO I PUT THIS...
+    public List<ICommonSession> GetPoolSessions()
+    {
+        var combinedLists = new List<ICommonSession>();
+
+        foreach (var pool in orderedPools)
+        {
+            if (pool.Count == 0)
+                continue;
+
+            pool.ForEach(p => combinedLists.Add(p));
+        }
+
+        return combinedLists;
+    }
+    // imp end
+
     private void AfterEntitySelected(Entity<TraitorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         Log.Debug($"AfterAntagEntitySelected {ToPrettyString(ent)}");

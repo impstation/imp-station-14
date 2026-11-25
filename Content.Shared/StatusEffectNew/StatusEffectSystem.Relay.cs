@@ -11,7 +11,6 @@ using Content.Shared.Speech;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.Player;
-using Content.Shared.Damage.Systems; // imp
 using Content.Shared.Interaction.Events; // imp
 using Content.Shared.Gravity; //imp
 

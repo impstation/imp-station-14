@@ -9,7 +9,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 //using Content.Shared.Maps; //imp edit
-using Content.Shared.Mobs.Components;
+//using Content.Shared.Mobs.Components; //imp edit
 //using Content.Shared.Physics; //imp edit
 using Content.Shared.Movement.Systems; // imp edit
 using Content.Shared.Popups;
@@ -41,7 +41,7 @@ public sealed partial class BlockingSystem : EntitySystem
 
     [Dependency] private readonly EntityQuery<BlockingComponent> _blockQuery = default!;
     [Dependency] private readonly EntityQuery<HandsComponent> _handQuery = default!;
-    [Dependency] private readonly EntityQuery<MobStateComponent> _mobQuery = default!;
+    //[Dependency] private readonly EntityQuery<MobStateComponent> _mobQuery = default!; // imp edit
     [Dependency] private readonly EntityQuery<BlockingUserComponent> _userQuery = default!;
 
     public override void Initialize()

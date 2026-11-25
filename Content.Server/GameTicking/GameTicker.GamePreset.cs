@@ -262,6 +262,31 @@ public sealed partial class GameTicker
         return min;
     }
 
+    // IMP ADD
+    /// <summary>
+    /// Gets the minimum number of players required for a game preset to start.
+    /// Checks both the preset itself, and all rules to find the minimum.
+    /// </summary>
+    /// <param name="proto">Game preset prototype we're checking.</param>
+    /// <returns>Minimum number of players required for the rule to start.</returns>
+    [PublicAPI]
+    public int GetMaximumPlayerCount(GamePresetPrototype proto)
+    {
+        var max = proto.MaxPlayers ?? 999; // this is a stupid band-aid.
+        foreach (var entProto in proto.Rules)
+        {
+            if (!_prototypeManager.Resolve(entProto, out var ent))
+                continue;
+
+            if (!ent.TryGetComponent<GameRuleComponent>(out var rule, Factory))
+                continue;
+
+            max = Math.Min(max, rule.MaxPlayers);
+        }
+
+        return max;
+    }
+
     private void IncrementRoundNumber()
     {
         var playerIds = _playerGameStatuses.Keys.Select(player => player.UserId).ToArray();

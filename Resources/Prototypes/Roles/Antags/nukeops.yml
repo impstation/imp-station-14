@@ -84,7 +84,7 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - NamesSyndicateNormal
+    - NamesSyndicateAlternative # imp, was NamesSyndicateNormal
     nameFormat: name-format-nukie-agent
   mindRoles:
   - MindRoleNukeopsMedic

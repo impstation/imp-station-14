@@ -14,6 +14,7 @@
   - type: Tag
     tags:
     - RawMaterial
+    - DroneUsable #imp
   - type: Damageable
   - type: Injurable
     damageContainer: Inorganic
@@ -27,6 +28,8 @@
         acts: [ "Destruction" ]
   - type: Extractable
     grindableSolutionName: composite
+  - type: PluralName # imp
+    oneOf: plural-name-piece-1
 
 - type: entity
   abstract: true
@@ -37,5 +40,6 @@
     tags:
     - Sheet
     - ConstructionMaterial
+    - DroneUsable #imp
   - type: StaticPrice
     price: 0
