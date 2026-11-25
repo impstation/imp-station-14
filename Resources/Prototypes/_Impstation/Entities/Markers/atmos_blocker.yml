@@ -25,21 +25,37 @@
     mode: 10
 
 - type: entity
-  name: Atmos Fix Station TBN Marker
-  id: AtmosFixStationTBN
   parent: MarkerBase
+  id: AtmosFixAufeisPeakHigh
+  name: Aufeis peaks Atmos Fix Marker
+  suffix: high
   components:
-    - type: Sprite
-      layers:
-        - sprite: Markers/atmos.rsi
-          state: base
-          shader: unshaded
-    - type: AtmosFixMarker
-      mode: 11
+  - type: Sprite
+    layers:
+      - sprite: Markers/atmos.rsi
+        state: base
+        shader: unshaded
+  - type: AtmosFixMarker
+    mode: 11
+
+- type: entity
+  parent: MarkerBase
+  id: AtmosFixAufeisPeakLow
+  name: Aufeis peaks Atmos Fix Marker
+  suffix: low
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Markers/atmos.rsi
+        state: base
+        shader: unshaded
+  - type: AtmosFixMarker
+    mode: 12
 
 - type: entity
   name: Atmos Fix Toxic Pit Marker
-  id: AtmosFixToxicPit
+  suffix: high
+  id: AtmosFixToxicPitHigh
   parent: MarkerBase
   components:
     - type: Sprite
@@ -48,4 +64,32 @@
           state: base
           shader: unshaded
     - type: AtmosFixMarker
-      mode: 12
+      mode: 13
+
+- type: entity
+  name: Atmos Fix Toxic Pit Marker
+  suffix: medium
+  id: AtmosFixToxicPitMedium
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Markers/atmos.rsi
+          state: base
+          shader: unshaded
+    - type: AtmosFixMarker
+      mode: 14
+
+- type: entity
+  name: Atmos Fix Toxic Pit Marker
+  suffix: low
+  id: AtmosFixToxicPitLow
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Markers/atmos.rsi
+          state: base
+          shader: unshaded
+    - type: AtmosFixMarker
+      mode: 15
