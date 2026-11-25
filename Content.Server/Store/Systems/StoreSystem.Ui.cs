@@ -19,7 +19,6 @@ using Content.Shared.Heretic; // imp
 using Content.Shared.Heretic.Prototypes; // imp
 using Content.Shared.Roles.Components; // imp
 using Content.Shared.Mind; // imp
-using Robust.Shared.Prototypes; // imp
 
 namespace Content.Server.Store.Systems;
 

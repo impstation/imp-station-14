@@ -38,7 +38,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
 
     public override void Initialize()
     {
