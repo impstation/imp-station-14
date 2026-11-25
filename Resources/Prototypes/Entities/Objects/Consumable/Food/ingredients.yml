@@ -435,7 +435,7 @@
         Quantity: 0.375
       - ReagentId: UncookedAnimalProteins
         Quantity: 0.75
-  # imp edit start
+  # imp edit end
 
 - type: entity
   parent: FoodDoughBase
@@ -486,13 +486,11 @@
   - type: Construction
     graph: Tortilla
     node: flat
-  # imp edit start
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 0.375
-  # imp edit end
+        Quantity: 0.375 # imp edit 7.5>0.375
 
 - type: entity
   parent: FoodDoughBase
