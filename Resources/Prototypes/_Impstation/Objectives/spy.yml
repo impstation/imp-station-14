@@ -1,0 +1,58 @@
+#SVS objectives
+
+- type: entity
+  abstract: true
+  parent: [BaseTraitorSocialObjective]
+  id: BaseSpyObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-white
+  - type: RoleRequirement
+    roles:
+    - SpyRole
+
+- type: entity
+  parent: [KillRandomPersonObjective, BaseSpyObjective]
+  id: KillRandomSpyObjective
+  components:
+  - type: PickRandomPerson
+    filters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - SpyRole
+        - TraitorRole
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+        - KeepAliveCondition
+        - HelpProgressCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      component: null
+
+- type: entity
+  parent: [RandomTraitorAliveObjective, BaseSpyObjective]
+  id: RandomSpyAliveObjective
+  components:
+  - type: PickRandomPerson
+    filters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - SpyRole
+        - TraitorRole
+    # Can't have multiple objectives to help/save the same person
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+        - HelpProgressCondition
+        - KeepAliveCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      component: null

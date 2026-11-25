@@ -17,7 +17,26 @@
   components:
   - type: TargetObjective
     title: objective-condition-kill-person-title
-  - type: PickRandomAntag
+  - type: PickRandomPerson
+    filters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - FugitiveRole
+    fallbackFilters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - TraitorRole
+        - GoobChangelingRole
+        - HereticRole
+        - ThiefRole
+        - BountyHunterRole
+        - NinjaRole
+        - NukeopsRole
+        - ParadoxCloneRole
+        - SynthesisRole
+        - WizardRole
   - type: KillPersonCondition
     requireMaroon: true
 

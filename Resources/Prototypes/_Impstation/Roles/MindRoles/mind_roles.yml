@@ -82,3 +82,14 @@
     antag: true
     roleType: SoloAntagonist
     antagPrototype: KillEveryon
+
+# Spy
+- type: entity
+  parent: MindRoleTraitor
+  id: MindRoleSpy
+  name: Spy role
+  components:
+  - type: MindRole
+    antagPrototype: Spy
+    exclusiveAntag: true
+    subtype: role-subtype-spy

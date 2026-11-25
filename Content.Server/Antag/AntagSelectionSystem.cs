@@ -83,7 +83,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!; //imp
 
     // arbitrary random number to give late joining some mild interest.
-    public const float LateJoinRandomChance = 0.5f;
+    public float LateJoinRandomChance = 0.5f; // IMP remove const, SVS
 
     /// <summary>
     /// List of game rules and antags that are assigned during <see cref="RulePlayerSpawningEvent"/>

@@ -1,0 +1,17 @@
+- type: antag
+  parent: Traitor
+  id: Spy
+  name: roles-antag-spy-name
+
+- type: antagSpecifier
+  parent: BaseTraitor
+  id: Spy
+  prefRoles:
+  - Spy
+  blacklist:
+    components:
+    - AntagImmune
+  mindRoles:
+  - MindRoleSpy
+  briefing:
+    text: spy-vs-spy-role-greeting
