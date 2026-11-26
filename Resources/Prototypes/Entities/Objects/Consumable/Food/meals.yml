@@ -543,33 +543,19 @@
     flavors:
     - meaty
     - smokey
-    - sweet # imp - bbq sauce
   - type: Sprite
     state: ribs
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        # - ReagentId: Nutriment # imp
-        #  Quantity: 3
-        - ReagentId: Protein
-          Quantity: 18 # imp
-        #- ReagentId: BbqSauce # imp
-        #  Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 60
+        Quantity: 10 # imp 60>10
       - ReagentId: Protein
-        Quantity: 30
+        Quantity: 40 # imp 30>40
       - ReagentId: BbqSauce
         Quantity: 10
-# TORTURE END
+      - ReagentId: Vitamin # imp
+        Quantity: 10
   - type: Tag
     tags:
     - Meat

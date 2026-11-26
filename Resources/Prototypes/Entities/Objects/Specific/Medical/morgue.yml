@@ -146,15 +146,9 @@
       - Ectoplasm
   - type: Solution
     solution:
-      maxVol: 50 # imp edit, might need to fit all this BULLSHIT
       reagents:
-        - ReagentId: Ash
-          Quantity: 25
-        - ReagentId: Arcryox
-          Quantity: 25
-        # imp remove for now, returning to original values
-        #- ReagentId: Fresium
-          #Quantity: 15
+        - ReagentId: Fresium
+          Quantity: 15
   - type: GuideHelp
     guides:
     - MinorAntagonists

@@ -110,17 +110,6 @@
   components:
   - type: Sprite
     state: plain
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatCutlet
@@ -199,18 +188,6 @@
     - Meat
   - type: Sprite
     state: bacon
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 2
-        - ReagentId: Fat
-          Quantity: 9
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -218,7 +195,6 @@
         Quantity: 6
       - ReagentId: Fat
         Quantity: 9
-# TORTURE END
   - type: InternalTemperature
     conductivity: 0.44
     thickness: 0.004 # bacon is thin so faster to cook than a steak
@@ -243,19 +219,6 @@
   components:
   - type: Sprite
     state: bear
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatBearCutlet
@@ -317,19 +280,6 @@
   components:
   - type: Sprite
     state: bird
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatChickenCutlet
@@ -355,19 +305,6 @@
   components:
   - type: Sprite
     state: bird
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatDuckCutlet
@@ -397,16 +334,6 @@
     - Meat
   - type: Sprite
     state: corgi
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Bicaridine
-          Quantity: 20
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -414,7 +341,6 @@
         Quantity: 10
       - ReagentId: Bicaridine
         Quantity: 20
-# TORTURE END
   - type: StaticPrice
     price: 750
   - type: StealTarget
@@ -439,19 +365,6 @@
       - crabby
   - type: Sprite
     state: crab
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 1
-        - ReagentId: Fat
-          Quantity: 2
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: CrabSteak
     node: start
@@ -553,18 +466,6 @@
   components:
   - type: Sprite
     state: plain
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 3
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -574,7 +475,6 @@
         Quantity: 4
       - ReagentId: Fat
         Quantity: 1
-# TORTURE END
   - type: SliceableFood
     count: 1
     slice: FoodMeatCutlet
@@ -2662,19 +2562,6 @@
   components:
   - type: Sprite
     state: xenocutlet-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Protein
-          Quantity: 1
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: XenoCutlet
     node: xeno cutlet

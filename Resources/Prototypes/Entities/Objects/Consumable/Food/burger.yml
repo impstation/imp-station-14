@@ -44,25 +44,13 @@
     nameGeneration: food-sequence-burger-gen
   - type: Appearance
   - type: FoodMetamorphableByAdding
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        canReact: true # fuck you wizden i need razorium burger assassination
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3.3 # 1/2 of a bun
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       maxVol: 7.5
-      canReact: false # Dont want cause reactions inside burgers after merging ingredients, TODO Remove
+      # canReact: false # Dont want cause reactions inside burgers after merging ingredients, TODO Remove # imp
       reagents:
       - ReagentId: Nutriment
-        Quantity: 5 # 1/2 of a bun
-  # TORTURE END
+        Quantity: 0.625 # 1/2 of a bun # imp 5>0.625
 
 - type: entity
   parent: FoodBreadSliceBase
@@ -77,10 +65,10 @@
   - type: Solution
     solution:
       maxVol: 7.5
-      canReact: false # Dont want cause reactions inside burgers after merging ingredients, TODO Remove
+      # canReact: false # Dont want cause reactions inside burgers after merging ingredients, TODO Remove # imp
       reagents:
       - ReagentId: Nutriment
-        Quantity: 5 # 1/2 of a bun
+        Quantity: 0.625 # 1/2 of a bun # imp 5>0.625
   - type: FoodSequenceElement
     entries:
       Burger: BunTopBurger
@@ -102,11 +90,11 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 30
+        Quantity: 6.25 # imp 30>6.25
       - ReagentId: Protein
-        Quantity: 10
+        Quantity: 20 # imp 10>20
       - ReagentId: Vitamin
-        Quantity: 10
+        Quantity: 5 # imp 10>5
   - type: Item
     sprite: Objects/Consumable/Food/burger.rsi
     shape:
@@ -145,18 +133,17 @@
       - state: alpha-filling-inhand-right
         color: "#f70000"
   # imp edit start
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 25
-        reagents:
+      reagents:
         - ReagentId: Nutriment
-          Quantity: 13
+          Quantity: 16.25
         - ReagentId: Amatoxin # its got POISON IN IT!!!
-          Quantity: 6
+          Quantity: 30
+        - ReagentId: Vodka
+          Quantity: 5
   - type: Tag
     tags:
-    - UnguFood
     - Mushroom
   # imp edit end
 
@@ -174,21 +161,6 @@
       - grass
   - type: Sprite
     state: appendix
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Protein
-          Quantity: 5 # imp
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 6
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -206,6 +178,13 @@
         color: "#382010"
       - state: alpha-filling-inhand-right
         color: "#bd9451"
+  - type: Solution # imp
+    solutions:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.25
+      - ReagentId: Protein
+        Quantity: 24
 # Tastes like bun, grass.
 
 - type: entity
@@ -220,30 +199,15 @@
       - bacon
   - type: Sprite
     state: bacon
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14.16 # imp
-        - ReagentId: Protein # imp
-          Quantity: 2
-        # - ReagentId: Vitamin
-        #  Quantity: 5
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 35
+        Quantity: 21.25 # imp 30>21.25
       - ReagentId: Protein
-        Quantity: 5
+        Quantity: 6 # imp 5>6
       - ReagentId: Vitamin
-        Quantity: 5
-  # TORTURE END
+        Quantity: 9 # imp 5>9
   - type: Tag
     tags:
     - Meat
@@ -275,22 +239,6 @@
       - homerun
   - type: Sprite
     state: baseball
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7
-        - ReagentId: Fiber # imp
-          Quantity: 10
-        #- ReagentId: Protein
-        #  Quantity: 5
-        #- ReagentId: Vitamin
-        #  Quantity: 2
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
@@ -300,7 +248,6 @@
         Quantity: 30
       - ReagentId: Vitamin
         Quantity: 5
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -335,21 +282,15 @@
       - meaty
   - type: Sprite
     state: bearger
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-        # - ReagentId: Vitamin
-        #  Quantity: 5
-  # UPSTREAM SOLUTION:
-  # TORTURE END
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6.25
+      - ReagentId: Protein
+        Quantity: 20
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -375,34 +316,18 @@
       - oily
       - cheesy
       - tomato # imp
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 22 # imp
-        - ReagentId: Protein # imp
-          Quantity: 18
-        - ReagentId: Allicin # imp
-          Quantity: 2
-        - ReagentId: Vitamin # imp
-          Quantity: 5
-  # UPSTREAM SOLUTION:
+      - onion # imp
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 75
+        Quantity: 30.25 # imp 75>30.25
       - ReagentId: Protein
-        Quantity: 20
+        Quantity: 40 # imp 20>40
       - ReagentId: Vitamin
-        Quantity: 5
+        Quantity: 15 # imp 5>15
       - ReagentId: Allicin
         Quantity: 2
-  # TORTURE END
   - type: Sprite
     state: bigbite
   - type: Tag
@@ -429,24 +354,18 @@
       - meaty
   - type: Sprite
     state: brain
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: GreyMatter # imp
-          Quantity: 5
-        # - ReagentId: Vitamin
-        #  Quantity: 5
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
+  - type: Solution # imp
+    solutions:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.25
+      - ReagentId: Protein
+        Quantity: 15
+      - ReagentId: GreyMatter
+        Quantity: 10
 # Tastes like bun, brains.
 
 - type: entity
@@ -471,26 +390,20 @@
       - bun
       - meaty
       - cat
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 2
-        - ReagentId: MouseBites # imp - mq's request
-          Quantity: 5
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
+  - type: Solution # imp
+    solutions:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6.25
+      - ReagentId: Protein
+        Quantity: 20
+      - ReagentId: Vitamin
+        Quantity: 5
+      - ReagentId: MouseBites
+        Quantity: 5
 
 - type: entity
   parent: FoodBurgerBase
@@ -505,28 +418,15 @@
       - cheesy
   - type: Sprite
     state: cheese
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 11 # imp
-        - ReagentId: Vitamin
-          Quantity: 7
-        - ReagentId: Protein
-          Quantity: 9 # imp
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 45
+        Quantity: 16.25 # imp 45>16.25
       - ReagentId: Protein
-        Quantity: 10
-  # TORTURE END
+        Quantity: 20 # imp 10>20
+      - ReagentId: Vitamin # imp
+        Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -556,37 +456,19 @@
     flavors:
       - bun
       - chicken
-      - mayonnaise # imp - mayo
   - type: Sprite
     state: chicken
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6.66 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 1
-        #- ReagentId: Mayo
-        #  Quantity: 3
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 30
+        Quantity: 6.25 # imp 30>6.25
       - ReagentId: Protein
-        Quantity: 10
+        Quantity: 20 # imp 10>20
       - ReagentId: Vitamin
-        Quantity: 10
+        Quantity: 5 # imp 10>5
       - ReagentId: Mayo
         Quantity: 2
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -625,26 +507,16 @@
       - funny
   - type: Sprite
     state: clown
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Laughter # imp
-          Quantity: 3
-        # - ReagentId: Protein # imp
-        #  Quantity: 6
-        # - ReagentId: Vitamin
-        #  Quantity: 6
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
+  - type: Solution # imp
+    solutions:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7
+      - ReagentId: Laughter
+        Quantity: 3
 
 - type: entity
   parent: FoodBurgerBase
@@ -658,30 +530,15 @@
       - validhunting
   - type: Sprite
     state: ian
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Bicaridine #keeping it somewhat consistent with the meat itself
-          Quantity: 20 # imp
-        - ReagentId: Nutriment # imp
-          Quantity: 7
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 12
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 20
+        Quantity: 11.25 # imp 20>11.25
       - ReagentId: Bicaridine #keeping it somewhat consistent with the meat itself
         Quantity: 20
-      - ReagentId: Vitamin
-        Quantity: 10
-  # TORTURE END
+      #- ReagentId: Vitamin # imp
+      #  Quantity: 10
   - type: Tag
     tags:
     - Meat
@@ -704,21 +561,6 @@
       - crabby
   - type: Sprite
     state: crab
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Protein
-          Quantity: 2 # imp
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 4
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -761,38 +603,18 @@
       - flare
   - type: Sprite
     state: crazy
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 95 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 43 # imp
-        - ReagentId: Protein
-          Quantity: 18 # imp
-        - ReagentId: CapsaicinOil
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 8 # imp
-        - ReagentId: Sulfur # imp - What you get for eating something with a flare in it
-          Quantity: 5
-        - ReagentId: MindbreakerToxin # imp
-          Quantity: 2
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       maxVol: 180
       reagents:
-      - ReagentId: Nutriment # Adds up to 180, completely filled to the brim.
-        Quantity: 100
+      - ReagentId: Nutriment # Adds up to 180, completely filled to the brim. # imp no longer violates conservation of matter
+        Quantity: 65.75 # imp 100>65.75
       - ReagentId: Protein
-        Quantity: 20
+        Quantity: 40 # imp 20>40
       - ReagentId: CapsaicinOil
         Quantity: 10
       - ReagentId: Vitamin
-        Quantity: 10
+        Quantity: 18 # imp 10>18
       - ReagentId: MindbreakerToxin
         Quantity: 10
       # Taken from flare entity :)
@@ -808,7 +630,6 @@
         Quantity: 4
       - ReagentId: Sulfur
         Quantity: 4
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -840,24 +661,18 @@
       - duck
   - type: Sprite
     state: chicken
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 11 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 1
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
+  - type: Solution # imp
+    solutions:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 16.25
+      - ReagentId: Protein
+        Quantity: 20
+      - ReagentId: Vitamin
+        Quantity: 5
 # Tastes like bun, duck.
 
 - type: entity
@@ -879,28 +694,15 @@
     flavors:
       - bun
       - shocking
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Licoxide
-          Quantity: 10 # imp - it takes 10u plasma but licoxide is the more interesting reagent
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 10
+        Quantity: 1.25 # imp 10>1.25
       - ReagentId: Plasma
         Quantity: 20
       - ReagentId: Licoxide
         Quantity: 10
-  # TORTURE END
 # Tastes like bun, pure electricity.
 
 - type: entity
@@ -927,7 +729,7 @@
   - type: FlavorProfile
     flavors:
       - bun
-      #- fishy #imp
+      - fishy
   - type: Sprite
     state: fish
   - type: Tag
@@ -935,13 +737,15 @@
     - Meat
 # Tastes like bun, fish.
   # imp edit start
-  - type: SolutionContainerManager # imp
+  - type: Solution
     solutions:
-      food:
-        maxVol: 20
-        reagents:
+      reagents:
         - ReagentId: Nutriment
-          Quantity: 11
+          Quantity: 11.25
+        - ReagentId: Protein
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
         - ReagentId: CarpoToxin # WHY WASNT THIS POISONOUS!!!!!!!!!!!
           Quantity: 5
   # imp edit end
@@ -967,36 +771,19 @@
       - spicy
   - type: Sprite
     state: fivealarm
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 80 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 19 # imp
-        - ReagentId: Protein # imp
-          Quantity: 9
-        - ReagentId: CapsaicinOil
-          Quantity: 30 # imp
-        - ReagentId: Vitamin
-          Quantity: 12 # imp
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 45
+        Quantity: 15.25 # imp 45>15.25
       - ReagentId: Protein
-        Quantity: 10
+        Quantity: 20 # imp 10>20
       - ReagentId: CapsaicinOil
         Quantity: 30
-      - ReagentId: Blackpepper
-        Quantity: 3
+      #- ReagentId: Blackpepper
+      #  Quantity: 3
       - ReagentId: Vitamin
-        Quantity: 12
-  # TORTURE END
+        Quantity: 14 # imp 12>14
   - type: Tag
     tags:
     - Meat
@@ -1035,30 +822,15 @@
       - chalky # imp
   - type: Sprite
     state: ghost
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 12
-        # - ReagentId: Necrosol # imp
-        #  Quantity: 25
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 10
-      - ReagentId: Vitamin
-        Quantity: 10
+        Quantity: 1.25 # imp 10>1.25
+      #- ReagentId: Vitamin # imp
+      #  Quantity: 10
       - ReagentId: Fresium
         Quantity: 15
-  # TORTURE END
   - type: Tag
     tags:
       - ClothMade
@@ -1079,21 +851,6 @@
       - people
   - type: Sprite
     state: human
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-        # - ReagentId: Vitamin # imp
-        #  Quantity: 5
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -1131,34 +888,17 @@
       - egg
   - type: Sprite
     state: mcguffin
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 11 # imp
-        - ReagentId: EggCooked # imp
-          Quantity: 12
-        #- ReagentId: Protein # imp
-        #  Quantity: 7
-        #- ReagentId: Vitamin
-        #  Quantity: 1
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 25
+        Quantity: 11.25 # imp 25>11.25
       - ReagentId: EggCooked
         Quantity: 6
-      - ReagentId: Protein
-        Quantity: 5
-      - ReagentId: Vitamin
-        Quantity: 5
-  # TORTURE END
+      #- ReagentId: Protein # imp
+      #  Quantity: 5
+      #- ReagentId: Vitamin
+      #  Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -1176,41 +916,21 @@
     flavors:
       - bun
       - bacon
-      - sweet # imp - bbq sauce
   - type: Sprite
     state: mcrib
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9 # imp
-        - ReagentId: Protein
-          Quantity: 18 # imp
-        - ReagentId: Vitamin
-          Quantity: 1 # imp
-        #- ReagentId: BbqSauce # imp
-        #  Quantity: 1
-        - ReagentId: Allicin # imp
-          Quantity: 1
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 70
+        Quantity: 16.25 # 70>16.25
       - ReagentId: Protein
-        Quantity: 30
+        Quantity: 40 # imp 30>40
       - ReagentId: BbqSauce
         Quantity: 10
       - ReagentId: Allicin
         Quantity: 5
       - ReagentId: Vitamin
-        Quantity: 5
-  # TORTURE END
+        Quantity: 15 # imp 5>15
   - type: Tag
     tags:
     - Meat
@@ -1245,32 +965,15 @@
   - type: Sprite
     state: mime
     sprite: _Impstation/Objects/Consumable/Food/mimeburger.rsi #imp
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        #- ReagentId: Protein # imp
-        #  Quantity: 9
-        #- ReagentId: Vitamin
-        #  Quantity: 4
-        - ReagentId: Nothing
-          Quantity: 5 # imp
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 10
+        Quantity: 1.25 # imp 10>1.25
       - ReagentId: Vitamin
         Quantity: 5
       - ReagentId: Nothing
         Quantity: 30
-  # TORTURE END
   - type: Item
     inhandVisuals:
       left:
@@ -1293,21 +996,6 @@
       - meaty
   - type: Sprite
     state: plain
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 3
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -1330,32 +1018,17 @@
       - meaty
   - type: Sprite
     state: rat
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 2
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 15
+        Quantity: 2.25 # imp 15>2.25
       - ReagentId: Protein
-        Quantity: 5
+        Quantity: 4 # imp 5>4
       - ReagentId: Vitamin
-        Quantity: 5
-      - ReagentId: Fat
-        Quantity: 1
-  # TORTURE END
+        Quantity: 1 # imp 5>1
+      #- ReagentId: Fat # imp
+      #  Quantity: 1
   - type: Tag
     tags:
     - Meat
@@ -1383,25 +1056,13 @@
       - metallic
   - type: Sprite
     state: ro
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: SulfuricAcid
-          Quantity: 5
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 15
-      - ReagentId: Vitamin
-        Quantity: 5
+        Quantity: 1.25 # imp 15>1.25
+      #- ReagentId: Vitamin
+      #  Quantity: 5
       - ReagentId: SulfuricAcid
         Quantity: 5
       - ReagentId: Oil
@@ -1412,7 +1073,6 @@
         Quantity: 9
       - ReagentId: Carbon
         Quantity: 1
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -1461,34 +1121,19 @@
       - soy
   - type: Sprite
     state: soylent
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 23 # imp
-        #- ReagentId: Protein # imp
-        #  Quantity: 6
-        #- ReagentId: Vitamin
-        # Quantity: 4
-  - type: Tag # imp
-    tags:
-    - Vegetable
-    - Bread
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 37
+        Quantity: 27.25 # imp 37>27.25
       - ReagentId: Protein
-        Quantity: 8
-      - ReagentId: Vitamin
-        Quantity: 5
-  # TORTURE END
+        Quantity: 24 # imp 8>24
+      #- ReagentId: Vitamin
+      #  Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Bread
 # Tastes like bun, redditors.
 
 - type: entity
@@ -1513,28 +1158,20 @@
       - magical
   - type: Sprite
     state: spell
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
+  # imp edit start
+  - type: Solution
     solutions:
-      food:
-        maxVol: 20
-        reagents:
+      reagents:
         - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Milk # imp - idk someone said this is in a wizard hat
+          Quantity: 7
+        - ReagentId: Milk # idk someone said this is in a wizard hat
           Quantity: 5
-        - ReagentId: Carpetium # imp
+        - ReagentId: Carpetium
           Quantity: 5
-        #- ReagentId: Protein # imp
-        #  Quantity: 5
-        #- ReagentId: Vitamin
-        #  Quantity: 10
-  - type: Tag # imp
+  - type: Tag
     tags:
     - UnguFood
-  # UPSTREAM SOLUTION:
-  # TORTURE END
+  # imp edit end
 # Tastes like bun, silver.
 
 - type: entity
@@ -1558,40 +1195,21 @@
       - oily
       - cheesy
       - tomato # imp
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 70 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 31 # imp
-        - ReagentId: Protein # imp
-          Quantity: 9
-        - ReagentId: Vitamin
-          Quantity: 3 # imp
-        - ReagentId: TableSalt
-          Quantity: 5
-        - ReagentId: EggCooked # imp
-          Quantity: 12
-        # - ReagentId: Blackpepper # imp
-        #  Quantity: 5
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 79
+        Quantity: 35.25 # imp 79>35.25
       - ReagentId: Protein
-        Quantity: 20
+        Quantity: 40 # imp 20>40
       - ReagentId: Vitamin
-        Quantity: 11
+        Quantity: 16 # imp 11>16
       - ReagentId: TableSalt
         Quantity: 5
-      - ReagentId: Blackpepper
-        Quantity: 5
-  # TORTURE END
+      #- ReagentId: Blackpepper # imp
+      #  Quantity: 5
+      - ReagentId: EggCooked # imp
+        Quantity: 12
   - type: Sprite
     state: superbite
   - type: Tag
@@ -1611,28 +1229,15 @@
       - tofu
   - type: Sprite
     state: tofu
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9 # imp
-        - ReagentId: Protein
-          Quantity: 3
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 16
+        Quantity: 3.65 # imp 16>3.65
       - ReagentId: Protein
-        Quantity: 9
-      - ReagentId: Vitamin
-        Quantity: 5
-  # TORTURE END
+        Quantity: 3.6 # imp 9>3.6
+      #- ReagentId: Vitamin # imp
+      #  Quantity: 5
   - type: Item
     inhandVisuals:
       left:
@@ -1666,20 +1271,6 @@
       - acid
   - type: Sprite
     state: x
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 5
-  # UPSTREAM SOLUTION:
   - type: Tag
     tags:
     - Meat
@@ -1723,24 +1314,13 @@
       - light
   - type: Sprite
     state: mothroach
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7 # imp
-        - ReagentId: Slime # imp - yeah mothroaches butcher into slime for some reason
-          Quantity: 20
-        #- ReagentId: Protein # imp
-        #  Quantity: 4
-        #- ReagentId: Vitamin
-        #  Quantity: 7
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Meat
-
+  - type: Solution # imp
+    solutions:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.25
+      - ReagentId: Slime # yeah mothroaches butcher into slime for some reason
+        Quantity: 20
