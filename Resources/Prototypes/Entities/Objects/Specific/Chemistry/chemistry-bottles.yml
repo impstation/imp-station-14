@@ -55,7 +55,7 @@
         type: TransferAmountBoundUserInterface
   - type: Item
     size: Small #imp
-    sprite: _Impstation/Objects/Specific/Chemistry/beaker.rsi # imp
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi # imp
     shape: #imp
     - 0,0,0,0
   - type: Spillable
@@ -139,14 +139,14 @@
   id: ChemistryEmptyBottle04
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/bottle.rsi # imp
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi # imp
     layers:
-    - state: bottle-4
-    - state: bottle-4-1
+    - state: bottle-2 # imp
+    - state: bottle-2-1 # imp
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: SolutionContainerVisuals
-    fillBaseName: bottle-4-
+    fillBaseName: bottle-2- # imp
 
 - type: entity
   parent: BaseChemistryEmptyBottle
@@ -909,6 +909,21 @@
         - ReagentId: Ultravasculine
           Quantity: 30
 
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleCharcoal
+  suffix: charcoal
+  components:
+  - type: Label
+    currentLabel: reagent-name-charcoal
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Charcoal
+          Quantity: 30
+
 # Other bottles
 
 - type: entity
@@ -1059,6 +1074,21 @@
         maxVol: 30
         reagents:
         - ReagentId: Toxin
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: ChemistryBottleLaughter
+  suffix: laughter
+  components:
+  - type: Label
+    currentLabel: reagent-name-laughter
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Laughter
           Quantity: 30
 
 # Base reagent bottles
@@ -1394,13 +1424,14 @@
     children:
     - id: ChemistryBottleBicaridine
     - id: ChemistryBottleKelotane
-    - id: ChemistryBottleDermaline
+    - id: ChemistryBottleDermaline #imp
     - id: ChemistryBottleDylovene
     - id: ChemistryBottleInaprovaline
     - id: ChemistryBottleDexalin
-    - id: ChemistryBottleDexalinPlus
+    - id: ChemistryBottleDexalinPlus #imp
     - id: ChemistryBottleSaline
     - id: ChemistryBottleTricordrazine
+    - id: ChemistryBottleHyronalin
 
 - type: entityTable
   id: SpecialtyMedicineReagentBottleTable
@@ -1414,6 +1445,8 @@
     - id: ChemistryBottleTricordrazine
     - id: ChemistryBottleTranexamicAcid
     - id: ChemistryBottleOculine
+    - id: ChemistryBottleCharcoal
+    - id: ChemistryBottleLaughter
 
 - type: entityTable
   id: AllMedicineReagentBottlesTable
@@ -1469,3 +1502,5 @@
     - id: ChemistryBottleTranexamicAcid
     - id: ChemistryBottleTricordrazine
     - id: ChemistryBottleUltravasculine
+    - id: ChemistryBottleCharcoal
+    - id: ChemistryBottleLaughter

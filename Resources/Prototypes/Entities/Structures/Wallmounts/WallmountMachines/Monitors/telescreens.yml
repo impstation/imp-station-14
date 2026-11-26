@@ -58,6 +58,7 @@
     interfaces:
         enum.SurveillanceCameraMonitorUiKey.Key:
           type: SurveillanceCameraMonitorBoundUserInterface
+  - type: StationAiWhitelist # imp
 
 - type: entity
   parent: BaseWallmountMetallic

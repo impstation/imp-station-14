@@ -399,11 +399,13 @@
     - id: NukeDiskFake
     - id: DiceBag
     - id: SpectralLocator
+    - id: Magic9Ball
     - id: BarberScissors
     - id: SprayFlowerPin
     - id: ClothingShoesSkates
     - id: CrazyGlue
     - id: CrazyLube
+    - id: WeaponBubbleWand # imp # its more misc than weapon
     - !type:NestedSelector
       tableId: AllBoardGamesTable
     - !type:GroupSelector # Where there's Chips there's Dips

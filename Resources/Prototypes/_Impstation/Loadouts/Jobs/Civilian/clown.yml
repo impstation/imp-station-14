@@ -48,3 +48,16 @@
   id: NeckRuffle
   equipment:
     neck: ClothingNeckRuffle
+
+#Trinkets
+- type: loadout
+  id: BubbleWandClown
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 4h
+  storage:
+    back:
+    - WeaponBubbleWand

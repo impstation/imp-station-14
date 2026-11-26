@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Numerics;
 using Content.Client.CombatMode;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
@@ -22,6 +20,9 @@ using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
+using Content.Client.UserInterface.Systems.Emotes;//imp edit
+using System.Linq;//imp edit
+using System.Numerics;//imp edit
 
 namespace Content.Client.ContextMenu.UI
 {
@@ -124,6 +125,14 @@ namespace Content.Client.ContextMenu.UI
                 args.Handle();
                 return;
             }
+
+            //imp edit - do targeted emote?
+            if (args.Function == ContentKeyFunctions.OpenEmotesMenu)
+            {
+                UIManager.GetUIController<EmotesUIController>().OpenEmotesMenu(false, entity.Value);
+                args.Handle();
+                return;
+            }//end imp edit
 
             // do some other server-side interaction?
             if (args.Function == EngineKeyFunctions.Use ||
