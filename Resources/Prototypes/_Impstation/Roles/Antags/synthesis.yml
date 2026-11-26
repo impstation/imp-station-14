@@ -1,0 +1,21 @@
+- type: antagSpecifier
+  id: SynthesisSpecialist
+  parent: RestrictedAntag
+  spawnerPrototype: SpawnPointGhostSynthesis
+  pickPlayer: false
+  startingGear: SyndicateSynthesisGear
+  roleLoadout:
+  - RoleSurvivalStandard
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFakeHumanFirst
+    - NamesFakeHumanLast
+    nameFormat: name-format-standard
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  mindRoles:
+  - MindRoleSynthesis

@@ -40,3 +40,25 @@
     - BaseUplinkRadio5TC
     - NukeCodePaperStation
     - DeathAcidifierImplanter
+
+- type: antagSpecifier
+  id: SyndicateInstigator
+  parent: RestrictedAntag
+  spawnerPrototype: SpawnPointSyndicateInstigator
+  pickPlayer: false
+  startingGear: SyndicateInstigatorGear
+  components:
+  - type: NukeOperative
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefixJunior
+    - NamesSyndicatePrefix
+    - NamesSyndicateJunior
+    nameFormat: name-format-nukie-junior
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  mindRoles:
+  - MindRoleSyndicateInstigator
+  roleLoadout: 
+  - RoleSurvivalNukie

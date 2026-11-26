@@ -1,0 +1,31 @@
+- type: antagSpecifier
+  id: ListeningPost
+  parent: RestrictedAntag
+  spawnerPrototype: SpawnPointGhostSyndicateListener
+  startingGear: SyndicateListenerGear
+  pickPlayer: false
+  roleLoadout:
+    - RoleSurvivalStandard
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDeathCommando
+  - type: AutoImplant
+    implants:
+    - DeathAcidifierImplant
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: Accentless # Imp edit start
+    removes:
+    - type: LizardAccent
+    - type: MothAccent
+    - type: ReplacementAccent
+      accent: scottish # Impstation - Upmerge 2026 Chunk IV
+    - type: SnalienAccent
+    - type: GrayAccent
+    - type: DwarfAccent
+    - type: NoContractionsAccent
+    - type: AllulaloAccent # imp edit end
+  mindRoles:
+  - MindRolePostOperator

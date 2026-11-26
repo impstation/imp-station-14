@@ -1,0 +1,15 @@
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Changeling
+  multiAntagSetting: NotExclusive
+  blacklist: 
+    components:
+    - AntagImmune
+  mindRoles:
+  - MindRoleChangeling
+  briefing:
+    text: goob-changeling-midround-role-greeting
+    color: Yellow
+    sound: "/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"
+  prefRoles: 
+  - Changeling

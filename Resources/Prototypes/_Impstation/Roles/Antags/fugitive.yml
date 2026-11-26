@@ -1,0 +1,20 @@
+- type: antagSpecifier
+  id: Fugitive
+  parent: RestrictedAntag
+  spawnerPrototype: SpawnPointGhostFugitive
+  startingGear: FugitiveGear
+  pickPlayer: false
+  roleLoadout: 
+  - RoleSurvivalStandard
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFakeHumanFirst
+    - NamesFakeHumanLast
+    nameFormat: name-format-standard
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: EmitSoundOnSpawn # fell out of the ceiling
+    sound: /Audio/Effects/clang.ogg
+  mindRoles:
+  - MindRoleFugitive

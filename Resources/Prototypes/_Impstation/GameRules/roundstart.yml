@@ -21,7 +21,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseGameRule
+  parent: [ BaseGameRule, BaseRoundstartAntagRule ]
   id: BaseSpyVsSpyRule
   components:
   - type: TraitorRule
@@ -33,6 +33,9 @@
     - !type:LinearAntagCount
       proto: Spy
       playerRatio: 1
+      range:
+        max: 99
+        min: 99
     lateJoinAdditional: true
     latejoinChance: 1
   - type: AntagObjectives
@@ -74,21 +77,6 @@
     delay:
       min: 240
       max: 420
-
-- type: entity
-  id: TraitorInfiltrator
-  parent: BaseTraitorRule
-  components:
-  - type: TraitorRule
-    startingBalance: 4 # 2 are used for the uplink implant, leaving them with a budget of 2.
-    giveUplink: true
-    giveCodewords: false
-    giveBriefing: false
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Traitor ]
-      mindRoles:
-      - MindRoleInfiltrator
 
 - type: entity
   id: SleeperlessStationEventScheduler
