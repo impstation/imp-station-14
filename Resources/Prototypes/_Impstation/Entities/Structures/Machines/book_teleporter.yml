@@ -27,8 +27,9 @@
       shader: unshaded
       visible: false
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: StructuralMetallicStrong
   - type: ApcPowerReceiver
     powerLoad: 1000

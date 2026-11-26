@@ -63,8 +63,9 @@
     damage:
       types:
         Blunt: 1
-  - type: Damageable
+  - type: Injurable # imp edit, Damageable -> Injureable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:

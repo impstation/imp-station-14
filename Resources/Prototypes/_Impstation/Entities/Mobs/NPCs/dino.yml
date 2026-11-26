@@ -60,8 +60,9 @@
     allowedStates:
     - Alive
     - Dead
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: Dinosaur
   - type: Flammable
     fireSpread: true

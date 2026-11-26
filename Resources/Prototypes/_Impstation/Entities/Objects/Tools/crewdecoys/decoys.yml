@@ -34,8 +34,9 @@
     - NamesFirst
     - NamesLast
     nameFormat: name-format-nukie-generic
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: ToggleableVisuals
     spriteLayer: light
   - type: ItemTogglePointLight

@@ -62,8 +62,9 @@
   - type: Icon
     sprite: _Impstation/CosmicCult/Tileset/cosmicwindow.rsi
     state: full
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Glass
   - type: Destructible
     thresholds:

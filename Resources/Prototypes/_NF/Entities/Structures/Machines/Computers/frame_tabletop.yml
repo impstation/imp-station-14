@@ -40,8 +40,9 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi
     offset: 0.0, 0.09375 #imp edit, 3 pixels up (rotating with the direction the entity is facing)
-  - type: Damageable
+  - type: Injurable # imp edit, Damageable -> Injureable
     damageContainer: Inorganic
+  - type: Damageable
     damageModifierSet: Electronic
   - type: Destructible
     thresholds:

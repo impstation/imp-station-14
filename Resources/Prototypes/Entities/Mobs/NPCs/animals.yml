@@ -2103,8 +2103,9 @@
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.1
-  - type: Damageable
+  - type: Injurable # imp edit, Damageable -> Injureable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: Mouse
   - type: PleebnarGibbable
   - type: VentCrawler

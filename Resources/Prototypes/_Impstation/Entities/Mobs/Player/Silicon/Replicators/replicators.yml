@@ -131,8 +131,9 @@
     baseSprintSpeed: 4
   - type: Stamina
     baseCritThreshold: 120
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Replicator1
   - type: PassiveDamage # passive healing
     allowedStates:
@@ -307,8 +308,9 @@
         Base: alive_level2
       Dead:
         Base: dead_level2
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Replicator2
   - type: Loadout
     prototypes:
@@ -368,8 +370,9 @@
         Base: alive_level2alt
       Dead:
         Base: dead_level2
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Replicator2
   - type: Loadout
     prototypes:
@@ -431,8 +434,9 @@
       - StartingGearReplicatorT3Weapon
   - type: NoSlip
   - type: Magboots
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Replicator3
   - type: PassiveDamage # passive healing
     allowedStates:

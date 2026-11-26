@@ -16,8 +16,9 @@
     soundHit:
       collection: MetalThud
   - type: Clickable
-  - type: Damageable
+  - type: Injurable # imp edit, Damageable -> Injureable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:

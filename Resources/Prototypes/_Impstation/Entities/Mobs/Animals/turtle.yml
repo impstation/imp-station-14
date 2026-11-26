@@ -46,8 +46,9 @@
       reagents:
       - ReagentId: Blood
         Quantity: 50
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: Scale
   - type: Reflect
     reflectProb: 0.1

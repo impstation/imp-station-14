@@ -79,8 +79,9 @@
       shader: unshaded
   - type: InteractionOutline
   - type: Clickable
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: ReplicatorNest
   - type: Destructible
     thresholds:

@@ -141,8 +141,9 @@
       path: /Audio/_Impstation/Magic/magicdoorno.ogg
   - type: Airtight
     noAirWhenFullyAirBlocked: false
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:

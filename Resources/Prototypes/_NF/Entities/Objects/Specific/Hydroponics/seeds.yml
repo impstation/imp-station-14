@@ -52,8 +52,9 @@
       seedId: bees
     - type: Sprite
       sprite: _NF/Objects/Specific/Hydroponics/bees.rsi
-    - type: Damageable
+    - type: Injurable # imp edit, Damageable -> Injureable
       damageContainer: Inorganic
+    - type: Damageable
       damageModifierSet: Glass
     # "it's a jar of bees, it should break into bees"
     - type: Destructible

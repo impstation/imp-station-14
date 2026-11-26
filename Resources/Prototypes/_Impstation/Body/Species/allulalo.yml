@@ -174,8 +174,9 @@
       Male: UnisexAllulalo
       Female: UnisexAllulalo
       Unsexed: UnisexAllulalo
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: Allulalo #stops them from being oppressive hopefully
   - type: Bloodstream
     bloodReferenceSolution:

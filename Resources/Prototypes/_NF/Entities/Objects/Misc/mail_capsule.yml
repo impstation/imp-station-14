@@ -76,8 +76,9 @@
           - Paper
     sprite: _NF/Objects/Misc/mail_capsule.rsi
   - type: Dumpable
-  - type: Damageable
+  - type: Injurable # imp edit, Damageable -> Injureable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:

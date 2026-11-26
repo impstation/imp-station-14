@@ -79,8 +79,9 @@
     containers:
     - board
     - key_slots
-  - type: Damageable
+  - type: Injurable # imp edit, Damageable -> Injureable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:

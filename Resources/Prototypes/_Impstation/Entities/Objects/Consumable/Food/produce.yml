@@ -158,8 +158,9 @@
         Blunt: 5
     soundHit:
       path: /Audio/_Impstation/Items/Coconut/bonk.ogg
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:

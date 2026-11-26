@@ -37,8 +37,9 @@
         - MobLayer
   - type: AshOnMeleeHit
     popup: ash-on-melee-smspider
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:

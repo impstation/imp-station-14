@@ -44,8 +44,9 @@
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
-    - type: Damageable
+    - type: Injurable
       damageContainer: Box
+    - type: Damageable
     - type: Appearance
     - type: EntityStorageVisuals
       stateBaseClosed: littletykescar
