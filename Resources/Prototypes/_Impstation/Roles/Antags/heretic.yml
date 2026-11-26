@@ -1,0 +1,10 @@
+- type: antagSpecifier
+  id: Heretic
+  parent: RestrictedAntag
+  prefRoles: [ Heretic ]
+  mindRoles: 
+  - MindRoleHeretic
+  blacklist:
+    components:
+      - AntagImmune
+  startingGear: HereticGear

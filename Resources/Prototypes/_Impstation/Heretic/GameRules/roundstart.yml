@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseGameRule
+  parent: [ BaseGameRule, BaseRoundstartAntagRule ]
   id: HereticLowpop
   components:
   - type: HereticRule
@@ -12,22 +12,18 @@
     objectives:
     - HereticKnowledgeObjective
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn # Imp edit
     agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 3
-      playerRatio: 15 # this will usually mean only one heretic is around
-      lateJoinAdditional: true
-      blacklist:
-        components:
-          - AntagImmune
-      mindRoles:
-      - MindRoleHeretic
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Heretic
+      range:
+        min: 1
+        max: 3
+        playerRatio: 15
 
 - type: entity
-  parent: BaseGameRule
+  parent: [ BaseGameRule, BaseRoundstartAntagRule ]
   id: HereticSingular # spawns One heretic
   components:
   - type: HereticRule
@@ -35,16 +31,9 @@
     objectives:
     - HereticKnowledgeObjective
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn # Imp edit
     agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 1
-      playerRatio: 1 # we just want One
-      lateJoinAdditional: true
-      blacklist:
-        components:
-          - AntagImmune
-      mindRoles:
-      - MindRoleHeretic
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
+    lateJoinAdditional: true
+    antags: 
+    - !type:FixedAntagCount
+      count: 1 # we want just One
+      proto: Heretic 

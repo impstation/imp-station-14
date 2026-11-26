@@ -27,27 +27,10 @@
     - RecruiterKeepPenObjective
   - type: AntagSelection
     agentName: recruiter-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostRecruiter
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SyndicateRecruiterGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleRecruiter
+    antags: # imp edit, antag selection refactor
+    - !type:FixedAntagCount
+      proto: SyndicateRecruiter
+      count: 1
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -72,24 +55,7 @@
     - SynthesisPrescribeObjective
   - type: AntagSelection
     agentName: synthesis-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSynthesis
-      min: 2
-      max: 2
-      pickPlayer: false
-      startingGear: SyndicateSynthesisGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleSynthesis
+    antags: # imp edit, antag selection refactor
+    - !type:FixedAntagCount
+      proto: SynthesisSpecialist
+      count: 2
