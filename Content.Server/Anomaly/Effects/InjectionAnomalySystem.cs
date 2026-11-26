@@ -4,6 +4,7 @@ using Content.Shared.Anomaly.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using System.Linq;
 using Robust.Server.GameObjects;
+using Content.Server._Impstation.Anomaly.Components; // Imp
 
 namespace Content.Server.Anomaly.Effects;
 /// <summary>
@@ -55,6 +56,11 @@ public sealed class InjectionAnomalySystem : EntitySystem
         {
             if (!_solutionContainer.TryGetInjectableSolution(ent, out var injectable, out _))
                 continue;
+
+            // Imp Edit Start
+            if (TryComp<AnomalyReagentInjectionImmuneComponent>(ent, out _))
+                continue;
+            // Imp Edit End
 
             if (_injectableQuery.TryGetComponent(ent, out var injEnt))
             {
