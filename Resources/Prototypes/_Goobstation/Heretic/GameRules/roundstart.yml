@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseGameRule, BaseRoundstartAntagRule ]
+  parent: [ BaseGameRule, BaseRoundstartAntagRule ] # imp edit, antag selection refactor
   id: Heretic
   components:
   - type: HereticRule

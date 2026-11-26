@@ -8,7 +8,7 @@
 #       prob: 0.5
 
 - type: entity
-  parent: [ BaseGameRule, BaseRoundstartAntagRule ]
+  parent: [ BaseGameRule, BaseRoundstartAntagRule ] # imp edit, antag selection refactor
   id: Conspirators
   components:
   - type: GameRule
@@ -19,7 +19,7 @@
     objectives:
     - ConspiratorEvacObjective
   - type: AntagSelection
-    antags: 
+    antags: # imp edit, antag selection refactor
     - !type:LinearAntagCount
       proto: Conspirators
       playerRatio: 8 # imp edit, was 7
