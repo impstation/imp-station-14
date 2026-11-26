@@ -25,9 +25,11 @@
         density: 0.1
         mask:
         - TableMask # Should collide with tables (MidImpassible, Impassible)
-        - InteractImpassable
-        layer:
-        - InteractImpassable
+        # Imp edit start
+        # - InteractImpassable
+        # layer:
+        # - InteractImpassable
+        # Imp edit end
   - type: Item
     size: Small
     sprite: _NF/Objects/Fun/spaceblade.rsi
