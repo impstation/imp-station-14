@@ -30,6 +30,7 @@
     sprite: _Impstation/Objects/Fun/Instruments/shamisen.rsi
   - type: Wieldable
   - type: Damageable # Smash it! Does 10 damage a hit, but breaks after 2 hits.
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
