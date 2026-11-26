@@ -563,18 +563,6 @@
     tags:
     - Carrot
     - Vegetable
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: JuiceCarrot
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 4
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -584,7 +572,6 @@
         Quantity: 7
       - ReagentId: Oculine
         Quantity: 3
-# TORTURE END
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/carrot.rsi
   - type: Item

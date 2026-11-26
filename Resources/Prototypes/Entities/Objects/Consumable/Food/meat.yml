@@ -861,22 +861,11 @@
     - Meat
   - type: Sprite
     state: xeno
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: SulfuricAcid
-          Quantity: 20
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: SulfuricAcid
         Quantity: 30
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatXenoCutlet
@@ -2127,19 +2116,6 @@
   - type: Sprite
     state: cutlet
     color: white
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: ChickenCutlet
     node: start

@@ -273,11 +273,9 @@
     tags:
     - Fruit # Seed of a fruit, you can yell at me
     - Pistachios # Added tag due to CrateFoodGetMore interaction with BountyFruit.
-  - type: SolutionContainerManager # imp
+  - type: Solution # imp
     solutions:
-      food:
-        maxVol: 10
-        reagents:
+      reagents:
         - ReagentId: Nutriment
           Quantity: 1
         - ReagentId: TableSalt
