@@ -45,8 +45,9 @@ uplink-bulldog-desc = Lean and mean: Contains the popular Hydra Shotgun.
 uplink-estoc-name = Estoc DMR
 uplink-estoc-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat.
 
-uplink-grenade-launcher-name = China-Lake
-uplink-grenade-launcher-desc = An old China-Lake grenade launcher bundled with 5 rounds of anti-personnel ammo.
+# imp remove hyphen
+uplink-grenade-launcher-name = China Lake
+uplink-grenade-launcher-desc = An old China Lake grenade launcher bundled with 5 rounds of anti-personnel ammo.
 
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
@@ -63,7 +64,6 @@ uplink-mini-bomb-desc = A low-yield, high-impact precision sabotage explosive wi
 
 uplink-singularity-grenade-name = Singularity Grenade
 uplink-singularity-grenade-desc = Grenade that simulates the power of a singularity, generates powerful gravity well. Explosion comparable to a Mini Bomb.
-
 
 uplink-whitehole-grenade-name = Whitehole Grenade
 uplink-whitehole-grenade-desc = Grenade that repulses everything around for about 10 seconds. Very useful in small rooms and for chasing someone.
@@ -105,15 +105,15 @@ uplink-shrapnel-grenade-desc = Launches a spray of sharp fragments dealing great
 uplink-pistol-magazine-name = Pistol Magazine (.35 auto)
 uplink-pistol-magazine-desc = Pistol magazine with 15 cartridges. Compatible with the Viper.
 
-#imp desc tweak
+# imp desc tweak
 uplink-pistol-magazine-c20r-name = SMG magazine (.35 auto)
 uplink-pistol-magazine-c20r-desc = SMG magazine with 30 cartridges. Compatible with C-20R Gorgon.
 
 uplink-magazine-bulldog-pellet-name = Drum magazine (.50 pellet)
-uplink-magazine-bulldog-pellet-desc = Shotgun magazine with 8 shells filled with buckshot. Compatible with the Bulldog.
+uplink-magazine-bulldog-pellet-desc = Shotgun magazine with 8 shells filled with buckshot. Compatible with the Hydra.
 
 uplink-magazine-bulldog-slug-name = Drum magazine (.50 slug)
-uplink-magazine-bulldog-slug-desc = Shotgun magazine with 8 shells filled with slugs. Compatible with the Bulldog.
+uplink-magazine-bulldog-slug-desc = Shotgun magazine with 8 shells filled with slugs. Compatible with the Hydra.
 
 uplink-estoc-ammo-name = Rifle magazine (.20 rifle)
 uplink-estoc-ammo-desc = A rifle magazine with 25 cartridges. Compatible with the Estoc DMR.
@@ -124,11 +124,11 @@ uplink-pistol-magazine-caseless-desc = Pistol magazine with 10 cartridges. Compa
 uplink-speedloader-magnum-name = Speedloader (.45 magnum AP)
 uplink-speedloader-magnu-desc = Revolver speedloader with 6 armor-piercing cartridges, capable of ignoring armor entirely. Compatible with the Python.
 
-#imp ammo correction
+# imp ammo correction
 uplink-mosin-ammo-name = Ammunition box (.30 rifle)
 uplink-mosin-ammo-desc = A box of 60 cartridges for the surplus rifle.
 
-#imp desc tweak
+# imp desc tweak
 uplink-sniper-ammo-name = Ammunition box (.60 antimateriel)
 uplink-sniper-ammo-desc = A box of 10 cartridges for the Lindwyrm sniper rifle and Anaconda Revolver.
 
@@ -147,7 +147,7 @@ uplink-holster-desc = A deep shoulder holster capable of holding many types of b
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
 
-#imp name and desc tweak
+# imp name and desc tweak
 uplink-emag-name = Cryptographic Sequencer
 uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of station devices. Recharges automatically. The iconic emag.
 
@@ -261,34 +261,34 @@ uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, includes two
 uplink-knives-kit-name = Throwing Knives Kit
 uplink-knives-kit-desc = A set of 8 syndicate branded throwing knives, perfect for embedding into the body of your victims. Capable of ignoring armor entirely when thrown.
 
-#Imp Rename
+# Imp Rename
 uplink-meds-bundle-name = Syndicate Medical Bundle
 uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains an elite compact defibrillator that can be used as a weapon.
 
-#imp name tweaks
+# imp name tweaks
 uplink-ammo-bundle-name = Ammo Bundle
 uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 5 drums for the Hydra, 3 magazines for the Basilisk-11, and 2 ammo boxes for the L6 Nidhogg SAW.
 
-#imp name tweaks
+# imp name tweaks
 uplink-sniper-bundle-name = Sniper Bundle
 uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Lindwyrm, 10 spare bullets, and a convenient disguise.
 
-#imp name tweak
+# imp name tweak
 uplink-c20r-bundle-name = C-20R Gorgon Bundle
 uplink-c20r-bundle-desc = Old faithful: The classic C-20R Gorgon submachine gun, bundled with 3 magazines.
 
-#imp name tweak
+# imp name tweak
 uplink-bulldog-bundle-name = Hydra Bundle
 uplink-bulldog-bundle-desc = Lean and mean: Contains the popular Hydra Shotgun and 4 .50 buckshot drums.
 
 uplink-estoc-bundle-name = Estoc DMR bundle
 uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
 
-#imp hyphen remove
+# imp hyphen remove
 uplink-grenade-launcher-bundle-name = China Lake Bundle
 uplink-grenade-launcher-bundle-desc = An old China Lake grenade launcher bundled with 11 grenades of varying destructive capability.
 
-#imp name tweak
+# imp name tweak
 uplink-l6-saw-bundle-name = L6 Nidhogg Saw Bundle
 uplink-l6-saw-bundle-desc = More dakka: The iconic L6 Nidhogg light machine gun, bundled with 2 box magazines.
 
@@ -361,6 +361,8 @@ uplink-saw-advanced-name = Advanced Circular Saw
 uplink-saw-advanced-desc = A bleeding-edge surgical implement designed to cut through flesh and bone alike.
 
 # Armor
+
+# imp desc tweak
 uplink-chameleon-name = Chameleon Kit
 uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anyone on the station, and more! Comes with a free Agent ID card!
 
