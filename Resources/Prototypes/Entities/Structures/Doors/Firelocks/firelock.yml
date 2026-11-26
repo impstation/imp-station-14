@@ -117,6 +117,8 @@
       interfaces:
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
+        enum.AiUi.Key: # imp
+          type: StationAiBoundUserInterface
     - type: Physics
       canCollide: false
     - type: Airtight
@@ -148,6 +150,10 @@
       - Fires
       - Spacing
     - type: SyncSprite
+    - type: Wires # imp
+      boardName: wires-board-name-firelock
+      layoutId: Airlock
+    - type: DoorBolt # imp
 
 - type: entity
   id: Firelock
