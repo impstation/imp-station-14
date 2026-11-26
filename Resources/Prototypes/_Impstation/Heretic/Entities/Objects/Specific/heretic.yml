@@ -277,8 +277,9 @@
       damage:
         types:
           Blunt: 10000
-    - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic
+    - type: Damageable
       damageModifierSet: Glass
     - type: Destructible
       thresholds:
@@ -367,8 +368,9 @@
     - state: flow
   - type: Clickable
   - type: ProjectileRedirector
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Electronic
   - type: Destructible
     thresholds:

@@ -85,8 +85,9 @@
         0: Alive
         150: Critical
         200: Dead
-    - type: Damageable
+    - type: Injurable
       damageContainer: Biological
+    - type: Damageable
       damageModifierSet: Slime
     - type: Insulated
     - type: MeleeWeapon

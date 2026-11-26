@@ -164,8 +164,9 @@
       0: Alive
       500: Critical
       1000: Dead
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
   - type: StatusEffects
     allowed:
     - SlowedDown

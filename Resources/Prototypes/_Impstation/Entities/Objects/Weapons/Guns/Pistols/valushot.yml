@@ -42,8 +42,9 @@
       path: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
     soundRack:
       path: /Audio/Weapons/Guns/Cock/hpistol_cock.ogg
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: DamageOnLand
     damage:
       types:

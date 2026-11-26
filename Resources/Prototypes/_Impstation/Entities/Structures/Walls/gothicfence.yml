@@ -15,8 +15,9 @@
     bodyType: Static
   - type: InteractionOutline
   - type: Repairable
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: FlimsyMetallic
   - type: Climbable
   - type: Fixtures

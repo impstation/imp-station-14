@@ -211,8 +211,9 @@
     reagentProduced: Mucin
   - type: NoSlip
   - type: Magboots
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: Gastropoid
   - type: DamageVisuals
     damageOverlayGroups:

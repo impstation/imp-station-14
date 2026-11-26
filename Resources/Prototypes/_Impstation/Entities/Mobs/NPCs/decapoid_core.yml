@@ -13,8 +13,9 @@
     - Alive
   - type: CombatMode
   - type: Appearance
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Fixtures
     fixtures:
       fix1:

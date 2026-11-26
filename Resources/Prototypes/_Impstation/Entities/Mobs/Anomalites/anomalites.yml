@@ -195,8 +195,9 @@
         Heat: 5
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomalitePyroclastic
   - type: TemperatureDamage
     heatDamageThreshold: 325
@@ -251,8 +252,9 @@
         Blunt: 5
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteGravity
   - type: PointLight
     radius: 2
@@ -295,8 +297,9 @@
         Cold: 5
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteIce
   - type: TemperatureDamage
     heatDamageThreshold: 325
@@ -351,8 +354,9 @@
         Slash: 5
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteFlesh
   - type: PointLight
     radius: 2
@@ -396,8 +400,9 @@
         Structural: 15
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteRock
   - type: PointLight
     radius: 2
@@ -443,8 +448,9 @@
         Poison: 1 # reduced cus they inject their solution into you
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteLiquid
   - type: PointLight
     radius: 2
@@ -501,8 +507,9 @@
         Cellular: 5 # there was a great big flash, everything just changed / his molecules got all rearranged
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteBluespace
   - type: PointLight
     radius: 2
@@ -545,8 +552,9 @@
         Shock: 5
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteElectricity
   - type: PointLight
     radius: 2
@@ -589,8 +597,9 @@
         Piercing: 5 # thorns?
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteFlora
   - type: PointLight
     radius: 2
@@ -633,8 +642,9 @@
         Asphyxiation: 10 # suffocating darkness
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteShadow
   - type: PointLight
     radius: 2
@@ -683,8 +693,9 @@
         Radiation: 5 # there's not really a relevant damage type for this
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteTech
   - type: PointLight
     radius: 2
@@ -728,8 +739,9 @@
         Blunt: 4
     angle: 0
     animation: WeaponArcBite
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: AnomaliteSanta
   - type: PointLight
     radius: 8.0

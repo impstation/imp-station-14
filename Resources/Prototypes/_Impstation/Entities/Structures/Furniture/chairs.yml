@@ -78,8 +78,9 @@
     state: full
   - type: Physics
     bodyType: Static
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
     thresholds:

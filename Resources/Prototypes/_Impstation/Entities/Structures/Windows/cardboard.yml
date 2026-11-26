@@ -31,8 +31,9 @@
         layer:
         - GlassLayer
         density: 10
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Card
   - type: Destructible
     thresholds:
@@ -109,8 +110,9 @@
         - FullTileMask
         layer:
         - GlassLayer
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Card
   - type: RCDDeconstructable
     cost: 4

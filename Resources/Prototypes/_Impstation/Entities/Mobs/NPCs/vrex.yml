@@ -168,8 +168,9 @@
         !type:DamageTypeTrigger
         damageType: Blunt
         damage: 2500
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: VRex
   - type: Stamina
     baseCritThreshold: 300

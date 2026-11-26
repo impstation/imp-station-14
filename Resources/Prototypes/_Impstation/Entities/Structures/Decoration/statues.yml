@@ -49,8 +49,9 @@
   - type: Construction
     graph: MannequinSkeleton
     node: mannequin
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
     thresholds:

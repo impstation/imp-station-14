@@ -45,8 +45,9 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: sample_tube
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
     damageModifierSet: Glass
   - type: Destructible
     thresholds:

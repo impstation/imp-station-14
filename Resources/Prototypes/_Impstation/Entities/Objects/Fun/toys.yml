@@ -732,8 +732,9 @@
       right:
         - state: plushie_odds-inhand-right
   - type: MeleeWeapon
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:
