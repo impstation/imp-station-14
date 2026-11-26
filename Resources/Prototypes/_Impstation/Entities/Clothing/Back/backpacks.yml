@@ -20,12 +20,22 @@
   parent: [ClothingBackpack]
   id: ClothingBackpackBagworm
   name: bag worm
-  description: Another symbiotic organism that has ingratiated itself to Planarian life, the bag worm collects any objects the Planarian may want to store, in exchange for getting a free ride and any stray food that may fall into its casing. Eventually, bag worms metamorphosize and leave their host, but what exactly they change into has yet to be documented.
+  description: A strange symbiotic organism that has ingratiated itself to Planarian life, the bag worm collects any objects the Planarian may want to store, in exchange for getting a free ride and any stray food that may fall into its casing. Eventually, bag worms metamorphosize and leave their host, but what exactly they change into has yet to be documented.
   components:
   - type: Storage
-    grid: #PLANARIAN TODO: make a crazy bagworm shaped grid
-    - 0,0,6,0
-    - 0,0,0,3
+    grid: #sorry
+    - 1,9,3,9
+    - 0,7,0,8
+    - 2,8,4,8
+    - 3,7,4,7
+    - 2,6,4,6
+    - 1,5,3,5
+    - 3,4,4,4
+    - 4,3,4,3
+    - 1,2,4,2
+    - 2,3,2,3
+    - 2,1,3,1
+    - 1,0,4,0
     maxItemSize: Huge
   - type: Sprite
     sprite: _Impstation/Clothing/Back/Backpacks/bagworm.rsi

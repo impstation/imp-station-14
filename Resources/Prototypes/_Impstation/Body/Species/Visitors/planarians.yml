@@ -1,7 +1,5 @@
-# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
 
 - type: markingsGroup
-  parent: Undergarments
   id: Planarian
   onlyGroupWhitelisted: true
   limits:
@@ -65,78 +63,78 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: jumpsuit
       head:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: head
       eyes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: eyes
       ears:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: ears
       mask:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: mask
       neck:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: neck
       outerClothing:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: outerClothing
       gloves:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: hands
       shoes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: feet
       belt:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: belt
       back:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: back
       suitstorage:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: suitstorage
       id:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
             state: id
   - type: Hands
     leftHandDisplacement:
       sizeMaps:
         32:
-          sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
           state: inhand_left
     rightHandDisplacement:
       sizeMaps:
         32:
-          sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          sprite: _Impstation/Mobs/Species/Visitors/Planarian/displacement.rsi
           state: inhand_right
   - type: InitialBody
     organs:
@@ -295,7 +293,7 @@
   components:
   - type: VisualOrgan
     data:
-      sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+      sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi
   - type: VisualOrganMarkings
     markingData:
       group: Planarian
@@ -306,7 +304,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/parts.rsi
 
 - type: entity
   parent: [ OrganBaseTorso, OrganPlanarianExternal ]
@@ -491,7 +489,7 @@
     singleUser: true
     key: enum.StationMapUiKey.Key
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
     state: earthworm
   - type: Item
     size: Small
@@ -509,7 +507,7 @@
   description: While conventional wisdom suggests Planarians are invertebrates, the pin worm's bone-like structure raises questions about this assumption.
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
     state: pinworm
   - type: Item
     size: Small
@@ -548,7 +546,7 @@
   description: Historically poached for its unique chemical properties, this woody growth seems to provide structure to the Planarian's internals, but its rarity among Planarians makes it unclear if this is truly an evolved organ or instead a symbiotic organism.
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+    sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
     state: wormwood
   - type: Item
     size: Small
@@ -652,7 +650,7 @@
         - id: OrganPlanarianSplitLiver
         - id: OrganPlanarianSplitKidneys
 
-- type: entity #note: you removed the parents
+- type: entity
   parent: BaseSpeciesAppearance
   id: AppearancePlanarianSplitTier1
   categories: [ HideSpawnMenu ] #imp
@@ -685,8 +683,6 @@
   categories: [ HideSpawnMenu ] #imp
   name: Planarian split appearance
   components:
-  - type: Inventory
-    templateId: planarian_split_tier3 #PLANARIAN TODO: smaller planarian displacements
   - type: InitialBody
     organs:
       Brain: OrganPlanarianBrain
@@ -767,19 +763,9 @@
     reformTime: 5 #planarians reform faster than diona
     popupText: planarian-regenerate-attempt
     reformPrototype: MobPlanarianReformed
-  # imp edit start
-  - type: GoobAbsorbable
-    biomassRestored: 0.3
-  # imp edit end
 
 - type: entity
-  name: planarian split base
-  parent: [AppearancePlanarianSplitTier3, BasePlanarianSplitBody, SimpleMobBase, StripableInventoryBase]
-  id: MobPlanarianSplitTier3_Base
-  description: A cut in half planarian. Yuck... its using its guts as legs...
-
-- type: entity
-  name: planarian half #PLANARIAN TODO: WHY DONT THEY HAVE A RANDOM APPEARANCE!!!!!!!!!
+  name: planarian half
   parent: [AppearancePlanarianSplitTier1, MobPlanarianSplit_Base]
   id: MobPlanarianSplit_1_Brain
   description: A cut in half planarian. Yuck... its using its guts as legs...
@@ -802,42 +788,43 @@
         layer:
         - MobLayer
   - type: Inventory
-    templateId: planarian_split_tier1 #PLANARIAN TODO: EVERYTHING IS BROKEN HELP ME
+    speciesId: planarian
+    templateId: planarian_split_tier1
     displacements:
       belt:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier1_belt
       shoes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier1_feet
       hands:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier1_hands
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier1_jumpsuit
       eyes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier1_eyes
       ears:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi  #they use the ant displacement to get rid of the ear slot visuals
             state: ears
       id:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi  #they use the ant displacement to get rid of the ear slot visuals
             state: id
   - type: ComplexInteraction
   - type: Stripping
@@ -872,16 +859,11 @@
     - CanPilot
     - FootstepSound
     - Planarian
-    - VimPilot
   - type: Reform
     actionPrototype: PlanarianRegenerateActionTier1
     reformTime: 5 #planarians reform faster than diona
     popupText: planarian-regenerate-attempt
     reformPrototype: MobPlanarianReformed
-  # imp edit start
-  - type: GoobAbsorbable
-    biomassRestored: 0.3
-  # imp edit end
 
 - type: entity
   name: planarian half
@@ -898,13 +880,6 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - CanPilot
-    - FootstepSound
-    - Planarian
-    - VimPilot
 
 - type: entity
   name: planarian half half
@@ -917,7 +892,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: planarian_split_tier2
-      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/splits.rsi #PLANARIAN TODO: smaller split displacements
+      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/splits.rsi
   - type: Fixtures
     fixtures:
       fix1:
@@ -930,27 +905,28 @@
         layer:
         - MobLayer
   - type: Inventory
+    speciesId: planarian
     templateId: planarian_split_tier2
     displacements:
       mask:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier2_mask
       head:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier2_head
       eyes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier2_eyes
       ears:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files. they use the ant displacement to get rid of the ear slot visuals
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi  #they use the ant displacement to get rid of the ear slot visuals
             state: ears
   - type: MobThresholds
     thresholds:
@@ -1014,7 +990,7 @@
 
 - type: entity
   name: planarian sliver
-  parent: [MobPlanarianSplitTier3_Base]
+  parent: [ AppearancePlanarianSplitTier3, BasePlanarianSplitBody]
   id: MobPlanarianSplit_3_Brain
   description: The smallest a planarian can get before dying for good. You wouldn't hurt this... would you...?
   components:
@@ -1023,7 +999,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: planarian_split_tier3
-      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/splits.rsi #PLANARIAN TODO: smaller split displacements
+      sprite: _Impstation/Mobs/Animals/Planarian_Mobs/splits.rsi
   - type: Fixtures
     fixtures:
       fix1:
@@ -1032,21 +1008,22 @@
           radius: 0.35
         density: 40
         mask:
-        - MobMask
-        layer:
-        - MobLayer
+        - SmallMobMask
+        layer: #they can go under doors, maybe some planarians will kill themselves and then regenerate on the other side of doors, but that would take so long i think it's fine
+        - SmallMobLayer
   - type: Inventory
+    speciesId: planarian
     templateId: planarian_split_tier3
     displacements:
       head:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier3_head
       mask:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi #imp edit, waiting on proper macro merge to migrate files.
+            sprite: _Impstation/Mobs/Animals/Planarian_Mobs/split_displacements.rsi
             state: tier3_mask
   - type: MobThresholds
     thresholds:
@@ -1084,6 +1061,8 @@
       Male: UnisexPlanarianTier3
       Female: UnisexPlanarianTier3
       Unsexed: UnisexPlanarianTier3
+  - type: CanEscapeInventory
+    baseResistTime: 2
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -1091,10 +1070,11 @@
     - FootstepSound
     - Planarian
     - VimPilot
+    - RecyclerGibbable
 
 - type: entity
   name: planarian sliver
-  parent: [MobPlanarianSplit_3_Brain, MobPlanarianSplitTier3_Base, BasePlanarianSplitBody]
+  parent: [MobPlanarianSplit_3_Brain]
   id: MobPlanarianSplit_3
   description: The smallest a planarian can get before dying for good. You wouldn't hurt this... would you...?
   components:
@@ -1107,13 +1087,6 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - CanPilot
-    - FootstepSound
-    - Planarian
-    - VimPilot
 
 
 # PLANARIAN SPLIT ORGANS #
