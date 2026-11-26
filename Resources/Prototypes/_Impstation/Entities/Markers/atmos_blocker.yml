@@ -93,3 +93,33 @@
           shader: unshaded
     - type: AtmosFixMarker
       mode: 15
+
+- type: entity
+  parent: [ MarkerBase, GasPipeBase ]
+  id: GasPassiveVentInvisible
+  name: passive vent
+  suffix: invisible
+  placement:
+    mode: AlignAtmosPipeLayers
+  components:
+    - type: GasPassiveVent
+  - type: AtmosDevice
+  - type: Tag
+    tags:
+    - Unstackable
+  - type: SubFloorHide
+    blockInteractions: false
+    blockAmbience: false
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+  - type: CollideOnAnchor
+  - type: DeviceRestrictOverlap # Funky RPD
+  - type: Sprite
+    layers:
+      - sprite: Markers/atmos.rsi
+        state: base
+        shader: unshaded
