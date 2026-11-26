@@ -23,6 +23,11 @@ public sealed class MaxPressureVisualsSystem : EntitySystem
 
     private void OnMaxPressureInit(Entity<MaxPressureVisualsComponent> entity, ref ComponentInit args)
     {
+        // imp add, space blades
+        if (entity.Comp.IntegritySteps == 0)
+            return;
+        // imp end
+
         if (!TryComp<SpriteComponent>(entity, out var sprite))
             return;
 

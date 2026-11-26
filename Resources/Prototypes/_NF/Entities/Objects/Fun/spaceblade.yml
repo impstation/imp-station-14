@@ -14,6 +14,8 @@
       moles:
          - 0.4101137219 # oxygen
       temperature: 293.15
+  - type: MaxPressureVisuals
+    steps: 0
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures

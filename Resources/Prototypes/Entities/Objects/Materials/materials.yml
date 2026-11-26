@@ -21,12 +21,6 @@
     layers:
     - state: cardboard_3
       map: ["base"]
-  - type: Extractable
-    grindableSolutionName: reagents
-    juiceSolution: # imp
-      reagents:
-      - ReagentId: Cellulose
-        Quantity: 10 # imp
   - type: Solution
     solution:
       maxVol: 10 #imp
@@ -44,6 +38,12 @@
     doAfter: 0.5
     removeOnInteract: true
   # imp edit start
+  - type: Extractable
+    grindableSolutionName: composite
+    juiceSolution: # imp
+      reagents:
+      - ReagentId: Cellulose
+        Quantity: 10 # imp
   - type: Edible
     requiresSpecialDigestion: true
     delay: 10
