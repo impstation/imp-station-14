@@ -159,7 +159,7 @@ public sealed partial class SupermatterComponent : Component
     /// The sound collection id fed to ParacusiaComponent when looking at the sm unprotected.
     /// </summary>
     [DataField]
-    public string ParacusiaCollection = "Paracusia";
+    public ProtoId<SoundCollectionPrototype> ParacusiaCollection = "Paracusia";
     //imp sounds end
     #endregion
 
@@ -438,13 +438,6 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public bool HasBeenPowered;
-
-    // imp add
-    /// <summary>
-    /// Allows delam radio announcements to use accents,
-    /// </summary>
-    [DataField]
-    public bool AllowAccent = true;
 
     #endregion
 

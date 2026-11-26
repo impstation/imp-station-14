@@ -611,8 +611,7 @@ public sealed partial class SupermatterSystem
 
         sm.YellLast = _timing.CurTime;
         _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
-        if (sm.AllowAccent == true) //imp, check bool for allowing formatted announcements
-            message = _chat.TransformSpeech(uid, message); //imp
+        message = _chat.TransformSpeech(uid, message); //imp
         _radio.SendRadioMessage(uid, message, channel, uid);
     }
 
