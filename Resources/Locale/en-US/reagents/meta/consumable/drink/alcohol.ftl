@@ -361,3 +361,6 @@ reagent-desc-zombiecocktail = It gets in your head. Your he-eyeh-ead.
 
 reagent-name-bacchus-blessing = bacchus's blessing
 reagent-desc-bacchus-blessing = You didn't think it was possible for a liquid to be so utterly revolting. Are you sure about this...?
+
+reagent-name-slab-special = Slab Special
+reagent-desc-slab-special = Europan submariners' drink of choice.
