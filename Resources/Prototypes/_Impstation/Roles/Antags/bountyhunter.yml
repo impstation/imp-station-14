@@ -32,3 +32,23 @@
     - SmokeGrenade
     - PhoneInstrumentBountyHunter
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: BountyHunter
+  multiAntagSetting: NotExclusive
+  briefing:
+    text: bounty-hunter-role-greeting
+    color: Orange
+  mindRoles:
+  - MindRoleBountyHunter
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesBountyHunterTitle
+    - NamesBountyHunter
+    nameFormat: name-format-bounty-hunter
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  startingGear: BountyHunterGear
+  roleLoadout: 
+  - RoleSurvivalEVA

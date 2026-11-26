@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseGameRule
+  parent: [ BaseGameRule, BaseRoundstartAntagRule ]
   id: ThiefSingular # spawns One thief. be careful when running, this will just apply Pacified to one person in the middle of the round
   components:
   - type: ThiefRule
@@ -15,22 +15,8 @@
       maxPicks: 10
     maxDifficulty: 2.5
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
     agentName: thief-round-end-agent-name
-    definitions:
-    - prefRoles: [ Thief ]
-      max: 1
-      playerRatio: 1 # we just want One
-      lateJoinAdditional: true
-      allowNonHumans: true
-      multiAntagSetting: NotExclusive
-      startingGear: ThiefGear
-      components:
-      - type: Pacified
-      - type: Thieving
-        stripTimeReduction: 2
-        stealthy: true
-      mindRoles:
-      - MindRoleThief
-      briefing:
-        sound: "/Audio/Misc/thief_greeting.ogg"
+    antags: 
+    - !type:FixedAntagCount
+      count: 1
+      proto: Thief

@@ -24,3 +24,23 @@
   inhand:
   - DrinkTeapot
   - DrinkTeacupEmpty
+
+- type: antagSpecifier
+  id: Butler
+  parent: RestrictedAntag
+  spawnerPrototype: SpawnPointGhostButler
+  pickPlayer: false
+  startingGear: ButlerGear
+  components:
+  - type: RandomHumanoidAppearance
+  - type: AutoImplant
+    implants:
+    - ButlerBombImplant
+  - type: UnableToWield
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  mindRoles:
+  - MindRoleButler
+  roleLoadout: 
+  - RoleSurvivalStandard
