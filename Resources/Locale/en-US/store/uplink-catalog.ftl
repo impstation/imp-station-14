@@ -45,20 +45,6 @@ uplink-bulldog-desc = Lean and mean: Contains the popular Hydra Shotgun.
 uplink-estoc-name = Estoc DMR
 uplink-estoc-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat.
 
-uplink-grenade-launcher-name = China-Lake
-uplink-grenade-launcher-desc = An old China-Lake grenade launcher bundled with 5 rounds of anti-personnel ammo.
-
-# Imp edit rename
-uplink-c20r-name = C-20R Gorgon
-uplink-c20r-desc = Old faithful: The classic Gorgon Submachine Gun.
-
-# Imp edit rename
-uplink-bulldog-name = Hydra
-uplink-bulldog-desc = Lean and mean: Contains the popular Hydra Shotgun.
-
-uplink-estoc-name = Estoc DMR
-uplink-estoc-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat.
-
 # imp remove hyphen
 uplink-grenade-launcher-name = China Lake
 uplink-grenade-launcher-desc = An old China Lake grenade launcher bundled with 5 rounds of anti-personnel ammo.
@@ -78,7 +64,6 @@ uplink-mini-bomb-desc = A low-yield, high-impact precision sabotage explosive wi
 
 uplink-singularity-grenade-name = Singularity Grenade
 uplink-singularity-grenade-desc = Grenade that simulates the power of a singularity, generates powerful gravity well. Explosion comparable to a Mini Bomb.
-
 
 uplink-whitehole-grenade-name = Whitehole Grenade
 uplink-whitehole-grenade-desc = Grenade that repulses everything around for about 10 seconds. Very useful in small rooms and for chasing someone.
@@ -125,10 +110,10 @@ uplink-pistol-magazine-c20r-name = SMG magazine (.35 auto)
 uplink-pistol-magazine-c20r-desc = SMG magazine with 30 cartridges. Compatible with C-20R Gorgon.
 
 uplink-magazine-bulldog-pellet-name = Drum magazine (.50 pellet)
-uplink-magazine-bulldog-pellet-desc = Shotgun magazine with 8 shells filled with buckshot. Compatible with the Bulldog.
+uplink-magazine-bulldog-pellet-desc = Shotgun magazine with 8 shells filled with buckshot. Compatible with the Hydra.
 
 uplink-magazine-bulldog-slug-name = Drum magazine (.50 slug)
-uplink-magazine-bulldog-slug-desc = Shotgun magazine with 8 shells filled with slugs. Compatible with the Bulldog.
+uplink-magazine-bulldog-slug-desc = Shotgun magazine with 8 shells filled with slugs. Compatible with the Hydra.
 
 uplink-estoc-ammo-name = Rifle magazine (.20 rifle)
 uplink-estoc-ammo-desc = A rifle magazine with 25 cartridges. Compatible with the Estoc DMR.
