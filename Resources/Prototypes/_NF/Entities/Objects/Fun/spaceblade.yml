@@ -6,8 +6,8 @@
   abstract: true
   components:
   - type: GasTank
-    outputPressure: 0.1
-    maxOutputPressure: 0.1
+    releasePressure: 0.1
+    maxreleasePressure: 0.1
     valveOutputRate: 50
     air:
       volume: 1
@@ -190,8 +190,8 @@
   - type: StaticPrice
     price: 100
   - type: GasTank # imp - someone said this should spit out an extremely small amount of plasma. so here you go
-    outputPressure: 0.1
-    maxOutputPressure: 0.1
+    releasePressure: 0.1
+    maxreleasePressure: 0.1
     valveOutputRate: 50
     air:
       volume: 1
@@ -311,8 +311,8 @@
   - type: CollisionWake
     enabled: false
   - type: GasTank
-    outputPressure: 0.1
-    maxOutputPressure: 0.1
+    releasePressure: 0.1
+    maxreleasePressure: 0.1
     valveOutputRate: 50
     air:
       volume: 1

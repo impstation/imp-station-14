@@ -40,8 +40,8 @@
   - type: Sprite
     state: ratking
   - type: GasTank
-    outputPressure: 0.1
-    maxOutputPressure: 0.1
+    releasePressure: 0.1
+    maxreleasePressure: 0.1
     valveOutputRate: 50
     air:
       volume: 1
