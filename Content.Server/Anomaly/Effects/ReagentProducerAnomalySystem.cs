@@ -7,6 +7,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Chemistry.Reagent; // Imp
+using System.Linq; // Imp
 
 namespace Content.Server.Anomaly.Effects;
 
@@ -27,6 +29,9 @@ public sealed class ReagentProducerAnomalySystem : EntitySystem
 
     //Useful:
     //Those reagents that the players are hunting for. Very low percentage of loss.
+
+    //Imp - Random:
+    //Anything, save for the chemicals that are either restricted gameplay-wise, or are heavily round-altering (e.g. romerol, vestine, omnizine, etc).
 
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -123,9 +128,27 @@ public sealed class ReagentProducerAnomalySystem : EntitySystem
         var currentWeightDangerous = MathHelper.Lerp(entity.Comp.WeightSpreadDangerous.X, entity.Comp.WeightSpreadDangerous.Y, severity);
         var currentWeightFun = MathHelper.Lerp(entity.Comp.WeightSpreadFun.X, entity.Comp.WeightSpreadFun.Y, severity);
         var currentWeightUseful = MathHelper.Lerp(entity.Comp.WeightSpreadUseful.X, entity.Comp.WeightSpreadUseful.Y, severity);
+        var currentWeightRandom = MathHelper.Lerp(entity.Comp.WeightSpreadRandom.X, entity.Comp.WeightSpreadRandom.Y, severity); // Imp Edit
 
-        var sumWeight = currentWeightDangerous + currentWeightFun + currentWeightUseful;
+        var sumWeight = currentWeightDangerous + currentWeightFun + currentWeightUseful + currentWeightRandom; // Imp Edit - Added currentWeightRandom.
         var rnd = _random.NextFloat(0f, sumWeight);
+
+        // Imp Edit Start
+        // Generate a list of random reagents, excluding those that are blacklisted (mostly stolen from VentClogRule).
+        if (entity.Comp.RandomChemicals.Count <= 0 || entity.Comp.RandomChemicals == null)
+        {
+            entity.Comp.RandomChemicals = _prototypeManager.EnumeratePrototypes<ReagentPrototype>()
+                .Where(x => !x.Abstract)
+                .Select(x => new ProtoId<ReagentPrototype>(x.ID)).ToList();
+
+            // Remove everything that's either already in the the other lists, or is blacklisted.
+            entity.Comp.RandomChemicals.RemoveAll(r => entity.Comp.DangerousChemicals.Any(a => a == r));
+            entity.Comp.RandomChemicals.RemoveAll(r => entity.Comp.FunChemicals.Any(a => a == r));
+            entity.Comp.RandomChemicals.RemoveAll(r => entity.Comp.UsefulChemicals.Any(a => a == r));
+            entity.Comp.RandomChemicals.RemoveAll(r => entity.Comp.RandomReagentBlacklist.Any(a => a == r));
+        }
+        // Imp Edit End
+
         //Dangerous
         if (rnd <= currentWeightDangerous && entity.Comp.DangerousChemicals.Count > 0)
         {
@@ -146,8 +169,20 @@ public sealed class ReagentProducerAnomalySystem : EntitySystem
             var reagent = _random.Pick(entity.Comp.UsefulChemicals);
             return reagent;
         }
+        // Imp Edit Start
+        else rnd -= currentWeightFun;
+        // Random!
+        if (rnd <= currentWeightRandom && entity.Comp.RandomChemicals.Count > 0)
+        {
+            var reagent = _random.Pick(entity.Comp.RandomChemicals);
+            return reagent;
+        }
+        // Imp Edit End
+
         //We should never end up here.
         //Maybe Log Error?
+        // Imp Edit - Log error.
+        Log.Error($"Failed to generate a reagent for {ToPrettyString(entity)}, resorting to fallback reagent ({FallbackReagent}).");
         return FallbackReagent;
     }
 }

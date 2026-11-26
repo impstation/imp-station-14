@@ -39,6 +39,14 @@ public sealed partial class ReagentProducerAnomalyComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Vector2 WeightSpreadUseful = new(1.0f, 1.0f);
 
+    // Imp Edit Start
+    /// <summary>
+    /// The spread of the random weight of the choice of this category, depending on the severity.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public Vector2 WeightSpreadRandom = new(2.0f, 0.0f);
+    // Imp Edit End
+
     /// <summary>
     /// Category of dangerous reagents for injection. Various toxins and poisons
     /// </summary>
@@ -54,6 +62,20 @@ public sealed partial class ReagentProducerAnomalyComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public List<ProtoId<ReagentPrototype>> FunChemicals = new();
+
+    // Imp Edit Start
+    /// <summary>
+    /// Category of random reagents for injection.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public List<ProtoId<ReagentPrototype>> RandomChemicals = new();
+
+    /// <summary>
+    /// Reagents that are blacklisted from appearing randomly.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public List<ProtoId<ReagentPrototype>> RandomReagentBlacklist = new();
+    // Imp Edit End
 
     /// <summary>
     /// Noise made when anomaly pulse.
