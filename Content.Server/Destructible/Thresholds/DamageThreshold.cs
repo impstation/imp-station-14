@@ -40,4 +40,7 @@ public sealed partial class DamageThreshold
     /// </summary>
     [DataField]
     public List<IThresholdBehavior> Behaviors = new();
+
+    [DataField] // imp
+    public int Stage; // imp
 }
