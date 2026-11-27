@@ -130,24 +130,13 @@
   components:
   - type: FlavorProfile
     flavors:
-      #- fishy # imp
-      - carpflesh #imp
+      - fishy
   - type: Tag
     tags:
     - Raw
     - Meat
   - type: Sprite
     state: fish
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: CarpoToxin
-          Quantity: 5
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -157,7 +146,6 @@
         Quantity: 20
       - ReagentId: Fat
         Quantity: 5
-# TORTURE END
   - type: Extractable
     juiceSolution:
       reagents:
@@ -930,31 +918,19 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 7
+        Quantity: 1 # imp 7>1
       - ReagentId: UncookedAnimalProteins
         Quantity: 5
-      - ReagentId: Fat
-        Quantity: 3
+      #- ReagentId: Fat
+      #  Quantity: 3
+      - ReagentId: Egg # imp
+        Quantity: 6
   - type: Tag
     tags:
     - Raw
     - Meat
   - type: Sprite
     state: meatball
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 20
-        canReact: false # preventing an infinite meatball trick
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
-#        - ReagentId: Flour # imp: see below
-#          Quantity: 5
-        - ReagentId: Nutriment # imp: contents of flour so it will stop turning back into a meatball after you eat it
-          Quantity: 0.5
-        - ReagentId: Egg
-          Quantity: 6
   - type: Construction
     graph: MeatMeatballCooked
     node: start
@@ -1263,19 +1239,6 @@
   - type: Sprite
     layers:
     - state: product-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2 # imp
-        - ReagentId: Protein
-          Quantity: 5
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatBearCutletCooked

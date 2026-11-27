@@ -14,22 +14,11 @@
     trash:
     - FoodBowlBig
     utensil: Spoon
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 30
-# TORTURE END
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi
   - type: DamageOnLand
@@ -1552,23 +1541,6 @@
     - state: bowl2
     - state: miso
         #rip milo
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9
-        - ReagentId: Vitamin
-          Quantity: 3
-        - ReagentId: Water
-          Quantity: 10
-        - ReagentId: TableSalt # imp
-          Quantity: 5
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Tag
     tags:
     # - Meat #imp removed, no meat in this recipe

@@ -35,18 +35,18 @@
     - egg
   - type: Sprite
     state: boiled
-  - type: SolutionContainerManager # imp
+  # imp edit start
+  - type: Solution
     solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 19
-        - ReagentId: EggCooked
-          Quantity: 6
-  - type: Tag # imp
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10.5
+      - ReagentId: EggCooked
+        Quantity: 6
+  - type: Tag
     tags:
     - UnguFood
+  # imp edit end
 # Tastes like pasta.
 
 - type: entity
@@ -63,26 +63,15 @@
     - tomato
   - type: Sprite
     state: tomato
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 39
-        - ReagentId: Vitamin
-          Quantity: 6
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 45
+        Quantity: 24.5 # imp 45>24.5
       - ReagentId: Vitamin
-        Quantity: 5
-# TORTURE END
+        Quantity: 6 # imp 5>6
+      - ReagentId: EggCooked # imp
+        Quantity: 6
   - type: Tag
     tags:
     - Fruit # ???
@@ -107,29 +96,18 @@
     - copypasta
   - type: Sprite
     state: copypasta
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 50 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 8
-  - type: Tag # imp, normal spaghetti is fruit so
-    tags:
-    - Fruit
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 90
+        Quantity: 49 # imp 90>49
       - ReagentId: Vitamin
-        Quantity: 10
-# TORTURE END
+        Quantity: 12 # imp 10>12
+      - ReagentId: EggCooked # imp
+        Quantity: 12
+  - type: Tag # imp, normal spaghetti is fruit so
+    tags:
+    - Fruit
 # Tastes like pasta, bad humor.
 
 - type: entity
@@ -146,28 +124,15 @@
     - meaty
   - type: Sprite
     state: meatball
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 46 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 36 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 4
-        - ReagentId: Protein # imp
-          Quantity: 5
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 40
+        Quantity: 11.5 # imp 40>11.5
       - ReagentId: Protein
         Quantity: 5
-# TORTURE END
+      - ReagentId: EggCooked # imp
+        Quantity: 12
   - type: Tag
     tags:
     - Meat
@@ -187,22 +152,20 @@
     - meaty
   - type: Sprite
     state: spesslaw
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
+# imp edit start
+  - type: Solution
     solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 6
-  - type: Tag # imp
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 14.5
+      - ReagentId: EggCooked
+        Quantity: 30
+      - ReagentId: Protein
+        Quantity: 20
+  - type: Tag
     tags:
     - Meat
-# UPSTREAM VERSION:
-# TORTURE END
+# imp edit end
 # Tastes like pasta, meat.
 
 - type: entity
@@ -219,36 +182,24 @@
     - carrot
   - type: Sprite
     state: chowmein
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 85 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 49 # imp
-        - ReagentId: EggCooked # imp
-          Quantity: 12
-        - ReagentId: Vitamin # imp
-          Quantity: 8
-        - ReagentId: JuiceCarrot # imp
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 18.5 # imp 45>18.5
+      - ReagentId: Vitamin
+        Quantity: 7 # imp 12>7
+      - ReagentId: EggCooked # imp
+        Quantity: 6
+      - ReagentId: JuiceCarrot # imp
+        Quantity: 5
+      - ReagentId: Oculine # imp
+        Quantity: 3
   - type: Tag # imp
     tags:
     - Vegetable
     - ReptilianFood
 # Tastes like pasta, tomato. # IMP - THERES NO TOMATOES IN THIS!!!!!!!
-# UPSTREAM VERSION:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Nutriment
-        Quantity: 45
-      - ReagentId: Vitamin
-        Quantity: 12
-# Tastes like pasta, tomato.
-# TORTURE END
 
 - type: entity
   parent: FoodNoodlesBase
@@ -264,29 +215,16 @@
     - butter
   - type: Sprite
     state: butter
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 45 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 25 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 1
-        - ReagentId: Butter # imp
-          Quantity: 15
-  - type: Tag # imp
-    tags:
-    - UnguFood
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 30
+        Quantity: 10.5 # imp 30>10.5
       - ReagentId: Butter
         Quantity: 5
-# TORTURE END
+      - ReagentId: EggCooked # imp
+        Quantity: 6
+  - type: Tag # imp
+    tags:
+    - UnguFood
 # Tastes like pasta, butter.
