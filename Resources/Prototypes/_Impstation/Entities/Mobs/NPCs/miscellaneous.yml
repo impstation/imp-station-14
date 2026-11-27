@@ -87,6 +87,12 @@
       params:
        variation: .125
     interactSuccessSpawn: EffectHearts
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatTomato
+      amount: 2
+    - id: KisserTomatoSeeds
+      amount: 1
 
 - type: entity
   id: MobTomatoKisserFake
@@ -129,6 +135,12 @@
         Base: dead
   - type: Produce
     seedId: kisserTomatoFake
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatTomato
+      amount: 2
+    - id: KisserTomatoFakeSeeds
+      amount: 1
 
 - type: entity
   parent: MobUraniumCrab

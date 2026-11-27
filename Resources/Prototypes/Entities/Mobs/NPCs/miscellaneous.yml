@@ -173,6 +173,8 @@
     spawned:
     - id: FoodMeatTomato
       amount: 2
+    - id: KillerTomatoSeeds # imp add, so decas can make more
+      amount: 1
   - type: Destructible
     thresholds:
     - trigger:

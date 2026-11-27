@@ -29,3 +29,14 @@
     whitelist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: uplinkBeeSuit
+  name: uplink-bee-suit-name
+  description: uplink-bee-suit-desc
+  icon: { sprite: _Impstation/Clothing/OuterClothing/Suits/beesuit.rsi, state: icon }
+  productEntity: ClothingOuterSuitBee
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables
