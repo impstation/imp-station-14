@@ -28,3 +28,13 @@
   id: CameraStaticAccessible
   kind: source
   path: "/Textures/_Impstation/Shaders/camera_static_accessible.swsl"
+
+- type: shader
+  id: GeneticsGlowOutline
+  kind: source
+  path: "/Textures/Shaders/outline.swsl"
+  params:
+    outline_color: "#ffffff54"
+    light_boost: 2
+    light_gamma: 0.9
+    light_whitepoint: 1
