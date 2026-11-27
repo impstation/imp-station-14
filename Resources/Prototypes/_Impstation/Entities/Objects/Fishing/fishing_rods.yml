@@ -49,6 +49,11 @@
           map: [ "unshaded" ]
           visible: true
 
+- type: entity # i want to map one but theyre set to remove on mapinit so
+  name: plasma rod
+  parent: FishingRodPlasma
+  id: FishingRodPlasmaRedeemed
+
 - type: entity
   name: Flesh Tentacle
   parent: [FishingRodBase,TierXContraband]

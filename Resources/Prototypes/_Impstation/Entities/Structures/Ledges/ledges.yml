@@ -1,0 +1,113 @@
+- type: entity
+  parent: BaseStructure
+  id: BaseLedge
+  abstract: true
+  name: BaseLedge
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Ledges/ledgebasic.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Ledges/ledgebasic.rsi
+  - type: Ledge
+    InteractWhitelist:
+      components:
+      - MobState
+
+- type: entity
+  parent: BaseLedge
+  id: LedgeStraightClimbable
+  name: ledge
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,0.19,0.49,-0.29"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - GlassAirlockLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.2,0.5,-0.3"
+        hard: false
+        mask:
+        - FullTileMask
+        layer:
+        - GlassAirlockLayer
+  - type: Sprite
+    state: ledgebasic
+  - type: Icon
+    state: ledgebasic
+  - type: Climbable
+    delay: 2.0
+
+- type: entity
+  parent: LedgeStraightClimbable
+  id: LedgeStraightClimbableSnow
+  name: snowy ledge
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Ledges/ledgesnow.rsi
+    state: ledgesnow
+  - type: Icon
+    sprite: _Impstation/Structures/Ledges/ledgesnow.rsi
+    state: ledgesnow
+
+- type: entity
+  parent: LedgeStraightClimbableSnow
+  id: LedgeStraightClimbableSnowAtmosBlocker
+  name: snowy ledge, atmos blocker
+  components:
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Tag
+    tags:
+      - SpreaderIgnore
+
+- type: entity
+  parent: MarkerBase
+  id: AtmosBlocker
+  name: atmos blocker, invisible
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Tag
+    tags:
+      - SpreaderIgnore
+
+- type: entity
+  parent: [ MarkerBase, BaseStructure ]
+  id: BaseLedgeInvisible
+  name: ledge, invisible
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: Ledge
+    InteractWhitelist:
+      components:
+      - MobState
+
+- type: entity
+  parent: BaseLedgeInvisible
+  id: BaseLedgeInvisibleAtmosBlocker
+  name: ledge, invisible, atmos blocker
+  components:
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Tag
+    tags:
+      - SpreaderIgnore

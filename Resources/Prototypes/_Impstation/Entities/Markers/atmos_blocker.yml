@@ -23,3 +23,103 @@
   components:
   - type: AtmosFixMarker
     mode: 10
+
+- type: entity
+  parent: MarkerBase
+  id: AtmosFixAufeisPeakHigh
+  name: Aufeis peaks Atmos Fix Marker
+  suffix: high
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Markers/atmos.rsi
+        state: base
+        shader: unshaded
+  - type: AtmosFixMarker
+    mode: 11
+
+- type: entity
+  parent: MarkerBase
+  id: AtmosFixAufeisPeakLow
+  name: Aufeis peaks Atmos Fix Marker
+  suffix: low
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Markers/atmos.rsi
+        state: base
+        shader: unshaded
+  - type: AtmosFixMarker
+    mode: 12
+
+- type: entity
+  name: Atmos Fix Toxic Pit Marker
+  suffix: high
+  id: AtmosFixToxicPitHigh
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Markers/atmos.rsi
+          state: base
+          shader: unshaded
+    - type: AtmosFixMarker
+      mode: 13
+
+- type: entity
+  name: Atmos Fix Toxic Pit Marker
+  suffix: medium
+  id: AtmosFixToxicPitMedium
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Markers/atmos.rsi
+          state: base
+          shader: unshaded
+    - type: AtmosFixMarker
+      mode: 14
+
+- type: entity
+  name: Atmos Fix Toxic Pit Marker
+  suffix: low
+  id: AtmosFixToxicPitLow
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Markers/atmos.rsi
+          state: base
+          shader: unshaded
+    - type: AtmosFixMarker
+      mode: 15
+
+- type: entity
+  parent: [ MarkerBase, GasPipeBase ]
+  id: GasPassiveVentInvisible
+  name: passive vent
+  suffix: invisible
+  placement:
+    mode: AlignAtmosPipeLayers
+  components:
+    - type: GasPassiveVent
+    - type: AtmosDevice
+    - type: Tag
+      tags:
+      - Unstackable
+    - type: SubFloorHide
+      blockInteractions: false
+      blockAmbience: false
+    - type: NodeContainer
+      nodes:
+        pipe:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: South
+    - type: CollideOnAnchor
+    - type: DeviceRestrictOverlap # Funky RPD
+    - type: Sprite
+      layers:
+        - sprite: Markers/atmos.rsi
+          state: base
+          shader: unshaded

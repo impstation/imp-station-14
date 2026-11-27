@@ -159,3 +159,9 @@
   name: stack-apid-hex-tile
   spawn: FloorTileItemDecapoidFancy
   maxCount: 30
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorSnowPile
+  name: snow pile
+  spawn: SnowPile

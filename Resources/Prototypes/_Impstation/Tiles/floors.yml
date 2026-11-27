@@ -511,3 +511,47 @@
     collection: FootstepTile
   itemDrop: FloorTileItemDecapoidFancy
   heatCapacity: 10000
+
+# real snow but not subfloor
+
+- type: tile
+  parent: FloorShoveledAstroSnow
+  id: FloorShoveledSnowTile
+  name: shoveled snow
+  suffix: Not subfloor
+  baseTurf: PlatingSnow
+  itemDrop: SnowPile
+
+- type: tile
+  parent: FloorAstroSnow
+  id: FloorSnowTile
+  name: snow
+  suffix: Not subfloor
+  baseTurf: PlatingSnow
+  itemDrop: SnowPile
+
+- type: tile
+  parent: FloorAstroIce
+  id: FloorIceTile
+  name: ice
+  suffix: Not subfloor
+  baseTurf: PlatingSnow
+  itemDrop: PuddleWater
+
+- type: tile
+  id: FloorSnowDugTile
+  name: dug snow
+  suffix: Not subfloor
+  baseTurf: PlatingSnow
+  itemDrop: SnowPile
+  sprite: /Textures/Tiles/Planet/Snow/snow_dug.png
+  edgeSpritePriority: 1
+  edgeSprites:
+    South: /Textures/Tiles/Planet/Snow/snow_dug_double_edge_south.png
+    East: /Textures/Tiles/Planet/Snow/snow_dug_double_edge_east.png
+    North: /Textures/Tiles/Planet/Snow/snow_dug_double_edge_north.png
+    West: /Textures/Tiles/Planet/Snow/snow_dug_double_edge_west.png
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepSnow

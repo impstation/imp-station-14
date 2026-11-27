@@ -68,7 +68,7 @@ public sealed partial class AtmosphereSystem
     /// <remarks>Please be responsible with this method. Used only by tests and fixgridatmos.</remarks>
     public void RebuildGridAtmosphere(Entity<GridAtmosphereComponent, MapGridComponent> ent)
     {
-        var mixtures = new GasMixture[11]; // imp 9 -> 11 (lol 9/11)
+        var mixtures = new GasMixture[16]; // imp 9 -> 16
         for (var i = 0; i < mixtures.Length; i++)
         {
             mixtures[i] = new GasMixture(Atmospherics.CellVolume) { Temperature = Atmospherics.T20C };
@@ -115,6 +115,28 @@ public sealed partial class AtmosphereSystem
        // 10: Water Vapor (101kpa) for decapoid rooms
        mixtures[10].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellStandard);
 
+        // Aufeis peaks
+        mixtures[11].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellFreezer);
+        mixtures[11].Temperature = Atmospherics.FreezerTemp;
+
+
+        mixtures[12].AdjustMoles(Gas.WaterVapor, Atmospherics.OxygenMolesStandard);
+        mixtures[12].AdjustMoles(Gas.Oxygen, Atmospherics.OxygenMolesFreezer);
+        mixtures[12].AdjustMoles(Gas.Nitrogen, Atmospherics.NitrogenMolesFreezer);
+        mixtures[12].Temperature = Atmospherics.FreezerTemp;
+
+        // Toxic evil hell mixes for Aufeis
+        mixtures[13].AdjustMoles(Gas.Plasma, Atmospherics.OxygenMolesStandard);
+        mixtures[13].AdjustMoles(Gas.Ammonia, Atmospherics.OxygenMolesStandard);
+        mixtures[13].Temperature = Atmospherics.FreezerTemp;
+
+        mixtures[14].AdjustMoles(Gas.Plasma, Atmospherics.NitrogenMolesStandard);
+        mixtures[14].AdjustMoles(Gas.Ammonia, Atmospherics.NitrogenMolesStandard);
+        mixtures[14].Temperature = Atmospherics.FreezerTemp;
+
+        mixtures[15].AdjustMoles(Gas.Plasma, Atmospherics.MolesCellStandard);
+        mixtures[15].AdjustMoles(Gas.Ammonia, Atmospherics.MolesCellStandard);
+        mixtures[15].Temperature = Atmospherics.FreezerTemp;
 
         // Force Invalidate & update air on all tiles
         Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> grid =
