@@ -191,3 +191,18 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
+
+- type: construction
+  id: BarricadeCovering
+  name: construction-recipe-barricade-covering
+  graph: BarricadeCovering
+  startNode: start
+  targetNode: barricadecover
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:WindowOrDoorInTile
+
+
