@@ -40,7 +40,7 @@
       - Muffin
       - UnguFood
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 1.125
@@ -169,7 +169,7 @@
     - UnguFood
     - Bread
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 1.125
@@ -214,7 +214,7 @@
   - type: Sprite
     state: COOKIE!!!
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 1.58
@@ -237,7 +237,7 @@
     state: cookie-oatmeal
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Oats
         Quantity: 2.5
@@ -262,7 +262,7 @@
     tags:
     - Fruit
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 0.5
@@ -281,7 +281,7 @@
     state: cookie-sugar
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 0.5
@@ -379,7 +379,7 @@
     - Pancake
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -450,7 +450,7 @@
     flavors:
     - berry
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 11
@@ -538,7 +538,7 @@
       - state: waffles
 # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -568,7 +568,7 @@
       - state: tray
       - state: waffles-soy
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 1

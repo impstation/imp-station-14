@@ -194,15 +194,15 @@
   - type: Construction
     graph: WaffleCone
     node: cone
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 13
         reagents:
         - ReagentId: Nutriment
+          Quantity: 0.33
+        - ReagentId: Milk
+          Quantity: 1.67
+        - ReagentId: EggCooked
           Quantity: 2
-        - ReagentId: Sugar
-          Quantity: 1
   - type: Tag # imp
     tags:
     - UnguFood

@@ -18,16 +18,6 @@
   - type: Item
     sprite: Objects/Consumable/Food/egg.rsi
     size: Tiny
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Egg
-          Quantity: 6
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
@@ -92,17 +82,6 @@
     state: eggshells
   - type: Item
     size: Tiny
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5 # imp
-        reagents:
-        - ReagentId: Egg
-          Quantity: 1
-  # UPSTREAM SOLUTION:
-  # TORTURE END
   - type: Tag
     tags:
     - Egg
@@ -144,22 +123,11 @@
     layers:
     - state: icon
       map: [ "enum.DamageStateVisualLayers.Base" ]
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: EggCooked
-          Quantity: 6
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: EggCooked
         Quantity: 6
-  # TORTURE END
   - type: Temperature
     # preserve temperature from the boiling step
     currentTemperature: 344

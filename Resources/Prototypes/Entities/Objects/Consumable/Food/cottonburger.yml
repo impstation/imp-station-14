@@ -16,9 +16,9 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 5
+        Quantity: 1 # imp 5>1
       - ReagentId: Fiber
-        Quantity: 5
+        Quantity: 40 # imp 5>40
   - type: Butcherable
     butcherDelay: 1
     spawned:
@@ -61,28 +61,14 @@
     nameGeneration: food-sequence-cotton-burger-gen
   - type: Appearance
   - type: FoodMetamorphableByAdding
-  # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        canReact: true # fuck you wizden i need razorium burger assassination
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.665
-        - ReagentId: Fiber
-          Quantity: 1.665
-  # UPSTREAM SOLUTION:
   - type: Solution
     solution:
       maxVol: 7.5
       reagents:
       - ReagentId: Nutriment
-        Quantity: 2.5
+        Quantity: 0.5 # imp 2.5>0.5
       - ReagentId: Fiber
-        Quantity: 2.5
-  # TORTURE END
+        Quantity: 20 # imp 2.5>20
   - type: Tag
     tags:
     - ClothMade
@@ -107,9 +93,9 @@
       maxVol: 7.5
       reagents:
       - ReagentId: Nutriment
-        Quantity: 2.5
+        Quantity: 0.5 # imp 2.5>0.5
       - ReagentId: Fiber
-        Quantity: 2.5
+        Quantity: 20 # imp 2.5>20
   - type: FoodSequenceElement
     entries:
       CottonBurger: CottonBunTopBurger

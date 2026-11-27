@@ -1275,6 +1275,7 @@
         - ReagentId: Allicin
           Quantity: 1 # imp
         - ReagentId: Water # imp
+          Quantity: 4 # imp
 # UPSTREAM VERSION:
   - type: Solution
     solution:
@@ -1290,8 +1291,8 @@
         - ReagentId: Allicin
           Quantity: 1
         - ReagentId: Water
-# TORTURE END
           Quantity: 4
+# TORTURE END
   - type: Tag
     tags:
     - ChiliBowl
@@ -1929,6 +1930,7 @@
         - ReagentId: Water # imp
           Quantity: 5
         - ReagentId: Enzyme # imp
+          Quantity: 10 # imp
 # UPSTREAM VERSION:
   - type: Solution
     solution:
@@ -1938,8 +1940,8 @@
         - ReagentId: Vitamin
           Quantity: 3
         - ReagentId: CapsaicinOil
-# TORTURE END
           Quantity: 10
+# TORTURE END
   - type: Tag
     tags:
     - Fruit
