@@ -1,0 +1,83 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               xmlns:ui="clr-namespace:Content.Client._Impstation.Interactions.Carving.UI"
+               Title="{Loc carving-window-title}"
+               MinSize="800 600">
+    <BoxContainer
+        Orientation="Horizontal"
+        VerticalExpand="True"
+        Margin="10 10 10 10">
+        <BoxContainer
+            Orientation="Vertical"
+            HorizontalExpand="True"
+            Margin="10 10 10 10">
+            <Label
+                Text="{Loc carving-window-patterns}"
+                Margin="5 5 5 5"
+                StyleClasses="LabelKeyText"/>
+            <PanelContainer
+                VerticalExpand="True"
+                HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat 
+                        BackgroundColor="#1B1B1E"
+                        BorderColor="#ffffff"/>
+                </PanelContainer.PanelOverride>
+                <ScrollContainer
+                         HorizontalExpand="True"
+                         VerticalExpand="True">
+                    <GridContainer
+                            Name="CarveList"
+                            Margin="10 10 10 10"
+                            Columns="4"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center">
+                    </GridContainer>
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer
+            Orientation="Vertical"
+            Align="Center">
+            <PanelContainer
+                MinSize="256 32">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+                <LineEdit
+                    Name="Name"
+                    VerticalAlignment="Top"
+                    MinSize="256 32"
+                    VerticalExpand="True">
+                    <Label
+                        Name="NameFiller"
+                        Text="{Loc carving-window-name}"
+                        Margin="5 5 5 5"
+                        StyleClasses="LabelKeyText"/>
+                </LineEdit>
+            </PanelContainer>
+            <TextureRect
+              Name ="Carved"
+              Access="Public"
+              MinSize="256 256"
+              Stretch="KeepAspectCentered"
+              RectClipContent="True">
+                <TextureRect
+                  Name ="CarvedOverlay"
+                  Access="Public"
+                  MinSize="256 256"
+                  Stretch="KeepAspectCentered"
+                  RectClipContent="True">
+                </TextureRect>
+            </TextureRect>
+            <Button
+                Name="CarveButton"
+                Text="{Loc carving-window-button-carve}"
+                Margin="0 50 0 0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+            </Button>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
