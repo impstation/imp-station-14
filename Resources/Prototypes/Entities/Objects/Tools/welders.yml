@@ -116,7 +116,7 @@
     sprite: Objects/Tools/welder.rsi
 
 - type: entity
-  parent: [SolutionWelder, SolutionSmall]
+  parent: [SolutionWelderSpillable, SolutionSmall] # imp spillable
   id: SolutionToolWelder
   categories: [ HideSpawnMenu ]
   components:
@@ -139,7 +139,7 @@
     sprite: Objects/Tools/welder_industrial.rsi
 
 - type: entity
-  parent: [SolutionWelder, SolutionToolNormal]
+  parent: [SolutionWelderSpillable, SolutionToolNormal] # imp spillable
   id: SolutionToolWelderIndsutrial
   categories: [ HideSpawnMenu ]
   components:
@@ -227,7 +227,7 @@
     color: orange
 
 - type: entity
-  parent: [SolutionWelder, SolutionTiny]
+  parent: [SolutionWelderSpillable, SolutionTiny] # imp spillable
   id: SolutionToolWelderMiniEmergency # TODO, replace with below :(
   categories: [ HideSpawnMenu ]
   components:
@@ -239,7 +239,7 @@
         Quantity: 50
 
 - type: entity
-  parent: [SolutionWelder, SolutionToolTiny]
+  parent: [SolutionWelderSpillable, SolutionToolTiny] # imp spillable
   id: SolutionToolWelderMini
   categories: [ HideSpawnMenu ]
   components:
@@ -268,7 +268,7 @@
         Quantity: 0.1
   # imp edit start
   - type: SolutionPurge
-    solution: Welder
+    solution: welder
     preserve:
     - WeldingFuel
     quantity: 0.2
