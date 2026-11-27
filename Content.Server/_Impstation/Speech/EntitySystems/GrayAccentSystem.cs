@@ -30,19 +30,24 @@ public sealed class GrayAccentComponentAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        message = _replacement.ApplyReplacements(message, "gray_accent");
+        args.Message = Grayspeakify(message);
+    }
 
-        message = RegexPuUpperLeft.Replace(message, "PU");
-        message = RegexPuUpperRight.Replace(message, "PU");
-        message = RegexCatchIapostrophe.Replace(message, "Thui");
-        message = RegexThuiLower.Replace(message, "thui");
-        message = RegexThuiUpperLeft.Replace(message, "THUI");
-        message = RegexThuiUpperRight.Replace(message, "THUI");
-        message = RegexAmContraction.Replace(message, "-wa");
-        message = RegexAmContractionUpper.Replace(message, "-WA");
-        message = RegexAreContraction.Replace(message, "zz");
-        message = RegexAreContractionUpper.Replace(message, "ZZ");
+    public string Grayspeakify(string input)
+    {
+        input = _replacement.ApplyReplacements(input, "gray_accent");
 
-        args.Message = message;
+        input = RegexPuUpperLeft.Replace(input, "PU");
+        input = RegexPuUpperRight.Replace(input, "PU");
+        input = RegexCatchIapostrophe.Replace(input, "Thui");
+        input = RegexThuiLower.Replace(input, "thui");
+        input = RegexThuiUpperLeft.Replace(input, "THUI");
+        input = RegexThuiUpperRight.Replace(input, "THUI");
+        input = RegexAmContraction.Replace(input, "-wa");
+        input = RegexAmContractionUpper.Replace(input, "-WA");
+        input = RegexAreContraction.Replace(input, "zz");
+        input = RegexAreContractionUpper.Replace(input, "ZZ");
+
+        return input;
     }
 }
