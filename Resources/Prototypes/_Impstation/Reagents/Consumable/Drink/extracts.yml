@@ -6,3 +6,86 @@
   physicalDesc: reagent-physical-desc-floral
   flavor: vanilla
   color: "#41100c"
+
+- type: reagent
+  id: WormwoodExtract
+  name: reagent-name-wormwood
+  desc: reagent-desc-wormwood
+  physicalDesc: reagent-physical-desc-wormy
+  flavor: wormy
+  color: "#8c5aa8"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/wormwood.rsi
+    state: icon
+  metamorphicMaxFillLevels: 1
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms: #far future todo: worm hallucinations, stars, etc
+    Digestion:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        time: 1
+        type: Add
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: #sowwy for so many of these but i love to write
+        - "wormwood-vision-shootingstar" #wormwood is the name of a falling star in the bible that poisons water. i didnt know about this until after i started making this chem.
+        - "wormwood-vision-fallingstar"
+        - "wormwood-vision-pilgrimage"
+        - "wormwood-vision-somethingbigger"
+        - "wormwood-vision-buzzing"
+        - "wormwood-vision-watched"
+        - "wormwood-vision-heart"
+        - "wormwood-vision-dark"
+        - "wormwood-vision-memory"
+        - "wormwood-vision-stars"
+        - "wormwood-vision-eyes"
+        - "wormwood-vision-nanotrasen"
+        - "wormwood-vision-threeheadedsnake"
+        - "wormwood-vision-dan"
+        - "wormwood-vision-teo"
+        - "wormwood-vision-tiles"
+        - "wormwood-vision-announcement"
+        - "wormwood-vision-facade"
+        - "wormwood-vision-homeworld"
+        - "wormwood-vision-reflection"
+        - "wormwood-vision-split"
+        - "wormwood-vision-organs"
+        - "wormwood-vision-money"
+        - "wormwood-vision-connection"
+        - "wormwood-vision-favoritefood"
+        - "wormwood-vision-song"
+        - "wormwood-vision-pleebnar" #wormwood visions tend to be somber or scary, but i didnt want them all to be depressing. its supposed to be a fun rp thing after all
+        - "wormwood-vision-hope"
+        - "wormwood-vision-friends"
+        - "wormwood-vision-friends2"
+        - "wormwood-vision-everyone"
+        - "wormwood-vision-freedom"
+        - "wormwood-vision-capitalism"
+        - "wormwood-vision-ants"
+        - "wormwood-vision-yourself"
+        - "wormwood-vision-voices"
+        - "wormwood-vision-held"
+        - "wormwood-vision-wind"
+        - "wormwood-vision-nothing"
+        - "wormwood-vision-angeldevil"
+        - "wormwood-vision-leviathan"
+        - "wormwood-vision-paths"
+        - "wormwood-vision-comfort"
+        - "wormwood-vision-dreams"
+        probability: 0.01 #1%. if probability is much higher than this youre gonna get a bunch of visions which makes them hit less hard imo
+        conditions:
+        - !type:ReagentCondition
+          reagent: WormwoodExtract
+          min: 10
+      - !type:Vomit
+        probability: 0.025
+        conditions:
+        - !type:ReagentCondition
+          reagent: WormwoodExtract
+          min: 35
+        - !type:MetabolizerTypeCondition
+          type: [ Planarian ]
+          inverted: true

@@ -48,6 +48,7 @@ flavor-complex-treatchunk = like treason and cherry
 flavor-complex-hardtack = like you might chip a tooth
 flavor-complex-yucky = yucky
 flavor-complex-digital = digital
+flavor-complex-wormy = like bitter wriggling worms
 
 flavor-complex-medium = like your vision expanded
 

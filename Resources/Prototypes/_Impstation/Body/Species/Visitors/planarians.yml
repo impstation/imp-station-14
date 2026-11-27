@@ -542,7 +542,7 @@
   parent: OrganPlanarianInternal
   id: OrganPlanarianWormwood
   name: worm wood
-  description: Historically poached for its unique chemical properties, this woody growth seems to provide structure to the Planarian's internals, but its rarity among Planarians makes it unclear if this is truly an evolved organ or instead a symbiotic organism.
+  description: Historically poached for its psychaoctive properties, this woody growth seems to provide structure to the Planarian's internals, but its rarity among Planarians makes it unclear if this is truly an evolved organ or instead a symbiotic organism.
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Visitors/Planarian/organs.rsi
@@ -569,7 +569,15 @@
         Blunt: 5
     soundHit:
       path: /Audio/Voice/Diona/diona_salute.ogg
- # - type: SolutionContainerManager #PLANARIAN TODO: wormwood tea? mugwort? medicine? injectable on hit?
+  - type: SolutionContainerManager
+    solutions:
+      grindable:
+        maxVol: 15
+        reagents:
+        - ReagentId: WormwoodExtract
+          Quantity: 15
+  - type: Extractable
+    grindableSolutionName: grindable
 
 - type: weightedRandomEntity
   id: RandomPlanarianOrganEntityTable

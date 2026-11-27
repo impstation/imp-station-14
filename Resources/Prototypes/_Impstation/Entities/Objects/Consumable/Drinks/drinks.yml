@@ -307,6 +307,22 @@
     sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/raktaccino.rsi
     state: icon
 
+- type: entity
+  parent: DrinkGlass
+  id: DrinkWormwoodExtract
+  suffix: wormwood extract
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: WormwoodExtract
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/wormwood.rsi
+    state: icon
+
 # soda
 # king soda ain't got a metamorphic glass sprite
 - type: entity
