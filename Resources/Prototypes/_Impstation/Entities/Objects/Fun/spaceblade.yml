@@ -41,8 +41,7 @@
     state: ratking
   - type: GasTank
     releasePressure: 0.1
-    maxreleasePressure: 0.1
-    valveOutputRate: 50
+    maxReleasePressure: 0.1
     air:
       volume: 1
       moles:
