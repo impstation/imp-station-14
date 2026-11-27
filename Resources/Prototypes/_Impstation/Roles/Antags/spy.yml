@@ -1,7 +1,12 @@
 - type: antag
-  parent: Traitor
   id: Spy
+  playTimeTracker: AntagSpy
   name: roles-antag-spy-name
+  antagonist: true
+  objective: roles-antag-syndicate-agent-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 1h
 
 - type: antagSpecifier
   parent: BaseTraitor
