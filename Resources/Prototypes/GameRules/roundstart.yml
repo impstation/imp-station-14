@@ -435,6 +435,21 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
+      - type: Store # begin imp edit - special infected store
+        categories: 
+        - SpecialInfectedStore
+        currencyWhitelist:
+        - MutationPoints
+        balance:
+          MutationPoints: 1
+      - type: ActionGrant
+        actions:
+        - ActionOpenMutationShop
+      - type: UserInterface
+        interfaces:
+          enum.StoreUiKey.Key:
+            type: StoreBoundUserInterface
+            requireInputValidation: false #end imp edit
       mindRoles:
       - MindRoleInitialInfected
       factionsAdd: # IMP: Initial infected should be ignored by zombies.
