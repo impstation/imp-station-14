@@ -393,7 +393,7 @@
     - creamy
     - cheesy
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 25
@@ -429,7 +429,7 @@
     - creamy
     - cheesy
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 3.125
@@ -475,17 +475,16 @@
     flavors:
     - orange
   - type: Solution
-    solutions:
+    solution:
       reagents:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 35
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 15
-        - ReagentId: Sugar
-          Quantity: 10
+      - ReagentId: Nutriment
+        Quantity: 35
+      - ReagentId: Protein
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 15
+      - ReagentId: Sugar
+        Quantity: 10
   # imp edit end
 
 - type: entity
@@ -518,7 +517,7 @@
     flavors:
     - orange
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 4.375
@@ -564,7 +563,7 @@
     flavors:
     - sour
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 35
@@ -607,7 +606,7 @@
     flavors:
     - sour
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 4.375
@@ -652,7 +651,7 @@
     flavors:
     - sour
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 35
@@ -695,7 +694,7 @@
     flavors:
     - sour
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 4.375
@@ -891,7 +890,7 @@
     flavors:
     - apple
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 35
@@ -934,7 +933,7 @@
     flavors:
     - apple
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 4.375
@@ -976,7 +975,7 @@
         color: "#00ffff"
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -1015,7 +1014,7 @@
         color: "#00ffff"
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 2.5
@@ -1169,7 +1168,7 @@
   - type: Item
     heldPrefix: birthday
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -1191,7 +1190,7 @@
   - type: Item
     heldPrefix: birthday-slice
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 2.5
@@ -1218,7 +1217,7 @@
     heldPrefix: vanilla
 # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -1254,7 +1253,7 @@
       - state: alpha-slice-filling-inhand-right
 # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 2.5
