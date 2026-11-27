@@ -1,0 +1,64 @@
+- type: entity
+  parent: [ OrganAnimalLungs ]
+  id: OrganDogLungs
+  suffix: dog
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal , Dog ]
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here. i dont know i dont know i dont know
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food: #imp edit, to match contents of OrganBaseOrganic, should be removed after solution refactor
+        maxVol: 20
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
+
+- type: entity
+  parent: [ OrganAnimalStomach ]
+  id: OrganDogStomach
+  suffix: dog
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal , Dog ]
+
+- type: entity
+  parent: [ OrganAnimalLiver ]
+  id: OrganDogLiver
+  suffix: dog
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal , Dog ]
+
+- type: entity
+  parent: [OrganAnimalHeart ]
+  id: OrganDogHeart
+  suffix: dog
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal , Dog ]
+
+- type: entity
+  parent: [  OrganAnimalKidneys ]
+  id: OrganDogKidneys
+  suffix: dog
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal , Dog ]
+
+- type: entity
+  id: DogBody
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganDogLungs
+        - id: OrganDogHeart
+        - id: OrganDogStomach
+        - id: OrganDogLiver
+        - id: OrganDogKidneys

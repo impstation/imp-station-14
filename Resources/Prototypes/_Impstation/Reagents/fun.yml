@@ -458,3 +458,49 @@
     collection: FootstepBlood
     params:
       volume: 6
+
+- type: reagent
+  id: DogOil
+  name: reagent-name-dog-oil
+  desc: reagent-desc-dog-oil
+  physicalDesc: reagent-physical-desc-oily
+  flavor: dog
+  color: "#FFBE8F"
+  slipData:
+    requiredSlipSpeed: 3.5
+  friction: 0.4
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Dog ]
+          inverted: true
+        damage:
+          types:
+            Poison: 1
+      - !type:Emote
+        emote: Bark
+        showInChat: true
+        force: true
+        probability: 0.01
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Dog ]
+          inverted: true
+        effectProto: StatusEffectHatedByDogs
+        type: Update
+        time: 50
+    Medicine:
+      effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Dog ]
+        damage:
+          Burn: -2
+          Toxin: -2
+          Airloss: -2
+          Brute: -2
