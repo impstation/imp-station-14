@@ -159,6 +159,7 @@ public sealed partial class AtmosphereSystem
         atmos.ActiveTiles.Clear();
         atmos.ExcitedGroups.Clear();
         atmos.HotspotTiles.Clear();
+        atmos.ChargedElectrovaeTiles.Clear(); // imp
         atmos.SuperconductivityTiles.Clear();
         atmos.HighPressureDelta.Clear();
         atmos.CurrentRunTiles.Clear();
