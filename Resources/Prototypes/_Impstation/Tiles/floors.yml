@@ -511,3 +511,21 @@
     collection: FootstepTile
   itemDrop: FloorTileItemDecapoidFancy
   heatCapacity: 10000
+
+# mapping
+
+- type: tile
+  id: FloorAstroSnowDug
+  name: tiles-snow-dug
+  sprite: /Textures/Tiles/Planet/Snow/snow_dug.png
+  edgeSpritePriority: 1
+  edgeSprites:
+    South: /Textures/Tiles/Planet/Snow/snow_dug_double_edge_south.png
+    East: /Textures/Tiles/Planet/Snow/snow_dug_double_edge_east.png
+    North: /Textures/Tiles/Planet/Snow/snow_dug_double_edge_north.png
+    West: /Textures/Tiles/Planet/Snow/snow_dug_double_edge_west.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepSnow
