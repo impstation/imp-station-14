@@ -44,8 +44,10 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       sprite: _Funkystation/Structures/Machines/computers.rsi
       state: comm_security
@@ -53,6 +55,7 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "Armory" ]]
   - type: CommunicationsConsole
@@ -77,8 +80,10 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       sprite: _Funkystation/Structures/Machines/computers.rsi
       state: comm_service
@@ -86,6 +91,7 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "HospitalityDirector" ]]
   - type: CommunicationsConsole
@@ -110,8 +116,10 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       sprite: _Funkystation/Structures/Machines/computers.rsi
       state: comm_supply
@@ -119,6 +127,7 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "Quartermaster" ]]
   - type: CommunicationsConsole
@@ -143,8 +152,10 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       sprite: _Funkystation/Structures/Machines/computers.rsi
       state: comm_engineering
@@ -152,6 +163,7 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "ChiefEngineer" ]]
   - type: CommunicationsConsole
@@ -176,8 +188,10 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - map: ["computerLayerScreen"]
       sprite: _Funkystation/Structures/Machines/computers.rsi
       state: comm_medical
@@ -185,6 +199,7 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: AccessReader
     access: [[ "ChiefMedicalOfficer" ]]
   - type: CommunicationsConsole
