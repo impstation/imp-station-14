@@ -138,7 +138,7 @@
     slice: FoodPieBaklavaSlice
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 24
@@ -167,16 +167,15 @@
     state: baklava-slice
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
+      maxVol: 10
       reagents:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Sugar
-          Quantity: 0.625
-        - ReagentId: TableSalt # sorry snails
-          Quantity: 0.625
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Sugar
+        Quantity: 0.625
+      - ReagentId: TableSalt # sorry snails
+        Quantity: 0.625
   - type: Tag
     tags:
     - UnguFood
@@ -227,7 +226,7 @@
   - type: SliceableFood
     slice: FoodPieBananaCreamSlice
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 47
@@ -255,7 +254,7 @@
     - Pie
     - Slice
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 5.8
@@ -287,7 +286,7 @@
     - Fruit
     - Pie
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 38
@@ -316,7 +315,7 @@
     - Pie
     - Slice
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 4.75
@@ -347,7 +346,7 @@
     - Fruit
     - Pie
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 40.5
@@ -375,7 +374,7 @@
     - Pie
     - Slice
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 5.0625
@@ -405,7 +404,7 @@
     - Meat
     - Pie
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 38
@@ -435,7 +434,7 @@
     - Pie
     - Slice
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 4.75
@@ -469,7 +468,7 @@
     - Vegetable # imp, adding this bcs the fruit pies have fruit
     - ReptilianFood # imp they get to eat squash
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 28
@@ -496,7 +495,7 @@
     - Vegetable # imp
     - ReptilianFood # imp
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 3.5
@@ -525,7 +524,7 @@
     - Meat
     - Pie
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 83
@@ -554,7 +553,7 @@
     - Pie
     - Slice
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 10.375
@@ -581,7 +580,7 @@
     slice: FoodPieFrostySlice
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 35
@@ -612,7 +611,7 @@
       color: blue
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 4.375
@@ -648,7 +647,7 @@
     slice: FoodTartMimeSlice
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 47
@@ -682,7 +681,7 @@
     heldPrefix: mime
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 5.875
@@ -764,7 +763,7 @@
   - type: Sprite
     state: grape
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 38
@@ -797,7 +796,7 @@
     - Fruit
     - Pie
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 43

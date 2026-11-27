@@ -274,7 +274,8 @@
       trash:
       - FoodFrozenSnowconeTrash
   # IMP UPMERGE - Solution Torture
-  # IMP SOLUTION:- type: SolutionContainerManager
+  # IMP SOLUTION:
+    - type: SolutionContainerManager
       solutions:
         food:
           maxVol: 20 # For sprinkles or something? Idk.

@@ -134,7 +134,7 @@
         color: "#f70000"
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 16.25
@@ -179,7 +179,7 @@
       - state: alpha-filling-inhand-right
         color: "#bd9451"
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 1.25
@@ -283,7 +283,7 @@
   - type: Sprite
     state: bearger
   - type: Solution
-    solutions:
+    solution: # imp, solutions -> solution
       reagents:
       - ReagentId: Nutriment
         Quantity: 6.25
@@ -358,7 +358,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 1.25
@@ -394,7 +394,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 6.25
@@ -511,7 +511,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 7
@@ -665,7 +665,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 16.25
@@ -738,7 +738,7 @@
 # Tastes like bun, fish.
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 11.25
@@ -1160,7 +1160,7 @@
     state: spell
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 7
@@ -1318,7 +1318,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 1.25
