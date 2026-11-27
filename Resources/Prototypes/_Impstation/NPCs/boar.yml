@@ -6,6 +6,9 @@
           task: MeleeCombatCompound
     - tasks:
         - !type:HTNCompoundTask
+          task: BreedCompound
+    - tasks:
+        - !type:HTNCompoundTask
           task: FoodCompound
     - tasks:
         - !type:HTNCompoundTask
