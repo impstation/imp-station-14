@@ -10,7 +10,6 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for creating mute ghouls. Inherits from <see cref="SacrificeBehaviorSystem"/>
 /// </summary>
-[Serializable]
 public sealed partial class MuteGhoulifyBehaviorSystem : SacrificeBehaviorSystem
 {
     [Dependency] private readonly MinionSystem _minion = default!;
@@ -35,17 +34,16 @@ public sealed partial class MuteGhoulifyBehaviorSystem : SacrificeBehaviorSystem
                 // 125 health, for mobs with 200 health baseline.
                 HealthDivisor = 1.60
             };
-            EntityManager.AddComponent(uid, ghoul, overwrite: true);
-            EntityManager.EnsureComponent<MutedComponent>(uid);
+            AddComp(uid, ghoul, overwrite: true);
+            EnsureComp<MutedComponent>(uid);
 
             // Convert the entity into a ghoul.
-            var minion = EntityManager.EnsureComponent<MinionComponent>(uid);
+            var minion = EnsureComp<MinionComponent>(uid);
             minion.BoundOwner = performer;
             _minion.ConvertEntityToMinion((uid, minion), true);
 
             // Show a big popup to everyone in the vicinity.
-            var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
-            _popup.PopupEntity(popupOthers, uid, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("heretic-flesh-revive-finish"), uid, PopupType.LargeCaution);
         }
 
         // Reset the list of UIDs.

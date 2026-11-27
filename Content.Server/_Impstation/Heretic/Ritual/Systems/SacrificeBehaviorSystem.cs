@@ -20,9 +20,7 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for making a ritual require an entity to be sacrificed.
 /// </summary>
-/// <remarks> Marked as virtual because this also is used by ascensions.</remarks>
 [Virtual]
-[Serializable]
 public partial class SacrificeBehaviorSystem : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;

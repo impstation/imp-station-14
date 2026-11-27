@@ -171,7 +171,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
-        // Get the ritual and all of its behaviors
+        // Get the ritual.
         var ritual = GetRitual(heretic.ChosenRitual);
 
         // Check that we have all of the items needed.
@@ -219,7 +219,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         }
         else if (ritual.Components.TryGetComponent<HuntAscendBehaviorComponent>(_factory, out var huntComp))
         {
-            _huntAscend.DoRitualEffect(args.User, huntComp ?? new());
+            _huntAscend.DoRitualEffect(args.User, huntComp);
         }
         else if (ritual.Components.TryGetComponent<MuteGhoulifyBehaviorComponent>(_factory, out _))
         {

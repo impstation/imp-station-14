@@ -6,7 +6,6 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for hunt path ascensions. Inherits from <see cref="SacrificeBehaviorSystem"/>
 /// </summary>
-[Serializable]
 public sealed partial class HuntAscendBehaviorSystem : SacrificeBehaviorSystem
 {
     /// <summary>

@@ -11,7 +11,6 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for making a ritual require certain temperature conditions.
 /// </summary>
-[Serializable]
 public sealed partial class TemperatureBehaviorSystem : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;

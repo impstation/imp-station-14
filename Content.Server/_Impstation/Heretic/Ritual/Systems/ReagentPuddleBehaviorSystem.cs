@@ -2,7 +2,6 @@ using Content.Server._Impstation.Heretic.Ritual;
 using Content.Shared._Impstation.Heretic.Ritual;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 namespace Content.Server.Heretic.Ritual;
@@ -10,7 +9,6 @@ namespace Content.Server.Heretic.Ritual;
 /// <summary>
 /// Behavior for making a ritual require certain reagents (in puddle form).
 /// </summary>
-[Serializable]
 public sealed partial class ReagentPuddleBehaviorSystem : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
