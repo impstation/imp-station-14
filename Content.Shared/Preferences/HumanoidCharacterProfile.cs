@@ -456,16 +456,36 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
-                // Begin Imp addition: If trait is one of the excluded traits for this, dump it
-                if (traitProto != otherProto && traitProto.Subcategories.Overlaps(otherProto.Subcategories))
+                // Begin Imp addition: If trait is one of the excluded traits for this species, dump it
+                if(otherProto != null)
                 {
-                    return new(this);
-                }
-                // End Imp addition
+                    if (traitProto != otherProto && traitProto.Disallows.Contains(otherProto))
+                    {
+                        return new(this);
+                    }
 
-                count += otherProto.Cost;
+                    //if trait has requirements and they are fulfilled, allow it. 
+                    if (traitProto.Requires.Count > 0 && _traitPreferences.Overlaps(traitProto.Requires))
+                    {
+
+                    }
+                    //if trait has no reqs, allow it
+                    else if (traitProto.Requires.Count == 0)
+                    {
+
+                    }
+                    //otherwise, dump it
+                    else
+                    {
+                        return new(this);
+                    }
+                    // End Imp addition
+
+                    count += otherProto.Cost;
+                }
             }
 
+            //if trait has point cost and you don't have enough points left, dump it
             if (count > traitCategory.MaxTraitPoints && traitProto.Cost != 0)
             {
                 return new(this);

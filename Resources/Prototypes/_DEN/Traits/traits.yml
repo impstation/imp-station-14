@@ -17,9 +17,9 @@
   name: trait-hefty-name
   description: trait-hefty-desc
   category: Traits
-  subcategories:
-    - Weight
-  cost: 2 # default character has 2 points, they can pick their weight if they want
+  disallows:
+    - Slight
+  cost: 0 # built-in advantages & disadvantages
   components:
     - type: FixtureDensityModifier #keep in mind the minimum species density and the maximum species density when editing
       min: 30
@@ -31,9 +31,9 @@
   name: trait-slight-name
   description: trait-slight-desc
   category: Traits
-  subcategories:
-    - Weight
-  cost: 2 # default character has 2 points, they can pick their weight if they want
+  disallows:
+    - Hefty
+  cost: 0 # built-in advantages & disadvantages
   components:
     - type: FixtureDensityModifier #keep in mind the minimum species density and the maximum species density when editing
       min: 30
