@@ -1,15 +1,15 @@
 // Initial file ported from the Starlight project repo, located at https://github.com/ss14Starlight/space-station-14
 
 using System.Linq;
-using Content.Shared.VentCraw.Tube.Components;
-using Content.Shared.VentCraw.Components;
-using Content.Shared.VentCraw;
+using Content.Shared._Starlight.VentCraw.Tube.Components;
+using Content.Shared._Starlight.VentCraw.Components;
+using Content.Shared._Starlight.VentCraw;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Eye.Blinding.Systems;
 
-namespace Content.Server.VentCraw;
+namespace Content.Server._Starlight.VentCraw;
 
 public sealed class VentCrawableSystem : EntitySystem
 {

@@ -2,7 +2,7 @@
 
 using Robust.Shared.Containers;
 
-namespace Content.Shared.VentCraw.Tube.Components;
+namespace Content.Shared._Starlight.VentCraw.Tube.Components;
 
 [RegisterComponent]
 public sealed partial class VentCrawTubeComponent : Component
