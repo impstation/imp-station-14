@@ -3,8 +3,8 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
-[Prototype("hereticKnowledge")]
+[DataDefinition, Serializable, NetSerializable]
+[Prototype]
 public sealed partial class HereticKnowledgePrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -21,7 +21,7 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
     /// <summary>
     ///     What rituals should be given
     /// </summary>
-    [DataField] public List<ProtoId<HereticRitualPrototype>>? RitualPrototypes;
+    [DataField] public List<ProtoId<HereticRitualPrototype>>? RitualPrototypes = [];
 
     /// <summary>
     ///     What actions should be given
