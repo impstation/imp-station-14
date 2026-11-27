@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 10/11/2026 13:01:54
-  entityCount: 44323
+  time: 11/27/2026 18:05:57
+  entityCount: 44336
 maps:
 - 18185
 grids:
@@ -25803,6 +25803,8 @@ entities:
     - type: Transform
       pos: 10.5,57.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 32548
     components:
     - type: Transform
@@ -44425,7 +44427,7 @@ entities:
   - uid: 7710
     components:
     - type: Transform
-      pos: -11.5,64.5
+      pos: -8.5,63.5
       parent: 2
   - uid: 7715
     components:
@@ -44495,12 +44497,12 @@ entities:
   - uid: 7784
     components:
     - type: Transform
-      pos: -2.5,65.5
+      pos: -3.5,65.5
       parent: 2
   - uid: 7786
     components:
     - type: Transform
-      pos: -2.5,66.5
+      pos: -1.5,64.5
       parent: 2
   - uid: 7789
     components:
@@ -102972,6 +102974,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -17.5,58.5
       parent: 2
+  - uid: 42892
+    components:
+    - type: Transform
+      pos: 9.5,59.5
+      parent: 2
 - proto: ChairFolding
   entities:
   - uid: 370
@@ -110060,6 +110067,13 @@ entities:
     components:
     - type: Transform
       pos: 62.5,30.5
+      parent: 2
+- proto: CrateFoodMRE
+  entities:
+  - uid: 42893
+    components:
+    - type: Transform
+      pos: 10.5,59.5
       parent: 2
 - proto: CrateFunInstrumentsVariety
   entities:
@@ -194884,6 +194898,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 42891
+    components:
+    - type: Transform
+      pos: 8.5,60.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: IntercomCommandService
   entities:
   - uid: 41573
@@ -198480,6 +198501,56 @@ entities:
     - type: Transform
       pos: -33.52575,39.475075
       parent: 2
+  - uid: 42274
+    components:
+    - type: Transform
+      pos: 26.46426,46.537613
+      parent: 2
+  - uid: 42856
+    components:
+    - type: Transform
+      pos: 29.49551,46.521988
+      parent: 2
+  - uid: 42857
+    components:
+    - type: Transform
+      pos: 30.511135,44.521988
+      parent: 2
+  - uid: 42860
+    components:
+    - type: Transform
+      pos: 30.52676,41.521374
+      parent: 2
+  - uid: 42861
+    components:
+    - type: Transform
+      pos: 30.49551,38.4745
+      parent: 2
+  - uid: 42862
+    components:
+    - type: Transform
+      pos: 30.479885,35.53072
+      parent: 2
+  - uid: 42863
+    components:
+    - type: Transform
+      pos: 27.49551,35.49947
+      parent: 2
+  - uid: 42864
+    components:
+    - type: Transform
+      pos: 24.535109,35.546345
+      parent: 2
+  - uid: 42873
+    components:
+    - type: Transform
+      pos: 22.503859,36.483845
+      parent: 2
+  - uid: 42874
+    components:
+    - type: Transform
+      pos: 22.472609,39.46822
+      parent: 2
 - proto: LandmineSpawner25
   entities:
   - uid: 15511
@@ -198871,11 +198942,6 @@ entities:
     - type: Transform
       pos: -29.5,36.5
       parent: 2
-  - uid: 42274
-    components:
-    - type: Transform
-      pos: 8.5,59.5
-      parent: 2
   - uid: 42486
     components:
     - type: Transform
@@ -198890,6 +198956,11 @@ entities:
     components:
     - type: Transform
       pos: -84.5,31.5
+      parent: 2
+  - uid: 42894
+    components:
+    - type: Transform
+      pos: 7.5,58.5
       parent: 2
 - proto: LinkedCaptainIDCardSpawner4
   entities:

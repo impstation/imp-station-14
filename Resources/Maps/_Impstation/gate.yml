@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2026 02:09:00
-  entityCount: 34660
+  time: 08/16/2026 13:24:13
+  entityCount: 34676
 maps:
 - 1
 grids:
@@ -16150,7 +16150,7 @@ entities:
       pos: 64.5,46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -113919.77
+      secondsUntilStateChange: -114880.336
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17695,7 +17695,7 @@ entities:
       pos: -63.5,108.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -32731.768
+      secondsUntilStateChange: -33692.332
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17794,7 +17794,7 @@ entities:
       pos: 1.5,161.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -164391.14
+      secondsUntilStateChange: -165351.7
       changeAirtight: False
       state: Opening
     - type: Docking
@@ -17810,7 +17810,7 @@ entities:
       pos: -0.5,161.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -164389.11
+      secondsUntilStateChange: -165349.67
       changeAirtight: False
       state: Opening
     - type: Docking
@@ -18559,7 +18559,7 @@ entities:
       pos: -94.5,53.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150496.94
+      secondsUntilStateChange: -151457.5
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18841,7 +18841,7 @@ entities:
       pos: -8.5,195.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -74907.37
+      secondsUntilStateChange: -75867.93
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18902,7 +18902,7 @@ entities:
       pos: -61.5,98.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -140397.42
+      secondsUntilStateChange: -141357.98
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18915,7 +18915,7 @@ entities:
       pos: -60.5,94.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -140393.92
+      secondsUntilStateChange: -141354.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22013,6 +22013,24 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -75.5,105.5
+      parent: 2
+  - uid: 18548
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -45.5,-0.5
+      parent: 2
+  - uid: 18549
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -55.5,-3.5
+      parent: 2
+  - uid: 18551
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -52.5,8.5
       parent: 2
 - proto: AtmosDeviceFanTiny
   entities:
@@ -163063,6 +163081,30 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
+- proto: SignAnchor
+  entities:
+  - uid: 18541
+    components:
+    - type: Transform
+      pos: 19.5,173.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18542
+    components:
+    - type: Transform
+      pos: -83.5,74.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18552
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 72.5,22.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: SignAnomaly
   entities:
   - uid: 20074
@@ -163397,6 +163439,82 @@ entities:
     components:
     - type: Transform
       pos: -4.5,78.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: SignDirectionalAtmos
+  entities:
+  - uid: 18049
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.4838066,175.75385
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18531
+    components:
+    - type: Transform
+      pos: -73.45776,150.75543
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18535
+    components:
+    - type: Transform
+      pos: -74.51855,160.75014
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18540
+    components:
+    - type: Transform
+      pos: 18.5,179.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18543
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -36.49659,1.7285995
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18547
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -55.45404,-1.2723541
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18553
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 73.5,30.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18556
+    components:
+    - type: Transform
+      pos: 72.501305,31.759438
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18558
+    components:
+    - type: Transform
+      pos: 82.53759,32.247448
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18560
+    components:
+    - type: Transform
+      pos: 82.49882,37.261566
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -164090,11 +164208,11 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 18049
+  - uid: 18537
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 1.5,175.5
+      pos: -0.5,175.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -214023,20 +214141,6 @@ entities:
       color: '#33CF3CFF'
       radius: 2
       castShadows: False
-    - type: MindContainer
-    - type: InputMover
-    - type: MobMover
-    - type: MovementSpeedModifier
-    - type: Speech
-      suffixSpeechVerbs:
-        chat-speech-verb-suffix-exclamation-strong: DefaultExclamationStrong
-        chat-speech-verb-suffix-exclamation: DefaultExclamation
-        chat-speech-verb-suffix-question: DefaultQuestion
-        chat-speech-verb-suffix-stutter: DefaultStutter
-        chat-speech-verb-suffix-mumble: DefaultMumble
-      allowedEmotes: []
-    - type: Emoting
-    - type: Examiner
 - proto: WeaponPocketDisabler
   entities:
   - uid: 13812
