@@ -7,8 +7,8 @@
   icon:
     sprite: Mobs/Species/Human/organs.rsi
     state: heart-on
-  ritualBehavior:
-  - !type:SacrificeBehavior
+  components:
+  - type: SacrificeBehavior
 
 - type: hereticRitual
   id: AmberFocus
@@ -20,8 +20,8 @@
   requiredTags:
     GlassShard: 1
     Eyes: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       ClothingNeckAmberFocus: 1
 
@@ -36,8 +36,8 @@
     Heart: 1
     Book: 1
     Write: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       CodexCicatrix: 1
 
@@ -52,8 +52,8 @@
   requiredTags:
     Knife: 1
     WeldingTool: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       HereticBladeAsh: 1
 
@@ -69,8 +69,8 @@
     Candle: 4
     Stunbaton: 1
     Liver: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       ClothingMaskMadHeretic: 1
 
@@ -83,8 +83,8 @@
     state: fire_cascade
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
-  ritualBehavior:
-  - !type:AshAscendBehavior
+  components:
+  - type: AshAscendBehavior
     min: 3
     max: 3
 
@@ -99,8 +99,8 @@
     state: icon
   requiredTags:
     Knife: 1
-  ritualBehavior:
-  - !type:ReagentPuddleBehavior
+  components:
+  - type: ReagentPuddleBehavior
     reagents:
     - Blood
     - GrayBlood
@@ -115,7 +115,7 @@
     - SynthBlood
     - AnomalocaridCopperBlood
     - BloodAllulalo
-  - !type:TransmuteBehavior
+  - type: TransmuteBehavior
     outputItems:
       HereticBladeFlesh: 1
 
@@ -128,8 +128,8 @@
     state: full
   requiredTags:
     Poppy: 1
-  ritualBehavior:
-  - !type:MuteGhoulifyBehavior
+  components:
+  - type: MuteGhoulifyBehavior
 
 - type: hereticRitual
   id: RawRitual
@@ -141,8 +141,8 @@
   requiredTags:
     Eyes: 1
     Stomach: 1
-  ritualBehavior:
-  - !type:ReagentPuddleBehavior
+  components:
+  - type: ReagentPuddleBehavior
     reagents:
     - Blood
     - GrayBlood
@@ -157,7 +157,7 @@
     - SynthBlood
     - AnomalocaridCopperBlood
     - BloodAllulalo
-  - !type:TransmuteBehavior
+  - type: TransmuteBehavior
     outputItems:
       MobGhoulProphet: 1
 
@@ -173,8 +173,8 @@
     Heart: 1
     Stomach: 1
     Lungs: 1
-  ritualBehavior:
-  - !type:ReagentPuddleBehavior
+  components:
+  - type: ReagentPuddleBehavior
     reagents:
     - Blood
     - GrayBlood
@@ -189,7 +189,7 @@
     - SynthBlood
     - AnomalocaridCopperBlood
     - BloodAllulalo
-  - !type:TransmuteBehavior
+  - type: TransmuteBehavior
     outputItems:
       MobGhoulStalker: 1
 
@@ -202,8 +202,8 @@
     state: reality_uncoil
   outputKnowledge: PriestFinalHymn
   outputEvent: !type:EventHereticAscension
-  ritualBehavior:
-  - !type:SacrificeBehavior
+  components:
+  - type: SacrificeBehavior
     min: 4
     max: 4
 
@@ -218,9 +218,9 @@
     state: icon
   requiredTags:
     Knife: 1
-  ritualBehavior:
-  - !type:TemperatureBehavior
-  - !type:TransmuteBehavior
+  components:
+  - type: TemperatureBehavior
+  - type: TransmuteBehavior
     outputItems:
       HereticBladeVoid: 1
 
@@ -233,10 +233,11 @@
     state: cold3
   outputKnowledge: WaltzAtTheEndOfTime
   outputEvent: !type:EventHereticAscension
-  ritualBehavior:
-  - !type:TemperatureBehavior
+  components:
+  - type: TemperatureBehavior
     minThreshold: -20
-  - !type:SacrificeBehavior
+    maxThreshold: 0
+  - type: SacrificeBehavior
     min: 3
     max: 3
 
@@ -251,8 +252,8 @@
   requiredTags:
     Knife: 1
     Sidearm: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       WeaponRevolverSerpentine: 1
 
@@ -266,8 +267,8 @@
   requiredTags:
     PillCanister: 1
     Pipe: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       HereticAmmoPouch: 1
 
@@ -282,8 +283,8 @@
     Sidearm: 1
     Meat: 1
     Eyes: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       WeaponSniperLionhunter: 1
 
@@ -298,8 +299,8 @@
     Scarf: 1
     GlassShard: 1
     Brain: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       HereticSkaptodonCloak: 1
 
@@ -312,8 +313,8 @@
     state: spike
   outputKnowledge: ManhuntsReversal
   outputEvent: !type:EventHereticAscension
-  ritualBehavior:
-  - !type:HuntAscendBehavior
+  components:
+  - type: HuntAscendBehavior
     min: 3
     max: 3
 
@@ -328,8 +329,8 @@
   requiredTags:
     Table: 1
     GasMask: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       ClothingOuterArmorHeretic: 1
 
@@ -343,8 +344,8 @@
   requiredTags:
     WaterTank: 1
     GlassShard: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       HereticEldritchFlask: 1
 
@@ -358,8 +359,8 @@
   requiredTags:
     Heart: 1
     Flare: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       HereticBookSensor: 1
 
@@ -374,8 +375,8 @@
     LightBulb: 1
     Crowbar: 1
     Eyes: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       HereticMirror: 1
 
@@ -389,7 +390,7 @@
   requiredTags:
     WhitelistChameleonIdCard: 1
     Organ: 1
-  ritualBehavior:
-  - !type:TransmuteBehavior
+  components:
+  - type: TransmuteBehavior
     outputItems:
       HereticKeyThrowing: 1

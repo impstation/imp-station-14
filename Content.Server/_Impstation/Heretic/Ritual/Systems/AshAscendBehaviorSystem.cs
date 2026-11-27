@@ -1,12 +1,12 @@
+using Content.Server._Impstation.Heretic.Ritual;
 using Content.Shared.Atmos.Components;
 
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
-/// Behavior for ash path ascensions. Inherits from <see cref="SacrificeBehavior"/>
+/// Behavior for ash path ascensions. Inherits from <see cref="SacrificeBehaviorSystem"/>
 /// </summary>
-[Serializable]
-public sealed partial class AshAscendBehavior : SacrificeBehavior
+public sealed partial class AshAscendBehaviorSystem : SacrificeBehaviorSystem
 {
     /// <summary>
     /// List of entities that meet the conditions for the ash ascension.
@@ -24,10 +24,10 @@ public sealed partial class AshAscendBehavior : SacrificeBehavior
     /// <param name="performer">Entity performing the ritual.</param>
     /// <param name="platform">The transmutation rune.</param>
     /// <returns>If the conditions succeed or not.</returns>
-    public bool DoAshAscendRitual(EntityUid performer, EntityUid platform)
+    public bool DoAshAscendRitual(EntityUid performer, EntityUid platform, AshAscendBehaviorComponent comp)
     {
         // Check for burning corpses.
-        for (int i = 0; i < Max; i++)
+        for (int i = 0; i < comp.Max; i++)
         {
             if (EntityManager.TryGetComponent<FlammableComponent>(Uids[i], out var flame))
                 if (flame.OnFire)
@@ -35,7 +35,7 @@ public sealed partial class AshAscendBehavior : SacrificeBehavior
         }
 
         // If the amount of burning corpses is less than the minimum required to execute the ritual, tell the performer.
-        if (_usableUids.Count < Min)
+        if (_usableUids.Count < comp.Min)
         {
             Popup.PopupEntity(Loc.GetString("heretic-ritual-fail-sacrifice-ash"), platform, performer);
             return false;

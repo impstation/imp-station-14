@@ -8,10 +8,10 @@ using Content.Shared.Speech.Muting;
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
-/// Behavior for creating mute ghouls. Inherits from <see cref="SacrificeBehavior"/>
+/// Behavior for creating mute ghouls. Inherits from <see cref="SacrificeBehaviorSystem"/>
 /// </summary>
 [Serializable]
-public sealed partial class MuteGhoulifyBehavior : SacrificeBehavior
+public sealed partial class MuteGhoulifyBehaviorSystem : SacrificeBehaviorSystem
 {
     [Dependency] private readonly MinionSystem _minion = default!;
     [Dependency] private readonly PopupSystem _popup = default!;

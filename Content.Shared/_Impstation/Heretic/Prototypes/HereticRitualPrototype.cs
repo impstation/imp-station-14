@@ -1,12 +1,10 @@
-using Content.Shared._Impstation.Heretic.Ritual;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[DataDefinition, Serializable, NetSerializable]
+[DataDefinition]
 [Prototype]
 public sealed partial class HereticRitualPrototype : IPrototype
 {
@@ -43,7 +41,8 @@ public sealed partial class HereticRitualPrototype : IPrototype
     [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon");
 
     /// <summary>
-    /// What the ritual does.
+    /// Used for ritual behaviors.
     /// </summary>
-    [DataField] public List<SharedRitualBehaviorSystem> RitualBehavior = [];
+    [DataField(serverOnly: true)]
+    public ComponentRegistry Components = new();
 }

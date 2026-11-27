@@ -1,3 +1,4 @@
+using Content.Server._Impstation.Heretic.Ritual;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared._Impstation.Heretic.Ritual;
 using Content.Shared.Heretic.Prototypes;
@@ -9,29 +10,18 @@ namespace Content.Server.Heretic.Ritual;
 /// Behavior for rituals which spawn an entity on success.
 /// </summary>
 [Serializable]
-public sealed partial class TransmuteBehavior : SharedRitualBehaviorSystem
+public sealed partial class TransmuteBehaviorSystem : SharedRitualBehaviorSystem
 {
-    /// <summary>
-    /// What entities will be spawned on success.
-    /// </summary>
-    [DataField] public Dictionary<EntProtoId, int> OutputItems = [];
-
     public override void Initialize()
     {
         base.Initialize();
     }
 
-    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public void DoRitualEffect(EntityUid performer, EntityUid platform, TransmuteBehaviorComponent comp)
     {
-        // TryDoRitual() in HereticRitualSystem already checks for item requirements and such.
-        return true;
-    }
-
-    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
-    {
-        foreach (var ent in OutputItems.Keys)
+        foreach (var ent in comp.OutputItems.Keys)
         {
-            for (var i = 0; i < OutputItems[ent]; i++)
+            for (var i = 0; i < comp.OutputItems[ent]; i++)
             {
                 var spawn = Spawn(ent, Transform(platform).Coordinates);
 

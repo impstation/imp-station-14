@@ -1,10 +1,10 @@
+using Content.Server._Impstation.Heretic.Ritual;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
 using Content.Shared._Impstation.Heretic;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared._Impstation.Heretic.Ritual;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -23,45 +23,14 @@ namespace Content.Server.Heretic.Ritual;
 /// <remarks> Marked as virtual because this also is used by ascensions.</remarks>
 [Virtual]
 [Serializable]
-public partial class SacrificeBehavior : SharedRitualBehaviorSystem
+public partial class SacrificeBehaviorSystem : SharedRitualBehaviorSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-
-    /// <summary>
-    /// Minimum amount of corpses.
-    /// </summary>
-    [DataField] public float Min { get; set; } = 1;
-
-    /// <summary>
-    /// Maximum amount of corpses.
-    /// </summary>
-    [DataField] public float Max { get; set; } = 1;
-
-    /// <summary>
-    /// Points gained on sacrificing a normal crewmember.
-    /// </summary>
-    [DataField] public float SacrificePoints { get; set; } = 2f;
-
-    /// <summary>
-    /// Points gained on sacrificing a command member.
-    /// </summary>
-    [DataField] public float CommandSacrificePoints { get; set; } = 3f;
-
-    /// <summary>
-    /// The type of damage to do to victims who aren't already dead.
-    /// </summary>
-    [DataField]
-    public DamageSpecifier SacDamage { get; set; } = new()
-    {
-        DamageDict = new()
-        {
-            {"Asphyxiation", 100},
-        }
-    };
+    [Dependency] protected readonly IPrototypeManager Proto = default!;
 
     /// <summary>
     /// List of entities being sacrificed.
@@ -73,8 +42,10 @@ public partial class SacrificeBehavior : SharedRitualBehaviorSystem
         base.Initialize();
     }
 
-    public override bool DoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public bool DoRitual(EntityUid performer, EntityUid platform, SacrificeBehaviorComponent comp)
     {
+
+
         // Check if there's even anything on the circle, if there is, add it to a list.
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
@@ -98,12 +69,12 @@ public partial class SacrificeBehavior : SharedRitualBehaviorSystem
 
             if (mobstate.CurrentState == MobState.Critical) // if still alive, do enough damage to kill
             {
-                _dmg.TryChangeDamage(look, SacDamage, true, origin: performer);
+                _dmg.TryChangeDamage(look, comp.SacDamage, true, origin: performer);
             }
         }
 
         // If we have less corpses than what is required by the ritual, tell the performer.
-        if (Uids.Count < Min)
+        if (Uids.Count < comp.Min)
         {
             Popup.PopupEntity(Loc.GetString("heretic-ritual-fail-sacrifice-ineligible"), platform, performer);
             return false;
@@ -112,17 +83,17 @@ public partial class SacrificeBehavior : SharedRitualBehaviorSystem
         return true;
     }
 
-    public override void DoRitualEffect(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public void DoRitualEffect(EntityUid performer, SacrificeBehaviorComponent comp)
     {
         // TryDoRitual already checks this, but we need hereticComp later.
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return;
 
         // Now actually sacrifice them
-        for (var i = 0; i < Max; i++)
+        for (var i = 0; i < comp.Max; i++)
         {
             var isCommand = HasComp<CommandStaffComponent>(Uids[i]);
-            var knowledgeGain = isCommand ? CommandSacrificePoints : SacrificePoints;
+            var knowledgeGain = isCommand ? comp.CommandSacrificePoints : comp.SacrificePoints;
 
             //add the component to track the hell adventure
             EnsureComp<InHellComponent>(Uids[i]);

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using Content.Server._Impstation.Heretic.Ritual;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.Ritual;
@@ -23,6 +24,7 @@ namespace Content.Server.Heretic.EntitySystems;
 /// </summary>
 public sealed partial class HereticRitualSystem : EntitySystem
 {
+    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
@@ -33,13 +35,13 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     // Behavior systems
-    [Dependency] private readonly TransmuteBehavior _transmute = default!;
-    [Dependency] private readonly TemperatureBehavior _temperature = default!;
-    [Dependency] private readonly SacrificeBehavior _sacrifice = default!;
-    [Dependency] private readonly ReagentPuddleBehavior _reagentPuddle = default!;
-    [Dependency] private readonly MuteGhoulifyBehavior _muteGhoulify = default!;
-    [Dependency] private readonly HuntAscendBehavior _huntAscend = default!;
-    [Dependency] private readonly AshAscendBehavior _ashAscend = default!;
+    [Dependency] private readonly TransmuteBehaviorSystem _transmute = default!;
+    [Dependency] private readonly TemperatureBehaviorSystem _temperature = default!;
+    [Dependency] private readonly SacrificeBehaviorSystem _sacrifice = default!;
+    [Dependency] private readonly ReagentPuddleBehaviorSystem _reagentPuddle = default!;
+    [Dependency] private readonly MuteGhoulifyBehaviorSystem _muteGhoulify = default!;
+    [Dependency] private readonly HuntAscendBehaviorSystem _huntAscend = default!;
+    [Dependency] private readonly AshAscendBehaviorSystem _ashAscend = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
     public List<EntityUid> ToDelete = new();
@@ -144,9 +146,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnRitualChosenMessage(Entity<HereticRitualRuneComponent> ent, ref HereticRitualMessage args)
     {
-        if (!TryComp<HereticComponent>(args.Actor, out _))
+        if (!TryComp<HereticComponent>(args.Actor, out var hereticComp))
             return;
 
+        hereticComp.ChosenRitual = GetRitual(args.ProtoId);
         var ritualName = Loc.GetString(GetRitual(args.ProtoId).LocName);
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), args.Actor, args.Actor);
     }
@@ -170,145 +173,69 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         // Get the ritual and all of its behaviors
         var ritual = GetRitual(heretic.ChosenRitual);
-        var behaviors = ritual.RitualBehavior ?? new();
 
         // Check that we have all of the items needed.
         if (!TryDoRitual(args.User, ent, ritual))
             return;
 
         // Check all other conditions are met.
-        foreach (var behavior in behaviors)
+        // There are probably better ways to do this.
+        if (ritual.Components.TryGetComponent<AshAscendBehaviorComponent>(_factory, out var ashComp))
         {
-            // There are probably so many better ways to do this.
-            switch (behavior)
-            {
-                case MuteGhoulifyBehavior:
-                    // No datafields.
-                    if (!_muteGhoulify.DoRitual(args.User, ent, ritual))
-                        return;
-                    break;
-
-                case HuntAscendBehavior:
-                    // Cast the behavior to the ritual type.
-                    HuntAscendBehavior ritualHuntAscend = behavior as HuntAscendBehavior ?? new();
-
-                    // Assign the behavior's fields to the ritual's system.
-                    _huntAscend.Max = ritualHuntAscend.Max;
-                    _huntAscend.Min = ritualHuntAscend.Min;
-                    _huntAscend.SacrificePoints = ritualHuntAscend.SacrificePoints;
-                    _huntAscend.CommandSacrificePoints = ritualHuntAscend.CommandSacrificePoints;
-                    _huntAscend.SacDamage = ritualHuntAscend.SacDamage;
-
-                    // Do.
-                    if (!_huntAscend.DoRitual(args.User, ent, ritual) && !_huntAscend.DoHuntAscendRitual(args.User, ent))
-                        return;
-                    break;
-
-                case AshAscendBehavior:
-                    // Cast the behavior to the ritual type.
-                    AshAscendBehavior ritualAshAscend = behavior as AshAscendBehavior ?? new();
-
-                    // Assign the behavior's fields to the ritual's system.
-                    _ashAscend.Max = ritualAshAscend.Max;
-                    _ashAscend.Min = ritualAshAscend.Min;
-                    _ashAscend.SacrificePoints = ritualAshAscend.SacrificePoints;
-                    _ashAscend.CommandSacrificePoints = ritualAshAscend.CommandSacrificePoints;
-                    _ashAscend.SacDamage = ritualAshAscend.SacDamage;
-
-                    // Do.
-                    if (!_ashAscend.DoRitual(args.User, ent, ritual) && !_ashAscend.DoAshAscendRitual(args.User, ent))
-                        return;
-                    break;
-
-                // Anything that inherits from SacrificeBehavior has to be above this.
-                case SacrificeBehavior:
-                    // Ignore inheritors.
-                    if (behavior is HuntAscendBehavior || behavior is AshAscendBehavior || behavior is MuteGhoulifyBehavior)
-                        continue;
-
-                    // Cast the behavior to the ritual type.
-                    SacrificeBehavior ritualSacrifice = behavior as SacrificeBehavior ?? new();
-
-                    // Assign the behavior's fields to the ritual's system.
-                    _sacrifice.Max = ritualSacrifice.Max;
-                    _sacrifice.Min = ritualSacrifice.Min;
-                    _sacrifice.SacrificePoints = ritualSacrifice.SacrificePoints;
-                    _sacrifice.CommandSacrificePoints = ritualSacrifice.CommandSacrificePoints;
-                    _sacrifice.SacDamage = ritualSacrifice.SacDamage;
-
-                    // Do.
-                    if (!_sacrifice.DoRitual(args.User, ent, ritual))
-                        return;
-                    break;
-
-                case TemperatureBehavior:
-                    // Cast the behavior to the ritual type.
-                    TemperatureBehavior ritualTemp;
-                    ritualTemp = behavior as TemperatureBehavior ?? new();
-
-                    // Assign the behavior's fields to the ritual's system.
-                    _temperature.MaxThreshold = ritualTemp.MaxThreshold;
-                    _temperature.MinThreshold = ritualTemp.MinThreshold;
-
-                    // Do.
-                    if (!_temperature.DoRitual(args.User, ent, ritual))
-                        return;
-                    break;
-
-                case ReagentPuddleBehavior:
-                    // Cast the behavior to the ritual type.
-                    ReagentPuddleBehavior ritualReagent = behavior as ReagentPuddleBehavior ?? new();
-
-                    // Assign the behavior's fields to the ritual's system.
-                    _reagentPuddle.Reagents = ritualReagent.Reagents;
-
-                    // Do.
-                    if (!_reagentPuddle.DoRitual(args.User, ent, ritual))
-                        return;
-                    break;
-            }
+            if (!_ashAscend.DoRitual(args.User, ent, ashComp) || _ashAscend.DoAshAscendRitual(args.User, ent, ashComp))
+                return;
+        }
+        else if (ritual.Components.TryGetComponent<HuntAscendBehaviorComponent>(_factory, out var huntComp))
+        {
+            if (!_huntAscend.DoRitual(args.User, ent, huntComp) || _huntAscend.DoHuntAscendRitual(args.User, ent, huntComp))
+                return;
+        }
+        else if (ritual.Components.TryGetComponent<MuteGhoulifyBehaviorComponent>(_factory, out var muteComp))
+        {
+            if (!_muteGhoulify.DoRitual(args.User, ent, muteComp))
+                return;
+        }
+        else if (ritual.Components.TryGetComponent<ReagentPuddleBehaviorComponent>(_factory, out var reagentComp))
+        {
+            if (!_reagentPuddle.DoRitual(args.User, ent, reagentComp))
+                return;
+        }
+        else if (ritual.Components.TryGetComponent<SacrificeBehaviorComponent>(_factory, out var sacrificeComp))
+        {
+            if (!_sacrifice.DoRitual(args.User, ent, sacrificeComp))
+                return;
+        }
+        else if (ritual.Components.TryGetComponent<TemperatureBehaviorComponent>(_factory, out var tempComp))
+        {
+            if (!_temperature.DoRitual(args.User, ent, tempComp))
+                return;
         }
 
         // Execute the ritual behaviors.
-        foreach (var behavior in behaviors)
+        if (ritual.Components.TryGetComponent<AshAscendBehaviorComponent>(_factory, out _))
         {
-            switch (behavior)
-            {
-                case MuteGhoulifyBehavior:
-                    _muteGhoulify.DoMuteGhoulifyRitualEffect(args.User);
-                    break;
-
-                case HuntAscendBehavior:
-                    _huntAscend.DoRitualEffect(args.User, ent, ritual);
-                    break;
-
-                case AshAscendBehavior:
-                    _ashAscend.DoRitualEffect(args.User, ent, ritual);
-                    break;
-
-                case SacrificeBehavior:
-                    // Ignore inheritors.
-                    if (behavior is HuntAscendBehavior || behavior is AshAscendBehavior || behavior is MuteGhoulifyBehavior)
-                        continue;
-
-                    _sacrifice.DoRitualEffect(args.User, ent, ritual);
-                    break;
-
-                case TransmuteBehavior:
-                    // Cast the behavior to the ritual type.
-                    TransmuteBehavior ritualTrans = behavior as TransmuteBehavior ?? new();
-
-                    // Assign the behavior's fields to the ritual's system.
-                    _transmute.OutputItems = ritualTrans.OutputItems;
-
-                    // Do.
-                    _transmute.DoRitualEffect(args.User, ent, ritual);
-                    break;
-
-                case ReagentPuddleBehavior:
-                    _reagentPuddle.DoRitualEffect(args.User, ent, ritual);
-                    break;
-            }
+            // I don't entirely understand why the earlier ashComp is in scope here. It's Concerning.
+            _ashAscend.DoRitualEffect(args.User, ashComp ?? new());
+        }
+        else if (ritual.Components.TryGetComponent<HuntAscendBehaviorComponent>(_factory, out var huntComp))
+        {
+            _huntAscend.DoRitualEffect(args.User, huntComp ?? new());
+        }
+        else if (ritual.Components.TryGetComponent<MuteGhoulifyBehaviorComponent>(_factory, out _))
+        {
+            _muteGhoulify.DoMuteGhoulifyRitualEffect(args.User);
+        }
+        else if (ritual.Components.TryGetComponent<ReagentPuddleBehaviorComponent>(_factory, out _))
+        {
+            _reagentPuddle.DoRitualEffect();
+        }
+        else if (ritual.Components.TryGetComponent<SacrificeBehaviorComponent>(_factory, out var sacrificeComp))
+        {
+            _sacrifice.DoRitualEffect(args.User, sacrificeComp);
+        }
+        else if (ritual.Components.TryGetComponent<TransmuteBehaviorComponent>(_factory, out var transComp))
+        {
+            _transmute.DoRitualEffect(args.User, args.Target, transComp);
         }
 
         // Delete entities that need to be deleted.
