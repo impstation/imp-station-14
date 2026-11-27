@@ -7,8 +7,7 @@
   components:
   - type: GasTank
     releasePressure: 0.1
-    maxreleasePressure: 0.1
-    valveOutputRate: 50
+    maxReleasePressure: 0.1 # imp, maxreleasePressure -> maxReleasePressure
     air:
       volume: 1
       moles:
@@ -191,8 +190,7 @@
     price: 100
   - type: GasTank # imp - someone said this should spit out an extremely small amount of plasma. so here you go
     releasePressure: 0.1
-    maxreleasePressure: 0.1
-    valveOutputRate: 50
+    maxReleasePressure: 0.1
     air:
       volume: 1
       moles:
@@ -312,8 +310,7 @@
     enabled: false
   - type: GasTank
     releasePressure: 0.1
-    maxreleasePressure: 0.1
-    valveOutputRate: 50
+    maxReleasePressure: 0.1 # imp, maxReleasePressure -> maxReleasePressure
     air:
       volume: 1
       moles:
