@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 08/31/2026 05:14:00
-  entityCount: 14977
+  time: 11/22/2026 22:18:26
+  entityCount: 14980
 maps:
 - 1
 grids:
@@ -2193,7 +2193,6 @@ entities:
             id: Rectangle1x2GradientRounded
           decals:
             641: 4,24
-            2334: -26,-7
         - node:
             color: '#000000CD'
             id: Rectangle1x2GradientRounded
@@ -2783,15 +2782,34 @@ entities:
             3274: -30,37
             3300: -12,9
         - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinCornerNe
+          decals:
+            3639: -17,-8
+            3650: -23,-3
+            3656: -26,-6
+        - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinCornerNe
           decals:
             3250: -72,3
         - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinCornerNw
+          decals:
+            3651: -25,-3
+            3657: -27,-6
+        - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinCornerNw
           decals:
             2218: -75,3
+        - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinCornerSe
+          decals:
+            3653: -23,-4
+            3658: -26,-7
         - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinCornerSe
@@ -2799,15 +2817,30 @@ entities:
             2216: -73,1
             3251: -72,2
         - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinCornerSw
+          decals:
+            3652: -25,-4
+        - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinCornerSw
           decals:
             2219: -75,1
         - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinEndS
+          decals:
+            3660: -27,-8
+        - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinInnerNw
           decals:
             2225: -75,2
+        - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinInnerSe
+          decals:
+            3661: -27,-7
         - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinInnerSe
@@ -2836,6 +2869,19 @@ entities:
             3244: -35,-17
             3245: -34,-17
         - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinLineN
+          decals:
+            3640: -18,-8
+            3641: -19,-8
+            3642: -20,-8
+            3643: -21,-8
+            3644: -22,-8
+            3645: -23,-8
+            3646: -24,-8
+            3647: -25,-8
+            3655: -24,-3
+        - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinLineN
           decals:
@@ -2860,11 +2906,21 @@ entities:
             3247: -35,-18
             3248: -34,-18
         - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinLineS
+          decals:
+            3654: -24,-4
+        - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinLineS
           decals:
             2220: -74,1
             2223: -76,2
+        - node:
+            color: '#D4D4D4FF'
+            id: WoodTrimThinLineW
+          decals:
+            3659: -27,-7
         - node:
             color: '#E6E6E6FF'
             id: WoodTrimThinLineW
@@ -3936,7 +3992,8 @@ entities:
           -8,-8:
             0: 30512
           -9,-8:
-            0: 57447
+            0: 57415
+            4: 32
           -8,-7:
             0: 49136
           -9,-7:
@@ -4159,13 +4216,13 @@ entities:
             0: 12459
           -16,4:
             2: 1
-            4: 48
+            5: 48
             0: 63488
           -16,3:
             0: 7103
             2: 8192
           -17,4:
-            4: 128
+            5: 128
             0: 61443
           -16,5:
             0: 60928
@@ -4317,7 +4374,8 @@ entities:
           -9,-6:
             0: 12358
           -9,-9:
-            0: 28672
+            0: 20480
+            4: 8192
           -16,-5:
             0: 29694
             1: 1
@@ -4805,7 +4863,7 @@ entities:
           -19,-8:
             2: 4097
             0: 272
-            4: 3276
+            5: 3276
           -19,-7:
             2: 4205
             0: 2
@@ -4816,7 +4874,7 @@ entities:
           -19,-6:
             0: 52460
           -18,-8:
-            4: 273
+            5: 273
             2: 18564
             0: 1096
           -18,-7:
@@ -4832,31 +4890,31 @@ entities:
           -17,-11:
             0: 49152
           -16,-10:
-            5: 8192
+            6: 8192
             0: 12
-            6: 32768
+            7: 32768
           -17,-10:
-            4: 32768
+            5: 32768
             0: 258
             2: 4096
           -16,-9:
-            5: 2
+            6: 2
             2: 768
             0: 3072
-            6: 8
+            7: 8
           -17,-9:
-            4: 8
+            5: 8
             2: 3857
           -15,-11:
             0: 5120
           -15,-10:
             0: 15
-            7: 8192
-            8: 32768
+            8: 8192
+            9: 32768
           -15,-9:
             0: 3840
-            7: 2
-            8: 8
+            8: 2
+            9: 8
           -14,-10:
             0: 35939
           -14,-12:
@@ -5051,6 +5109,11 @@ entities:
           temperature: 293.15
           moles:
             Nitrogen: 103.92799
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
         - volume: 2500
           temperature: 293.15
           moles: {}
@@ -37578,6 +37641,14 @@ entities:
     - type: Transform
       pos: -15.5,8.5
       parent: 2
+- proto: ChemistryBottleLaughter
+  entities:
+  - uid: 5241
+    components:
+    - type: Transform
+      parent: 9192
+    - type: Physics
+      canCollide: False
 - proto: ChemistryEmptyBottle01
   entities:
   - uid: 1320
@@ -37790,6 +37861,14 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: ClockworkWindow
+  entities:
+  - uid: 13432
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-8.5
+      parent: 2
 - proto: ClosetBombFilled
   entities:
   - uid: 2123
@@ -38891,17 +38970,21 @@ entities:
   - uid: 9193
     components:
     - type: Transform
-      parent: 9192
+      parent: 7170
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
+      storage: 7170
 - proto: ClothingOuterCoatPufferPink
   entities:
   - uid: 9195
     components:
     - type: Transform
-      parent: 9192
+      parent: 5298
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
+      storage: 5298
 - proto: ClothingOuterCoatTrench
   entities:
   - uid: 11969
@@ -68659,6 +68742,12 @@ entities:
     - type: Transform
       pos: 43.5,16.5
       parent: 2
+  - uid: 14979
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-8.5
+      parent: 2
 - proto: GrilleBroken
   entities:
   - uid: 1606
@@ -71819,6 +71908,14 @@ entities:
     - type: Transform
       pos: -34.5,-32.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: AccessReader
       accessListsOriginal:
       - - Clown
@@ -71828,9 +71925,10 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 4727
+          - 9195
           - 5299
           - 4784
+          - 4727
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -72044,14 +72142,23 @@ entities:
     - type: Transform
       pos: -34.5,-30.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 10731
+          - 9193
           - 10732
+          - 10731
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -78961,6 +79068,11 @@ entities:
     - type: Transform
       pos: -72.30828,-23.147402
       parent: 2
+  - uid: 14386
+    components:
+    - type: Transform
+      pos: -14.711386,-1.1365178
+      parent: 2
 - proto: ScrapFireExtinguisher
   entities:
   - uid: 892
@@ -79515,14 +79627,14 @@ entities:
       parent: 2
     - type: Storage
       storedItems:
-        9193:
+        1338:
           position: 0,3
           _rotation: South
         9194:
           position: 0,1
           _rotation: East
-        9195:
-          position: 2,3
+        5241:
+          position: 1,4
           _rotation: South
     - type: ContainerContainer
       containers:
@@ -79531,8 +79643,8 @@ entities:
           occludes: True
           ents:
           - 9194
-          - 9195
-          - 9193
+          - 1338
+          - 5241
     - type: Fixtures
       fixtures: {}
   - uid: 12012
@@ -79902,12 +80014,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -22.5,-8.5
       parent: 2
-  - uid: 5241
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -21.5,-8.5
-      parent: 2
   - uid: 5242
     components:
     - type: Transform
@@ -80046,6 +80152,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -10.5,7.5
+      parent: 2
+  - uid: 14980
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -21.5,-8.5
       parent: 2
 - proto: ShuttersRadiationOpen
   entities:
@@ -80343,7 +80455,7 @@ entities:
         5240:
         - - Pressed
           - Toggle
-        5241:
+        14980:
         - - Pressed
           - Toggle
     - type: Fixtures
@@ -85187,17 +85299,6 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: Janitor External West
-  - uid: 13432
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -14.5,-0.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraGeneral
-      nameSet: True
-      id: East Hall
   - uid: 13433
     components:
     - type: Transform
@@ -96716,11 +96817,6 @@ entities:
     - type: Transform
       pos: -25.5,-3.5
       parent: 2
-  - uid: 1338
-    components:
-    - type: Transform
-      pos: -20.5,-8.5
-      parent: 2
   - uid: 1438
     components:
     - type: Transform
@@ -97212,6 +97308,14 @@ entities:
     - type: Transform
       pos: 18.503042,29.448847
       parent: 2
+- proto: WeaponBubbleWand
+  entities:
+  - uid: 1338
+    components:
+    - type: Transform
+      parent: 9192
+    - type: Physics
+      canCollide: False
 - proto: WeaponCapacitorRecharger
   entities:
   - uid: 16

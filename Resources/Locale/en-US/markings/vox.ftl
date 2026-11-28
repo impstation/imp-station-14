@@ -97,9 +97,9 @@ marking-VoxScarEyeLeftSmall = Small Eye Scar (Left)
 marking-VoxTailShort-vox_tail_small = Vox Tail (Short)
 marking-VoxTailShort = Vox Tail (Short)
 
-#imp, edit out base tail
-#marking-VoxTail-vox_tail = Vox Tail (Medium)
-#marking-VoxTail = Vox Tail (Medium)
+# imp, edit out base tail
+# marking-VoxTail-vox_tail = Vox Tail (Medium)
+# marking-VoxTail = Vox Tail (Medium)
 
 marking-VoxTailBig-vox_tail_big = Vox Tail (Big)
 marking-VoxTailBig = Vox Tail (Big)
