@@ -1311,3 +1311,49 @@
       - state: imp-equipped-HELMET-ungu
       head-allulalo:
       - state: imp-equipped-HELMET-allulalo
+
+- type: entity
+  id: WeaponBubbleWand
+  parent: WeaponWaterGunBase
+  name: bubble wand
+  description: A little plastic wand. With space age technology, any liquid can be used for bubbles.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Special/bubble_wand.rsi
+    layers:
+    - state: icon
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Special/bubble_wand.rsi
+    size: Small
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        icon: Rainbow
+  - type: Gun
+    clumsyProof: true
+    cameraRecoilScalar: 0
+    fireRate: 4.2
+    angleDecay: 45
+    minAngle: 44
+    maxAngle: 45
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Effects/pop.ogg
+    soundEmpty: null
+    projectileSpeed: 1.2
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        maxVol: 25
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    fireCost: 1
+    proto: BulletBubbleShot
+  - type: SolutionTransfer
+    transferAmount: 1
+    maxTransferAmount: 1
+    minTransferAmount: 1
+    canChangeTransferAmount: false
