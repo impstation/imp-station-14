@@ -1,14 +1,14 @@
 # SPDX-FileCopyrightText: 2025 KekaniCreates <87507256+KekaniCreates@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
-#
+# SPDX-FileCopyrightText: 2026 SeeroftheNight <159857593+SeeroftheNight@users.noreply.github.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 doc-text-printer-report-station =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Situation Report[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Sector[/bold]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]          [head=3]Situation Report[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                                 SITUATION REPORT
@@ -29,12 +29,12 @@ doc-text-printer-report-station =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-report-department =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Departmental Performance Report[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Sector[/bold]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]  [head=3]Department Performance[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                                DEPARTMENT PERFORMANCE REPORT
+                    DEPARTMENT PERFORMANCE REPORT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -51,12 +51,12 @@ doc-text-printer-report-department =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-report-employee-performance =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Employee Performance Report[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Sector[/bold]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]       [head=3]Performance Report[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        EMPLOYEE PERFORMANCE REPORT
+                    EMPLOYEE PERFORMANCE REPORT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -70,11 +70,11 @@ doc-text-printer-report-employee-performance =
 doc-text-printer-report-on-the-chapters-meeting =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Head Meeting Report[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                                HEADS OF DEPARTMENTS MEETING REPORT
+            HEADS OF DEPARTMENTS MEETING REPORT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -96,9 +96,9 @@ doc-text-printer-report-on-the-chapters-meeting =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-condition-report =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Technical Condition Report[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]         [head=3]Technical Report[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         TECHNICAL CONDITION REPORT
@@ -118,9 +118,9 @@ doc-text-printer-condition-report =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-report-study-object =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Anomalous Research Report[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]          [head=3]Anomaly Report[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                      ANOMALOUS RESEARCH REPORT
@@ -138,12 +138,12 @@ doc-text-printer-report-study-object =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-application-appointment-interim =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Temporary Promotion Request[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]    [head=3]Temporary Promotion[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR ACTING OFFICER
+                        REQUEST FOR ACTING OFFICER
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -157,12 +157,12 @@ doc-text-printer-application-appointment-interim =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-application-employment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Job Application[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]           [head=3]Job Application[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        JOB APPLICATION
+                                        JOB APPLICATION
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -177,11 +177,11 @@ doc-text-printer-application-employment =
 doc-text-printer-letter-resignation =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Letter of Resignation[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        NOTICE OF RESIGNATION
+                            NOTICE OF RESIGNATION
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -194,11 +194,11 @@ doc-text-printer-letter-resignation =
 doc-text-printer-application-access =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Access Request Form[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    ACCESS REQUEST FORM
+                             ACCESS REQUEST FORM
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -212,12 +212,12 @@ doc-text-printer-application-access =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-application-equipment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Equipment Acquisition Request[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Equipment Request[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR EQUIPMENT ACQUISITION
+                REQUEST FOR EQUIPMENT ACQUISITION
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -231,9 +231,9 @@ doc-text-printer-application-equipment =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-evacuation-shuttle-request =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Evacuation Shuttle Request[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Evac. Shuttle Request[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     REQUEST FOR EVACUATION SHUTTLE
@@ -249,18 +249,18 @@ doc-text-printer-evacuation-shuttle-request =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-shuttle-registration-request =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Shuttle Registration Request[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Shuttle Registration[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        REQUEST FOR SHUTTLE REGISTRATION
+                    REQUEST FOR SHUTTLE REGISTRATION
     =============================================
     Time from the start of the shift and date:
     Document author:
     Author's position:
 
-    I, (full name), in the position of (full job title), request the registration of the shuttle in the NanoTrasen system for identification.
+    I, (full name), in the position of (full job title), request the registration of the shuttle in the Nanotrasen system for identification.
     Shuttle dimensions:
 
     Shuttle class:
@@ -273,12 +273,12 @@ doc-text-printer-shuttle-registration-request =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-request-for-non-listed-employment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Unusual Employment Request[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Unusual Employment[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            REQUEST FOR UNUSUAL EMPLOYMENT
+                REQUEST FOR UNUSUAL EMPLOYMENT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -300,11 +300,11 @@ doc-text-printer-request-for-non-listed-employment =
 doc-text-printer-request-for-promotion =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Promotion Request[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                REQUEST FOR PROMOTION
+                            REQUEST FOR PROMOTION
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -316,12 +316,12 @@ doc-text-printer-request-for-promotion =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-request-documents =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Documental Request Form[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]    [head=3]Documental Request[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            DOCUMENTAL REQUEST FORM
+                        DOCUMENTAL REQUEST FORM
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -333,12 +333,12 @@ doc-text-printer-request-documents =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-request-euthanasia =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Execution Order Form[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Order of Execution[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    ORDER FOR EXECUTION
+                            ORDER FOR EXECUTION
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -352,12 +352,12 @@ doc-text-printer-request-euthanasia =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-request-construction-work =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Construction Request Form[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Construction Request[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-        CONSTRUCTION REQUEST FORM
+                     CONSTRUCTION REQUEST FORM
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -372,12 +372,12 @@ doc-text-printer-request-construction-work =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-request-modernization =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Equipment Upgrade Request[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]         [head=3]Upgrade Request[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                EQUIPMENT UPGRADE REQUEST
+                    EQUIPMENT UPGRADE REQUEST
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -390,12 +390,12 @@ doc-text-printer-request-modernization =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-complaint-offense =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Snitch Report[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]             [head=3]Snitch Report[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        SNITCH REPORT
+                                        SNITCH REPORT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -408,12 +408,12 @@ doc-text-printer-complaint-offense =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-permission-equipment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Restricted Equipment Permit[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]        [head=3]Equipment Permit[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-        EQUIPMENT PERMIT
+                        RESTRICTED EQUIPMENT PERMIT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -425,12 +425,12 @@ doc-text-printer-permission-equipment =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-search-permission =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Search Warrant[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]          [head=3]Search Warrant[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        Search Warrant
+                                        Search Warrant
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -445,12 +445,12 @@ doc-text-printer-search-permission =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-permission-to-carry-weapons =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Weapons Permit[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]         [head=3]Weapons Permit[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    WEAPON CARRY PERMIT
+                            WEAPON CARRY PERMIT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -467,9 +467,9 @@ doc-text-printer-permission-to-carry-weapons =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-prescription-drug-authorization =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Medication Prescription[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]  [head=3]Medication Prescription[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 PERMIT FOR PRESCRIPTION MEDICATION
@@ -487,12 +487,12 @@ doc-text-printer-prescription-drug-authorization =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-permission-dispose-body =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Order of Body Disposal[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]   [head=3]Order of Body Disposal[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    ORDER FOR BODY DISPOSAL
+                        ORDER FOR BODY DISPOSAL
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -505,12 +505,12 @@ doc-text-printer-permission-dispose-body =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-construction-permit =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Building Permit[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]          [head=3]Building Permit[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        BUILDING PERMIT
+                                    BUILDING PERMIT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -524,11 +524,11 @@ doc-text-printer-construction-permit =
 doc-text-printer-order-dismissal =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Notice of Demotion[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            NOTICE OF DEMOTION
+                                NOTICE OF DEMOTION
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -540,12 +540,12 @@ doc-text-printer-order-dismissal =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-order-deprivation-access =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Access Removal Notice[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]    [head=3]Access Removal Notice[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        ACCESS REMOVAL NOTICE
+                            ACCESS REMOVAL NOTICE
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -557,12 +557,12 @@ doc-text-printer-order-deprivation-access =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-order-encouragement =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Certification of Achievement[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]   [head=3]Achievement Certificate[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            CERTIFICATION OF ACHIEVEMENT
+                     CERTIFICATION OF ACHIEVEMENT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -574,12 +574,12 @@ doc-text-printer-order-encouragement =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-order-parole-prisoner =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Prisoner Parole Form[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]   [head=3]Prisoner Parole Order[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    PRISONER PAROLE FORM
+                                PRISONER PAROLE FORM
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -591,12 +591,12 @@ doc-text-printer-order-parole-prisoner =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-order-recognizing-sentience-creature =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]     [head=3]Sentience Certificate[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            ORDER OF RECOGNITION OF SENTIENCE OF A CREATURE
+    ORDER OF RECOGNITION OF SENTIENCE OF A CREATURE
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -612,12 +612,12 @@ doc-text-printer-order-recognizing-sentience-creature =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-order-medical-intervention =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Order for Medical Intervention[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]    [head=3]Medical Intervention[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-    ORDER FOR MEDICAL INTERVENTION
+            ORDER FOR MEDICAL INTERVENTION
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -630,12 +630,12 @@ doc-text-printer-order-medical-intervention =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-product-manufacturing-order =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Item Request Form[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]        [head=3]Item Request Form[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    ITEM REQUEST FORM
+                                    ITEM REQUEST FORM
     =============================================
 
     Time from the start of the shift and date:
@@ -648,12 +648,12 @@ doc-text-printer-product-manufacturing-order =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-certificate-advanced-training =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Advanced Training Form[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]   [head=3]Advanced Training Form[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-    CERTIFICATE OF PROFESSIONAL DEVELOPMENT
+        CERTIFICATE OF PROFESSIONAL DEVELOPMENT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -664,12 +664,12 @@ doc-text-printer-certificate-advanced-training =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-certificate-offense =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Criminal Confession Form[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]     [head=3]Criminal Confession[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                CRIMINAL CONFESSION FORM
+                        CRIMINAL CONFESSION FORM
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -689,12 +689,12 @@ doc-text-printer-certificate-offense =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-death-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Death Certificate[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]         [head=3]Death Certificate[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            DEATH CERTIFICATE
+                                DEATH CERTIFICATE
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -712,11 +712,11 @@ doc-text-printer-death-certificate =
 doc-text-printer-marriage-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Marriage Certificate[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                MARRIAGE CERTIFICATE
+                                MARRIAGE CERTIFICATE
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -732,12 +732,12 @@ doc-text-printer-marriage-certificate =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-divorce-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Divorce Certificate[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]        [head=3]Divorce Certificate[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                DIVORCE CERTIFICATE
+                                DIVORCE CERTIFICATE
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -755,12 +755,12 @@ doc-text-printer-divorce-certificate =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-closing-indictment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Arrest Warrant[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]           [head=3]Arrest Warrant[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        ARREST WARRANT
+                                    ARREST WARRANT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -777,14 +777,14 @@ doc-text-printer-closing-indictment =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-sentence =
         ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-        ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Court Verdict[/head]
-        ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-        ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+        ⠀[color=#1b487e]░██░████░░░██░░░░[/color]             [head=3]Court Verdict[/head]
+        ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+        ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
         ⠀[color=#1b487e]░░░░██░░░████░███[/color]
         =============================================
-                                  COURT VERDICT
+                                            COURT VERDICT
         =============================================
-        Time from the start of the shift and date:
+        Time from the start ofhealth the shift and date:
         Document author:
         Author's position:
 
@@ -800,12 +800,12 @@ doc-text-printer-sentence =
                                     ⠀          [italic]Place for seals[/italic]
 doc-text-printer-judgment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Judicial Agreement[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]       [head=3]Judicial Agreement[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    JUDICIAL AGREEMENT
+                                    JUDICIAL AGREEMENT
     =============================================
     Time from the start of the shift and date:
     Document author:
@@ -832,9 +832,9 @@ doc-text-printer-judgment =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-statement-health =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Employee Health Evaluation[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]        [head=3]Health Evaluation[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     EMPLOYEE HEALTH EVALUATION
@@ -858,9 +858,9 @@ doc-text-printer-statement-health =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-decision-to-start-trial =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Court Order[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]               [head=3]Court Order[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]Nanotrasen[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]                  [bold]Imp Sector[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             NOTICE OF A START OF A LEGAL PROCEEDING
@@ -876,12 +876,12 @@ doc-text-printer-decision-to-start-trial =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-error-loading-form-header =
     ⠀[color=#B50F1D] ███░██████░███[/color]
-    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Syndicate Template[/head]
+    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]     [head=3]Syndicate Template[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: DEN STATION[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: IMP SECTOR[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                        DOCUMENT TITLE
+                                    DOCUMENT TITLE
     =============================================
     Time from the start of the shift and date:
     Agent callsign:
@@ -893,10 +893,10 @@ doc-text-printer-notice-of-liquidation =
     ⠀[color=#B50F1D] ███░██████░███[/color]
     ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Notice of Liquidation[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: DEN STATION[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: IMP SECTOR[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                        NOTICE OF LIQUIDATION
+                            NOTICE OF LIQUIDATION
     =============================================
     Time from the start of the shift and date:
     Agent callsign:
@@ -908,12 +908,12 @@ doc-text-printer-notice-of-liquidation =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-business-deal =
     ⠀[color=#B50F1D] ███░██████░███[/color]
-    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Request of Co-operation[/head]
+    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]  [head=3]Request of Co-operation[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: DEN STATION[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: IMP SECTOR[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                      REQUEST OF CO-OPERATION
+                              REQUEST OF CO-OPERATION
     =============================================
     Time from the start of the shift and date:
     Agent callsign:
@@ -926,12 +926,12 @@ doc-text-printer-business-deal =
                                 ⠀          [italic]Place for seals[/italic]
 doc-text-printer-note-beginning-military-actions =
     ⠀[color=#B50F1D] ███░██████░███[/color]
-    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Declaration of War[/head]
+    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]     [head=3]Declaration of War[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: DEN STATION[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: IMP SECTOR[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                    DECLARATION OF WAR
+                            DECLARATION OF WAR
     =============================================
     Time from the start of the shift and date:
     Agent callsign:
@@ -944,10 +944,10 @@ doc-text-printer-report-accomplishment-goals =
     ⠀[color=#B50F1D] ███░██████░███[/color]
     ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Performance Report[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: DEN STATION[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]TARGET: IMP SECTOR[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                        PERFORMANCE REPORT
+                            PERFORMANCE REPORT
     =============================================
     Time from the start of the shift and date:
     Agent callsign:
