@@ -135,3 +135,6 @@ trait-hemorrhage-desc = You lose more blood while bleeding.
 trait-hungry-name = Hungry
 trait-hungry-desc = You skipped breakfast and will get hungry 5x faster than the average humanoid.
                        Incompatible with Kodepiia.
+
+trait-no-vomit-name = No Vomiting
+trait-no-vomit-desc = For some reason, you are incapable of vomiting.

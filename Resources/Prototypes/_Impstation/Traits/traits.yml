@@ -181,3 +181,14 @@
   components:
   - type: HungryTrait
   cost: -1
+
+- type: trait
+  id: NoVomit
+  name: trait-no-vomit-name
+  description: trait-no-vomit-desc
+  category: Traits
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - NoVomitingStatusEffect
+  cost: 0

@@ -16,6 +16,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared.StatusEffect;// imp add
 
 namespace Content.Shared.Medical;
 
@@ -33,6 +34,7 @@ public sealed class VomitSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusEffects = default!; // imp edit
 
     public override void Initialize()
     {
@@ -42,6 +44,10 @@ public sealed class VomitSystem : EntitySystem
     }
 
     private const float ChemMultiplier = 0.1f;
+
+    private static readonly EntProtoId NoVomitStatusEffect = "NoVomitingStatusEffect"; // imp edit
+
+    private static readonly EntProtoId NoVomitingSlowdownStatusEffect = "NoVomitingSlowdownStatusEffect";  // imp edit
 
     private static readonly ProtoId<SoundCollectionPrototype> VomitCollection = "Vomit";
 
@@ -77,6 +83,15 @@ public sealed class VomitSystem : EntitySystem
         // Ignore condition if force was set to true
         if (!force && _mobState.IsDead(uid))
             return;
+
+        //  Imp edit start - prevent vomiting if entity has no vomiting. Unless forced.
+        if (!force && _statusEffects.HasStatusEffect(uid, "NoVomitingStatusEffect"))
+        {
+            _movementMod.TryUpdateMovementSpeedModDuration(uid, NoVomitingSlowdownStatusEffect, TimeSpan.FromSeconds(5), 0.5f);
+            _popup.PopupEntity(Loc.GetString("disease-no-vomit"), uid, uid, PopupType.SmallCaution);
+            return;
+        }
+        // Imp Edit End
 
         // TODO: Need decals
         var solution = new Solution();
