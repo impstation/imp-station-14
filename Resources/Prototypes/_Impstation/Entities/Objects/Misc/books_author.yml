@@ -245,6 +245,43 @@
 
 - type: entity
   parent: BookBase
+  id: BookTamlin
+  name: cosmic rays and fairies
+  description: A faint buzzing emanates from inside.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: booktamlin
+  - type: Paper
+    content: book-text-tamlin
+
+- type: entity
+  parent: BookBase
+  id: BookButlerCode
+  name: examining the butler code
+  description:
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#414144"
+    - state: decor_spine
+      color: "#5a3075"
+    - state: decor_wingette_circle
+      color: "#bba145"
+    - state: icon_text
+      color: "#dfc8e6"
+    - state: icon_bar
+      color: "#dfc8e6"
+  - type: Paper
+    content: book-text-butlercode
+
+# region Grayspeak
+- type: entity
+  parent: BookBase
   id: BookBarbieQ
   name: pu history jorl barbie q
   description: The cover is greasy. The pages are burnt on one end. It's oozing some weird dark red fluid. The title is crudely drawn on with crayon. It's obvious- this book will change your life.
@@ -283,36 +320,93 @@
 
 - type: entity
   parent: BookBase
-  id: BookTamlin
-  name: cosmic rays and fairies
-  description: A faint buzzing emanates from inside.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Misc/book.rsi
-    layers:
-    - state: booktamlin
-  - type: Paper
-    content: book-text-tamlin
-
-- type: entity
-  parent: BookBase
-  id: BookButlerCode
-  name: examining the butler code
-  description: 
+  id: BookOumErth1
+  name: Oum Erth! Chapter 1
+  description: A textbook on grayspeak. This chapter covers question words.
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi
     layers:
     - state: paper
-    - state: cover_strong
-      color: "#414144"
-    - state: decor_spine
-      color: "#5a3075"
+    - state: cover_base
+      color: "#29542b"
     - state: decor_wingette_circle
-      color: "#bba145"
-    - state: icon_text
-      color: "#dfc8e6"
-    - state: icon_bar
-      color: "#dfc8e6"
+      color: "#f7efb0"
+    - state: icon_text3
+    - state: icon_planet
   - type: Paper
-    content: book-text-butlercode
+    content: book-text-oumerth1
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook
+
+- type: entity
+  parent: BookBase
+  id: BookOumErth2
+  name: Oum Erth! Chapter 2
+  description: A textbook on grayspeak. This chapter covers pronouns.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#272a63"
+    - state: decor_wingette_circle
+      color: "#f7efb0"
+    - state: icon_text3
+    - state: icon_planet
+  - type: Paper
+    content: book-text-oumerth2
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook
+
+- type: entity
+  parent: BookBase
+  id: BookOumErth3
+  name: Oum Erth! Chapter 3
+  description: A textbook on grayspeak. This chapter covers department names.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#7d1a27"
+    - state: decor_wingette_circle
+      color: "#f7efb0"
+    - state: icon_text3
+    - state: icon_planet
+  - type: Paper
+    content: book-text-oumerth3
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook
+
+- type: entity
+  parent: BookBase
+  id: BookOumErthS
+  name: Pisk Erth! Chapter -1
+  description: A defiled textbook. Something about this makes you feel like knowing its contents would have made you really cool in school.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#ad1025"
+    - state: decor_wingette_circle
+      color: "#000000"
+    - state: icon_text
+    - state: icon_planet
+    - state: overlay_dirt
+  - type: Paper
+    content: book-text-oumerths
+  - type: Tag
+    tags:
+    - Book
+    - Guidebook

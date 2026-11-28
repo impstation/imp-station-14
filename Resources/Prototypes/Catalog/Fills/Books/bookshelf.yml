@@ -79,6 +79,11 @@
     - id: BookJarvisBayCulture
     - id: BookKeelBay
     - id: BookKeelBayWorn
+    - id: BookOumErth1
+    - id: BookOumErth2
+    - id: BookOumErth3
+    - id: BookOumErthS
+      weight: 0.1 # there isn't a contraband book system (yet), so for this to appear ingame at all it needs to be in the book table, i'll just make it very rare
     - id: BookMansus
     - id: BookRatKings
     - id: BookSMForDummies
