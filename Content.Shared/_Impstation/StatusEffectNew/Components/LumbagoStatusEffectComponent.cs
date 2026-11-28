@@ -47,7 +47,7 @@ public sealed partial class LumbagoStatusEffectComponent : Component
     public float PullSprintSpeedMod = 0.5f;
 
     /// <summary>
-    /// The minimum duration of a flare up.
+    /// The minimum and maximum duration of a flare up.
     /// </summary>
     [DataField]
     public MinMax FlareUpDurationMinMax = new (10,60);
