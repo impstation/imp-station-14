@@ -82,24 +82,6 @@
     - state: bowl
     - state: alpha-filling
       color: green
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6 # imp
-        - ReagentId: Vitamin
-          Quantity: 4 # imp
-        - ReagentId: Water # imp
-          Quantity: 10
-  - type: Tag # imp
-    tags:
-    - Vegetable
-    - Soup
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -109,7 +91,10 @@
         Quantity: 15
       - ReagentId: Water
         Quantity: 15
-# TORTURE END
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 
 # Salad
 
@@ -154,36 +139,17 @@
     layers:
     - state: bowl
     - state: herb
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 90 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Kelotane # imp
-          Quantity: 15
-        - ReagentId: Bicaridine # imp
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 6 # imp
-        - ReagentId: Desoxyephedrine # imp
-          Quantity: 30
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 19
+        Quantity: 14 # imp 19>14
       - ReagentId: Vitamin
         Quantity: 11
       - ReagentId: Bicaridine
         Quantity: 15
       - ReagentId: Kelotane
         Quantity: 15
-# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -231,15 +197,15 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 26
+        Quantity: 7 # imp 26>7
       - ReagentId: Vitamin
-        Quantity: 9
+        Quantity: 4 # imp 9>4
       - ReagentId: Bicaridine
         Quantity: 10
       - ReagentId: Kelotane
         Quantity: 10
       - ReagentId: Protein
-        Quantity: 5
+        Quantity: 18 # imp 18>5
 # TORTURE END
   - type: Tag
     tags:
@@ -262,23 +228,6 @@
     layers:
     - state: bowl
     - state: coleslaw
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20 # imp
-        - ReagentId: Vitamin
-          Quantity: 10 # imp
-        - ReagentId: Allicin
-          Quantity: 4 # imp
-  - type: Tag # imp
-    tags:
-    - Vegetable
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -290,7 +239,9 @@
         Quantity: 10
       - ReagentId: Water
         Quantity: 10
-# TORTURE END
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 - type: entity
   name: caesar salad
@@ -304,39 +255,25 @@
       - cabbage
       - bread
       - cheesy
+      - oily # imp
   - type: Sprite
     layers:
     - state: bowl
     - state: caesar
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 24 # imp
-        - ReagentId: Vitamin
-          Quantity: 5 # imp
-        - ReagentId: Allicin # imp
-          Quantity: 1
-  - type: Tag # imp
-    tags:
-    - Vegetable
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 31
+        Quantity: 24.75 # imp 31>24.75
       - ReagentId: Vitamin
         Quantity: 6
       - ReagentId: Water
         Quantity: 5
       - ReagentId: Allicin
         Quantity: 1
-# TORTURE END
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 - type: entity
   name: kimchi salad
@@ -353,27 +290,6 @@
     layers:
     - state: bowl
     - state: kimchi
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 60 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 28 # imp
-        - ReagentId: Vitamin
-          Quantity: 12 # imp
-        - ReagentId: Allicin
-          Quantity: 4 # imp
-        - ReagentId: Vinegar # imp
-          Quantity: 5
-        - ReagentId: JuiceCarrot # imp
-          Quantity: 5
-  - type: Tag # imp
-    tags:
-    - Vegetable
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -389,7 +305,11 @@
         Quantity: 3
       - ReagentId: Allicin
         Quantity: 4
-# TORTURE END
+      - ReagentId: Vinegar # imp
+        Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 - type: entity
   name: fruit salad
@@ -400,25 +320,10 @@
   - type: FlavorProfile
     flavors:
     - fruity
-    - apple # imp
-    - juice # imp
-    - orange # imp
   - type: Sprite
     layers:
     - state: bowl
     - state: fruit
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 45 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 24 # imp
-        - ReagentId: Vitamin
-          Quantity: 16 # imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -435,8 +340,7 @@
       - ReagentId: Sugar
         Quantity: 1
       - ReagentId: JuiceWatermelon
-        Quantity: 12
-# TORTURE END
+        Quantity: 2 # imp 12>2
   - type: Tag
     tags:
     - Fruit
@@ -452,28 +356,10 @@
     flavors:
     - fruity
     - jungle
-    - apple # imp
-    - juice # imp
-    - watermelon # imp
-    - banana # imp
   - type: Sprite
     layers:
     - state: bowl
     - state: fruit
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 45 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 25 # imp
-        - ReagentId: Vitamin
-          Quantity: 13 # imp
-        - ReagentId: Water # imp
-          Quantity: 2
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -490,8 +376,7 @@
       - ReagentId: Sugar
         Quantity: 1
       - ReagentId: JuiceWatermelon
-        Quantity: 12
-# TORTURE END
+        Quantity: 2 # imp 12>2
   - type: Tag
     tags:
     - Fruit
@@ -507,23 +392,10 @@
     flavors:
     - leafy
     - sour
-    - orange # imp
   - type: Sprite
     layers:
     - state: bowl
     - state: citrusdelight
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Vitamin
-          Quantity: 12 # imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -537,7 +409,6 @@
         Quantity: 5
       - ReagentId: JuiceLime
         Quantity: 5
-# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -557,24 +428,6 @@
     layers:
     - state: bowl
     - state: eden
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Omnizine
-          Quantity: 5
-  - type: Tag # imp, all the other ones are???
-    tags:
-    - Fruit
-    - Soup
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -584,7 +437,10 @@
         Quantity: 15
       - ReagentId: Omnizine
         Quantity: 5
-# TORTURE END
+  - type: Tag # imp, all the other ones are???
+    tags:
+    - Fruit
+    - Soup
 
 # Rice
 
@@ -601,18 +457,16 @@
     layers:
     - state: bowl
     - state: rice
-  - type: SolutionContainerManager # imp
+  # imp edit start
+  - type: Solution
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 6
-        - ReagentId: Nutriment
-          Quantity: 2
-  - type: Tag # imp
+      reagents:
+        - ReagentId: Rice
+          Quantity: 20
+  - type: Tag
     tags:
     - UnguFood
+  # imp edit end
 
 - type: entity
   name: egg-fried rice
@@ -628,29 +482,11 @@
     layers:
     - state: bowl
     - state: rice-egg
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2 # imp
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: EggCooked # imp
-          Quantity: 6
-        - ReagentId: Sugar # imp
-          Quantity: 6
-        - ReagentId: JuiceCarrot # imp
-          Quantity: 5
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
-      - ReagentId: Nutriment
-        Quantity: 30
+      #- ReagentId: Nutriment # imp
+      #  Quantity: 30
       - ReagentId: EggCooked
         Quantity: 6
       - ReagentId: JuiceCarrot
@@ -659,7 +495,8 @@
         Quantity: 7
       - ReagentId: Oculine
         Quantity: 3
-# TORTURE END
+      - ReagentId: Rice # imp
+        Quantity: 20
   - type: Tag
     tags:
 #    - Meat # imp
@@ -681,38 +518,21 @@
     layers:
     - state: bowl
     - state: rice-pork
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 11
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 7
-        #- ReagentId: Dexalin ##This is probably a reference to something but I don't get it
-        #  Quantity: 6.5
-        #- ReagentId: Epinephrine
-        #  Quantity: 2
-        - ReagentId: Sugar # imp
-          Quantity: 6
-        - ReagentId: Protein # imp
-          Quantity: 9
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 42
+        Quantity: 3 # imp 42>3
       - ReagentId: Protein
-        Quantity: 6
-      - ReagentId: Dexalin #This is probably a reference to something but I don't get it. Same.
-        Quantity: 6.5
-      - ReagentId: Epinephrine
-        Quantity: 2
-# TORTURE END
+        Quantity: 12 # imp 6>12
+      #- ReagentId: Dexalin #This is probably a reference to something but I don't get it. Same. # imp
+      #  Quantity: 6.5
+      #- ReagentId: Epinephrine
+      #  Quantity: 2
+      - ReagentId: Rice # imp
+        Quantity: 20
+      - ReagentId: Vitamin
+        Quantity: 3
   - type: Tag
     tags:
     - Meat
@@ -732,40 +552,25 @@
     layers:
     - state: bowl
     - state: rice-pudding
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8 # imp
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 3
-        - ReagentId: Milk
-          Quantity: 10 # imp
-        - ReagentId: Sugar
-          Quantity: 11 # imp
+  - type: Solution
+    solution:
+      reagents:
+      #- ReagentId: Nutriment # imp
+      #  Quantity: 20
+      - ReagentId: Protein
+        Quantity: 12 # imp 5>12
+      #- ReagentId: Vitamin # imp
+      #  Quantity: 5
+      - ReagentId: Milk
+        Quantity: 30 # imp 5>30
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: Rice # imp
+        Quantity: 10
   - type: Tag # imp
     tags:
     - UnguFood
     - Soup
-# UPSTREAM VERSION:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Nutriment
-        Quantity: 20
-      - ReagentId: Protein
-        Quantity: 5
-      - ReagentId: Vitamin
-        Quantity: 5
-      - ReagentId: Milk
-        Quantity: 5
-      - ReagentId: Sugar
-        Quantity: 5
-# TORTURE END
 
 - type: entity
   name: black-eyed gumbo
@@ -783,36 +588,19 @@
     layers:
     - state: bowl
     - state: gumbo
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 70 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 19 # imp
-        - ReagentId: Vitamin
-          Quantity: 8 # imp
-        - ReagentId: CapsaicinOil
-          Quantity: 20 # imp
-        - ReagentId: Sugar # imp
-          Quantity: 6
-        - ReagentId: Protein # imp
-          Quantity: 9
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 40
+        Quantity: 6 # imp 40>6
       - ReagentId: Protein
-        Quantity: 4
+        Quantity: 8 # imp 4>8
       - ReagentId: Vitamin
-        Quantity: 3
+        Quantity: 8 # imp 3>8
       - ReagentId: CapsaicinOil
-        Quantity: 10
-# TORTURE END
+        Quantity: 20 # imp 10>20
+      - ReagentId: Rice # imp
+        Quantity: 20
   - type: Tag
     tags:
     - Meat
@@ -834,26 +622,18 @@
     layers:
     - state: bowl
     - state: oatmeal
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
+# imp edit start
+  - type: Solution
     solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5 # imp
-        #- ReagentId: Vitamin
-        #  Quantity: 2
-        - ReagentId: Sugar # imp
-          Quantity: 3
-        #- ReagentId: Milk # imp
-        #  Quantity: 10
-  - type: Tag # imp
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 8
+      - ReagentId: Nutriment
+        Quantity: 12
+  - type: Tag
     tags:
     - UnguFood
-# UPSTREAM VERSION:
-# TORTURE END
+# imp edit end
 
 - type: entity
   name: space liberty duff
@@ -915,40 +695,21 @@
     layers:
     - state: bowl
     - state: meatball
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 21 # imp
-        - ReagentId: Vitamin
-          Quantity: 8 # imp
-        - ReagentId: Water
-          Quantity: 10 # imp
-        - ReagentId: Protein # imp
-          Quantity: 5
-        - ReagentId: JuiceCarrot # imp
-          Quantity: 5
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 20
+        Quantity: 1 # imp 20>1
       - ReagentId: Protein
-        Quantity: 5
+        Quantity: 17 # imp 5>17
       - ReagentId: JuiceCarrot
         Quantity: 5
       - ReagentId: Vitamin
-        Quantity: 12
+        Quantity: 7 # imp 12>7
       - ReagentId: Oculine
         Quantity: 3
       - ReagentId: Water
         Quantity: 10
-# TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -967,21 +728,6 @@
     layers:
     - state: bowl
     - state: slime
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Water
-          Quantity: 10
-# UPSTREAM VERSION:
-# TORTURE END
 
 - type: entity
   name: tomato soup
@@ -997,30 +743,13 @@
     layers:
     - state: bowl
     - state: tomato
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 45 # imp
-        reagents:
-        #- ReagentId: Nutriment # imp
-        #  Quantity: 3
-        #- ReagentId: Iron
-        #  Quantity: 10
-        - ReagentId: Blood
-          Quantity: 30 # imp
-        - ReagentId: Vitamin # imp
-          Quantity: 8
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Blood
-        Quantity: 20
+        Quantity: 30 # imp 20>30
       - ReagentId: Vitamin
         Quantity: 10
-# TORTURE END
   - type: Tag
     tags:
     - Meat #imp
@@ -1041,36 +770,21 @@
     layers:
     - state: bowl
     - state: wingfangchu
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Protein
-          Quantity: 2 # imp
-        - ReagentId: Soysauce
-          Quantity: 5 # imp
-        - ReagentId: Vitamin
-          Quantity: 10 # imp
-        - ReagentId: Nutriment # imp
-          Quantity: 2
-  - type: Tag #imp
-    tags:
-    - Meat
-    - Soup
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 20
+        Quantity: 10 # imp 20>10
       - ReagentId: Protein
-        Quantity: 10
+        Quantity: 40 # imp 10>40
       - ReagentId: Soysauce
+        Quantity: 5
+      - ReagentId: Vitamin # imp
         Quantity: 10
-# TORTURE END
+  - type: Tag #imp
+    tags:
+    - Meat
+    - Soup
 
 - type: entity
   name: clown's tears
@@ -1085,22 +799,6 @@
     layers:
     - state: bowl
     - state: clowntears
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8 # imp
-        - ReagentId: Vitamin
-          Quantity: 4 # imp
-        - ReagentId: Water
-          Quantity: 10
-        - ReagentId: Honk # imp
-          Quantity: 5
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -1116,7 +814,6 @@
         Quantity: 5
       - ReagentId: Razorium
         Quantity: 1 # silly
-# TORTURE END
 
 - type: entity
   name: vegetable soup
@@ -1133,40 +830,21 @@
     layers:
     - state: bowl
     - state: vegetable
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 70 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 40 # imp
-        - ReagentId: Vitamin
-          Quantity: 8 # imp
-        - ReagentId: Water
-          Quantity: 10
-        #- ReagentId: Oculine
-        #  Quantity: 4 # imp
-        - ReagentId: JuiceCarrot # imp
-          Quantity: 5
-  - type: Tag # imp
-    tags:
-    - Vegetable
-    - Soup
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 25
+        Quantity: 8 # imp 25>8
       - ReagentId: Vitamin
-        Quantity: 17
+        Quantity: 7 # imp 17>7
       - ReagentId: JuiceCarrot
         Quantity: 5
       - ReagentId: Oculine
         Quantity: 3
-# TORTURE END
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 
 - type: entity
   name: nettle soup
@@ -1182,44 +860,25 @@
     layers:
     - state: bowl
     - state: nettle
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10 # imp
-        - ReagentId: Vitamin
-          Quantity: 4 # imp
-        - ReagentId: Water
-          Quantity: 10
-        #- ReagentId: Omnizine # imp
-        #  Quantity: 5
-        - ReagentId: Histamine
-          Quantity: 3 # imp
-        - ReagentId: EggCooked # imp
-          Quantity: 6
-  - type: Tag # imp
-    tags:
-    - Vegetable
-    - Soup
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 12
-      - ReagentId: Vitamin
-        Quantity: 5
+        Quantity: 2 # imp 12>2
+      #- ReagentId: Vitamin # imp
+      #  Quantity: 5
       - ReagentId: Omnizine
         Quantity: 3
       - ReagentId: SpaceDrugs
         Quantity: 10
       - ReagentId: Histamine
         Quantity: 3
-# TORTURE END
+      - ReagentId: EggCooked # imp
+        Quantity: 6
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 
 - type: entity
   name: mystery soup
@@ -1248,40 +907,21 @@
     layers:
     - state: bowl
     - state: chili-hot
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 16 # imp
-        - ReagentId: CapsaicinOil
-          Quantity: 10 # imp
-        - ReagentId: Vitamin
-          Quantity: 12 # imp
-        - ReagentId: Allicin
-          Quantity: 1 # imp
-        - ReagentId: Water # imp
-          Quantity: 4 # imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
         - ReagentId: Nutriment
-          Quantity: 14
+          Quantity: 11 # imp 14>11
         - ReagentId: CapsaicinOil
           Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 7
+          Quantity: 8 # imp 7>8
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 4 # imp 2>4
         - ReagentId: Allicin
           Quantity: 1
         - ReagentId: Water
           Quantity: 4
-# TORTURE END
   - type: Tag
     tags:
     - ChiliBowl
@@ -1303,39 +943,21 @@
     layers:
     - state: bowl
     - state: chili-cold
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 26 # imp
-        - ReagentId: Vitamin
-          Quantity: 12 # imp
-        - ReagentId: Allicin
-          Quantity: 1 # imp
-        - ReagentId: Water # imp
-          Quantity: 4
-
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 14
+        Quantity: 11 # imp 14>11
       - ReagentId: FrostOil
         Quantity: 10
       - ReagentId: Vitamin
-        Quantity: 7
+        Quantity: 8 # imp 7>8
       - ReagentId: Protein
-        Quantity: 2
+        Quantity: 4 # imp 2>4
       - ReagentId: Allicin
         Quantity: 1
       - ReagentId: Water
         Quantity: 4
-# TORTURE END
   - type: Tag
     tags:
     - ChiliBowl
@@ -1358,25 +980,6 @@
     layers:
     - state: bowl
     - state: chili-clown
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 16 # imp
-        - ReagentId: CapsaicinOil
-          Quantity: 10 # imp
-        - ReagentId: Vitamin
-          Quantity: 8 # imp
-        - ReagentId: Allicin
-          Quantity: 4 # imp
-        - ReagentId: Protein # imp
-          Quantity: 3
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Tag
     tags:
     - ChiliBowl
@@ -1397,27 +1000,11 @@
     layers:
     - state: bowl
     - state: monkeydelight
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20 # imp
-        - ReagentId: Vitamin
-          Quantity: 7 # imp
-        - ReagentId: TableSalt
-          Quantity: 1
-        - ReagentId: Blackpepper
-          Quantity: 1
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 25
+        Quantity: 9 # imp 25>9
       - ReagentId: Protein
         Quantity: 10
       - ReagentId: Vitamin
@@ -1428,7 +1015,6 @@
         Quantity: 1
       - ReagentId: Blackpepper
         Quantity: 1
-# TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -1447,20 +1033,6 @@
     layers:
     - state: bowl
     - state: tomato
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10 #imp
-        - ReagentId: Vitamin
-          Quantity: 3 # imp
-        - ReagentId: Water
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -1470,7 +1042,6 @@
         Quantity: 6
       - ReagentId: Water
         Quantity: 10
-# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -1491,34 +1062,19 @@
     layers:
     - state: bowl
     - state: eyeball
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 65 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20 # imp - Eyes are yummy
-        - ReagentId: Vitamin
-          Quantity: 19 # imp
-        - ReagentId: Water # imp
-          Quantity: 10
-        - ReagentId: JuiceCarrot # imp
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
-        - ReagentId: Nutriment
-          Quantity: 20 # Eyes are yummy
+        #- ReagentId: Nutriment # imp
+        #  Quantity: 20 # Eyes are yummy
         - ReagentId: Vitamin
-          Quantity: 12
+          Quantity: 7 # imp 12>7
         - ReagentId: JuiceCarrot
           Quantity: 5
         - ReagentId: Oculine
-          Quantity: 8
-# TORTURE END
+          Quantity: 3 # imp 8>3
+        - ReagentId: Protein # imp
+          Quantity: 24
   - type: Tag
     tags:
     - Meat
@@ -1560,27 +1116,6 @@
     layers:
     - state: bowl
     - state: mushroom
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10 # imp
-        #- ReagentId: Vitamin
-        #  Quantity: 6 # imp
-        - ReagentId: Water
-          Quantity: 5
-        - ReagentId: Milk
-          Quantity: 5
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Soup
-    - Mushroom
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -1590,7 +1125,11 @@
         Quantity: 16
       - ReagentId: Milk
         Quantity: 5
-# TORTURE END
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Soup
+    - Mushroom
 
 - type: entity
   name: beet soup
@@ -1602,25 +1141,10 @@
     layers:
     - state: bowl
     - state: beet
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-          - ReagentId: Nutriment
-            Quantity: 15
-          - ReagentId: Vitamin
-            Quantity: 7
-          - ReagentId: Water
-            Quantity: 10
   - type: Tag # imp
     tags:
     - Vegetable
     - Soup
-# UPSTREAM VERSION:
-# TORTURE END
 # Tastes like borsch, bortsch, borstch, borsh, borshch, borscht.
 
 - type: entity
@@ -1633,23 +1157,10 @@
     layers:
     - state: bowl
     - state: redbeet
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35 # imp
-        reagents:
-          - ReagentId: Nutriment
-            Quantity: 15
-          - ReagentId: Vitamin
-            Quantity: 15
   - type: Tag # imp
     tags:
     - Vegetable
     - Soup
-# UPSTREAM VERSION:
-# TORTURE END
 # Tastes like beet.
 
 - type: entity
@@ -1667,38 +1178,19 @@
     layers:
     - state: bowl
     - state: stew
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 75 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 31 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-        - ReagentId: Vitamin
-          Quantity: 7 # imp
-        - ReagentId: Water # imp
-          Quantity: 10
-        - ReagentId: JuiceCarrot # imp
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
-      reagents: # This loses a lot of reagents because it takes so many ingredients, if you're refactoring cooking, redo these numbers.
+      reagents: # This loses a lot of reagents because it takes so many ingredients, if you're refactoring cooking, redo these numbers. # imp: ok :)
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 22 # imp 30>22
         - ReagentId: Protein
-          Quantity: 6
+          Quantity: 12 # imp 6>12
         - ReagentId: Vitamin
-          Quantity: 15
+          Quantity: 21 # imp 15>21
         - ReagentId: JuiceCarrot
           Quantity: 5
         - ReagentId: Oculine
           Quantity: 3
-# TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -1718,23 +1210,10 @@
     layers:
     - state: bowl
     - state: sweetpotato
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-          - ReagentId: Nutriment
-            Quantity: 15
-          - ReagentId: Vitamin
-            Quantity: 15
   - type: Tag # imp
     tags:
     - Vegetable
     - Soup
-# UPSTREAM VERSION:
-# TORTURE END
 # Tastes like sweet potato.
 
 - type: entity
@@ -1750,36 +1229,19 @@
     layers:
     - state: bowl
     - state: onion
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14 # imp
-        - ReagentId: Vitamin
-          Quantity: 5 # imp
-        - ReagentId: Allicin
-          Quantity: 5
-        - ReagentId: Water # imp
-          Quantity: 10
-  - type: Tag # imp
-    tags:
-    - Vegetable
-    - Soup
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 20
+        Quantity: 15 # imp 20>15
       - ReagentId: Vitamin
         Quantity: 5
       - ReagentId: Allicin
         Quantity: 5
-# TORTURE END
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 
 - type: entity
   name: bisque
@@ -1795,41 +1257,24 @@
     layers:
     - state: bowl
     - state: bisque
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 12 # imp
-        - ReagentId: Vitamin
-          Quantity: 3 # imp
-        #- ReagentId: Protein # imp
-        #  Quantity: 6
-        - ReagentId: Water
-          Quantity: 10 # imp
-        - ReagentId: CarpoToxin # imp
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 19 # imp 29>19
+      - ReagentId: Vitamin
+        Quantity: 16 # imp 11>16
+      - ReagentId: Protein
+        Quantity: 20 # imp 10>20
+      - ReagentId: Water
+        Quantity: 5
+      - ReagentId: CarpoToxin # imp
+        Quantity: 5
   - type: Tag # imp
     tags:
     - Meat
     - Soup
     - Mushroom
-# UPSTREAM VERSION:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Nutriment
-        Quantity: 29
-      - ReagentId: Vitamin
-        Quantity: 11
-      - ReagentId: Protein
-        Quantity: 10
-      - ReagentId: Water
-        Quantity: 5
-# TORTURE END
 # Tastes like crab.
 
 - type: entity
@@ -1851,18 +1296,6 @@
     layers:
     - state: bowl
     - state: electron
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-          - ReagentId: Nutriment
-            Quantity: 15
-          - ReagentId: Licoxide
-            Quantity: 6
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -1870,7 +1303,6 @@
           Quantity: 25
         - ReagentId: Licoxide
           Quantity: 10
-# TORTURE END
 
 - type: entity
   name: bungo curry
@@ -1882,38 +1314,20 @@
     flavors:
     - jungle
     - bungo # imp
+    - spices # imp
   - type: Sprite
     layers:
     - state: bowl
     - state: bungo
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14 # imp
-        - ReagentId: Vitamin
-          Quantity: 4 # imp
-        - ReagentId: CapsaicinOil
-          Quantity: 10 # imp
-        - ReagentId: Water # imp
-          Quantity: 5
-        - ReagentId: Enzyme # imp
-          Quantity: 10 # imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 12 # imp 20>12
         - ReagentId: Vitamin
           Quantity: 3
         - ReagentId: CapsaicinOil
           Quantity: 10
-# TORTURE END
   - type: Tag
     tags:
     - Fruit
@@ -1934,40 +1348,19 @@
     layers:
     - state: bowl
     - state: escargot
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5 # imp
-        - ReagentId: Vitamin
-          Quantity: 1 # imp
-        - ReagentId: Allicin
-          Quantity: 1 # imp
-        - ReagentId: Butter # imp
-          Quantity: 15
-        - ReagentId: Protein # imp
-          Quantity: 3
-        - ReagentId: Water # imp
-          Quantity: 4
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 27
+        Quantity: 17 # imp 27>17
       - ReagentId: Protein
-        Quantity: 10
+        Quantity: 5 # imp 10>5
       - ReagentId: Butter
         Quantity: 5
       - ReagentId: Vitamin
         Quantity: 5
       - ReagentId: Allicin
         Quantity: 5
-# TORTURE END
   - type: Tag
     tags:
     - Meat

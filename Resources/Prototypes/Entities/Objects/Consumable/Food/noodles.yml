@@ -41,8 +41,8 @@
       reagents:
       - ReagentId: Nutriment
         Quantity: 10.5
-      - ReagentId: EggCooked
-        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 12
   - type: Tag
     tags:
     - UnguFood
@@ -70,8 +70,8 @@
         Quantity: 24.5 # imp 45>24.5
       - ReagentId: Vitamin
         Quantity: 6 # imp 5>6
-      - ReagentId: EggCooked # imp
-        Quantity: 6
+      - ReagentId: Protein # imp
+        Quantity: 12
   - type: Tag
     tags:
     - Fruit # ???
@@ -103,8 +103,8 @@
         Quantity: 49 # imp 90>49
       - ReagentId: Vitamin
         Quantity: 12 # imp 10>12
-      - ReagentId: EggCooked # imp
-        Quantity: 12
+      - ReagentId: Protein # imp
+        Quantity: 24
   - type: Tag # imp, normal spaghetti is fruit so
     tags:
     - Fruit
@@ -130,9 +130,7 @@
       - ReagentId: Nutriment
         Quantity: 11.5 # imp 40>11.5
       - ReagentId: Protein
-        Quantity: 5
-      - ReagentId: EggCooked # imp
-        Quantity: 12
+        Quantity: 29 # imp 5>29
   - type: Tag
     tags:
     - Meat
@@ -158,10 +156,8 @@
       reagents:
       - ReagentId: Nutriment
         Quantity: 14.5
-      - ReagentId: EggCooked
-        Quantity: 30
       - ReagentId: Protein
-        Quantity: 20
+        Quantity: 80
   - type: Tag
     tags:
     - Meat
@@ -222,8 +218,8 @@
         Quantity: 10.5 # imp 30>10.5
       - ReagentId: Butter
         Quantity: 5
-      - ReagentId: EggCooked # imp
-        Quantity: 6
+      - ReagentId: Protein # imp
+        Quantity: 12
   - type: Tag # imp
     tags:
     - UnguFood

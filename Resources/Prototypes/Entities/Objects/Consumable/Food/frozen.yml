@@ -87,8 +87,8 @@
           Quantity: 0.33
         - ReagentId: Milk
           Quantity: 1.67
-        - ReagentId: EggCooked
-          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
 
 - type: entity
   name: ice cream sundae # Frontier: no hyphen
@@ -111,8 +111,8 @@
           Quantity: 3.83
         - ReagentId: Milk
           Quantity: 1.67
-        - ReagentId: EggCooked
-          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 3.5
   - type: Tag
@@ -139,8 +139,8 @@
         Quantity: 3 # imp 1>3
       - ReagentId: Milk # imp
         Quantity: 1.67
-      - ReagentId: EggCooked # imp
-        Quantity: 2
+      - ReagentId: Protein # imp
+        Quantity: 4
       - ReagentId: CocoaPowder # imp
         Quantity: 4
       - ReagentId: Sugar # imp

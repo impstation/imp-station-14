@@ -232,19 +232,6 @@
   components:
   - type: Sprite
     state: bird
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatPenguinCutlet
@@ -366,19 +353,6 @@
   components:
   - type: Sprite
     state: goliath
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
-        - ReagentId: Fat
-          Quantity: 3
-# UPSTREAM VERSION:
-# TORTURE END
   - type: InternalTemperature
     thickness: 0.1 # very big, do cook it in lava
   - type: Construction
@@ -408,16 +382,6 @@
     - state: dragon
     - state: dragon_veins
       shader: unshaded
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Ichor
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -425,7 +389,6 @@
         Quantity: 20
       - ReagentId: Ichor
         Quantity: 10
-# TORTURE END
   - type: Extractable
     juiceSolution:
       reagents:
@@ -482,19 +445,6 @@
   components:
   - type: Sprite
     state: lizard
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatLizardCutlet
@@ -535,20 +485,6 @@
     - Recyclable
   - type: Sprite
     state: rotten
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
-        - ReagentId: GastroToxin
-          Quantity: 4
-        - ReagentId: Fat
-          Quantity: 4
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -558,7 +494,6 @@
         Quantity: 16
       - ReagentId: Fat
         Quantity: 4
-# TORTURE END
   - type: Item
     storedOffset: -2,1
     inhandVisuals:
@@ -579,19 +514,6 @@
   components:
   - type: Sprite
     state: spider
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatSpiderCutlet
@@ -612,19 +534,6 @@
   components:
   - type: Sprite
     state: spiderleg
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 10
-        - ReagentId: Fat
-          Quantity: 3
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Item
     size: Normal
     shape:
@@ -655,26 +564,14 @@
       - falsemeat
   - type: Sprite
     state: clump
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 1
-  - type: Tag # imp
-    tags:
-    - KodeEdible
-    - Meat
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: UncookedAnimalProteins
         Quantity: 15
-# TORTURE END
+  - type: Tag # imp
+    tags:
+    - Meat
   - type: Item
     size: Tiny
     shape:
@@ -698,18 +595,6 @@
     - Meat
   - type: Sprite
     state: snake
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 10
-        - ReagentId: Toxin
-          Quantity: 2
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -719,7 +604,6 @@
         Quantity: 3
       - ReagentId: Toxin
         Quantity: 2
-# TORTURE END
   - type: Item
     storedOffset: -1,3
     inhandVisuals:
@@ -785,22 +669,11 @@
     - Meat
   - type: Sprite
     state: rouny
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: SulfuricAcid
-          Quantity: 20
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: SulfuricAcid
         Quantity: 30
-# TORTURE END
   - type: Construction
     graph: RounySteak
     node: start
@@ -864,15 +737,6 @@
     damage:
       types:
         Blunt: 2
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 3
 
 - type: entity
   parent: FoodMeatBase
@@ -894,15 +758,6 @@
     state: clown
   - type: SliceableFood
     slice: FoodMeatSalamiSlice
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Protein
-          Quantity: 3
 
 - type: entity
   parent: [SolutionTiny, FoodMeatBase]
@@ -963,11 +818,13 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 2.5
+        Quantity: 1 # imp 2.5>1
       - ReagentId: UncookedAnimalProteins
-        Quantity: 10
-      - ReagentId: Fat
-        Quantity: 2.5
+        Quantity: 5 # imp 10>5
+      #- ReagentId: Fat
+      #  Quantity: 2.5
+      - ReagentId: Egg # imp
+        Quantity: 6
 
 - type: entity
   parent: FoodMeatBase
@@ -996,17 +853,17 @@
       - state: slime-inhand-left
       right:
       - state: slime-inhand-right
-  - type: SolutionContainerManager # imp
+  # imp edit start
+  - type: Solution
     solutions:
-      food:
-        maxVol: 15
-        reagents:
+      reagents:
         - ReagentId: Slime
           Quantity: 10
-  - type: FoodSequenceElement # imp
+  - type: FoodSequenceElement
     entries:
       Burger: SlimeballBurger
       Hotdog: SlimeballBurger
+  # imp edit end
 
 - type: entity
   parent: [SolutionHuge, FoodMeatRawBase]
@@ -1016,18 +873,6 @@
   components:
   - type: Sprite
     state: anomalymeat
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 200 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 90
-        - ReagentId: Fat
-          Quantity: 90
-# UPSTREAM VERSION:
   - type: Solution # Literally no space for anything but meat.
     solution:
       reagents:
@@ -1037,7 +882,6 @@
         Quantity: 320
       - ReagentId: Fat
         Quantity: 80
-# TORTURE END
   - type: SliceableFood
     count: 16
     sliceTime: 5
@@ -1079,20 +923,6 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: rainbow_slime_extract
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55 # imp
-        reagents:
-        - ReagentId: Omnizine
-          Quantity: 30
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 10
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -1102,7 +932,6 @@
         Quantity: 10
       - ReagentId: Iron
         Quantity: 10
-# TORTURE END
   - type: StaticPrice
     price: 3000 #It has so much Omnizin in it
   - type: Tag
@@ -1140,19 +969,6 @@
   - type: Sprite
     layers:
     - state: plain-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 5
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatCutletCooked
@@ -1187,26 +1003,12 @@
       - enum.DamageStateVisualLayers.Base:
           bacon-cooked: ""
           bacon2-cooked: ""
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9 # imp
-        - ReagentId: Protein
-          Quantity: 2 # imp
-# UPSTREAM VERSION:
-  - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 5
+        Quantity: 9 # imp 5>9
       - ReagentId: Protein
-        Quantity: 5
-# TORTURE END
+        Quantity: 6 # imp 5>6
   - type: Construction
     graph: Bacon
     node: bacon
@@ -1263,19 +1065,6 @@
   - type: Sprite
     layers:
     - state: bird-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatPenguinCutletCooked
@@ -1306,19 +1095,6 @@
   - type: Sprite
     layers:
     - state: bird-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatChickenCutletCooked
@@ -1355,19 +1131,6 @@
       - enum.DamageStateVisualLayers.Base:
           chicken-fried: ""
           chicken2-fried: ""
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: FoodSequenceElement
     entries:
       Burger: MeatChicken
@@ -1406,19 +1169,6 @@
   - type: Sprite
     layers:
     - state: bird-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatDuckCutletCooked
@@ -1452,19 +1202,6 @@
   - type: Sprite
     layers:
     - state: crab-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2 # imp
-        - ReagentId: Protein
-          Quantity: 2 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: CrabSteak
     node: cooked crab
@@ -1495,19 +1232,6 @@
   - type: Sprite
     layers:
     - state: goliath-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 5
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: GoliathSteak
     node: goliath steak
@@ -1542,19 +1266,6 @@
   - type: Sprite
     layers:
     - state: rouny-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 10
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: RounySteak
     node: rouny steak
@@ -1584,19 +1295,6 @@
   - type: Sprite
     layers:
     - state: lizard-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9 # imp
-        - ReagentId: Protein
-          Quantity: 9 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: SliceableFood
     count: 5
     slice: FoodMeatLizardCutletCooked
@@ -1625,19 +1323,6 @@
   - type: Sprite
     layers:
     - state: spiderleg-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 10 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: FoodSequenceElement
     entries:
       Burger: MeatSpiderBurger
@@ -1661,26 +1346,13 @@
   components:
   - type: Sprite
     state: meatball-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 11 # imp
-        - ReagentId: Protein
-          Quantity: 5
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 10
+        Quantity: 1 # imp 10>1
       - ReagentId: Protein
-        Quantity: 5
-# TORTURE END
+        Quantity: 18 # imp 5>18
   - type: FoodSequenceElement
     entries:
       Burger: MeatBall
@@ -1712,9 +1384,9 @@
     solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 10
+        Quantity: 1 # imp 10>1
       - ReagentId: Protein
-        Quantity: 5
+        Quantity: 18 # imp 5>18
   - type: Construction
     graph: CookedPatty
     node: cooked meat patty
@@ -1770,18 +1442,6 @@
   - type: Sprite
     layers:
     - state: anomalymeat-cooked #Kinda hard to cook this... thing evenly
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 200 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 90 # imp
-        - ReagentId: Protein
-          Quantity: 90 # imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -1789,7 +1449,6 @@
         Quantity: 160
       - ReagentId: Protein
         Quantity: 80
-# TORTURE END
   - type: SliceableFood
     count: 8
     sliceTime: 5
@@ -1909,19 +1568,6 @@
     - state: cutlet
     - state: cutlet-alpha
       color: brown
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: BearCutlet
     node: start
@@ -1944,19 +1590,6 @@
   - type: Sprite
     state: cutlet
     color: white
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: PenguinCutlet
     node: start
@@ -1993,19 +1626,6 @@
   - type: Sprite
     state: cutlet
     color: white
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: DuckCutlet
     node: start
@@ -2023,19 +1643,6 @@
       color: green
     - state: cutlet-alpha
       color: pink
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: LizardCutlet
     node: start
@@ -2057,19 +1664,6 @@
   components:
   - type: Sprite
     state: spidercutlet
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-        - ReagentId: Fat
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: SpiderCutlet
     node: start
@@ -2095,22 +1689,11 @@
       - acid
   - type: Sprite
     state: xenocutlet
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: SulfuricAcid
-          Quantity: 6.67 # imp
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: SulfuricAcid
         Quantity: 6
-# TORTURE END
   - type: Construction
     graph: XenoCutlet
     node: start
@@ -2167,23 +1750,10 @@
     storedOffset: -1,0
   - type: Sprite
     state: salami-slice
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Protein
-          Quantity: 1
   - type: FoodSequenceElement # imp
     entries:
       Burger: SalamiBurger
       Hotdog: SalamiBurger
-# UPSTREAM VERSION:
-# TORTURE END
 
 - type: entity
   parent: FoodMeatCutletBase
@@ -2244,19 +1814,6 @@
   components:
   - type: Sprite
     state: cutlet-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: Cutlet
     node: cutlet
@@ -2286,19 +1843,6 @@
     - state: cutlet-cooked
     - state: cutlet-alpha
       color: brown
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: BearCutlet
     node: bear cutlet
@@ -2326,19 +1870,6 @@
   - type: Sprite
     state: cutlet-cooked
     color: white
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: PenguinCutlet
     node: penguin cutlet
@@ -2366,19 +1897,6 @@
   - type: Sprite
     state: cutlet-cooked
     color: white
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: ChickenCutlet
     node: chicken cutlet
@@ -2406,19 +1924,6 @@
   - type: Sprite
     state: cutlet-cooked
     color: white
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: DuckCutlet
     node: duck cutlet
@@ -2447,19 +1952,6 @@
     layers:
     - state: cutlet-cooked
       color: green
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: LizardCutlet
     node: lizard cutlet
@@ -2486,19 +1978,6 @@
   components:
   - type: Sprite
     state: spidercutlet-cooked
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3 # imp
-        - ReagentId: Protein
-          Quantity: 3 # imp
-# UPSTREAM VERSION:
-# TORTURE END
   - type: Construction
     graph: SpiderCutlet
     node: spider cutlet

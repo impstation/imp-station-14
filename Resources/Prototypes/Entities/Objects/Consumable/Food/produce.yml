@@ -196,18 +196,6 @@
     sprite: Objects/Specific/Hydroponics/towercap.rsi
   - type: Item
     heldPrefix: produce
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-  - type: Extractable #imp added sap juicing
-    juiceSolution:
-      reagents:
-      - ReagentId: Sap
-        Quantity: 2
-      - ReagentId: Pulp
-        Quantity: 3
-# UPSTREAM VERSION:
-# TORTURE END
   - type: MeleeWeapon
     damage:
       types:
@@ -215,9 +203,18 @@
   - type: Produce
     seedId: towercap
   - type: Log
-  - type: Tag # imp
+  # imp edit start
+  - type: Extractable # added sap juicing
+    juiceSolution:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 2
+      - ReagentId: Pulp
+        Quantity: 3
+  - type: Tag
     tags:
     - Log
+  # imp edit end
 
 - type: entity
   parent: ProduceBase

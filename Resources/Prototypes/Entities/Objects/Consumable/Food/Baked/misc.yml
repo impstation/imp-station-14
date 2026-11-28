@@ -737,8 +737,8 @@
         Quantity: 34 # imp 32>34
       - ReagentId: Theobromine
         Quantity: 6 # imp 8>6
-      - ReagentId: EggCooked # imp
-        Quantity: 18
+      - ReagentId: Protein # imp
+        Quantity: 36
       - ReagentId: CocoaPowder # imp
         Quantity: 8
   - type: SliceableFood
@@ -768,8 +768,8 @@
         Quantity: 4.25 # imp 4>4.25
       - ReagentId: Theobromine
         Quantity: 0.75 # imp 2>0.75
-      - ReagentId: EggCooked # imp
-        Quantity: 2.25
+      - ReagentId: Protein # imp
+        Quantity: 4.5
       - ReagentId: CocoaPowder # imp
         Quantity: 1
   - type: Tag
@@ -804,8 +804,8 @@
         Quantity: 6 # imp 6>8
       - ReagentId: THC
         Quantity: 15 # imp 16>15
-      - ReagentId: EggCooked # imp
-        Quantity: 18
+      - ReagentId: Protein # imp
+        Quantity: 36
       - ReagentId: CocoaPowder # imp
         Quantity: 8
   - type: SliceableFood
@@ -838,7 +838,7 @@
       - ReagentId: THC
         Quantity: 1.875 # imp 2>1.875
       - ReagentId: EggCooked # imp
-        Quantity: 2.25
+        Quantity: 4.5
       - ReagentId: CocoaPowder # imp
         Quantity: 1
   - type: Tag
