@@ -1,26 +1,351 @@
+# Mên-mên...
+
 - type: entity
-  parent: FoodMeatRawBase
-  id: FoodMeatSnail
-  name: raw snail meat
-  description: Improved with salt.
+  name: finfin sashimi
+  parent: FoodMealBase
+  id: FoodMealFinfinSashimi
+  description: An unscrupulous delicacy. Japanese-Teoean fusion cuisine!
   components:
+  - type: FlavorProfile
+    flavors:
+    - fishy
+    - finfin
   - type: Sprite
-    state: snail
+    state: sashimi
   - type: Solution
     solution:
       reagents:
-      - ReagentId: UncookedAnimalProteins
-        Quantity: 3
-      - ReagentId: Fat
-        Quantity: 3
-      - ReagentId: Water
-        Quantity: 4 #It makes saline if you add salt!
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Meat
+  - type: FoodSequenceElement
+    entries:
+      Burger: FinfinSashimiBurger
+      Hotdog: FinfinSashimiBurger
+
+- type: entity
+  parent: FoodMealBase
+  id: FabricScrapSalad
+  name: fabric scrap salad
+  description: Whose clothes are these?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: fabric-scrap-salad
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodBowlBig
+  - type: FlavorProfile
+    flavors:
+    - leafy
+  - type: Solution
+    solution:
+      reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+  - type: Construction
+    graph: FabricScrapSalad
+    node: salad
+  - type: Tag
+    tags:
+    - ClothMade
+    - ClothFood
+
+- type: entity
+  parent: FoodMealBase
+  id: YarnNoodles
+  name: yarn noodles
+  description: Looks like someone's failed knitting project.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: yarn-noodles
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - ChopSticks
+  - type: FlavorProfile
+    flavors:
+    - pasta
+  - type: Solution
+    solutions:
+      reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Construction
+    graph: YarnNoodles
+    node: noodles
+  - type: Tag
+    tags:
+    - ClothMade
+    - ClothFood
+
+
+# pompom foods
+
+- type: entity
+  name: cheese squeaks
+  parent: FoodMealBase
+  id: FoodMealCheeseSqueaks
+  description: Fried fabric treats, filled with string cheese and served with sauce.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+    ignoreReagents:
+      - CottonBool
+      - Nutriment
+  - type: Sprite
+    state: cheesesqueaks
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/cheesesqueaks.rsi
   - type: Item
-    storedOffset: -1,-3
-    inhandVisuals:
-      left:
-      - state: generic-pink-inhand-left
-        color: "#E2AE7C"
-      right:
-      - state: generic-pink-inhand-right
-        color: "#E2AE7C"
+    heldPrefix: cheese squeaks
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodPacketFoodBoatTrash
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 24.5
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: Fiber
+        Quantity: 11.5
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+
+- type: entity
+  name: puff-puff
+  parent: FoodMealBase
+  id: FoodMealPuffPuff
+  description: A popular street food for moths, known by many names across the galaxy.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - street-food
+    ignoreReagents:
+      - Nutriment
+  - type: Sprite
+    state: puffpuff
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/puffpuff.rsi
+  - type: Item
+    heldPrefix: puff-puffs
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodPacketFoodBoatTrash
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 17
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: TableSalt
+        Quantity: 5
+      - ReagentId: Fiber
+        Quantity: 9
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+
+- type: entity
+  name: pomgo
+  parent: FoodMealBase
+  id: FoodMealPomgo
+  description: Although a simple recipe, this classic treat of fluffy pom poms glazed in soy sauce remains popular to this day.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - street-food
+      - sweet
+      - savory
+      - Nutriment
+  - type: Sprite
+    state: pomgo
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/pomgo.rsi
+  - type: Item
+    heldPrefix: pomgo
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodKebabSkewer
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: Soysauce
+        Quantity: 10
+      - ReagentId: Fiber
+        Quantity: 9
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+
+- type: entity
+  name: pompette
+  parent: FoodMealBase
+  id: FoodMealPompette
+  description: A rich, savory take on traditional moth cuisine.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - piquant
+      - savory
+    ignoreReagents:
+      - Fiber
+      - Nutriment
+      - Vitamin
+  - type: Sprite
+    state: pompette
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/pompette.rsi
+  - type: Item
+    heldPrefix: pompette
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 21
+      - ReagentId: Vitamin
+        Quantity: 9
+      - ReagentId: Wine
+        Quantity: 10
+      - ReagentId: Blackpepper
+        Quantity: 5
+      - ReagentId: TableSalt
+        Quantity: 5
+      - ReagentId: Fiber
+        Quantity: 9
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketFoodBoatTrash
+  name: paper food boat
+  description: Holds food. Shaped like a boat.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/cheesesqueaks.rsi
+    state: food-boat
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealSteakTartare
+  name: steak tartare
+  description: A raw, minced steak topped with an egg yolk. Not for the weak-stomached.
+  components:
+  - type: Item
+    storedOffset: 0,-3
+  - type: FlavorProfile
+    flavors:
+    - raw-egg
+    - meaty
+    - spices
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Steaktartare.rsi
+    state: steaktartare
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 5
+      - ReagentId: Egg
+        Quantity: 9
+  - type: Tag
+    tags:
+    - Meat
+
+#chinese foods
+- type: entity
+  id: FoodMealTomatoAndEgg
+  parent: FoodMealBase
+  name: tomato and egg stir fry
+  description: The unshakable pillar of Chinese cuisine since 1920. Good with rice.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - tomato
+    - egg
+  - type: Sprite
+    state: tomato-and-egg
+    sprite: _Impstation/Objects/Consumable/Food/chinese.rsi
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 14
+      - ReagentId: Vitamin
+        Quantity: 6
+      - ReagentId: EggCooked
+        Quantity: 24
+      - ReagentId: Soysauce
+        Quantity: 5
+  - type: Tag
+    tags:
+    - ReptilianFood
+  - type: Edible
+    trash:
+    - FoodPlate
+
+- type: entity
+  name: mapo tofu
+  parent: FoodBowlBase
+  id: FoodMealMapoTofu
+  #had to do the description like this otherwise the quotation marks brick the whole file
+  description: |
+    "Not spicy at all" according to the Space Sichuanese.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - spicy
+    - tofu
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/chinese.rsi
+    layers:
+    - state: bowl
+    - state: mapo-tofu
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Protein
+        Quantity: 10.8
+      - ReagentId: Nutriment
+        Quantity: 22.2
+      - ReagentId: CapsaicinOil
+        Quantity: 30
+      - ReagentId: Vitamin
+        Quantity: 13
+      - ReagentId: Allicin
+        Quantity: 4
+  - type: Tag
+    tags:
+    - Soup
+    - UnguFood
+

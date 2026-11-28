@@ -350,7 +350,7 @@
 
 - type: entity
   name: meat lollipop
-  parent: SolutionTiny, FoodMealBigLollipop
+  parent: [ SolutionTiny, FoodMealBigLollipop ]
   id: FoodMealMeatLollipop
   description: It's still dripping...
   components:
