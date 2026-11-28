@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Toasterblast
-  changes:
-  - message: Donk Co. has begun manufacturing candy.
-    type: Add
-  id: 2530
-  time: '2026-01-05T04:09:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3870
 - author: TheGrimbeeper
   changes:
   - message: Xenoarchaeology guidebook is now up-to-date for Natural and Reticulated
@@ -4050,3 +4043,13 @@
   id: 3029
   time: '2026-11-27T20:39:47.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4563
+- author: FlippenPage
+  changes:
+  - message: Mansus Grasp now disappears when a player is in Critical condition.
+    type: Fix
+  - message: Sacrifice Clones are no longer doomed to wander the Infinite Archives
+      forever.
+    type: Fix
+  id: 3030
+  time: '2026-11-28T03:06:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4495
