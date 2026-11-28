@@ -2110,9 +2110,12 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
-  #- type: MeleeChemicalInjector IMP: MOUSE BITES WILL RETURN IN GRAND THEFT AUTO 7 "WOKE CITY"
-  #  solution: mousebites
-  #  transferAmount: 1
+  - type: MeleeChemicalInjector #IMP START
+    solution: mousebites
+    transferAmount: 1
+  - type: SolutionManager
+    solutions:
+    - SolutionVenomMouseBites #IMP END
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null
@@ -2138,13 +2141,25 @@
   id: SolutionVermin
   components:
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: UncookedAnimalProteins
         Quantity: 15
-      #- ReagentId: MouseBites #imp # MOUSE BITES WILL RETURN IN AVENGERS DOOMSDAYQ
-      #  Quantity: 2
+      - ReagentId: MouseBites #imp
+        Quantity: 2
 
+# IMP START
+- type: entity
+  parent: [SolutionLarge]
+  id: SolutionVenomMouseBites
+  components:
+  - type: Solution
+    id: mousebites
+    solution:
+      reagents:
+      - ReagentId: MouseBites
+        Quantity: 200 #yum
+# IMP END
 
 - type: entity
   parent: MobMouse
