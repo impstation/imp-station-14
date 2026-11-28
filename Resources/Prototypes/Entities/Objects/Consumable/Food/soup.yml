@@ -171,28 +171,6 @@
     layers:
     - state: bowl
     - state: valid
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 115 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 27 # imp
-        - ReagentId: Vitamin
-          Quantity: 12 # imp
-        #- ReagentId: DoctorsDelight # imp
-        #  Quantity: 5
-        - ReagentId: Bicaridine # imp
-          Quantity: 15
-        - ReagentId: Kelotane # imp
-          Quantity: 15
-        - ReagentId: Desoxyephedrine # imp
-          Quantity: 30
-        - ReagentId: Protein # imp
-          Quantity: 5
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -206,7 +184,6 @@
         Quantity: 10
       - ReagentId: Protein
         Quantity: 18 # imp 18>5
-# TORTURE END
   - type: Tag
     tags:
     - Meat
@@ -459,7 +436,7 @@
     - state: rice
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Rice
           Quantity: 20
@@ -624,7 +601,7 @@
     - state: oatmeal
 # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Sugar
         Quantity: 8

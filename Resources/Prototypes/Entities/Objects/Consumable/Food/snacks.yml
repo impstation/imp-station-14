@@ -236,7 +236,7 @@
     - FoodPacketPopcornTrash
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 8
@@ -309,8 +309,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
-      food:
+    solution:
       reagents:
         - ReagentId: Protein
           Quantity: 1
@@ -335,7 +334,7 @@
     - FoodPacketSyndiTrash
   # imp edit start
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment # higher bc not in vending machines
           Quantity: 10
@@ -547,7 +546,7 @@
   - type: Sprite
     state: nutribrick-open
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 5 # GO TO THE KITCHEN !!! I HATE YOU

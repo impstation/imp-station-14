@@ -39,7 +39,7 @@
     state: loadedbakedpotato
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -65,7 +65,7 @@
     state: fries
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -98,7 +98,7 @@
     state: fries-cheesy
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -365,7 +365,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 15
@@ -400,7 +400,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 20
@@ -429,7 +429,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 8
@@ -510,7 +510,7 @@
     tags:
     - Meat
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 10
@@ -595,7 +595,7 @@
     state: saltysweet
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Cola
         Quantity: 5
@@ -626,7 +626,7 @@
         Burger: QuesoBurger
         Hotdog: QuesoBurger
     - type: Solution
-      solutions:
+      solution:
         reagents:
           - ReagentId: Nutriment
             Quantity: 22
@@ -754,7 +754,7 @@
   - type: Sprite
     state: corn-in-butter
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 11.75 # imp 20>11.75

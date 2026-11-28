@@ -31,7 +31,7 @@
     flavors:
     - icecream
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
       - ReagentId: Nutriment
         Quantity: 5
@@ -58,7 +58,7 @@
     - berry
     - icecream
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -81,7 +81,7 @@
     - blueraspberry
     - icecream
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 0.33
@@ -105,7 +105,7 @@
     - icecream
     - cherry
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Nutriment
           Quantity: 3.83
@@ -333,7 +333,7 @@
     flavors:
     - sweet
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Ice
           Quantity: 10
@@ -377,7 +377,7 @@
     - cold
     - magical
   - type: Solution # imp
-    solutions:
+    solution:
       reagents:
         - ReagentId: Ice
           Quantity: 10

@@ -855,7 +855,7 @@
       - state: slime-inhand-right
   # imp edit start
   - type: Solution
-    solutions:
+    solution:
       reagents:
         - ReagentId: Slime
           Quantity: 10
@@ -1729,7 +1729,7 @@
       Burger: MeatTomatoCutletBurger
       Hotdog: MeatTomatoCutletBurger
   - type: SolutionContainerManager # imp
-    solutions:
+    solution:
       food:
         maxVol: 5
         reagents:
