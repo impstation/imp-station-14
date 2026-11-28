@@ -251,11 +251,15 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         if (_lock.IsLocked(uid))
             return;
 
-        if (component.AddAction) // imp if
+        if (component.AddAction) // imp if & else add
         {
             component.Active = false;
             _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
         }
+        else
+        {
+            component.Active = true;
+        } // imp end
     }
 
     private void OpenUI(VoiceMaskSetNameEvent ev)

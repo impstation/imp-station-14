@@ -5,6 +5,7 @@
   components:
   - type: Spillable
     solution: welder
+    spillWhenThrown: false # can you imagine
 
 - type: entity
   name: janitorial welding tool

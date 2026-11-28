@@ -146,6 +146,11 @@
   - type: Welder
     fuelConsumption: 0.02
     fuelLitCost: 0.2
+  - type: Solution # imp add so it actually works???????????????????
+    solution:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 1
 
 - type: entity
   name: Flippo lighter # imp brand name fix
