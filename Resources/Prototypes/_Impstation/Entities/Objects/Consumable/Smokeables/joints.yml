@@ -10,23 +10,13 @@
   - type: RandomMetadata
     nameSegments: [NamesRollie]
     nameFormat: sad-blunt
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 50
-        reagents:
-        - ReagentId: THC
-          Quantity: 20
-        - ReagentId: Sadness
-          Quantity: 20
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: THC
-          Quantity: 20
-        - ReagentId: Sadness
-          Quantity: 20
-
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: THC
+        Quantity: 20
+      - ReagentId: Sadness
+        Quantity: 20
 
 - type: entity
   id: MemorialBlunt
@@ -41,21 +31,12 @@
     nameSegments: [NamesRollie]
     nameFormat: sad-blunt
   - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 50
-        reagents:
-        - ReagentId: THC
-          Quantity: 20
-        - ReagentId: Sadness
-          Quantity: 20
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: THC
-          Quantity: 20
-        - ReagentId: Sadness
-          Quantity: 20
+    solution:
+      reagents:
+      - ReagentId: THC
+        Quantity: 20
+      - ReagentId: Sadness
+        Quantity: 20
 
 - type: entity
   id: ImpstationMemorialBlunt

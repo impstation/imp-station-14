@@ -23,27 +23,11 @@
   - type: Construction
     graph: smokeableJoint
     node: joint
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 30
-        reagents:
-          - ReagentId: THC
-            Quantity: 20
-      food:
-        maxVol: 30
-        reagents:
-          - ReagentId: THC
-            Quantity: 20
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: THC
         Quantity: 20
-# TORTURE END
   - type: RandomMetadata
     nameSegments: [NamesRollie]
 
@@ -57,41 +41,6 @@
   - type: Construction
     graph: smokeableJointRainbow
     node: jointRainbow
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 20
-        reagents:
-        - ReagentId: SpaceDrugs
-          Quantity: 4
-        - ReagentId: Lipolicide
-          Quantity: 4
-        - ReagentId: MindbreakerToxin
-          Quantity: 2.66
-        - ReagentId: Happiness
-          Quantity: 2.66
-#       - ReagentId: ColorfulReagent
-#         Quantity: 1.33
-        - ReagentId: Psicodine
-          Quantity: 0.8
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: SpaceDrugs
-          Quantity: 4
-        - ReagentId: Lipolicide
-          Quantity: 4
-        - ReagentId: MindbreakerToxin
-          Quantity: 2.66
-        - ReagentId: Happiness
-          Quantity: 2.66
-#       - ReagentId: ColorfulReagent
-#         Quantity: 1.33
-        - ReagentId: Psicodine
-          Quantity: 0.8
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -107,7 +56,6 @@
   #     Quantity: 1.33
       - ReagentId: Psicodine
         Quantity: 3.67
-# TORTURE END
 
 - type: entity
   id: Blunt
@@ -134,27 +82,11 @@
   - type: Construction
     graph: smokeableBlunt
     node: blunt
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 30
-        reagents:
-          - ReagentId: THC
-            Quantity: 20
-      food:
-        maxVol: 30
-        reagents:
-          - ReagentId: THC
-            Quantity: 20
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
       - ReagentId: THC
         Quantity: 20
-# TORTURE END
   - type: RandomMetadata
     nameSegments: [NamesRollie]
 
@@ -168,41 +100,6 @@
   - type: Construction
     graph: smokeableBluntRainbow
     node: bluntRainbow
-# IMP UPMERGE - Solution Torture
-# IMP VERSION:
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 20
-        reagents:
-        - ReagentId: SpaceDrugs
-          Quantity: 4
-        - ReagentId: Lipolicide
-          Quantity: 4
-        - ReagentId: MindbreakerToxin
-          Quantity: 2.66
-        - ReagentId: Happiness
-          Quantity: 2.66
-#       - ReagentId: ColorfulReagent
-#         Quantity: 1.33
-        - ReagentId: Psicodine
-          Quantity: 0.8
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: SpaceDrugs
-          Quantity: 4
-        - ReagentId: Lipolicide
-          Quantity: 4
-        - ReagentId: MindbreakerToxin
-          Quantity: 2.66
-        - ReagentId: Happiness
-          Quantity: 2.66
-#       - ReagentId: ColorfulReagent
-#         Quantity: 1.33
-        - ReagentId: Psicodine
-          Quantity: 0.8
-# UPSTREAM VERSION:
   - type: Solution
     solution:
       reagents:
@@ -218,4 +115,3 @@
   #     Quantity: 1.33
       - ReagentId: Psicodine
         Quantity: 3.67
-# TORTURE END
