@@ -30,3 +30,14 @@ guide-entry-baking-techniques = Baking Techniques
 guide-entry-xenoarchaeologyreticulated = Reticulated artifacts
 guide-entry-xenoarchaeologynatural = Natural artifacts
 guide-entry-advancednodescanner = Advanced Node Scanner
+
+guide-entry-guidedmenus = Guided Menus
+guide-entry-guidedmenusbrunch = Brunch
+guide-entry-guidedmenuscasual = Casual
+guide-entry-guidedmenusfastfood = Fast Food
+guide-entry-guidedmenusbakery = Bakery
+guide-entry-guidedmenuschinese = Chinese
+guide-entry-guidedmenusitalian = Italian
+guide-entry-guidedmenusjapanese = Japanese
+guide-entry-guidedmenusfrench = French
+guide-entry-guidedmenustexmex = Tex-mex

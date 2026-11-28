@@ -24,6 +24,8 @@
   id: Chef
   name: guide-entry-chef
   text: "/ServerInfo/Guidebook/Service/Chef.xml"
+  children:
+  - GuidedMenus #imp
 
 - type: guideEntry
   id: Janitorial
