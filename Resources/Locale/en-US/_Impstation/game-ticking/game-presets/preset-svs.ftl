@@ -3,6 +3,10 @@ spy-vs-spy-description = Watch your back.
 spy-vs-spy-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed. Can't start Spy VS Spy.
 spy-vs-spy-no-one-ready = No players readied up! Can't start Spy VS Spy.
 
+spy-vs-spy-role-greeting =
+    You are a spy sent sent by [color = darkred]The Syndicate[/color] to take out your corporate competition.
+    Watch your back. You never know who might be out for your head, too.
+
 pacifist-vs-pacifist-title = Pacifist VS Pacifist
 pacifist-vs-pacifist-description = Time to get inventive.
 

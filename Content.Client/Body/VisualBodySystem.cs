@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.DisplacementMap;
 using Content.Shared.Body;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid.Markings;
@@ -16,6 +17,7 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly MarkingManager _marking = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
@@ -168,8 +170,11 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
         }
     }
 
-    private void ApplyMarkings(Entity<VisualOrganMarkingsComponent> ent, EntityUid target)
+    private void ApplyMarkings(Entity<VisualOrganMarkingsComponent> ent, Entity<SpriteComponent?> target)
     {
+        if (!Resolve(target, ref target.Comp))
+            return;
+
         var applied = new List<Marking>();
         foreach (var marking in AllMarkings(ent))
         {
@@ -211,6 +216,8 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
             var layerDict = new Dictionary<string, int>();
             // FLOOF ADD END
 
+            ent.Comp.MarkingsDisplacement.TryGetValue(proto.BodyPart, out var displacement);
+
             for (var i = 0; i < proto.Sprites.Count; i++)
             {
                 var sprite = proto.Sprites[i];
@@ -246,8 +253,8 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
                     // Floofstation: for layers that are supposed to be behind everything,
                     // adding 1 to the layer index makes it not be behind the target (marker) layer.
                     var targetLayerAdj = index + layerDict[layerSlot.ToString()] + 1;
-                    var layer = _sprite.AddLayer(target, sprite, targetLayerAdj); // Was index + i + 1
-                    _sprite.LayerMapSet(target, layerId, layer);
+                    var spriteLayer = _sprite.AddLayer(target, sprite, targetLayerAdj); // Was index + i + 1
+                    _sprite.LayerMapSet(target, layerId, spriteLayer);
                     _sprite.LayerSetSprite(target, layerId, rsi);
                 }
 
@@ -258,6 +265,9 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
                 // Floofstation - replaced the above
                 _sprite.LayerSetColor(target, layerId,
                     colorDict.TryGetValue(rsi.RsiState, out var color) ? color : Color.White);
+
+                if (displacement != null && proto.CanBeDisplaced)
+                    _displacement.TryAddDisplacement(displacement, (target, target.Comp), index + i + 1, layerId, out _);
             }
 
             applied.Add(marking);
@@ -265,8 +275,11 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
         ent.Comp.AppliedMarkings = applied;
     }
 
-    private void RemoveMarkings(Entity<VisualOrganMarkingsComponent> ent, EntityUid target)
+    private void RemoveMarkings(Entity<VisualOrganMarkingsComponent> ent, Entity<SpriteComponent?> target)
     {
+        if (!Resolve(target, ref target.Comp))
+            return;
+
         foreach (var marking in ent.Comp.AppliedMarkings)
         {
             if (!_marking.TryGetMarking(marking, out var proto))
@@ -279,6 +292,13 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
                     continue;
 
                 var layerId = $"{proto.ID}-{rsi.RsiState}";
+
+                // If this marking is one that can be displaced, we need to remove the displacement as well; otherwise
+                // altering a marking at runtime can lead to the renderer falling over.
+                // The Vulps must be shaved.
+                // (https://github.com/space-wizards/space-station-14/issues/40135).
+                if (proto.CanBeDisplaced)
+                    _displacement.EnsureDisplacementIsNotOnSprite((target, target.Comp), layerId);
 
                 if (!_sprite.LayerMapTryGet(target, layerId, out var index, false))
                     continue;

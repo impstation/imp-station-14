@@ -121,8 +121,9 @@
     userInterfaceKeys:
     - enum.BorgUiKey.Key
   - type: LockedWiresPanel
-  - type: Damageable
+  - type: Injurable
     damageContainer: Silicon
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:

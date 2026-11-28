@@ -70,7 +70,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: FluorosulfuricAcid
-        Quantity: 650
+        Quantity: 1300
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -404,12 +404,9 @@
       types:
         Piercing: 5
     altDisarm: false # imp
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 50
+    - SolutionVenomPurpleSnake
   - type: MeleeChemicalInjector
     solution: melee
   - type: Fixtures
@@ -463,6 +460,17 @@
     proto: lizard
   - type: LizardAccent
   # imp end
+
+- type: entity
+  parent: [SolutionWeapon, SolutionTiny]
+  id: SolutionVenomPurpleSnake
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 30
 
 - type: entity
   name: space adder
@@ -534,7 +542,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: FluorosulfuricAcid
-        Quantity: 300
+        Quantity: 600
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -601,15 +609,23 @@
   - type: Tag
     tags:
     - CannotSuicide
-  - type: SolutionContainerManager # Being hit speeds you up so you can escape
+  - type: SolutionManager # Being hit speeds you up so you can escape
     solutions:
-      bite:
-        reagents:
-        - ReagentId: Stimulants
-          Quantity: 50
-        - ReagentId: TranexamicAcid
-          Quantity: 50
+    - SolutionVenomDale
   - type: MeleeChemicalInjector
     transferAmount: 1
-    solution: bite
+    solution: melee
     pierceArmor: true
+
+- type: entity
+  parent: [SolutionWeapon, SolutionNormal]
+  id: SolutionVenomDale
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Stimulants
+        Quantity: 50
+      - ReagentId: TranexamicAcid
+        Quantity: 50

@@ -1,0 +1,22 @@
+- type: antag
+  id: Spy
+  playTimeTracker: AntagSpy
+  name: roles-antag-spy-name
+  antagonist: true
+  objective: roles-antag-syndicate-agent-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 1h
+
+- type: antagSpecifier
+  parent: BaseTraitor
+  id: Spy
+  prefRoles:
+  - Spy
+  blacklist:
+    components:
+    - AntagImmune
+  mindRoles:
+  - MindRoleSpy
+  briefing:
+    text: spy-vs-spy-role-greeting

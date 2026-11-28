@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseGameRule
+  parent: [ BaseGameRule, BaseRoundstartAntagRule ] # imp edit, antag selection refactor
   id: Changeling
   components:
   - type: GoobChangelingRule
@@ -14,15 +14,11 @@
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn # Imp Edit
+    antags: # imp edit, antag selection refactor
+    - !type:LinearAntagCount
+      proto: Changeling
+      playerRatio: 15
+      range:
+        min: 1
+        max: 5
     agentName: goob-changeling-roundend-name
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 5 #imp: 6>5
-      playerRatio: 15 #imp: up from 10
-      lateJoinAdditional: true
-      blacklist:
-        components:
-        - AntagImmune
-      mindRoles:
-      - MindRoleChangeling

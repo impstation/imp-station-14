@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseSheet
   id: SheetGlassBase
   name: glass
   description: You'd know it if you couldn't see it. # imp
@@ -9,19 +9,8 @@
     sprite: Objects/Materials/Sheets/glass.rsi
   - type: Item
     sprite: Objects/Materials/Sheets/glass.rsi
-    size: Normal
-  - type: StaticPrice
-    price: 0
-  - type: Tag
-    tags:
-    - Sheet
-    - ConstructionMaterial
-    - DroneUsable #imp
-  - type: Material
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Glass
-  - type: Appearance
   - type: Destructible
     thresholds:
     - trigger:
@@ -46,10 +35,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      glass:
-        canReact: false
+  - type: Solution
+    solution:
+      canReact: false
   - type: NonMobStatusIcon #imp edit. for the salvohud
   - type: PluralName # imp
     oneOf: plural-name-sheet-1
@@ -83,14 +71,11 @@
   - type: Construction
     graph: Glass
     node: SheetGlass
-  - type: Extractable
-    grindableSolutionName: glass
-  - type: SolutionContainerManager
-    solutions:
-      glass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
   # imp edit start
   - type: UserInterface
     interfaces:
@@ -180,6 +165,16 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Iron
+        Quantity: 4.5
+      - ReagentId: Carbon
+        Quantity: 0.5
   # imp edit start
   - type: UserInterface
     interfaces:
@@ -204,19 +199,6 @@
   - type: Stack
     stackType: ReinforcedGlass
     count: 1
-  - type: Extractable
-    grindableSolutionName: rglass
-  - type: SolutionContainerManager
-    solutions:
-      rglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
 
 - type: entity
   parent: SheetGlassBase
@@ -269,6 +251,14 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Plasma
+        Quantity: 10
   # imp edit start
   - type: UserInterface
     interfaces:
@@ -293,17 +283,6 @@
   - type: Stack
     stackType: PlasmaGlass
     count: 1
-  - type: Extractable
-    grindableSolutionName: pglass
-  - type: SolutionContainerManager
-    solutions:
-      pglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Plasma
-          Quantity: 10
-        canReact: false
 
 - type: entity
   parent: SheetPGlass
@@ -332,21 +311,19 @@
   - type: Construction
     graph: Glass
     node: SheetRPGlass
-  - type: Extractable
-    grindableSolutionName: rpglass
-  - type: SolutionContainerManager
-    solutions:
-      rpglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Plasma
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Plasma
+        Quantity: 10
+      - ReagentId: Iron
+        Quantity: 4.5
+      - ReagentId: Carbon
+        Quantity: 0.5
+      canReact: false
   # imp edit start
   - type: UserInterface
     interfaces:
@@ -423,17 +400,15 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Extractable
-    grindableSolutionName: uglass
-  - type: SolutionContainerManager
-    solutions:
-      uglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        canReact: false
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Uranium
+        Quantity: 10
+      canReact: false
   # imp edit start
   - type: UserInterface
     interfaces:
@@ -485,21 +460,19 @@
   - type: Construction
     graph: Glass
     node: SheetRUGlass
-  - type: Extractable
-    grindableSolutionName: ruglass
-  - type: SolutionContainerManager
-    solutions:
-      ruglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        canReact: false
+  - type: Solution
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Uranium
+        Quantity: 10
+      - ReagentId: Iron
+        Quantity: 4.5
+      - ReagentId: Carbon
+        Quantity: 0.5
+      canReact: false
   # imp edit start
   - type: UserInterface
     interfaces:
@@ -576,19 +549,17 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Extractable
-    grindableSolutionName: cglass
-  - type: SolutionContainerManager
-    solutions:
-      cglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Zinc
-          Quantity: 3.3
-        - ReagentId: Copper
-          Quantity: 6.7
-        canReact: false
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Zinc
+        Quantity: 3.3
+      - ReagentId: Copper
+        Quantity: 6.7
+      canReact: false
   # imp edit start
   - type: UserInterface
     interfaces:

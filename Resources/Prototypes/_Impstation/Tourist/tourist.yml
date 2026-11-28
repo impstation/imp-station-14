@@ -12,11 +12,17 @@
   components:
   - type: AntagSelection
     agentName: tourist-round-end-agent-name
-    definitions:
-    - prefRoles: [ Tourist ]
-      mindRoles:
-      - MindRoleTourist
+    antags: 
+    - !type:FixedAntagCount
+      proto: Tourist
   - type: AntagRandomObjectives
     sets:
     - groups: TouristObjectiveGroups
     maxDifficulty: 5
+
+- type: antagSpecifier
+  id: Tourist
+  parent: BaseAntagSpecifier
+  prefRoles: [ Tourist ]
+  mindRoles:
+  - MindRoleTourist

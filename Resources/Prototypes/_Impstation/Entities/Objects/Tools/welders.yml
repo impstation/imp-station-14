@@ -1,10 +1,11 @@
 - type: entity
-  parent: BaseWelder
-  id: WelderSpillable
+  parent: SolutionWelder
+  id: SolutionWelderSpillable
   abstract: true
   components:
   - type: Spillable
-    solution: Welder
+    solution: welder
+    spillWhenThrown: false # can you imagine
 
 - type: entity
   name: janitorial welding tool

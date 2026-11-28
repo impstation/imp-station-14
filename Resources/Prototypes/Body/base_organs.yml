@@ -22,35 +22,28 @@
   components:
   - type: Organ
 
-#imp edit start, manually copied from https://github.com/space-wizards/space-station-14/pull/44197 to fix inedible organs
-#this PR partially relies on solutions refactor, so I have copied the relevant parts for now
-#this will be replaced fully with the upstream implementation once we reach the commit
 - type: entity
   id: OrganBaseOrganic
   name: organ
   abstract: true
-  parent: [ OrganBase ]
+  parent: [ OrganBase, SolutionFood, SolutionTiny ]
   components:
   - type: FlavorProfile
     flavors:
     - chicken # INTRODUCING OUR NEW EVERY-MEAT BURRITO, IT'S GOT EVERY MEAT!
   - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 20
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 20
   - type: Tag # I am nearing my limit of tolerance for TagComponent.
     tags:
     - Raw
     - Meat
-#imp edit end
-
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganBaseTorso
   name: torso
   abstract: true
@@ -351,15 +344,13 @@
   - type: Examiner
   - type: BlockMovement
   - type: BadFood
-  - type: SolutionContainerManager #imp edit, to be modified by solutions refactor
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 15
-        - ReagentId: GreyMatter
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 15
+      - ReagentId: GreyMatter
+        Quantity: 10
   - type: FoodSequenceElement
     entries:
       Burger: Brain
@@ -463,16 +454,9 @@
   - type: Lung
   - type: Metabolizer
     stages: [ Respiration ]
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      Lung:
-        maxVol: 100.0
-        canReact: false
-      food: #imp edit, to match contents of OrganBaseOrganic, should be removed after solution refactor
-        maxVol: 20
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 20
+    - SolutionLungGas
   - type: Sprite
     layers:
     - state: lung-l
@@ -485,6 +469,17 @@
     - Meat
     - Organ
     - Lungs
+
+- type: entity
+  parent: Solution
+  id: SolutionLungGas # TODO: Metabolize directly from gasses :(
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: Lung
+    solution:
+      maxVol: 100.0
+      canReact: false
 
 - type: entity
   parent: OrganBase
@@ -518,10 +513,9 @@
   - type: Organ
     category: Stomach
   - type: Stomach
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      stomach:
-        maxVol: 50
+    - SolutionStomach
   - type: Metabolizer
     maxReagents: 3
     stages: [ Digestion ]
@@ -536,6 +530,16 @@
     - Meat
     - Organ
     - Stomach
+
+- type: entity
+  parent: Solution
+  id: SolutionStomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: stomach
+    solution:
+      maxVol: 150 # 1.25 liters which is average for a human
 
 - type: entity
   parent: OrganBase

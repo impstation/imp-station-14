@@ -10,17 +10,15 @@
     tags:
     - Fruit
     - Muffin
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 60
-        reagents:
+      reagents:
         - ReagentId: Nutriment
-          Quantity: 35
+          Quantity: 24.125 # lemo fruits kinda cracked lmao
         - ReagentId: Vitamin
-          Quantity: 12
+          Quantity: 6
         - ReagentId: Sugar
-          Quantity: 5
+          Quantity: 10
 
 - type: entity
   name: forever weed brownies
@@ -36,34 +34,42 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/brownie.rsi
     state: brownie-batch
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 215
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 35
-        - ReagentId: Sugar
-          Quantity: 30
-        - ReagentId: EggCooked
-          Quantity: 18
-        - ReagentId: Butter
-          Quantity: 30
-        - ReagentId: THC
-          Quantity: 48
-        - ReagentId: ForeverWeed
-          Quantity: 16
-        - ReagentId: Theobromine
-          Quantity: 6
-        - ReagentId: CocoaPowder
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 13
+      - ReagentId: Sugar
+        Quantity: 34
+      - ReagentId: Protein
+        Quantity: 36
+      - ReagentId: Theobromine
+        Quantity: 6
+      - ReagentId: CocoaPowder
+        Quantity: 8
+      - ReagentId: Butter
+        Quantity: 30
+      - ReagentId: SpaceDrugs
+        Quantity: 36
+      - ReagentId: Lipolicide
+        Quantity: 18
+      - ReagentId: MindbreakerToxin
+        Quantity: 12
+      - ReagentId: Happiness
+        Quantity: 12
+      - ReagentId: Psicodine
+        Quantity: 6
+      - ReagentId: THC
+        Quantity: 24
+      - ReagentId: ForeverWeed
+        Quantity: 8
   - type: PointLight
     radius: 1.5
     energy: 2
   - type: RgbLightController
     cycleRate: 0.6
   - type: SliceableFood
-    count: 6
+    count: 8
     slice: FoodBakedForeverWeedBrownie
 
 - type: entity
@@ -80,27 +86,35 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
     state: mre-brownie-open
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5.83
-        - ReagentId: Sugar
-          Quantity: 5
-        - ReagentId: EggCooked
-          Quantity: 3
-        - ReagentId: Butter
-          Quantity: 5
-        - ReagentId: THC
-          Quantity: 8
-        - ReagentId: ForeverWeed
-          Quantity: 2
-        - ReagentId: Theobromine
-          Quantity: 1
-        - ReagentId: CocoaPowder
-          Quantity: 0.33
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.625
+      - ReagentId: Sugar
+        Quantity: 4.25
+      - ReagentId: Protein
+        Quantity: 4.5
+      - ReagentId: Theobromine
+        Quantity: 0.75
+      - ReagentId: CocoaPowder
+        Quantity: 1
+      - ReagentId: Butter
+        Quantity: 3.75
+      - ReagentId: SpaceDrugs
+        Quantity: 4.5
+      - ReagentId: Lipolicide
+        Quantity: 2.25
+      - ReagentId: MindbreakerToxin
+        Quantity: 1.5
+      - ReagentId: Happiness
+        Quantity: 1.5
+      - ReagentId: Psicodine
+        Quantity: 0.75
+      - ReagentId: THC
+        Quantity: 3
+      - ReagentId: ForeverWeed
+        Quantity: 8
   - type: PointLight
     radius: 1.5
     energy: 2

@@ -696,8 +696,9 @@
     enabled: true
   - type: Physics
     bodyType: Static
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:

@@ -16,19 +16,13 @@
     - ChangelingSurviveObjective
   - type: AntagSelection
     agentName: goob-changeling-roundend-name
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 1
+    antags:
+    - !type:LinearAntagCount
+      proto: Changeling
       playerRatio: 30
-      blacklist:
-        components:
-        - AntagImmune
-      briefing:
-        text: goob-changeling-midround-role-greeting
-        color: Yellow
-        sound: "/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"
-      mindRoles:
-      - MindRoleChangeling
+      range:
+        min: 1
+        max: 3
 
 # Bounty Hunter
 - type: entity
@@ -51,29 +45,10 @@
     - BountyHunterSurviveObjective
   - type: AntagSelection
     agentName: bounty-hunter-roundend-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostBountyHunter
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: BountyHunterGear
-      roleLoadout:
-      - RoleSurvivalEVA
-      briefing:
-        text: bounty-hunter-role-greeting
-        color: Orange
-        # TODO: Custom greeting sound
-        # sound: /Audio/Misc/ninja_greeting.ogg
-      mindRoles:
-      - MindRoleBountyHunter
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesBountyHunterTitle
-        - NamesBountyHunter
-        nameFormat: name-format-bounty-hunter
-      - type: RandomHumanoidAppearance
-        randomizeName: false
+    antags: 
+    - !type:FixedAntagCount
+      count: 1
+      proto: BountyHunter
 
 #vrex
 - type: entity
@@ -107,11 +82,10 @@
   - type: AntagSpawner
     prototype: MobLightOppa
   - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostOppa
-      min: 1
-      max: 1
-      pickPlayer: false
+    antags:
+    - !type:FixedAntagCount
+      count: 1
+      proto: GhostOppa
 
 - type: entity
   parent: BaseGameRule
@@ -128,11 +102,10 @@
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostOppa
-      min: 1
-      max: 1
-      pickPlayer: false
+    antags:
+    - !type:FixedAntagCount
+      count: 1
+      proto: GhostOppa
 
 # syndicate infiltrator
 - type: entity
@@ -147,15 +120,10 @@
     duration: null
   - type: MidRoundAntagRule
   - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointInfiltrator
-      min: 1
-      max: 1
-      pickPlayer: false
-      components:
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
+    antags: 
+    - !type:FixedAntagCount
+      count: 1
+      proto: TraitorInfiltrator
 
 # eeeplet
 - type: entity
@@ -281,25 +249,10 @@
     - ButlerServeObjective
     - ButlerDieObjective
   - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostButler
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: ButlerGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomHumanoidAppearance
-      - type: AutoImplant
-        implants:
-        - ButlerBombImplant
-      - type: UnableToWield
-      - type: NpcFactionMember
-        factions:
-        - Passive
-      mindRoles:
-      - MindRoleButler
+    antags:
+    - !type:FixedAntagCount
+      count: 1
+      proto: Butler
 
 - type: entity
   parent: BaseStationEventLongDelay
@@ -329,27 +282,10 @@
   - type: AntagLoadProfileRule
     randomProfile: true
   - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointSyndicateInstigator
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SyndicateInstigatorGear
-      roleLoadout:
-      - RoleSurvivalNukie
-      components:
-      - type: NukeOperative
-      - type: RandomMetadata
-        nameSegments:
-        - NamesSyndicatePrefixJunior
-        - NamesSyndicatePrefix
-        - NamesSyndicateJunior
-        nameFormat: name-format-nukie-junior
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleSyndicateInstigator
+    antags: 
+    - !type:FixedAntagCount
+      count: 1
+      proto: SyndicateInstigator
 
 - type: entity
   id: ExplosiveMineResurfacing

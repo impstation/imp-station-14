@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: FoodBase
+  parent: [ SolutionVeryTiny, FoodBase ]
   id: FoodCandyBase
   components:
   - type: Sprite
@@ -14,11 +14,9 @@
   name: gumball
   description: "Try as you might, you can't blow bubbles with it... it's enriched with medicine for minor ailments."
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # 1 extra
-        reagents:
+  - type: Solution
+    solution:
+      reagents:
         - ReagentId: Nutriment # Adding so sugar metabolizes
           Quantity: 1
         - ReagentId: Sugar

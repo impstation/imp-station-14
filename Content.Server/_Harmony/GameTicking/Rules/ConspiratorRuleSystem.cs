@@ -12,6 +12,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq; // imp add
 
 namespace Content.Server._Harmony.GameTicking.Rules;
 
@@ -38,7 +39,7 @@ public sealed class ConspiratorRuleSystem : GameRuleSystem<ConspiratorRuleCompon
         base.AppendRoundEndText(uid, component, gameRule, ref args);
 
         var sessionData = _antag.GetAntagIdentifiers(uid);
-        args.AddLine(Loc.GetString("conspirator-count", ("count", sessionData.Count)));
+        args.AddLine(Loc.GetString("conspirator-count", ("count", sessionData.Count()))); // imp edit, Count is now a method
         foreach (var (_, data, name) in sessionData)
         {
             args.AddLine(Loc.GetString("conspirator-name-user",

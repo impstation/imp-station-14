@@ -272,8 +272,9 @@
     baseWeightlessModifier: 1
   - type: TypingIndicator
     proto: robot
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: Decapoid
   - type: DamageVisuals
     damageOverlayGroups:

@@ -12,15 +12,15 @@
     size: Normal
   - type: Sprite
     sprite: Objects/Consumable/Food/breakfast.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 60
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 40
-        - ReagentId: Vitamin
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 45
+      - ReagentId: Protein
+        Quantity: 15
+      - ReagentId: Vitamin
+        Quantity: 15
 
 # Breakfasts
 
@@ -33,13 +33,27 @@
   - type: FlavorProfile
     flavors:
       - bacon # imp
-      - egg # imp
       - potatoes # imp
   - type: Sprite
     state: fullamerican
-  - type: Tag # imp
+  # imp edit start
+  - type: Tag
     tags:
     - Meat
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: EggCooked
+        Quantity: 24
+      - ReagentId: Protein
+        Quantity: 12
+      - ReagentId: Vitamin
+        Quantity: 18
+      - ReagentId: Milk
+        Quantity: 10
+  # imp edit end
 
 - type: entity
   parent: FoodBreakfastBase
@@ -50,10 +64,21 @@
   - type: FlavorProfile
     flavors:
       - bacon # imp
-      - egg # imp
       - tomato # imp
   - type: Sprite
     state: fullenglish
+  # imp edit start
   - type: Tag # imp
     tags:
     - Meat
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 28
+      - ReagentId: EggCooked
+        Quantity: 12
+      - ReagentId: Protein
+        Quantity: 50
+      - ReagentId: Vitamin
+        Quantity: 17

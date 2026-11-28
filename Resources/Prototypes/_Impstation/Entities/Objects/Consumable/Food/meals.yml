@@ -12,15 +12,15 @@
     - finfin
   - type: Sprite
     state: sashimi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 45
-        reagents:
+  - type: Solution
+    solution:
+      reagents:
         - ReagentId: Nutriment
-          Quantity: 18
+          Quantity: 10
         - ReagentId: Protein
-          Quantity: 18
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
         - ReagentId: TableSalt
           Quantity: 1
   - type: Tag
@@ -47,13 +47,11 @@
   - type: FlavorProfile
     flavors:
     - leafy
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
+  - type: Solution
+    solution:
+      reagents:
         - ReagentId: Fiber
-          Quantity: 10
+          Quantity: 20
   - type: Construction
     graph: FabricScrapSalad
     node: salad
@@ -78,13 +76,11 @@
   - type: FlavorProfile
     flavors:
     - pasta
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 15
-        reagents:
+      reagents:
         - ReagentId: Fiber
-          Quantity: 10
+          Quantity: 30
   - type: Construction
     graph: YarnNoodles
     node: noodles
@@ -117,19 +113,15 @@
     requiresSpecialDigestion: true
     trash:
     - FoodPacketFoodBoatTrash
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 45
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: TableSalt
-          Quantity: 5
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: CottonBool
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 24.5
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: Fiber
+        Quantity: 11.5
   - type: Tag
     tags:
     - ClothFood
@@ -155,19 +147,17 @@
     requiresSpecialDigestion: true
     trash:
     - FoodPacketFoodBoatTrash
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: TableSalt
-          Quantity: 5
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: Sugar
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 17
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: TableSalt
+        Quantity: 5
+      - ReagentId: Fiber
+        Quantity: 9
   - type: Tag
     tags:
     - ClothFood
@@ -194,17 +184,15 @@
     requiresSpecialDigestion: true
     trash:
     - FoodKebabSkewer
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Soysauce
-          Quantity: 10
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: Sugar
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: Soysauce
+        Quantity: 10
+      - ReagentId: Fiber
+        Quantity: 9
   - type: Tag
     tags:
     - ClothFood
@@ -231,19 +219,21 @@
     heldPrefix: pompette
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: Wine
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 21
+      - ReagentId: Vitamin
+        Quantity: 9
+      - ReagentId: Wine
+        Quantity: 10
+      - ReagentId: Blackpepper
+        Quantity: 5
+      - ReagentId: TableSalt
+        Quantity: 5
+      - ReagentId: Fiber
+        Quantity: 9
   - type: Tag
     tags:
     - ClothFood
@@ -275,18 +265,19 @@
     flavors:
     - raw-egg
     - meaty
+    - spices
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Steaktartare.rsi
     state: steaktartare
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 15
-        - ReagentId: Egg
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 5
+      - ReagentId: Egg
+        Quantity: 9
   - type: Tag
     tags:
     - Meat
@@ -305,15 +296,17 @@
   - type: Sprite
     state: tomato-and-egg
     sprite: _Impstation/Objects/Consumable/Food/chinese.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 14
+      - ReagentId: Vitamin
+        Quantity: 6
+      - ReagentId: EggCooked
+        Quantity: 24
+      - ReagentId: Soysauce
+        Quantity: 5
   - type: Tag
     tags:
     - ReptilianFood
@@ -338,17 +331,19 @@
     layers:
     - state: bowl
     - state: mapo-tofu
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 44
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 12
-        - ReagentId: Vitamin
-          Quantity: 12
-        - ReagentId: CapsaicinOil #never trust an inland Chinese person when they tell you something isn't spicy
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Protein
+        Quantity: 10.8
+      - ReagentId: Nutriment
+        Quantity: 22.2
+      - ReagentId: CapsaicinOil
+        Quantity: 30
+      - ReagentId: Vitamin
+        Quantity: 13
+      - ReagentId: Allicin
+        Quantity: 4
   - type: Tag
     tags:
     - Soup

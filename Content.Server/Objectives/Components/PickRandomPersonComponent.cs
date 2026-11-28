@@ -23,4 +23,11 @@ public sealed partial class PickRandomPersonComponent : Component
     /// </summary>
     [DataField]
     public List<MindFilter> Filters = new();
+
+    // IMP ADD
+    /// <summary>
+    /// Fallback filters to apply to <see cref="Pool"/> if the first filter has no targets.
+    /// </summary>
+    [DataField]
+    public List<MindFilter> FallbackFilters = new();
 }

@@ -1,4 +1,6 @@
-﻿roles-antag-kill-everyon-name = Kill Everyon
+﻿roles-antag-spy-name = Syndicate spy
+
+roles-antag-kill-everyon-name = Kill Everyon
 roles-antag-kill-everyon-objective = Kill Everyon
 
 # role timers

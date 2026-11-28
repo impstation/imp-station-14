@@ -53,8 +53,9 @@
     alwaysRandomize: true
     layoutId: SurveillanceCamera
   - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
     damageContainer: StructuralInorganic
-    damageModifierSet: Electronic #imp edit to make their health less insane - was Metallic
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/camera.rsi
@@ -238,8 +239,9 @@
     - type: Transform
       anchored: true
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: Metallic
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Sprite
       drawdepth: WallMountedItems
       sprite: Structures/Wallmounts/camera.rsi

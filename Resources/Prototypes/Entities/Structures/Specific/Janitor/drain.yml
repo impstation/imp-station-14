@@ -1,4 +1,6 @@
 - type: entity
+  parent: [SolutionDrain, SolutionGinormous]
+  # imp note: pre solRefactor maxVol 750, now changed to SolutionGinormous (960)
   id: FloorDrain
   name: drain
   description: Drains puddles around it. Useful for dumping mop buckets or keeping certain rooms clean.
@@ -34,13 +36,10 @@
       maxFillLevels: 1
       fillBaseName: fill-
       solutionName: drainBuffer
-    - type: SolutionContainerManager
-      solutions:
-        drainBuffer:
-          maxVol: 750 # imp edit
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: StructuralMetallic
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
         - trigger:
@@ -58,3 +57,8 @@
             - !type:PlaySoundBehavior
               sound:
                 collection: MetalBreak
+
+- type: entity
+  parent: [SolutionDrain, SolutionNormal]
+  id: SolutionDrainNormal
+  categories: [ HideSpawnMenu ]

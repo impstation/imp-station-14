@@ -16,8 +16,9 @@
           - ItemMask
         restitution: 0.3
         friction: 0.2
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: StrongMetallic # We only want explosions breaking them (for the most part)
   - type: Destructible
     thresholds:

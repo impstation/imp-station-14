@@ -6,21 +6,19 @@
   components:
   - type: FlavorProfile
     flavors:
-      - cigarettes
+    - cigarettes
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: camelsouplit
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 57
-        reagents:
-        - ReagentId: TearGas
-          Quantity: 40
-        - ReagentId: ChloralHydrate
-          Quantity: 17
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 40
+      - ReagentId: ChloralHydrate
+        Quantity: 17
   - type: Tag # everyone should be able to enjoy a nice camel's soup
     tags:
     - UnguFood
@@ -36,21 +34,19 @@
   components:
   - type: FlavorProfile
     flavors:
-      - metallic
+    - metallic
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: toddlerringstew
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Ipecac
-          Quantity: 10
-        - ReagentId: Nutriment
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ipecac
+        Quantity: 10
+      - ReagentId: Nutriment
+        Quantity: 10
 
 - type: entity
   name: one day blinding stew
@@ -68,19 +64,21 @@
     layers:
     - state: bowl
     - state: blindingstew
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 75
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 31
-        - ReagentId: Protein
-          Quantity: 9
-        - ReagentId: Vitamin
-          Quantity: 7
-        - ReagentId: Methanol
-          Quantity: 15
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Protein
+        Quantity: 12
+      - ReagentId: Vitamin
+        Quantity: 6
+      - ReagentId: Ultravasculine
+        Quantity: 20
+      - ReagentId: Epinephrine
+        Quantity: 20
+      - ReagentId: Methanol
+        Quantity: 15
   - type: Tag
     tags:
     - Meat
@@ -112,17 +110,15 @@
     layers:
     - state: bowl
     - state: breadandwatersoup
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Sadness
-          Quantity: 10
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: ChloralHydrate
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sadness
+        Quantity: 10
+      - ReagentId: Nutriment
+        Quantity: 9
+      - ReagentId: ChloralHydrate
+        Quantity: 5
 
 - type: entity
   name: monkey's squeaky clean delight
@@ -150,15 +146,17 @@
     layers:
     - state: bowl_turtle
     - state: turtlesoup
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Protein
-          Quantity: 10
-        - ReagentId: TableSalt
-          Quantity: 15
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Protein
+        Quantity: 20
+      - ReagentId: Vitamin
+        Quantity: 5
+      - ReagentId: TableSalt
+        Quantity: 10
   - type: Tag
     tags:
     - Soup

@@ -13,7 +13,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Examine;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -36,6 +36,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
 using Robust.Shared.Timing;
+using Content.Shared.StatusEffectNew.Components;
 
 namespace Content.Server._Impstation.Tourist
 {
@@ -67,7 +68,7 @@ namespace Content.Server._Impstation.Tourist
             SubscribeLocalEvent<InventoryComponent, TouristCameraFlashAttemptEvent>(OnInventoryTouristFlashAttempt);
             SubscribeLocalEvent<FlashImmunityComponent, TouristCameraFlashAttemptEvent>(OnFlashImmunityTouristFlashAttempt);
             SubscribeLocalEvent<PermanentBlindnessComponent, TouristCameraFlashAttemptEvent>(OnPermanentBlindnessTouristFlashAttempt);
-            SubscribeLocalEvent<TemporaryBlindnessComponent, TouristCameraFlashAttemptEvent>(OnTemporaryBlindnessTouristFlashAttempt);
+            SubscribeLocalEvent<BlindnessStatusEffectComponent, TouristCameraFlashAttemptEvent>(OnBlindnessStatusEffectTouristFlashAttempt);
         }
 
         public override void Update(float frameTime)
@@ -130,7 +131,7 @@ namespace Content.Server._Impstation.Tourist
                 return;
 
             // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true))
+            if (!_statusEffectsSystem.TrySetStatusEffectDuration(target, FlashedKey.Id, out var statuseffect, flashDuration))
                 return;
 
             if (stunDuration != null)
@@ -149,7 +150,7 @@ namespace Content.Server._Impstation.Tourist
         {
             var transform = Transform(source);
             var mapPosition = _transform.GetMapCoordinates(transform);
-            var statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
+            var statusEffectsQuery = GetEntityQuery<StatusEffectComponent>();
             var damagedByFlashingQuery = GetEntityQuery<DamagedByFlashingComponent>();
             var objectives = new List<TouristPhotosConditionComponent>();
             if (user != null)
@@ -254,7 +255,7 @@ namespace Content.Server._Impstation.Tourist
                 args.Cancel();
         }
 
-        private void OnTemporaryBlindnessTouristFlashAttempt(EntityUid uid, TemporaryBlindnessComponent component, TouristCameraFlashAttemptEvent args)
+        private void OnBlindnessStatusEffectTouristFlashAttempt(EntityUid uid, BlindnessStatusEffectComponent component, TouristCameraFlashAttemptEvent args)
         {
             args.Cancel();
         }

@@ -45,8 +45,9 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: sample_tube
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
     damageModifierSet: Glass
   - type: Destructible
     thresholds:
@@ -206,7 +207,6 @@
     - id: ChemSampleTubeLaughter
     - id: ChemSampleTubeBenzene
     - id: ChemSampleTubeBleach
-    - id: ChemSampleTubeSaxoite
     - id: ChemSampleTubeSomething
     - id: ChemSampleTubeBacchussBlessing
     - id: ChemSampleTubeNothing
@@ -1905,21 +1905,6 @@
           Quantity: 10
   - type: Label
     currentLabel: Carcenogenic Substance, Handle With Caution
-
-- type: entity
-  parent: ChemSampleTube
-  id: ChemSampleTubeSaxoite
-  suffix: Saxoite
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 10
-        reagents:
-        - ReagentId: Saxoite
-          Quantity: 10
-  - type: Label
-    currentLabel: Groovy Substance, Handle With Care
 
 - type: entity
   parent: ChemSampleTube

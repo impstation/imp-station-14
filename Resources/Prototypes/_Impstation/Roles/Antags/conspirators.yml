@@ -1,0 +1,12 @@
+- type: antagSpecifier
+  id: Conspirators
+  parent: RestrictedAntag
+  prefRoles: [ Conspirator ]
+  briefing: 
+    text: conspirator-role-greeting
+    color: "#724F29"
+    sound: /Audio/_Harmony/Misc/conspirator_greeting.ogg
+  components:
+  - type: Conspirator
+  mindRoles: 
+  - MindRoleConspirator

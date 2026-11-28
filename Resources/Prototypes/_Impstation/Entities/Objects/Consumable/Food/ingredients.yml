@@ -2,19 +2,27 @@
   name: stick of rainbow cannabis butter
   parent: [FoodCannabisButter, BaseMinorContraband]
   id: FoodRainbowCannabisButter
-  description: Add this to your favorite baked goods for a horrible time.
+  description: Add this to your favorite baked goods for a horrible time. # upstream solutions refactor made this description a little too accurate...
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Butter
-          Quantity: 15
-        - ReagentId: THC
-          Quantity: 24
-        - ReagentId: ForeverWeed
-          Quantity: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Butter
+        Quantity: 30
+      - ReagentId: SpaceDrugs
+        Quantity: 36
+      - ReagentId: Lipolicide
+        Quantity: 18
+      - ReagentId: MindbreakerToxin
+        Quantity: 12
+      - ReagentId: Happiness
+        Quantity: 12
+      - ReagentId: Psicodine
+        Quantity: 6
+      - ReagentId: THC
+        Quantity: 24
+      - ReagentId: ForeverWeed
+        Quantity: 8
   - type: PointLight
     radius: 1.5
     energy: 2
@@ -40,42 +48,38 @@
     - FoodSnack
     - ReptilianFood
     - UnguFood
-  - type: SolutionContainerManager # imp
+  - type: Solution
     solutions:
-      food:
-        reagents:
-        - ReagentId: CocoaPowder
-          Quantity: 0.125
-        - ReagentId: Theobromine
-          Quantity: 0.375
-        - ReagentId: Nutriment
-          Quantity: 1.25
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.625
+      - ReagentId: Theobromine
+        Quantity: 0.375
+      - ReagentId: CocoaPowder
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 0.25
 
 - type: entity
   name: stick of cream cheese
-  parent: FoodBakingBase
+  parent: [SolutionVeryTiny, FoodBakingBase]
   id: FoodCreamCheese
   description: A stick of creamy cream cheese.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/creamcheese.rsi
     state: creamcheese
-  - type: FlavorProfile # Imp
+  - type: FlavorProfile
     flavors:
     - creamy
     - cheesy
-    ignoreReagents:
-    - TableSalt
-    - Milk
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Milk
-          Quantity: 5
-        - ReagentId: TableSalt
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Milk
+        Quantity: 5
+      - ReagentId: TableSalt
+        Quantity: 5
   - type: Tag
     tags:
     - UnguFood
@@ -88,16 +92,16 @@
   components:
   - type: Item
     size: Normal
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 30
+      - ReagentId: Fiber
+        Quantity: 10
   - type: FlavorProfile
     flavors:
-      - cheesy
+    - cheesy
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
     state: ball
@@ -118,16 +122,16 @@
   components:
   - type: Item
     size: Normal
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 2.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Fiber
+        Quantity: 2.5
   - type: FlavorProfile
     flavors:
-      - cheesy
+    - cheesy
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
     state: strand
@@ -156,6 +160,19 @@
     sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
     state: alphacakebatter
     color: "#ba672e"
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 6
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: CocoaPowder
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 5
 
 - type: entity
   parent: FoodBakingBase
@@ -172,22 +189,27 @@
     sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
     state: alphacakebatter
     color: "#ffbfbf"
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 15
+      - ReagentId: Nutriment
+        Quantity: 4
 
 - type: entity
-  parent: EdibleBase
+  parent: FoodBase
   id: FoodFrostingVanilla
   name: vanilla frosting
   description: The most classic of all frostings.
   components:
   - type: Item
     size: Normal
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 5
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
   - type: FlavorProfile
     flavors:
     - vanilla
@@ -235,4 +257,10 @@
   - type: Tag
     tags:
     - SpacemanFrosting
-
+  - type: Solution
+    solutions:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: PolypyryliumOligomers
+        Quantity: 12

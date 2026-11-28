@@ -11,8 +11,9 @@
   - type: Icon
     sprite: _Impstation/Structures/Furniture/Carpets/decapoid_carpet.rsi
     state: item
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Destructible
     thresholds:
       - trigger:

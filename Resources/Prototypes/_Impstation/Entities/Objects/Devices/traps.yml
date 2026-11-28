@@ -5,8 +5,9 @@
   suffix: Giant
   description: Useful for catching R.O.U.S.
   components:
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Pullable
   - type: Animateable
   - type: Destructible

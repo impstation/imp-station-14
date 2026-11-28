@@ -164,7 +164,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
                 var split = consumedSolution.SplitSolution(consumedSolution.Volume - highestAvailable);
                 _puddle.TrySpillAt(ent.Owner, split, out _);
             }
-            _stomach.TryTransferSolution(stomachToUse.Value.Owner, consumedSolution, stomachToUse);
+            _stomach.TryTransferSolution((stomachToUse.Value, stomachToUse.Value.Comp), consumedSolution);
         }
 
         // Transfer DNA

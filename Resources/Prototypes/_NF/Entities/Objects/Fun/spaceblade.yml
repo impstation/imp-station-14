@@ -6,14 +6,15 @@
   abstract: true
   components:
   - type: GasTank
-    outputPressure: 0.1
-    maxOutputPressure: 0.1
-    valveOutputRate: 50
+    releasePressure: 0.1
+    maxReleasePressure: 0.1 # imp, maxreleasePressure -> maxReleasePressure
     air:
       volume: 1
       moles:
          - 0.4101137219 # oxygen
       temperature: 293.15
+  - type: MaxPressureVisuals
+    steps: 0
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
@@ -188,9 +189,8 @@
   - type: StaticPrice
     price: 100
   - type: GasTank # imp - someone said this should spit out an extremely small amount of plasma. so here you go
-    outputPressure: 0.1
-    maxOutputPressure: 0.1
-    valveOutputRate: 50
+    releasePressure: 0.1
+    maxReleasePressure: 0.1
     air:
       volume: 1
       moles:
@@ -309,9 +309,8 @@
   - type: CollisionWake
     enabled: false
   - type: GasTank
-    outputPressure: 0.1
-    maxOutputPressure: 0.1
-    valveOutputRate: 50
+    releasePressure: 0.1
+    maxReleasePressure: 0.1 # imp, maxReleasePressure -> maxReleasePressure
     air:
       volume: 1
       moles:

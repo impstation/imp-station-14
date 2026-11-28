@@ -28,8 +28,9 @@
     sprite: _Impstation/Structures/Walls/girder.rsi # Impstation
 #    state: wall_girder Impstation
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

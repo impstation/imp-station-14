@@ -2,6 +2,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Managers;
 using Content.Shared.GameTicking.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -9,106 +10,57 @@ namespace Content.Server.GameTicking.Rules;
 
 public abstract partial class GameRuleSystem<T> : EntitySystem where T : IComponent
 {
-    [Dependency] protected readonly IRobustRandom RobustRandom = default!;
-    [Dependency] protected readonly IChatManager ChatManager = default!;
-    [Dependency] protected readonly GameTicker GameTicker = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly IPrototypeManager Proto = default!;
+    [Dependency] protected readonly IRobustRandom RobustRandom = default!;
+    [Dependency] protected readonly GameTicker GameTicker = default!;
 
     // Not protected, just to be used in utility methods
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly MapSystem _map = default!;
 
+    [Dependency] protected readonly EntityQuery<GameRuleComponent> GameRuleQuery = default!;
+    [Dependency] protected readonly EntityQuery<T> RuleQuery = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt);
         SubscribeLocalEvent<T, GameRuleAddedEvent>(OnGameRuleAdded);
         SubscribeLocalEvent<T, GameRuleStartedEvent>(OnGameRuleStarted);
         SubscribeLocalEvent<T, GameRuleEndedEvent>(OnGameRuleEnded);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
-    private void OnStartAttempt(RoundStartAttemptEvent args)
-    {
-        if (args.Forced || args.Cancelled)
-            return;
-
-        var query = QueryAllRules();
-        while (query.MoveNext(out var uid, out _, out var gameRule))
-        {
-            var minPlayers = gameRule.MinPlayers;
-            var name = ToPrettyString(uid);
-
-            // IMP EDIT START
-            // There should only be Ended game rules at roundstart if they are from a failed start, during a fallback start attempt
-            if (HasComp<EndedGameRuleComponent>(uid))
-            {
-                Log.Debug($"Ended gamerule ignored from startup check: {name}");
-                continue;
-            }
-            // IMP EDIT END
-
-            var maxPlayers = gameRule.MaxPlayers; // imp lowpop
-            if (args.Players.Length >= minPlayers && args.Players.Length <= maxPlayers) // imp lowpop
-                continue;
-
-            if (args.Players.Length < minPlayers && gameRule.CancelPresetOnTooFewPlayers) // imp lowpop
-            {
-                ChatManager.SendAdminAnnouncement(Loc.GetString("preset-not-enough-ready-players",
-                    ("readyPlayersCount", args.Players.Length),
-                    ("minimumPlayers", minPlayers),
-                    ("presetName", name)));
-                args.Cancel();
-                //TODO remove this once announcements are logged
-                Log.Info($"Rule '{name}' requires {minPlayers} players, but only {args.Players.Length} are ready.");
-            }
-            // imp add start
-            else if (args.Players.Length > maxPlayers && gameRule.CancelPresetOnTooManyPlayers)
-            {
-                ChatManager.SendAdminAnnouncement(Loc.GetString("preset-too-many-ready-players",
-                    ("readyPlayersCount", args.Players.Length),
-                    ("maximumPlayers", maxPlayers),
-                    ("presetName", ToPrettyString(uid))));
-                args.Cancel();
-            }
-            // imp end
-            else
-            {
-                ForceEndSelf(uid, gameRule);
-            }
-        }
-    }
-
     private void OnGameRuleAdded(EntityUid uid, T component, ref GameRuleAddedEvent args)
     {
-        if (!TryComp<GameRuleComponent>(uid, out var ruleData))
+        if (!GameRuleQuery.TryComp(uid, out var ruleData))
             return;
+
         Added(uid, component, ruleData, args);
     }
 
     private void OnGameRuleStarted(EntityUid uid, T component, ref GameRuleStartedEvent args)
     {
-        if (!TryComp<GameRuleComponent>(uid, out var ruleData))
+        if (!GameRuleQuery.TryComp(uid, out var ruleData))
             return;
+
         Started(uid, component, ruleData, args);
     }
 
     private void OnGameRuleEnded(EntityUid uid, T component, ref GameRuleEndedEvent args)
     {
-        if (!TryComp<GameRuleComponent>(uid, out var ruleData))
+        if (!GameRuleQuery.TryComp(uid, out var ruleData))
             return;
+
         Ended(uid, component, ruleData, args);
     }
 
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent ev)
     {
-        var query = AllEntityQuery<T>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = QueryAllRules();
+        while (query.MoveNext(out var uid, out var comp, out var ruleData))
         {
-            if (!TryComp<GameRuleComponent>(uid, out var ruleData))
-                continue;
-
             // IMP EDIT START
             // If a gamepreset fails to start, and the round goes into fallback, its rules will still exist, just marked as ended
             // This check makes it so these gamerules won't show up on the round end screen

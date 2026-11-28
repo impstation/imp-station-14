@@ -371,8 +371,9 @@
   - type: Icon
     sprite: _Impstation/Structures/Walls/decawall_diagonal.rsi
     state: state0
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:

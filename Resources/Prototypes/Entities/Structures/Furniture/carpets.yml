@@ -31,6 +31,7 @@
         layer:
         - DoorPassable
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -452,6 +453,7 @@
     canCollide: false
   - type: Fixtures
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -491,8 +493,9 @@
   - type: Clickable
   - type: Fixtures
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Card
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
       - trigger:

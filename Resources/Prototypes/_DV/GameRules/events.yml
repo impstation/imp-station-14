@@ -39,37 +39,10 @@
   - type: AntagLoadProfileRule
   - type: AntagSelection
     agentName: listening-post-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSyndicateListener
-      min: 2
-      max: 2
-      pickPlayer: false
-      startingGear: SyndicateListenerGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesDeathCommando
-      - type: AutoImplant
-        implants:
-        - DeathAcidifierImplant
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      - type: Accentless # Imp edit start
-        removes:
-        - type: LizardAccent
-        - type: MothAccent
-        - type: ReplacementAccent
-          accent: scottish # Impstation - Upmerge 2026 Chunk IV
-        - type: SnalienAccent
-        - type: GrayAccent
-        - type: DwarfAccent
-        - type: NoContractionsAccent
-        - type: AllulaloAccent # imp edit end
-      mindRoles:
-      - MindRolePostOperator
+    antags: # imp edit, antag selection refactor
+    - !type:FixedAntagCount
+      proto: ListeningPost
+      count: 2
 
 - type: entity
   parent: BaseMidRoundAntag
@@ -91,23 +64,7 @@
     - FugitiveEscapeObjective
   - type: AntagSelection
     agentName: fugitive-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostFugitive
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: FugitiveGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: EmitSoundOnSpawn # fell out of the ceiling
-        sound: /Audio/Effects/clang.ogg
-      mindRoles:
-      - MindRoleFugitive
+    antags: # imp edit, antag selection refactor
+    - !type:FixedAntagCount
+      proto: Fugitive
+      count: 1

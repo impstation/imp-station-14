@@ -9,3 +9,17 @@
     back:
     - TraitorCodePaper
     - SyndicateFlippo
+
+- type: antagSpecifier
+  id: TraitorInfiltrator
+  parent: RestrictedAntag
+  spawnerPrototype: SpawnPointInfiltrator
+  pickPlayer: false
+  components: 
+  - type: NpcFactionMember
+    factions: 
+    - Syndicate
+  startingGear: SyndicateInfiltratorGear
+  prefRoles: [ Traitor ]
+  mindRoles:
+    - MindRoleInfiltrator

@@ -13,12 +13,12 @@ using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems; // imp
 using Content.Shared.Heretic; // imp
 using Content.Shared.Heretic.Prototypes; // imp
 using Content.Shared.Roles.Components; // imp
 using Content.Shared.Mind; // imp
-using Robust.Shared.Prototypes; // imp
 
 namespace Content.Server.Store.Systems;
 
@@ -32,6 +32,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
 
@@ -127,6 +128,13 @@ public sealed partial class StoreSystem
             component.BalanceSpent.TryAdd(currency, FixedPoint2.Zero);
 
             component.BalanceSpent[currency] += amount;
+        }
+
+        //apply components
+        if (listing.ProductComponents != null)
+        {
+            if (_proto.Resolve(listing.ProductComponents, out var productComponentsEntity))
+                EntityManager.AddComponents(buyer, productComponentsEntity.Components);
         }
 
         // goobstation - heretics

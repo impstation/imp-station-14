@@ -20,11 +20,10 @@ namespace Content.IntegrationTests.Tests.Chemistry
 - type: entity
   id: TestSolutionContainer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 500
-        canMix: true"; // Imp - Increase maxVol to allow testing PhilosophersJuice (I have already increased this limit 3 times wtf lmao)
+  - type: Solution
+    id: beaker
+    solution:
+      maxVol: 500"; // Imp - Increase maxVol to allow testing PhilosophersJuice (I have already increased this limit 3 times wtf lmao)
 
         private static string[] _reactions = GameDataScrounger.PrototypesOfKind<ReactionPrototype>();
 

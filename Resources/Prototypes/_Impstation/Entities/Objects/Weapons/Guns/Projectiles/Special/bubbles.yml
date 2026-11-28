@@ -57,8 +57,9 @@
         - Impassable
         - BulletImpassable
         - MidImpassable
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:

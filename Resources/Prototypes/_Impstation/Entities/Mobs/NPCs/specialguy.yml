@@ -20,8 +20,9 @@
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3

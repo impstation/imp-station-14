@@ -43,7 +43,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew; // imp edit, new StatusEffect system
 using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Robust.Server.Audio;
@@ -59,6 +59,7 @@ using System.Numerics;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared._Goobstation.Changeling;
 using Content.Shared.Zombies;
+using Content.Shared.StatusEffectNew.Components; // imp add, new StatusEffect system
 
 namespace Content.Server._Goobstation.Changeling;
 
@@ -206,7 +207,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             // vomit blood
             if (random == 1)
             {
-                if (TryComp<StatusEffectsComponent>(uid, out var status))
+                if (TryComp<StatusEffectComponent>(uid, out var status)) // imp edit, not plural
                     _movementMod.TryUpdateMovementSpeedModDuration(uid, MovementModStatusSystem.VomitingSlowdown, TimeSpan.FromSeconds(1.5f), 0.5f);
 
                 var solution = new Solution();

@@ -154,8 +154,9 @@
   - type: Appearance
   - type: Weldable
     time: 5
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
+  - type: Damageable
     damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:

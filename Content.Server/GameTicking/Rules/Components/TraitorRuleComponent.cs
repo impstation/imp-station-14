@@ -48,6 +48,13 @@ public sealed partial class TraitorRuleComponent : Component
     [DataField]
     public bool GiveBriefing = true;
 
+    // IMP ADD, SVS
+    /// <summary>
+    /// If this is true, will ALWAYS force the maximum amount of traitors possible.
+    /// </summary>
+    [DataField]
+    public bool ForceAllPossible = false;
+
     public int TotalTraitors => TraitorMinds.Count;
 
     public enum SelectionState

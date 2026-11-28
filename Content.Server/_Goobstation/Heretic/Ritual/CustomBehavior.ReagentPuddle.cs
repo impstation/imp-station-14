@@ -43,7 +43,7 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
                 if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle))
                     continue;
 
-                if(!args.EntityManager.TryGetComponent<SolutionContainerManagerComponent>(ent, out var container)) // Impstation - Upmerge 2026 Chunk IV
+                if(!args.EntityManager.TryGetComponent<SolutionManagerComponent>(ent, out var container)) // Impstation - Upmerge 2026 Chunk IV, Chunk VII Solutions
                     continue;
 
                 if (puddle.Solution == null)

@@ -19,8 +19,8 @@ using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
 using Robust.Shared.Map;
-using Content.Shared.GameTicking; // imp
-using Robust.Server.Player; // imp
+using Robust.Server.Player;
+using Content.Shared.GameTicking.Components; // imp
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -38,10 +38,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
-
-    public AntagSelectionPlayerPool? CurrentAntagPool = null;
-    public bool ForceAllPossible = false; // imp
 
     public override void Initialize()
     {
@@ -49,25 +45,18 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         Log.Level = LogLevel.Debug;
 
-        SubscribeLocalEvent<TraitorRuleComponent, AntagPrereqSetupEvent>(AdditionalSetup); // imp svs
         SubscribeLocalEvent<TraitorRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected);
         SubscribeLocalEvent<TraitorRuleComponent, ObjectivesTextPrependEvent>(OnObjectivesTextPrepend);
     }
 
-    // imp svs add
-    private void AdditionalSetup(Entity<TraitorRuleComponent> ent, ref AntagPrereqSetupEvent args)
+    // IMP ADD, SVS
+    protected override void Started(EntityUid uid, TraitorRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        ForceAllPossible = args.Def.ForceAllPossible;
-        if (args.Def.ForceAllPossible)
-        {
-            CurrentAntagPool = _antag.GetPlayerPool( // Get player pool of potential antags. Used for assigning objective targets
-                args.GameRule,
-                _playerManager.Sessions
-                .Where(x => GameTicker.PlayerGameStatuses.TryGetValue(x.UserId, out var status) && status == PlayerGameStatus.JoinedGame)
-                .ToList(),
-                args.Def
-            );
-        }
+        base.Started(uid, component, gameRule, args);
+
+        // force all latejoins to be traitors too
+        if (component.ForceAllPossible)
+            _antag.LateJoinRandomChance = 1f;
     }
 
     private void AfterEntitySelected(Entity<TraitorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)

@@ -1,7 +1,7 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
 
 - type: entity
-  parent: FoodMealBase
+  parent: [SolutionSmall, FoodMealBase]
   id: FoodTacoShell
   name: taco shell
   description: A taco shell, easy to hold, but falls on its side when put down.
@@ -16,14 +16,12 @@
     - state: tacoshell_back
     - map: ["foodSequenceLayers"]
     - state: tacoshell_forward
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        canReact: false # Dont want cause reactions inside tacos after merging ingredients
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6.66
+  - type: Solution
+    solution:
+      canReact: false # Dont want cause reactions inside tacos after merging ingredients, TODO KILL
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.125 # imp 10>1.125
   - type: FoodSequenceStartPoint
     key: Taco
     maxLayers: 3
@@ -39,7 +37,7 @@
 
 - type: entity
   abstract: true
-  parent: FoodInjectableBase
+  parent: [SolutionSmall, FoodInjectableBase]
   id: FoodTacoBase
   components:
   - type: FlavorProfile
@@ -50,15 +48,15 @@
     transferAmount: 3
   - type: Sprite
     sprite: Objects/Consumable/Food/taco.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 21 # imp 29>21
+      - ReagentId: Protein
+        Quantity: 4 # imp 4>2
+      - ReagentId: Vitamin # imp
+        Quantity: 1
   - type: Item
     sprite: Objects/Consumable/Food/taco.rsi
     shape:
@@ -76,15 +74,6 @@
   components:
   - type: Sprite
     state: beeftaco
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14
-        - ReagentId: Protein
-          Quantity: 3
 
 - type: entity
   name: chicken taco
@@ -94,15 +83,6 @@
   components:
   - type: Sprite
     state: chickentaco
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14
-        - ReagentId: Protein
-          Quantity: 3
 
 - type: entity
   name: fish taco
@@ -113,24 +93,23 @@
   - type: FlavorProfile
     flavors:
       - onion
-      #- fishy # imp
-      - carpflesh # imp
+      - fishy
       - tomato # imp
   - type: Sprite
     state: fishtaco
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 28 # imp
-        - ReagentId: Vitamin
-          Quantity: 9 # imp
-        - ReagentId: CarpoToxin # imp
-          Quantity: 5
-        - ReagentId: Allicin # imp
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10.125 # imp 42>10.125
+      - ReagentId: Protein
+        Quantity: 20 # imp 2>20
+      - ReagentId: Allicin
+        Quantity: 2 # imp 1>2
+      - ReagentId: Vitamin
+        Quantity: 10 # imp 9>10
+      - ReagentId: CarpoToxin # imp
+        Quantity: 5
 
 - type: entity
   name: rat taco
@@ -140,17 +119,15 @@
   components:
   - type: Sprite
     state: rattaco
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14
-        #- ReagentId: Vitamin # imp
-        #  Quantity: 4
-        - ReagentId: Protein # imp
-          Quantity: 3
+  - type: Solution # imp
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 12.125
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: Vitamin
+        Quantity: 1
 
 - type: entity
   name: beef taco supreme
@@ -160,19 +137,17 @@
   components:
   - type: Sprite
     state: beeftacosupreme
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 35 # imp
-        - ReagentId: Vitamin
-          Quantity: 9 # imp
-        - ReagentId: Protein # imp
-          Quantity: 3
-        - ReagentId: Allicin # imp
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 26.125 # imp 42>26.125
+      - ReagentId: Protein
+        Quantity: 4 # imp 2>4
+      - ReagentId: Allicin
+        Quantity: 2 # imp 1>2
+      - ReagentId: Vitamin
+        Quantity: 11 # imp 9>11
   - type: FlavorProfile # imp
     flavors:
     - meaty
@@ -187,19 +162,17 @@
   components:
   - type: Sprite
     state: chickentacosupreme
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55 # imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 35 # imp
-        - ReagentId: Vitamin
-          Quantity: 9 # imp
-        - ReagentId: Protein # imp
-          Quantity: 3
-        - ReagentId: Allicin # imp
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 26.125 # imp 42>26.125
+      - ReagentId: Protein
+        Quantity: 4 # imp 2>4
+      - ReagentId: Allicin
+        Quantity: 2 # imp 1>2
+      - ReagentId: Vitamin
+        Quantity: 11 # imp 9>11
   - type: FlavorProfile # imp
     flavors:
     - meaty
@@ -220,19 +193,19 @@
     - spicy
   - type: Sprite
     state: dragontaco
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 32
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Ichor
-          Quantity: 4
-        - ReagentId: CapsaicinOil
-          Quantity: 6
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3.125 # imp 18>3.125
+      - ReagentId: Protein
+        Quantity: 8 # imp 6>8
+      - ReagentId: Ichor
+        Quantity: 4 # imp 2>4
+      - ReagentId: CapsaicinOil
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 3
 
 - type: entity
   name: soft taco
@@ -248,15 +221,6 @@
       - onion
   - type: Sprite
     state: softtaco
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35 #imp
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 18
   - type: Tag
     tags:
       - Meat

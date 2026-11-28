@@ -33,8 +33,6 @@ public sealed class SwapTeleporterSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly PullingSystem _pulling = default!; // imp
 
-    private EntityQuery<TransformComponent> _xformQuery;
-
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -44,8 +42,6 @@ public sealed class SwapTeleporterSystem : EntitySystem
         SubscribeLocalEvent<SwapTeleporterComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<SwapTeleporterComponent, ComponentShutdown>(OnShutdown);
-
-        _xformQuery = GetEntityQuery<TransformComponent>();
     }
 
     private void OnInteract(Entity<SwapTeleporterComponent> ent, ref AfterInteractEvent args)
@@ -264,7 +260,7 @@ public sealed class SwapTeleporterSystem : EntitySystem
         if (HasComp<MapGridComponent>(parent) || HasComp<MapComponent>(parent))
             return ent;
 
-        if (!_xformQuery.TryGetComponent(parent, out var parentXform) || parentXform.Anchored)
+        if (!TryComp(parent, out TransformComponent? parentXform) || parentXform.Anchored)
             return ent;
 
         if (!TryComp<PhysicsComponent>(parent, out var body) || body.BodyType == BodyType.Static)

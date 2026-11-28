@@ -1,6 +1,6 @@
 ﻿- type: entity
   name: one single gummy worm
-  parent: FoodMealBase
+  parent: [ SolutionVeryTiny, FoodMealBase ]
   id: FoodGummyWorm
   description: How did this get in here...
   components:
@@ -16,17 +16,15 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/the_gummy_worm.rsi
     state: asinglegummyworm
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 3
 
 - type: entity
   name: conversation heart
-  parent: FoodMealBase
+  parent: [ SolutionVeryTiny, FoodMealBase ]
   id: FoodConversationHeart
   description: "You can barely make out the imprinted text: luv u"
   components:
@@ -51,19 +49,17 @@
     available:
     - enum.DamageStateVisualLayers.Base:
         chalkheartcolorable: Pastel
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 1
   - type: RandomMetadata
     descriptionSegments: [ConversationHeartDescriptions]
 
 - type: entity
   name: chocolate heart
-  parent: FoodMealBase
+  parent: [ SolutionVeryTiny, FoodMealBase ]
   id: FoodChocolateHeart
   description: A mass-produced chocolate heart. How sweet.
   components:
@@ -78,17 +74,15 @@
     sprite: _Impstation/Objects/Consumable/Food/Candy/chocolate_heart.rsi
     layers:
     - state: chocolateheart
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 2
-        - ReagentId: CocoaPowder # no chocolate i guess LOL
-          Quantity: 2
-        - ReagentId: Theobromine # cocoa powder doesnt metabolize into theobromine so i have to add it manually
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 2
+      - ReagentId: CocoaPowder # no chocolate i guess LOL
+        Quantity: 2
+      - ReagentId: Theobromine # cocoa powder doesnt metabolize into theobromine so i have to add it manually
+        Quantity: 1
 
 - type: entity
   name: chocolate heart
@@ -122,23 +116,21 @@
     sprite: _Impstation/Objects/Consumable/Food/Candy/chocolate_heart.rsi
     layers:
     - state: homemadechocolate
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15 # extra space for poison purposes
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 2
-        - ReagentId: CocoaPowder
-          Quantity: 0.5
-        - ReagentId: Milk
-          Quantity: 2
-        - ReagentId: Theobromine
-          Quantity: 1.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.5
+      - ReagentId: Theobromine
+        Quantity: 1.5
+      - ReagentId: CocoaPowder
+        Quantity: 2
+      - ReagentId: Sugar
+        Quantity: 1
 
 - type: entity
   name: berry macaron
-  parent: FoodMealBase
+  parent: [ SolutionVeryTiny, FoodMealBase ]
   id: FoodMacaronBerry
   description: Complex to make, beautiful to look at, underwhelming to eat. A perfect romantic treat.
   components:
@@ -152,15 +144,13 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/macaron.rsi
     state: macaronberry
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
-        - ReagentId: JuiceBerry
-          Quantity: 2
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: JuiceBerry
+        Quantity: 5
 
 - type: entity
   name: cherry macaron
@@ -169,15 +159,13 @@
   components:
   - type: Sprite
     state: macaroncherry
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
-        - ReagentId: JuiceCherry
-          Quantity: 2
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: JuiceCherry
+        Quantity: 5
   - type: Tag
     tags:
     - FoodSnack
@@ -197,15 +185,13 @@
     - ClothFood
   - type: Sprite
     state: macaroncotton
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
-        - ReagentId: Fiber
-          Quantity: 2
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: Fiber
+        Quantity: 5
 
 - type: entity
   name: lemon macaron
@@ -214,15 +200,13 @@
   components:
   - type: Sprite
     state: macaronlemon
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
-        - ReagentId: JuiceLemon
-          Quantity: 2
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: JuiceLemon
+        Quantity: 5
   - type: Tag
     tags:
     - FoodSnack
@@ -235,15 +219,13 @@
   components:
   - type: Sprite
     state: macaronmimana
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
-        - ReagentId: MuteToxin
-          Quantity: 2
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: MuteToxin
+        Quantity: 5
   - type: Tag
     tags:
     - FoodSnack
@@ -252,7 +234,7 @@
 
 - type: entity
   name: giant lollipop
-  parent: FoodMealBase
+  parent: [ SolutionTiny, FoodMealBase ]
   id: FoodMealBigLollipop
   description: Wow!!! It's as big as your head!!!
   components:
@@ -266,22 +248,20 @@
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
-      - whimsy
-      - sugar
+    - whimsy
+    - sugar
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/lolipops.rsi
     state: big-lollipop
   - type: Item
     heldPrefix: big-lollipop
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1 # sugar needs nutriment to be able to satiate hunger so im nerfing this but keeping it
-        - ReagentId: Sugar
-          Quantity: 10
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1 # sugar needs nutriment to be able to satiate hunger so im nerfing this but keeping it
+      - ReagentId: Sugar
+        Quantity: 10
   - type: Clothing # DeltaV lollipop wearing sprite stuff
     sprite: _DV/Objects/Consumable/Food/candy.rsi
     slots: [ mask ]
@@ -313,29 +293,27 @@
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
-      - whimsy
-      - sugar
-      - cotton
+    - whimsy
+    - sugar
+    - cotton
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/lolipops.rsi
     state: cloth-lollipop
   - type: Item
     heldPrefix: cloth-lollipop
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: Fiber
-          Quantity: 10
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Fiber
+        Quantity: 10
 
 - type: entity
   name: fruit lollipop
-  parent: FoodMealBigLollipop
+  parent: [ SolutionSmall, FoodMealBigLollipop ]
   id: FoodMealFruitLollipop
   description: Didn't this come out of a microwave? How did the chef even do this?
   components:
@@ -348,33 +326,31 @@
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
-      - whimsy
-      - fruity
-      - apple
-      - orange
-      - watermelon
+    - whimsy
+    - fruity
+    - apple
+    - orange
+    - watermelon
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/lolipops.rsi
     state: fruit-lollipop
   - type: Item
     heldPrefix: fruit-lollipop
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 5.25
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: Water
-          Quantity: 7.5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 5.25
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Water
+        Quantity: 7.5
 
 - type: entity
   name: meat lollipop
-  parent: FoodMealBigLollipop
+  parent: [ SolutionTiny, FoodMealBigLollipop ]
   id: FoodMealMeatLollipop
   description: It's still dripping...
   components:
@@ -387,24 +363,22 @@
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
-      - whimsy
-      - meaty
+    - whimsy
+    - meaty
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/lolipops.rsi
     state: meat-lollipop
   - type: Item
     heldPrefix: meat-lollipop
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 9
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 9
 
 - type: entity
   name: entro-pop
@@ -422,24 +396,22 @@
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
-      - whimsy
-      - strange
+    - whimsy
+    - strange
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/lolipops.rsi
     state: entro-lollipop
   - type: Item
     heldPrefix: entro-lollipop
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: Fresium
-          Quantity: 10
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Fresium
+        Quantity: 10
 
 - type: entity
   parent: [BaseItem, Tier1Contraband]
@@ -455,18 +427,18 @@
     size: Tiny
     heldPrefix: TreatChunk
     inhandVisuals:
-        left:
-        - state: treatchunk-inhand-left
-        right:
-        - state: treatchunk-inhand-right
+      left:
+      - state: treatchunk-inhand-left
+      right:
+      - state: treatchunk-inhand-right
   - type: Tag
     tags:
-      - FoodSnack
-      - TreatChunk
+    - FoodSnack
+    - TreatChunk
   - type: SpawnItemsOnUse
     items:
-      - id: FoodTreatChunkTrash
-      - id: FoodTreatChunkOpen
+    - id: FoodTreatChunkTrash
+    - id: FoodTreatChunkOpen
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -478,40 +450,40 @@
   components:
   - type: SpawnItemsOnUse
     items:
-      - id: FoodTreatChunkTrash
-      - id: FoodTreatChunkOpen
-        orGroup: random
-        prob: 1
-      - id: FoodTreatChunkLead
-        orGroup: random
-        prob: 0.08
-      - id: FoodTreatChunkZap
-        orGroup: random
-        prob: 0.08
-      - id: FoodTreatChunkBungo
-        orGroup: random
-        prob: 0.08
-      - id: FoodTreatChunkVestine
-        orGroup: random
-        prob: 0.08
-      - id: FoodTreatChunkChoke
-        orGroup: random
-        prob: 0.08
-      - id: FoodTreatChunkPax
-        orGroup: random
-        prob: 0.08
-      - id: FoodTreatChunkOmni
-        orGroup: random
-        prob: 0.05
-      - id: FoodTreatChunkDex
-        orGroup: random
-        prob: 0.05
-      - id: FoodTreatChunkHyperzine
-        orGroup: random
-        prob: 0.05
-      - id: FoodTreatChunkUltravasc
-        orGroup: random
-        prob: 0.05
+    - id: FoodTreatChunkTrash
+    - id: FoodTreatChunkOpen
+      orGroup: random
+      prob: 1
+    - id: FoodTreatChunkLead
+      orGroup: random
+      prob: 0.08
+    - id: FoodTreatChunkZap
+      orGroup: random
+      prob: 0.08
+    - id: FoodTreatChunkBungo
+      orGroup: random
+      prob: 0.08
+    - id: FoodTreatChunkVestine
+      orGroup: random
+      prob: 0.08
+    - id: FoodTreatChunkChoke
+      orGroup: random
+      prob: 0.08
+    - id: FoodTreatChunkPax
+      orGroup: random
+      prob: 0.08
+    - id: FoodTreatChunkOmni
+      orGroup: random
+      prob: 0.05
+    - id: FoodTreatChunkDex
+      orGroup: random
+      prob: 0.05
+    - id: FoodTreatChunkHyperzine
+      orGroup: random
+      prob: 0.05
+    - id: FoodTreatChunkUltravasc
+      orGroup: random
+      prob: 0.05
 
 - type: entity
   parent: [FoodSnackBase, Tier1Contraband]
@@ -524,20 +496,20 @@
     state: treatchunk
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Nutriment
+    - Sugar
   - type: Item
     sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
     size: Tiny
     heldPrefix: TreatChunk
     inhandVisuals:
-        left:
-        - state: treatchunk-open-inhand-left
-        right:
-        - state: treatchunk-open-inhand-right
+      left:
+      - state: treatchunk-open-inhand-left
+      right:
+      - state: treatchunk-open-inhand-right
   - type: Tag
     tags:
     - FoodSnack
@@ -546,185 +518,171 @@
     - KodeEdible
     - ClothMade
     - TreatChunk
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants #droplet of hyperzine. you basically just get a little lurch forward cuz the speed effect is cut so short lol
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 3.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants #droplet of hyperzine. you basically just get a little lurch forward cuz the speed effect is cut so short lol
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 3.5
 
- # factory rejects! mostly evil and nasty but some are nice :)
- # nasty ones
+# factory rejects! mostly evil and nasty but some are nice :)
+# nasty ones
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkLead
   suffix: lead
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Lead # yum yum. 10 poison damage lmao
-          Quantity: 0.5
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 3.0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Lead # yum yum. 10 poison damage lmao
+        Quantity: 0.5
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 3.0
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Lead
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Lead
+    - Nutriment
+    - Sugar
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkZap
   suffix: tazinide
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Tazinide # bzzzap
-          Quantity: 0.5
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 3.0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Tazinide # bzzzap
+        Quantity: 0.5
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 3.0
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Tazinide
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Tazinide
+    - Nutriment
+    - Sugar
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkBungo
   suffix: bungotoxin
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Bungotoxin # less poison than the lead one
-          Quantity: 0.5
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 3.0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Bungotoxin # less poison than the lead one
+        Quantity: 0.5
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 3.0
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Bungotoxin
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Bungotoxin
+    - Nutriment
+    - Sugar
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkVestine
   suffix: vestine
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Vestine # ungrindable, so this isn't accessible. just slows you and asphyixates you :)
-          Quantity: 1
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 2.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Vestine # ungrindable, so this isn't accessible. just slows you and asphyixates you :)
+        Quantity: 1
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 2.5
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Vestine
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Vestine
+    - Nutriment
+    - Sugar
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkChoke
   suffix: heartbreaker
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: HeartbreakerToxin # swallowed it too fast and choked on it. nice going IDIOT.
-          Quantity: 0.5
-        - ReagentId: Blackpepper #cough. from choking. idiot.
-          Quantity: 1
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 2.0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: HeartbreakerToxin # swallowed it too fast and choked on it. nice going IDIOT.
+        Quantity: 0.5
+      - ReagentId: Blackpepper #cough. from choking. idiot.
+        Quantity: 1
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 2.0
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - HeartbreakerToxin
-      - Nutriment
-      - Sugar
-      - Blackpepper
+    - Stimulants
+    - HeartbreakerToxin
+    - Nutriment
+    - Sugar
+    - Blackpepper
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkPax
   suffix: pax
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Pax # the concept of someone trying to gamer with the droplet of hyperzine and popping a bunch before getting into a fight only to roll a pax one is very funny to me
-          Quantity: 0.5
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 3.0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Pax # the concept of someone trying to gamer with the droplet of hyperzine and popping a bunch before getting into a fight only to roll a pax one is very funny to me
+        Quantity: 0.5
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 3.0
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Pax
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Pax
+    - Nutriment
+    - Sugar
 
 #nice ones!!
 
@@ -733,105 +691,97 @@
   id: FoodTreatChunkOmni
   suffix: omnizine
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Omnizine # teeny tiny little heal
-          Quantity: 1
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 2.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Omnizine # teeny tiny little heal
+        Quantity: 1
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 2.5
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Omnizine
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Omnizine
+    - Nutriment
+    - Sugar
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkDex
   suffix: dexalin plus
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: DexalinPlus # they wanted to adress the choking problem. this didn't work and got canceled. equipment's still contaminated with it enough to make this happen, though.
-          Quantity: 0.5
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 3.0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DexalinPlus # they wanted to adress the choking problem. this didn't work and got canceled. equipment's still contaminated with it enough to make this happen, though.
+        Quantity: 0.5
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 3.0
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - DexalinPlus
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - DexalinPlus
+    - Nutriment
+    - Sugar
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkHyperzine
   suffix: hyperzine
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants # they messed up and put too much hyperzine in. yay!
-          Quantity: 2
-        - ReagentId: Sugar
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants # they messed up and put too much hyperzine in. yay!
+        Quantity: 2
+      - ReagentId: Sugar
+        Quantity: 2
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Nutriment
+    - Sugar
 
 - type: entity
   parent: FoodTreatChunkOpen
   id: FoodTreatChunkUltravasc
   suffix: ultravasculine
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Ultravasculine # gamble to fix your lead poisoning a little
-          Quantity: 0.5
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Stimulants
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 3.0
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ultravasculine # gamble to fix your lead poisoning a little
+        Quantity: 0.5
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Stimulants
+        Quantity: 0.5
+      - ReagentId: Sugar
+        Quantity: 3.0
   - type: FlavorProfile
     flavors:
-      - treatchunk
+    - treatchunk
     ignoreReagents:
-      - Stimulants
-      - Ultravasculine
-      - Nutriment
-      - Sugar
+    - Stimulants
+    - Ultravasculine
+    - Nutriment
+    - Sugar
 
 - type: entity
   categories: [ HideSpawnMenu ]

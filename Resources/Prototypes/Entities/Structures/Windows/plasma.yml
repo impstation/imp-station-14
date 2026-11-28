@@ -9,8 +9,9 @@
   - type: Icon
     sprite: _Impstation/Structures/Windows/plasma_window.rsi # Impstation
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

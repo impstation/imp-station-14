@@ -31,15 +31,6 @@
     state: burnt-icon
   - type: Smokable
     state: Burnt
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 20
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nicotine
-          Quantity: 5
   - type: Tag
     tags:
       - Cigar
@@ -73,12 +64,3 @@
     state: burnt-icon
   - type: Smokable
     state: Burnt
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 20
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nicotine
-          Quantity: 5

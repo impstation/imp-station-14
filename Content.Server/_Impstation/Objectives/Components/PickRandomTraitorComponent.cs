@@ -1,12 +1,10 @@
 using Content.Server.Objectives.Systems;
 
-namespace Content.Server.Objectives.Components;
+namespace Content.Server._Impstation.Objectives.Components;
 
 /// <summary>
 /// Sets the target for <see cref="TargetObjectiveComponent"/> to a random traitor.
-/// If there are no heads it will fallback to any person.
+/// If there are no traitors
 /// </summary>
 [RegisterComponent, Access(typeof(KillPersonConditionSystem))]
-public sealed partial class PickRandomTraitorComponent : Component
-{
-}
+public sealed partial class PickRandomTraitorComponent : Component { }

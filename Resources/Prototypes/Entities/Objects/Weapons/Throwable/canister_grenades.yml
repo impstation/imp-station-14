@@ -41,15 +41,15 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 30
+  - type: Tag
+    tags:
+    - CleanerGrenade
+    - Grenade # imp add
   # imp edit start
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
     sound: /Audio/Items/smoke_grenade_smoke.ogg
-  - type: Tag
-    tags:
-    - CleanerGrenade
-    - Grenade
   - type: CartridgeAmmo
     proto: BulletGrenadeCleaner
     deleteOnSpawn: true

@@ -118,7 +118,7 @@
   specials:
   - !type:ApplyStatusEffectSpecial
     statusEffects:
-    - PainNumbnessTraitStatusEffect
+    - TraitStatusEffectPainNumbness
   # imp addition starts
   cost: -4
   # imp addition ends
@@ -131,7 +131,7 @@
   specials:
   - !type:ApplyStatusEffectSpecial
     statusEffects:
-    - StatusEffectHemophiliaTrait
+    - TraitStatusEffectHemophilia
   # imp addition starts
   cost: -6
   # imp addition ends

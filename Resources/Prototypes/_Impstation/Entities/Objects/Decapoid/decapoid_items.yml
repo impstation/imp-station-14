@@ -31,8 +31,9 @@
         Blunt: 1 #see above
     passiveBlockFraction: 0.0 #does not give damage reduction passively
     activeBlockFraction: 0.5 #gives 50% damage reduction against brute damage to the decapoid while the claw is raised
-  - type: Damageable
+  - type: Injurable
     damageContainer: DecapoidShield #determines what types of damage are reduced by the Blocking component, DecapoidShield damage container is brute damage only
+  - type: Damageable
   - type: ToolTileCompatible
     delay: 0.5
   - type: Tool
@@ -135,7 +136,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 21.3
     air:
       volume: 5
       moles:

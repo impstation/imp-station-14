@@ -157,8 +157,9 @@
         triggerlight:
           Primed: { visible: true }
           Unprimed: { visible: false }
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
   - type: Destructible
     thresholds:
     - trigger:

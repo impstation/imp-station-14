@@ -28,12 +28,12 @@
   name: moffin recipe
   result: FoodMothMoffin
   time: 5
-  reagents:
-    Flour: 5
-    Milk: 5
-    Egg: 5
   solids:
+    FoodPlateMuffinTin: 1
+    FoodDoughSlice: 1
     MaterialCloth1: 1
+  reagents:
+    Sugar: 10
   recipeType: Oven
 
 - type: microwaveMealRecipe

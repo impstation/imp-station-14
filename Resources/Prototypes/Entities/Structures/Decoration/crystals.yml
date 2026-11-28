@@ -1,35 +1,27 @@
 - type: entity
-#  id: CrystalGreen
-  id: CrystalBase # imp
+  id: CrystalGreen
   parent: BaseStructure
-  abstract: true # imp
-#  suffix: green
+  suffix: green
   name: crystal
   description: A crystaline solid.
   components:
-# imp start
     - type: Sprite
-      layers:
-        - sprite: _Impstation/Structures/crystal.rsi
-          state: crystal_grey
-          map: [ "enum.DamageStateVisualLayers.Base" ]
-          noRot: true
-    - type: RandomSprite
+      layers: # imp add - gotta keep colour above the layers though.
+      - sprite: _Impstation/Structures/crystal.rsi # imp
+        state: crystal_grey
+        noRot: true # imp
+        map: [ "enum.DamageStateVisualLayers.Base" ] # imp
+      color: "#52ff39"
+    - type: RandomSprite # imp
       available:
-        - enum.DamageStateVisualLayers.Base:
-            crystal1: ""
-            crystal2: ""
-            crystal3: ""
-            crystal4: ""
-            crystal5: ""
-            crystal6: ""
-            crystal7: ""
-# imp end
-#    - type: Sprite
-#      sprite: Structures/Decoration/crystal.rsi
-#      state: crystal_grey
-#      color: "#52ff39"
-#      noRot: true
+      - enum.DamageStateVisualLayers.Base:
+          crystal1: ""
+          crystal2: ""
+          crystal3: ""
+          crystal4: ""
+          crystal5: ""
+          crystal6: ""
+          crystal7: ""
     - type: Reflect
       reflectProb: 0.5
       reflects:
@@ -53,68 +45,37 @@
             - LowImpassable
             - BulletImpassable
             - Opaque
-#    - type: PointLight
-#      radius: 3
-#      energy: 3
-#      color: "#52ff39"
+    - type: PointLight
+      radius: 3
+      energy: 3
+      color: "#52ff39"
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: Glass
-#    - type: Destructible
-#      thresholds:
-#       - trigger:
-#            !type:DamageTrigger
-#            damage: 20
-#          behaviors:
-#           - !type:PlaySoundBehavior
-#              sound:
-#                collection: GlassBreak
-#            - !type:SpawnEntitiesBehavior
-#              spawn:
-#                ShardCrystalGreen:
-#                  min: 1
-#                  max: 1
-#            - !type:DoActsBehavior
-#              acts: [ "Destruction" ]
+    - type: Injurable
+      damageContainer: StructuralInorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 20
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: GlassBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                ShardCrystalGreen:
+                  min: 1
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
     - type: AcousticData # VDS
       absorption: -10 # makes sense right
       reflectRay: true
 
-# imp start
-- type: entity
-  id: CrystalGreen
-  parent: CrystalBase
-  suffix: green
-  components:
-  - type: Sprite
-    color: "#52ff39"
-  - type: PointLight
-    radius: 3
-    energy: 3
-    color: "#52ff39"
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 20
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardCrystalGreen:
-            min: 1
-            max: 1
-
-# imp end
-
 - type: entity
   id: CrystalPink
-#  parent: CrystalGreen
-  parent: CrystalBase # imp
+  parent: CrystalGreen
   suffix: pink
   components:
     - type: Sprite
@@ -141,13 +102,12 @@
                   max: 1
 
 - type: entity
-  id: CrystalGrey
-#  parent: CrystalGreen
-  parent: CrystalBase # imp
+  id: CrystalRed # imp crystalgrey -> crystalred (????)
+  parent: CrystalGreen
   suffix: red
   components:
     - type: Sprite
-#      state: crystal_grey
+#      state: crystal_grey # imp comment out
       color: "#fb4747"
     - type: PointLight
       color: "#fb4747"
@@ -170,8 +130,7 @@
 
 - type: entity
   id: CrystalOrange
-#  parent: CrystalGreen
-  parent: CrystalBase # imp
+  parent: CrystalGreen
   suffix: orange
   components:
     - type: Sprite
@@ -199,8 +158,7 @@
 
 - type: entity
   id: CrystalBlack
-#  parent: CrystalGreen
-  parent: CrystalBase # imp
+  parent: CrystalGreen
   suffix: black
   components:
     - type: Sprite
@@ -228,8 +186,7 @@
 
 - type: entity
   id: CrystalBlue
-#  parent: CrystalGreen
-  parent: CrystalBase # imp
+  parent: CrystalGreen
   suffix: blue
   components:
     - type: Sprite
@@ -257,8 +214,7 @@
 
 - type: entity
   id: CrystalYellow
-#  parent: CrystalGreen
-  parent: CrystalBase # imp
+  parent: CrystalGreen
   suffix: yellow
   components:
     - type: Sprite
@@ -286,8 +242,7 @@
 
 - type: entity
   id: CrystalCyan
-#  parent: CrystalGreen
-  parent: CrystalBase # imp
+  parent: CrystalGreen
   suffix: cyan
   components:
     - type: Sprite
