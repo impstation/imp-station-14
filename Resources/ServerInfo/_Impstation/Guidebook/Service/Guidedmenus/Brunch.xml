@@ -1,0 +1,21 @@
+<Document>
+# Brunch
+
+<Box>
+  [color=#999999][italic]"The busy crewmates who skipped their breakfast will thank you."[/italic][/color]
+</Box>
+
+<Box>
+<GuideEntityEmbed Entity="FoodBreakfastAmerican" Caption="Full American Breakfast"/>
+<GuideEntityEmbed Entity="FoodBakedPancake" Caption="Pancakes"/>
+<GuideEntityEmbed Entity="FoodBreadFrenchToast" Caption="French Toast"/>
+</Box>
+  ★☆☆ Simple
+
+  The Brunch menu serves a good selection of Western breakfast foods, with a selection that accomodate many species. It is a good starting point for chefs looking to learn the art of baking as well.
+
+  #Menu Items
+
+  <GuideMicrowaveEmbed Recipe="RecipeFrenchToast"/>
+  <GuideMicrowaveEmbed Recipe="RecipeBreakfastAmerican"/>
+</Document>

@@ -1,0 +1,59 @@
+- type: guideEntry
+  id: GuidedMenus
+  name: guide-entry-guidedmenus
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/GuidedmenuIntro.xml"
+  children:
+  - Brunch
+  - Casual
+  - Fast Food
+  - Bakery
+  - Chinese
+  - Italian
+  - Japanese
+  - French
+  - TexMex
+
+- type: guideEntry
+  id: Brunch
+  name: guide-entry-guidedmenusbrunch
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/Brunch.xml"
+
+- type: guideEntry
+  id: Casual
+  name: guide-entry-guidedmenuscasual
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/Casual.xml"
+
+- type: guideEntry
+  id: Fast Food
+  name: guide-entry-guidedmenusfastfood
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/Fast_Food.xml"
+
+- type: guideEntry
+  id: Bakery
+  name: guide-entry-guidedmenusbakery
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/Bakery.xml"
+
+- type: guideEntry
+  id: Chinese
+  name: guide-entry-guidedmenuschinese
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/Chinese.xml"
+
+- type: guideEntry
+  id: Italian
+  name: guide-entry-guidedmenusitalian
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/Italian.xml"
+
+- type: guideEntry
+  id: Japanese
+  name: guide-entry-guidedmenusjapanese
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/Japanese.xml"
+
+- type: guideEntry
+  id: French
+  name: guide-entry-guidedmenusfrench
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/French.xml"
+
+- type: guideEntry
+  id: TexMex
+  name: guide-entry-guidedmenustexmex
+  text: "/ServerInfo/_Impstation/Guidebook/Service/Guidedmenus/TexMex.xml"
