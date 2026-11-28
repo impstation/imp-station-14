@@ -58,12 +58,9 @@
   name: astrofauna stomach
   description: "Unfortunately capable of digesting metal, limited only by its owner's jaw strength."
   components:
-  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+  - type: SolutionManager
     solutions:
-      stomach:
-          maxVol: 50
-      food:
-        maxVol: 15
+    - SolutionStomach
 
 - type: entity
   id: OrganCarpLiver

@@ -388,12 +388,9 @@
   parent: [ OrganBaseStomach, OrganAllulaloInternal, OrganHumanMetabolizer ]
   id: OrganAllulaloStomach
   components:
-  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+  - type: SolutionManager
     solutions:
-      stomach:
-          maxVol: 50
-      food:
-        maxVol: 15
+    - SolutionStomach
 
 - type: entity
   parent: [ OrganBaseLiver, OrganAllulaloInternal, OrganHumanMetabolizer ]
