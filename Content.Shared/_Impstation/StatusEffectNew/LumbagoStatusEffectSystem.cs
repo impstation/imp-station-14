@@ -91,7 +91,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             }
 
             if (_timing.CurTime < lumbagoComp.LumbagoReminderDelay)
-                return;
+                continue;
             // if dead or crit, set timer but do not send message so that we don't get delayed.
             if (_mobState.IsDead(statusOwner) || _mobState.IsCritical(statusOwner))
             {
