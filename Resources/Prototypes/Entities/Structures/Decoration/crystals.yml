@@ -6,12 +6,12 @@
   description: A crystaline solid.
   components:
     - type: Sprite
-      layers: # imp add
+      layers: # imp add - gotta keep colour above the layers though.
       - sprite: _Impstation/Structures/crystal.rsi # imp
         state: crystal_grey
-        color: "#52ff39"
-        noRot: true
+        noRot: true # imp
         map: [ "enum.DamageStateVisualLayers.Base" ] # imp
+      color: "#52ff39"
     - type: RandomSprite # imp
       available:
       - enum.DamageStateVisualLayers.Base:
@@ -102,12 +102,12 @@
                   max: 1
 
 - type: entity
-  id: CrystalGrey
+  id: CrystalRed # imp crystalgrey -> crystalred (????)
   parent: CrystalGreen
   suffix: red
   components:
     - type: Sprite
-#      state: crystal_grey # imp
+#      state: crystal_grey # imp comment out
       color: "#fb4747"
     - type: PointLight
       color: "#fb4747"
