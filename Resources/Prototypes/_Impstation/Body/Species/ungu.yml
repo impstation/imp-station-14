@@ -405,15 +405,14 @@
   id: OrganUnguStomach
   description: A lot going on here.
   components:
-  - type: SolutionContainerManager #imp edit, to become SolutionManager and use SolutionStomachUngu once solutions refactor is merged
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 12
+  - type: SolutionManager
     solutions:
-      stomach:
-        maxVol: 200
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 12
+    - SolutionStomach
   - type: Stomach
     isSpecialDigestibleExclusive: true
     specialDigestible:
