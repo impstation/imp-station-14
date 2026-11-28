@@ -16,22 +16,21 @@
     layers:
     - state: pineapple
   - type: SliceableFood
+    count: 12 # i hate you princess cheeseballs
     slice: FoodPizzaLemoSlice
   - type: Tag
     tags:
     - Meat
     - Pizza
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
+  - type: Solution
+    solution:
+      reagents:
         - ReagentId: Nutriment
-          Quantity: 31
+          Quantity: 20.125
         - ReagentId: Protein
-          Quantity: 6
+          Quantity: 12
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 4.25
 
 - type: entity
   name: slice of Teoean pizza
@@ -55,17 +54,15 @@
     - Meat
     - Pizza
     - Slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3.88
-        - ReagentId: Protein
-          Quantity: 0.75
-        - ReagentId: Vitamin
-          Quantity: 0.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Protein
+        Quantity: 1
+      - ReagentId: Vitamin
+        Quantity: 0.35
 
 - type: entity
   name: bomb pizza
@@ -134,14 +131,18 @@
     tags:
     - Pizza
     - UnguFood
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 21
-        - ReagentId: Lead #i'm allowed
-          Quantity: 1
-        - ReagentId: Sulfur
-          Quantity: 19
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 26
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Sulfur
+        Quantity: 6
+      - ReagentId: Charcoal
+        Quantity: 6
+      - ReagentId: Lead #i'm allowed
+        Quantity: 1
+      - ReagentId: Iron
+        Quantity: 9

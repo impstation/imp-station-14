@@ -8,28 +8,26 @@
   components:
   - type: FlavorProfile
     flavors:
-      - chocolate
-      - muffin
-      - pear
+    - chocolate
+    - muffin
+    - pear
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
     state: pearmuffin
     scale: .75, .75
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 45
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 23
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
-        - ReagentId: Sugar
-          Quantity: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 18.5
+      - ReagentId: Vitamin
+        Quantity: 4
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 4
+      - ReagentId: Sugar
+        Quantity: 9
   - type: Tag
     tags:
     - Fruit
@@ -43,29 +41,27 @@
   components:
   - type: FlavorProfile
     flavors:
-      - honey
-      - butter
-      - bread
+    - honey
+    - butter
+    - bread
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
     layers:
-      - state: apple_strudel_1
-        map: [ "Variant" ]
+    - state: apple_strudel_1
+      map: [ "Variant" ]
   - type: RandomSprite
     available:
-      - Variant:
-          apple_strudel_1: ""
-          apple_strudel_2: ""
-          apple_strudel_3: ""
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 4
+    - Variant:
+        apple_strudel_1: ""
+        apple_strudel_2: ""
+        apple_strudel_3: ""
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 26
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Tag
     tags:
     - Fruit
@@ -79,23 +75,21 @@
   components:
   - type: FlavorProfile
     flavors:
-      - sweet
-      - cinnamon
-      - bun
-      - spices
+    - sweet
+    - cinnamon
+    - bun
+    - spices
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
     layers:
-      - state: cinnamonroll
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 22
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Sugar
-          Quantity: 5
+    - state: cinnamonroll
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 18
+      - ReagentId: Sugar
+        Quantity: 5
   - type: Tag # imp
     tags:
     - UnguFood

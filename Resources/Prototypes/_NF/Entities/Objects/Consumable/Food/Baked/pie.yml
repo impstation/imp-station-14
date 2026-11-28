@@ -8,29 +8,28 @@
   components:
   - type: FlavorProfile
     flavors:
-      - sweet
-      - cheesy
-      - pear
+    - sweet
+    - cheesy
+    - pear
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
     layers:
     - state: tin
     - state: pearandcheese
   - type: SliceableFood
+    count: 8
     slice: FoodTartPearCheeseSlice
   - type: Tag
     tags:
     - Fruit
     - Pie
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 38
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 45
+      - ReagentId: Vitamin
+        Quantity: 8
 
 - type: entity
   name: slice of pear and cheese tart
@@ -40,9 +39,9 @@
   components:
   - type: FlavorProfile
     flavors:
-      - sweet
-      - cheesy
-      - pear
+    - sweet
+    - cheesy
+    - pear
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
     layers:
@@ -54,15 +53,13 @@
     - Fruit
     - Pie
     - Slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9.5
-        - ReagentId: Vitamin
-          Quantity: 1.25
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5.625
+      - ReagentId: Vitamin
+        Quantity: 1
 
 - type: entity
   name: honey apple streusel pie
@@ -72,26 +69,25 @@
   components:
   - type: FlavorProfile
     flavors:
-      - honey
-      - apple
-      - oats
+    - honey
+    - apple
+    - oats
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
     layers:
     - state: tin
     - state: applecrisp
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 39
-        - ReagentId: Vitamin
-          Quantity: 9
-        - ReagentId: Sugar
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 45.5
+      - ReagentId: Vitamin
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 4
   - type: SliceableFood
+    count: 8
     slice: FoodPieAppleHoneySlice
   - type: Tag
     tags:
@@ -106,9 +102,9 @@
   components:
   - type: FlavorProfile
     flavors:
-      - honey
-      - apple
-      - oats
+    - honey
+    - apple
+    - oats
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
     layers:
@@ -120,14 +116,12 @@
     - Fruit
     - Pie
     - Slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 2.25
-        - ReagentId: Sugar
-          Quantity: 0.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5.6875
+      - ReagentId: Vitamin
+        Quantity: 1.8
+      - ReagentId: Sugar
+        Quantity: 0.5

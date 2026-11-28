@@ -14,20 +14,21 @@
     - state: tin
     - state: lemo
   - type: SliceableFood
+    count: 8
     slice: FoodPieLemoSlice
   - type: Tag
     tags:
     - Fruit
     - Pie
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 80
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 57
-        - ReagentId: Vitamin
-          Quantity: 12
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 47.5
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 6
 
 - type: entity
   name: slice of lemo pie
@@ -49,12 +50,12 @@
     - Fruit
     - Pie
     - Slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14.25
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5.9375
+      - ReagentId: Sugar
+        Quantity: 0.625
+      - ReagentId: Vitamin
+        Quantity: 0.75

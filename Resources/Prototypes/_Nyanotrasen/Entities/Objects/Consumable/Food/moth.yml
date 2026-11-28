@@ -10,27 +10,25 @@
   components:
   - type: FlavorProfile
     flavors:
-      - cotton
-      - potatoes # imp
-      - carrot # imp
+    - cotton
+    - potatoes # imp
+    - carrot # imp
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: cottonsoup
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 56 # imp edit to remove allicin
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-        - ReagentId: Vitamin
-          Quantity: 12
-#        - ReagentId: Allicin # imp removed with recipe change from onion to potato
-#          Quantity: 4
-        - ReagentId: JuiceCarrot
-          Quantity: 5
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Vitamin
+        Quantity: 7
+      - ReagentId: JuiceCarrot
+        Quantity: 5
+      - ReagentId: Oculine
+        Quantity: 3
+      - ReagentId: Fiber
+        Quantity: 5
+      - ReagentId: Cellulose
+        Quantity: 10
   - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
@@ -49,29 +47,25 @@
   components:
   - type: FlavorProfile
     flavors:
-      - cheesy
-      - leafy
-      - bread
+    - cheesy
+    - leafy
+    - bread
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: cottonsalad
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 85 # imp
-        reagents: # wth is this recipe
-        - ReagentId: Nutriment
-          Quantity: 11.75
-        - ReagentId: Fiber
-          Quantity: 2
-        - ReagentId: Bicaridine
-          Quantity: 15
-        - ReagentId: Kelotane
-          Quantity: 15
-        - ReagentId: Desoxyephedrine
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 6
+  - type: Solution
+    solution:
+      reagents: # wth is this recipe
+      - ReagentId: Nutriment
+        Quantity: 27.5
+      - ReagentId: Fiber
+        Quantity: 40
+      - ReagentId: Bicaridine
+        Quantity: 15
+      - ReagentId: Kelotane
+        Quantity: 15
+      - ReagentId: Vitamin
+        Quantity: 6
   - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
@@ -90,25 +84,26 @@
   components:
   - type: FlavorProfile
     flavors:
-      - bread
-      - cotton
-      - cheesy
+    - bread
+    - cotton
+    - cheesy
   - type: SliceableFood
+    count: 12 # i hate  you princess cheeseballs.
     slice: FoodMothPizzaCottonSlice
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: pizza-cotton
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9
-        - ReagentId: Fiber
-          Quantity: 40
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8.5
+      - ReagentId: Fiber
+        Quantity: 57.5
+      - ReagentId: Cellulose
+        Quantity: 30
   - type: Tag
     tags:
     - ClothMade
@@ -122,23 +117,23 @@
   components:
   - type: FlavorProfile
     flavors:
-      - bread
-      - cotton
-      - cheesy
+    - bread
+    - cotton
+    - cheesy
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: pizza-cotton-slice
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.13
-        - ReagentId: Fiber
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.7
+      - ReagentId: Fiber
+        Quantity: 4.8
+      - ReagentId: Cellulose
+        Quantity: 2.5
   - type: Tag
     tags:
     - ClothMade
@@ -156,28 +151,28 @@
   components:
   - type: FlavorProfile
     flavors:
-      - vanilla
-      - sweet
-      - sublime
+    - vanilla
+    - sweet
+    - sublime
   - type: SliceableFood
-    count: 5
+    count: 8
     slice: FoodMothMothmallowSlice
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: mothmallow
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: Rum
-          Quantity: 5
-        - ReagentId: MilkSoy
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Protein
+        Quantity: 12
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Rum
+        Quantity: 5
+      - ReagentId: MilkSoy
+        Quantity: 5
   - type: Tag # imp
     tags:
     - UnguFood
@@ -193,25 +188,25 @@
   components:
   - type: FlavorProfile
     flavors:
-      - vanilla
-      - sweet
-      - sublime
+    - vanilla
+    - sweet
+    - sublime
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: mothmallow-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 0.8
-        - ReagentId: Sugar
-          Quantity: 2
-        - ReagentId: Rum
-          Quantity: 1
-        - ReagentId: MilkSoy
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Protein
+        Quantity: 1.5
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: Rum
+        Quantity: 0.625
+      - ReagentId: MilkSoy
+        Quantity: 0.625
   - type: Tag # imp
     tags:
     - UnguFood
@@ -228,37 +223,31 @@
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     layers:
-      - state: moffin
-        map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: moffin
+      map: [ "enum.DamageStateVisualLayers.Base" ]
     netsync: false
   - type: RandomSprite
     available:
-      - enum.DamageStateVisualLayers.Base:
-          moffin: ""
-      - enum.DamageStateVisualLayers.Base:
-          moffin2: ""
-      - enum.DamageStateVisualLayers.Base:
-          moffin3: ""
+    - enum.DamageStateVisualLayers.Base:
+        moffin: ""
+    - enum.DamageStateVisualLayers.Base:
+        moffin2: ""
+    - enum.DamageStateVisualLayers.Base:
+        moffin3: ""
   - type: FlavorProfile
     flavors:
-      - muffin
-      - cotton
-      - fiber
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 0.5
-        - ReagentId: Sugar
-          Quantity: 2
-        - ReagentId: Milk
-          Quantity: 5
-        - ReagentId: Protein
-          Quantity: 5
-        - ReagentId: Fiber
-          Quantity: 3
+    - muffin
+    - cotton
+    - fiber
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.125
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Fiber
+        Quantity: 10
   - type: Edible
     requiresSpecialDigestion: true
   - type: Tag

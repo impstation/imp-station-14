@@ -16,14 +16,11 @@
     - state: bun_bottom
     - map: ["foodSequenceLayers"]
     - state: bun_top
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        canReact: true
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6.66
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.125
   - type: FoodSequenceStartPoint
     key: Hotdog
     maxLayers: 30
@@ -45,7 +42,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - meaty
+    - meaty
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/hotdog.rsi
     state: hotdog_plain
@@ -54,8 +51,10 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 1.125
         - ReagentId: Protein
+          Quantity: 30
+        - ReagentId: TableSalt
           Quantity: 5
   - type: Item
     sprite: _Impstation/Objects/Consumable/Food/hotdog.rsi
@@ -64,7 +63,7 @@
     storedOffset: 0,1
   - type: Tag
     tags:
-      - Meat
+    - Meat
   - type: FoodSequenceElement
     entries:
       Hotdog: Hotdogdog

@@ -10,7 +10,7 @@
     color: lime
   - type: FlavorProfile #imp
     flavors:
-      - goblin
+    - goblin
 
 - type: entity
   name: raw fish fillet
@@ -20,7 +20,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - fishy
+    - fishy
   - type: Tag
     tags:
     - Raw
@@ -28,14 +28,13 @@
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/meat.rsi
     state: cured-carp
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 20
+      - ReagentId: Fat
+        Quantity: 5
 
 # Cooked
 
@@ -47,26 +46,26 @@
   components:
   - type: FlavorProfile
     flavors:
-      - meat
-      - honey
-      - salty
+    - meat
+    - honey
+    - salty
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/meat.rsi
     state: honeyglazedham
   - type: SliceableFood
     count: 4
     slice: FoodMeatGlazedHamSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 9
-        - ReagentId: TableSalt
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 11
+      - ReagentId: Protein
+        Quantity: 40
+      - ReagentId: Vitamin
+        Quantity: 10
+      - ReagentId: TableSalt
+        Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -79,31 +78,31 @@
   components:
   - type: FlavorProfile
     flavors:
-      - meat
-      - honey
-      - salty
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2.5
-        - ReagentId: Protein
-          Quantity: 2.25
-        - ReagentId: TableSalt
-          Quantity: 1.25
+    - meat
+    - honey
+    - salty
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2.2
+      - ReagentId: Protein
+        Quantity: 8
+      - ReagentId: Vitamin
+        Quantity: 1.25
+      - ReagentId: TableSalt
+        Quantity: 0.625
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/meat.rsi
     layers:
-      - state: honeyglazedhamslice
-        map: [ "Slice" ]
+    - state: honeyglazedhamslice
+      map: [ "Slice" ]
   - type: RandomSprite
     available:
-      - Slice:
-          honeyglazedhamslice: ""
-          normalhamslice: ""
+    - Slice:
+        honeyglazedhamslice: ""
+        normalhamslice: ""
   - type: Tag
     tags:
-      - Slice
-      - Meat
+    - Slice
+    - Meat

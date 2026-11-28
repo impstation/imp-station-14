@@ -7,10 +7,9 @@
   - type: FlavorProfile
     flavors:
     - pear
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 14
+  - type: Solution
+    solution:
+      reagents:
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -46,15 +45,13 @@
     flavors:
     - bitter
   - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Theobromine
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Theobromine
+        Quantity: 1
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
   - type: Item
@@ -79,15 +76,13 @@
   - type: FlavorProfile
     flavors:
     - avocado
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 16
-        reagents:
-        - ReagentId: Nutriment #place holder
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 6
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment #place holder
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 6
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/avocado.rsi
   - type: Item
@@ -116,15 +111,13 @@
   - type: FlavorProfile
     flavors:
     - avocado
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 3
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/avocado.rsi
   - type: Extractable
@@ -147,15 +140,13 @@
   - type: FlavorProfile
     flavors:
     - cucumber
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment #place holder
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment #place holder
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 4
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/cucumber.rsi
   - type: Item
@@ -185,15 +176,13 @@
   - type: FlavorProfile
     flavors:
     - cucumber
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.5
-        - ReagentId: Vitamin
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.5
+      - ReagentId: Vitamin
+        Quantity: 1
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/cucumber.rsi
   - type: Extractable
@@ -217,17 +206,15 @@
   - type: FlavorProfile
     flavors:
     - salty
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment #place holder
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Saline
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment #place holder
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 4
+      - ReagentId: Saline
+        Quantity: 10
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/cucumber.rsi
     state: pickle
@@ -256,17 +243,15 @@
   - type: FlavorProfile
     flavors:
     - salty
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.5
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: Saline
-          Quantity: 2.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.5
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: Saline
+        Quantity: 2.5
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/cucumber.rsi
     state: pickleslice
@@ -291,15 +276,13 @@
   - type: FlavorProfile
     flavors:
     - honeycomb
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Honey
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Honey
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/bees.rsi
   - type: Item
@@ -320,13 +303,11 @@
   - type: FlavorProfile
     flavors:
     - spices
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Everyspice
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Everyspice
+        Quantity: 5
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/everyspice.rsi
   - type: Item
@@ -350,13 +331,11 @@
   - type: FlavorProfile
     flavors:
     - peppery
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Blackpepper
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Blackpepper
+        Quantity: 5
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/everyspice.rsi
     state: produce-roasted

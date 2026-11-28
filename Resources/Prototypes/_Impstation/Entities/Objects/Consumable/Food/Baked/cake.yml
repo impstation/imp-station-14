@@ -8,23 +8,20 @@
     sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
     state: cotton-unfrosted
   - type: SliceableFood
+    count: 8
     slice: FoodCakeCottonUnfrostedSlice
   - type: Tag
     tags:
     - Cake
     - ClothMade
     - ClothFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 25
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Fiber
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 15
+      - ReagentId: Nutriment
+        Quantity: 4
   - type: Item
     sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
     heldPrefix: cotton-unfrosted
@@ -47,17 +44,13 @@
     - ClothMade
     - ClothFood
     - Slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: Fiber
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 1.875
+      - ReagentId: Nutriment
+        Quantity: 0.5
   - type: Item
     sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
     heldPrefix: cotton-unfrosted-slice

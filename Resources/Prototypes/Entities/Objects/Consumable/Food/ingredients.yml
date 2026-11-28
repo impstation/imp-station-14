@@ -582,6 +582,11 @@
   components:
   - type: Sprite
     state: dough-pastry
+  - type: Solution # imp
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 18
 
 - type: entity
   name: pastry base

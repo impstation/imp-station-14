@@ -2,19 +2,27 @@
   name: stick of rainbow cannabis butter
   parent: [FoodCannabisButter, BaseMinorContraband]
   id: FoodRainbowCannabisButter
-  description: Add this to your favorite baked goods for a horrible time.
+  description: Add this to your favorite baked goods for a horrible time. # upstream solutions refactor made this description a little too accurate...
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Butter
-          Quantity: 15
-        - ReagentId: THC
-          Quantity: 24
-        - ReagentId: ForeverWeed
-          Quantity: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Butter
+        Quantity: 30
+      - ReagentId: SpaceDrugs
+        Quantity: 36
+      - ReagentId: Lipolicide
+        Quantity: 18
+      - ReagentId: MindbreakerToxin
+        Quantity: 12
+      - ReagentId: Happiness
+        Quantity: 12
+      - ReagentId: Psicodine
+        Quantity: 6
+      - ReagentId: THC
+        Quantity: 24
+      - ReagentId: ForeverWeed
+        Quantity: 8
   - type: PointLight
     radius: 1.5
     energy: 2
@@ -87,13 +95,13 @@
   - type: Solution
     solution:
       reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Fiber
-          Quantity: 10
+      - ReagentId: Nutriment
+        Quantity: 30
+      - ReagentId: Fiber
+        Quantity: 10
   - type: FlavorProfile
     flavors:
-      - cheesy
+    - cheesy
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
     state: ball
@@ -123,7 +131,7 @@
         Quantity: 2.5
   - type: FlavorProfile
     flavors:
-      - cheesy
+    - cheesy
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
     state: strand
@@ -155,16 +163,16 @@
   - type: Solution
     solution:
       reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 6
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: CocoaPowder
-          Quantity: 5
-        - ReagentId: Theobromine
-          Quantity: 5
+      - ReagentId: Nutriment
+        Quantity: 20
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 6
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: CocoaPowder
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 5
 
 - type: entity
   parent: FoodBakingBase
@@ -181,6 +189,13 @@
     sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
     state: alphacakebatter
     color: "#ffbfbf"
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 15
+      - ReagentId: Nutriment
+        Quantity: 4
 
 - type: entity
   parent: FoodBase
@@ -190,13 +205,11 @@
   components:
   - type: Item
     size: Normal
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 5
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
   - type: FlavorProfile
     flavors:
     - vanilla
@@ -244,4 +257,10 @@
   - type: Tag
     tags:
     - SpacemanFrosting
-
+  - type: Solution
+    solutions:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: PolypyryliumOligomers
+        Quantity: 12

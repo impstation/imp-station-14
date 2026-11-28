@@ -13,13 +13,11 @@
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/ingredients.rsi
     state: raisin-big
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Raisins
-          Quantity: 50
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Raisins
+        Quantity: 60
 
 - type: entity
   name: raw coffee beans
@@ -31,15 +29,13 @@
     flavors:
     - bitter
   - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Theobromine # Caffeine
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
+      - ReagentId: Theobromine # Caffeine
+        Quantity: 1
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
     state: produce-beans
@@ -69,13 +65,11 @@
     flavors:
     - bitter
   - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: CoffeeGrounds
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: CoffeeGrounds
+        Quantity: 5
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/coffee.rsi
     state: produce-beans-light
@@ -136,13 +130,11 @@
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/ingredients.rsi
     state: honeybottle
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Honey
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Honey
+        Quantity: 30
   - type: Edible
     solution: food
     destroyOnEmpty: false
@@ -181,6 +173,13 @@
   - type: SliceableFood
     count: 3
     slice: FoodDoughPastryBaseRaw
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 43.5
+      - ReagentId: Vitamin
+        Quantity: 8
 
 - type: entity
   parent: FoodBakedBase
@@ -195,14 +194,14 @@
     graph: WaffleCone
     node: cone
   - type: Solution
-    solutions:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 0.33
-        - ReagentId: Milk
-          Quantity: 1.67
-        - ReagentId: EggCooked
-          Quantity: 2
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 0.33
+      - ReagentId: Milk
+        Quantity: 1.67
+      - ReagentId: EggCooked
+        Quantity: 2
   - type: Tag # imp
     tags:
     - UnguFood

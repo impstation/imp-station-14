@@ -8,26 +8,23 @@
   components:
   - type: FlavorProfile
     flavors:
-      - fishy
-      - egg
+    - fishy
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/dragonomelette.rsi
     state: icon
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 12
-        - ReagentId: Ichor
-          Quantity: 12
-        - ReagentId: Protein
-          Quantity: 12
-        - ReagentId: TableSalt
-          Quantity: 5
-        - ReagentId: Blackpepper
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 45
+      - ReagentId: Ichor
+        Quantity: 12
+      - ReagentId: EggCooked
+        Quantity: 12
+      - ReagentId: TableSalt
+        Quantity: 5
+      - ReagentId: Blackpepper
+        Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -40,20 +37,18 @@
   components:
   - type: FlavorProfile
     flavors:
-      - avocado
-      - bread
+    - avocado
+    - bread
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
     state: avocadotoast
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6.125
+      - ReagentId: Vitamin
+        Quantity: 3
   - type: Tag # imp
     tags:
     - Vegetable
@@ -67,24 +62,22 @@
   components:
   - type: FlavorProfile
     flavors:
-      - avocado
-      - bread
-      - egg
-      - cheese
+    - avocado
+    - bread
+    - egg
+    - cheese
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
     state: breakfastbagel
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14
-        - ReagentId: Protein
-          Quantity: 12
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 16.125
+      - ReagentId: EggCooked
+        Quantity: 12
+      - ReagentId: Vitamin
+        Quantity: 3
   - type: Tag # imp
     tags:
     - Vegetable
@@ -98,26 +91,24 @@
   components:
   - type: FlavorProfile
     flavors:
-      - avocado
-      - bread
-      - egg
-      - cheese
+    - avocado
+    - bread
+    - egg
+    - cheese
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
     state: breakfastbagelpoppy
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 16
-        - ReagentId: Protein
-          Quantity: 12
-        - ReagentId: Vitamin
-          Quantity: 3
-        - ReagentId: Bicaridine
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 17.125
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: EggCooked
+        Quantity: 12
+      - ReagentId: Bicaridine
+        Quantity: 5
   - type: Tag # imp
     tags:
     - UnguFood
@@ -131,21 +122,19 @@
   components:
   - type: FlavorProfile
     flavors:
-      - cucumber
-      - bread
-      - mayonnaise
+    - cucumber
+    - bread
+    - mayonnaise
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
     state: cucumbersandwich
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 9.42
+      - ReagentId: Vitamin
+        Quantity: 2.5
   - type: Tag # imp
     tags:
     - Vegetable
@@ -159,25 +148,21 @@
   components:
   - type: FlavorProfile
     flavors:
-      - cheesy
-      - cucumber
-      - sour # vinaigrette
+    - cheesy
+    - cucumber
+    - sour # vinaigrette
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: greek
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 14
-        - ReagentId: Vitamin
-          Quantity: 8
-        - ReagentId: Water
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 14.17
+      - ReagentId: Vitamin
+        Quantity: 7.5
   - type: Tag
     tags:
     - Vegetable
@@ -191,26 +176,22 @@
   components:
   - type: FlavorProfile
     flavors:
-      - avocado
-      - cucumber
-      - tomato
-      - sour # lime juice
+    - avocado
+    - cucumber
+    - tomato
+    - sour # lime juice
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: avocado
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 27
-        - ReagentId: Vitamin
-          Quantity: 13
-        - ReagentId: Water
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 30.5
+      - ReagentId: Vitamin
+        Quantity: 13
   - type: Tag
     tags:
     - Vegetable
@@ -224,25 +205,23 @@
   components:
   - type: FlavorProfile
     flavors:
-      - fruity
-      - alcohol
-      - pear
-      - shittywine
-      - orange # oranges functionally have nothing in them lol
+    - fruity
+    - alcohol
+    - pear
+    - shittywine
+    - orange # oranges functionally have nothing in them lol
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: poachedpear
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 12
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 40
+      - ReagentId: Vitamin
+        Quantity: 17
   - type: Tag
     tags:
     - Fruit
@@ -255,27 +234,27 @@
   components:
   - type: FlavorProfile
     flavors:
-      - pear
-      - creamy
-      - lemon
+    - pear
+    - creamy
+    - lemon
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: bellepear
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 90
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 55
-        - ReagentId: Vitamin
-          Quantity: 17
-        - ReagentId: Theobromine
-          Quantity: 6
-        - ReagentId: CocoaPowder
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 47.5
+      - ReagentId: Vitamin
+        Quantity: 17
+      - ReagentId: Theobromine
+        Quantity: 6
+      - ReagentId: CocoaPowder
+        Quantity: 8
+      - ReagentId: Sugar
+        Quantity: 4
   - type: Tag
     tags:
     - Fruit
@@ -288,24 +267,22 @@
   components:
   - type: FlavorProfile
     flavors:
-      - finenoodles
-      - richbroth
+    - finenoodles
+    - richbroth
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: basic-noodles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 19
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Soysauce
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10.5
+      - ReagentId: Protein
+        Quantity: 12
+      - ReagentId: Soysauce
+        Quantity: 5
   - type: Tag # imp
     tags:
     - UnguFood
@@ -318,25 +295,21 @@
   components:
   - type: FlavorProfile
     flavors:
-      - finenoodles
-      - richbroth
-      - tangy
+    - finenoodles
+    - richbroth
+    - tangy
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: miso-noodles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 27
-        - ReagentId: Protein
-          Quantity: 12
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 22.25
+      - ReagentId: Protein
+        Quantity: 36
   - type: Tag # imp
     tags:
     - Vegetable
@@ -349,22 +322,20 @@
   components:
   - type: FlavorProfile
     flavors:
-      - finenoodles
-      - richbroth
+    - finenoodles
+    - richbroth
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: shio-noodles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 26
-        - ReagentId: Protein
-          Quantity: 6
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 18.5
+      - ReagentId: Protein
+        Quantity: 12
   - type: Tag
     tags:
     - Vegetable
@@ -377,28 +348,28 @@
   components:
   - type: FlavorProfile
     flavors:
-      - finenoodles
-      - richbroth
-      - savory
+    - finenoodles
+    - richbroth
+    - savory
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: shoyu-noodles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 65
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 35
-        - ReagentId: Soysauce
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 14
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 18.5
+      - ReagentId: Protein
+        Quantity: 30
+      - ReagentId: Vitamin
+        Quantity: 9
+      - ReagentId: Soysauce
+        Quantity: 10
   - type: Tag
     tags:
-#    - Vegetable # imp - ungu should not be able to eat this
+    #    - Vegetable # imp - ungu should not be able to eat this
     - Meat
 
 - type: entity
@@ -409,27 +380,27 @@
   components:
   - type: FlavorProfile
     flavors:
-      - finenoodles
-      - tofu
-      - spicy
+    - finenoodles
+    - tofu
+    - spicy
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: spicy-noodles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 25
-        - ReagentId: Protein
-          Quantity: 9
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: CapsaicinOil
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 14.9
+      - ReagentId: Protein
+        Quantity: 15.6
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: CapsaicinOil
+        Quantity: 10
+      - ReagentId: Soysauce
+        Quantity: 5
   - type: Tag
     tags:
     - Vegetable
@@ -442,27 +413,27 @@
   components:
   - type: FlavorProfile
     flavors:
-      - finenoodles
-      - savory
-      - garlic
+    - finenoodles
+    - savory
+    - garlic
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/bowl.rsi
     layers:
     - state: bowl
     - state: tonkatsu-noodles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 65
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 42
-        - ReagentId: Protein
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Allicin
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 24.5
+      - ReagentId: Protein
+        Quantity: 30
+      - ReagentId: Vitamin
+        Quantity: 13
+      - ReagentId: Allicin
+        Quantity: 4
+      - ReagentId: Soysauce
+        Quantity: 5
   - type: Tag
     tags:
     - Meat

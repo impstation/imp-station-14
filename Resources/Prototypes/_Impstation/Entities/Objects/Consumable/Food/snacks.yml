@@ -9,19 +9,17 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimps.rsi
     state: shrimps
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 4
   - type: FlavorProfile
     flavors:
-      - salty
-      - shrimp
+    - salty
+    - shrimp
   - type: Item
     size: Tiny
   - type: Edible
@@ -57,21 +55,19 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnax
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 4
-        - ReagentId: TableSalt
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: TableSalt
+        Quantity: 4
   - type: FlavorProfile
     flavors:
-      - artificial
-      - shrimp
+    - artificial
+    - shrimp
   - type: Item
     size: Tiny
   - type: Edible
@@ -105,24 +101,22 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxgreen
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 4
-        - ReagentId: GrayBlood
-          Quantity: 4
-        - ReagentId: Radium
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: GrayBlood
+        Quantity: 4
+      - ReagentId: Radium
+        Quantity: 1
   - type: FlavorProfile
     flavors:
-      - artificial
-      - shrimp
-      - outofthisworld
+    - artificial
+    - shrimp
+    - outofthisworld
   - type: Item
     size: Tiny
   - type: Edible
@@ -156,24 +150,22 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxblue
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 4
-        - ReagentId: Fresium
-          Quantity: 4 #this does .08 cold damage to you
-        - ReagentId: Coldsauce
-          Quantity: 4
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: Fresium
+        Quantity: 4 #this does .08 cold damage to you
+      - ReagentId: Coldsauce
+        Quantity: 4
   - type: FlavorProfile
     flavors:
-      - artificial
-      - shrimp
-      - cold
+    - artificial
+    - shrimp
+    - cold
   - type: Item
     size: Tiny
   - type: Edible
@@ -207,27 +199,25 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxgirl
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 4
-        - ReagentId: Sugar #sugar
-          Quantity: 2
-        - ReagentId: Hotsauce #spice
-          Quantity: 2
-        - ReagentId: LovePotion #everything nice
-          Quantity: 2
-        - ReagentId: UnstableMutagen #Chemical X
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: Sugar #sugar
+        Quantity: 2
+      - ReagentId: Hotsauce #spice
+        Quantity: 2
+      - ReagentId: LovePotion #everything nice
+        Quantity: 2
+      - ReagentId: UnstableMutagen #Chemical X
+        Quantity: 2
   - type: FlavorProfile
     flavors:
-      - artificial
-      - shrimp
+    - artificial
+    - shrimp
   - type: Item
     size: Tiny
   - type: Edible
@@ -261,21 +251,19 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxsad
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 4
-        - ReagentId: Sadness
-          Quantity: 9
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: Sadness
+        Quantity: 9
   - type: FlavorProfile
     flavors:
-      - artificial
-      - shrimp
+    - artificial
+    - shrimp
   - type: Item
     size: Tiny
   - type: Edible
@@ -309,26 +297,24 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxbee
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 4
-        - ReagentId: Honey
-          Quantity: 4
-        - ReagentId: GroundBee
-          Quantity: 4
-        - ReagentId: BuzzochloricBees
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 4
+      - ReagentId: Honey
+        Quantity: 4
+      - ReagentId: GroundBee
+        Quantity: 4
+      - ReagentId: BuzzochloricBees
+        Quantity: 1
   - type: FlavorProfile
     flavors:
-      - artificial
-      - honey
-      - shrimp
+    - artificial
+    - honey
+    - shrimp
   - type: Item
     size: Tiny
   - type: Edible
@@ -362,29 +348,27 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxbreakfast
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: UncookedAnimalProteins #surprise!
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 2
-        - ReagentId: EggCooked
-          Quantity: 4
-        - ReagentId: TableSalt
-          Quantity: 2
-        - ReagentId: Blackpepper
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 2
+      - ReagentId: UncookedAnimalProteins #surprise!
+        Quantity: 2
+      - ReagentId: Protein
+        Quantity: 2
+      - ReagentId: EggCooked
+        Quantity: 4
+      - ReagentId: TableSalt
+        Quantity: 2
+      - ReagentId: Blackpepper
+        Quantity: 2
   - type: FlavorProfile
     flavors:
-      - artificial
-      - bacon
-      - meaty
-      - shrimp
+    - artificial
+    - bacon
+    - meaty
+    - shrimp
   - type: Item
     size: Tiny
   - type: Edible
@@ -419,19 +403,19 @@
     size: Small
   - type: Tag
     tags:
-      - FoodSnack
+    - FoodSnack
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Snacks/shrimpsnax.rsi
     state: shrimpsnaxregret
   - type: SpawnItemsOnUse
     items:
-      - id: FoodPacketDanShrimpsnaxRegretTrash
-      - id: MobWeirdShrimp
-        prob: 0.99
-        orGroup: Shrimp
-      - id: MobWeirdShrimpKillEveryon
-        prob: 0.1
-        orGroup: Shrimp
+    - id: FoodPacketDanShrimpsnaxRegretTrash
+    - id: MobWeirdShrimp
+      prob: 0.99
+      orGroup: Shrimp
+    - id: MobWeirdShrimpKillEveryon
+      prob: 0.1
+      orGroup: Shrimp
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -455,15 +439,13 @@
   name: inferno ramen
   description: That extra spicy flavor for when hell isn't enough!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: DryRamen
-          Quantity: 10
-        - ReagentId: InfernoSauce
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DryRamen
+        Quantity: 10
+      - ReagentId: InfernoSauce
+        Quantity: 5
 
 # survival box things
 
@@ -484,20 +466,18 @@
     state: hardtack
   - type: FlavorProfile
     flavors:
-      - hardtack
+    - hardtack
   - type: Edible #custom sound for this would be nice
     transferAmount: 5 #3 bites, but they take a long time
     delay: 10
     forceFeedDelay: 20
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment #more nutriment than a ration, but it takes a really long time to eat it
-          Quantity: 7.5
-        - ReagentId: TableSalt
-          Quantity: 7.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment #more nutriment than a ration, but it takes a really long time to eat it
+        Quantity: 7.5
+      - ReagentId: TableSalt
+        Quantity: 7.5
   - type: Tag
     tags:
-      - ReptilianFood
+    - ReptilianFood

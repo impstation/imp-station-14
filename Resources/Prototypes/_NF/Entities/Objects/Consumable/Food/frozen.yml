@@ -11,13 +11,11 @@
   - type: Edible
     trash:
     - FoodFrozenPopsicleTrash
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
   - type: FlavorProfile
     flavors:
     - sweet

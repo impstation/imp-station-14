@@ -29,13 +29,11 @@
   - type: FlavorProfile
     flavors:
     - cheap
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
+  - type: Solution
+    solution:
+      reagents:
         - ReagentId: Fiber
-          Quantity: 3
+          Quantity: 10
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Baked/donkpocket.rsi
     state: cloth
@@ -54,12 +52,10 @@
   - type: FlavorProfile
     flavors:
     - cheap
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
+  - type: Solution
+    solution:
+      reagents:
         - ReagentId: Fiber
-          Quantity: 6
+          Quantity: 12
         - ReagentId: Omnizine
-          Quantity: 2
+          Quantity: 3

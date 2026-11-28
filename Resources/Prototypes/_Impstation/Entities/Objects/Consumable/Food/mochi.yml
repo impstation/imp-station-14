@@ -6,13 +6,20 @@
   components:
   - type: FlavorProfile
     flavors:
-      - rice
+    - rice
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
     state: paste
   - type: SliceableFood
     count: 3
     slice: FoodMochiSlice
+  - type: Solution
+    solutions:
+      reagents:
+      - ReagentId: RiceFlour
+        Quantity: 15
+      - ReagentId: Sugar
+        Quantity: 5
 
 - type: entity
   name: moth-chi paste
@@ -22,14 +29,23 @@
   components:
   - type: FlavorProfile
     flavors:
-      - rice
-      - cotton
+    - rice
+    - cotton
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
     state: mothchi-paste
   - type: SliceableFood
     count: 3
     slice: FoodMoth-chiSlice
+  - type: Solution
+    solutions:
+      reagents:
+      - ReagentId: RiceFlour
+        Quantity: 5
+      - ReagentId: Sugar
+        Quantity: 5
+      - ReagentId: Fiber
+        Quantity: 5
 
 - type: entity
   name: mochi
@@ -39,7 +55,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - rice
+    - rice
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
     state: slice
@@ -48,13 +64,13 @@
     - FoodSnack
     - UnguFood
     - ReptilianFood
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 5
+      reagents:
+      - ReagentId: RiceFlour
+        Quantity: 5
+      - ReagentId: Sugar
+        Quantity: 1.67
 
 - type: entity
   name: moth-chi
@@ -64,8 +80,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - rice
-      - cotton
+    - rice
+    - cotton
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
     state: mothchi-slice
@@ -74,13 +90,15 @@
     - FoodSnack
     - ClothMade
     - ClothFood
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
+      reagents:
+      - ReagentId: RiceFlour
+        Quantity: 1.67
+      - ReagentId: Sugar
+        Quantity: 1.67
+      - ReagentId: Fiber
+        Quantity: 1.67
 
 - type: entity
   name: berry daifuku
@@ -100,15 +118,19 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
     state: daifuku
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
-        - ReagentId: JuiceBerry
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Vitamin
+        Quantity: 5
+      - ReagentId: JuiceBerry
+        Quantity: 5
+      - ReagentId: RiceFlour
+        Quantity: 5
+      - ReagentId: Sugar
+        Quantity: 1.67
 
 - type: entity
   name: mitarashi dango
@@ -131,15 +153,15 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
     state: mdango
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
-        - ReagentId: Soysauce
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1.2
+      - ReagentId: Sugar
+        Quantity: 9.81
+      - ReagentId: RiceFlour
+        Quantity: 15
 
 - type: entity
   name: hanami dango
@@ -150,10 +172,10 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
     state: hdango
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: RiceFlour
+        Quantity: 15
+      - ReagentId: Sugar
+        Quantity: 5.2
