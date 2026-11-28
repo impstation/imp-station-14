@@ -2111,7 +2111,7 @@
   - type: VentCrawler
     enterDelay: 1
   - type: MeleeChemicalInjector #IMP START
-    solution: mousebites
+    solution: mousebites #see entities/solutions/biological.yml
     transferAmount: 1
   - type: SolutionManager
     solutions:
@@ -2147,19 +2147,6 @@
         Quantity: 15
       - ReagentId: MouseBites #imp
         Quantity: 2
-
-# IMP START
-- type: entity
-  parent: [SolutionLarge]
-  id: SolutionVenomMouseBites
-  components:
-  - type: Solution
-    id: mousebites
-    solution:
-      reagents:
-      - ReagentId: MouseBites
-        Quantity: 200 #yum
-# IMP END
 
 - type: entity
   parent: MobMouse

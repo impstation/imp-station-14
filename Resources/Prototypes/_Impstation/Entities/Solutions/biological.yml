@@ -1,0 +1,10 @@
+- type: entity
+  parent: [SolutionLarge]
+  id: SolutionVenomMouseBites
+  components:
+  - type: Solution
+    id: mousebites
+    solution:
+      reagents:
+      - ReagentId: MouseBites
+        Quantity: 200 #yum
