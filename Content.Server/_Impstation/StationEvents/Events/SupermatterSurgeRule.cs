@@ -1,29 +1,24 @@
 using Content.Server._Impstation.StationEvents.Components;
-using Content.Server.Announcements.Systems;
 using Content.Server.Lightning;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.StationEvents.Events;
 
 public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRuleComponent>
 {
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     /// <summary>
-    /// Finding a active supermatter for the event and sending an announcement before the event starts.
+    /// Finding an active supermatter for the event.
     /// </summary>
     protected override void Added(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         var supermatterUids = new List<EntityUid>();
         var query = EntityQueryEnumerator<SupermatterComponent>();
-
         while (query.MoveNext(out var supermatterUid, out var sm))
         {
             // Does not target shards or inactive supermatters
@@ -34,18 +29,25 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         }
 
         if (supermatterUids.Count == 0)
+        {
+            ForceEndSelf(uid, gameRule);
             return;
+        }
 
         base.Added(uid, component, gameRule, args);
 
-        component.SupermatterUid = _random.Pick(supermatterUids);
+        component.SupermatterUid = RobustRandom.Pick(supermatterUids);
+    }
 
-        _announcer.SendAnnouncement(
-            _announcer.GetAnnouncementId(args.RuleId),
-            Filter.Broadcast(),
-            _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId)),
-            colorOverride: Color.Gold
-        );
+    protected override void Started(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    {
+        base.Started(uid, component, gameRule, args);
+
+        if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
+            return;
+
+        sm.Event = SupermatterEvent.Surging;
+        component.NextLightningTime = Timing.CurTime + TimeSpan.FromSeconds(component.LightningCooldown.Next(RobustRandom));
     }
 
     /// <summary>
@@ -53,28 +55,21 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
     /// </summary>
     protected override void ActiveTick(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
+        base.ActiveTick(uid, component, gameRule, frameTime);
+
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 
-        if (sm.Event != SupermatterEvent.Surging)
-        {
-            sm.Event = SupermatterEvent.Surging;
-            component.NextLightningTime = Timing.CurTime + TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
-        }
-
         // Power & heat modifer changes every tick so isn't always used by the supermatter, but creates a good visual on the console
-        sm.Power = component.PowerMinMax.Next(_random);
-        sm.HeatModifier = _random.NextFloat(component.HeatModifierMinMax.Item1, component.HeatModifierMinMax.Item2);
+        sm.Power = component.Power.Next(RobustRandom);
+        sm.HeatModifier = RobustRandom.NextFloat(component.HeatModifier.Min, component.HeatModifier.Max);
 
         if (Timing.CurTime < component.NextLightningTime)
             return;
-        else
-        {
-            // Explosive supermatter lightning strikes
-            _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2]);
 
-            component.NextLightningTime += TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
-        }
+        // Explosive supermatter lightning strikes
+        _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2], arcDepth: 1);
+        component.NextLightningTime = Timing.CurTime + TimeSpan.FromSeconds(component.LightningCooldown.Next(RobustRandom));
     }
 
     /// <summary>
